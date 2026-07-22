@@ -107,6 +107,17 @@ composer test</code></pre>
                             </ul>
                         </div>
                     </div>
+
+                    <div class="schema-col-12 mt-6">
+                        <div class="schema-card">
+                            <h4>Aturan Pembuatan Tabel Responsif</h4>
+                            <ul class="schema-list">
+                                <li><strong>Tanpa Blok CSS Custom:</strong> Dilarang membuat tag <code>&lt;style&gt;</code> atau CSS override custom untuk tabel. Gunakan 100% kelas bawaan Metronic & Bootstrap 5 (seperti <code>table</code>, <code>align-middle</code>, <code>table-row-dashed</code>, <code>fs-6</code>, <code>gy-4</code>, <code>w-100</code>).</li>
+                                <li><strong>Pembungkus Responsif Bawaan:</strong> Wajib membungkus tabel data dengan <code>&lt;div class="table-responsive"&gt;</code>. Ini menjamin tampilan tabel pas di desktop dan otomatis mengaktifkan scroll horizontal di perangkat mobile/gadget.</li>
+                                <li><strong>Menjaga Lebar Kolom dengan Kelas Bawaan:</strong> Gunakan kelas minimum width bawaan Metronic (seperti <code>min-w-200px</code>, <code>min-w-150px</code>, <code>min-w-125px</code>) pada elemen <code>&lt;th&gt;</code> agar kolom (seperti URL/Route, Nama, Permission) tidak gepeng atau menyusut.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
