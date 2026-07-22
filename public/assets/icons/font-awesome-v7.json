@@ -1,0 +1,10034 @@
+[
+  {
+    "p": "fas",
+    "n": "fa-0"
+  },
+  {
+    "p": "fas",
+    "n": "fa-1"
+  },
+  {
+    "p": "fas",
+    "n": "fa-11ty"
+  },
+  {
+    "p": "fas",
+    "n": "fa-2"
+  },
+  {
+    "p": "fas",
+    "n": "fa-3"
+  },
+  {
+    "p": "fas",
+    "n": "fa-4"
+  },
+  {
+    "p": "fas",
+    "n": "fa-42-group"
+  },
+  {
+    "p": "fas",
+    "n": "fa-5"
+  },
+  {
+    "p": "fab",
+    "n": "fa-500px"
+  },
+  {
+    "p": "fas",
+    "n": "fa-6"
+  },
+  {
+    "p": "fas",
+    "n": "fa-7"
+  },
+  {
+    "p": "fas",
+    "n": "fa-7x"
+  },
+  {
+    "p": "fas",
+    "n": "fa-8"
+  },
+  {
+    "p": "fas",
+    "n": "fa-8x"
+  },
+  {
+    "p": "fas",
+    "n": "fa-9"
+  },
+  {
+    "p": "fas",
+    "n": "fa-9x"
+  },
+  {
+    "p": "fas",
+    "n": "fa-a"
+  },
+  {
+    "p": "fab",
+    "n": "fa-accessible-icon"
+  },
+  {
+    "p": "fab",
+    "n": "fa-accusoft"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ad"
+  },
+  {
+    "p": "fas",
+    "n": "fa-add"
+  },
+  {
+    "p": "fas",
+    "n": "fa-address-book"
+  },
+  {
+    "p": "fas",
+    "n": "fa-address-card"
+  },
+  {
+    "p": "fas",
+    "n": "fa-adjust"
+  },
+  {
+    "p": "fab",
+    "n": "fa-adn"
+  },
+  {
+    "p": "fab",
+    "n": "fa-adversal"
+  },
+  {
+    "p": "fab",
+    "n": "fa-affiliatetheme"
+  },
+  {
+    "p": "fas",
+    "n": "fa-air-freshener"
+  },
+  {
+    "p": "fab",
+    "n": "fa-airbnb"
+  },
+  {
+    "p": "fas",
+    "n": "fa-alarm-clock"
+  },
+  {
+    "p": "fab",
+    "n": "fa-algolia"
+  },
+  {
+    "p": "fas",
+    "n": "fa-align-center"
+  },
+  {
+    "p": "fas",
+    "n": "fa-align-justify"
+  },
+  {
+    "p": "fas",
+    "n": "fa-align-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-align-right"
+  },
+  {
+    "p": "fab",
+    "n": "fa-alipay"
+  },
+  {
+    "p": "fas",
+    "n": "fa-allergies"
+  },
+  {
+    "p": "fab",
+    "n": "fa-amazon"
+  },
+  {
+    "p": "fab",
+    "n": "fa-amazon-pay"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ambulance"
+  },
+  {
+    "p": "fas",
+    "n": "fa-american-sign-language-interpreting"
+  },
+  {
+    "p": "fab",
+    "n": "fa-amilia"
+  },
+  {
+    "p": "fas",
+    "n": "fa-anchor"
+  },
+  {
+    "p": "fas",
+    "n": "fa-anchor-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-anchor-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-anchor-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-anchor-lock"
+  },
+  {
+    "p": "fab",
+    "n": "fa-android"
+  },
+  {
+    "p": "fab",
+    "n": "fa-angellist"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angle-double-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angle-double-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angle-double-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angle-double-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angle-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angle-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angle-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angle-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angles-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angles-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angles-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angles-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angry"
+  },
+  {
+    "p": "fas",
+    "n": "fa-angrycreative"
+  },
+  {
+    "p": "fab",
+    "n": "fa-angular"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ankh"
+  },
+  {
+    "p": "fab",
+    "n": "fa-app-store"
+  },
+  {
+    "p": "fab",
+    "n": "fa-app-store-ios"
+  },
+  {
+    "p": "fab",
+    "n": "fa-apper"
+  },
+  {
+    "p": "fab",
+    "n": "fa-apple"
+  },
+  {
+    "p": "fas",
+    "n": "fa-apple-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-apple-pay"
+  },
+  {
+    "p": "fas",
+    "n": "fa-apple-whole"
+  },
+  {
+    "p": "fas",
+    "n": "fa-archive"
+  },
+  {
+    "p": "fas",
+    "n": "fa-archway"
+  },
+  {
+    "p": "fas",
+    "n": "fa-area-chart"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-alt-circle-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-alt-circle-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-alt-circle-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-alt-circle-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-circle-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-circle-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-circle-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-circle-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-down-1-9"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-down-9-1"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-down-a-z"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-down-long"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-down-short-wide"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-down-up-across-line"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-down-up-lock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-down-wide-short"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-down-z-a"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-left-long"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-left-rotate"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-pointer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-right-arrow-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-right-from-bracket"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-right-from-file"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-right-long"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-right-rotate"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-right-to-bracket"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-right-to-city"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-right-to-file"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-rotate-back"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-rotate-backward"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-rotate-forward"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-rotate-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-rotate-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-trend-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-trend-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-turn-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-turn-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-up-1-9"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-up-9-1"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-up-a-z"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-up-from-bracket"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-up-from-ground-water"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-up-from-water-pump"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-up-long"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-up-right-dots"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-up-right-from-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-up-short-wide"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-up-wide-short"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrow-up-z-a"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-alt-h"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-alt-v"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-down-to-line"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-down-to-people"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-h"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-left-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-left-right-to-line"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-rotate"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-spin"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-split-up-and-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-to-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-to-dot"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-to-eye"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-turn-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-turn-to-dots"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-up-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-up-down-left-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-up-to-line"
+  },
+  {
+    "p": "fas",
+    "n": "fa-arrows-v"
+  },
+  {
+    "p": "fab",
+    "n": "fa-artstation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-asl-interpreting"
+  },
+  {
+    "p": "fas",
+    "n": "fa-assistive-listening-systems"
+  },
+  {
+    "p": "fas",
+    "n": "fa-asterisk"
+  },
+  {
+    "p": "fab",
+    "n": "fa-asymmetrik"
+  },
+  {
+    "p": "fas",
+    "n": "fa-at"
+  },
+  {
+    "p": "fas",
+    "n": "fa-atlas"
+  },
+  {
+    "p": "fab",
+    "n": "fa-atlassian"
+  },
+  {
+    "p": "fas",
+    "n": "fa-atom"
+  },
+  {
+    "p": "fab",
+    "n": "fa-audible"
+  },
+  {
+    "p": "fas",
+    "n": "fa-audio-description"
+  },
+  {
+    "p": "fas",
+    "n": "fa-austral-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-automobile"
+  },
+  {
+    "p": "fab",
+    "n": "fa-autoprefixer"
+  },
+  {
+    "p": "fab",
+    "n": "fa-avianex"
+  },
+  {
+    "p": "fab",
+    "n": "fa-aviato"
+  },
+  {
+    "p": "fas",
+    "n": "fa-award"
+  },
+  {
+    "p": "fab",
+    "n": "fa-aws"
+  },
+  {
+    "p": "fas",
+    "n": "fa-b"
+  },
+  {
+    "p": "fas",
+    "n": "fa-baby"
+  },
+  {
+    "p": "fas",
+    "n": "fa-baby-carriage"
+  },
+  {
+    "p": "fas",
+    "n": "fa-backspace"
+  },
+  {
+    "p": "fas",
+    "n": "fa-backward"
+  },
+  {
+    "p": "fas",
+    "n": "fa-backward-fast"
+  },
+  {
+    "p": "fas",
+    "n": "fa-backward-step"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bacon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bacteria"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bacterium"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bag-shopping"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bahai"
+  },
+  {
+    "p": "fas",
+    "n": "fa-baht-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-balance-scale"
+  },
+  {
+    "p": "fas",
+    "n": "fa-balance-scale-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-balance-scale-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ban"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ban-smoking"
+  },
+  {
+    "p": "fas",
+    "n": "fa-band-aid"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bandage"
+  },
+  {
+    "p": "fab",
+    "n": "fa-bandcamp"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bangladeshi-taka-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bank"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bar-chart"
+  },
+  {
+    "p": "fas",
+    "n": "fa-barcode"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bars"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bars-progress"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bars-staggered"
+  },
+  {
+    "p": "fas",
+    "n": "fa-baseball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-baseball-ball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-baseball-bat-ball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-basket-shopping"
+  },
+  {
+    "p": "fas",
+    "n": "fa-basketball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-basketball-ball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bath"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bathtub"
+  },
+  {
+    "p": "fas",
+    "n": "fa-battery"
+  },
+  {
+    "p": "fas",
+    "n": "fa-battery-0"
+  },
+  {
+    "p": "fas",
+    "n": "fa-battery-2"
+  },
+  {
+    "p": "fas",
+    "n": "fa-battery-3"
+  },
+  {
+    "p": "fas",
+    "n": "fa-battery-4"
+  },
+  {
+    "p": "fas",
+    "n": "fa-battery-5"
+  },
+  {
+    "p": "fas",
+    "n": "fa-battery-car"
+  },
+  {
+    "p": "fas",
+    "n": "fa-battery-empty"
+  },
+  {
+    "p": "fas",
+    "n": "fa-battery-full"
+  },
+  {
+    "p": "fas",
+    "n": "fa-battery-half"
+  },
+  {
+    "p": "fas",
+    "n": "fa-battery-quarter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-battery-three-quarters"
+  },
+  {
+    "p": "fab",
+    "n": "fa-battle-net"
+  },
+  {
+    "p": "fas",
+    "n": "fa-beat"
+  },
+  {
+    "p": "fas",
+    "n": "fa-beat-fade"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bed"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bed-pulse"
+  },
+  {
+    "p": "fas",
+    "n": "fa-beer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-beer-mug-empty"
+  },
+  {
+    "p": "fab",
+    "n": "fa-behance"
+  },
+  {
+    "p": "fab",
+    "n": "fa-behance-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bell"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bell-concierge"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bell-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bezier-curve"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bible"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bicycle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-biking"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bilibili"
+  },
+  {
+    "p": "fab",
+    "n": "fa-bimobject"
+  },
+  {
+    "p": "fas",
+    "n": "fa-binoculars"
+  },
+  {
+    "p": "fas",
+    "n": "fa-biohazard"
+  },
+  {
+    "p": "fas",
+    "n": "fa-birthday-cake"
+  },
+  {
+    "p": "fab",
+    "n": "fa-bitbucket"
+  },
+  {
+    "p": "fab",
+    "n": "fa-bitcoin"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bitcoin-sign"
+  },
+  {
+    "p": "fab",
+    "n": "fa-bity"
+  },
+  {
+    "p": "fab",
+    "n": "fa-black-tie"
+  },
+  {
+    "p": "fab",
+    "n": "fa-blackberry"
+  },
+  {
+    "p": "fas",
+    "n": "fa-blackboard"
+  },
+  {
+    "p": "fas",
+    "n": "fa-blender"
+  },
+  {
+    "p": "fas",
+    "n": "fa-blender-phone"
+  },
+  {
+    "p": "fas",
+    "n": "fa-blind"
+  },
+  {
+    "p": "fas",
+    "n": "fa-blog"
+  },
+  {
+    "p": "fab",
+    "n": "fa-blogger"
+  },
+  {
+    "p": "fab",
+    "n": "fa-blogger-b"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bluesky"
+  },
+  {
+    "p": "fab",
+    "n": "fa-bluetooth"
+  },
+  {
+    "p": "fab",
+    "n": "fa-bluetooth-b"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bold"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bolt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bolt-lightning"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bomb"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bone"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bong"
+  },
+  {
+    "p": "fas",
+    "n": "fa-book"
+  },
+  {
+    "p": "fas",
+    "n": "fa-book-atlas"
+  },
+  {
+    "p": "fas",
+    "n": "fa-book-bible"
+  },
+  {
+    "p": "fas",
+    "n": "fa-book-bookmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-book-dead"
+  },
+  {
+    "p": "fas",
+    "n": "fa-book-journal-whills"
+  },
+  {
+    "p": "fas",
+    "n": "fa-book-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-book-open"
+  },
+  {
+    "p": "fas",
+    "n": "fa-book-open-reader"
+  },
+  {
+    "p": "fas",
+    "n": "fa-book-quran"
+  },
+  {
+    "p": "fas",
+    "n": "fa-book-reader"
+  },
+  {
+    "p": "fas",
+    "n": "fa-book-skull"
+  },
+  {
+    "p": "fas",
+    "n": "fa-book-tanakh"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bookmark"
+  },
+  {
+    "p": "fab",
+    "n": "fa-bootstrap"
+  },
+  {
+    "p": "fas",
+    "n": "fa-border"
+  },
+  {
+    "p": "fas",
+    "n": "fa-border-all"
+  },
+  {
+    "p": "fas",
+    "n": "fa-border-none"
+  },
+  {
+    "p": "fas",
+    "n": "fa-border-style"
+  },
+  {
+    "p": "fas",
+    "n": "fa-border-top-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bore-hole"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bots"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bottle-droplet"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bottle-water"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bounce"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bowl-food"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bowl-rice"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bowling-ball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-box"
+  },
+  {
+    "p": "fas",
+    "n": "fa-box-archive"
+  },
+  {
+    "p": "fas",
+    "n": "fa-box-open"
+  },
+  {
+    "p": "fas",
+    "n": "fa-box-tissue"
+  },
+  {
+    "p": "fas",
+    "n": "fa-boxes"
+  },
+  {
+    "p": "fas",
+    "n": "fa-boxes-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-boxes-packing"
+  },
+  {
+    "p": "fas",
+    "n": "fa-boxes-stacked"
+  },
+  {
+    "p": "fas",
+    "n": "fa-braille"
+  },
+  {
+    "p": "fas",
+    "n": "fa-brain"
+  },
+  {
+    "p": "fas",
+    "n": "fa-brave"
+  },
+  {
+    "p": "fas",
+    "n": "fa-brave-reverse"
+  },
+  {
+    "p": "fas",
+    "n": "fa-brazilian-real-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bread-slice"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bridge"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bridge-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bridge-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bridge-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bridge-lock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bridge-water"
+  },
+  {
+    "p": "fas",
+    "n": "fa-briefcase"
+  },
+  {
+    "p": "fas",
+    "n": "fa-briefcase-clock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-briefcase-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-broadcast-tower"
+  },
+  {
+    "p": "fas",
+    "n": "fa-broom"
+  },
+  {
+    "p": "fas",
+    "n": "fa-broom-ball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-brush"
+  },
+  {
+    "p": "fab",
+    "n": "fa-btc"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bucket"
+  },
+  {
+    "p": "fab",
+    "n": "fa-buffer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bug"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bug-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bugs"
+  },
+  {
+    "p": "fas",
+    "n": "fa-building"
+  },
+  {
+    "p": "fas",
+    "n": "fa-building-circle-arrow-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-building-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-building-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-building-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-building-columns"
+  },
+  {
+    "p": "fas",
+    "n": "fa-building-flag"
+  },
+  {
+    "p": "fas",
+    "n": "fa-building-lock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-building-ngo"
+  },
+  {
+    "p": "fas",
+    "n": "fa-building-shield"
+  },
+  {
+    "p": "fas",
+    "n": "fa-building-un"
+  },
+  {
+    "p": "fas",
+    "n": "fa-building-user"
+  },
+  {
+    "p": "fas",
+    "n": "fa-building-wheat"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bullhorn"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bullseye"
+  },
+  {
+    "p": "fas",
+    "n": "fa-burger"
+  },
+  {
+    "p": "fas",
+    "n": "fa-burn"
+  },
+  {
+    "p": "fab",
+    "n": "fa-buromobelexperte"
+  },
+  {
+    "p": "fas",
+    "n": "fa-burst"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bus-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bus-side"
+  },
+  {
+    "p": "fas",
+    "n": "fa-bus-simple"
+  },
+  {
+    "p": "fas",
+    "n": "fa-business-time"
+  },
+  {
+    "p": "fas",
+    "n": "fa-buy-n-large"
+  },
+  {
+    "p": "fab",
+    "n": "fa-buysellads"
+  },
+  {
+    "p": "fas",
+    "n": "fa-c"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cab"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cable-car"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cake"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cake-candles"
+  },
+  {
+    "p": "fas",
+    "n": "fa-calculator"
+  },
+  {
+    "p": "fas",
+    "n": "fa-calendar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-calendar-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-calendar-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-calendar-day"
+  },
+  {
+    "p": "fas",
+    "n": "fa-calendar-days"
+  },
+  {
+    "p": "fas",
+    "n": "fa-calendar-minus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-calendar-plus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-calendar-times"
+  },
+  {
+    "p": "fas",
+    "n": "fa-calendar-week"
+  },
+  {
+    "p": "fas",
+    "n": "fa-calendar-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-camera"
+  },
+  {
+    "p": "fas",
+    "n": "fa-camera-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-camera-retro"
+  },
+  {
+    "p": "fas",
+    "n": "fa-camera-rotate"
+  },
+  {
+    "p": "fas",
+    "n": "fa-campground"
+  },
+  {
+    "p": "fab",
+    "n": "fa-canadian-maple-leaf"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cancel"
+  },
+  {
+    "p": "fas",
+    "n": "fa-candy-cane"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cannabis"
+  },
+  {
+    "p": "fas",
+    "n": "fa-capsules"
+  },
+  {
+    "p": "fas",
+    "n": "fa-car"
+  },
+  {
+    "p": "fas",
+    "n": "fa-car-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-car-battery"
+  },
+  {
+    "p": "fas",
+    "n": "fa-car-burst"
+  },
+  {
+    "p": "fas",
+    "n": "fa-car-crash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-car-on"
+  },
+  {
+    "p": "fas",
+    "n": "fa-car-rear"
+  },
+  {
+    "p": "fas",
+    "n": "fa-car-side"
+  },
+  {
+    "p": "fas",
+    "n": "fa-car-tunnel"
+  },
+  {
+    "p": "fas",
+    "n": "fa-caravan"
+  },
+  {
+    "p": "fas",
+    "n": "fa-caret-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-caret-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-caret-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-caret-square-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-caret-square-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-caret-square-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-caret-square-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-caret-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-carriage-baby"
+  },
+  {
+    "p": "fas",
+    "n": "fa-carrot"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cart-arrow-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cart-flatbed"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cart-flatbed-suitcase"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cart-plus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cart-shopping"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cash-app"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cash-register"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cat"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cc-amazon-pay"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cc-amex"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cc-apple-pay"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cc-diners-club"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cc-discover"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cc-jcb"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cc-mastercard"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cc-paypal"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cc-stripe"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cc-visa"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cedi-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cent-sign"
+  },
+  {
+    "p": "fab",
+    "n": "fa-centercode"
+  },
+  {
+    "p": "fab",
+    "n": "fa-centos"
+  },
+  {
+    "p": "fas",
+    "n": "fa-certificate"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chain"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chain-broken"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chain-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chair"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chalkboard"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chalkboard-teacher"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chalkboard-user"
+  },
+  {
+    "p": "fas",
+    "n": "fa-champagne-glasses"
+  },
+  {
+    "p": "fas",
+    "n": "fa-charging-station"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chart-area"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chart-bar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chart-column"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chart-diagram"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chart-gantt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chart-line"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chart-pie"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chart-simple"
+  },
+  {
+    "p": "fas",
+    "n": "fa-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-check-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-check-double"
+  },
+  {
+    "p": "fas",
+    "n": "fa-check-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-check-to-slot"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cheese"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chess"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chess-bishop"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chess-board"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chess-king"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chess-knight"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chess-pawn"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chess-queen"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chess-rook"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chevron-circle-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chevron-circle-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chevron-circle-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chevron-circle-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chevron-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chevron-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chevron-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-chevron-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-child"
+  },
+  {
+    "p": "fas",
+    "n": "fa-child-combatant"
+  },
+  {
+    "p": "fas",
+    "n": "fa-child-dress"
+  },
+  {
+    "p": "fas",
+    "n": "fa-child-reaching"
+  },
+  {
+    "p": "fas",
+    "n": "fa-child-rifle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-children"
+  },
+  {
+    "p": "fab",
+    "n": "fa-chrome"
+  },
+  {
+    "p": "fab",
+    "n": "fa-chromecast"
+  },
+  {
+    "p": "fas",
+    "n": "fa-church"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-arrow-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-arrow-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-arrow-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-arrow-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-chevron-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-chevron-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-chevron-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-chevron-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-dollar-to-slot"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-dot"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-h"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-half-stroke"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-info"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-minus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-nodes"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-notch"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-pause"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-play"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-plus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-question"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-radiation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-stop"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-user"
+  },
+  {
+    "p": "fas",
+    "n": "fa-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-city"
+  },
+  {
+    "p": "fas",
+    "n": "fa-clapperboard"
+  },
+  {
+    "p": "fas",
+    "n": "fa-classic"
+  },
+  {
+    "p": "fas",
+    "n": "fa-clinic-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-clipboard"
+  },
+  {
+    "p": "fas",
+    "n": "fa-clipboard-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-clipboard-list"
+  },
+  {
+    "p": "fas",
+    "n": "fa-clipboard-question"
+  },
+  {
+    "p": "fas",
+    "n": "fa-clipboard-user"
+  },
+  {
+    "p": "fas",
+    "n": "fa-clock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-clock-four"
+  },
+  {
+    "p": "fas",
+    "n": "fa-clock-rotate-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-clone"
+  },
+  {
+    "p": "fas",
+    "n": "fa-close"
+  },
+  {
+    "p": "fas",
+    "n": "fa-closed-captioning"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-arrow-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-arrow-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-bolt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-download"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-download-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-meatball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-moon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-moon-rain"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-rain"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-showers-heavy"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-showers-water"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-sun"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-sun-rain"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-upload"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cloud-upload-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cloudflare"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cloudscale"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cloudsmith"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cloudversify"
+  },
+  {
+    "p": "fas",
+    "n": "fa-clover"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cmplid"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cny"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cocktail"
+  },
+  {
+    "p": "fas",
+    "n": "fa-code"
+  },
+  {
+    "p": "fas",
+    "n": "fa-code-branch"
+  },
+  {
+    "p": "fas",
+    "n": "fa-code-commit"
+  },
+  {
+    "p": "fas",
+    "n": "fa-code-compare"
+  },
+  {
+    "p": "fas",
+    "n": "fa-code-fork"
+  },
+  {
+    "p": "fas",
+    "n": "fa-code-merge"
+  },
+  {
+    "p": "fas",
+    "n": "fa-code-pull-request"
+  },
+  {
+    "p": "fab",
+    "n": "fa-codepen"
+  },
+  {
+    "p": "fab",
+    "n": "fa-codiepie"
+  },
+  {
+    "p": "fas",
+    "n": "fa-coffee"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cog"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cogs"
+  },
+  {
+    "p": "fas",
+    "n": "fa-coins"
+  },
+  {
+    "p": "fas",
+    "n": "fa-colon-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-columns"
+  },
+  {
+    "p": "fas",
+    "n": "fa-comment"
+  },
+  {
+    "p": "fas",
+    "n": "fa-comment-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-comment-dollar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-comment-dots"
+  },
+  {
+    "p": "fas",
+    "n": "fa-comment-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-comment-nodes"
+  },
+  {
+    "p": "fas",
+    "n": "fa-comment-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-comment-sms"
+  },
+  {
+    "p": "fas",
+    "n": "fa-commenting"
+  },
+  {
+    "p": "fas",
+    "n": "fa-comments"
+  },
+  {
+    "p": "fas",
+    "n": "fa-comments-dollar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-compact-disc"
+  },
+  {
+    "p": "fas",
+    "n": "fa-compass"
+  },
+  {
+    "p": "fas",
+    "n": "fa-compass-drafting"
+  },
+  {
+    "p": "fas",
+    "n": "fa-compress"
+  },
+  {
+    "p": "fas",
+    "n": "fa-compress-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-compress-arrows-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-computer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-computer-mouse"
+  },
+  {
+    "p": "fas",
+    "n": "fa-concierge-bell"
+  },
+  {
+    "p": "fab",
+    "n": "fa-confluence"
+  },
+  {
+    "p": "fab",
+    "n": "fa-connectdevelop"
+  },
+  {
+    "p": "fas",
+    "n": "fa-contact-book"
+  },
+  {
+    "p": "fas",
+    "n": "fa-contact-card"
+  },
+  {
+    "p": "fab",
+    "n": "fa-contao"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cookie"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cookie-bite"
+  },
+  {
+    "p": "fas",
+    "n": "fa-copy"
+  },
+  {
+    "p": "fas",
+    "n": "fa-copyright"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cotton-bureau"
+  },
+  {
+    "p": "fas",
+    "n": "fa-couch"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cow"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cpanel"
+  },
+  {
+    "p": "fab",
+    "n": "fa-creative-commons"
+  },
+  {
+    "p": "fab",
+    "n": "fa-creative-commons-by"
+  },
+  {
+    "p": "fab",
+    "n": "fa-creative-commons-nc"
+  },
+  {
+    "p": "fab",
+    "n": "fa-creative-commons-nc-eu"
+  },
+  {
+    "p": "fab",
+    "n": "fa-creative-commons-nc-jp"
+  },
+  {
+    "p": "fas",
+    "n": "fa-creative-commons-nd"
+  },
+  {
+    "p": "fab",
+    "n": "fa-creative-commons-pd"
+  },
+  {
+    "p": "fab",
+    "n": "fa-creative-commons-pd-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-creative-commons-remix"
+  },
+  {
+    "p": "fab",
+    "n": "fa-creative-commons-sa"
+  },
+  {
+    "p": "fab",
+    "n": "fa-creative-commons-sampling"
+  },
+  {
+    "p": "fab",
+    "n": "fa-creative-commons-sampling-plus"
+  },
+  {
+    "p": "fab",
+    "n": "fa-creative-commons-share"
+  },
+  {
+    "p": "fab",
+    "n": "fa-creative-commons-zero"
+  },
+  {
+    "p": "fas",
+    "n": "fa-credit-card"
+  },
+  {
+    "p": "fas",
+    "n": "fa-credit-card-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-critical-role"
+  },
+  {
+    "p": "fas",
+    "n": "fa-crop"
+  },
+  {
+    "p": "fas",
+    "n": "fa-crop-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-crop-simple"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cross"
+  },
+  {
+    "p": "fas",
+    "n": "fa-crosshairs"
+  },
+  {
+    "p": "fas",
+    "n": "fa-crow"
+  },
+  {
+    "p": "fas",
+    "n": "fa-crown"
+  },
+  {
+    "p": "fas",
+    "n": "fa-crutch"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cruzeiro-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-css"
+  },
+  {
+    "p": "fab",
+    "n": "fa-css3"
+  },
+  {
+    "p": "fab",
+    "n": "fa-css3-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cube"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cubes"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cubes-stacked"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cut"
+  },
+  {
+    "p": "fas",
+    "n": "fa-cutlery"
+  },
+  {
+    "p": "fab",
+    "n": "fa-cuttlefish"
+  },
+  {
+    "p": "fas",
+    "n": "fa-d"
+  },
+  {
+    "p": "fab",
+    "n": "fa-d-and-d"
+  },
+  {
+    "p": "fab",
+    "n": "fa-d-and-d-beyond"
+  },
+  {
+    "p": "fab",
+    "n": "fa-dailymotion"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dart-lang"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dashboard"
+  },
+  {
+    "p": "fab",
+    "n": "fa-dashcube"
+  },
+  {
+    "p": "fas",
+    "n": "fa-database"
+  },
+  {
+    "p": "fas",
+    "n": "fa-deaf"
+  },
+  {
+    "p": "fas",
+    "n": "fa-deafness"
+  },
+  {
+    "p": "fas",
+    "n": "fa-debian"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dedent"
+  },
+  {
+    "p": "fab",
+    "n": "fa-deezer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-delete-left"
+  },
+  {
+    "p": "fab",
+    "n": "fa-delicious"
+  },
+  {
+    "p": "fas",
+    "n": "fa-democrat"
+  },
+  {
+    "p": "fab",
+    "n": "fa-deploydog"
+  },
+  {
+    "p": "fab",
+    "n": "fa-deskpro"
+  },
+  {
+    "p": "fas",
+    "n": "fa-desktop"
+  },
+  {
+    "p": "fas",
+    "n": "fa-desktop-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-dev"
+  },
+  {
+    "p": "fab",
+    "n": "fa-deviantart"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dharmachakra"
+  },
+  {
+    "p": "fab",
+    "n": "fa-dhl"
+  },
+  {
+    "p": "fas",
+    "n": "fa-diagnoses"
+  },
+  {
+    "p": "fas",
+    "n": "fa-diagram-next"
+  },
+  {
+    "p": "fas",
+    "n": "fa-diagram-predecessor"
+  },
+  {
+    "p": "fas",
+    "n": "fa-diagram-project"
+  },
+  {
+    "p": "fas",
+    "n": "fa-diagram-successor"
+  },
+  {
+    "p": "fas",
+    "n": "fa-diamond"
+  },
+  {
+    "p": "fas",
+    "n": "fa-diamond-turn-right"
+  },
+  {
+    "p": "fab",
+    "n": "fa-diaspora"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dice"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dice-d20"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dice-d6"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dice-five"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dice-four"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dice-one"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dice-six"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dice-three"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dice-two"
+  },
+  {
+    "p": "fab",
+    "n": "fa-digg"
+  },
+  {
+    "p": "fas",
+    "n": "fa-digging"
+  },
+  {
+    "p": "fab",
+    "n": "fa-digital-ocean"
+  },
+  {
+    "p": "fas",
+    "n": "fa-digital-tachograph"
+  },
+  {
+    "p": "fas",
+    "n": "fa-directions"
+  },
+  {
+    "p": "fab",
+    "n": "fa-discord"
+  },
+  {
+    "p": "fab",
+    "n": "fa-discourse"
+  },
+  {
+    "p": "fas",
+    "n": "fa-disease"
+  },
+  {
+    "p": "fas",
+    "n": "fa-display"
+  },
+  {
+    "p": "fas",
+    "n": "fa-disqus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-divide"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dizzy"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dna"
+  },
+  {
+    "p": "fab",
+    "n": "fa-dochub"
+  },
+  {
+    "p": "fab",
+    "n": "fa-docker"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dog"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dollar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dollar-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dolly"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dolly-box"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dolly-flatbed"
+  },
+  {
+    "p": "fas",
+    "n": "fa-donate"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dong-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-door-closed"
+  },
+  {
+    "p": "fas",
+    "n": "fa-door-open"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dot-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dove"
+  },
+  {
+    "p": "fas",
+    "n": "fa-down-left-and-up-right-to-center"
+  },
+  {
+    "p": "fas",
+    "n": "fa-down-long"
+  },
+  {
+    "p": "fas",
+    "n": "fa-download"
+  },
+  {
+    "p": "fab",
+    "n": "fa-draft2digital"
+  },
+  {
+    "p": "fas",
+    "n": "fa-drafting-compass"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dragon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-draw-polygon"
+  },
+  {
+    "p": "fab",
+    "n": "fa-dribbble"
+  },
+  {
+    "p": "fab",
+    "n": "fa-dribbble-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-drivers-license"
+  },
+  {
+    "p": "fab",
+    "n": "fa-dropbox"
+  },
+  {
+    "p": "fas",
+    "n": "fa-droplet"
+  },
+  {
+    "p": "fas",
+    "n": "fa-droplet-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-drum"
+  },
+  {
+    "p": "fas",
+    "n": "fa-drum-steelpan"
+  },
+  {
+    "p": "fas",
+    "n": "fa-drumstick-bite"
+  },
+  {
+    "p": "fab",
+    "n": "fa-drupal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dumbbell"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dumpster"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dumpster-fire"
+  },
+  {
+    "p": "fas",
+    "n": "fa-dungeon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-duolingo"
+  },
+  {
+    "p": "fab",
+    "n": "fa-dyalog"
+  },
+  {
+    "p": "fas",
+    "n": "fa-e"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ear-deaf"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ear-listen"
+  },
+  {
+    "p": "fab",
+    "n": "fa-earlybirds"
+  },
+  {
+    "p": "fas",
+    "n": "fa-earth"
+  },
+  {
+    "p": "fas",
+    "n": "fa-earth-africa"
+  },
+  {
+    "p": "fas",
+    "n": "fa-earth-america"
+  },
+  {
+    "p": "fas",
+    "n": "fa-earth-americas"
+  },
+  {
+    "p": "fas",
+    "n": "fa-earth-asia"
+  },
+  {
+    "p": "fas",
+    "n": "fa-earth-europe"
+  },
+  {
+    "p": "fas",
+    "n": "fa-earth-oceania"
+  },
+  {
+    "p": "fab",
+    "n": "fa-ebay"
+  },
+  {
+    "p": "fab",
+    "n": "fa-edge"
+  },
+  {
+    "p": "fab",
+    "n": "fa-edge-legacy"
+  },
+  {
+    "p": "fas",
+    "n": "fa-edit"
+  },
+  {
+    "p": "fas",
+    "n": "fa-egg"
+  },
+  {
+    "p": "fas",
+    "n": "fa-eject"
+  },
+  {
+    "p": "fab",
+    "n": "fa-elementor"
+  },
+  {
+    "p": "fas",
+    "n": "fa-elevator"
+  },
+  {
+    "p": "fas",
+    "n": "fa-eleventy"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ellipsis"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ellipsis-h"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ellipsis-v"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ellipsis-vertical"
+  },
+  {
+    "p": "fab",
+    "n": "fa-ello"
+  },
+  {
+    "p": "fab",
+    "n": "fa-ember"
+  },
+  {
+    "p": "fab",
+    "n": "fa-empire"
+  },
+  {
+    "p": "fas",
+    "n": "fa-envelope"
+  },
+  {
+    "p": "fas",
+    "n": "fa-envelope-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-envelope-open"
+  },
+  {
+    "p": "fas",
+    "n": "fa-envelope-open-text"
+  },
+  {
+    "p": "fas",
+    "n": "fa-envelope-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-envelopes-bulk"
+  },
+  {
+    "p": "fab",
+    "n": "fa-envira"
+  },
+  {
+    "p": "fas",
+    "n": "fa-equals"
+  },
+  {
+    "p": "fas",
+    "n": "fa-eraser"
+  },
+  {
+    "p": "fab",
+    "n": "fa-erlang"
+  },
+  {
+    "p": "fab",
+    "n": "fa-ethereum"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ethernet"
+  },
+  {
+    "p": "fab",
+    "n": "fa-etsy"
+  },
+  {
+    "p": "fas",
+    "n": "fa-eur"
+  },
+  {
+    "p": "fas",
+    "n": "fa-euro"
+  },
+  {
+    "p": "fas",
+    "n": "fa-euro-sign"
+  },
+  {
+    "p": "fab",
+    "n": "fa-evernote"
+  },
+  {
+    "p": "fas",
+    "n": "fa-exchange"
+  },
+  {
+    "p": "fas",
+    "n": "fa-exchange-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-exclamation-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-exclamation-triangle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-expand"
+  },
+  {
+    "p": "fas",
+    "n": "fa-expand-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-expand-arrows-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-expeditedssl"
+  },
+  {
+    "p": "fas",
+    "n": "fa-explosion"
+  },
+  {
+    "p": "fas",
+    "n": "fa-external-link"
+  },
+  {
+    "p": "fas",
+    "n": "fa-external-link-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-external-link-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-external-link-square-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-eye"
+  },
+  {
+    "p": "fas",
+    "n": "fa-eye-dropper"
+  },
+  {
+    "p": "fas",
+    "n": "fa-eye-dropper-empty"
+  },
+  {
+    "p": "fas",
+    "n": "fa-eye-low-vision"
+  },
+  {
+    "p": "fas",
+    "n": "fa-eye-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-eyedropper"
+  },
+  {
+    "p": "fas",
+    "n": "fa-f"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-angry"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-dizzy"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-flushed"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-frown"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-frown-open"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grimace"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grin"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grin-beam"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grin-beam-sweat"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grin-hearts"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grin-squint"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grin-squint-tears"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grin-stars"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grin-tears"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grin-tongue"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grin-tongue-squint"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grin-tongue-wink"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grin-wide"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-grin-wink"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-kiss"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-kiss-beam"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-kiss-wink-heart"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-laugh"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-laugh-beam"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-laugh-squint"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-laugh-wink"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-meh"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-meh-blank"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-rolling-eyes"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-sad-cry"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-sad-tear"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-smile"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-smile-beam"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-smile-wink"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-surprise"
+  },
+  {
+    "p": "fas",
+    "n": "fa-face-tired"
+  },
+  {
+    "p": "fab",
+    "n": "fa-facebook"
+  },
+  {
+    "p": "fab",
+    "n": "fa-facebook-f"
+  },
+  {
+    "p": "fab",
+    "n": "fa-facebook-messenger"
+  },
+  {
+    "p": "fab",
+    "n": "fa-facebook-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fade"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fan"
+  },
+  {
+    "p": "fab",
+    "n": "fa-fantasy-flight-games"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fast-backward"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fast-forward"
+  },
+  {
+    "p": "fas",
+    "n": "fa-faucet"
+  },
+  {
+    "p": "fas",
+    "n": "fa-faucet-drip"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fax"
+  },
+  {
+    "p": "fas",
+    "n": "fa-feather"
+  },
+  {
+    "p": "fas",
+    "n": "fa-feather-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-feather-pointed"
+  },
+  {
+    "p": "fab",
+    "n": "fa-fedex"
+  },
+  {
+    "p": "fab",
+    "n": "fa-fedora"
+  },
+  {
+    "p": "fas",
+    "n": "fa-feed"
+  },
+  {
+    "p": "fas",
+    "n": "fa-female"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ferry"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fighter-jet"
+  },
+  {
+    "p": "fab",
+    "n": "fa-figma"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-archive"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-arrow-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-arrow-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-audio"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-circle-minus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-circle-plus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-circle-question"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-clipboard"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-code"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-contract"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-csv"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-download"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-edit"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-excel"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-export"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-fragment"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-half-dashed"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-image"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-import"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-invoice"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-invoice-dollar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-lines"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-medical-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-pdf"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-pen"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-powerpoint"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-prescription"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-shield"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-signature"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-text"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-upload"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-video"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-waveform"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-word"
+  },
+  {
+    "p": "fas",
+    "n": "fa-file-zipper"
+  },
+  {
+    "p": "fas",
+    "n": "fa-files-pinwheel"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fill"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fill-drip"
+  },
+  {
+    "p": "fas",
+    "n": "fa-film"
+  },
+  {
+    "p": "fas",
+    "n": "fa-film-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-film-simple"
+  },
+  {
+    "p": "fas",
+    "n": "fa-filter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-filter-circle-dollar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-filter-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fingerprint"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fire"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fire-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fire-burner"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fire-extinguisher"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fire-flame-curved"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fire-flame-simple"
+  },
+  {
+    "p": "fab",
+    "n": "fa-firefox"
+  },
+  {
+    "p": "fab",
+    "n": "fa-firefox-browser"
+  },
+  {
+    "p": "fas",
+    "n": "fa-first-aid"
+  },
+  {
+    "p": "fab",
+    "n": "fa-first-order"
+  },
+  {
+    "p": "fab",
+    "n": "fa-first-order-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-firstdraft"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fish"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fish-fins"
+  },
+  {
+    "p": "fas",
+    "n": "fa-fist-raised"
+  },
+  {
+    "p": "fas",
+    "n": "fa-flag"
+  },
+  {
+    "p": "fas",
+    "n": "fa-flag-checkered"
+  },
+  {
+    "p": "fas",
+    "n": "fa-flag-usa"
+  },
+  {
+    "p": "fas",
+    "n": "fa-flask"
+  },
+  {
+    "p": "fas",
+    "n": "fa-flask-vial"
+  },
+  {
+    "p": "fab",
+    "n": "fa-flickr"
+  },
+  {
+    "p": "fas",
+    "n": "fa-flip"
+  },
+  {
+    "p": "fab",
+    "n": "fa-flipboard"
+  },
+  {
+    "p": "fas",
+    "n": "fa-floppy-disk"
+  },
+  {
+    "p": "fas",
+    "n": "fa-florin-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-flushed"
+  },
+  {
+    "p": "fas",
+    "n": "fa-flutter"
+  },
+  {
+    "p": "fab",
+    "n": "fa-fly"
+  },
+  {
+    "p": "fas",
+    "n": "fa-folder"
+  },
+  {
+    "p": "fas",
+    "n": "fa-folder-blank"
+  },
+  {
+    "p": "fas",
+    "n": "fa-folder-closed"
+  },
+  {
+    "p": "fas",
+    "n": "fa-folder-minus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-folder-open"
+  },
+  {
+    "p": "fas",
+    "n": "fa-folder-plus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-folder-tree"
+  },
+  {
+    "p": "fas",
+    "n": "fa-font"
+  },
+  {
+    "p": "fab",
+    "n": "fa-font-awesome"
+  },
+  {
+    "p": "fab",
+    "n": "fa-font-awesome-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-font-awesome-flag"
+  },
+  {
+    "p": "fab",
+    "n": "fa-font-awesome-logo-full"
+  },
+  {
+    "p": "fab",
+    "n": "fa-fonticons"
+  },
+  {
+    "p": "fab",
+    "n": "fa-fonticons-fi"
+  },
+  {
+    "p": "fas",
+    "n": "fa-football"
+  },
+  {
+    "p": "fas",
+    "n": "fa-football-ball"
+  },
+  {
+    "p": "fab",
+    "n": "fa-fort-awesome"
+  },
+  {
+    "p": "fab",
+    "n": "fa-fort-awesome-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-forumbee"
+  },
+  {
+    "p": "fas",
+    "n": "fa-forward"
+  },
+  {
+    "p": "fas",
+    "n": "fa-forward-fast"
+  },
+  {
+    "p": "fas",
+    "n": "fa-forward-step"
+  },
+  {
+    "p": "fab",
+    "n": "fa-foursquare"
+  },
+  {
+    "p": "fas",
+    "n": "fa-franc-sign"
+  },
+  {
+    "p": "fab",
+    "n": "fa-free-code-camp"
+  },
+  {
+    "p": "fab",
+    "n": "fa-freebsd"
+  },
+  {
+    "p": "fas",
+    "n": "fa-frog"
+  },
+  {
+    "p": "fas",
+    "n": "fa-frown"
+  },
+  {
+    "p": "fas",
+    "n": "fa-frown-open"
+  },
+  {
+    "p": "fab",
+    "n": "fa-fulcrum"
+  },
+  {
+    "p": "fas",
+    "n": "fa-funnel-dollar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-futbol"
+  },
+  {
+    "p": "fas",
+    "n": "fa-futbol-ball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-g"
+  },
+  {
+    "p": "fab",
+    "n": "fa-galactic-republic"
+  },
+  {
+    "p": "fab",
+    "n": "fa-galactic-senate"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gamepad"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gas-pump"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gauge"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gauge-high"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gauge-med"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gauge-simple"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gauge-simple-high"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gauge-simple-med"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gavel"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gbp"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gear"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gears"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gem"
+  },
+  {
+    "p": "fas",
+    "n": "fa-genderless"
+  },
+  {
+    "p": "fab",
+    "n": "fa-get-pocket"
+  },
+  {
+    "p": "fab",
+    "n": "fa-gg"
+  },
+  {
+    "p": "fab",
+    "n": "fa-gg-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ghost"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gift"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gifts"
+  },
+  {
+    "p": "fab",
+    "n": "fa-git"
+  },
+  {
+    "p": "fab",
+    "n": "fa-git-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-git-square"
+  },
+  {
+    "p": "fab",
+    "n": "fa-github"
+  },
+  {
+    "p": "fab",
+    "n": "fa-github-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-github-square"
+  },
+  {
+    "p": "fab",
+    "n": "fa-gitkraken"
+  },
+  {
+    "p": "fab",
+    "n": "fa-gitlab"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gitlab-square"
+  },
+  {
+    "p": "fab",
+    "n": "fa-gitter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-glass-cheers"
+  },
+  {
+    "p": "fas",
+    "n": "fa-glass-martini"
+  },
+  {
+    "p": "fas",
+    "n": "fa-glass-martini-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-glass-water"
+  },
+  {
+    "p": "fas",
+    "n": "fa-glass-water-droplet"
+  },
+  {
+    "p": "fas",
+    "n": "fa-glass-whiskey"
+  },
+  {
+    "p": "fas",
+    "n": "fa-glasses"
+  },
+  {
+    "p": "fab",
+    "n": "fa-glide"
+  },
+  {
+    "p": "fab",
+    "n": "fa-glide-g"
+  },
+  {
+    "p": "fas",
+    "n": "fa-globe"
+  },
+  {
+    "p": "fas",
+    "n": "fa-globe-africa"
+  },
+  {
+    "p": "fas",
+    "n": "fa-globe-americas"
+  },
+  {
+    "p": "fas",
+    "n": "fa-globe-asia"
+  },
+  {
+    "p": "fas",
+    "n": "fa-globe-europe"
+  },
+  {
+    "p": "fas",
+    "n": "fa-globe-oceania"
+  },
+  {
+    "p": "fab",
+    "n": "fa-gofore"
+  },
+  {
+    "p": "fas",
+    "n": "fa-golang"
+  },
+  {
+    "p": "fas",
+    "n": "fa-golf-ball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-golf-ball-tee"
+  },
+  {
+    "p": "fab",
+    "n": "fa-goodreads"
+  },
+  {
+    "p": "fab",
+    "n": "fa-goodreads-g"
+  },
+  {
+    "p": "fab",
+    "n": "fa-google"
+  },
+  {
+    "p": "fab",
+    "n": "fa-google-drive"
+  },
+  {
+    "p": "fab",
+    "n": "fa-google-pay"
+  },
+  {
+    "p": "fab",
+    "n": "fa-google-play"
+  },
+  {
+    "p": "fab",
+    "n": "fa-google-plus"
+  },
+  {
+    "p": "fab",
+    "n": "fa-google-plus-g"
+  },
+  {
+    "p": "fab",
+    "n": "fa-google-plus-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-google-scholar"
+  },
+  {
+    "p": "fab",
+    "n": "fa-google-wallet"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gopuram"
+  },
+  {
+    "p": "fas",
+    "n": "fa-graduation-cap"
+  },
+  {
+    "p": "fab",
+    "n": "fa-gratipay"
+  },
+  {
+    "p": "fab",
+    "n": "fa-grav"
+  },
+  {
+    "p": "fas",
+    "n": "fa-greater-than"
+  },
+  {
+    "p": "fas",
+    "n": "fa-greater-than-equal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grid-horizontal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grid-vertical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grimace"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grin"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grin-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grin-beam"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grin-beam-sweat"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grin-hearts"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grin-squint"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grin-squint-tears"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grin-stars"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grin-tears"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grin-tongue"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grin-tongue-squint"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grin-tongue-wink"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grin-wink"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grip"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grip-horizontal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grip-lines"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grip-lines-vertical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-grip-vertical"
+  },
+  {
+    "p": "fab",
+    "n": "fa-gripfire"
+  },
+  {
+    "p": "fas",
+    "n": "fa-group-arrows-rotate"
+  },
+  {
+    "p": "fab",
+    "n": "fa-grunt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-guarani-sign"
+  },
+  {
+    "p": "fab",
+    "n": "fa-guilded"
+  },
+  {
+    "p": "fas",
+    "n": "fa-guitar"
+  },
+  {
+    "p": "fab",
+    "n": "fa-gulp"
+  },
+  {
+    "p": "fas",
+    "n": "fa-gun"
+  },
+  {
+    "p": "fas",
+    "n": "fa-h"
+  },
+  {
+    "p": "fab",
+    "n": "fa-hacker-news"
+  },
+  {
+    "p": "fab",
+    "n": "fa-hacker-news-square"
+  },
+  {
+    "p": "fab",
+    "n": "fa-hackerrank"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hamburger"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hammer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hamsa"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-back-fist"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-dots"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-fist"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-holding"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-holding-dollar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-holding-droplet"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-holding-hand"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-holding-heart"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-holding-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-holding-usd"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-holding-water"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-lizard"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-middle-finger"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-paper"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-peace"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-point-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-point-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-point-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-point-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-pointer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-rock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-scissors"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-sparkles"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hand-spock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-handcuffs"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hands"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hands-american-sign-language-interpreting"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hands-asl-interpreting"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hands-bound"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hands-bubbles"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hands-clapping"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hands-helping"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hands-holding"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hands-holding-child"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hands-holding-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hands-praying"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hands-wash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-handshake"
+  },
+  {
+    "p": "fas",
+    "n": "fa-handshake-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-handshake-alt-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-handshake-angle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-handshake-simple"
+  },
+  {
+    "p": "fas",
+    "n": "fa-handshake-simple-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-handshake-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hanukiah"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hard-drive"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hard-hat"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hard-of-hearing"
+  },
+  {
+    "p": "fab",
+    "n": "fa-hashnode"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hashtag"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hat-cowboy"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hat-cowboy-side"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hat-hard"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hat-wizard"
+  },
+  {
+    "p": "fas",
+    "n": "fa-haykal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hdd"
+  },
+  {
+    "p": "fas",
+    "n": "fa-head-side-cough"
+  },
+  {
+    "p": "fas",
+    "n": "fa-head-side-cough-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-head-side-mask"
+  },
+  {
+    "p": "fas",
+    "n": "fa-head-side-virus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-header"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heading"
+  },
+  {
+    "p": "fas",
+    "n": "fa-headphones"
+  },
+  {
+    "p": "fas",
+    "n": "fa-headphones-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-headphones-simple"
+  },
+  {
+    "p": "fas",
+    "n": "fa-headset"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heart"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heart-broken"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heart-circle-bolt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heart-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heart-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heart-circle-minus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heart-circle-plus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heart-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heart-crack"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heart-music-camera-bolt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heart-pulse"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heartbeat"
+  },
+  {
+    "p": "fas",
+    "n": "fa-helicopter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-helicopter-symbol"
+  },
+  {
+    "p": "fas",
+    "n": "fa-helmet-safety"
+  },
+  {
+    "p": "fas",
+    "n": "fa-helmet-un"
+  },
+  {
+    "p": "fas",
+    "n": "fa-heptagon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hexagon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hexagon-nodes"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hexagon-nodes-bolt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-highlighter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hiking"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hill-avalanche"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hill-rockslide"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hippo"
+  },
+  {
+    "p": "fab",
+    "n": "fa-hips"
+  },
+  {
+    "p": "fab",
+    "n": "fa-hire-a-helper"
+  },
+  {
+    "p": "fas",
+    "n": "fa-history"
+  },
+  {
+    "p": "fab",
+    "n": "fa-hive"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hockey-puck"
+  },
+  {
+    "p": "fas",
+    "n": "fa-holly-berry"
+  },
+  {
+    "p": "fas",
+    "n": "fa-home"
+  },
+  {
+    "p": "fas",
+    "n": "fa-home-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-home-lg"
+  },
+  {
+    "p": "fas",
+    "n": "fa-home-lg-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-home-user"
+  },
+  {
+    "p": "fab",
+    "n": "fa-hooli"
+  },
+  {
+    "p": "fab",
+    "n": "fa-hornbill"
+  },
+  {
+    "p": "fas",
+    "n": "fa-horse"
+  },
+  {
+    "p": "fas",
+    "n": "fa-horse-head"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hospital"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hospital-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hospital-symbol"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hospital-user"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hospital-wide"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hot-tub"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hot-tub-person"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hotdog"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hotel"
+  },
+  {
+    "p": "fab",
+    "n": "fa-hotjar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hourglass"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hourglass-1"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hourglass-2"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hourglass-3"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hourglass-empty"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hourglass-end"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hourglass-half"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hourglass-start"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-chimney"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-chimney-crack"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-chimney-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-chimney-user"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-chimney-window"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-crack"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-damage"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-fire"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-flag"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-flood-water"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-flood-water-circle-arrow-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-laptop"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-lock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-medical-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-medical-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-medical-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-medical-flag"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-signal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-tsunami"
+  },
+  {
+    "p": "fas",
+    "n": "fa-house-user"
+  },
+  {
+    "p": "fab",
+    "n": "fa-houzz"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hryvnia"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hryvnia-sign"
+  },
+  {
+    "p": "fab",
+    "n": "fa-html5"
+  },
+  {
+    "p": "fab",
+    "n": "fa-hubspot"
+  },
+  {
+    "p": "fas",
+    "n": "fa-hurricane"
+  },
+  {
+    "p": "fas",
+    "n": "fa-i"
+  },
+  {
+    "p": "fas",
+    "n": "fa-i-cursor"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ice-cream"
+  },
+  {
+    "p": "fas",
+    "n": "fa-icicles"
+  },
+  {
+    "p": "fas",
+    "n": "fa-icons"
+  },
+  {
+    "p": "fas",
+    "n": "fa-id-badge"
+  },
+  {
+    "p": "fas",
+    "n": "fa-id-card"
+  },
+  {
+    "p": "fas",
+    "n": "fa-id-card-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-id-card-clip"
+  },
+  {
+    "p": "fab",
+    "n": "fa-ideal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-igloo"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ils"
+  },
+  {
+    "p": "fas",
+    "n": "fa-image"
+  },
+  {
+    "p": "fas",
+    "n": "fa-image-portrait"
+  },
+  {
+    "p": "fas",
+    "n": "fa-images"
+  },
+  {
+    "p": "fab",
+    "n": "fa-imdb"
+  },
+  {
+    "p": "fas",
+    "n": "fa-inbox"
+  },
+  {
+    "p": "fas",
+    "n": "fa-indent"
+  },
+  {
+    "p": "fas",
+    "n": "fa-indian-rupee"
+  },
+  {
+    "p": "fas",
+    "n": "fa-indian-rupee-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-industry"
+  },
+  {
+    "p": "fas",
+    "n": "fa-infinity"
+  },
+  {
+    "p": "fas",
+    "n": "fa-info"
+  },
+  {
+    "p": "fas",
+    "n": "fa-info-circle"
+  },
+  {
+    "p": "fab",
+    "n": "fa-innosoft"
+  },
+  {
+    "p": "fas",
+    "n": "fa-inr"
+  },
+  {
+    "p": "fab",
+    "n": "fa-instagram"
+  },
+  {
+    "p": "fab",
+    "n": "fa-instagram-square"
+  },
+  {
+    "p": "fab",
+    "n": "fa-instalod"
+  },
+  {
+    "p": "fas",
+    "n": "fa-institution"
+  },
+  {
+    "p": "fab",
+    "n": "fa-intercom"
+  },
+  {
+    "p": "fab",
+    "n": "fa-internet-explorer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-inverse"
+  },
+  {
+    "p": "fab",
+    "n": "fa-invision"
+  },
+  {
+    "p": "fab",
+    "n": "fa-ioxhost"
+  },
+  {
+    "p": "fas",
+    "n": "fa-italic"
+  },
+  {
+    "p": "fab",
+    "n": "fa-itch-io"
+  },
+  {
+    "p": "fab",
+    "n": "fa-itunes"
+  },
+  {
+    "p": "fab",
+    "n": "fa-itunes-note"
+  },
+  {
+    "p": "fas",
+    "n": "fa-j"
+  },
+  {
+    "p": "fas",
+    "n": "fa-jar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-jar-wheat"
+  },
+  {
+    "p": "fab",
+    "n": "fa-java"
+  },
+  {
+    "p": "fas",
+    "n": "fa-jedi"
+  },
+  {
+    "p": "fab",
+    "n": "fa-jedi-order"
+  },
+  {
+    "p": "fab",
+    "n": "fa-jenkins"
+  },
+  {
+    "p": "fas",
+    "n": "fa-jet-fighter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-jet-fighter-up"
+  },
+  {
+    "p": "fab",
+    "n": "fa-jira"
+  },
+  {
+    "p": "fab",
+    "n": "fa-joget"
+  },
+  {
+    "p": "fas",
+    "n": "fa-joint"
+  },
+  {
+    "p": "fab",
+    "n": "fa-joomla"
+  },
+  {
+    "p": "fas",
+    "n": "fa-journal-whills"
+  },
+  {
+    "p": "fas",
+    "n": "fa-jpy"
+  },
+  {
+    "p": "fab",
+    "n": "fa-js"
+  },
+  {
+    "p": "fab",
+    "n": "fa-js-square"
+  },
+  {
+    "p": "fab",
+    "n": "fa-jsfiddle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-jug-detergent"
+  },
+  {
+    "p": "fas",
+    "n": "fa-jxl"
+  },
+  {
+    "p": "fas",
+    "n": "fa-k"
+  },
+  {
+    "p": "fas",
+    "n": "fa-kaaba"
+  },
+  {
+    "p": "fab",
+    "n": "fa-kaggle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-kakao-talk"
+  },
+  {
+    "p": "fas",
+    "n": "fa-key"
+  },
+  {
+    "p": "fab",
+    "n": "fa-keybase"
+  },
+  {
+    "p": "fas",
+    "n": "fa-keyboard"
+  },
+  {
+    "p": "fab",
+    "n": "fa-keycdn"
+  },
+  {
+    "p": "fas",
+    "n": "fa-khanda"
+  },
+  {
+    "p": "fab",
+    "n": "fa-kickstarter"
+  },
+  {
+    "p": "fab",
+    "n": "fa-kickstarter-k"
+  },
+  {
+    "p": "fas",
+    "n": "fa-kip-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-kiss"
+  },
+  {
+    "p": "fas",
+    "n": "fa-kiss-beam"
+  },
+  {
+    "p": "fas",
+    "n": "fa-kiss-wink-heart"
+  },
+  {
+    "p": "fas",
+    "n": "fa-kit-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-kitchen-set"
+  },
+  {
+    "p": "fas",
+    "n": "fa-kiwi-bird"
+  },
+  {
+    "p": "fab",
+    "n": "fa-korvue"
+  },
+  {
+    "p": "fas",
+    "n": "fa-krw"
+  },
+  {
+    "p": "fas",
+    "n": "fa-l"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ladder-water"
+  },
+  {
+    "p": "fas",
+    "n": "fa-land-mine-on"
+  },
+  {
+    "p": "fas",
+    "n": "fa-landmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-landmark-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-landmark-dome"
+  },
+  {
+    "p": "fas",
+    "n": "fa-landmark-flag"
+  },
+  {
+    "p": "fas",
+    "n": "fa-language"
+  },
+  {
+    "p": "fas",
+    "n": "fa-laptop"
+  },
+  {
+    "p": "fas",
+    "n": "fa-laptop-code"
+  },
+  {
+    "p": "fas",
+    "n": "fa-laptop-file"
+  },
+  {
+    "p": "fas",
+    "n": "fa-laptop-house"
+  },
+  {
+    "p": "fas",
+    "n": "fa-laptop-medical"
+  },
+  {
+    "p": "fab",
+    "n": "fa-laravel"
+  },
+  {
+    "p": "fas",
+    "n": "fa-lari-sign"
+  },
+  {
+    "p": "fab",
+    "n": "fa-lastfm"
+  },
+  {
+    "p": "fab",
+    "n": "fa-lastfm-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-laugh"
+  },
+  {
+    "p": "fas",
+    "n": "fa-laugh-beam"
+  },
+  {
+    "p": "fas",
+    "n": "fa-laugh-squint"
+  },
+  {
+    "p": "fas",
+    "n": "fa-laugh-wink"
+  },
+  {
+    "p": "fas",
+    "n": "fa-layer-group"
+  },
+  {
+    "p": "fas",
+    "n": "fa-leaf"
+  },
+  {
+    "p": "fab",
+    "n": "fa-leanpub"
+  },
+  {
+    "p": "fas",
+    "n": "fa-left-long"
+  },
+  {
+    "p": "fas",
+    "n": "fa-left-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-legal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-lemon"
+  },
+  {
+    "p": "fab",
+    "n": "fa-less"
+  },
+  {
+    "p": "fas",
+    "n": "fa-less-than"
+  },
+  {
+    "p": "fas",
+    "n": "fa-less-than-equal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-letterboxd"
+  },
+  {
+    "p": "fas",
+    "n": "fa-level-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-level-down-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-level-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-level-up-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-location"
+  },
+  {
+    "p": "fas",
+    "n": "fa-location-arrow"
+  },
+  {
+    "p": "fas",
+    "n": "fa-location-crosshairs"
+  },
+  {
+    "p": "fas",
+    "n": "fa-location-dot"
+  },
+  {
+    "p": "fas",
+    "n": "fa-location-pin"
+  },
+  {
+    "p": "fas",
+    "n": "fa-location-pin-lock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-lock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-lock-open"
+  },
+  {
+    "p": "fas",
+    "n": "fa-locust"
+  },
+  {
+    "p": "fas",
+    "n": "fa-long-arrow-alt-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-long-arrow-alt-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-long-arrow-alt-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-long-arrow-alt-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-long-arrow-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-long-arrow-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-long-arrow-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-long-arrow-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-low-vision"
+  },
+  {
+    "p": "fas",
+    "n": "fa-luggage-cart"
+  },
+  {
+    "p": "fas",
+    "n": "fa-lumon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-lumon-drop"
+  },
+  {
+    "p": "fas",
+    "n": "fa-lungs"
+  },
+  {
+    "p": "fas",
+    "n": "fa-lungs-virus"
+  },
+  {
+    "p": "fab",
+    "n": "fa-lyft"
+  },
+  {
+    "p": "fas",
+    "n": "fa-m"
+  },
+  {
+    "p": "fab",
+    "n": "fa-magento"
+  },
+  {
+    "p": "fas",
+    "n": "fa-magic"
+  },
+  {
+    "p": "fas",
+    "n": "fa-magic-wand-sparkles"
+  },
+  {
+    "p": "fas",
+    "n": "fa-magnet"
+  },
+  {
+    "p": "fas",
+    "n": "fa-magnifying-glass"
+  },
+  {
+    "p": "fas",
+    "n": "fa-magnifying-glass-arrow-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-magnifying-glass-chart"
+  },
+  {
+    "p": "fas",
+    "n": "fa-magnifying-glass-dollar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-magnifying-glass-location"
+  },
+  {
+    "p": "fas",
+    "n": "fa-magnifying-glass-minus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-magnifying-glass-plus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mail-bulk"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mail-forward"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mail-reply"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mail-reply-all"
+  },
+  {
+    "p": "fab",
+    "n": "fa-mailchimp"
+  },
+  {
+    "p": "fas",
+    "n": "fa-male"
+  },
+  {
+    "p": "fas",
+    "n": "fa-manat-sign"
+  },
+  {
+    "p": "fab",
+    "n": "fa-mandalorian"
+  },
+  {
+    "p": "fas",
+    "n": "fa-map"
+  },
+  {
+    "p": "fas",
+    "n": "fa-map-location"
+  },
+  {
+    "p": "fas",
+    "n": "fa-map-location-dot"
+  },
+  {
+    "p": "fas",
+    "n": "fa-map-marked"
+  },
+  {
+    "p": "fas",
+    "n": "fa-map-marked-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-map-marker"
+  },
+  {
+    "p": "fas",
+    "n": "fa-map-marker-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-map-pin"
+  },
+  {
+    "p": "fas",
+    "n": "fa-map-signs"
+  },
+  {
+    "p": "fab",
+    "n": "fa-markdown"
+  },
+  {
+    "p": "fas",
+    "n": "fa-marker"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mars"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mars-and-venus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mars-and-venus-burst"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mars-double"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mars-stroke"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mars-stroke-h"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mars-stroke-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mars-stroke-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mars-stroke-v"
+  },
+  {
+    "p": "fas",
+    "n": "fa-martini-glass"
+  },
+  {
+    "p": "fas",
+    "n": "fa-martini-glass-citrus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-martini-glass-empty"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mask"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mask-face"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mask-ventilator"
+  },
+  {
+    "p": "fas",
+    "n": "fa-masks-theater"
+  },
+  {
+    "p": "fab",
+    "n": "fa-mastodon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mattress-pillow"
+  },
+  {
+    "p": "fab",
+    "n": "fa-maxcdn"
+  },
+  {
+    "p": "fas",
+    "n": "fa-maximize"
+  },
+  {
+    "p": "fab",
+    "n": "fa-mdb"
+  },
+  {
+    "p": "fas",
+    "n": "fa-medal"
+  },
+  {
+    "p": "fab",
+    "n": "fa-medapps"
+  },
+  {
+    "p": "fab",
+    "n": "fa-medium"
+  },
+  {
+    "p": "fab",
+    "n": "fa-medium-m"
+  },
+  {
+    "p": "fas",
+    "n": "fa-medkit"
+  },
+  {
+    "p": "fab",
+    "n": "fa-medrt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-meetup"
+  },
+  {
+    "p": "fab",
+    "n": "fa-megaport"
+  },
+  {
+    "p": "fas",
+    "n": "fa-meh"
+  },
+  {
+    "p": "fas",
+    "n": "fa-meh-blank"
+  },
+  {
+    "p": "fas",
+    "n": "fa-meh-rolling-eyes"
+  },
+  {
+    "p": "fas",
+    "n": "fa-memory"
+  },
+  {
+    "p": "fab",
+    "n": "fa-mendeley"
+  },
+  {
+    "p": "fas",
+    "n": "fa-menorah"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mercury"
+  },
+  {
+    "p": "fas",
+    "n": "fa-message"
+  },
+  {
+    "p": "fas",
+    "n": "fa-meta"
+  },
+  {
+    "p": "fas",
+    "n": "fa-meteor"
+  },
+  {
+    "p": "fab",
+    "n": "fa-microblog"
+  },
+  {
+    "p": "fas",
+    "n": "fa-microchip"
+  },
+  {
+    "p": "fas",
+    "n": "fa-microphone"
+  },
+  {
+    "p": "fas",
+    "n": "fa-microphone-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-microphone-alt-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-microphone-lines"
+  },
+  {
+    "p": "fas",
+    "n": "fa-microphone-lines-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-microphone-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-microscope"
+  },
+  {
+    "p": "fab",
+    "n": "fa-microsoft"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mill-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-minimize"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mintbit"
+  },
+  {
+    "p": "fas",
+    "n": "fa-minus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-minus-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-minus-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mitten"
+  },
+  {
+    "p": "fab",
+    "n": "fa-mix"
+  },
+  {
+    "p": "fab",
+    "n": "fa-mixcloud"
+  },
+  {
+    "p": "fab",
+    "n": "fa-mixer"
+  },
+  {
+    "p": "fab",
+    "n": "fa-mizuni"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mobile"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mobile-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mobile-android"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mobile-android-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mobile-button"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mobile-phone"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mobile-retro"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mobile-screen"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mobile-screen-button"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mobile-vibrate"
+  },
+  {
+    "p": "fab",
+    "n": "fa-modx"
+  },
+  {
+    "p": "fab",
+    "n": "fa-monero"
+  },
+  {
+    "p": "fas",
+    "n": "fa-money-bill"
+  },
+  {
+    "p": "fas",
+    "n": "fa-money-bill-1"
+  },
+  {
+    "p": "fas",
+    "n": "fa-money-bill-1-wave"
+  },
+  {
+    "p": "fas",
+    "n": "fa-money-bill-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-money-bill-transfer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-money-bill-trend-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-money-bill-wave"
+  },
+  {
+    "p": "fas",
+    "n": "fa-money-bill-wave-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-money-bill-wheat"
+  },
+  {
+    "p": "fas",
+    "n": "fa-money-bills"
+  },
+  {
+    "p": "fas",
+    "n": "fa-money-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-money-check-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-money-check-dollar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-monument"
+  },
+  {
+    "p": "fas",
+    "n": "fa-moon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mortar-board"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mortar-pestle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mosque"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mosquito"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mosquito-net"
+  },
+  {
+    "p": "fas",
+    "n": "fa-motorcycle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mound"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mountain"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mountain-city"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mountain-sun"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mouse"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mouse-pointer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mug-hot"
+  },
+  {
+    "p": "fas",
+    "n": "fa-mug-saucer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-multiply"
+  },
+  {
+    "p": "fas",
+    "n": "fa-museum"
+  },
+  {
+    "p": "fas",
+    "n": "fa-music"
+  },
+  {
+    "p": "fas",
+    "n": "fa-n"
+  },
+  {
+    "p": "fas",
+    "n": "fa-naira-sign"
+  },
+  {
+    "p": "fab",
+    "n": "fa-napster"
+  },
+  {
+    "p": "fas",
+    "n": "fa-navicon"
+  },
+  {
+    "p": "fab",
+    "n": "fa-neos"
+  },
+  {
+    "p": "fas",
+    "n": "fa-network-wired"
+  },
+  {
+    "p": "fas",
+    "n": "fa-neuter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-newspaper"
+  },
+  {
+    "p": "fas",
+    "n": "fa-nfc-directional"
+  },
+  {
+    "p": "fas",
+    "n": "fa-nfc-symbol"
+  },
+  {
+    "p": "fab",
+    "n": "fa-nimblr"
+  },
+  {
+    "p": "fab",
+    "n": "fa-node"
+  },
+  {
+    "p": "fab",
+    "n": "fa-node-js"
+  },
+  {
+    "p": "fas",
+    "n": "fa-non-binary"
+  },
+  {
+    "p": "fas",
+    "n": "fa-not-equal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-notdef"
+  },
+  {
+    "p": "fas",
+    "n": "fa-note-sticky"
+  },
+  {
+    "p": "fas",
+    "n": "fa-notes-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-notion"
+  },
+  {
+    "p": "fab",
+    "n": "fa-npm"
+  },
+  {
+    "p": "fab",
+    "n": "fa-ns8"
+  },
+  {
+    "p": "fab",
+    "n": "fa-nutritionix"
+  },
+  {
+    "p": "fas",
+    "n": "fa-o"
+  },
+  {
+    "p": "fas",
+    "n": "fa-object-group"
+  },
+  {
+    "p": "fas",
+    "n": "fa-object-ungroup"
+  },
+  {
+    "p": "fas",
+    "n": "fa-octagon"
+  },
+  {
+    "p": "fab",
+    "n": "fa-octopus-deploy"
+  },
+  {
+    "p": "fab",
+    "n": "fa-odnoklassniki"
+  },
+  {
+    "p": "fab",
+    "n": "fa-odnoklassniki-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-odysee"
+  },
+  {
+    "p": "fas",
+    "n": "fa-oil-can"
+  },
+  {
+    "p": "fas",
+    "n": "fa-oil-well"
+  },
+  {
+    "p": "fab",
+    "n": "fa-old-republic"
+  },
+  {
+    "p": "fas",
+    "n": "fa-om"
+  },
+  {
+    "p": "fas",
+    "n": "fa-openai"
+  },
+  {
+    "p": "fab",
+    "n": "fa-opencart"
+  },
+  {
+    "p": "fab",
+    "n": "fa-openid"
+  },
+  {
+    "p": "fas",
+    "n": "fa-opensuse"
+  },
+  {
+    "p": "fab",
+    "n": "fa-opera"
+  },
+  {
+    "p": "fab",
+    "n": "fa-optin-monster"
+  },
+  {
+    "p": "fab",
+    "n": "fa-orcid"
+  },
+  {
+    "p": "fab",
+    "n": "fa-osi"
+  },
+  {
+    "p": "fas",
+    "n": "fa-otter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-outdent"
+  },
+  {
+    "p": "fas",
+    "n": "fa-p"
+  },
+  {
+    "p": "fas",
+    "n": "fa-padlet"
+  },
+  {
+    "p": "fab",
+    "n": "fa-page4"
+  },
+  {
+    "p": "fab",
+    "n": "fa-pagelines"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pager"
+  },
+  {
+    "p": "fas",
+    "n": "fa-paint-brush"
+  },
+  {
+    "p": "fas",
+    "n": "fa-paint-roller"
+  },
+  {
+    "p": "fas",
+    "n": "fa-paintbrush"
+  },
+  {
+    "p": "fas",
+    "n": "fa-palette"
+  },
+  {
+    "p": "fab",
+    "n": "fa-palfed"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pallet"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pandora"
+  },
+  {
+    "p": "fas",
+    "n": "fa-panorama"
+  },
+  {
+    "p": "fas",
+    "n": "fa-paper-plane"
+  },
+  {
+    "p": "fas",
+    "n": "fa-paperclip"
+  },
+  {
+    "p": "fas",
+    "n": "fa-parachute-box"
+  },
+  {
+    "p": "fas",
+    "n": "fa-paragraph"
+  },
+  {
+    "p": "fas",
+    "n": "fa-parking"
+  },
+  {
+    "p": "fas",
+    "n": "fa-passport"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pastafarianism"
+  },
+  {
+    "p": "fas",
+    "n": "fa-paste"
+  },
+  {
+    "p": "fab",
+    "n": "fa-patreon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pause"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pause-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-paw"
+  },
+  {
+    "p": "fab",
+    "n": "fa-paypal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-peace"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pen"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pen-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pen-clip"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pen-fancy"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pen-nib"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pen-ruler"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pen-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pen-to-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pencil"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pencil-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pencil-ruler"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pencil-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pentagon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-people-arrows"
+  },
+  {
+    "p": "fas",
+    "n": "fa-people-arrows-left-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-people-carry"
+  },
+  {
+    "p": "fas",
+    "n": "fa-people-carry-box"
+  },
+  {
+    "p": "fas",
+    "n": "fa-people-group"
+  },
+  {
+    "p": "fas",
+    "n": "fa-people-line"
+  },
+  {
+    "p": "fas",
+    "n": "fa-people-pulling"
+  },
+  {
+    "p": "fas",
+    "n": "fa-people-robbery"
+  },
+  {
+    "p": "fas",
+    "n": "fa-people-roof"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pepper-hot"
+  },
+  {
+    "p": "fas",
+    "n": "fa-perbyte"
+  },
+  {
+    "p": "fas",
+    "n": "fa-percent"
+  },
+  {
+    "p": "fas",
+    "n": "fa-percentage"
+  },
+  {
+    "p": "fab",
+    "n": "fa-periscope"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-arrow-down-to-line"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-arrow-up-from-line"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-biking"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-booth"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-breastfeeding"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-burst"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-cane"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-chalkboard"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-circle-minus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-circle-plus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-circle-question"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-digging"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-dots-from-line"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-dress"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-dress-burst"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-drowning"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-falling"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-falling-burst"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-half-dress"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-harassing"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-hiking"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-military-pointing"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-military-rifle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-military-to-person"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-praying"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-pregnant"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-rays"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-rifle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-running"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-shelter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-skating"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-skiing"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-skiing-nordic"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-snowboarding"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-swimming"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-through-window"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-walking"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-walking-arrow-loop-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-walking-arrow-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-walking-dashed-line-arrow-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-walking-luggage"
+  },
+  {
+    "p": "fas",
+    "n": "fa-person-walking-with-cane"
+  },
+  {
+    "p": "fas",
+    "n": "fa-peseta-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-peso-sign"
+  },
+  {
+    "p": "fab",
+    "n": "fa-phabricator"
+  },
+  {
+    "p": "fab",
+    "n": "fa-phoenix-framework"
+  },
+  {
+    "p": "fab",
+    "n": "fa-phoenix-squadron"
+  },
+  {
+    "p": "fas",
+    "n": "fa-phone"
+  },
+  {
+    "p": "fas",
+    "n": "fa-phone-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-phone-flip"
+  },
+  {
+    "p": "fas",
+    "n": "fa-phone-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-phone-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-phone-square-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-phone-volume"
+  },
+  {
+    "p": "fas",
+    "n": "fa-photo-film"
+  },
+  {
+    "p": "fas",
+    "n": "fa-photo-video"
+  },
+  {
+    "p": "fab",
+    "n": "fa-php"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pie-chart"
+  },
+  {
+    "p": "fab",
+    "n": "fa-pied-piper"
+  },
+  {
+    "p": "fab",
+    "n": "fa-pied-piper-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-pied-piper-hat"
+  },
+  {
+    "p": "fab",
+    "n": "fa-pied-piper-pp"
+  },
+  {
+    "p": "fab",
+    "n": "fa-pied-piper-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-piggy-bank"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pills"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ping-pong-paddle-ball"
+  },
+  {
+    "p": "fab",
+    "n": "fa-pinterest"
+  },
+  {
+    "p": "fab",
+    "n": "fa-pinterest-p"
+  },
+  {
+    "p": "fab",
+    "n": "fa-pinterest-square"
+  },
+  {
+    "p": "fab",
+    "n": "fa-pix"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pixelfed"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pixiv"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pizza-slice"
+  },
+  {
+    "p": "fas",
+    "n": "fa-place-of-worship"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plane"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plane-arrival"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plane-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plane-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plane-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plane-departure"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plane-lock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plane-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plane-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plant-wilt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plate-wheat"
+  },
+  {
+    "p": "fas",
+    "n": "fa-play"
+  },
+  {
+    "p": "fas",
+    "n": "fa-play-circle"
+  },
+  {
+    "p": "fab",
+    "n": "fa-playstation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plug"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plug-circle-bolt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plug-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plug-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plug-circle-minus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plug-circle-plus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plug-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plus-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plus-minus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-plus-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-podcast"
+  },
+  {
+    "p": "fas",
+    "n": "fa-poll"
+  },
+  {
+    "p": "fas",
+    "n": "fa-poll-h"
+  },
+  {
+    "p": "fas",
+    "n": "fa-poo"
+  },
+  {
+    "p": "fas",
+    "n": "fa-poo-bolt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-poo-storm"
+  },
+  {
+    "p": "fas",
+    "n": "fa-poop"
+  },
+  {
+    "p": "fas",
+    "n": "fa-portrait"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pound-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-power-off"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pray"
+  },
+  {
+    "p": "fas",
+    "n": "fa-praying-hands"
+  },
+  {
+    "p": "fas",
+    "n": "fa-prescription"
+  },
+  {
+    "p": "fas",
+    "n": "fa-prescription-bottle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-prescription-bottle-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-prescription-bottle-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-print"
+  },
+  {
+    "p": "fas",
+    "n": "fa-procedures"
+  },
+  {
+    "p": "fas",
+    "n": "fa-product-hunt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-project-diagram"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pull-end"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pull-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pull-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pull-start"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pump-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-pump-soap"
+  },
+  {
+    "p": "fab",
+    "n": "fa-pushed"
+  },
+  {
+    "p": "fas",
+    "n": "fa-puzzle-piece"
+  },
+  {
+    "p": "fab",
+    "n": "fa-python"
+  },
+  {
+    "p": "fas",
+    "n": "fa-q"
+  },
+  {
+    "p": "fab",
+    "n": "fa-qq"
+  },
+  {
+    "p": "fas",
+    "n": "fa-qrcode"
+  },
+  {
+    "p": "fas",
+    "n": "fa-question"
+  },
+  {
+    "p": "fas",
+    "n": "fa-question-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-quidditch"
+  },
+  {
+    "p": "fas",
+    "n": "fa-quidditch-broom-ball"
+  },
+  {
+    "p": "fab",
+    "n": "fa-quinscape"
+  },
+  {
+    "p": "fab",
+    "n": "fa-quora"
+  },
+  {
+    "p": "fas",
+    "n": "fa-quote-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-quote-left-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-quote-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-quote-right-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-quran"
+  },
+  {
+    "p": "fas",
+    "n": "fa-r"
+  },
+  {
+    "p": "fab",
+    "n": "fa-r-project"
+  },
+  {
+    "p": "fas",
+    "n": "fa-radiation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-radiation-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-radio"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rainbow"
+  },
+  {
+    "p": "fas",
+    "n": "fa-random"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ranking-star"
+  },
+  {
+    "p": "fab",
+    "n": "fa-raspberry-pi"
+  },
+  {
+    "p": "fab",
+    "n": "fa-ravelry"
+  },
+  {
+    "p": "fab",
+    "n": "fa-react"
+  },
+  {
+    "p": "fab",
+    "n": "fa-reacteurope"
+  },
+  {
+    "p": "fab",
+    "n": "fa-readme"
+  },
+  {
+    "p": "fab",
+    "n": "fa-rebel"
+  },
+  {
+    "p": "fas",
+    "n": "fa-receipt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-record-vinyl"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rectangle-ad"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rectangle-list"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rectangle-times"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rectangle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-recycle"
+  },
+  {
+    "p": "fab",
+    "n": "fa-red-river"
+  },
+  {
+    "p": "fab",
+    "n": "fa-reddit"
+  },
+  {
+    "p": "fab",
+    "n": "fa-reddit-alien"
+  },
+  {
+    "p": "fab",
+    "n": "fa-reddit-square"
+  },
+  {
+    "p": "fab",
+    "n": "fa-redhat"
+  },
+  {
+    "p": "fas",
+    "n": "fa-redo"
+  },
+  {
+    "p": "fas",
+    "n": "fa-redo-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-refresh"
+  },
+  {
+    "p": "fas",
+    "n": "fa-registered"
+  },
+  {
+    "p": "fas",
+    "n": "fa-remove"
+  },
+  {
+    "p": "fas",
+    "n": "fa-remove-format"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rendact"
+  },
+  {
+    "p": "fab",
+    "n": "fa-renren"
+  },
+  {
+    "p": "fas",
+    "n": "fa-reorder"
+  },
+  {
+    "p": "fas",
+    "n": "fa-repeat"
+  },
+  {
+    "p": "fas",
+    "n": "fa-reply"
+  },
+  {
+    "p": "fas",
+    "n": "fa-reply-all"
+  },
+  {
+    "p": "fab",
+    "n": "fa-replyd"
+  },
+  {
+    "p": "fas",
+    "n": "fa-republican"
+  },
+  {
+    "p": "fab",
+    "n": "fa-researchgate"
+  },
+  {
+    "p": "fab",
+    "n": "fa-resolving"
+  },
+  {
+    "p": "fas",
+    "n": "fa-restroom"
+  },
+  {
+    "p": "fas",
+    "n": "fa-retweet"
+  },
+  {
+    "p": "fab",
+    "n": "fa-rev"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ribbon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-right-from-bracket"
+  },
+  {
+    "p": "fas",
+    "n": "fa-right-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-right-long"
+  },
+  {
+    "p": "fas",
+    "n": "fa-right-to-bracket"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ring"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rmb"
+  },
+  {
+    "p": "fas",
+    "n": "fa-road"
+  },
+  {
+    "p": "fas",
+    "n": "fa-road-barrier"
+  },
+  {
+    "p": "fas",
+    "n": "fa-road-bridge"
+  },
+  {
+    "p": "fas",
+    "n": "fa-road-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-road-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-road-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-road-lock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-road-spikes"
+  },
+  {
+    "p": "fas",
+    "n": "fa-robot"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rocket"
+  },
+  {
+    "p": "fab",
+    "n": "fa-rocketchat"
+  },
+  {
+    "p": "fab",
+    "n": "fa-rockrms"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rod-asclepius"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rod-snake"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rotate"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rouble"
+  },
+  {
+    "p": "fas",
+    "n": "fa-route"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rss"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rss-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rub"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ruble"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ruble-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rug"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ruler"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ruler-combined"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ruler-horizontal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ruler-vertical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-running"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rupee"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rupee-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-rupiah-sign"
+  },
+  {
+    "p": "fab",
+    "n": "fa-rust"
+  },
+  {
+    "p": "fas",
+    "n": "fa-s"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sack-dollar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sack-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sad-cry"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sad-tear"
+  },
+  {
+    "p": "fab",
+    "n": "fa-safari"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sailboat"
+  },
+  {
+    "p": "fab",
+    "n": "fa-salesforce"
+  },
+  {
+    "p": "fab",
+    "n": "fa-sass"
+  },
+  {
+    "p": "fas",
+    "n": "fa-satellite"
+  },
+  {
+    "p": "fas",
+    "n": "fa-satellite-dish"
+  },
+  {
+    "p": "fas",
+    "n": "fa-save"
+  },
+  {
+    "p": "fas",
+    "n": "fa-scale-balanced"
+  },
+  {
+    "p": "fas",
+    "n": "fa-scale-unbalanced"
+  },
+  {
+    "p": "fas",
+    "n": "fa-scale-unbalanced-flip"
+  },
+  {
+    "p": "fab",
+    "n": "fa-schlix"
+  },
+  {
+    "p": "fas",
+    "n": "fa-school"
+  },
+  {
+    "p": "fas",
+    "n": "fa-school-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-school-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-school-circle-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-school-flag"
+  },
+  {
+    "p": "fas",
+    "n": "fa-school-lock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-scissors"
+  },
+  {
+    "p": "fas",
+    "n": "fa-screenpal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-screwdriver"
+  },
+  {
+    "p": "fas",
+    "n": "fa-screwdriver-wrench"
+  },
+  {
+    "p": "fab",
+    "n": "fa-scribd"
+  },
+  {
+    "p": "fas",
+    "n": "fa-scroll"
+  },
+  {
+    "p": "fas",
+    "n": "fa-scroll-torah"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sd-card"
+  },
+  {
+    "p": "fas",
+    "n": "fa-search"
+  },
+  {
+    "p": "fas",
+    "n": "fa-search-dollar"
+  },
+  {
+    "p": "fas",
+    "n": "fa-search-location"
+  },
+  {
+    "p": "fas",
+    "n": "fa-search-minus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-search-plus"
+  },
+  {
+    "p": "fab",
+    "n": "fa-searchengin"
+  },
+  {
+    "p": "fas",
+    "n": "fa-section"
+  },
+  {
+    "p": "fas",
+    "n": "fa-seedling"
+  },
+  {
+    "p": "fab",
+    "n": "fa-sellcast"
+  },
+  {
+    "p": "fab",
+    "n": "fa-sellsy"
+  },
+  {
+    "p": "fas",
+    "n": "fa-septagon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-server"
+  },
+  {
+    "p": "fab",
+    "n": "fa-servicestack"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shake"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shapes"
+  },
+  {
+    "p": "fas",
+    "n": "fa-share"
+  },
+  {
+    "p": "fas",
+    "n": "fa-share-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-share-alt-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-share-from-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-share-nodes"
+  },
+  {
+    "p": "fas",
+    "n": "fa-share-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sheet-plastic"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shekel"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shekel-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sheqel"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sheqel-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shield"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shield-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shield-blank"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shield-cat"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shield-dog"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shield-halved"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shield-heart"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shield-virus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ship"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shipping-fast"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shirt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-shirtsinbulk"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shoe-prints"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shoelace"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shop"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shop-lock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shop-slash"
+  },
+  {
+    "p": "fab",
+    "n": "fa-shopify"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shopping-bag"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shopping-basket"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shopping-cart"
+  },
+  {
+    "p": "fab",
+    "n": "fa-shopware"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shower"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shrimp"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shuffle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shuttle-space"
+  },
+  {
+    "p": "fas",
+    "n": "fa-shuttle-van"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sign-hanging"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sign-in"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sign-in-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sign-language"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sign-out"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sign-out-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-signal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-signal-5"
+  },
+  {
+    "p": "fas",
+    "n": "fa-signal-messenger"
+  },
+  {
+    "p": "fas",
+    "n": "fa-signal-perfect"
+  },
+  {
+    "p": "fas",
+    "n": "fa-signature"
+  },
+  {
+    "p": "fas",
+    "n": "fa-signing"
+  },
+  {
+    "p": "fas",
+    "n": "fa-signs-post"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sim-card"
+  },
+  {
+    "p": "fab",
+    "n": "fa-simplybuilt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-single-quote-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-single-quote-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sink"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sistrix"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sitemap"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sith"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sitrox"
+  },
+  {
+    "p": "fas",
+    "n": "fa-skating"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sketch"
+  },
+  {
+    "p": "fas",
+    "n": "fa-skiing"
+  },
+  {
+    "p": "fas",
+    "n": "fa-skiing-nordic"
+  },
+  {
+    "p": "fas",
+    "n": "fa-skull"
+  },
+  {
+    "p": "fas",
+    "n": "fa-skull-crossbones"
+  },
+  {
+    "p": "fab",
+    "n": "fa-skyatlas"
+  },
+  {
+    "p": "fab",
+    "n": "fa-skype"
+  },
+  {
+    "p": "fab",
+    "n": "fa-slack"
+  },
+  {
+    "p": "fab",
+    "n": "fa-slack-hash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sleigh"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sliders"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sliders-h"
+  },
+  {
+    "p": "fab",
+    "n": "fa-slideshare"
+  },
+  {
+    "p": "fab",
+    "n": "fa-snapchat"
+  },
+  {
+    "p": "fab",
+    "n": "fa-snapchat-ghost"
+  },
+  {
+    "p": "fab",
+    "n": "fa-snapchat-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-snowboarding"
+  },
+  {
+    "p": "fas",
+    "n": "fa-snowflake"
+  },
+  {
+    "p": "fas",
+    "n": "fa-snowman"
+  },
+  {
+    "p": "fas",
+    "n": "fa-snowplow"
+  },
+  {
+    "p": "fas",
+    "n": "fa-soap"
+  },
+  {
+    "p": "fas",
+    "n": "fa-soccer-ball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-socks"
+  },
+  {
+    "p": "fas",
+    "n": "fa-solar-panel"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-alpha-asc"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-alpha-desc"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-alpha-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-alpha-down-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-alpha-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-alpha-up-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-amount-asc"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-amount-desc"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-amount-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-amount-down-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-amount-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-amount-up-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-asc"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-desc"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-numeric-asc"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-numeric-desc"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-numeric-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-numeric-down-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-numeric-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-numeric-up-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sort-up"
+  },
+  {
+    "p": "fab",
+    "n": "fa-soundcloud"
+  },
+  {
+    "p": "fab",
+    "n": "fa-sourcetree"
+  },
+  {
+    "p": "fas",
+    "n": "fa-spa"
+  },
+  {
+    "p": "fas",
+    "n": "fa-space-awesome"
+  },
+  {
+    "p": "fas",
+    "n": "fa-space-shuttle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-spaghetti-monster-flying"
+  },
+  {
+    "p": "fab",
+    "n": "fa-speakap"
+  },
+  {
+    "p": "fab",
+    "n": "fa-speaker-deck"
+  },
+  {
+    "p": "fas",
+    "n": "fa-spell-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-spider"
+  },
+  {
+    "p": "fas",
+    "n": "fa-spiral"
+  },
+  {
+    "p": "fas",
+    "n": "fa-splotch"
+  },
+  {
+    "p": "fas",
+    "n": "fa-spoon"
+  },
+  {
+    "p": "fab",
+    "n": "fa-spotify"
+  },
+  {
+    "p": "fas",
+    "n": "fa-spray-can"
+  },
+  {
+    "p": "fas",
+    "n": "fa-spray-can-sparkles"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sprout"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-arrow-up-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-behance"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-binary"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-bluesky"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-caret-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-caret-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-caret-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-caret-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-dribbble"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-envelope"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-facebook"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-figma"
+  },
+  {
+    "p": "fab",
+    "n": "fa-square-font-awesome"
+  },
+  {
+    "p": "fab",
+    "n": "fa-square-font-awesome-stroke"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-full"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-git"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-github"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-gitlab"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-google-plus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-h"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-hacker-news"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-instagram"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-js"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-kickstarter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-lastfm"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-letterboxd"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-linkedin"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-minus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-nfi"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-odnoklassniki"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-parking"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-pen"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-person-confined"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-phone"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-phone-flip"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-pied-piper"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-pinterest"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-plus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-poll-horizontal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-poll-vertical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-reddit"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-root-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-root-variable"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-rss"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-share-nodes"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-snapchat"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-steam"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-threads"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-tumblr"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-twitter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-up-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-upwork"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-viadeo"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-vimeo"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-virus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-web-awesome"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-web-awesome-stroke"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-whatsapp"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-x-twitter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-xing"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-square-youtube"
+  },
+  {
+    "p": "fas",
+    "n": "fa-squarespace"
+  },
+  {
+    "p": "fas",
+    "n": "fa-staff-aesculapius"
+  },
+  {
+    "p": "fas",
+    "n": "fa-staff-snake"
+  },
+  {
+    "p": "fas",
+    "n": "fa-stairs"
+  },
+  {
+    "p": "fas",
+    "n": "fa-stamp"
+  },
+  {
+    "p": "fas",
+    "n": "fa-stapler"
+  },
+  {
+    "p": "fas",
+    "n": "fa-star"
+  },
+  {
+    "p": "fas",
+    "n": "fa-star-and-crescent"
+  },
+  {
+    "p": "fas",
+    "n": "fa-star-half"
+  },
+  {
+    "p": "fas",
+    "n": "fa-star-half-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-star-half-stroke"
+  },
+  {
+    "p": "fas",
+    "n": "fa-star-of-david"
+  },
+  {
+    "p": "fas",
+    "n": "fa-star-of-life"
+  },
+  {
+    "p": "fab",
+    "n": "fa-staylinked"
+  },
+  {
+    "p": "fab",
+    "n": "fa-steam"
+  },
+  {
+    "p": "fab",
+    "n": "fa-steam-square"
+  },
+  {
+    "p": "fab",
+    "n": "fa-steam-symbol"
+  },
+  {
+    "p": "fas",
+    "n": "fa-step-backward"
+  },
+  {
+    "p": "fas",
+    "n": "fa-step-forward"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sterling-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-stethoscope"
+  },
+  {
+    "p": "fab",
+    "n": "fa-sticker-mule"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sticky-note"
+  },
+  {
+    "p": "fas",
+    "n": "fa-stop"
+  },
+  {
+    "p": "fas",
+    "n": "fa-stop-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-stopwatch"
+  },
+  {
+    "p": "fas",
+    "n": "fa-stopwatch-20"
+  },
+  {
+    "p": "fas",
+    "n": "fa-store"
+  },
+  {
+    "p": "fas",
+    "n": "fa-store-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-store-alt-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-store-slash"
+  },
+  {
+    "p": "fab",
+    "n": "fa-strava"
+  },
+  {
+    "p": "fas",
+    "n": "fa-stream"
+  },
+  {
+    "p": "fas",
+    "n": "fa-street-view"
+  },
+  {
+    "p": "fas",
+    "n": "fa-strikethrough"
+  },
+  {
+    "p": "fab",
+    "n": "fa-stripe"
+  },
+  {
+    "p": "fab",
+    "n": "fa-stripe-s"
+  },
+  {
+    "p": "fas",
+    "n": "fa-stroopwafel"
+  },
+  {
+    "p": "fas",
+    "n": "fa-stubber"
+  },
+  {
+    "p": "fab",
+    "n": "fa-studiovinari"
+  },
+  {
+    "p": "fab",
+    "n": "fa-stumbleupon"
+  },
+  {
+    "p": "fab",
+    "n": "fa-stumbleupon-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-subscript"
+  },
+  {
+    "p": "fas",
+    "n": "fa-subtract"
+  },
+  {
+    "p": "fas",
+    "n": "fa-subway"
+  },
+  {
+    "p": "fas",
+    "n": "fa-suitcase"
+  },
+  {
+    "p": "fas",
+    "n": "fa-suitcase-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-suitcase-rolling"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sun"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sun-plant-wilt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-superpowers"
+  },
+  {
+    "p": "fas",
+    "n": "fa-superscript"
+  },
+  {
+    "p": "fab",
+    "n": "fa-supple"
+  },
+  {
+    "p": "fas",
+    "n": "fa-surprise"
+  },
+  {
+    "p": "fab",
+    "n": "fa-suse"
+  },
+  {
+    "p": "fas",
+    "n": "fa-swatchbook"
+  },
+  {
+    "p": "fab",
+    "n": "fa-swift"
+  },
+  {
+    "p": "fas",
+    "n": "fa-swimmer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-swimming-pool"
+  },
+  {
+    "p": "fab",
+    "n": "fa-symfony"
+  },
+  {
+    "p": "fas",
+    "n": "fa-synagogue"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sync"
+  },
+  {
+    "p": "fas",
+    "n": "fa-sync-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-syringe"
+  },
+  {
+    "p": "fas",
+    "n": "fa-t"
+  },
+  {
+    "p": "fas",
+    "n": "fa-t-shirt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-table"
+  },
+  {
+    "p": "fas",
+    "n": "fa-table-cells"
+  },
+  {
+    "p": "fas",
+    "n": "fa-table-cells-column-lock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-table-cells-large"
+  },
+  {
+    "p": "fas",
+    "n": "fa-table-cells-row-lock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-table-cells-row-unlock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-table-columns"
+  },
+  {
+    "p": "fas",
+    "n": "fa-table-list"
+  },
+  {
+    "p": "fas",
+    "n": "fa-table-tennis"
+  },
+  {
+    "p": "fas",
+    "n": "fa-table-tennis-paddle-ball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tablet"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tablet-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tablet-android"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tablet-button"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tablet-screen-button"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tablets"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tachograph-digital"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tachometer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tachometer-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tachometer-alt-average"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tachometer-alt-fast"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tachometer-average"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tachometer-fast"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tag"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tags"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tanakh"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tape"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tarp"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tarp-droplet"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tasks"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tasks-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-taxi"
+  },
+  {
+    "p": "fab",
+    "n": "fa-teamspeak"
+  },
+  {
+    "p": "fas",
+    "n": "fa-teeth"
+  },
+  {
+    "p": "fas",
+    "n": "fa-teeth-open"
+  },
+  {
+    "p": "fab",
+    "n": "fa-telegram"
+  },
+  {
+    "p": "fab",
+    "n": "fa-telegram-plane"
+  },
+  {
+    "p": "fas",
+    "n": "fa-teletype"
+  },
+  {
+    "p": "fas",
+    "n": "fa-television"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-0"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-1"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-2"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-3"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-4"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-arrow-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-arrow-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-empty"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-full"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-half"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-high"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-low"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-quarter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-three-quarters"
+  },
+  {
+    "p": "fas",
+    "n": "fa-temperature-up"
+  },
+  {
+    "p": "fab",
+    "n": "fa-tencent-weibo"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tenge"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tenge-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tent"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tent-arrow-down-to-line"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tent-arrow-left-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tent-arrow-turn-left"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tent-arrows-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tents"
+  },
+  {
+    "p": "fas",
+    "n": "fa-terminal"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tex"
+  },
+  {
+    "p": "fas",
+    "n": "fa-text-height"
+  },
+  {
+    "p": "fas",
+    "n": "fa-text-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-text-width"
+  },
+  {
+    "p": "fas",
+    "n": "fa-th"
+  },
+  {
+    "p": "fas",
+    "n": "fa-th-large"
+  },
+  {
+    "p": "fas",
+    "n": "fa-th-list"
+  },
+  {
+    "p": "fab",
+    "n": "fa-the-red-yeti"
+  },
+  {
+    "p": "fas",
+    "n": "fa-theater-masks"
+  },
+  {
+    "p": "fab",
+    "n": "fa-themeco"
+  },
+  {
+    "p": "fab",
+    "n": "fa-themeisle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thermometer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thermometer-0"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thermometer-1"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thermometer-2"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thermometer-3"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thermometer-4"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thermometer-empty"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thermometer-full"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thermometer-half"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thermometer-quarter"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thermometer-three-quarters"
+  },
+  {
+    "p": "fas",
+    "n": "fa-threads"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thumb-tack"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thumb-tack-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thumbs-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thumbs-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thumbtack"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thumbtack-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-thunderstorm"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ticket"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ticket-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ticket-simple"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tidal"
+  },
+  {
+    "p": "fab",
+    "n": "fa-tiktok"
+  },
+  {
+    "p": "fas",
+    "n": "fa-timeline"
+  },
+  {
+    "p": "fas",
+    "n": "fa-times"
+  },
+  {
+    "p": "fas",
+    "n": "fa-times-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-times-rectangle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-times-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tint"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tint-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tired"
+  },
+  {
+    "p": "fas",
+    "n": "fa-toggle-off"
+  },
+  {
+    "p": "fas",
+    "n": "fa-toggle-on"
+  },
+  {
+    "p": "fas",
+    "n": "fa-toilet"
+  },
+  {
+    "p": "fas",
+    "n": "fa-toilet-paper"
+  },
+  {
+    "p": "fas",
+    "n": "fa-toilet-paper-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-toilet-paper-blank"
+  },
+  {
+    "p": "fas",
+    "n": "fa-toilet-paper-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-toilet-portable"
+  },
+  {
+    "p": "fas",
+    "n": "fa-toilets-portable"
+  },
+  {
+    "p": "fas",
+    "n": "fa-toolbox"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tools"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tooth"
+  },
+  {
+    "p": "fas",
+    "n": "fa-torah"
+  },
+  {
+    "p": "fas",
+    "n": "fa-torii-gate"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tornado"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tower-broadcast"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tower-cell"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tower-observation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tractor"
+  },
+  {
+    "p": "fab",
+    "n": "fa-trade-federation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-trademark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-traffic-light"
+  },
+  {
+    "p": "fas",
+    "n": "fa-trailer"
+  },
+  {
+    "p": "fas",
+    "n": "fa-train"
+  },
+  {
+    "p": "fas",
+    "n": "fa-train-subway"
+  },
+  {
+    "p": "fas",
+    "n": "fa-train-tram"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tram"
+  },
+  {
+    "p": "fas",
+    "n": "fa-transgender"
+  },
+  {
+    "p": "fas",
+    "n": "fa-transgender-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-trash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-trash-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-trash-arrow-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-trash-can"
+  },
+  {
+    "p": "fas",
+    "n": "fa-trash-can-arrow-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-trash-restore"
+  },
+  {
+    "p": "fas",
+    "n": "fa-trash-restore-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tree"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tree-city"
+  },
+  {
+    "p": "fab",
+    "n": "fa-trello"
+  },
+  {
+    "p": "fas",
+    "n": "fa-triangle-circle-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-triangle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-trophy"
+  },
+  {
+    "p": "fas",
+    "n": "fa-trowel"
+  },
+  {
+    "p": "fas",
+    "n": "fa-trowel-bricks"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck-arrow-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck-droplet"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck-fast"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck-field"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck-field-un"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck-front"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck-loading"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck-medical"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck-monster"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck-moving"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck-pickup"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck-plane"
+  },
+  {
+    "p": "fas",
+    "n": "fa-truck-ramp-box"
+  },
+  {
+    "p": "fas",
+    "n": "fa-try"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tshirt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tty"
+  },
+  {
+    "p": "fab",
+    "n": "fa-tumblr"
+  },
+  {
+    "p": "fab",
+    "n": "fa-tumblr-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-turkish-lira"
+  },
+  {
+    "p": "fas",
+    "n": "fa-turkish-lira-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-turn-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-turn-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tv"
+  },
+  {
+    "p": "fas",
+    "n": "fa-tv-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-twitch"
+  },
+  {
+    "p": "fab",
+    "n": "fa-twitter"
+  },
+  {
+    "p": "fab",
+    "n": "fa-twitter-square"
+  },
+  {
+    "p": "fab",
+    "n": "fa-typo3"
+  },
+  {
+    "p": "fas",
+    "n": "fa-u"
+  },
+  {
+    "p": "fab",
+    "n": "fa-uber"
+  },
+  {
+    "p": "fab",
+    "n": "fa-ubuntu"
+  },
+  {
+    "p": "fab",
+    "n": "fa-uikit"
+  },
+  {
+    "p": "fas",
+    "n": "fa-ul"
+  },
+  {
+    "p": "fab",
+    "n": "fa-umbraco"
+  },
+  {
+    "p": "fas",
+    "n": "fa-umbrella"
+  },
+  {
+    "p": "fas",
+    "n": "fa-umbrella-beach"
+  },
+  {
+    "p": "fab",
+    "n": "fa-uncharted"
+  },
+  {
+    "p": "fas",
+    "n": "fa-underline"
+  },
+  {
+    "p": "fas",
+    "n": "fa-undo"
+  },
+  {
+    "p": "fas",
+    "n": "fa-undo-alt"
+  },
+  {
+    "p": "fab",
+    "n": "fa-uniregistry"
+  },
+  {
+    "p": "fab",
+    "n": "fa-unity"
+  },
+  {
+    "p": "fas",
+    "n": "fa-universal-access"
+  },
+  {
+    "p": "fas",
+    "n": "fa-university"
+  },
+  {
+    "p": "fas",
+    "n": "fa-unlink"
+  },
+  {
+    "p": "fas",
+    "n": "fa-unlock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-unlock-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-unlock-keyhole"
+  },
+  {
+    "p": "fas",
+    "n": "fa-unsorted"
+  },
+  {
+    "p": "fab",
+    "n": "fa-unsplash"
+  },
+  {
+    "p": "fab",
+    "n": "fa-untappd"
+  },
+  {
+    "p": "fas",
+    "n": "fa-up-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-up-down-left-right"
+  },
+  {
+    "p": "fas",
+    "n": "fa-up-long"
+  },
+  {
+    "p": "fas",
+    "n": "fa-up-right-and-down-left-from-center"
+  },
+  {
+    "p": "fas",
+    "n": "fa-up-right-from-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-upload"
+  },
+  {
+    "p": "fab",
+    "n": "fa-ups"
+  },
+  {
+    "p": "fas",
+    "n": "fa-upwork"
+  },
+  {
+    "p": "fab",
+    "n": "fa-usb"
+  },
+  {
+    "p": "fas",
+    "n": "fa-usd"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-alt-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-astronaut"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-clock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-cog"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-doctor"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-edit"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-friends"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-gear"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-graduate"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-group"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-injured"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-large"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-large-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-lock"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-md"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-minus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-ninja"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-nurse"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-pen"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-plus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-secret"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-shield"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-tag"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-tie"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-times"
+  },
+  {
+    "p": "fas",
+    "n": "fa-user-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-users"
+  },
+  {
+    "p": "fas",
+    "n": "fa-users-between-lines"
+  },
+  {
+    "p": "fas",
+    "n": "fa-users-cog"
+  },
+  {
+    "p": "fas",
+    "n": "fa-users-gear"
+  },
+  {
+    "p": "fas",
+    "n": "fa-users-line"
+  },
+  {
+    "p": "fas",
+    "n": "fa-users-rays"
+  },
+  {
+    "p": "fas",
+    "n": "fa-users-rectangle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-users-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-users-viewfinder"
+  },
+  {
+    "p": "fab",
+    "n": "fa-usps"
+  },
+  {
+    "p": "fab",
+    "n": "fa-ussunnah"
+  },
+  {
+    "p": "fas",
+    "n": "fa-utensil-spoon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-utensils"
+  },
+  {
+    "p": "fas",
+    "n": "fa-v"
+  },
+  {
+    "p": "fab",
+    "n": "fa-vaadin"
+  },
+  {
+    "p": "fas",
+    "n": "fa-van-shuttle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-vault"
+  },
+  {
+    "p": "fas",
+    "n": "fa-vcard"
+  },
+  {
+    "p": "fas",
+    "n": "fa-vector-polygon"
+  },
+  {
+    "p": "fas",
+    "n": "fa-venus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-venus-double"
+  },
+  {
+    "p": "fas",
+    "n": "fa-venus-mars"
+  },
+  {
+    "p": "fas",
+    "n": "fa-vest"
+  },
+  {
+    "p": "fas",
+    "n": "fa-vest-patches"
+  },
+  {
+    "p": "fab",
+    "n": "fa-viacoin"
+  },
+  {
+    "p": "fab",
+    "n": "fa-viadeo"
+  },
+  {
+    "p": "fab",
+    "n": "fa-viadeo-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-vial"
+  },
+  {
+    "p": "fas",
+    "n": "fa-vial-circle-check"
+  },
+  {
+    "p": "fas",
+    "n": "fa-vial-virus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-vials"
+  },
+  {
+    "p": "fab",
+    "n": "fa-viber"
+  },
+  {
+    "p": "fab",
+    "n": "fa-video"
+  },
+  {
+    "p": "fas",
+    "n": "fa-video-camera"
+  },
+  {
+    "p": "fas",
+    "n": "fa-video-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-vihara"
+  },
+  {
+    "p": "fab",
+    "n": "fa-vimeo"
+  },
+  {
+    "p": "fab",
+    "n": "fa-vimeo-square"
+  },
+  {
+    "p": "fab",
+    "n": "fa-vimeo-v"
+  },
+  {
+    "p": "fab",
+    "n": "fa-vine"
+  },
+  {
+    "p": "fas",
+    "n": "fa-virus"
+  },
+  {
+    "p": "fas",
+    "n": "fa-virus-covid"
+  },
+  {
+    "p": "fas",
+    "n": "fa-virus-covid-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-virus-slash"
+  },
+  {
+    "p": "fas",
+    "n": "fa-viruses"
+  },
+  {
+    "p": "fab",
+    "n": "fa-vk"
+  },
+  {
+    "p": "fab",
+    "n": "fa-vnv"
+  },
+  {
+    "p": "fas",
+    "n": "fa-voicemail"
+  },
+  {
+    "p": "fas",
+    "n": "fa-volcano"
+  },
+  {
+    "p": "fas",
+    "n": "fa-volleyball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-volleyball-ball"
+  },
+  {
+    "p": "fas",
+    "n": "fa-volume-control-phone"
+  },
+  {
+    "p": "fas",
+    "n": "fa-volume-down"
+  },
+  {
+    "p": "fas",
+    "n": "fa-volume-high"
+  },
+  {
+    "p": "fas",
+    "n": "fa-volume-low"
+  },
+  {
+    "p": "fas",
+    "n": "fa-volume-mute"
+  },
+  {
+    "p": "fas",
+    "n": "fa-volume-off"
+  },
+  {
+    "p": "fas",
+    "n": "fa-volume-times"
+  },
+  {
+    "p": "fas",
+    "n": "fa-volume-up"
+  },
+  {
+    "p": "fas",
+    "n": "fa-volume-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-vote-yea"
+  },
+  {
+    "p": "fas",
+    "n": "fa-vr-cardboard"
+  },
+  {
+    "p": "fas",
+    "n": "fa-vsco"
+  },
+  {
+    "p": "fab",
+    "n": "fa-vuejs"
+  },
+  {
+    "p": "fas",
+    "n": "fa-w"
+  },
+  {
+    "p": "fas",
+    "n": "fa-w3c"
+  },
+  {
+    "p": "fas",
+    "n": "fa-walkie-talkie"
+  },
+  {
+    "p": "fas",
+    "n": "fa-walking"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wallet"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wand-magic"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wand-magic-sparkles"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wand-sparkles"
+  },
+  {
+    "p": "fas",
+    "n": "fa-warehouse"
+  },
+  {
+    "p": "fas",
+    "n": "fa-warning"
+  },
+  {
+    "p": "fab",
+    "n": "fa-watchman-monitoring"
+  },
+  {
+    "p": "fas",
+    "n": "fa-water"
+  },
+  {
+    "p": "fas",
+    "n": "fa-water-ladder"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wave-square"
+  },
+  {
+    "p": "fab",
+    "n": "fa-waze"
+  },
+  {
+    "p": "fas",
+    "n": "fa-web-awesome"
+  },
+  {
+    "p": "fas",
+    "n": "fa-webflow"
+  },
+  {
+    "p": "fab",
+    "n": "fa-weebly"
+  },
+  {
+    "p": "fab",
+    "n": "fa-weibo"
+  },
+  {
+    "p": "fas",
+    "n": "fa-weight"
+  },
+  {
+    "p": "fas",
+    "n": "fa-weight-hanging"
+  },
+  {
+    "p": "fas",
+    "n": "fa-weight-scale"
+  },
+  {
+    "p": "fab",
+    "n": "fa-weixin"
+  },
+  {
+    "p": "fab",
+    "n": "fa-whatsapp"
+  },
+  {
+    "p": "fab",
+    "n": "fa-whatsapp-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wheat-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wheat-awn"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wheat-awn-circle-exclamation"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wheelchair"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wheelchair-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wheelchair-move"
+  },
+  {
+    "p": "fas",
+    "n": "fa-whiskey-glass"
+  },
+  {
+    "p": "fab",
+    "n": "fa-whmcs"
+  },
+  {
+    "p": "fas",
+    "n": "fa-width-auto"
+  },
+  {
+    "p": "fas",
+    "n": "fa-width-fixed"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wifi"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wifi-3"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wifi-strong"
+  },
+  {
+    "p": "fab",
+    "n": "fa-wikipedia-w"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wind"
+  },
+  {
+    "p": "fas",
+    "n": "fa-window-close"
+  },
+  {
+    "p": "fas",
+    "n": "fa-window-maximize"
+  },
+  {
+    "p": "fas",
+    "n": "fa-window-minimize"
+  },
+  {
+    "p": "fas",
+    "n": "fa-window-restore"
+  },
+  {
+    "p": "fab",
+    "n": "fa-windows"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wine-bottle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wine-glass"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wine-glass-alt"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wine-glass-empty"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wirsindhandwerk"
+  },
+  {
+    "p": "fab",
+    "n": "fa-wix"
+  },
+  {
+    "p": "fab",
+    "n": "fa-wizards-of-the-coast"
+  },
+  {
+    "p": "fab",
+    "n": "fa-wodu"
+  },
+  {
+    "p": "fab",
+    "n": "fa-wolf-pack-battalion"
+  },
+  {
+    "p": "fas",
+    "n": "fa-won"
+  },
+  {
+    "p": "fas",
+    "n": "fa-won-sign"
+  },
+  {
+    "p": "fab",
+    "n": "fa-wordpress"
+  },
+  {
+    "p": "fab",
+    "n": "fa-wordpress-simple"
+  },
+  {
+    "p": "fas",
+    "n": "fa-worm"
+  },
+  {
+    "p": "fab",
+    "n": "fa-wpbeginner"
+  },
+  {
+    "p": "fab",
+    "n": "fa-wpexplorer"
+  },
+  {
+    "p": "fab",
+    "n": "fa-wpforms"
+  },
+  {
+    "p": "fab",
+    "n": "fa-wpressr"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wrench"
+  },
+  {
+    "p": "fas",
+    "n": "fa-wsh"
+  },
+  {
+    "p": "fas",
+    "n": "fa-x"
+  },
+  {
+    "p": "fas",
+    "n": "fa-x-ray"
+  },
+  {
+    "p": "fas",
+    "n": "fa-x-twitter"
+  },
+  {
+    "p": "fab",
+    "n": "fa-xbox"
+  },
+  {
+    "p": "fab",
+    "n": "fa-xing"
+  },
+  {
+    "p": "fab",
+    "n": "fa-xing-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-xl"
+  },
+  {
+    "p": "fas",
+    "n": "fa-xmark"
+  },
+  {
+    "p": "fas",
+    "n": "fa-xmark-circle"
+  },
+  {
+    "p": "fas",
+    "n": "fa-xmark-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-xmarks-lines"
+  },
+  {
+    "p": "fas",
+    "n": "fa-y"
+  },
+  {
+    "p": "fab",
+    "n": "fa-y-combinator"
+  },
+  {
+    "p": "fab",
+    "n": "fa-yahoo"
+  },
+  {
+    "p": "fab",
+    "n": "fa-yammer"
+  },
+  {
+    "p": "fab",
+    "n": "fa-yandex"
+  },
+  {
+    "p": "fab",
+    "n": "fa-yandex-international"
+  },
+  {
+    "p": "fab",
+    "n": "fa-yarn"
+  },
+  {
+    "p": "fab",
+    "n": "fa-yelp"
+  },
+  {
+    "p": "fas",
+    "n": "fa-yen"
+  },
+  {
+    "p": "fas",
+    "n": "fa-yen-sign"
+  },
+  {
+    "p": "fas",
+    "n": "fa-yin-yang"
+  },
+  {
+    "p": "fab",
+    "n": "fa-yoast"
+  },
+  {
+    "p": "fab",
+    "n": "fa-youtube"
+  },
+  {
+    "p": "fab",
+    "n": "fa-youtube-square"
+  },
+  {
+    "p": "fas",
+    "n": "fa-z"
+  },
+  {
+    "p": "fas",
+    "n": "fa-zap"
+  },
+  {
+    "p": "fab",
+    "n": "fa-zhihu"
+  }
+]

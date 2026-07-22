@@ -1,0 +1,26 @@
+<!--begin::Card widget 18-->
+@include('partials.widgets.cards._widget-15', [
+    'useOverlayImage' => false,
+    'plainImageClass' => 'bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-400px min-h-sm-100 h-100',
+    'plainImageStyle' => "background-size: 100% 100%;background-image:url('assets/media/stock/600x600/img-65.jpg')",
+    'headerVariant' => 'stack_badge',
+    'metaText' => 'Featured',
+    'titleText' => '9 Degree',
+    'headerBadgeText' => 'In Process',
+    'item1Label' => 'Manager',
+    'item1Value' => 'Robert Fox',
+    'item1Href' => 'pages/user-profile/overview.html',
+    'item2Label' => 'Budget',
+    'item2Value' => '$64.800',
+    'item2IsLink' => false,
+    'bodyVariant' => 'description_stats',
+    'descriptionText' => 'Flat cartoony illustrations with vivid unblended colors and asymmetrical beautiful purple hair lady',
+    'stat1Value' => 'Feb 6, 2021',
+    'stat1Label' => 'Due Date',
+    'stat2CountupValue' => '284,900.00',
+    'stat2Label' => 'Budget',
+    'footerVariant' => 'users_link',
+    'projectLinkText' => 'View Project',
+    'projectLinkHref' => 'apps/projects/project.html',
+])
+<!--end::Card widget 18-->

@@ -1,0 +1,17 @@
+@include('partials.widgets.mixed._widget-7', [
+    'widgetNumber' => 10,
+    'cardBodyClass' => 'p-0 d-flex justify-content-between flex-column overflow-hidden',
+    'headerWrapClass' => 'd-flex flex-stack flex-wrap flex-grow-1 px-9 pt-9 pb-3',
+    'title' => 'Sales',
+    'titleTag' => 'span',
+    'titleClass' => 'fw-bold text-gray-800 d-block fs-3',
+    'subtitle' => 'Oct 8 - Oct 26 24',
+    'subtitleTag' => 'span',
+    'subtitleClass' => 'text-gray-500 fw-bold',
+    'value' => '$15,300',
+    'valueClass' => 'fw-bold fs-3 text-info',
+    'chartClass' => 'mixed-widget-10-chart',
+    'chartDataColorAttr' => 'data-kt-color',
+    'chartColor' => 'info',
+    'chartStyle' => 'height: 200px',
+])

@@ -1,0 +1,2132 @@
+@extends('layouts.document832')
+@section('styles')
+    <link href="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.css') }}" rel="stylesheet" type="text/css" />
+@endsection
+@section('content')
+    <!--begin::Content-->
+    <div class="docs-content d-flex flex-column flex-column-fluid" id="kt_docs_content">
+        <!--begin::Container-->
+        <div class="container d-flex flex-column flex-lg-row" id="kt_docs_content_container">
+            <!--begin::Card-->
+            <div class="card card-docs flex-row-fluid mb-2" id="kt_docs_content_card">
+                <!--begin::Card Body-->
+                <div class="card-body fs-6 py-15 px-10 py-lg-15 px-lg-15 text-gray-700">
+                    <!--begin::Section-->
+                    <div class="pb-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="bootstrap-buttons" data-kt-scroll-offset="50">
+                            <a href="#bootstrap-buttons"></a>
+
+                            Bootstrap Buttons
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Metronic customizes the
+                            <a href="https://getbootstrap.com/docs/5.2/components/buttons/" class="fw-semibold">Bootstrap
+                                Buttons</a>&nbsp;
+                            through the SASS variables in <code>src/sass/components/_variables.scss</code> and adds
+                            additonal options in <code>src/sass/components/buttons/</code>.
+                        </div>
+                        <!--end::Block-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="pb-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="base-buttons" data-kt-scroll-offset="50">
+                            <a href="#base-buttons"></a>
+
+                            Base Buttons
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <code>.btn-{color}</code> Bootstrap Button class to set base button base color
+                            defined with <code>$theme-colors</code> mapped in
+                            <code>src/sass/components/_variables.scss</code>:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-light me-2 mb-2">Light</a>
+                                <a href="javascript:void(0)" class="btn btn-primary me-2 mb-2">Primary</a>
+                                <a href="javascript:void(0)" class="btn btn-secondary me-2 mb-2">Secondary</a>
+                                <a href="javascript:void(0)" class="btn btn-success me-2 mb-2">Success</a>
+                                <a href="javascript:void(0)" class="btn btn-info me-2 mb-2">Info</a>
+                                <a href="javascript:void(0)" class="btn btn-warning me-2 mb-2">Warning</a>
+                                <a href="javascript:void(0)" class="btn btn-danger me-2 mb-2">Danger</a>
+                                <a href="javascript:void(0)" class="btn btn-dark me-2 mb-2">Dark</a>
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-light&quot;&gt;Light&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-primary&quot;&gt;Primary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-secondary&quot;&gt;Secondary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-success&quot;&gt;Success&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-info&quot;&gt;Info&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-warning&quot;&gt;Warning&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-danger&quot;&gt;Danger&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-dark&quot;&gt;Dark&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="py-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="hover-effects" data-kt-scroll-offset="50">
+                            <a href="#hover-effects"></a>
+
+                            Hover Effects
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use hover classess to set variouse effects for a button. For more info check out the <a
+                                href="/docs/base/hover" class="fw-semibold">Hover</a>&nbsp;component
+                            docs.
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="d-flex rounded border p-10 gap-5">
+                                <a href="javascript:void(0)" class="btn btn-primary hover-elevate-up">Elevate up</a>
+
+                                <a href="javascript:void(0)" class="btn btn-primary hover-elevate-down">Elevate down</a>
+
+                                <a href="javascript:void(0)" class="btn btn-danger hover-scale">Scale</a>
+
+                                <a href="javascript:void(0)" class="btn btn-success hover-rotate-end">Rotate to end</a>
+
+                                <a href="javascript:void(0)" class="btn btn-warning hover-rotate-start">Rotate to start</a>
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-primary hover-elevate-up&quot;&gt;Elevate up&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-primary hover-elevate-down&quot;&gt;Elevate down&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-danger hover-scale&quot;&gt;Scale&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-success hover-rotate-end&quot;&gt;Rotate to end&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-warning hover-rotate-start&quot;&gt;Rotate to start&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="py-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="light-style" data-kt-scroll-offset="50">
+                            <a href="#light-style"></a>
+
+                            Light Style
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <code>.btn-light-{color}</code> Bootstrap Button class to set a button's light style
+                            defined with <code>$theme-light-colors</code> mapped in
+                            <code>src/sass/components/_variables.scss</code>:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-light-primary me-2 mb-2">Primary</a>
+
+                                <a href="javascript:void(0)" class="btn btn-light-secondary me-2 mb-2">Secondary</a>
+
+                                <a href="javascript:void(0)" class="btn btn-light-success me-2 mb-2">Success</a>
+
+                                <a href="javascript:void(0)" class="btn btn-light-info me-2 mb-2">Info</a>
+
+                                <a href="javascript:void(0)" class="btn btn-light-warning me-2 mb-2">Warning</a>
+
+                                <a href="javascript:void(0)" class="btn btn-light-danger me-2 mb-2">Danger</a>
+
+                                <a href="javascript:void(0)" class="btn btn-light-dark me-2 mb-2">Dark</a>
+
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-light-primary&quot;&gt;Primary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-light-secondary&quot;&gt;Secondary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-light-success&quot;&gt;Success&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-light-info&quot;&gt;Info&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-light-warning&quot;&gt;Warning&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-light-danger&quot;&gt;Danger&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-light-dark&quot;&gt;Dark&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="py-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="bg-style" data-kt-scroll-offset="50">
+                            <a href="#bg-style"></a>
+
+                            Background Style
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <code>.btn-bg-{color}</code> Bootstrap Button class to set a button's background
+                            color only without hover or active states:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-bg-light text-inverse-light me-2 mb-2">Light</a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-primary text-inverse-primary me-2 mb-2">Primary</a>
+
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-secondary text-inverse-secondary me-2 mb-2">Secondary</a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-success text-inverse-success me-2 mb-2">Success</a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-info text-inverse-info me-2 mb-2">Info</a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-warning text-inverse-warning me-2 mb-2">Warning</a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-danger text-inverse-danger me-2 mb-2">Danger</a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-dark text-inverse-dark me-2 mb-2">Dark</a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-body text-inverse-body me-2 mb-2">Body</a>
+
+
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light&quot;&gt;Light&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-primary&quot;&gt;Primary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-secondary&quot;&gt;Secondary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-success&quot;&gt;Success&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-info&quot;&gt;Info&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-warning&quot;&gt;Warning&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-danger&quot;&gt;Danger&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-dark&quot;&gt;Dark&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn bg-body&quot;&gt;Body&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="py-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="outline-dashed-style" data-kt-scroll-offset="50">
+                            <a href="#outline-dashed-style"></a>
+
+                            Outline Dashed Style
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <code>.btn-outline</code> and <code>.btn-outline-dashed</code> Bootstrap Button
+                            classes with the standard outline theme color <code>.btn-outline-{color}</code> and
+                            <code>.btn-active-light-{color}</code> classes to have a button with outline dashed
+                            border style:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-outline btn-outline-dashed me-2 mb-2">Default</a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-outline btn-outline-dashed btn-outline-primary btn-active-light-primary me-2 mb-2">Primary</a>
+                                <a href="javascript:void(0)"
+                                    class="btn btn-outline btn-outline-dashed btn-outline-secondary btn-active-light-secondary me-2 mb-2">Secondary</a>
+                                <a href="javascript:void(0)"
+                                    class="btn btn-outline btn-outline-dashed btn-outline-success btn-active-light-success me-2 mb-2">Success</a>
+                                <a href="javascript:void(0)"
+                                    class="btn btn-outline btn-outline-dashed btn-outline-info btn-active-light-info me-2 mb-2">Info</a>
+                                <a href="javascript:void(0)"
+                                    class="btn btn-outline btn-outline-dashed btn-outline-warning btn-active-light-warning me-2 mb-2">Warning</a>
+                                <a href="javascript:void(0)"
+                                    class="btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger me-2 mb-2">Danger</a>
+                                <a href="javascript:void(0)"
+                                    class="btn btn-outline btn-outline-dashed btn-outline-dark btn-active-light-dark me-2 mb-2">Dark</a>
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-outline btn-outline-dashed me-2 mb-2&quot;&gt;Default&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-outline btn-outline-dashed btn-outline-primary btn-active-light-primary&quot;&gt;Primary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-outline btn-outline-dashed btn-outline-secondary btn-active-light-secondary&quot;&gt;Secondary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-outline btn-outline-dashed btn-outline-success btn-active-light-success&quot;&gt;Success&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-outline btn-outline-dashed btn-outline-info btn-active-light-info&quot;&gt;Info&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-outline btn-outline-dashed btn-outline-warning btn-active-light-warning&quot;&gt;Warning&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-outline btn-outline-dashed btn-outline-danger btn-active-light-danger&quot;&gt;Danger&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-outline btn-outline-dashed btn-outline-dark btn-active-light-dark&quot;&gt;Dark&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="py-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="color-style" data-kt-scroll-offset="50">
+                            <a href="#color-style"></a>
+
+                            Color Style
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <code>.btn-color-{text-color}</code> Bootstrap Button class to set a button's text
+                            and icon colors only:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+
+                                <a href="javascript:void(0)" class="btn btn-bg-secondary btn-color-white me-2 mb-2">White</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-primary me-2 mb-2">Primary</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-secondary me-2 mb-2">Secondary</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-secondary btn-color-light me-2 mb-2">Light</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-success me-2 mb-2">Success</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-info me-2 mb-2">Info</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-warning me-2 mb-2">Warning</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-danger me-2 mb-2">Danger</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-dark me-2 mb-2">Dark</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-muted me-2 mb-2">Muted</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-secondary btn-color-gray-100 me-2 mb-2">Gray-100</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-secondary btn-color-gray-200 me-2 mb-2">Gray-200</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-secondary btn-color-gray-300 me-2 mb-2">Gray-300</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-gray-400 me-2 mb-2">Gray-400</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-gray-500 me-2 mb-2">Gray-500</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-gray-600 me-2 mb-2">Gray-600</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-gray-700 me-2 mb-2">Gray-700</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-gray-800 me-2 mb-2">Gray-800</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-color-gray-900 me-2 mb-2">Gray-900</a>
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html" style="height:300px"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-secondary btn-color-white&quot;&gt;White&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-primary&quot;&gt;Primary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-secondary&quot;&gt;Secondary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-secondary btn-color-light&quot;&gt;Light&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-success&quot;&gt;Success&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-info&quot;&gt;Info&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-warning&quot;&gt;Warning&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-danger&quot;&gt;Danger&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-dark&quot;&gt;Dark&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-muted&quot;&gt;Muted&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-secondary btn-color-gray-100&quot;&gt;Gray-100&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-secondary btn-color-gray-200&quot;&gt;Gray-200&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-secondary btn-color-gray-300&quot;&gt;Gray-300&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-gray-400&quot;&gt;Gray-400&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-gray-500&quot;&gt;Gray-500&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-gray-600&quot;&gt;Gray-600&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-gray-700&quot;&gt;Gray-700&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-gray-800&quot;&gt;Gray-800&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-color-gray-900&quot;&gt;Gray-900&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="py-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="icon-and-text-color-styles" data-kt-scroll-offset="50">
+                            <a href="#icon-and-text-color-styles"></a>
+
+                            Icon & Text Color Styles
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <code>.btn-icon-{text-color}</code> and <code>.btn-text-{text-color}</code>
+                            Bootstrap Button classes to set a button's icon and text colors separately:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+
+                                <a href="javascript:void(0)" class="btn btn-bg-secondary btn-icon-white btn-text-white me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> White </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-icon-primary btn-text-primary me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Primary </a>
+
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-icon-secondary btn-text-secondary me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Secondary </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-secondary btn-icon-light btn-text-light me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Light </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-icon-success btn-text-success me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Success </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-icon-info btn-text-info me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Info </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-icon-warning btn-text-warning me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Warning </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-icon-danger btn-text-danger me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Danger </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-icon-dark btn-text-dark me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Dark </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-icon-muted btn-text-muted me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Muted </a>
+
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-secondary btn-icon-gray-100 btn-text-gray-100 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-100 </a>
+
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-secondary btn-icon-gray-200 btn-text-gray-200 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-200 </a>
+
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-secondary btn-icon-gray-300 btn-text-gray-300 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-300 </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-icon-gray-400 btn-text-gray-400 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-400 </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-icon-gray-500 btn-text-gray-500 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-500 </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-icon-gray-600 btn-text-gray-600 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-600 </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-icon-gray-700 btn-text-gray-700 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-700 </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-icon-gray-800 btn-text-gray-800 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-800 </a>
+
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-icon-gray-900 btn-text-gray-900 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-900 </a>
+
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html" style="height:300px"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-white btn-text-white&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ White
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-primary btn-text-primary&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Primary
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-secondary btn-text-secondary&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Secondary
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-light btn-text-light&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Light
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-success btn-text-success&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Success
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-info btn-text-info&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Info
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-warning btn-text-warning&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Warning
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-danger btn-text-danger&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Danger
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-dark btn-text-dark&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Dark
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-muted btn-text-muted&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Muted
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-gray-100 btn-text-gray-100&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-100
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-gray-200 btn-text-gray-200&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-200
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-gray-300 btn-text-gray-300&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-300
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-gray-400 btn-text-gray-400&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-400
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-gray-500 btn-text-gray-500&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-500
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-gray-600 btn-text-gray-600&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-600
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-gray-700 btn-text-gray-700&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-700
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-gray-800 btn-text-gray-800&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-800
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon-gray-900 btn-text-gray-900&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-900
+&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="py-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="active-style" data-kt-scroll-offset="50">
+                            <a href="#active-style"></a>
+
+                            Active Style
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <code>.btn-active-{color}</code> Bootstrap Button class to set a button's color for
+                            active & hover states only:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-active-light me-2 mb-2">Light</a>
+
+                                <a href="javascript:void(0)" class="btn btn-active-primary me-2 mb-2">Primary</a>
+
+                                <a href="javascript:void(0)" class="btn btn-active-secondary me-2 mb-2">Secondary</a>
+
+                                <a href="javascript:void(0)" class="btn btn-active-success me-2 mb-2">Success</a>
+
+                                <a href="javascript:void(0)" class="btn btn-active-info me-2 mb-2">Info</a>
+
+                                <a href="javascript:void(0)" class="btn btn-active-warning me-2 mb-2">Warning</a>
+
+                                <a href="javascript:void(0)" class="btn btn-active-danger me-2 mb-2">Danger</a>
+
+                                <a href="javascript:void(0)" class="btn btn-active-dark me-2 mb-2">Dark</a>
+
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-active-light&quot;&gt;Light&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-primary&quot;&gt;Primary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-secondary&quot;&gt;Secondary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-success&quot;&gt;Success&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-info&quot;&gt;Info&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-warning&quot;&gt;Warning&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-danger&quot;&gt;Danger&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-dark&quot;&gt;Dark&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="py-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="active-light-style" data-kt-scroll-offset="50">
+                            <a href="#active-light-style"></a>
+
+                            Active Light Style
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <code>.btn-active-light-{color}</code> Bootstrap Button class to set a button's
+                            light color for active & hover states only:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-active-light-primary me-2 mb-2">Primary</a>
+
+                                <a href="javascript:void(0)" class="btn btn-active-light-secondary me-2 mb-2">Secondary</a>
+
+                                <a href="javascript:void(0)" class="btn btn-active-light-success me-2 mb-2">Success</a>
+
+                                <a href="javascript:void(0)" class="btn btn-active-light-info me-2 mb-2">Info</a>
+
+                                <a href="javascript:void(0)" class="btn btn-active-light-warning me-2 mb-2">Warning</a>
+
+                                <a href="javascript:void(0)" class="btn btn-active-light-danger me-2 mb-2">Danger</a>
+
+                                <a href="javascript:void(0)" class="btn btn-active-light-dark me-2 mb-2">Dark</a>
+
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-active-light-primary&quot;&gt;Primary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-light-secondary&quot;&gt;Secondary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-light-success&quot;&gt;Success&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-light-info&quot;&gt;Info&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-light-warning&quot;&gt;Warning&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-light-danger&quot;&gt;Danger&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-light-dark&quot;&gt;Dark&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="py-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="active-color-style" data-kt-scroll-offset="50">
+                            <a href="#active-color-style"></a>
+
+                            Active Color Style
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <code>.btn-active-color-{color}</code> Bootstrap Button class to set a button's text
+                            and icon colors for active and hover states only:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-active-color-white me-2 mb-2">White</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-active-color-primary me-2 mb-2">Primary</a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-color-secondary me-2 mb-2">Secondary</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-active-color-light me-2 mb-2">Light</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-active-color-success me-2 mb-2">Success</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-active-color-info me-2 mb-2">Info</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-active-color-warning me-2 mb-2">Warning</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-active-color-danger me-2 mb-2">Danger</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-active-color-dark me-2 mb-2">Dark</a>
+
+                                <a href="javascript:void(0)" class="btn btn-bg-light btn-active-color-muted me-2 mb-2">Muted</a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-color-gray-100 me-2 mb-2">Gray-100</a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-color-gray-200 me-2 mb-2">Gray-200</a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-color-gray-300 me-2 mb-2">Gray-300</a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-color-gray-400 me-2 mb-2">Gray-400</a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-color-gray-500 me-2 mb-2">Gray-500</a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-color-gray-600 me-2 mb-2">Gray-600</a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-color-gray-700 me-2 mb-2">Gray-700</a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-color-gray-800 me-2 mb-2">Gray-800</a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-color-gray-900 me-2 mb-2">Gray-900</a>
+
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html" style="height:400px"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-white&quot;&gt;White&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-primary&quot;&gt;Primary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-secondary&quot;&gt;Secondary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-light&quot;&gt;Light&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-success&quot;&gt;Success&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-info&quot;&gt;Info&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-warning&quot;&gt;Warning&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-danger&quot;&gt;Danger&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-dark&quot;&gt;Dark&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-muted&quot;&gt;Muted&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-gray-100&quot;&gt;Gray-100&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-gray-200&quot;&gt;Gray-200&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-gray-300&quot;&gt;Gray-300&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-gray-400&quot;&gt;Gray-400&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-gray-500&quot;&gt;Gray-500&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-gray-600&quot;&gt;Gray-600&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-gray-700&quot;&gt;Gray-700&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-gray-800&quot;&gt;Gray-800&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-bg-light btn-active-color-gray-900&quot;&gt;Gray-900&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="py-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="active-icon-and-color-style" data-kt-scroll-offset="50">
+                            <a href="#active-icon-and-color-style"></a>
+
+                            Active Icon & Text Color Styles
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <code>.btn-active-icon-{color}</code> and <code>.btn-active-text-{color}</code>
+                            Bootstrap Button classes to set a button's icon and text colors separately for active
+                            and hover states:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-white btn-active-text-white me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> White </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-primary btn-active-text-primary me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Primary </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-secondary btn-active-text-secondary me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Secondary </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-light btn-active-text-light me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Light </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-success btn-active-text-success me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Success </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-info btn-active-text-info me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Info </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-warning btn-active-text-warning me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Warning </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-danger btn-active-text-danger me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Danger </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-dark btn-active-text-dark me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Dark </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-muted btn-active-text-muted me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Muted </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-gray-100 btn-active-text-gray-100 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-100 </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-gray-200 btn-active-text-gray-200 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-200 </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-gray-300 btn-active-text-gray-300 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-300 </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-gray-400 btn-active-text-gray-400 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-400 </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-gray-500 btn-active-text-gray-500 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-500 </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-gray-600 btn-active-text-gray-600 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-600 </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-gray-700 btn-active-text-gray-700 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-700 </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-gray-800 btn-active-text-gray-800 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-800 </a>
+
+                                <a href="javascript:void(0)"
+                                    class="btn btn-bg-light btn-active-icon-gray-900 btn-active-text-gray-900 me-2 mb-2">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Gray-900 </a>
+
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html" style="height:400px"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-white btn-text-white&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ White
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-primary btn-text-primary&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Primary
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-secondary btn-text-secondary&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Secondary
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-light btn-text-light&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Light
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-success btn-text-success&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Success
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-info btn-text-info&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Info
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-warning btn-text-warning&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Warning
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-danger btn-text-danger&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Danger
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-dark btn-text-dark&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Dark
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-muted btn-text-muted&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Muted
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-gray-100 btn-text-gray-100&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-100
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-gray-200 btn-text-gray-200&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-200
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-gray-300 btn-text-gray-300&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-300
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-gray-400 btn-text-gray-400&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-400
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-gray-500 btn-text-gray-500&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-500
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-gray-600 btn-text-gray-600&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-600
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-gray-700 btn-text-gray-700&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-700
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-gray-800 btn-text-gray-800&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-800
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-active-icon-gray-900 btn-text-gray-900&quot;&gt;
+ &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+ Gray-900
+&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="pb-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="sizes" data-kt-scroll-offset="50">
+                            <a href="#sizes"></a>
+
+                            Sizes
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Apply <code>.btn-xs</code> and <code>.btn-lg</code> classes to use small and large
+                            button options:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border d-flex align-items-center gap-5 p-10">
+                                <a href="javascript:void(0)" class="btn btn-primary btn-sm">Small</a>
+                                <a href="javascript:void(0)" class="btn btn-primary">Default</a>
+                                <a href="javascript:void(0)" class="btn btn-primary btn-lg">Large</a>
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html"></code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="py-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="icons" data-kt-scroll-offset="50">
+                            <a href="#icons"></a>
+
+                            Icons
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Duotune examples-->
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use our exclusive <a href="/docs/icons/keenicons" class="fw-semibold">Keenicons</a>&nbsp;set
+                            in conbination with buttons as shown
+                            below:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-primary me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i>
+                                    Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-secondary me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i>
+                                    Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-success me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i>
+                                    Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-info me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i>
+                                    Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-warning me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i>
+                                    Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-danger me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i>
+                                    Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-dark me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i>
+                                    Caption
+                                </a>
+
+                                <div class="separator my-10"></div>
+
+
+                                <a href="javascript:void(0)" class="btn btn-icon btn-primary me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i> </a>
+
+                                <a href="javascript:void(0)" class="btn btn-icon btn-secondary me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i> </a>
+
+                                <a href="javascript:void(0)" class="btn btn-icon btn-success me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i> </a>
+
+                                <a href="javascript:void(0)" class="btn btn-icon btn-info me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i> </a>
+
+                                <a href="javascript:void(0)" class="btn btn-icon btn-warning me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i> </a>
+
+                                <a href="javascript:void(0)" class="btn btn-icon btn-danger me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i> </a>
+
+                                <a href="javascript:void(0)" class="btn btn-icon btn-dark me-2 mb-2">
+                                    <i class="ki-duotone ki-chart-simple-2 fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i> </a>
+
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="pt-5 pb-20">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html" style="height:400px"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-primary&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+Caption
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-secondary&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+Caption
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-success&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+Caption
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-info&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+Caption
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-warning&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+Caption
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-danger&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+Caption
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-dark&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+Caption
+&lt;/a&gt;
+
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-primary&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-secondary&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-success&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-info&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-warning&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-danger&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-dark&quot;&gt;
+&lt;i class=&quot;ki-duotone ki-chart-simple-2 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path3&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path4&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                        <!--end::Duotune examples-->
+
+                        <!--begin::Bootstrap icons examples-->
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <a href="/docs/icons/bootstrap-icons" class="fw-semibold">Bootstrap
+                                Icons</a>&nbsp;in conbination with buttons as shown below:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-primary me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-secondary me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-success me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-info me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-warning me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-danger me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-dark me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4 me-2"></i> Caption
+                                </a>
+
+                                <div class="separator my-10"></div>
+
+
+                                <a href="javascript:void(0)" class="btn btn-icon btn-primary me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-secondary me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-success me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-info me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-warning me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-danger me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-dark me-2 mb-2">
+                                    <i class="bi bi-chat-square-text-fill fs-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="pt-5 pb-20">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-primary&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-secondary&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-success&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-info&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-warning&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-danger&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-dark&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-primary&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-secondary&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-success&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-info&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-warning&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-danger&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-dark&quot;&gt;&lt;i class=&quot;bi bi-chat-square-text-fill fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                        <!--end::Bootstrap icons examples-->
+
+                        <!--begin::Font-awesome examples-->
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <a href="/docs/icons/font-awesome" class="fw-semibold">Font Awesome
+                                Icons</a>&nbsp;in conbination with buttons as shown below:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-primary me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-secondary me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-success me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-info me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-warning me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-danger me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-dark me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4 me-2"></i> Caption
+                                </a>
+
+                                <div class="separator my-10"></div>
+
+
+                                <a href="javascript:void(0)" class="btn btn-icon btn-primary me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-secondary me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-success me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-info me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-warning me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-danger me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-dark me-2 mb-2">
+                                    <i class="fas fa-envelope-open-text fs-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="pt-5 pb-20">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-primary&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-secondary&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-success&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-info&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-warning&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-danger&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-dark&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-primary&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-secondary&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-success&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-info&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-warning&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-danger&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-dark&quot;&gt;&lt;i class=&quot;fas fa-envelope-open-text fs-4 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                        <!--end::Font-awesome examples-->
+
+                        <!--begin::Line-awesome examples-->
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <a href="/docs/icons/line-awesome" class="fw-semibold">Line Awesome
+                                Icons</a>&nbsp;in conbination with buttons as shown below:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-primary me-2 mb-2">
+                                    <i class="las la-wallet fs-2 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-secondary me-2 mb-2">
+                                    <i class="las la-wallet fs-2 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-success me-2 mb-2">
+                                    <i class="las la-wallet fs-2 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-info me-2 mb-2">
+                                    <i class="las la-wallet fs-2 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-warning me-2 mb-2">
+                                    <i class="las la-wallet fs-2 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-danger me-2 mb-2">
+                                    <i class="las la-wallet fs-2 me-2"></i> Caption
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-dark me-2 mb-2">
+                                    <i class="las la-wallet fs-2 me-2"></i> Caption
+                                </a>
+
+                                <div class="separator my-10"></div>
+
+
+                                <a href="javascript:void(0)" class="btn btn-icon btn-primary me-2 mb-2">
+                                    <i class="las la-wallet fs-2"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-secondary me-2 mb-2">
+                                    <i class="las la-wallet fs-2"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-success me-2 mb-2">
+                                    <i class="las la-wallet fs-2"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-info me-2 mb-2">
+                                    <i class="las la-wallet fs-2"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-warning me-2 mb-2">
+                                    <i class="las la-wallet fs-2"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-danger me-2 mb-2">
+                                    <i class="las la-wallet fs-2"></i>
+                                </a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-dark me-2 mb-2">
+                                    <i class="las la-wallet fs-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-primary&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-secondary&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-success&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-info&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-warning&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-danger&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-dark&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt; Caption&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-primary&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-secondary&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-success&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-info&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-warning&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-danger&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-dark&quot;&gt;&lt;i class=&quot;las la-wallet fs-2 me-2&quot;&gt;&lt;/i&gt;&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                        <!--end::Line-awesome examples-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="py-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="social-buttons" data-kt-scroll-offset="50">
+                            <a href="#social-buttons"></a>
+
+                            Social Buttons
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <code>.btn-{social}</code> and <code>.btn-light-{social}</code> classes with
+                            <a href="https://fontawesome.com" class="fw-semibold" target="_blank">Font
+                                Awesome</a>&nbsp; or
+                            <a href="https://icons.getbootstrap.com" class="fw-semibold" target="_blank">Bootstrap
+                                Icons</a>&nbsp; social icons for supporting buttons with
+                            social brand logos and colors.
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Where <code>social</code> is one the below options defined with
+                            <code>$social-colors</code> custom variable in
+                            <code>src/sass/components/_variables.scss</code>.
+                            <ul class="py-3">
+                                <li class="py-2"><code>facebook</code></li>
+                                <li class="py-2"><code>google</code></li>
+                                <li class="py-2"><code>twitter</code></li>
+                                <li class="py-2"><code>instagram</code></li>
+                                <li class="py-2"><code>youtube</code></li>
+                                <li class="py-2"><code>linkedin</code></li>
+                            </ul>
+
+                            Other social colors can be added by referring to <a href="https://brandcolors.net/"
+                                class="fw-semibold">brandcolors.net</a>.
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-icon btn-facebook me-5 "><i
+                                        class="fab fa-facebook-f fs-4"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-google me-5 "><i
+                                        class="fab fa-google fs-4"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-twitter me-5 "><i
+                                        class="fab fa-twitter fs-4"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-instagram me-5 "><i
+                                        class="fab fa-instagram fs-4"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-youtube me-5 "><i
+                                        class="fab fa-youtube fs-4"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-linkedin me-5 "><i
+                                        class="fab fa-linkedin fs-4"></i></a>
+
+                                <div class="separator my-10"></div>
+
+                                <a href="javascript:void(0)" class="btn btn-icon btn-light-facebook me-5 "><i
+                                        class="fab fa-facebook-f fs-4"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-light-google me-5 "><i
+                                        class="fab fa-google fs-4"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-light-twitter me-5 "><i
+                                        class="fab fa-twitter fs-4"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-light-instagram me-5 "><i
+                                        class="fab fa-instagram fs-4"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-light-youtube me-5 "><i
+                                        class="fab fa-youtube fs-4"></i></a>
+                                <a href="javascript:void(0)" class="btn btn-icon btn-light-linkedin me-5 "><i
+                                        class="fab fa-linkedin fs-4"></i></a>
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-facebook me-5 &quot;&gt;&lt;i class=&quot;fab fa-facebook-f fs-4&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-google me-5 &quot;&gt;&lt;i class=&quot;fab fa-google fs-4&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-twitter me-5 &quot;&gt;&lt;i class=&quot;fab fa-twitter fs-4&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-instagram me-5 &quot;&gt;&lt;i class=&quot;fab fa-instagram fs-4&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-youtube me-5 &quot;&gt;&lt;i class=&quot;fab fa-youtube fs-4&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-linkedin me-5 &quot;&gt;&lt;i class=&quot;fab fa-linkedin fs-4&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-light-facebook me-5 &quot;&gt;&lt;i class=&quot;fab fa-facebook-f fs-4&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-light-google me-5 &quot;&gt;&lt;i class=&quot;fab fa-google fs-4&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-light-twitter me-5 &quot;&gt;&lt;i class=&quot;fab fa-twitter fs-4&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-light-instagram me-5 &quot;&gt;&lt;i class=&quot;fab fa-instagram fs-4&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-light-youtube me-5 &quot;&gt;&lt;i class=&quot;fab fa-youtube fs-4&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-light-linkedin me-5 &quot;&gt;&lt;i class=&quot;fab fa-linkedin fs-4&quot;&gt;&lt;/i&gt;&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="py-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="link-option" data-kt-scroll-offset="50">
+                            <a href="#link-option"></a>
+
+                            Link Option
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <code>.btn-link</code> Bootstrap Button class with any other button classes to set a
+                            link buttons without side paddings:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)"
+                                    class="btn btn-link btn-color-muted btn-active-color-primary me-5 mb-2">Muted</a>
+                                <a href="javascript:void(0)"
+                                    class="btn btn-link btn-color-gray-500 btn-active-color-primary me-5 mb-2">Gray
+                                    500</a>
+                                <a href="javascript:void(0)"
+                                    class="btn btn-link btn-color-info btn-active-color-primary me-5 mb-2">Primary</a>
+                                <a href="javascript:void(0)"
+                                    class="btn btn-link btn-color-success btn-active-color-primary me-5 mb-2">Success</a>
+                                <a href="javascript:void(0)"
+                                    class="btn btn-link btn-color-danger btn-active-color-primary me-5 mb-2">Danger</a>
+                                <a href="javascript:void(0)"
+                                    class="btn btn-link btn-color-warning btn-active-color-primary me-5 mb-2">Warning</a>
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-link btn-color-muted btn-active-color-primary me-5 mb-2&quot;&gt;Muted&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-link btn-color-gray-500 btn-active-color-primary me-5 mb-2&quot;&gt;Gray 500&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-link btn-color-info btn-active-color-primary me-5 mb-2&quot;&gt;Primary&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-link btn-color-success btn-active-color-primary me-5 mb-2&quot;&gt;Success&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-link btn-color-danger btn-active-color-primary me-5 mb-2&quot;&gt;Danger&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-link btn-color-warning btn-active-color-primary me-5 mb-2&quot;&gt;Warning&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                    </div>
+                    <!--end::Section-->
+                    <!--begin::Section-->
+                    <div class="pt-10">
+
+                        <!--begin::Heading-->
+                        <h1 class="anchor fw-bold mb-5" id="utility-classes" data-kt-scroll-offset="50">
+                            <a href="#utility-classes"></a>
+
+                            Utility Classes
+                        </h1>
+                        <!--end::Heading-->
+
+
+                        <!--begin::Flush utility-->
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            Use <code>.btn-flush</code> class to remove paddings, borders, background and rounded
+                            corners:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-flush">Flushed button</a>
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-flush&quot;&gt;Flushed button&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                        <!--end::Flush utility-->
+
+
+                        <!--begin::Flush utility-->
+                        <!--begin::Block-->
+                        <div class="pt-10 pb-5">
+                            Use <code>.btn-flex</code> class to vertically center button inner elements with
+                            <code>display: inline-flex</code> and <code>align-items: center</code>:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-flex btn-primary px-6">
+                                    <i class="ki-duotone ki-graph-3 fs-2x"><span class="path1"></span><span
+                                            class="path2"></span></i>
+                                    <span class="d-flex flex-column align-items-start ms-2">
+                                        <span class="fs-3 fw-bold">Caption</span>
+                                        <span class="fs-7">Some description</span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-flex btn-primary px-6&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-graph-3 fs-2x&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+    &lt;span class=&quot;d-flex flex-column align-items-start ms-2&quot;&gt;
+        &lt;span class=&quot;fs-3 fw-bold&quot;&gt;Caption&lt;/span&gt;
+        &lt;span class=&quot;fs-7&quot;&gt;Some description&lt;/span&gt;
+    &lt;/span&gt;
+&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                        <!--end::Flush utility-->
+
+                        <!--begin::Strip start utility-->
+                        <!--begin::Block-->
+                        <div class="pt-10 pb-5">
+                            Use <code>.btn-strip-start</code> and <code>.btn-strip-end</code> classes to reset
+                            padding edges and align to left or right:
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Block-->
+                        <div class="py-5">
+                            <div class="rounded border p-10">
+                                <a href="javascript:void(0)" class="btn btn-icon btn-primary btn-trim-start me-4">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i>
+                                </a>
+
+                                <a href="javascript:void(0)" class="btn btn-icon btn-primary btn-trim-end">
+                                    <i class="ki-duotone ki-graph-3 fs-1"><span class="path1"></span><span
+                                            class="path2"></span></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!--end::Block-->
+
+                        <!--begin::Code-->
+                        <div class="py-5">
+                            <!--begin::Highlight-->
+                            <div class="highlight"> <button class="highlight-copy btn" data-bs-toggle="tooltip"
+                                    title="Copy code">copy</button>
+                                <div class="highlight-code">
+                                    <pre class="language-html"><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-primary btn-trim-start&quot;&gt;
+   &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+&lt;/a&gt;
+
+&lt;a href=&quot;#&quot; class=&quot;btn btn-icon btn-primary btn-trim-end&quot;&gt;
+    &lt;i class=&quot;ki-duotone ki-graph-3 fs-1&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt;
+&lt;/a&gt;</code></pre>
+                                </div>
+                            </div><!--end::Highlight-->
+                        </div>
+                        <!--end::Code-->
+                        <!--end::Flush utility-->
+                    </div>
+                    <!--end::Section-->
+                </div>
+                <!--end::Card Body-->
+            </div>
+            <!--end::Card-->
+            <!--begin::Sidebar wrapper-->
+            <div class="ms-7 flex-row-auto w-lg-250px">
+                <!--begin::Sidebar nav-->
+                <div class="card card-flush d-none d-lg-flex position-sticky" style="top: 25px;" data-kt-sticky="true" data-kt-sticky-name="sidebar-navs"
+                    data-kt-sticky-offset="{default: false, lg: 250}" data-kt-sticky-width="250px"
+                    data-kt-sticky-animation="false" data-kt-sticky-left="auto" data-kt-sticky-top="25px"
+                    data-kt-sticky-zindex="5">
+                    <!--begin::Card body-->
+                    <div class="card-body px-0 px-6 py-6 min-h-300px">
+                        <!--begin::Menu-->
+                        <ul id="kt_sidebar_nav"
+                            class="nav nav-flush menu menu-column menu-title-gray-700 menu-bullet-gray-300 menu-state-primary fw-semibold fs-6 mb-8">
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#bootstrap-buttons" data-kt-scroll-toggle="true"
+                                    class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Bootstrap Buttons</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#base-buttons" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Base Buttons</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#hover-effects" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Hover Effects</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#light-style" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Light Style</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#bg-style" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Background Style</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#outline-dashed-style" data-kt-scroll-toggle="true"
+                                    class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Outline Dashed Style</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#color-style" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Color Style</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#icon-and-text-color-styles" data-kt-scroll-toggle="true"
+                                    class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Icon & Text Color Styles</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#active-style" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Active Style</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#active-light-style" data-kt-scroll-toggle="true"
+                                    class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Active Light Style</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#active-color-style" data-kt-scroll-toggle="true"
+                                    class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Active Color Style</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#active-icon-and-color-style" data-kt-scroll-toggle="true"
+                                    class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Active Icon & Text Color Styles</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#sizes" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Sizes</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#icons" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Icons</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#social-buttons" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Social Buttons</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#link-option" data-kt-scroll-toggle="true" class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Link Option</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                            <!--begin::Item-->
+                            <li class="menu-item py-2 px-3">
+                                <!--begin::Link-->
+                                <a href="#utility-classes" data-kt-scroll-toggle="true"
+                                    class="menu-link p-0 nav-link">
+                                    <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
+                                    <span class="menu-title">Utility Classes</span>
+                                </a>
+                                <!--end::Link-->
+                            </li>
+                            <!--end::Item-->
+                        </ul>
+                        <!--end::Menu-->
+
+
+                        <a href="https://1.envato.market/Vm7VRE" class="d-block mb-8">
+                            <img src="https://devs.keenthemes.com/assets/media/banners/buy-metronic.png"
+                                alt="buy metronic" class="mw-100 rounded-3" data-bs-toggle="popover"
+                                data-bs-trigger="hover" data-bs-html="true" data-bs-placement="top"
+                                data-bs-title="<b>License Reminder</b>"
+                                data-bs-content="One license allows using Metronic for a single deployment and all subsequent usage requires a separate license. <div class='mb-3'></div> If you plan to use Metronic in a Software as a Service (SaaS) model with paid subscriptions, you'll need an Extended License." />
+                        </a>
+
+                        <a href="https://keenthemes.com/products/templates-mega-bundle?utm_source=docs&utm_content=mega-bundle"
+                            class="d-block mb-8">
+                            <img src="https://devs.keenthemes.com/assets/media/banners/mega-bundle.png"
+                                alt="buy mega bundle" class="mw-100 rounded-3" />
+                        </a>
+                    </div>
+                    <!--end::Card body-->
+                </div>
+                <!--end::Sidebar nav-->
+            </div>
+            <!--end::Sidebar wrapper-->
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Content-->
+@endsection
+@section('scripts')
+    <!--begin::Vendors Javascript(used for this page only)-->
+    <script src="{{ asset('assets/plugins/custom/prismjs/prismjs.bundle.js') }}"></script>
+    <!--end::Vendors Javascript-->
+@endsection
+
+

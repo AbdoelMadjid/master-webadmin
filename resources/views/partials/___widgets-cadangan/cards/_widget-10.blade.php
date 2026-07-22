@@ -1,0 +1,26 @@
+<!--begin::Card widget 10-->
+@include('partials.widgets.cards._widget-4', [
+    'cardClass' => 'card card-flush h-md-50 mb-lg-10',
+    'amount' => '69,700',
+    'subtitle' => 'Expected Earnings This Month',
+    'cardBodyClass' => 'card-body d-flex align-items-end pt-0',
+    'chartWrapperClass' => 'd-flex me-7 me-xxl-10',
+    'chartId' => 'kt_card_widget_10_chart',
+    'labelsContainerClass' => 'd-flex flex-column content-justify-center flex-grow-1',
+    'row1Class' => 'd-flex fs-6 fw-semibold align-items-center',
+    'row2Class' => 'd-flex fs-6 fw-semibold align-items-center my-1',
+    'row3Class' => 'd-flex fs-6 fw-semibold align-items-center',
+    'bullet1Class' => 'bullet w-8px h-6px rounded-2 bg-success me-3',
+    'bullet2Class' => 'bullet w-8px h-6px rounded-2 bg-primary me-3',
+    'bullet3Class' => 'bullet w-8px h-6px rounded-2 me-3',
+    'labelClass' => 'fs-6 fw-semibold text-gray-500 flex-shrink-0',
+    'valueClass' => 'ms-auto fw-bolder text-gray-700 text-end',
+    'showRowSeparator' => true,
+    'label1' => 'Used Truck freight',
+    'label2' => 'Used Ship freight',
+    'label3' => 'Used Plane freight',
+    'value1' => '45%',
+    'value2' => '21%',
+    'value3' => '34%',
+])
+<!--end::Card widget 10-->

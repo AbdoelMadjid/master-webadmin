@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => 'App Support',
+    'title_en' => 'App Support',
+    'title_key' => 'md_app_support',
+    'route' => 'appsupport',
+    'icon' => 'ki-duotone ki-abstract-28 fs-2',
+    'paths' => 2,
+    'permissions' => ['read'],
+    'roles' => ['admin'],
+    'children' => [
+        [
+            'title' => 'Menu',
+            'title_en' => 'Menu',
+            'title_key' => 'md_menu',
+            'route' => 'appsupport/menu',
+            'permissions' => ['create', 'read', 'update', 'delete', 'sort'],
+            'roles' => ['admin'],
+        ],
+        [
+            'title' => 'App Profil',
+            'title_en' => 'App Profile',
+            'title_key' => 'md_app_profil',
+            'route' => 'appsupport/app-profil',
+            'permissions' => ['create', 'read', 'update'],
+            'roles' => ['admin'],
+        ],
+        [
+            'title' => 'App Fitur',
+            'title_en' => 'App Features',
+            'title_key' => 'md_app_fitur',
+            'route' => 'appsupport/app-fiturs',
+            'permissions' => ['create', 'read', 'update', 'delete'],
+            'roles' => ['admin'],
+        ],
+        [
+            'title' => 'Backup DB',
+            'title_en' => 'Database Backup',
+            'title_key' => 'md_backup_db',
+            'route' => 'appsupport/backup-db',
+            'permissions' => ['read'],
+            'roles' => ['admin'],
+        ],
+        [
+            'title' => 'Data Login',
+            'title_en' => 'Login Data',
+            'title_key' => 'md_data_login',
+            'route' => 'appsupport/data-login',
+            'permissions' => ['read'],
+            'roles' => ['admin'],
+        ],
+        [
+            'title' => 'Referensi',
+            'title_en' => 'References',
+            'title_key' => 'md_referensi',
+            'route' => 'appsupport/referensi',
+            'permissions' => ['create', 'read', 'update', 'delete'],
+            'roles' => ['admin'],
+        ],
+    ],
+];

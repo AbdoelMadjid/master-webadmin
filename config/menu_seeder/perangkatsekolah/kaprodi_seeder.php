@@ -1,0 +1,62 @@
+<?php
+
+return [
+    'title' => 'Kepala Program Studi',
+    'title_en' => 'Head of Academic Program',
+    'title_key' => 'ps_kaprodi',
+    'route' => 'kaprodi',
+    'icon' => 'ki-duotone ki-abstract-28 fs-2',
+    'paths' => 2,
+    'permissions' => ['read'],
+    'roles' => ['kaprog'],
+    'children' => [
+        [
+            'title' => 'Agenda',
+            'title_en' => 'Agenda',
+            'title_key' => 'ps_kaprodi_agenda',
+            'route' => 'kaprodi/agenda-kaprodi',
+            'permissions' => ['create', 'read', 'update'],
+            'roles' => ['kaprog'],
+        ],
+        [
+            'title' => 'Anggaran',
+            'title_en' => 'Budget',
+            'title_key' => 'ps_kaprodi_anggaran',
+            'route' => 'kaprodi/anggaran-kaprodi',
+            'permissions' => ['create', 'read', 'update'],
+            'roles' => ['kaprog'],
+        ],
+        [
+            'title' => 'Uji Kompetensi Keahlian',
+            'title_en' => 'Competency Test',
+            'title_key' => 'ps_kaprodi_uji_kompetensi',
+            'route' => 'kaprodi/uji-kompetensi-keahlian',
+            'permissions' => ['create', 'read', 'update', 'delete', 'sort'],
+            'roles' => ['kaprog'],
+        ],
+        [
+            'title' => 'Pembagian Jam Ngajar',
+            'title_en' => 'Class Schedule Distribution',
+            'title_key' => 'ps_kaprodi_pembagian_jam',
+            'route' => 'kaprodi/pembagian-jam-ngajar',
+            'permissions' => ['create', 'read', 'update'],
+            'roles' => ['kaprog'],
+        ],
+        [
+            'title' => 'Laboratorium',
+            'title_en' => 'Laboratory',
+            'title_key' => 'ps_kaprodi_laboratorium',
+            'route' => 'kaprodi/laboratorium',
+            'permissions' => ['create', 'read', 'update'],
+            'roles' => ['kaprog'],
+        ],
+        [
+            'title' => 'Laporan',
+            'title_en' => 'Report',
+            'title_key' => 'ps_kaprodi_laporan',
+            'route' => 'kaprodi/laporan-kaprodi',
+            'permissions' => ['create', 'read', 'update'],
+            'roles' => ['kaprog'],
+        ],
+    ],
+];

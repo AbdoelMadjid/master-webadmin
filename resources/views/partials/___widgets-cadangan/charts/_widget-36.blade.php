@@ -1,0 +1,16 @@
+@include('partials.widgets.charts._widget-20', [
+    'widgetNumber' => 36,
+    'cardClass' => 'card card-flush overflow-hidden h-lg-100',
+    'headerClass' => 'card-header pt-5',
+    'title' => 'Performance',
+    'subtitle' => '1,046 Inbound Calls today',
+    'titleDetailedClass' => 'card-title align-items-start flex-column',
+    'titleTextClass' => 'card-label fw-bold text-gray-900',
+    'subtitleClass' => 'text-gray-500 mt-1 fw-semibold fs-6',
+    'daterangeExtraAttrs' => 'data-kt-daterangepicker-range="today"',
+    'bodyClass' => 'card-body d-flex align-items-end p-0',
+    'chartId' => 'kt_charts_widget_36',
+    'chartClass' => 'min-h-auto w-100 ps-4 pe-6',
+    'chartStyle' => 'height: 300px',
+    'bodyView' => 'partials.widgets.charts._widget-36-body',
+])
