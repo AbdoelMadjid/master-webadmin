@@ -95,6 +95,18 @@ composer test</code></pre>
                             <div class="schema-warn mt-4">{!! __('help.pages.operasional.panduan-tambah-halaman.warn_1') !!}</div>
                         </div>
                     </div>
+
+                    <div class="schema-col-12 mt-6">
+                        <div class="schema-card">
+                            <h4>Aturan Halaman Multi-Tab & Preservasi Core Layout</h4>
+                            <ul class="schema-list">
+                                <li><strong>Jangan Mengubah File Layout Core & Seeder:</strong> Dilarang mengubah file layout bawaan (seperti <code>_menu-item.blade.php</code>, <code>_menu-item-temp.blade.php</code>, <code>navs.blade.php</code>) atau seeder menu (<code>config/menu_seeder/*_seeder.php</code>) hanya untuk menambahkan sub-tab.</li>
+                                <li><strong>Arsitektur Multi-Tab Single-Route:</strong> Gunakan rute tunggal (misal <code>/profil-pengguna?tab=...</code>) dan panggil partial tab secara dinamis via Blade <code>@@include('pages.feature.tabs._tab')</code> agar highlight aktif pada menu sidebar tetap terjaga 100%.</li>
+                                <li><strong>Integritas Partial Blade:</strong> File partial tab TIDAK boleh berisi tag <code>@@endsection</code>, <code>@@extends</code>, atau tag penutup <code>&lt;/div&gt;</code> kontainer utama agar tidak merusak tata letak footer atau menutup section lebih awal.</li>
+                                <li><strong>Pemuatan Bundel Script:</strong> Pastikan <code>@@section('scripts')</code> pada view utama memuat pustaka JS pendukung (seperti <code>widgets.bundle.js</code>, <code>custom/widgets.js</code>, <code>datatables.bundle.js</code>) agar grafik dan komponen interaktif berjalan normal.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
