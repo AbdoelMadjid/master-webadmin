@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = ['guru', 'tatausaha', 'siswa', 'admin', 'master'];
+        $users = ['user', 'admin', 'master'];
         $default = [
             'password' => bcrypt('password'),
             'email_verified_at' => now(),
