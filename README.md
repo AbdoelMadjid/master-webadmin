@@ -3,7 +3,7 @@
 Project ini adalah implementasi Web Admin pada Laravel 12 dengan Template Metronic.
 
 Repository:
-`https://github.com/AbdoelMadjid/mmaster-webadmin.git`
+`https://github.com/AbdoelMadjid/master-webadmin.git`
 
 ## Table of Contents
 
@@ -168,13 +168,13 @@ php artisan test
 ## Troubleshooting
 
 - Jika style/js tidak update:
-  - jalankan `php artisan optimize:clear`
-  - restart `npm run dev`
+    - jalankan `php artisan optimize:clear`
+    - restart `npm run dev`
 - Jika error cache config/route/view:
-  - `php artisan optimize:clear`
+    - `php artisan optimize:clear`
 - Jika migrasi gagal:
-  - cek kredensial DB di `.env`
-  - pastikan database sudah dibuat
+    - cek kredensial DB di `.env`
+    - pastikan database sudah dibuat
 
 <div align="right"><a href="#table-of-contents" title="Back to Table of Contents">&#8679;</a></div>
 
@@ -355,8 +355,8 @@ graph TD
 
 1. **Routing utama**: `routes/web.php` mendaftarkan route umum (`/`, `/dashboard`, auth, profile), lalu me-load `routes/menu.php`.
 2. **Routing dinamis pages**: `routes/menu.php` scan seluruh file `resources/views/pages/**/*.blade.php`, lalu otomatis membuat:
-   - URL path (format slash), contoh: `/help/pemrograman/skema/route`
-   - route name (format titik), contoh: `help.pemrograman.skema.route`
+    - URL path (format slash), contoh: `/help/pemrograman/skema/route`
+    - route name (format titik), contoh: `help.pemrograman.skema.route`
 3. **View (V)**: route dinamis langsung merender view `pages.*` via closure route (tanpa controller khusus untuk mapping halaman).
 4. **Model (M)**: dipakai saat halaman butuh data dinamis, melalui Eloquent di `app/Models/*` atau layer service/query lain.
 5. **Controller (C)**: tetap dipakai untuk endpoint yang memang berbasis aksi, contohnya `ProfileController` di `routes/web.php`.
@@ -393,8 +393,8 @@ Ringkasan alur yang dipakai di project ini:
 
 1. File Blade di `resources/views/pages/**` dibaca otomatis oleh `routes/menu.php`.
 2. Path file dikonversi menjadi:
-   - route name: format titik (`.`)
-   - URL: format slash (`/`)
+    - route name: format titik (`.`)
+    - URL: format slash (`/`)
 3. Config menu (`config/sidebar/*.php`, `config/header/*.php`) memanggil route tersebut lewat key `route`.
 4. Renderer menu Blade (`layouts/partials/sidebar/_menu-item.blade.php`) menampilkan menu berdasarkan `route` atau `href`.
 
@@ -458,7 +458,7 @@ Seluruh daftar di bawah diselaraskan dengan route help:
 1. Buka aplikasi lalu login.
 2. Masuk ke menu sidebar: `Help -> Skema Pemrograman`.
 3. Halaman overview:
-   - `/help/pemrograman/overview`
+    - `/help/pemrograman/overview`
 
 <div align="right"><a href="#table-of-contents" title="Back to Table of Contents">&#8679;</a></div>
 
