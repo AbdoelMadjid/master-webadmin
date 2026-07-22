@@ -118,6 +118,30 @@ composer test</code></pre>
                             </ul>
                         </div>
                     </div>
+
+                    <div class="schema-col-12 mt-6">
+                        <div class="schema-card">
+                            <h4>Aturan Struktur Berkas Controller, Model & Form Partial</h4>
+                            <ul class="schema-list">
+                                <li><strong>Struktur Folder Sejajar (Mirror Structure):</strong> Berkas Controller dan Model wajib dibuat di dalam sub-folder yang mencerminkan struktur folder view Blade di <code>resources/views/pages/</code>. Contoh: View <code>pages.appsupport.app-profil</code> memiliki Controller <code>App\Http\Controllers\AppSupport\AppProfilController</code> dan Model <code>App\Models\AppSupport\AppProfil</code>.</li>
+                                <li><strong>Pemisahan Form Partial:</strong> Form HTML (seperti form modal CRUD) wajib dipisahkan ke dalam berkas partial terpisah di folder <code>resources/views/pages/&lt;folder&gt;/partials/&lt;fitur&gt;-form.blade.php</code> dan dipanggil menggunakan Blade <code>@@include('pages.&lt;folder&gt;.partials.&lt;fitur&gt;-form')</code>.</li>
+                                <li><strong>Validasi Form Request (Form Request Mirroring):</strong> Aturan validasi wajib dipisahkan ke berkas Laravel Form Request di folder <code>App\Http\Requests\&lt;SubFolder&gt;\&lt;FeatureRequest&gt;.php</code> yang sejajar dengan lokasi view/controller. Contoh: <code>App\Http\Requests\AppSupport\AppProfilRequest</code>.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="schema-col-12 mt-6">
+                        <div class="schema-card">
+                            <h4>Aturan Notifikasi CRUD JS Helper (<code>SwalHelper</code>)</h4>
+                            <ul class="schema-list">
+                                <li><strong>Helper Notifikasi Global:</strong> Dilarang menulis konfigurasi <code>Swal.fire</code> secara berulang di berkas Blade. Gunakan helper global <code>SwalHelper</code> (berkas <code>public/assets/js/custom/crud-helper.js</code>):</li>
+                                <li><strong>Sukses:</strong> <code>SwalHelper.success('Pesan Sukses')</code>.</li>
+                                <li><strong>Gagal / Error:</strong> <code>SwalHelper.error('Pesan Error')</code>.</li>
+                                <li><strong>Validasi Error (AJAX 422):</strong> <code>SwalHelper.validationError(xhr)</code>.</li>
+                                <li><strong>Konfirmasi Hapus:</strong> <code>SwalHelper.confirmDelete('Nama Item', callback)</code>.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

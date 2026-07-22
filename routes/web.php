@@ -26,10 +26,21 @@ Route::get('/dashboard', function () {
     return redirect()->route('homepage');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+use App\Http\Controllers\AppSupport\AppProfilController;
+use App\Http\Controllers\AppSupport\MenuController;
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::resource('appsupport/menu', MenuController::class)->names([
+        'index' => 'appsupport.menu',
+    ]);
+
+    Route::resource('appsupport/app-profil', AppProfilController::class)->names([
+        'index' => 'appsupport.app-profil',
+    ]);
 });
 
 require __DIR__ . '/auth.php';
