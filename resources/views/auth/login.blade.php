@@ -59,16 +59,16 @@
                                     <div class="g-mb-20">
                                         <label
                                             class="g-color-text-light-v1 g-font-weight-500">{{ __('education.email') }}</label>
-                                        <div class="input-group">
+                                        <div class="input-group @if ($emailHasError) u-has-error-v1-2 @endif">
                                             <span
-                                                class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
+                                                class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0 @if ($emailHasError) g-brd-red @endif">
                                                 <div
-                                                    class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2">
+                                                    class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2 @if ($emailHasError) g-brd-red @endif">
                                                     <i class="icon-education-166 u-line-icon-pro"></i>
                                                 </div>
                                             </span>
                                             <input
-                                                class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12 @if ($emailHasError) is-invalid @endif"
+                                                class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12 @if ($emailHasError) is-invalid g-brd-red @endif"
                                                 type="email" id="emailInput" name="email" autocomplete="off"
                                                 value="{{ old('email') }}"
                                                 placeholder="{{ __('education.placeholder_email') }}">
@@ -82,25 +82,26 @@
                                     <div class="g-mb-20">
                                         <label
                                             class="g-color-text-light-v1 g-font-weight-500">{{ __('education.signin_password') }}</label>
-                                        <div class="input-group position-relative">
+                                        <div class="input-group @if ($passwordHasError) u-has-error-v1-2 @endif">
                                             <span
-                                                class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
+                                                class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0 @if ($passwordHasError) g-brd-red @endif">
                                                 <div
-                                                    class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2">
+                                                    class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2 @if ($passwordHasError) g-brd-red @endif">
                                                     <i class="icon-finance-135 u-line-icon-pro"></i>
                                                 </div>
                                             </span>
                                             <input
-                                                class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12 @if ($passwordHasError) is-invalid @endif"
+                                                class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-0 g-px-20 g-py-12 @if ($passwordHasError) is-invalid g-brd-red @endif"
                                                 type="password" id="passwordInput" name="password" autocomplete="off"
-                                                placeholder="*********" style="padding-right: 44px;">
-                                            <button type="button" id="togglePassword"
-                                                class="btn border-0 shadow-none bg-transparent position-absolute g-color-text-light-v1 g-color-main--hover"
-                                                style="right: 8px; top: 50%; transform: translateY(-50%); z-index: 3; padding: 4px;"
-                                                aria-label="Toggle password visibility">
-                                                <i id="togglePasswordIcon"
-                                                    class="material-icons g-font-size-20">visibility</i>
-                                            </button>
+                                                placeholder="*********">
+                                            <span class="input-group-append g-brd-secondary-light-v2 g-bg-secondary g-rounded-left-0 @if ($passwordHasError) g-brd-red @endif">
+                                                <button type="button" id="togglePassword"
+                                                    class="btn g-bg-secondary border-0 g-px-15 h-100 d-flex align-items-center g-color-text-light-v1 g-color-main--hover"
+                                                    aria-label="Toggle password visibility">
+                                                    <i id="togglePasswordIcon"
+                                                        class="material-icons g-font-size-20">visibility</i>
+                                                </button>
+                                            </span>
                                         </div>
                                         <div id="passwordFieldError"
                                             class="invalid-feedback @if ($passwordHasError) d-block @endif">
@@ -358,13 +359,27 @@
             });
 
             function setFieldError(input, feedback, message) {
-                input.classList.add('is-invalid');
+                input.classList.add('is-invalid', 'g-brd-red');
+                const inputGroup = input.closest('.input-group');
+                if (inputGroup) {
+                    inputGroup.classList.add('u-has-error-v1-2');
+                    inputGroup.querySelectorAll('.input-group-prepend, .input-group-text, .input-group-append').forEach(function(el) {
+                        el.classList.add('g-brd-red');
+                    });
+                }
                 feedback.textContent = message;
                 feedback.classList.add('d-block');
             }
 
             function clearFieldError(input, feedback) {
-                input.classList.remove('is-invalid');
+                input.classList.remove('is-invalid', 'g-brd-red');
+                const inputGroup = input.closest('.input-group');
+                if (inputGroup) {
+                    inputGroup.classList.remove('u-has-error-v1-2');
+                    inputGroup.querySelectorAll('.input-group-prepend, .input-group-text, .input-group-append').forEach(function(el) {
+                        el.classList.remove('g-brd-red');
+                    });
+                }
                 feedback.classList.remove('d-block');
             }
 
