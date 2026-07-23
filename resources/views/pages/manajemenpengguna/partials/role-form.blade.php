@@ -1,5 +1,5 @@
 <div class="modal fade" id="kt_modal_role" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered mw-850px">
+    <div class="modal-dialog modal-dialog-centered mw-1000px">
         <div class="modal-content">
             <div class="modal-header" id="kt_modal_role_header">
                 <h2 class="fw-bold" id="role_modal_title">Tambah Role Baru</h2>
@@ -41,13 +41,13 @@
                             <table class="table table-row-bordered table-row-gray-300 align-middle gs-3 gy-3 mb-0 w-100" id="role_modal_matrix_table" style="table-layout: fixed;">
                                 <thead class="table-light text-gray-700 fw-bold fs-7 text-uppercase sticky-top">
                                     <tr>
-                                        <th style="width: 35%;">Modul / Fitur</th>
-                                        <th class="text-center" style="width: 10%;">Create</th>
-                                        <th class="text-center" style="width: 10%;">Read</th>
-                                        <th class="text-center" style="width: 10%;">Update</th>
-                                        <th class="text-center" style="width: 10%;">Delete</th>
+                                        <th style="width: 45%;">Modul / Fitur</th>
+                                        <th class="text-center" style="width: 8%;">Create</th>
+                                        <th class="text-center" style="width: 8%;">Read</th>
+                                        <th class="text-center" style="width: 8%;">Update</th>
+                                        <th class="text-center" style="width: 8%;">Delete</th>
                                         <th class="text-center" style="width: 15%;">Lainnya</th>
-                                        <th class="text-center" style="width: 10%;">Semua</th>
+                                        <th class="text-center" style="width: 8%;">Semua</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-gray-600 fw-semibold fs-7">

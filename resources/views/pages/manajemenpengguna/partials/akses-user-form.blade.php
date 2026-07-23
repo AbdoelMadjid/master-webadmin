@@ -1,5 +1,5 @@
 <div class="modal fade" id="kt_modal_akses_user" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered mw-850px">
+    <div class="modal-dialog modal-dialog-centered mw-1000px">
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="fw-bold" id="akses_user_modal_title">Kelola Hak Akses Pengguna</h2>
@@ -40,12 +40,12 @@
                             <table class="table table-row-bordered table-row-gray-300 align-middle gs-3 gy-3 mb-0 w-100" style="table-layout: fixed;">
                                 <thead class="table-light text-gray-700 fw-bold fs-7 text-uppercase sticky-top">
                                     <tr>
-                                        <th style="width: 40%;">Modul / Fitur</th>
-                                        <th class="text-center" style="width: 12%;">Create</th>
-                                        <th class="text-center" style="width: 12%;">Read</th>
-                                        <th class="text-center" style="width: 12%;">Update</th>
-                                        <th class="text-center" style="width: 12%;">Delete</th>
-                                        <th class="text-center" style="width: 12%;">Lainnya</th>
+                                        <th style="width: 50%;">Modul / Fitur</th>
+                                        <th class="text-center" style="width: 10%;">Create</th>
+                                        <th class="text-center" style="width: 10%;">Read</th>
+                                        <th class="text-center" style="width: 10%;">Update</th>
+                                        <th class="text-center" style="width: 10%;">Delete</th>
+                                        <th class="text-center" style="width: 10%;">Lainnya</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-gray-600 fw-semibold fs-7">
