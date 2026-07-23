@@ -144,17 +144,18 @@
         <!--end::Menu-->
     @endhasanyrole
 
-    <!--begin::timmer-->
+    <!--begin::timer-->
     @if (isFeatureActive('topbar_time'))
-        <div class="d-none d-lg-flex align-items-center ms-4">
-            <div class="d-flex align-items-center px-3 py-2 rounded-2 border border-gray-300 bg-light-primary">
+        <div class="d-none d-lg-flex align-items-center ms-3 ms-lg-6">
+            <div class="d-flex align-items-center text-gray-800 fs-6">
                 <i class="ki-duotone ki-time fs-3 text-primary me-2">
                     <span class="path1"></span>
                     <span class="path2"></span>
                 </i>
-                <span class="text-gray-700 fw-bold fs-6">
+                <span class="fw-bold font-monospace text-gray-800 fs-6">
                     {!! renderTime('header-menu-time') !!}
                 </span>
+                <span class="text-muted fs-8 fw-semibold ms-2">WIB</span>
             </div>
         </div>
     @endif
