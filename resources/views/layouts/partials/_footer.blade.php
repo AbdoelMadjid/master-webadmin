@@ -1,9 +1,9 @@
 <!--begin::Footer-->
 @php
     $activeAppProfil = \App\Models\AppSupport\AppProfil::active()->first();
-    $footerYear = $activeAppProfil->tahun ?? date('Y');
-    $footerAuthor = $activeAppProfil->pembuat ?? 'Keenthemes';
-    $appName = $activeAppProfil->nama_aplikasi ?? 'Master WebAdmin';
+    $footerYear = $activeAppProfil?->tahun ?? date('Y');
+    $footerAuthor = $activeAppProfil?->pembuat ?? 'Keenthemes';
+    $appName = $activeAppProfil?->nama_aplikasi ?? 'Master WebAdmin';
 
     $phpVersion = phpversion();
     $laravelVersion = app()->version();

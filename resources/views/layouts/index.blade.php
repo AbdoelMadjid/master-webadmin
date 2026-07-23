@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 @php
     $activeAppProfil = \App\Models\AppSupport\AppProfil::active()->first();
-    $appName = $activeAppProfil->nama_aplikasi ?? 'Master WebAdmin';
-    $appShortName = $activeAppProfil->singkatan_aplikasi ?? '';
-    $appDescription = $activeAppProfil->deskripsi ?: $appName;
-    $appAuthor = $activeAppProfil->pembuat ?? 'Master Admin Team';
+    $appName = $activeAppProfil?->nama_aplikasi ?? 'Master WebAdmin';
+    $appShortName = $activeAppProfil?->singkatan_aplikasi ?? '';
+    $appDescription = $activeAppProfil?->deskripsi ?: $appName;
+    $appAuthor = $activeAppProfil?->pembuat ?? 'Master Admin Team';
     $customFaviconUrl = $activeAppProfil?->favicon_url ?: $activeAppProfil?->logo_small_url ?: $activeAppProfil?->logo_url;
 @endphp
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
