@@ -37,19 +37,20 @@ class LogUserLogin
         $latitude = ($latitude !== null && $latitude !== '') ? (float) $latitude : null;
         $longitude = ($longitude !== null && $longitude !== '') ? (float) $longitude : null;
 
-        // Rule: Jika user sudah login dalam 24 jam terakhir (dan sudah menerima poin),
-        // update data login yang ada daripada menambah baris baru.
-        $twentyFourHoursAgo = Carbon::now()->subHours(24);
+        // Rule: Jika user sudah login pada hari (tanggal) yang sama,
+        // update catatan login hari tersebut dan tambahkan jumlah loginnya.
+        $loginDateStr = $now->toDateString();
 
-        $existingLoginIn24h = DataLogin::query()
+        $existingLoginToday = DataLogin::query()
             ->where('user_id', $user->id)
-            ->where('login_at', '>=', $twentyFourHoursAgo)
+            ->whereDate('login_at', $loginDateStr)
             ->latest('login_at')
             ->first();
 
-        if ($existingLoginIn24h) {
+        if ($existingLoginToday) {
+            $existingLoginToday->increment('login_count');
+
             $updateData = [
-                'login_at'   => $now,
                 'ip_address' => $ip,
                 'user_agent' => $userAgent,
             ];
@@ -60,7 +61,7 @@ class LogUserLogin
                 $updateData['longitude'] = $longitude;
             }
 
-            $existingLoginIn24h->update($updateData);
+            $existingLoginToday->update($updateData);
         } else {
             // Belum ada login dalam 24 jam terakhir: Tambahkan 1 poin dan buat catatan data login baru.
             $user->increment('points');
@@ -74,6 +75,7 @@ class LogUserLogin
                 'longitude'     => $longitude,
                 'location'      => null,
                 'point_awarded' => true,
+                'login_count'   => 1,
             ]);
         }
     }

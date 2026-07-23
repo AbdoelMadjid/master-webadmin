@@ -22,6 +22,7 @@ class DataLogin extends Model
         'longitude',
         'location',
         'point_awarded',
+        'login_count',
     ];
 
     protected $casts = [
@@ -29,6 +30,7 @@ class DataLogin extends Model
         'latitude'      => 'float',
         'longitude'     => 'float',
         'point_awarded' => 'boolean',
+        'login_count'   => 'integer',
     ];
 
     /**

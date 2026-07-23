@@ -189,9 +189,10 @@
                                     <th class="min-w-200px">User / Pengguna</th>
                                     <th class="min-w-100px">Role</th>
                                     <th class="min-w-150px">Waktu Login</th>
+                                    <th class="min-w-100px text-center">Jumlah Login</th>
                                     <th class="min-w-125px">IP Address</th>
                                     <th class="min-w-175px">Koordinat / Lokasi</th>
-                                    <th class="min-w-125px">Status Poin</th>
+                                    <th class="min-w-125px">Jumlah Poin</th>
                                     <th class="min-w-200px">Device / Browser</th>
                                     <th class="text-end min-w-80px">Aksi</th>
                                 </tr>
@@ -253,6 +254,12 @@
                                                 </span>
                                             </div>
                                         </td>
+                                        <td class="text-center">
+                                            <span class="badge badge-light-info fw-bold fs-7" data-bs-toggle="tooltip" title="Total frekuensi login (berpoin + tanpa poin) pada hari tersebut">
+                                                <i class="ki-duotone ki-entrance-left fs-5 me-1 text-info"><span class="path1"></span><span class="path2"></span></i>
+                                                {{ $item->login_count ?? 1 }}x Login
+                                            </span>
+                                        </td>
                                         <td>
                                             <span class="badge badge-light-primary fw-bold font-monospace fs-7">
                                                 {{ $item->ip_address ?? '127.0.0.1' }}
@@ -273,20 +280,14 @@
                                                 <span class="text-muted fs-7 italic">Koordinat tidak tersedia</span>
                                             @endif
                                         </td>
-                                        <td data-point="{{ $item->point_awarded ? '1' : '0' }}">
-                                            @if ($item->point_awarded)
-                                                <span class="badge badge-light-success fw-bold fs-7">
-                                                    <i class="ki-duotone ki-check-circle fs-5 me-1 text-success">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i> +1 Poin (Reward 24j)
-                                                </span>
-                                            @else
-                                                <span class="badge badge-light-secondary text-gray-600 fw-semibold fs-7"
-                                                      data-bs-toggle="tooltip" title="User sudah menerima poin dalam 24 jam terakhir">
-                                                    0 Poin (Sudah Login 24j)
-                                                </span>
-                                            @endif
+                                        <td data-point="{{ $item->user?->points ?? 0 }}">
+                                            <span class="badge badge-light-success fw-bold fs-7" data-bs-toggle="tooltip" title="Total poin reward keaktifan user saat ini">
+                                                <i class="ki-duotone ki-award fs-5 me-1 text-success">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                    <span class="path3"></span>
+                                                </i> {{ number_format($item->user?->points ?? 0) }} Poin
+                                            </span>
                                         </td>
                                         <td>
                                             <span class="text-gray-700 fs-7 text-truncate d-inline-block mw-200px" title="{{ $item->user_agent }}">
@@ -310,7 +311,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="9" class="text-center text-muted py-10">
+                                        <td colspan="10" class="text-center text-muted py-10">
                                             Belum ada riwayat login user tercatat.
                                         </td>
                                     </tr>
@@ -380,7 +381,7 @@
                     pageLength: 10,
                     lengthChange: true,
                     columnDefs: [
-                        { orderable: false, targets: 8 }
+                        { orderable: false, targets: 9 }
                     ]
                 });
 
