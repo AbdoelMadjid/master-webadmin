@@ -29,6 +29,7 @@ Route::get('/dashboard', function () {
 use App\Http\Controllers\AppSupport\AppFiturController;
 use App\Http\Controllers\AppSupport\AppProfilController;
 use App\Http\Controllers\AppSupport\BackupDbController;
+use App\Http\Controllers\AppSupport\DataLoginController;
 use App\Http\Controllers\AppSupport\MenuController;
 use App\Http\Controllers\User\ProfilPenggunaController;
 
@@ -60,6 +61,10 @@ Route::middleware('auth')->group(function () {
     Route::get('appsupport/backup-db/download/{filename}', [BackupDbController::class, 'download'])->name('appsupport.backup-db.download');
     Route::post('appsupport/backup-db/restore/{filename}', [BackupDbController::class, 'restore'])->name('appsupport.backup-db.restore');
     Route::delete('appsupport/backup-db/{filename}', [BackupDbController::class, 'destroy'])->name('appsupport.backup-db.destroy');
+
+    Route::get('appsupport/data-login', [DataLoginController::class, 'index'])->name('appsupport.data-login');
+    Route::delete('appsupport/data-login/clear-all', [DataLoginController::class, 'clearAll'])->name('appsupport.data-login.clear-all');
+    Route::delete('appsupport/data-login/{id}', [DataLoginController::class, 'destroy'])->name('appsupport.data-login.destroy');
 });
 
 require __DIR__ . '/auth.php';

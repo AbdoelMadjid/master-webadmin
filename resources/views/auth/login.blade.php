@@ -36,6 +36,8 @@
                             @endphp
                             @csrf
                             <input type="hidden" name="locale" value="{{ app()->getLocale() }}">
+                            <input type="hidden" name="latitude" id="login_latitude">
+                            <input type="hidden" name="longitude" id="login_longitude">
 
                             @if (session('status'))
                                 <div class="alert alert-success g-mb-20" role="alert">
@@ -322,6 +324,16 @@
     <!-- JS Plugins Init. -->
     <script>
         $(document).on('ready', function() {
+            // Auto-detect Geolocation coordinates if available
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    if (position && position.coords) {
+                        $('#login_latitude').val(position.coords.latitude);
+                        $('#login_longitude').val(position.coords.longitude);
+                    }
+                }, function(error) {}, { timeout: 5000 });
+            }
+
             // initialization of header
             $.HSCore.components.HSHeader.init($('#js-header'));
             $.HSCore.helpers.HSHamburgers.init('.hamburger');

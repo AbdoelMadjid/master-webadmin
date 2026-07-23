@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'avatar',
+        'points',
     ];
 
     /**
@@ -65,5 +66,13 @@ class User extends Authenticatable
         }
 
         return asset('assets/media/avatars/300-1.jpg');
+    }
+
+    /**
+     * Riwayat login user
+     */
+    public function dataLogins(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(\App\Models\AppSupport\DataLogin::class, 'user_id');
     }
 }

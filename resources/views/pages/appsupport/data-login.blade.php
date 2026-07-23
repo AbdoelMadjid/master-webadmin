@@ -1,0 +1,381 @@
+@extends('layouts.index')
+
+@section('styles')
+    <!--begin::Vendor Stylesheets(used for this page only)-->
+    <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <!--end::Vendor Stylesheets-->
+@endsection
+
+@section('toolbar')
+    @component('layouts.partials._toolbar')
+        @slot('li_1')
+            App Support
+        @endslot
+        @slot('li_2')
+            Data Login
+        @endslot
+    @endcomponent
+@endsection
+
+@section('content')
+    <div id="kt_app_content" class="app-content flex-column-fluid">
+        <!--begin::Content container-->
+        <div id="kt_app_content_container" class="app-container container-fluid">
+
+            <!--begin::Summary Stat Cards-->
+            <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
+                <!--begin::Col - Total Login-->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card card-flush h-md-100">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <div class="symbol symbol-50px me-5">
+                                    <span class="symbol-label bg-light-primary">
+                                        <i class="ki-duotone ki-entrance-left fs-2x text-primary">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                        </i>
+                                    </span>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1" id="stat_total_logins">{{ number_format($totalLogins) }}</span>
+                                    <span class="text-gray-500 fw-semibold fs-6 mt-1">Total Sesi Login</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Col-->
+
+                <!--begin::Col - Today Login-->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card card-flush h-md-100">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <div class="symbol symbol-50px me-5">
+                                    <span class="symbol-label bg-light-info">
+                                        <i class="ki-duotone ki-calendar-tick fs-2x text-info">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                            <span class="path3"></span>
+                                            <span class="path4"></span>
+                                            <span class="path5"></span>
+                                            <span class="path6"></span>
+                                        </i>
+                                    </span>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1" id="stat_today_logins">{{ number_format($todayLogins) }}</span>
+                                    <span class="text-gray-500 fw-semibold fs-6 mt-1">Login Hari Ini</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Col-->
+
+                <!--begin::Col - Active Users 24h-->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card card-flush h-md-100">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <div class="symbol symbol-50px me-5">
+                                    <span class="symbol-label bg-light-success">
+                                        <i class="ki-duotone ki-user-tick fs-2x text-success">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                            <span class="path3"></span>
+                                        </i>
+                                    </span>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1" id="stat_active_users">{{ number_format($activeUsers24h) }}</span>
+                                    <span class="text-gray-500 fw-semibold fs-6 mt-1">User Aktif (24 Jam)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Col-->
+
+                <!--begin::Col - Total Points-->
+                <div class="col-md-3 col-sm-6">
+                    <div class="card card-flush h-md-100">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <div class="symbol symbol-50px me-5">
+                                    <span class="symbol-label bg-light-warning">
+                                        <i class="ki-duotone ki-award fs-2x text-warning">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                            <span class="path3"></span>
+                                        </i>
+                                    </span>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1" id="stat_total_points">{{ number_format($totalPoints) }}</span>
+                                    <span class="text-gray-500 fw-semibold fs-6 mt-1">Total Poin Login User</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--end::Col-->
+            </div>
+            <!--end::Summary Stat Cards-->
+
+            <!--begin::Card Table-->
+            <div class="card card-flush">
+                <!--begin::Card header-->
+                <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+                    <!--begin::Card title-->
+                    <div class="card-title">
+                        <!--begin::Search-->
+                        <div class="d-flex align-items-center position-relative my-1">
+                            <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                            <input type="text" id="kt_data_login_search" class="form-control form-control-solid w-250px ps-12"
+                                placeholder="Cari nama, email, IP..." />
+                        </div>
+                        <!--end::Search-->
+                    </div>
+                    <!--end::Card title-->
+
+                    <!--begin::Card toolbar-->
+                    <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+                        <button type="button" class="btn btn-light-danger" onclick="clearAllDataLogins()">
+                            <i class="ki-duotone ki-trash fs-2">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                                <span class="path4"></span>
+                                <span class="path5"></span>
+                            </i> Bersihkan Semua Log
+                        </button>
+                    </div>
+                    <!--end::Card toolbar-->
+                </div>
+                <!--end::Card header-->
+
+                <!--begin::Card body-->
+                <div class="card-body pt-0">
+                    <!--begin::Table responsive-->
+                    <div class="table-responsive">
+                        <table class="table align-middle table-row-dashed fs-6 gy-4 w-100" id="kt_table_data_login">
+                            <thead>
+                                <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
+                                    <th class="min-w-50px">No</th>
+                                    <th class="min-w-200px">User / Pengguna</th>
+                                    <th class="min-w-150px">Waktu Login</th>
+                                    <th class="min-w-125px">IP Address</th>
+                                    <th class="min-w-175px">Koordinat / Lokasi</th>
+                                    <th class="min-w-125px">Status Poin</th>
+                                    <th class="min-w-200px">Device / Browser</th>
+                                    <th class="text-end min-w-80px">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="fw-semibold text-gray-600">
+                                @forelse ($logins as $index => $item)
+                                    <tr>
+                                        <td>{{ $index + 1 }}</td>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="symbol symbol-circle symbol-35px me-3">
+                                                    @if ($item->user && $item->user->avatar_url)
+                                                        <img src="{{ $item->user->avatar_url }}" alt="{{ $item->user->name }}" />
+                                                    @else
+                                                        <span class="symbol-label bg-light-primary text-primary fw-bold">
+                                                            {{ strtoupper(substr($item->user ? $item->user->name : 'U', 0, 1)) }}
+                                                        </span>
+                                                    @endif
+                                                </div>
+                                                <div class="d-flex flex-column">
+                                                    <span class="text-gray-800 text-hover-primary fw-bold">
+                                                        {{ $item->user ? $item->user->name : 'Pengguna Terhapus' }}
+                                                    </span>
+                                                    <span class="text-muted fs-7">
+                                                        {{ $item->user ? $item->user->email : '-' }}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex flex-column">
+                                                <span class="text-gray-800 fw-bold">
+                                                    {{ $item->login_at ? $item->login_at->format('d M Y, H:i:s') : '-' }}
+                                                </span>
+                                                <span class="text-muted fs-7">
+                                                    {{ $item->login_at ? $item->login_at->diffForHumans() : '' }}
+                                                </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge badge-light-primary fw-bold font-monospace fs-7">
+                                                {{ $item->ip_address ?? '127.0.0.1' }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            @if ($item->latitude && $item->longitude)
+                                                <a href="https://maps.google.com/?q={{ $item->latitude }},{{ $item->longitude }}"
+                                                    target="_blank" class="btn btn-sm btn-light-info py-1 px-2 fs-7"
+                                                    data-bs-toggle="tooltip" title="Buka di Google Maps">
+                                                    <i class="ki-duotone ki-geolocation fs-4 me-1">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                    {{ number_format($item->latitude, 4) }}, {{ number_format($item->longitude, 4) }}
+                                                </a>
+                                            @else
+                                                <span class="text-muted fs-7 italic">Koordinat tidak tersedia</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if ($item->point_awarded)
+                                                <span class="badge badge-light-success fw-bold fs-7">
+                                                    <i class="ki-duotone ki-check-circle fs-5 me-1 text-success">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i> +1 Poin (Reward 24j)
+                                                </span>
+                                            @else
+                                                <span class="badge badge-light-secondary text-gray-600 fw-semibold fs-7"
+                                                      data-bs-toggle="tooltip" title="User sudah menerima poin dalam 24 jam terakhir">
+                                                    0 Poin (Sudah Login 24j)
+                                                </span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <span class="text-gray-700 fs-7 text-truncate d-inline-block mw-200px" title="{{ $item->user_agent }}">
+                                                {{ $item->user_agent ? Str::limit($item->user_agent, 45) : '-' }}
+                                            </span>
+                                        </td>
+                                        <td class="text-end">
+                                            <button type="button"
+                                                class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm"
+                                                onclick="deleteDataLogin({{ $item->id }})"
+                                                data-bs-toggle="tooltip" title="Hapus Catatan Login">
+                                                <i class="ki-duotone ki-trash fs-2">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                    <span class="path3"></span>
+                                                    <span class="path4"></span>
+                                                    <span class="path5"></span>
+                                                </i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="8" class="text-center text-muted py-10">
+                                            Belum ada riwayat login user tercatat.
+                                        </td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--end::Table responsive-->
+                </div>
+                <!--end::Card body-->
+            </div>
+            <!--end::Card Table-->
+
+        </div>
+        <!--end::Content container-->
+    </div>
+@endsection
+
+@section('scripts')
+    <!--begin::Vendors Javascript(used for this page only)-->
+    <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+    <script src="{{ asset('assets/js/custom/crud-helper.js') }}"></script>
+    <!--end::Vendors Javascript-->
+
+    <script>
+        var dataLoginTable;
+
+        $(document).ready(function() {
+            if ($('#kt_table_data_login tbody tr td').length > 1) {
+                dataLoginTable = $('#kt_table_data_login').DataTable({
+                    info: true,
+                    order: [],
+                    pageLength: 10,
+                    lengthChange: true,
+                    columnDefs: [
+                        { orderable: false, targets: 7 }
+                    ]
+                });
+
+                $('#kt_data_login_search').on('keyup', function() {
+                    dataLoginTable.search(this.value).draw();
+                });
+            }
+        });
+
+        // Function Hapus 1 Record Login
+        function deleteDataLogin(id) {
+            SwalHelper.confirmDelete('catatan login ini', function() {
+                var deleteUrl = "{{ route('appsupport.data-login.destroy', ':id') }}".replace(':id', id);
+                $.ajax({
+                    url: deleteUrl,
+                    type: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            SwalHelper.success(response.message, function() {
+                                location.reload();
+                            });
+                        } else {
+                            SwalHelper.error(response.message);
+                        }
+                    },
+                    error: function(xhr) {
+                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal menghapus catatan login.';
+                        SwalHelper.error(msg);
+                    }
+                });
+            });
+        }
+
+        // Function Bersihkan Semua Log
+        function clearAllDataLogins() {
+            Swal.fire({
+                title: 'Bersihkan Semua Riwayat Login?',
+                text: 'Semua data riwayat login akan dihapus secara permanen. Tindakan ini tidak dapat dibatalkan.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, Bersihkan Semua!',
+                cancelButtonText: 'Batal'
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "{{ route('appsupport.data-login.clear-all') }}",
+                        type: 'DELETE',
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                SwalHelper.success(response.message, function() {
+                                    location.reload();
+                                });
+                            } else {
+                                SwalHelper.error(response.message);
+                            }
+                        },
+                        error: function(xhr) {
+                            var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal membersihkan riwayat login.';
+                            SwalHelper.error(msg);
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+@endsection
