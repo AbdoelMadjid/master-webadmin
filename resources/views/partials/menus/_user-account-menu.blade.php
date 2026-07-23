@@ -37,7 +37,7 @@
         <div class="menu-content d-flex align-items-center px-3">
             <!--begin::Avatar-->
             <div class="symbol symbol-50px me-5">
-                <img alt="Logo" src="{{ $profileAvatar }}"
+                <img alt="Logo" class="user-avatar-img" src="{{ $profileAvatar }}"
                     onerror="this.onerror=null;this.src='{{ $profileAvatarOnError }}';" />
             </div>
             <!--end::Avatar-->

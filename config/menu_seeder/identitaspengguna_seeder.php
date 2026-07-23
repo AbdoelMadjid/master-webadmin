@@ -8,5 +8,5 @@ return [
     'icon' => 'ki-duotone ki-profile-circle fs-2',
     'paths' => 3,
     'permissions' => ['read', 'update'],
-    'roles' => ['user'],
+    'roles' => ['user', 'master', 'admin'],
 ];

@@ -47,7 +47,7 @@
             <div class="card mb-5 mb-xl-10">
                 <div class="card-body pt-9 pb-0">
                     <!--begin::Details-->
-                    @include('pages.pages.account.partials.details')
+                    @include('pages.profil.partials.details')
                     <!--end::Details-->
                     <!--begin::Navs-->
                     @include('pages.profil.partials.navs', ['active' => $activeTab])

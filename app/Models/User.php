@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'avatar',
     ];
 
     /**
@@ -45,5 +46,24 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Accessor untuk mendapatkan URL lengkap avatar user
+     */
+    public function getAvatarUrlAttribute(): string
+    {
+        if (function_exists('getUserAvatarUrl')) {
+            return getUserAvatarUrl($this);
+        }
+
+        if ($this->avatar) {
+            if (str_starts_with($this->avatar, 'http://') || str_starts_with($this->avatar, 'https://')) {
+                return $this->avatar;
+            }
+            return asset($this->avatar);
+        }
+
+        return asset('assets/media/avatars/300-1.jpg');
     }
 }

@@ -30,8 +30,11 @@ use App\Http\Controllers\AppSupport\AppFiturController;
 use App\Http\Controllers\AppSupport\AppProfilController;
 use App\Http\Controllers\AppSupport\BackupDbController;
 use App\Http\Controllers\AppSupport\MenuController;
+use App\Http\Controllers\User\ProfilPenggunaController;
 
 Route::middleware('auth')->group(function () {
+    Route::post('/profil-pengguna/avatar', [ProfilPenggunaController::class, 'updateAvatar'])->name('profil-pengguna.avatar.update');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

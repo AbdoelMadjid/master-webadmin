@@ -44,3 +44,14 @@
      * General Error: `SwalHelper.error(message)`
      * Validation Error (422 XHR): `SwalHelper.validationError(xhr)`
      * Delete Confirmation Prompt: `SwalHelper.confirmDelete(itemName, callback)`
+
+# Rules for Template/Demo Preservation & View Duplication
+
+1. **Preserve Demo & Template Views (Hardcoded)**:
+   - Never modify original Metronic template/demo view files (e.g. `resources/views/pages/pages/...`, `resources/views/pages/account/...`) directly when developing database-driven application features.
+   - Leave demo/template views 100% hardcoded so they remain intact as reference layouts.
+
+2. **Copy & Duplicate to Dedicated Feature Folders**:
+   - Always copy/duplicate template partials or views to a dedicated feature folder under `resources/views/pages/<subfolder>/` before adding dynamic data or custom logic.
+   - Example: For route `profil-pengguna`, create/duplicate header details to `resources/views/pages/profil/partials/details.blade.php` instead of modifying `resources/views/pages/pages/account/partials/details.blade.php`.
+
