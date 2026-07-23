@@ -72,15 +72,15 @@
                                     <span class="badge {{ $catBadge }} fw-bold fs-8">{{ $fiturs->count() }} Fitur</span>
                                 </div>
                                 <div class="card-toolbar d-flex align-items-center gap-2">
-                                    <button type="button" class="btn btn-sm btn-light-success py-2 px-3"
+                                    <button type="button" class="btn btn-icon btn-sm btn-light-success"
                                         onclick="bulkToggleCategory('{{ addslashes($category) }}', 1)"
                                         data-bs-toggle="tooltip" title="Aktifkan semua fitur dalam {{ $category }}">
-                                        <i class="ki-duotone ki-check fs-6 me-1"><span class="path1"></span><span class="path2"></span></i> Aktifkan Semua
+                                        <i class="ki-duotone ki-check fs-3"><span class="path1"></span><span class="path2"></span></i>
                                     </button>
-                                    <button type="button" class="btn btn-sm btn-light-danger py-2 px-3"
+                                    <button type="button" class="btn btn-icon btn-sm btn-light-danger"
                                         onclick="bulkToggleCategory('{{ addslashes($category) }}', 0)"
                                         data-bs-toggle="tooltip" title="Non-aktifkan semua fitur dalam {{ $category }}">
-                                        <i class="ki-duotone ki-cross fs-6 me-1"><span class="path1"></span><span class="path2"></span></i> Non-aktifkan Semua
+                                        <i class="ki-duotone ki-cross fs-3"><span class="path1"></span><span class="path2"></span></i>
                                     </button>
                                 </div>
                             </div>
@@ -93,9 +93,9 @@
                                     <table class="table align-middle table-row-dashed fs-6 gy-4">
                                         <thead>
                                             <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
-                                                <th class="min-w-250px">Nama Fitur</th>
-                                                <th class="min-w-300px">Deskripsi</th>
-                                                <th class="min-w-100px text-center">Status Visibilitas</th>
+                                                <th class="min-w-125px">Nama Fitur</th>
+                                                <th class="min-w-150px">Deskripsi</th>
+                                                <th class="min-w-90px text-center">Status Visibilitas</th>
                                             </tr>
                                         </thead>
                                         <tbody class="fw-semibold text-gray-600">
@@ -112,7 +112,7 @@
                                                     </td>
                                                     <td class="text-center">
                                                         <div class="form-check form-switch form-check-custom form-check-solid justify-content-center">
-                                                            <input class="form-check-input h-22px w-35px cursor-pointer" type="checkbox"
+                                                            <input class="form-check-input h-22px w-45px cursor-pointer" type="checkbox"
                                                                 id="fitur_switch_{{ $fitur->id }}"
                                                                 {{ $fitur->active ? 'checked' : '' }}
                                                                 onchange="toggleFiturStatus({{ $fitur->id }}, this)"

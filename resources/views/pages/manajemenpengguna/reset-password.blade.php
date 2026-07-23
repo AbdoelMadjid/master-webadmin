@@ -64,7 +64,7 @@
                                 </tr>
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
-                                @forelse($requests as $index => $item)
+                                @foreach($requests as $index => $item)
                                     <tr class="{{ request('highlight') == $item->id ? 'bg-light-warning' : '' }}">
                                         <td class="text-center text-muted fw-bold">
                                             {{ $index + 1 }}
@@ -124,14 +124,7 @@
                                             @endif
                                         </td>
                                     </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="6" class="text-center py-10 text-muted">
-                                            <i class="ki-duotone ki-information fs-3x text-gray-400 mb-3 d-block"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-                                            Belum ada data permintaan reset password.
-                                        </td>
-                                    </tr>
-                                @endforelse
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -208,6 +201,8 @@
                     { className: 'text-end pe-4', targets: [5] }
                 ],
                 language: {
+                    zeroRecords: "Belum ada data permintaan reset password.",
+                    emptyTable: "Belum ada data permintaan reset password.",
                     search: "",
                     searchPlaceholder: "Cari data..."
                 }
