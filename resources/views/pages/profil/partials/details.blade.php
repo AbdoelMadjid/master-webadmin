@@ -212,19 +212,20 @@
                         class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                         <!--begin::Number-->
                         <div class="d-flex align-items-center">
-                            <i class="ki-duotone ki-arrow-up fs-3 text-success me-2">
+                            <i class="ki-duotone ki-award fs-3 text-warning me-2">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
+                                <span class="path3"></span>
                             </i>
                             <div class="fs-2 fw-bold" data-kt-countup="true"
-                                data-kt-countup-value="4500" data-kt-countup-prefix="$">
+                                data-kt-countup-value="{{ $authUser?->points ?? 0 }}">
                                 0
                             </div>
                         </div>
                         <!--end::Number-->
                         <!--begin::Label-->
                         <div class="fw-semibold fs-6 text-gray-500">
-                            Earnings
+                            Pencapaian Poin
                         </div>
                         <!--end::Label-->
                     </div>

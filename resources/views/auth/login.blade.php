@@ -38,6 +38,7 @@
                             <input type="hidden" name="locale" value="{{ app()->getLocale() }}">
                             <input type="hidden" name="latitude" id="login_latitude">
                             <input type="hidden" name="longitude" id="login_longitude">
+                            <input type="hidden" name="device_time" id="login_device_time">
 
                             @if (session('status'))
                                 <div class="alert alert-success g-mb-20" role="alert">
@@ -427,7 +428,21 @@
             passwordInput.addEventListener('input', validatePasswordInline);
             passwordInput.addEventListener('blur', validatePasswordInline);
 
+            function updateDeviceTime() {
+                var now = new Date();
+                var year = now.getFullYear();
+                var month = String(now.getMonth() + 1).padStart(2, '0');
+                var day = String(now.getDate()).padStart(2, '0');
+                var hours = String(now.getHours()).padStart(2, '0');
+                var minutes = String(now.getMinutes()).padStart(2, '0');
+                var seconds = String(now.getSeconds()).padStart(2, '0');
+                var formattedLocal = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+                $('#login_device_time').val(formattedLocal);
+            }
+            updateDeviceTime();
+
             form.addEventListener('submit', function(e) {
+                updateDeviceTime();
                 const validEmail = validateEmailInline();
                 const validPassword = validatePasswordInline();
                 if (!validEmail || !validPassword) {

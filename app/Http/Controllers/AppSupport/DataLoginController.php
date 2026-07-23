@@ -15,7 +15,7 @@ class DataLoginController extends Controller
      */
     public function index(Request $request)
     {
-        $logins = DataLogin::with('user')
+        $logins = DataLogin::with(['user.roles'])
             ->orderBy('login_at', 'desc')
             ->get();
 

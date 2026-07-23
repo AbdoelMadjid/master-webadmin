@@ -19,7 +19,15 @@ class LogUserLogin
         }
 
         $request = request();
+        $deviceTime = $request->input('device_time') ?? $request->input('client_time');
         $now = Carbon::now();
+        if ($deviceTime) {
+            try {
+                $now = Carbon::parse($deviceTime);
+            } catch (\Throwable $e) {
+                $now = Carbon::now();
+            }
+        }
         $ip = $request->ip();
         $userAgent = $request->userAgent();
 
@@ -29,30 +37,44 @@ class LogUserLogin
         $latitude = ($latitude !== null && $latitude !== '') ? (float) $latitude : null;
         $longitude = ($longitude !== null && $longitude !== '') ? (float) $longitude : null;
 
-        // Rule: Poin hanya ditambahkan jika belum pernah mendapatkan poin login dalam 24 jam terakhir.
+        // Rule: Jika user sudah login dalam 24 jam terakhir (dan sudah menerima poin),
+        // update data login yang ada daripada menambah baris baru.
         $twentyFourHoursAgo = Carbon::now()->subHours(24);
 
-        $hasPointIn24h = DataLogin::query()
+        $existingLoginIn24h = DataLogin::query()
             ->where('user_id', $user->id)
-            ->where('point_awarded', true)
             ->where('login_at', '>=', $twentyFourHoursAgo)
-            ->exists();
+            ->latest('login_at')
+            ->first();
 
-        $shouldAwardPoint = !$hasPointIn24h;
+        if ($existingLoginIn24h) {
+            $updateData = [
+                'login_at'   => $now,
+                'ip_address' => $ip,
+                'user_agent' => $userAgent,
+            ];
+            if ($latitude !== null) {
+                $updateData['latitude'] = $latitude;
+            }
+            if ($longitude !== null) {
+                $updateData['longitude'] = $longitude;
+            }
 
-        if ($shouldAwardPoint) {
+            $existingLoginIn24h->update($updateData);
+        } else {
+            // Belum ada login dalam 24 jam terakhir: Tambahkan 1 poin dan buat catatan data login baru.
             $user->increment('points');
-        }
 
-        DataLogin::create([
-            'user_id'       => $user->id,
-            'login_at'      => $now,
-            'ip_address'    => $ip,
-            'user_agent'    => $userAgent,
-            'latitude'      => $latitude,
-            'longitude'     => $longitude,
-            'location'      => null,
-            'point_awarded' => $shouldAwardPoint,
-        ]);
+            DataLogin::create([
+                'user_id'       => $user->id,
+                'login_at'      => $now,
+                'ip_address'    => $ip,
+                'user_agent'    => $userAgent,
+                'latitude'      => $latitude,
+                'longitude'     => $longitude,
+                'location'      => null,
+                'point_awarded' => true,
+            ]);
+        }
     }
 }

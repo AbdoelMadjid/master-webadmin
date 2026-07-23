@@ -130,29 +130,48 @@
                 <div class="card-header align-items-center py-5 gap-2 gap-md-5">
                     <!--begin::Card title-->
                     <div class="card-title">
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="card-label fw-bold fs-3 mb-1">Riwayat Data Login</span>
+                            <span class="text-muted fw-semibold fs-7">Catatan keaktifan sesi login user</span>
+                        </h3>
+                    </div>
+                    <!--end::Card title-->
+
+                    <!--begin::Card toolbar-->
+                    <div class="card-toolbar flex-row-fluid justify-content-end gap-3">
                         <!--begin::Search-->
                         <div class="d-flex align-items-center position-relative my-1">
                             <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>
-                            <input type="text" id="kt_data_login_search" class="form-control form-control-solid w-250px ps-12"
+                            <input type="text" id="kt_data_login_search" class="form-control form-control-solid w-200px w-md-250px ps-12"
                                 placeholder="Cari nama, email, IP..." />
                         </div>
                         <!--end::Search-->
-                    </div>
-                    <!--end::Card title-->
 
-                    <!--begin::Card toolbar-->
-                    <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
-                        <button type="button" class="btn btn-light-danger" onclick="clearAllDataLogins()">
-                            <i class="ki-duotone ki-trash fs-2">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                                <span class="path4"></span>
-                                <span class="path5"></span>
-                            </i> Bersihkan Semua Log
+                        <!--begin::Filter Role-->
+                        <div class="d-flex align-items-center my-1">
+                            <select id="kt_data_login_role_filter" class="form-select form-select-solid w-150px" data-control="select2" data-hide-search="true" data-placeholder="Semua Role">
+                                <option value="">Semua Role</option>
+                                <option value="master">Master</option>
+                                <option value="admin">Admin</option>
+                                <option value="user">User</option>
+                            </select>
+                        </div>
+                        <!--end::Filter Role-->
+
+                        <!--begin::Filter Tanggal-->
+                        <div class="d-flex align-items-center my-1">
+                            <input type="date" id="kt_data_login_date_filter" class="form-control form-control-solid w-175px"
+                                value="{{ date('Y-m-d') }}"
+                                data-bs-toggle="tooltip" title="Filter Tanggal Login" />
+                        </div>
+                        <!--end::Filter Tanggal-->
+
+                        <!--begin::Reset Filter Button-->
+                        <button type="button" id="kt_data_login_reset_filter" class="btn btn-sm btn-light-secondary my-1 d-none" onclick="resetDataLoginFilters()">
+                            <i class="ki-duotone ki-cross fs-3"><span class="path1"></span><span class="path2"></span></i> Reset
                         </button>
                     </div>
                     <!--end::Card toolbar-->
@@ -168,6 +187,7 @@
                                 <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                                     <th class="min-w-50px">No</th>
                                     <th class="min-w-200px">User / Pengguna</th>
+                                    <th class="min-w-100px">Role</th>
                                     <th class="min-w-150px">Waktu Login</th>
                                     <th class="min-w-125px">IP Address</th>
                                     <th class="min-w-175px">Koordinat / Lokasi</th>
@@ -178,6 +198,23 @@
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
                                 @forelse ($logins as $index => $item)
+                                    @php
+                                        $firstRole = $item->user?->roles->first()?->name ?? '';
+                                        $roleName = '-';
+                                        $roleBadgeClass = 'badge-light-secondary';
+                                        if ($firstRole !== '') {
+                                            $roleName = function_exists('roleDisplayName') ? roleDisplayName($firstRole) : ucfirst($firstRole);
+                                            if ($firstRole === 'master') {
+                                                $roleBadgeClass = 'badge-light-danger';
+                                            } elseif ($firstRole === 'admin') {
+                                                $roleBadgeClass = 'badge-light-primary';
+                                            } elseif ($firstRole === 'user') {
+                                                $roleBadgeClass = 'badge-light-info';
+                                            } else {
+                                                $roleBadgeClass = 'badge-light-success';
+                                            }
+                                        }
+                                    @endphp
                                     <tr>
                                         <td>{{ $index + 1 }}</td>
                                         <td>
@@ -201,7 +238,12 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td data-role="{{ strtolower($firstRole) }}">
+                                            <span class="badge {{ $roleBadgeClass }} fw-bold fs-7">
+                                                {{ $roleName }}
+                                            </span>
+                                        </td>
+                                        <td data-date="{{ $item->login_at ? $item->login_at->format('Y-m-d') : '' }}">
                                             <div class="d-flex flex-column">
                                                 <span class="text-gray-800 fw-bold">
                                                     {{ $item->login_at ? $item->login_at->format('d M Y, H:i:s') : '-' }}
@@ -231,7 +273,7 @@
                                                 <span class="text-muted fs-7 italic">Koordinat tidak tersedia</span>
                                             @endif
                                         </td>
-                                        <td>
+                                        <td data-point="{{ $item->point_awarded ? '1' : '0' }}">
                                             @if ($item->point_awarded)
                                                 <span class="badge badge-light-success fw-bold fs-7">
                                                     <i class="ki-duotone ki-check-circle fs-5 me-1 text-success">
@@ -268,7 +310,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="8" class="text-center text-muted py-10">
+                                        <td colspan="9" class="text-center text-muted py-10">
                                             Belum ada riwayat login user tercatat.
                                         </td>
                                     </tr>
@@ -295,8 +337,42 @@
 
     <script>
         var dataLoginTable;
+        var defaultTodayDate = "{{ date('Y-m-d') }}";
 
         $(document).ready(function() {
+            $.fn.dataTable.ext.search.push(
+                function(settings, data, dataIndex) {
+                    if (!settings.nTable || settings.nTable.id !== 'kt_table_data_login') {
+                        return true;
+                    }
+
+                    var rowNode = settings.aoData[dataIndex] ? settings.aoData[dataIndex].nTr : null;
+                    if (!rowNode) return true;
+
+                    // Role filter
+                    var roleFilter = $('#kt_data_login_role_filter').val();
+                    if (roleFilter !== '' && roleFilter !== null && roleFilter !== undefined) {
+                        var roleCell = $(rowNode).find('td').eq(2);
+                        var roleValue = roleCell.attr('data-role') || roleCell.text().trim().toLowerCase();
+                        if (roleValue && roleValue.toLowerCase() !== String(roleFilter).toLowerCase()) {
+                            return false;
+                        }
+                    }
+
+                    // Date filter
+                    var dateFilter = $('#kt_data_login_date_filter').val();
+                    if (dateFilter) {
+                        var dateCell = $(rowNode).find('td').eq(3);
+                        var cellDate = dateCell.attr('data-date');
+                        if (cellDate && cellDate !== dateFilter) {
+                            return false;
+                        }
+                    }
+
+                    return true;
+                }
+            );
+
             if ($('#kt_table_data_login tbody tr td').length > 1) {
                 dataLoginTable = $('#kt_table_data_login').DataTable({
                     info: true,
@@ -304,15 +380,46 @@
                     pageLength: 10,
                     lengthChange: true,
                     columnDefs: [
-                        { orderable: false, targets: 7 }
+                        { orderable: false, targets: 8 }
                     ]
                 });
 
-                $('#kt_data_login_search').on('keyup', function() {
+                $('#kt_data_login_search').on('keyup input', function() {
+                    toggleResetButton();
                     dataLoginTable.search(this.value).draw();
                 });
+
+                $('#kt_data_login_date_filter, #kt_data_login_role_filter').on('change', function() {
+                    toggleResetButton();
+                    dataLoginTable.draw();
+                });
+
+                toggleResetButton();
             }
         });
+
+        function resetDataLoginFilters() {
+            $('#kt_data_login_search').val('');
+            $('#kt_data_login_date_filter').val(defaultTodayDate);
+            $('#kt_data_login_role_filter').val('').trigger('change');
+            toggleResetButton();
+            if (dataLoginTable) {
+                dataLoginTable.search('').draw();
+            }
+        }
+
+        function toggleResetButton() {
+            var searchVal = $('#kt_data_login_search').val() ? $('#kt_data_login_search').val().trim() : '';
+            var dateVal = $('#kt_data_login_date_filter').val() ? $('#kt_data_login_date_filter').val().trim() : '';
+            var roleVal = $('#kt_data_login_role_filter').val() ? $('#kt_data_login_role_filter').val().trim() : '';
+
+            // Reset button appears if any filter is modified from default state (default: search="", role="", date=today)
+            if (searchVal !== '' || roleVal !== '' || dateVal !== defaultTodayDate) {
+                $('#kt_data_login_reset_filter').removeClass('d-none');
+            } else {
+                $('#kt_data_login_reset_filter').addClass('d-none');
+            }
+        }
 
         // Function Hapus 1 Record Login
         function deleteDataLogin(id) {
@@ -338,43 +445,6 @@
                         SwalHelper.error(msg);
                     }
                 });
-            });
-        }
-
-        // Function Bersihkan Semua Log
-        function clearAllDataLogins() {
-            Swal.fire({
-                title: 'Bersihkan Semua Riwayat Login?',
-                text: 'Semua data riwayat login akan dihapus secara permanen. Tindakan ini tidak dapat dibatalkan.',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6',
-                confirmButtonText: 'Ya, Bersihkan Semua!',
-                cancelButtonText: 'Batal'
-            }).then(function(result) {
-                if (result.isConfirmed) {
-                    $.ajax({
-                        url: "{{ route('appsupport.data-login.clear-all') }}",
-                        type: 'DELETE',
-                        headers: {
-                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                        },
-                        success: function(response) {
-                            if (response.success) {
-                                SwalHelper.success(response.message, function() {
-                                    location.reload();
-                                });
-                            } else {
-                                SwalHelper.error(response.message);
-                            }
-                        },
-                        error: function(xhr) {
-                            var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal membersihkan riwayat login.';
-                            SwalHelper.error(msg);
-                        }
-                    });
-                }
             });
         }
     </script>
