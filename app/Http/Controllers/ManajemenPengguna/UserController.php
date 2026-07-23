@@ -7,6 +7,7 @@ use App\Http\Requests\ManajemenPengguna\UserRequest;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -36,6 +37,7 @@ class UserController extends Controller
     {
         $data = $request->validated();
         $data['password'] = Hash::make($data['password']);
+        $data['email_verified_at'] = now();
 
         if ($request->hasFile('avatar')) {
             $data['avatar'] = $request->file('avatar')->store('avatars', 'public');
@@ -240,9 +242,10 @@ class UserController extends Controller
 
             // Create User
             $user = User::create([
-                'name'     => $name,
-                'email'    => $email,
-                'password' => Hash::make($password),
+                'name'              => $name,
+                'email'             => $email,
+                'password'          => Hash::make($password),
+                'email_verified_at' => now(),
             ]);
 
             // Sync Role(s) if provided
@@ -268,5 +271,61 @@ class UserController extends Controller
             'imported_count' => $importedCount,
             'skipped_rows'   => $skippedRows,
         ]);
+    }
+
+    public function impersonate($id)
+    {
+        $targetUser = User::findOrFail($id);
+
+        if ($targetUser->id === Auth::id()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Anda sudah berada di akun Anda sendiri.',
+            ], 422);
+        }
+
+        // Auto verify target user if email_verified_at is null so verified middleware does not block access to dashboard
+        if (is_null($targetUser->email_verified_at)) {
+            $targetUser->forceFill(['email_verified_at' => now()])->save();
+        }
+
+        // Save original user ID in session if not already in impersonation mode
+        if (!session()->has('impersonator_id')) {
+            session(['impersonator_id' => Auth::id()]);
+        }
+
+        // Login as target user
+        Auth::login($targetUser);
+
+        // Force clear any previous intended URL from session so it won't redirect back to users table
+        session()->forget('url.intended');
+
+        return response()->json([
+            'success'  => true,
+            'message'  => "Berhasil beralih ke akun '{$targetUser->name}'.",
+            'redirect' => route('homepage'),
+        ]);
+    }
+
+    public function leaveImpersonate()
+    {
+        if (!session()->has('impersonator_id')) {
+            return redirect()->route('homepage');
+        }
+
+        $impersonatorId = session('impersonator_id');
+        session(['is_leaving_impersonation' => true]);
+
+        $impersonator = User::find($impersonatorId);
+        if ($impersonator) {
+            Auth::login($impersonator);
+            session()->forget('impersonator_id');
+            session()->forget('is_leaving_impersonation');
+            return redirect()->route('manajemenpengguna.users')->with('success', "Anda telah kembali ke akun asli ({$impersonator->name}).");
+        }
+
+        session()->forget('impersonator_id');
+        session()->forget('is_leaving_impersonation');
+        return redirect()->route('homepage');
     }
 }

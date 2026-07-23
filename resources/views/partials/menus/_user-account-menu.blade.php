@@ -59,6 +59,19 @@
     <!--begin::Menu separator-->
     <div class="separator my-2"></div>
     <!--end::Menu separator-->
+
+    @if(session()->has('impersonator_id'))
+        @php
+            $impersonator = \App\Models\User::find(session('impersonator_id'));
+        @endphp
+        <div class="menu-item px-5 my-1">
+            <a href="{{ route('manajemenpengguna.users.leave-impersonate') }}" class="menu-link px-5 text-danger fw-bold bg-light-danger rounded">
+                <i class="ki-duotone ki-exit-right fs-3 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
+                Kembali ke Akun Asli ({{ $impersonator?->name ?? 'Admin' }})
+            </a>
+        </div>
+        <div class="separator my-2"></div>
+    @endif
     <!--begin::Menu item-->
     <div class="menu-item px-5">
         <a href="{{ route('pages.account.overview') }}" class="menu-link px-5">

@@ -25,9 +25,9 @@
                 <!--begin::Hero-->
                 <div class="schema-hero">
                     <span class="schema-pill">Skema Main Menu > Manajemen Pengguna > User</span>
-                    <h2 class="fw-bold">Skema User Management (User CRUD, Avatar, Reward Poin & Security)</h2>
+                    <h2 class="fw-bold">Skema User Management (User CRUD, Avatar, Reward Poin, Impersonasi & Security)</h2>
                     <p class="schema-lead">
-                        Penjelasan komprehensif arsitektur akun pengguna (Users CRUD), penanganan upload Avatar Profil, Sistem Reward Poin Harian, serta Keamanan Masa Idle Logout Otomatis 15 Menit.
+                        Penjelasan komprehensif arsitektur akun pengguna (Users CRUD), penanganan upload Avatar Profil, Sistem Reward Poin Harian, Mode Switch User (Impersonasi), Impor Massal Excel, serta Keamanan Masa Idle Logout Otomatis 15 Menit.
                     </p>
                 </div>
                 <!--end::Hero-->
@@ -210,7 +210,42 @@ public function getAvatarUrlAttribute()
                     </div>
 
                     <!--====================================================-->
-                    <!-- 6. KOTAK BAWAH 4: REKAPITULASI BERKAS UTAMA USER MANAGEMENT -->
+                    <!-- 7. KOTAK BAWAH 5: MODE SWITCH USER (IMPERSONASI AKUN) -->
+                    <!--====================================================-->
+                    <div class="schema-col-12 mt-4">
+                        <div class="schema-card border-start border-4 border-warning">
+                            <h4><i class="ki-duotone ki-switch fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> 5. Mode Switch User (Impersonasi Akun Tanpa Password)</h4>
+                            <p class="fs-7 text-gray-700">
+                                Arsitektur pengalihan akun tanpa masukan kata sandi, penyimpanan id admin di sesi, dan pemulihan akun asli:
+                            </p>
+                            <div class="row g-4 mt-1">
+                                <div class="col-md-6">
+                                    <div class="p-4 rounded bg-light-warning border border-warning border-dashed h-100">
+                                        <h5 class="fw-bold text-warning mb-2">A. Alur Beralih Akun (Impersonate)</h5>
+                                        <ul class="schema-list fs-7 mb-0">
+                                            <li><strong>Trigger:</strong> Klik nama user atau tombol icon switch di <code>users.blade.php</code>.</li>
+                                            <li><strong>Endpoint:</strong> <code>POST /manajemenpengguna/users/{id}/impersonate</code> (<code>UserController@impersonate</code>).</li>
+                                            <li><strong>Sesi:</strong> Mengamankan ID akun asli ke <code>session(['impersonator_id' => auth()->id()])</code> lalu mengeksekusi <code>Auth::login($targetUser)</code>.</li>
+                                            <li><strong>Proteksi Listener:</strong> <code>LogUserLogin</code> memeriksa sesi <code>impersonator_id</code> untuk <strong>TIDAK menambah reward poin login dan TIDAK menambah jumlah riwayat login</strong>.</li>
+                                            <li>Menampilkan notifikasi sukses <code>SwalHelper.success()</code> dan mengalihkan ke Dashboard.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-4 rounded bg-light-danger border border-danger border-dashed h-100">
+                                        <h5 class="fw-bold text-danger mb-2">B. Pemulihan Akun Asli (Leave Impersonate)</h5>
+                                        <ul class="schema-list fs-7 mb-0">
+                                            <li><strong>Dropdown Avatar User:</strong> Item menu khusus <code>Kembali ke Akun Asli</code> pada <code>_user-account-menu.blade.php</code> di sudut kanan atas.</li>
+                                            <li><strong>Endpoint:</strong> <code>GET /manajemenpengguna/users/leave-impersonate</code> (<code>UserController@leaveImpersonate</code>) memulihkan sesi admin asli.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 8. KOTAK BAWAH 6: REKAPITULASI BERKAS UTAMA USER MANAGEMENT -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
                         <div class="schema-card">
@@ -249,6 +284,16 @@ public function getAvatarUrlAttribute()
                                             <td><strong>Upload Massal Excel</strong></td>
                                             <td><code>UserController.php</code> (import & downloadTemplate)<br><code>user-import-modal.blade.php</code></td>
                                             <td>Penjanaan berkas Excel master (.xlsx) via PhpSpreadsheet, impor massal baris pengguna, validasi email duplikat, dan penugasan role otomatis.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Switch User (Impersonasi)</strong></td>
+                                            <td><code>UserController.php</code> (impersonate & leaveImpersonate)<br><code>_user-account-menu.blade.php</code></td>
+                                            <td>Masuk ke akun lain tanpa password via ID di sesi (<code>impersonator_id</code>), proteksi poin/login listener, dan pemulihan akun asli via dropdown avatar.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Zona Waktu Lokal (WIB)</strong></td>
+                                            <td><code>config/app.php</code><br><code>.env</code> (APP_TIMEZONE=Asia/Jakarta)</td>
+                                            <td>Perekaman timestamp database (created_at, updated_at, login_at, last_activity_at) 100% tersimpan dan disajikan mengikuti zona waktu lokal (Asia/Jakarta, UTC+7).</td>
                                         </tr>
                                     </tbody>
                                 </table>

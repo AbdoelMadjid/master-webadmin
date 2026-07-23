@@ -49,6 +49,8 @@ Route::middleware('auth')->group(function () {
     Route::prefix('manajemenpengguna')->name('manajemenpengguna.')->group(function () {
         Route::get('users/template', [UserMgmtController::class, 'downloadTemplate'])->name('users.template');
         Route::post('users/import', [UserMgmtController::class, 'import'])->name('users.import');
+        Route::get('users/leave-impersonate', [UserMgmtController::class, 'leaveImpersonate'])->name('users.leave-impersonate');
+        Route::post('users/{id}/impersonate', [UserMgmtController::class, 'impersonate'])->name('users.impersonate');
 
         Route::resource('roles', RoleController::class)->names([
             'index' => 'roles',

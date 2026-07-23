@@ -62,7 +62,7 @@
                                                 @endif
                                             </div>
                                             <div class="d-flex flex-column">
-                                                <a href="#" class="text-gray-800 text-hover-primary mb-1 fw-bold">{{ $user->name }}</a>
+                                                <a href="#" class="text-gray-800 text-hover-primary mb-1 fw-bold btn-impersonate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" title="Klik untuk masuk ke akun ini (Switch User)">{{ $user->name }}</a>
                                                 <span class="fs-7 text-muted">{{ $user->email }}</span>
                                             </div>
                                         </td>
@@ -85,10 +85,13 @@
                                         </td>
                                         <td>{{ $user->created_at ? $user->created_at->format('d M Y H:i') : '-' }}</td>
                                         <td class="text-end">
-                                            <button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px me-2 btn-edit-user" data-id="{{ $user->id }}" title="Edit User">
+                                            <button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px me-1 btn-edit-user" data-id="{{ $user->id }}" title="Edit User">
                                                 <i class="ki-duotone ki-pencil fs-3"><span class="path1"></span><span class="path2"></span></i>
                                             </button>
                                             @if($user->id !== auth()->id())
+                                                <button type="button" class="btn btn-icon btn-active-light-info w-30px h-30px me-1 btn-impersonate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" title="Switch User (Masuk sebagai {{ $user->name }})">
+                                                    <i class="ki-duotone ki-switch fs-3"><span class="path1"></span><span class="path2"></span></i>
+                                                </button>
                                                 <button type="button" class="btn btn-icon btn-active-light-danger w-30px h-30px btn-delete-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" title="Hapus User">
                                                     <i class="ki-duotone ki-trash fs-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
                                                 </button>
@@ -229,6 +232,46 @@
                             SwalHelper.error(xhr.responseJSON?.message || 'Gagal menghapus pengguna.');
                         }
                     });
+                });
+            });
+
+            $(document).on('click', '.btn-impersonate-user', function(e) {
+                e.preventDefault();
+                var btn = $(this).closest('.btn-impersonate-user');
+                var userId = btn.data('id') || $(this).data('id');
+                var userName = btn.data('name') || $(this).data('name');
+
+                if (!userId) return;
+
+                Swal.fire({
+                    title: 'Switch User?',
+                    text: "Apakah Anda yakin ingin masuk ke akun '" + userName + "' tanpa login?",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, Masuk ke Akun',
+                    cancelButtonText: 'Batal',
+                    customClass: {
+                        confirmButton: 'btn btn-primary',
+                        cancelButton: 'btn btn-light'
+                    }
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: "{{ url('manajemenpengguna/users') }}/" + userId + "/impersonate",
+                            type: "POST",
+                            data: { _token: "{{ csrf_token() }}" },
+                            success: function(res) {
+                                if (res.success) {
+                                    SwalHelper.success(res.message, function() {
+                                        window.location.href = res.redirect || "{{ route('homepage') }}";
+                                    });
+                                }
+                            },
+                            error: function(xhr) {
+                                SwalHelper.error(xhr.responseJSON?.message || 'Gagal melakukan switch user.');
+                            }
+                        });
+                    }
                 });
             });
 

@@ -27,7 +27,7 @@
                     <span class="schema-pill">Operasional & Technical Guide</span>
                     <h2 class="fw-bold">Manajemen Pengguna (Users Management)</h2>
                     <p class="schema-lead">
-                        Panduan alur pemrograman, arsitektur data, dan operasional fitur Manajemen Pengguna yang mencakup pengelolaan Avatar, Sistem Reward Poin Harian, serta Keamanan Masa Idle Logout Otomatis.
+                        Panduan alur pemrograman, arsitektur data, dan operasional fitur Manajemen Pengguna yang mencakup pengelolaan Avatar, Sistem Reward Poin Harian, Keamanan Idle Auto-Logout, Impor Massal Excel, Mode Switch User (Impersonasi), serta Penyesuaian Zona Waktu Lokal (WIB).
                     </p>
                 </div>
                 <!--end::Hero-->
@@ -194,6 +194,101 @@
                     </div>
 
                     <!--====================================================-->
+                    <!-- 4. ALUR FITUR IMPOR MASSAL EXCEL -->
+                    <!--====================================================-->
+                    <div class="schema-col-12 mt-6">
+                        <div class="border-start border-4 border-info ps-4 my-2">
+                            <h3 class="fw-bold text-gray-900 mb-1">4. Impor Massal Pengguna via Excel & Master Format (.xlsx)</h3>
+                            <span class="text-muted fs-7">Sistem ekstraksi berkas spreadsheet PhpSpreadsheet, penjanaan template master, validasi duplikat, dan penugasan role otomatis.</span>
+                        </div>
+                    </div>
+
+                    <div class="schema-col-6">
+                        <div class="schema-card">
+                            <h4><i class="ki-duotone ki-file-down fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Master Template Excel (.xlsx)</h4>
+                            <ul class="schema-list">
+                                <li><strong>Endpoint:</strong> <code>GET /manajemenpengguna/users/template</code> (<code>UserController@downloadTemplate</code>).</li>
+                                <li><strong>Styling & Header:</strong> Menggunakan <code>PhpOffice\PhpSpreadsheet</code> dengan desain header tebal <code>#1E1E2D</code>.</li>
+                                <li><strong>Struktur Kolom:</strong> <code>No</code>, <code>Nama Lengkap *</code>, <code>Email *</code>, <code>Password *</code>, <code>Role (opsional)</code>.</li>
+                                <li><strong>Panduan Sampel:</strong> Dilengkapi 3 baris sampel otomatis & auto-fit lebar kolom.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="schema-col-6">
+                        <div class="schema-card">
+                            <h4><i class="ki-duotone ki-file-up fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Import Engine & Validasi Massal</h4>
+                            <ul class="schema-list">
+                                <li><strong>Endpoint:</strong> <code>POST /manajemenpengguna/users/import</code> (<code>UserController@import</code>).</li>
+                                <li><strong>Format & Ukuran:</strong> Mendukung berkas <code>.xlsx</code>, <code>.xls</code>, <code>.csv</code> (maksimal 5MB).</li>
+                                <li><strong>Pengecekan Duplikat:</strong> Memeriksa alamat email di database <code>users</code>. Jika sudah terdaftar, baris tersebut dilewati secara aman.</li>
+                                <li><strong>Auto Role Sync:</strong> Membaca kolom role dan menugaskan role ke user baru secara otomatis.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 5. ALUR MODE SWITCH USER (IMPERSONASI AKUN) -->
+                    <!--====================================================-->
+                    <div class="schema-col-12 mt-6">
+                        <div class="border-start border-4 border-warning ps-4 my-2">
+                            <h3 class="fw-bold text-gray-900 mb-1">5. Mode Switch User (Impersonasi Akun Tanpa Password)</h3>
+                            <span class="text-muted fs-7">Fitur pengalihan akun tanpa login kata sandi, penyimpanan ID admin di sesi, dan pemulihan akun asli via dropdown avatar.</span>
+                        </div>
+                    </div>
+
+                    <div class="schema-col-6">
+                        <div class="schema-card">
+                            <h4><i class="ki-duotone ki-switch fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Alur Beralih Akun (Impersonate)</h4>
+                            <div class="schema-flow">
+                                <div class="schema-step">
+                                    <strong>Interaksi:</strong> Klik langsung nama user atau icon Switch (<i class="ki-duotone ki-switch"></i>) pada tabel <code>users.blade.php</code>.
+                                </div>
+                                <div class="schema-step">
+                                    <strong>Endpoint & Sesi:</strong> <code>POST /manajemenpengguna/users/{id}/impersonate</code> menyimpan ID admin ke <code>session(['impersonator_id' => Auth::id()])</code> dan mengeksekusi <code>Auth::login($targetUser)</code>.
+                                </div>
+                                <div class="schema-step">
+                                    <strong>Proteksi Listener:</strong> <code>LogUserLogin</code> mendeteksi <code>impersonator_id</code> di sesi sehingga <strong>TIDAK menambah reward poin login (+1 Poin) dan TIDAK menambah riwayat login (login_count)</strong>.
+                                </div>
+                                <div class="schema-step">
+                                    <strong>Pembersihan Intended URL:</strong> Membuang <code>url.intended</code> dari sesi agar peramban langsung berpindah ke Dashboard (<code>/homepage</code>).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="schema-col-6">
+                        <div class="schema-card">
+                            <h4><i class="ki-duotone ki-exit-right fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i> Pemulihan Akun Asli (Leave Impersonate)</h4>
+                            <ul class="schema-list">
+                                <li><strong>Dropdown Avatar User:</strong> Menu khusus berwarna merah <code>Kembali ke Akun Asli ([Nama Admin])</code> pada <code>_user-account-menu.blade.php</code> di kanan pojok atas.</li>
+                                <li><strong>Endpoint:</strong> <code>GET /manajemenpengguna/users/leave-impersonate</code> (<code>UserController@leaveImpersonate</code>).</li>
+                                <li><strong>Proses:</strong> Mengembalikan autentikasi ke ID admin asli, memulihkan sesi, dan membawa kembali ke halaman daftar user dengan notifikasi sukses.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 6. ALUR ZONA WAKTU LOKAL (WIB / ASIA/JAKARTA) -->
+                    <!--====================================================-->
+                    <div class="schema-col-12 mt-6">
+                        <div class="border-start border-4 border-primary ps-4 my-2">
+                            <h3 class="fw-bold text-gray-900 mb-1">6. Penyesuaian Zona Waktu Lokal (WIB / Asia/Jakarta, UTC+7)</h3>
+                            <span class="text-muted fs-7">Konfigurasi zona waktu aplikasi agar seluruh perekaman timestamp database mengikuti waktu perangkat lokal.</span>
+                        </div>
+                    </div>
+
+                    <div class="schema-col-12 mt-1">
+                        <div class="schema-card">
+                            <h4><i class="ki-duotone ki-time fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Konfigurasi App Timezone</h4>
+                            <p class="fs-7 text-gray-700">
+                                Konfigurasi pada <code>config/app.php</code> diubah dari <code>UTC</code> menjadi <code>'timezone' => env('APP_TIMEZONE', 'Asia/Jakarta')</code> dan ditambahkan variabel <code>APP_TIMEZONE=Asia/Jakarta</code> pada file <code>.env</code>.
+                                Hal ini menjamin seluruh kolom timestamp database (<code>created_at</code>, <code>updated_at</code>, <code>login_at</code>, <code>last_activity_at</code>) tersimpan dan disajikan mengikuti zona waktu lokal (WIB, UTC+7).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
                     <!-- RINGKASAN REKAPITULASI PEMROGRAMAN -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-6">
@@ -223,6 +318,21 @@
                                             <td><strong>Idle Logout 15 Mins</strong></td>
                                             <td><code>_idle-timer.blade.php</code><br><code>UpdateUserLastActivity.php</code><br><code>AuthenticatedSessionController.php</code></td>
                                             <td>Skrip timer inaktivitas 15 menit, middleware update timestamp `last_activity_at`, dan pengalihan logout otomatis berpesan peringatan.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Upload Massal Excel</strong></td>
+                                            <td><code>UserController.php</code> (import & downloadTemplate)<br><code>user-import-modal.blade.php</code></td>
+                                            <td>Penjanaan master template (.xlsx) via PhpSpreadsheet, impor massal baris pengguna, validasi email duplikat, dan auto role sync.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Switch User (Impersonasi)</strong></td>
+                                            <td><code>UserController.php</code> (impersonate & leaveImpersonate)<br><code>_user-account-menu.blade.php</code><br><code>LogUserLogin.php</code></td>
+                                            <td>Masuk ke akun lain tanpa password via ID di sesi (<code>impersonator_id</code>), bypass listener reward poin/login count, dan pemulihan akun asli via dropdown avatar.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Zona Waktu Lokal (WIB)</strong></td>
+                                            <td><code>config/app.php</code><br><code>.env</code> (APP_TIMEZONE=Asia/Jakarta)</td>
+                                            <td>Perekaman timestamp database (created_at, updated_at, login_at, last_activity_at) 100% tersimpan dan disajikan mengikuti zona waktu lokal (Asia/Jakarta, UTC+7).</td>
                                         </tr>
                                     </tbody>
                                 </table>

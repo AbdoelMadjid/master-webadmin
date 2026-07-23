@@ -13,6 +13,11 @@ class LogUserLogin
      */
     public function handle(Login $event): void
     {
+        // Skip point rewards and login count tracking during switch user (impersonation) mode
+        if (session()->has('impersonator_id') || session()->has('is_leaving_impersonation')) {
+            return;
+        }
+
         $user = $event->user;
         if (!$user) {
             return;
