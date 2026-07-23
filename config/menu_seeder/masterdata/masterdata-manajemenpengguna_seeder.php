@@ -50,5 +50,13 @@ return [
             'permissions' => ['create', 'read', 'update', 'delete'],
             'roles' => ['admin'],
         ],
+        [
+            'title' => 'Reset Password',
+            'title_en' => 'Reset Password Requests',
+            'title_key' => 'md_reset_password',
+            'route' => 'manajemenpengguna/reset-password',
+            'permissions' => ['read', 'update', 'delete'],
+            'roles' => ['admin'],
+        ],
     ],
 ];

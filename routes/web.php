@@ -33,6 +33,7 @@ use App\Http\Controllers\AppSupport\DataLoginController;
 use App\Http\Controllers\AppSupport\MenuController;
 use App\Http\Controllers\ManajemenPengguna\AksesRoleController;
 use App\Http\Controllers\ManajemenPengguna\AksesUserController;
+use App\Http\Controllers\ManajemenPengguna\PasswordResetRequestController;
 use App\Http\Controllers\ManajemenPengguna\PermissionController;
 use App\Http\Controllers\ManajemenPengguna\RoleController;
 use App\Http\Controllers\ManajemenPengguna\UserController as UserMgmtController;
@@ -47,6 +48,11 @@ Route::middleware('auth')->group(function () {
 
     // Manajemen Pengguna Routes
     Route::prefix('manajemenpengguna')->name('manajemenpengguna.')->group(function () {
+        Route::get('reset-password', [PasswordResetRequestController::class, 'index'])->name('reset-password');
+        Route::get('reset-password/{id}/mark-read', [PasswordResetRequestController::class, 'markAsRead'])->name('reset-password.mark-read');
+        Route::post('reset-password/{id}/reset', [PasswordResetRequestController::class, 'processReset'])->name('reset-password.reset');
+        Route::post('reset-password/{id}/reject', [PasswordResetRequestController::class, 'reject'])->name('reset-password.reject');
+
         Route::get('users/template', [UserMgmtController::class, 'downloadTemplate'])->name('users.template');
         Route::post('users/import', [UserMgmtController::class, 'import'])->name('users.import');
         Route::get('users/leave-impersonate', [UserMgmtController::class, 'leaveImpersonate'])->name('users.leave-impersonate');

@@ -583,4 +583,5 @@ return array (
   'wizard_modals' => 'Modal Wizard',
   'wizards' => 'Wizard',
   'workflow_developer_harian' => 'Workflow Developer Harian',
+  'md_reset_password' => 'Reset Password',
 );

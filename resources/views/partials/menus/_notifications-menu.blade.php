@@ -5,6 +5,19 @@
             ->limit(10)
             ->get()
         : collect();
+
+    $unreadPasswordResets = collect();
+    if (auth()->check()) {
+        try {
+            $unreadPasswordResets = \App\Models\ManajemenPengguna\PasswordResetRequest::with('user')
+                ->where('status', 'pending')
+                ->where('is_read', false)
+                ->orderBy('created_at', 'desc')
+                ->get();
+        } catch (\Throwable $e) {
+            $unreadPasswordResets = collect();
+        }
+    }
 @endphp
 
 <!--begin::Menu-->
@@ -21,7 +34,11 @@
         <ul class="nav nav-line-tabs nav-line-tabs-2x nav-stretch fw-semibold px-9">
             <li class="nav-item">
                 <a class="nav-link text-white opacity-75 opacity-state-100 pb-4 active" data-bs-toggle="tab"
-                    href="#kt_topbar_notifications_1">Peringatan</a>
+                    href="#kt_topbar_notifications_1">Peringatan
+                    @if($unreadPasswordResets->count() > 0)
+                        <span class="badge badge-circle badge-danger fs-9 ms-1 h-16px w-16px">{{ $unreadPasswordResets->count() }}</span>
+                    @endif
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white opacity-75 opacity-state-100 pb-4" data-bs-toggle="tab"
@@ -41,42 +58,68 @@
         <div class="tab-pane fade show active" id="kt_topbar_notifications_1" role="tabpanel">
             <!--begin::Items-->
             <div class="scroll-y mh-325px my-5 px-8">
-                <div class="d-flex flex-stack py-4 border-bottom border-gray-200 border-bottom-dashed">
-                    <div class="d-flex align-items-center me-2">
-                        <div class="symbol symbol-35px me-4">
-                            <span class="symbol-label bg-light-warning">
-                                <i class="ki-duotone ki-shield-tick fs-2 text-warning">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
-                            </span>
+                @forelse($unreadPasswordResets as $resetReq)
+                    <div class="d-flex flex-stack py-4 border-bottom border-gray-200 border-bottom-dashed">
+                        <div class="d-flex align-items-center me-2">
+                            <div class="symbol symbol-35px me-4">
+                                <span class="symbol-label bg-light-danger">
+                                    <i class="ki-duotone ki-key fs-2 text-danger">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                </span>
+                            </div>
+                            <div class="mb-0 me-2">
+                                <a href="{{ route('manajemenpengguna.reset-password.mark-read', $resetReq->id) }}" class="fs-6 text-gray-800 text-hover-primary fw-bold">
+                                    Minta Reset Password
+                                </a>
+                                <div class="text-gray-500 fs-7">
+                                    Dari <strong>{{ $resetReq->user->name ?? 'User' }}</strong> ({{ $resetReq->email }})
+                                </div>
+                            </div>
                         </div>
-                        <div class="mb-0 me-2">
-                            <a href="javascript:void(0)" class="fs-6 text-gray-800 text-hover-primary fw-bold">Sesi Login Aktif</a>
-                            <div class="text-gray-500 fs-7">Akun Anda sedang terhubung secara aman</div>
-                        </div>
+                        <span class="badge badge-light-danger fs-8">
+                            {{ $resetReq->created_at ? $resetReq->created_at->diffForHumans() : 'Baru' }}
+                        </span>
                     </div>
-                    <span class="badge badge-light-success fs-8">Aktif</span>
-                </div>
+                @empty
+                    <div class="d-flex flex-stack py-4 border-bottom border-gray-200 border-bottom-dashed">
+                        <div class="d-flex align-items-center me-2">
+                            <div class="symbol symbol-35px me-4">
+                                <span class="symbol-label bg-light-warning">
+                                    <i class="ki-duotone ki-shield-tick fs-2 text-warning">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                </span>
+                            </div>
+                            <div class="mb-0 me-2">
+                                <a href="javascript:void(0)" class="fs-6 text-gray-800 text-hover-primary fw-bold">Sesi Login Aktif</a>
+                                <div class="text-gray-500 fs-7">Akun Anda sedang terhubung secara aman</div>
+                            </div>
+                        </div>
+                        <span class="badge badge-light-success fs-8">Aktif</span>
+                    </div>
 
-                <div class="d-flex flex-stack py-4 border-bottom border-gray-200 border-bottom-dashed">
-                    <div class="d-flex align-items-center me-2">
-                        <div class="symbol symbol-35px me-4">
-                            <span class="symbol-label bg-light-primary">
-                                <i class="ki-duotone ki-timer fs-2 text-primary">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                    <span class="path3"></span>
-                                </i>
-                            </span>
+                    <div class="d-flex flex-stack py-4 border-bottom border-gray-200 border-bottom-dashed">
+                        <div class="d-flex align-items-center me-2">
+                            <div class="symbol symbol-35px me-4">
+                                <span class="symbol-label bg-light-primary">
+                                    <i class="ki-duotone ki-timer fs-2 text-primary">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                    </i>
+                                </span>
+                            </div>
+                            <div class="mb-0 me-2">
+                                <a href="javascript:void(0)" class="fs-6 text-gray-800 text-hover-primary fw-bold">Idle Protection</a>
+                                <div class="text-gray-500 fs-7">Auto logout aktif dalam 15 menit inaktivitas</div>
+                            </div>
                         </div>
-                        <div class="mb-0 me-2">
-                            <a href="javascript:void(0)" class="fs-6 text-gray-800 text-hover-primary fw-bold">Idle Protection</a>
-                            <div class="text-gray-500 fs-7">Auto logout aktif dalam 15 menit inaktivitas</div>
-                        </div>
+                        <span class="badge badge-light-primary fs-8">15 Mins</span>
                     </div>
-                    <span class="badge badge-light-primary fs-8">15 Mins</span>
-                </div>
+                @endforelse
             </div>
             <!--end::Items-->
         </div>

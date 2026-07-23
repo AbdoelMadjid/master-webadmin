@@ -16,8 +16,9 @@ return array (
     10 => 'md_menu',
     11 => 'md_permission',
     12 => 'md_referensi',
-    13 => 'md_role',
-    14 => 'md_user',
+    13 => 'md_reset_password',
+    14 => 'md_role',
+    15 => 'md_user',
   ),
   'en' => 
   array (
@@ -34,7 +35,8 @@ return array (
     10 => 'md_menu',
     11 => 'md_permission',
     12 => 'md_referensi',
-    13 => 'md_role',
-    14 => 'md_user',
+    13 => 'md_reset_password',
+    14 => 'md_role',
+    15 => 'md_user',
   ),
 );

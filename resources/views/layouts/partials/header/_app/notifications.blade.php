@@ -1,6 +1,19 @@
+@php
+    $unreadResetRequestsCount = 0;
+    if (auth()->check()) {
+        try {
+            $unreadResetRequestsCount = \App\Models\ManajemenPengguna\PasswordResetRequest::where('status', 'pending')
+                ->where('is_read', false)
+                ->count();
+        } catch (\Throwable $e) {
+            $unreadResetRequestsCount = 0;
+        }
+    }
+@endphp
+
 <div class="app-navbar-item ms-1 ms-md-4">
     <!--begin::Menu- wrapper-->
-    <div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px"
+    <div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px position-relative"
         data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
         data-kt-menu-placement="bottom-end" id="kt_menu_item_wow">
         <i class="ki-duotone ki-notification-status fs-2">
@@ -9,6 +22,12 @@
             <span class="path3"></span>
             <span class="path4"></span>
         </i>
+        @if($unreadResetRequestsCount > 0)
+            <span class="bullet bullet-dot bg-danger h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
+            <span class="badge badge-circle badge-danger position-absolute top-0 start-100 translate-middle fs-9 h-18px w-18px me-1 mt-1">
+                {{ $unreadResetRequestsCount }}
+            </span>
+        @endif
     </div>
     <!--layout-partial:partials/menus/_notifications-menu.html-->
     @include('partials.menus._notifications-menu')
