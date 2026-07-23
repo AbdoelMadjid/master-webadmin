@@ -31,7 +31,7 @@
                         <!--begin::Search-->
                         <div class="d-flex align-items-center position-relative my-1">
                             <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4"><span class="path1"></span><span class="path2"></span></i>
-                            <input type="text" id="reset_password_search_input" class="form-control form-control-solid w-250px ps-12" placeholder="Cari nama / email..." />
+                            <input type="text" id="reset_password_search_input" class="form-control form-control-solid w-250px ps-12" placeholder="Cari nama / email..." value="{{ request('search') }}" />
                         </div>
                         <!--end::Search-->
                     </div>
@@ -65,7 +65,7 @@
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
                                 @foreach($requests as $index => $item)
-                                    <tr class="{{ request('highlight') == $item->id ? 'bg-light-warning' : '' }}">
+                                    <tr>
                                         <td class="text-center text-muted fw-bold">
                                             {{ $index + 1 }}
                                         </td>
@@ -207,6 +207,14 @@
                     searchPlaceholder: "Cari data..."
                 }
             });
+
+            var initialSearch = $('#reset_password_search_input').val();
+            if (initialSearch) {
+                resetTable.search(initialSearch).draw();
+                if (window.history.replaceState) {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+            }
 
             $('#reset_password_search_input').on('keyup input', function() {
                 resetTable.search(this.value).draw();

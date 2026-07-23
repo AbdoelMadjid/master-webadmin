@@ -15,11 +15,6 @@ class PasswordResetRequestController extends Controller
      */
     public function index(Request $request)
     {
-        // Mark specific request as read if highlighted from notification
-        if ($request->has('highlight')) {
-            PasswordResetRequest::where('id', $request->highlight)->update(['is_read' => true]);
-        }
-
         $requests = PasswordResetRequest::with(['user', 'handler'])
             ->orderBy('created_at', 'desc')
             ->get();
@@ -32,11 +27,13 @@ class PasswordResetRequestController extends Controller
      */
     public function markAsRead($id)
     {
-        $resetReq = PasswordResetRequest::findOrFail($id);
+        $resetReq = PasswordResetRequest::with('user')->findOrFail($id);
         $resetReq->update(['is_read' => true]);
 
-        return redirect()->route('manajemenpengguna.reset-password', ['highlight' => $resetReq->id])
-            ->with('info', "Membuka permintaan reset password dari {$resetReq->email}.");
+        $searchQuery = $resetReq->user ? $resetReq->user->name : $resetReq->email;
+
+        return redirect()->route('manajemenpengguna.reset-password', ['search' => $searchQuery])
+            ->with('info', "Membuka permintaan reset password dari {$searchQuery}. Data telah terfilter otomatis.");
     }
 
     /**
