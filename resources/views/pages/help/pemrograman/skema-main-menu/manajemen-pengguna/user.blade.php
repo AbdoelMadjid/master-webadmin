@@ -174,6 +174,42 @@ public function getAvatarUrlAttribute()
                     </div>
 
                     <!--====================================================-->
+                    <!-- 6. KOTAK BAWAH 4: UPLOAD MASSAL VIA EXCEL & MASTER TEMPLATE -->
+                    <!--====================================================-->
+                    <div class="schema-col-12 mt-4">
+                        <div class="schema-card border-start border-4 border-success">
+                            <h4><i class="ki-duotone ki-file-up fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> 4. Upload Massal User via Excel & Master Template (.xlsx)</h4>
+                            <p class="fs-7 text-gray-700">
+                                Arsitektur penjaminan impor massal data pengguna dari berkas spreadsheet, ekstraksi PhpSpreadsheet, dan penugasan role otomatis:
+                            </p>
+                            <div class="row g-4 mt-1">
+                                <div class="col-md-6">
+                                    <div class="p-4 rounded bg-light-info border border-info border-dashed h-100">
+                                        <h5 class="fw-bold text-info mb-2">A. Penjanaan Master Template Excel</h5>
+                                        <ul class="schema-list fs-7 mb-0">
+                                            <li><strong>Endpoint:</strong> <code>GET /manajemenpengguna/users/template</code> (<code>UserController@downloadTemplate</code>).</li>
+                                            <li><strong>Library:</strong> Menggunakan <code>PhpOffice\PhpSpreadsheet</code> dengan styling header tebal <code>#1E1E2D</code>.</li>
+                                            <li><strong>Struktur Kolom:</strong> <code>No</code>, <code>Nama Lengkap *</code>, <code>Email *</code>, <code>Password *</code>, <code>Role (opsional)</code>.</li>
+                                            <li>Dilengkapi 3 baris sampel otomatis & auto-fit lebar kolom.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-4 rounded bg-light-success border border-success border-dashed h-100">
+                                        <h5 class="fw-bold text-success mb-2">B. Alur Pemrosesan & Import Engine</h5>
+                                        <ul class="schema-list fs-7 mb-0">
+                                            <li><strong>Endpoint:</strong> <code>POST /manajemenpengguna/users/import</code> (<code>UserController@import</code>).</li>
+                                            <li>Memvalidasi file <code>.xlsx</code>, <code>.xls</code>, <code>.csv</code> (maks 5MB).</li>
+                                            <li>Mengecek ketersediaan email di database <code>users</code> untuk mengabaikan baris duplikat secara aman.</li>
+                                            <li>Memasang role pengguna secara otomatis jika kolom role terisi (misal: <i>admin, user</i>).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
                     <!-- 6. KOTAK BAWAH 4: REKAPITULASI BERKAS UTAMA USER MANAGEMENT -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
@@ -208,6 +244,11 @@ public function getAvatarUrlAttribute()
                                             <td><strong>Idle Auto-Logout</strong></td>
                                             <td><code>_idle-timer.blade.php</code><br><code>UpdateUserLastActivity.php</code></td>
                                             <td>Timer 15 menit inaktivitas, update timestamp <code>last_activity_at</code>, dan logout otomatis.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Upload Massal Excel</strong></td>
+                                            <td><code>UserController.php</code> (import & downloadTemplate)<br><code>user-import-modal.blade.php</code></td>
+                                            <td>Penjanaan berkas Excel master (.xlsx) via PhpSpreadsheet, impor massal baris pengguna, validasi email duplikat, dan penugasan role otomatis.</td>
                                         </tr>
                                     </tbody>
                                 </table>

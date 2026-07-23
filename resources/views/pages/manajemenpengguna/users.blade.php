@@ -22,9 +22,15 @@
                             <input type="text" id="kt_users_search" class="form-control form-control-solid w-250px ps-13" placeholder="Cari User..." />
                         </div>
                     </div>
-                    <div class="card-toolbar">
+                    <div class="card-toolbar gap-2 flex-wrap">
+                        <a href="{{ route('manajemenpengguna.users.template') }}" class="btn btn-light-info" id="btn_download_user_template" title="Download Format Excel Master">
+                            <i class="ki-duotone ki-file-down fs-2"><span class="path1"></span><span class="path2"></span></i> Master Excel
+                        </a>
+                        <button type="button" class="btn btn-light-success" data-bs-toggle="modal" data-bs-target="#kt_modal_import_user" id="btn_import_user">
+                            <i class="ki-duotone ki-file-up fs-2"><span class="path1"></span><span class="path2"></span></i> Upload Massal Excel
+                        </button>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_user" id="btn_add_user">
-                            <i class="ki-duotone ki-plus fs-2"></i> Tambah User Baru
+                            <i class="ki-duotone ki-plus fs-2"><span class="path1"></span><span class="path2"></span></i> Tambah User Baru
                         </button>
                     </div>
                 </div>
@@ -99,6 +105,7 @@
     </div>
 
     @include('pages.manajemenpengguna.partials.user-form')
+    @include('pages.manajemenpengguna.partials.user-import-modal')
 @endsection
 
 @section('styles')
@@ -222,6 +229,29 @@
                             SwalHelper.error(xhr.responseJSON?.message || 'Gagal menghapus pengguna.');
                         }
                     });
+                });
+            });
+
+            $('#kt_modal_import_user_form').on('submit', function(e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+
+                $.ajax({
+                    url: "{{ route('manajemenpengguna.users.import') }}",
+                    type: "POST",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(res) {
+                        if(res.success) {
+                            $('#kt_modal_import_user').modal('hide');
+                            SwalHelper.success(res.message);
+                            setTimeout(function() { location.reload(); }, 1500);
+                        }
+                    },
+                    error: function(xhr) {
+                        SwalHelper.validationError(xhr);
+                    }
                 });
             });
         });

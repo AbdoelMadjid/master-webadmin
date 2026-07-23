@@ -47,6 +47,9 @@ Route::middleware('auth')->group(function () {
 
     // Manajemen Pengguna Routes
     Route::prefix('manajemenpengguna')->name('manajemenpengguna.')->group(function () {
+        Route::get('users/template', [UserMgmtController::class, 'downloadTemplate'])->name('users.template');
+        Route::post('users/import', [UserMgmtController::class, 'import'])->name('users.import');
+
         Route::resource('roles', RoleController::class)->names([
             'index' => 'roles',
         ]);
