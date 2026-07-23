@@ -126,56 +126,6 @@
     <div class="separator my-2"></div>
     <!--end::Menu separator-->
     <!--begin::Menu item-->
-    <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-        data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
-        <a href="javascript:void(0)" class="menu-link px-5">
-            <span class="menu-title position-relative">
-                {{ __('menu.language') }}
-                <span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">
-                    @if (app()->getLocale() == 'id')
-                        {{ __('menu.indonesian') }} <img class="w-15px h-15px rounded-1 ms-2"
-                            src="{{ asset($assetBase . '/media/flags/indonesia.svg') }}" alt="" />
-                    @else
-                        {{ __('menu.english') }} <img class="w-15px h-15px rounded-1 ms-2"
-                            src="{{ asset($assetBase . '/media/flags/united-states.svg') }}" alt="" />
-                    @endif
-                </span>
-            </span>
-        </a>
-        <!--begin::Menu sub-->
-        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-            <!--begin::Menu item-->
-            <div class="menu-item px-3">
-                <a href="{{ route('lang.switch', 'en') }}"
-                    class="menu-link d-flex px-5 {{ app()->getLocale() == 'en' ? 'active' : '' }}">
-                    <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="{{ asset($assetBase . '/media/flags/united-states.svg') }}"
-                            alt="" />
-                    </span>
-                    {{ __('menu.english') }}
-                </a>
-            </div>
-            <!--end::Menu item-->
-            <!--begin::Menu item-->
-            <div class="menu-item px-3">
-                <a href="{{ route('lang.switch', 'id') }}"
-                    class="menu-link d-flex px-5 {{ app()->getLocale() == 'id' ? 'active' : '' }}">
-                    <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="{{ asset($assetBase . '/media/flags/indonesia.svg') }}"
-                            alt="" />
-                    </span>
-                    {{ __('menu.indonesian') }}
-                </a>
-            </div>
-            <!--end::Menu item-->
-        </div>
-        <!--end::Menu sub-->
-    </div>
-    <!--end::Menu item-->
-    <!--begin::Menu separator-->
-    <div class="separator my-2"></div>
-    <!--end::Menu separator-->
-    <!--begin::Menu item-->
     <div class="menu-item px-5 my-1">
         <a href="{{ url('profil-pengguna?tab=pengaturan') }}" class="menu-link px-5">
             {{ $isAltMenu ? 'Account Settings' : __('menu.account_settings') }}

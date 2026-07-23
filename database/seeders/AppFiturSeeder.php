@@ -91,6 +91,13 @@ class AppFiturSeeder extends Seeder
                 'active' => true,
             ],
             [
+                'feature_key' => 'topbar_language',
+                'feature_name' => 'Icon Pilih Bahasa (Bilingual)',
+                'category' => 'Topbar Navbar',
+                'description' => 'Icon & dropdown pemilih bahasa (Bilingual) di topbar navigasi.',
+                'active' => true,
+            ],
+            [
                 'feature_key' => 'topbar_activities',
                 'feature_name' => 'Icon Activities',
                 'category' => 'Topbar Navbar',

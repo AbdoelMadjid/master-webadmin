@@ -34,6 +34,14 @@
         @endif
         <!--end::Chat-->
 
+        <!--begin::Language-->
+        @if (isFeatureActive('topbar_language'))
+            <div data-quick-action-item class="d-flex align-items-stretch">
+                @include('layouts.partials.header._app.language')
+            </div>
+        @endif
+        <!--end::Language-->
+
         <!--begin::My apps links-->
         @if (isFeatureActive('topbar_my_apps'))
             <div data-quick-action-item class="d-flex align-items-stretch">
