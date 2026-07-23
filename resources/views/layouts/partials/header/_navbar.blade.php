@@ -1,6 +1,5 @@
 <!--begin::Navbar-->
 <div class="app-navbar flex-shrink-0">
-    @hasanyrole('master|admin')
     <div id="kt_header_quick_actions_desktop" class="d-none d-lg-flex align-items-stretch">
         <!--begin::Search-->
         <div data-quick-action-item class="d-flex align-items-stretch">
@@ -13,33 +12,33 @@
 
         <!--begin::Activities-->
         @if (isFeatureActive('topbar_activities'))
-        <div data-quick-action-item class="d-flex align-items-stretch">
-            @include('layouts.partials.header._app.activities')
-        </div>
+            <div data-quick-action-item class="d-flex align-items-stretch">
+                @include('layouts.partials.header._app.activities')
+            </div>
         @endif
         <!--end::Activities-->
 
         <!--begin::Notifications-->
         @if (isFeatureActive('topbar_notifications'))
-        <div data-quick-action-item class="d-flex align-items-stretch">
-            @include('layouts.partials.header._app.notifications')
-        </div>
+            <div data-quick-action-item class="d-flex align-items-stretch">
+                @include('layouts.partials.header._app.notifications')
+            </div>
         @endif
         <!--end::Notifications-->
 
         <!--begin::Chat-->
         @if (isFeatureActive('topbar_chat'))
-        <div data-quick-action-item class="d-flex align-items-stretch">
-            @include('layouts.partials.header._app.chat')
-        </div>
+            <div data-quick-action-item class="d-flex align-items-stretch">
+                @include('layouts.partials.header._app.chat')
+            </div>
         @endif
         <!--end::Chat-->
 
         <!--begin::My apps links-->
         @if (isFeatureActive('topbar_my_apps'))
-        <div data-quick-action-item class="d-flex align-items-stretch">
-            @include('layouts.partials.header._app.my-app-link')
-        </div>
+            <div data-quick-action-item class="d-flex align-items-stretch">
+                @include('layouts.partials.header._app.my-app-link')
+            </div>
         @endif
         <!--end::My apps links-->
 
@@ -103,7 +102,6 @@
         @include('partials.theme-mode._main', ['themeModeTrigger' => 'hover'])
     </div>
     <!--end::Theme mode-->
-    @endhasanyrole
 
     <!--begin::Back to Web-->
     @include('layouts.partials.header._app.back-to-web')
@@ -118,7 +116,7 @@
             $avatarOnError = userInitialAvatarDataUri(
                 $authUser?->name ?? null,
                 $authUser?->email ?? null,
-                (string) ($authUser?->id ?? $authUser?->email ?? 'guest')
+                (string) ($authUser?->id ?? ($authUser?->email ?? 'guest')),
             );
         @endphp
         <div class="cursor-pointer symbol symbol-35px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
@@ -142,15 +140,13 @@
         </div>
     </div>
     <!--end::Header menu toggle-->
-    
+
     <!--begin::Aside toggle-->
-    @if (
-        request()->is('layouts/asides/aside-1') ||
+    @if (request()->is('layouts/asides/aside-1') ||
             request()->is('layouts/asides/aside-2') ||
             request()->is('layouts/asides/aside-3') ||
             request()->is('layouts/asides/aside-4') ||
             request()->is('layouts/asides/aside-5'))
-        
         <div class="app-navbar-item d-lg-none ms-2 me-n2" title="Show aside">
             <div class="btn btn-flex btn-icon btn-active-color-primary w-30px h-30px" id="kt_app_aside_toggle">
                 <i class="ki-duotone ki-trello fs-1">
