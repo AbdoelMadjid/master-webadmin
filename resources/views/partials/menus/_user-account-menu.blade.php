@@ -3,15 +3,12 @@
     $assetBase = $theme_asset_base ?? 'assets';
     $authUser = auth()->user();
     $displayData = isset($current_user_display) && is_array($current_user_display) ? $current_user_display : [];
-    $profileName = $displayData['name'] ?? ($authUser?->name ?? 'Guest User');
+    $rawProfileName = $displayData['name'] ?? ($authUser?->name ?? 'Guest User');
+    $profileName = function_exists('formatShortName') ? formatShortName($rawProfileName) : $rawProfileName;
     $profileEmail = $displayData['email'] ?? ($authUser?->email ?? '');
     $profileAvatar = getUserAvatarUrl($authUser, $displayData);
     $profileAvatarSeed = $authUser?->id ?: ($profileEmail !== '' ? $profileEmail : $profileName);
-    $profileAvatarOnError = userInitialAvatarDataUri(
-        $profileName,
-        $profileEmail,
-        (string) ($profileAvatarSeed ?: 'guest')
-    );
+    $profileAvatarOnError = asset('assets/media/svg/avatars/default-avatar.svg');
     $profileRoles = '';
     if ($authUser) {
         if (method_exists($authUser, 'getRoleNames')) {

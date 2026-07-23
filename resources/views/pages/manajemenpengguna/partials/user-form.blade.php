@@ -14,7 +14,7 @@
                     <div class="fv-row mb-7 text-center">
                         <label class="d-block fw-semibold fs-6 mb-5">Foto Profil / Avatar</label>
                         <div class="image-input image-input-outline" data-kt-image-input="true">
-                            <div class="image-input-wrapper w-125px h-125px" id="user_avatar_preview" style="background-image: url('{{ asset('assets/media/avatars/300-1.jpg') }}')"></div>
+                            <div class="image-input-wrapper w-125px h-125px" id="user_avatar_preview" style="background-image: url('{{ asset('assets/media/svg/avatars/default-avatar.svg') }}')"></div>
                             <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Ubah avatar">
                                 <i class="ki-duotone ki-pencil fs-7"><span class="path1"></span><span class="path2"></span></i>
                                 <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />

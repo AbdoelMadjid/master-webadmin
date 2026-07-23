@@ -113,11 +113,7 @@
         @php
             $authUser = auth()->user();
             $avatar = getUserAvatarUrl($authUser);
-            $avatarOnError = userInitialAvatarDataUri(
-                $authUser?->name ?? null,
-                $authUser?->email ?? null,
-                (string) ($authUser?->id ?? ($authUser?->email ?? 'guest')),
-            );
+            $avatarOnError = asset('assets/media/svg/avatars/default-avatar.svg');
         @endphp
         <div class="cursor-pointer symbol symbol-35px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
             data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">

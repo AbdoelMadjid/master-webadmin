@@ -373,20 +373,12 @@ if (!function_exists('normalizeAvatarUrl')) {
 if (!function_exists('themeAvatarByUser')) {
     function themeAvatarByUser($user = null): ?string
     {
-        $id = (int) (($user->id ?? 1) ?: 1);
-        $index = (($id - 1) % 30) + 1;
-
-        $candidate = "assets/media/avatars/300-{$index}.jpg";
-        if (is_file(public_path($candidate))) {
-            return url('/' . $candidate);
-        }
-
-        $default = 'assets/media/avatars/300-1.jpg';
+        $default = 'assets/media/svg/avatars/default-avatar.svg';
         if (is_file(public_path($default))) {
             return url('/' . $default);
         }
 
-        return null;
+        return url('/assets/media/svg/avatars/default-avatar.svg');
     }
 }
 
@@ -402,9 +394,8 @@ if (!function_exists('getUserAvatarUrl')) {
         }
 
         if ($user) {
-            $candidateSources[] = $user->profile_photo_url ?? null;
-            $candidateSources[] = $user->avatar_url ?? null;
             $candidateSources[] = $user->avatar ?? null;
+            $candidateSources[] = $user->profile_photo_url ?? null;
             $candidateSources[] = $user->photo_url ?? null;
             $candidateSources[] = $user->photo ?? null;
             $candidateSources[] = $user->image_url ?? null;
@@ -418,15 +409,33 @@ if (!function_exists('getUserAvatarUrl')) {
             }
         }
 
-        $themeAvatar = themeAvatarByUser($user);
-        if ($themeAvatar !== null) {
-            return $themeAvatar;
+        return url('/assets/media/svg/avatars/default-avatar.svg');
+    }
+}
+
+if (!function_exists('formatShortName')) {
+    function formatShortName(?string $name): string
+    {
+        if (!$name) {
+            return '';
         }
 
-        return userInitialAvatarDataUri(
-            $user?->name ?? null,
-            $user?->email ?? null,
-            (string) ($user?->id ?? $user?->email ?? 'guest')
-        );
+        $trimmed = trim($name);
+        if ($trimmed === '') {
+            return '';
+        }
+
+        $words = array_values(array_filter(preg_split('/\s+/', $trimmed)));
+        $count = count($words);
+
+        if ($count <= 2) {
+            return implode(' ', $words);
+        }
+
+        $firstWord = $words[0];
+        $secondWord = $words[1];
+        $thirdInitial = strtoupper(mb_substr($words[2], 0, 1, 'UTF-8'));
+
+        return "{$firstWord} {$secondWord} {$thirdInitial}.";
     }
 }

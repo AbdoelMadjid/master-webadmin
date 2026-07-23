@@ -40,13 +40,7 @@
                                     <tr>
                                         <td class="d-flex align-items-center">
                                             <div class="symbol symbol-circle symbol-40px overflow-hidden me-3">
-                                                @if ($user->avatar_url)
-                                                    <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}" style="width: 40px; height: 40px; object-fit: cover;" />
-                                                @else
-                                                    <span class="symbol-label bg-light-primary text-primary fw-bold">
-                                                        {{ strtoupper(substr($user->name, 0, 1)) }}
-                                                    </span>
-                                                @endif
+                                                <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}" style="width: 40px; height: 40px; object-fit: cover;" onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
                                             </div>
                                             <div class="d-flex flex-column">
                                                 <a href="#" class="text-gray-800 text-hover-primary mb-1 fw-bold">{{ $user->name }}</a>

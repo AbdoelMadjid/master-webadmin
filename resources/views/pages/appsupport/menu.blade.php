@@ -19,10 +19,7 @@
 
 @section('content')
     @php
-        $allMenus = \App\Models\Menu::with(['subMenus', 'permissions', 'parentMenu'])
-            ->orderBy('category')
-            ->orderBy('orders')
-            ->get();
+        $allMenus = $allMenus ?? \App\Models\Menu::getOrderedTree();
 
         $categories = $allMenus->pluck('category')->filter()->unique()->values();
         $totalMenus = $allMenus->count();

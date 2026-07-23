@@ -221,13 +221,7 @@
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <div class="symbol symbol-circle symbol-35px me-3">
-                                                    @if ($item->user && $item->user->avatar_url)
-                                                        <img src="{{ $item->user->avatar_url }}" alt="{{ $item->user->name }}" />
-                                                    @else
-                                                        <span class="symbol-label bg-light-primary text-primary fw-bold">
-                                                            {{ strtoupper(substr($item->user ? $item->user->name : 'U', 0, 1)) }}
-                                                        </span>
-                                                    @endif
+                                                    <img src="{{ $item->user ? $item->user->avatar_url : asset('assets/media/svg/avatars/default-avatar.svg') }}" alt="{{ $item->user ? $item->user->name : 'User' }}" style="width: 35px; height: 35px; object-fit: cover;" onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
                                                 </div>
                                                 <div class="d-flex flex-column">
                                                     <span class="text-gray-800 text-hover-primary fw-bold">

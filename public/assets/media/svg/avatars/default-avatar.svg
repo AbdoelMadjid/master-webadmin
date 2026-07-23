@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <defs>
+    <!-- Background Linear Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3E97FF"/>
+      <stop offset="100%" stop-color="#7239EA"/>
+    </linearGradient>
+
+    <!-- Gloss Overlay Gradient -->
+    <linearGradient id="glossGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.0"/>
+    </linearGradient>
+
+    <!-- Silhouette Linear Gradient -->
+    <linearGradient id="userGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#F1F5F9" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <!-- Soft Drop Shadow Filter -->
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Background Circle -->
+  <circle cx="150" cy="150" r="150" fill="url(#bgGrad)"/>
+
+  <!-- Gloss Top Highlight -->
+  <path d="M0 150 A150 150 0 0 1 300 150 A150 60 0 0 0 0 150 Z" fill="url(#glossGrad)"/>
+
+  <!-- User Head -->
+  <circle cx="150" cy="115" r="48" fill="url(#userGrad)" filter="url(#dropShadow)"/>
+
+  <!-- User Shoulders / Body Arc -->
+  <path d="M72 245 C72 188 107 172 150 172 C193 172 228 188 228 245 C228 268 205 272 150 272 C95 272 72 268 72 245 Z" fill="url(#userGrad)" filter="url(#dropShadow)"/>
+</svg>

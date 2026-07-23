@@ -16,10 +16,7 @@ class MenuController extends Controller
      */
     public function index(Request $request)
     {
-        $allMenus = Menu::with(['subMenus', 'permissions', 'parentMenu'])
-            ->orderBy('category')
-            ->orderBy('orders')
-            ->get();
+        $allMenus = Menu::getOrderedTree();
 
         if ($request->wantsJson() || $request->ajax()) {
             return response()->json([
