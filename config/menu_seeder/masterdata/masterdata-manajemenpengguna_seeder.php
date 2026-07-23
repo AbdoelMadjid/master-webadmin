@@ -52,10 +52,10 @@ return [
         ],
         [
             'title' => 'Reset Password',
-            'title_en' => 'Reset Password Requests',
+            'title_en' => 'Reset Password',
             'title_key' => 'md_reset_password',
             'route' => 'manajemenpengguna/reset-password',
-            'permissions' => ['read', 'update', 'delete'],
+            'permissions' => ['read', 'update'],
             'roles' => ['admin'],
         ],
     ],
