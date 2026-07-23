@@ -35,6 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::post('appsupport/menu/sort', [MenuController::class, 'sort'])->name('appsupport.menu.sort');
+    Route::post('appsupport/menu/{id}/toggle-status', [MenuController::class, 'toggleStatus'])->name('appsupport.menu.toggle-status');
+    Route::post('appsupport/menu/{id}/permissions', [MenuController::class, 'addPermission'])->name('appsupport.menu.permissions.add');
+    Route::delete('appsupport/menu/{id}/permissions/{permissionId}', [MenuController::class, 'removePermission'])->name('appsupport.menu.permissions.remove');
     Route::resource('appsupport/menu', MenuController::class)->names([
         'index' => 'appsupport.menu',
     ]);
