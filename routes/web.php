@@ -31,6 +31,11 @@ use App\Http\Controllers\AppSupport\AppProfilController;
 use App\Http\Controllers\AppSupport\BackupDbController;
 use App\Http\Controllers\AppSupport\DataLoginController;
 use App\Http\Controllers\AppSupport\MenuController;
+use App\Http\Controllers\ManajemenPengguna\AksesRoleController;
+use App\Http\Controllers\ManajemenPengguna\AksesUserController;
+use App\Http\Controllers\ManajemenPengguna\PermissionController;
+use App\Http\Controllers\ManajemenPengguna\RoleController;
+use App\Http\Controllers\ManajemenPengguna\UserController as UserMgmtController;
 use App\Http\Controllers\User\ProfilPenggunaController;
 
 Route::middleware('auth')->group(function () {
@@ -39,6 +44,27 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Manajemen Pengguna Routes
+    Route::prefix('manajemenpengguna')->name('manajemenpengguna.')->group(function () {
+        Route::resource('roles', RoleController::class)->names([
+            'index' => 'roles',
+        ]);
+        Route::resource('permissions', PermissionController::class)->names([
+            'index' => 'permissions',
+        ]);
+
+        Route::get('akses-role', [AksesRoleController::class, 'index'])->name('akses-role');
+        Route::post('akses-role', [AksesRoleController::class, 'update'])->name('akses-role.update');
+
+        Route::get('akses-user', [AksesUserController::class, 'index'])->name('akses-user');
+        Route::get('akses-user/{id}', [AksesUserController::class, 'show'])->name('akses-user.show');
+        Route::post('akses-user', [AksesUserController::class, 'update'])->name('akses-user.update');
+
+        Route::resource('users', UserMgmtController::class)->names([
+            'index' => 'users',
+        ]);
+    });
 
     Route::get('appsupport/app-fiturs', [AppFiturController::class, 'index'])->name('appsupport.app-fiturs');
     Route::post('appsupport/app-fiturs/bulk-toggle', [AppFiturController::class, 'bulkToggle'])->name('appsupport.app-fiturs.bulk-toggle');

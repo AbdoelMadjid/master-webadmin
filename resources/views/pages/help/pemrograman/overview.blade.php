@@ -189,10 +189,21 @@
 
                             <div class="border-start border-4 border-info ps-3 mb-3">
                                 <h4 class="fw-bold mb-0 text-gray-800">App Support</h4>
-                                <span class="text-muted fs-7">Fitur-fitur pendukung sistem (Profil Aplikasi, Feature Toggle, & Backup Database)</span>
+                                <span class="text-muted fs-7">Fitur-fitur pendukung sistem (Menu Dinamis, Profil Aplikasi, Feature Toggle, Backup Database, & Data Login)</span>
                             </div>
 
                             <div class="row g-5">
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.skema-main-menu.app-support.menu') }}" class="card card-flush h-100 bg-light-secondary">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-menu fs-2hx text-dark flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">Menu</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">Arsitektur manajemen menu dinamis, pengurutan hirarki (drag & drop orders), dan sinkronisasi permission otomatis.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
                                 <div class="col-12">
                                     <a href="{{ route('help.pemrograman.skema-main-menu.app-support.app-profil') }}" class="card card-flush h-100 bg-light-info">
                                         <div class="card-body d-flex align-items-start gap-3 py-4">
@@ -222,6 +233,17 @@
                                             <div>
                                                 <h3 class="mb-1 fs-4">Backup DB</h3>
                                                 <p class="text-gray-700 fs-7 mb-0">Mekanisme ekspor dump SQL, lokasi direktori terproteksi, serta prosedur restore dan hapus cadangan database.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.skema-main-menu.app-support.data-login') }}" class="card card-flush h-100 bg-light-warning">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-shield-tick fs-2hx text-warning flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">Data Login</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">Arsitektur pencatatan riwayat login, frekuensi login harian (`login_count`), reward poin, dan widget user aktif 15 menit.</p>
                                             </div>
                                         </div>
                                     </a>

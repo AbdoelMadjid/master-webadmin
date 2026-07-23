@@ -358,6 +358,14 @@ if (!function_exists('normalizeAvatarUrl')) {
             return url('/' . ltrim($path, '/'));
         }
 
+        if (is_file(public_path('storage/' . $path))) {
+            return url('/storage/' . ltrim($path, '/'));
+        }
+
+        if (is_file(public_path('uploads/' . $path))) {
+            return url('/uploads/' . ltrim($path, '/'));
+        }
+
         return null;
     }
 }

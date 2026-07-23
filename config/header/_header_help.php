@@ -37,9 +37,11 @@ return [
                         [
                             'title' => 'App Support',
                             'children' => [
+                                ['title' => 'Menu', 'route' => 'help.pemrograman.skema-main-menu.app-support.menu'],
                                 ['title' => 'App Profil', 'route' => 'help.pemrograman.skema-main-menu.app-support.app-profil'],
                                 ['title' => 'App Fitur', 'route' => 'help.pemrograman.skema-main-menu.app-support.app-fitur'],
                                 ['title' => 'Backup DB', 'route' => 'help.pemrograman.skema-main-menu.app-support.backup-db'],
+                                ['title' => 'Data Login', 'route' => 'help.pemrograman.skema-main-menu.app-support.data-login'],
                             ],
                         ],
                     ],
