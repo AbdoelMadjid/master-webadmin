@@ -182,6 +182,55 @@
 
                         <div class="col-12 col-xxl-6">
                             <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="badge badge-light-success">{{ __('help.kategori') }}</span>
+                                <h3 class="mb-0 fs-3">Skema Main Menu</h3>
+                            </div>
+                            <p class="text-gray-700 fs-7 mb-5">Dokumentasi arsitektur dan skema khusus menu-menu utama aplikasi yang terpisah secara terfokus.</p>
+
+                            <div class="border-start border-4 border-info ps-3 mb-3">
+                                <h4 class="fw-bold mb-0 text-gray-800">App Support</h4>
+                                <span class="text-muted fs-7">Fitur-fitur pendukung sistem (Profil Aplikasi, Feature Toggle, & Backup Database)</span>
+                            </div>
+
+                            <div class="row g-5">
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.skema-main-menu.app-support.app-profil') }}" class="card card-flush h-100 bg-light-info">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-element-11 fs-2hx text-info flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">App Profil</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">Arsitektur identitas aplikasi, manajemen logo (Logo Utama, Logo Kotak, Favicon), dan Form Request Validation.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.skema-main-menu.app-support.app-fitur') }}" class="card card-flush h-100 bg-light-primary">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-toggle-on fs-2hx text-primary flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">App Fitur</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">Arsitektur Feature Toggle (Feature Flags), sakelar status fitur, dan helper global <code>isFeatureActive()</code>.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.skema-main-menu.app-support.backup-db') }}" class="card card-flush h-100 bg-light-success">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-cloud-add fs-2hx text-success flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">Backup DB</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">Mekanisme ekspor dump SQL, lokasi direktori terproteksi, serta prosedur restore dan hapus cadangan database.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-xxl-6">
+                            <div class="d-flex align-items-center gap-3 mb-3">
                                 <span class="badge badge-light-warning">{{ __('help.kategori') }}</span>
                                 <h3 class="mb-0 fs-3">{{ __('help.operasional') }}</h3>
                             </div>
@@ -206,6 +255,17 @@
                                             <div>
                                                 <h3 class="mb-1 fs-4">{{ __('help.panduan_tambah_menu') }}</h3>
                                                 <p class="text-gray-700 fs-7 mb-0">{!! __('help.pages.overview.paragraph_17') !!}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.operasional.manajemen-pengguna') }}" class="card card-flush h-100 bg-light-primary">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-user-square fs-2hx text-primary flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">Manajemen Pengguna</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">Panduan alur pemrograman & operasional Avatar, Sistem Reward Poin Harian, dan Idle Logout 15 Menit.</p>
                                             </div>
                                         </div>
                                     </a>

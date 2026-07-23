@@ -32,10 +32,24 @@ return [
                     ],
                 ],
                 [
+                    'title' => 'Skema Main Menu',
+                    'children' => [
+                        [
+                            'title' => 'App Support',
+                            'children' => [
+                                ['title' => 'App Profil', 'route' => 'help.pemrograman.skema-main-menu.app-support.app-profil'],
+                                ['title' => 'App Fitur', 'route' => 'help.pemrograman.skema-main-menu.app-support.app-fitur'],
+                                ['title' => 'Backup DB', 'route' => 'help.pemrograman.skema-main-menu.app-support.backup-db'],
+                            ],
+                        ],
+                    ],
+                ],
+                [
                     'title' => 'Operasional',
                     'children' => [
                         ['title' => 'Panduan Tambah Halaman', 'route' => 'help.pemrograman.operasional.panduan-tambah-halaman'],
                         ['title' => 'Panduan Tambah Menu', 'route' => 'help.pemrograman.operasional.panduan-tambah-menu'],
+                        ['title' => 'Manajemen Pengguna', 'route' => 'help.pemrograman.operasional.manajemen-pengguna'],
                         ['title' => 'Konvensi Penamaan', 'route' => 'help.pemrograman.operasional.konvensi-penamaan'],
                         ['title' => 'Workflow Developer Harian', 'route' => 'help.pemrograman.operasional.workflow-developer-harian'],
                         ['title' => 'Checklist QA Smoke Test', 'route' => 'help.pemrograman.operasional.checklist-qa-smoke-test'],

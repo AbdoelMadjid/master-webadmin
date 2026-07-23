@@ -84,13 +84,49 @@ auth middleware:
                             <pre class="schema-code"><code>// bootstrap/app.php
 $middleware->web(append: [
   \App\Http\Middleware\SetLocale::class,
+  \App\Http\Middleware\UpdateUserLastActivity::class,
 ]);
 
-// SetLocale
-if (Session::has('locale')) {
-  App::setLocale(Session::get('locale'));
-}</code></pre>
+// UpdateUserLastActivity:
+// Update last_activity_at user untuk tracking aktif real-time (15 Mins)</code></pre>
                             <div class="schema-warn mt-4">{!! __('help.pages.skema.auth-dan-middleware.warn_1') !!}</div>
+                        </div>
+                    </div>
+
+                    <div class="schema-col-12">
+                        <div class="schema-card border-start border-4 border-primary">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <h4><i class="ki-duotone ki-user-square fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Skema Pemrograman Manajemen Pengguna (User Management & Security)</h4>
+                                <a href="{{ route('help.pemrograman.operasional.manajemen-pengguna') }}" class="btn btn-sm btn-light-primary">
+                                    Lihat Panduan Operasional Lengkap <i class="ki-duotone ki-arrow-right fs-4 ms-1"><span class="path1"></span><span class="path2"></span></i>
+                                </a>
+                            </div>
+                            <div class="row g-4">
+                                <div class="col-md-4">
+                                    <div class="p-3 bg-light rounded">
+                                        <h5 class="fw-bold fs-6 text-gray-800">1. Middleware Activity Tracking</h5>
+                                        <p class="fs-7 text-gray-600 mb-0">
+                                            <code>UpdateUserLastActivity</code> memperbarui timestamp <code>last_activity_at</code> user saat beraktivitas untuk menghitung data widget <em>User Aktif (15 Mins)</em>.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 bg-light rounded">
+                                        <h5 class="fw-bold fs-6 text-gray-800">2. Keamanan Idle Timeout 15 Mins</h5>
+                                        <p class="fs-7 text-gray-600 mb-0">
+                                            <code>_idle-timer.blade.php</code> memantau inaktivitas 15 menit, lalu mengeksekusi <code>POST /logout</code> (dengan <code>reason=idle</code>) dan mengarahkan ke <code>/login</code> dengan notifikasi alert-warning.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="p-3 bg-light rounded">
+                                        <h5 class="fw-bold fs-6 text-gray-800">3. Event Listener Reward Poin</h5>
+                                        <p class="fs-7 text-gray-600 mb-0">
+                                            <code>LogUserLogin</code> mendengarkan <code>Login</code> event untuk memberikan +1 poin reward harian (`whereDate`) dan meng-increment <code>login_count</code> pada login berulang.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

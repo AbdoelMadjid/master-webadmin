@@ -71,6 +71,28 @@ return [
                     ],
                 ],
                 [
+                    'title' => 'Skema Main Menu',
+                    'children' => [
+                        [
+                            'title' => 'App Support',
+                            'children' => [
+                                [
+                                    'title' => 'App Profil',
+                                    'route' => 'help.pemrograman.skema-main-menu.app-support.app-profil',
+                                ],
+                                [
+                                    'title' => 'App Fitur',
+                                    'route' => 'help.pemrograman.skema-main-menu.app-support.app-fitur',
+                                ],
+                                [
+                                    'title' => 'Backup DB',
+                                    'route' => 'help.pemrograman.skema-main-menu.app-support.backup-db',
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+                [
                     'title' => 'Operasional',
                     'children' => [
                         [
@@ -80,6 +102,10 @@ return [
                         [
                             'title' => 'Panduan Tambah Menu',
                             'route' => 'help.pemrograman.operasional.panduan-tambah-menu',
+                        ],
+                        [
+                            'title' => 'Manajemen Pengguna',
+                            'route' => 'help.pemrograman.operasional.manajemen-pengguna',
                         ],
                         [
                             'title' => 'Konvensi Penamaan',
