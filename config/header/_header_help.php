@@ -44,6 +44,16 @@ return [
                                 ['title' => 'Data Login', 'route' => 'help.pemrograman.skema-main-menu.app-support.data-login'],
                             ],
                         ],
+                        [
+                            'title' => 'Manajemen Pengguna',
+                            'children' => [
+                                ['title' => 'Role', 'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna.role'],
+                                ['title' => 'Permission', 'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna.permission'],
+                                ['title' => 'Akses Role', 'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna.akses-role'],
+                                ['title' => 'Akses User', 'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna.akses-user'],
+                                ['title' => 'User', 'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna.user'],
+                            ],
+                        ],
                     ],
                 ],
                 [

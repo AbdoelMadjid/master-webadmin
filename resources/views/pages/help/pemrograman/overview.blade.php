@@ -249,6 +249,69 @@
                                     </a>
                                 </div>
                             </div>
+
+                            <div class="border-start border-4 border-primary ps-3 my-4">
+                                <h4 class="fw-bold mb-0 text-gray-800">Manajemen Pengguna</h4>
+                                <span class="text-muted fs-7">Fitur pengelolaan pengguna sistem (Role, Permission, Akses Role, Akses User, & Users Management)</span>
+                            </div>
+
+                            <div class="row g-5">
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.skema-main-menu.manajemen-pengguna.role') }}" class="card card-flush h-100 bg-light-primary">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-user-square fs-2hx text-primary flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">Role</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">Arsitektur pengelolaan Role pengguna, integrasi Spatie Permission, dan modal matriks CRUD tanpa scroll horizontal.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.skema-main-menu.manajemen-pengguna.permission') }}" class="card card-flush h-100 bg-light-success">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-key fs-2hx text-success flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">Permission</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">Arsitektur ekstraksi aksi CRUD, visualisasi badge warna-warni, dropdown filter role (opsi All), dan tombol reset filter.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.skema-main-menu.manajemen-pengguna.akses-role') }}" class="card card-flush h-100 bg-light-info">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-shield-tick fs-2hx text-info flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">Akses Role</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">Arsitektur matriks hak akses per role, filter pencarian modul on-the-fly, kontrol toggle per baris, dan sync real-time.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.skema-main-menu.manajemen-pengguna.akses-user') }}" class="card card-flush h-100 bg-light-warning">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-user-tick fs-2hx text-warning flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">Akses User</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">Arsitektur hak akses per user, pewarisan izin Spatie (Direct vs Role permissions), dan indikator badge Mengikuti Role.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.skema-main-menu.manajemen-pengguna.user') }}" class="card card-flush h-100 bg-light-dark">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-profile-user fs-2hx text-dark flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">User</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">Arsitektur pengelolaan akun pengguna (CRUD), penanganan upload avatar profil, hashing password, dan penugasan role.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="col-12 col-xxl-6">
