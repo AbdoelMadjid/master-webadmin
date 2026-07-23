@@ -25,7 +25,10 @@
                     <p class="text-gray-700 fs-6 mb-8">
                         {{ __('help.skema_pemrograman_tooltip') }}
                     </p>
+
+                    <!-- BARIS 1: Kategori Skema & Kategori Operasional Berdampingan -->
                     <div class="row g-5">
+                        <!-- Kolom 1 (Kiri): Skema -->
                         <div class="col-12 col-xxl-6">
                             <div class="d-flex align-items-center gap-3 mb-3">
                                 <span class="badge badge-light-primary">{{ __('help.kategori') }}</span>
@@ -180,14 +183,111 @@
                             </div>
                         </div>
 
+                        <!-- Kolom 2 (Kanan): Operasional (Berdampingan dengan Skema) -->
                         <div class="col-12 col-xxl-6">
                             <div class="d-flex align-items-center gap-3 mb-3">
-                                <span class="badge badge-light-success">{{ __('help.kategori') }}</span>
-                                <h3 class="mb-0 fs-3">Skema Main Menu</h3>
+                                <span class="badge badge-light-warning">{{ __('help.kategori') }}</span>
+                                <h3 class="mb-0 fs-3">{{ __('help.operasional') }}</h3>
                             </div>
-                            <p class="text-gray-700 fs-7 mb-5">Dokumentasi arsitektur dan skema khusus menu-menu utama aplikasi yang terpisah secara terfokus.</p>
+                            <p class="text-gray-700 fs-7 mb-5">{!! __('help.pages.overview.paragraph_2') !!}</p>
 
-                            <div class="border-start border-4 border-info ps-3 mb-3">
+                            <div class="row g-5">
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.operasional.panduan-tambah-halaman') }}" class="card card-flush h-100 bg-light-primary">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-file-added fs-2hx text-primary flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">{{ __('help.panduan_tambah_halaman') }}</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">{!! __('help.pages.overview.paragraph_16') !!}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.operasional.panduan-tambah-menu') }}" class="card card-flush h-100 bg-light-success">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-menu fs-2hx text-success flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">{{ __('help.panduan_tambah_menu') }}</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">{!! __('help.pages.overview.paragraph_17') !!}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.operasional.manajemen-pengguna') }}" class="card card-flush h-100 bg-light-primary">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-profile-user fs-2hx text-primary flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">Manajemen Pengguna</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">Panduan alur pemrograman & operasional Avatar, Sistem Reward Poin Harian, dan Idle Logout 15 Menit.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.operasional.konvensi-penamaan') }}" class="card card-flush h-100 bg-light-info">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-text fs-2hx text-info flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">{{ __('help.konvensi_penamaan') }}</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">{!! __('help.pages.overview.paragraph_19') !!}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.operasional.workflow-developer-harian') }}" class="card card-flush h-100 bg-light-secondary">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-calendar-8 fs-2hx text-dark flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">{{ __('help.workflow_developer_harian') }}</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">{!! __('help.pages.overview.paragraph_20') !!}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.operasional.checklist-qa-smoke-test') }}" class="card card-flush h-100 bg-light-warning">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-shield-search fs-2hx text-warning flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">{{ __('help.checklist_qa_smoke_test') }}</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">{!! __('help.pages.overview.paragraph_21') !!}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.operasional.playbook-incident-response') }}" class="card card-flush h-100 bg-light-warning">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-shield-tick fs-2hx text-warning flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">{{ __('help.playbook_incident_response') }}</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">{!! __('help.pages.overview.paragraph_22') !!}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BARIS 2: Kategori Skema Main Menu di Bawah dengan 2 Kolom (App Support & Manajemen Pengguna) -->
+                    <div class="separator separator-dashed my-8"></div>
+
+                    <div class="mb-5">
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                            <span class="badge badge-light-success">{{ __('help.kategori') }}</span>
+                            <h3 class="mb-0 fs-3">Skema Main Menu</h3>
+                        </div>
+                        <p class="text-gray-700 fs-7 mb-0">Dokumentasi arsitektur dan skema khusus menu-menu utama aplikasi yang terpisah secara terfokus.</p>
+                    </div>
+
+                    <div class="row g-5">
+                        <!-- Kolom 1 (Kiri): App Support -->
+                        <div class="col-12 col-xxl-6">
+                            <div class="border-start border-4 border-info ps-3 mb-4">
                                 <h4 class="fw-bold mb-0 text-gray-800">App Support</h4>
                                 <span class="text-muted fs-7">Fitur-fitur pendukung sistem (Menu Dinamis, Profil Aplikasi, Feature Toggle, Backup Database, & Data Login)</span>
                             </div>
@@ -249,8 +349,11 @@
                                     </a>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="border-start border-4 border-primary ps-3 my-4">
+                        <!-- Kolom 2 (Kanan): Manajemen Pengguna -->
+                        <div class="col-12 col-xxl-6">
+                            <div class="border-start border-4 border-primary ps-3 mb-4">
                                 <h4 class="fw-bold mb-0 text-gray-800">Manajemen Pengguna</h4>
                                 <span class="text-muted fs-7">Fitur pengelolaan pengguna sistem (Role, Permission, Akses Role, Akses User, User, & Reset Password)</span>
                             </div>
@@ -259,7 +362,7 @@
                                 <div class="col-12">
                                     <a href="{{ route('help.pemrograman.skema-main-menu.manajemen-pengguna.role') }}" class="card card-flush h-100 bg-light-primary">
                                         <div class="card-body d-flex align-items-start gap-3 py-4">
-                                            <i class="ki-duotone ki-user-square fs-2hx text-primary flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                            <i class="ki-duotone ki-profile-user fs-2hx text-primary flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                             <div>
                                                 <h3 class="mb-1 fs-4">Role</h3>
                                                 <p class="text-gray-700 fs-7 mb-0">Arsitektur pengelolaan Role pengguna, integrasi Spatie Permission, dan modal matriks CRUD tanpa scroll horizontal.</p>
@@ -324,95 +427,8 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-12 col-xxl-6">
-                            <div class="d-flex align-items-center gap-3 mb-3">
-                                <span class="badge badge-light-warning">{{ __('help.kategori') }}</span>
-                                <h3 class="mb-0 fs-3">{{ __('help.operasional') }}</h3>
-                            </div>
-                            <p class="text-gray-700 fs-7 mb-5">{!! __('help.pages.overview.paragraph_2') !!}</p>
-
-                            <div class="row g-5">
-                                <div class="col-12">
-                                    <a href="{{ route('help.pemrograman.operasional.panduan-tambah-halaman') }}" class="card card-flush h-100 bg-light-primary">
-                                        <div class="card-body d-flex align-items-start gap-3 py-4">
-                                            <i class="ki-duotone ki-file-added fs-2hx text-primary flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-                                            <div>
-                                                <h3 class="mb-1 fs-4">{{ __('help.panduan_tambah_halaman') }}</h3>
-                                                <p class="text-gray-700 fs-7 mb-0">{!! __('help.pages.overview.paragraph_16') !!}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-12">
-                                    <a href="{{ route('help.pemrograman.operasional.panduan-tambah-menu') }}" class="card card-flush h-100 bg-light-success">
-                                        <div class="card-body d-flex align-items-start gap-3 py-4">
-                                            <i class="ki-duotone ki-menu fs-2hx text-success flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-                                            <div>
-                                                <h3 class="mb-1 fs-4">{{ __('help.panduan_tambah_menu') }}</h3>
-                                                <p class="text-gray-700 fs-7 mb-0">{!! __('help.pages.overview.paragraph_17') !!}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-12">
-                                    <a href="{{ route('help.pemrograman.operasional.manajemen-pengguna') }}" class="card card-flush h-100 bg-light-primary">
-                                        <div class="card-body d-flex align-items-start gap-3 py-4">
-                                            <i class="ki-duotone ki-user-square fs-2hx text-primary flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-                                            <div>
-                                                <h3 class="mb-1 fs-4">Manajemen Pengguna</h3>
-                                                <p class="text-gray-700 fs-7 mb-0">Panduan alur pemrograman & operasional Avatar, Sistem Reward Poin Harian, dan Idle Logout 15 Menit.</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-12">
-                                    <a href="{{ route('help.pemrograman.operasional.konvensi-penamaan') }}" class="card card-flush h-100 bg-light-info">
-                                        <div class="card-body d-flex align-items-start gap-3 py-4">
-                                            <i class="ki-duotone ki-text fs-2hx text-info flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
-                                            <div>
-                                                <h3 class="mb-1 fs-4">{{ __('help.konvensi_penamaan') }}</h3>
-                                                <p class="text-gray-700 fs-7 mb-0">{!! __('help.pages.overview.paragraph_19') !!}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-12">
-                                    <a href="{{ route('help.pemrograman.operasional.workflow-developer-harian') }}" class="card card-flush h-100 bg-light-secondary">
-                                        <div class="card-body d-flex align-items-start gap-3 py-4">
-                                            <i class="ki-duotone ki-calendar-8 fs-2hx text-dark flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></i>
-                                            <div>
-                                                <h3 class="mb-1 fs-4">{{ __('help.workflow_developer_harian') }}</h3>
-                                                <p class="text-gray-700 fs-7 mb-0">{!! __('help.pages.overview.paragraph_20') !!}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-12">
-                                    <a href="{{ route('help.pemrograman.operasional.checklist-qa-smoke-test') }}" class="card card-flush h-100 bg-light-warning">
-                                        <div class="card-body d-flex align-items-start gap-3 py-4">
-                                            <i class="ki-duotone ki-shield-search fs-2hx text-warning flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
-                                            <div>
-                                                <h3 class="mb-1 fs-4">{{ __('help.checklist_qa_smoke_test') }}</h3>
-                                                <p class="text-gray-700 fs-7 mb-0">{!! __('help.pages.overview.paragraph_21') !!}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-12">
-                                    <a href="{{ route('help.pemrograman.operasional.playbook-incident-response') }}" class="card card-flush h-100 bg-light-warning">
-                                        <div class="card-body d-flex align-items-start gap-3 py-4">
-                                            <i class="ki-duotone ki-shield-tick fs-2hx text-warning flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
-                                            <div>
-                                                <h3 class="mb-1 fs-4">{{ __('help.playbook_incident_response') }}</h3>
-                                                <p class="text-gray-700 fs-7 mb-0">{!! __('help.pages.overview.paragraph_22') !!}</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
