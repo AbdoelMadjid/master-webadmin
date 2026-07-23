@@ -23,6 +23,9 @@
                         </div>
                     </div>
                     <div class="card-toolbar gap-2 flex-wrap">
+                        <button type="button" class="btn btn-icon btn-light-warning" id="btn_assign_default_role" title="Pemberian Role 'User' Massal (Untuk Akun Tanpa Role)">
+                            <i class="ki-duotone ki-shield-tick fs-2"><span class="path1"></span><span class="path2"></span></i>
+                        </button>
                         <button type="button" class="btn btn-icon btn-light-success" data-bs-toggle="modal" data-bs-target="#kt_modal_import_user" id="btn_import_user" title="Upload Massal Excel">
                             <i class="ki-duotone ki-file-up fs-2"><span class="path1"></span><span class="path2"></span></i>
                         </button>
@@ -143,6 +146,40 @@
 
             $('#kt_users_search').on('keyup', function() {
                 usersTable.search(this.value).draw();
+            });
+
+            $('#btn_assign_default_role').on('click', function(e) {
+                e.preventDefault();
+
+                Swal.fire({
+                    title: 'Beri Role User Massal?',
+                    text: "Apakah Anda yakin ingin memberikan role 'User' secara massal ke semua akun pengguna yang belum memiliki role?",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, Berikan Role Massal',
+                    cancelButtonText: 'Batal',
+                    customClass: {
+                        confirmButton: 'btn btn-warning',
+                        cancelButton: 'btn btn-light'
+                    }
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: "{{ route('manajemenpengguna.users.assign-default-role') }}",
+                            type: "POST",
+                            data: { _token: "{{ csrf_token() }}" },
+                            success: function(res) {
+                                if (res.success) {
+                                    SwalHelper.success(res.message);
+                                    setTimeout(function() { location.reload(); }, 1200);
+                                }
+                            },
+                            error: function(xhr) {
+                                SwalHelper.error(xhr.responseJSON?.message || 'Gagal memberikan role massal.');
+                            }
+                        });
+                    }
+                });
             });
 
             $('#btn_add_user').on('click', function() {

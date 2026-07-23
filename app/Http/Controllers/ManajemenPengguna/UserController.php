@@ -273,6 +273,35 @@ class UserController extends Controller
         ]);
     }
 
+    public function assignDefaultRoleBulk()
+    {
+        $usersWithoutRoles = User::doesntHave('roles')->get();
+
+        if ($usersWithoutRoles->isEmpty()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Semua akun pengguna saat ini sudah memiliki role.',
+                'count'   => 0,
+            ]);
+        }
+
+        $userRole = Role::firstOrCreate(['name' => 'user', 'guard_name' => 'web']);
+        $count = 0;
+
+        \Illuminate\Support\Facades\DB::transaction(function () use ($usersWithoutRoles, $userRole, &$count) {
+            foreach ($usersWithoutRoles as $user) {
+                $user->assignRole($userRole);
+                $count++;
+            }
+        });
+
+        return response()->json([
+            'success' => true,
+            'message' => "Berhasil memberikan role 'User' secara massal kepada {$count} akun pengguna.",
+            'count'   => $count,
+        ]);
+    }
+
     public function impersonate($id)
     {
         $targetUser = User::findOrFail($id);
