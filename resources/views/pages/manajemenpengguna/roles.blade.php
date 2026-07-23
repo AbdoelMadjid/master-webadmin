@@ -81,11 +81,11 @@
                                             <span class="badge badge-light-info">{{ $role->permissions_count }} Permissions</span>
                                         </td>
                                         <td class="text-end">
-                                            <button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px me-2 btn-edit-role" data-id="{{ $role->id }}" title="Edit Role">
+                                            <button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px me-2 btn-edit-role" data-id="{{ $role->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Role">
                                                 <i class="ki-duotone ki-pencil fs-3"><span class="path1"></span><span class="path2"></span></i>
                                             </button>
                                             @if($role->name !== 'admin')
-                                                <button type="button" class="btn btn-icon btn-active-light-danger w-30px h-30px btn-delete-role" data-id="{{ $role->id }}" data-name="{{ $role->name }}" title="Hapus Role">
+                                                <button type="button" class="btn btn-icon btn-active-light-danger w-30px h-30px btn-delete-role" data-id="{{ $role->id }}" data-name="{{ $role->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Role">
                                                     <i class="ki-duotone ki-trash fs-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
                                                 </button>
                                             @endif

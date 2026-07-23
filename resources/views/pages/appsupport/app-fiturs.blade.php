@@ -74,12 +74,12 @@
                                 <div class="card-toolbar d-flex align-items-center gap-2">
                                     <button type="button" class="btn btn-icon btn-sm btn-light-success"
                                         onclick="bulkToggleCategory('{{ addslashes($category) }}', 1)"
-                                        data-bs-toggle="tooltip" title="Aktifkan semua fitur dalam {{ $category }}">
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Aktifkan semua fitur dalam {{ $category }}">
                                         <i class="ki-duotone ki-check fs-3"><span class="path1"></span><span class="path2"></span></i>
                                     </button>
                                     <button type="button" class="btn btn-icon btn-sm btn-light-danger"
                                         onclick="bulkToggleCategory('{{ addslashes($category) }}', 0)"
-                                        data-bs-toggle="tooltip" title="Non-aktifkan semua fitur dalam {{ $category }}">
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Non-aktifkan semua fitur dalam {{ $category }}">
                                         <i class="ki-duotone ki-cross fs-3"><span class="path1"></span><span class="path2"></span></i>
                                     </button>
                                 </div>

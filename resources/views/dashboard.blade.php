@@ -267,7 +267,7 @@
                                         </td>
                                         @hasanyrole('admin|master')
                                             <td class="text-end pe-4">
-                                                <a href="{{ url('manajemenpengguna/users') }}" class="btn btn-sm btn-icon btn-light-primary" data-bs-toggle="tooltip" title="Lihat Detail User">
+                                                <a href="{{ url('manajemenpengguna/users') }}" class="btn btn-sm btn-icon btn-light-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Detail User">
                                                     <i class="ki-duotone ki-eye fs-4"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                                                 </a>
                                             </td>

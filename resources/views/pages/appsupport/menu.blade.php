@@ -265,7 +265,7 @@
 
                                                 <button type="button" class="btn btn-icon btn-xs btn-light-primary ms-1"
                                                     onclick="openAddPermissionModal({{ $menu->id }}, '{{ addslashes($menu->name) }}')"
-                                                    data-bs-toggle="tooltip" title="Tambah Permission untuk {{ $menu->name }}">
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Tambah Permission untuk {{ $menu->name }}">
                                                     <i class="ki-duotone ki-plus fs-7"></i>
                                                 </button>
                                             </div>

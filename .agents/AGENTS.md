@@ -55,3 +55,13 @@
    - Always copy/duplicate template partials or views to a dedicated feature folder under `resources/views/pages/<subfolder>/` before adding dynamic data or custom logic.
    - Example: For route `profil-pengguna`, create/duplicate header details to `resources/views/pages/profil/partials/details.blade.php` instead of modifying `resources/views/pages/pages/account/partials/details.blade.php`.
 
+# Rules for Icon Buttons & Top Tooltips
+
+1. **Mandatory Top Tooltips for Icon-Only Buttons**:
+   - Every icon-only button (`btn-icon`) must use Bootstrap 5 & Metronic top tooltips (`data-bs-toggle="tooltip" data-bs-placement="top" title="..."`) instead of plain browser default `title="..."` attributes.
+
+2. **Modal Trigger Tooltip Wrapper**:
+   - In Bootstrap 5, elements with `data-bs-toggle="modal"` cannot hold `data-bs-toggle="tooltip"` on the same HTML tag due to plugin attribute collision.
+   - Wrap modal trigger icon buttons inside a `<span data-bs-toggle="tooltip" data-bs-placement="top" title="...">` wrapper element so that both top tooltips and modal triggers function smoothly.
+
+

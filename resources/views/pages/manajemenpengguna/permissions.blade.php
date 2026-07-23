@@ -145,10 +145,10 @@
                                         </td>
                                         <td>{{ $perm->created_at ? $perm->created_at->format('d M Y H:i') : '-' }}</td>
                                         <td class="text-end">
-                                            <button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px me-1 btn-edit-permission" data-id="{{ $perm->id }}" title="Edit Permission">
+                                            <button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px me-1 btn-edit-permission" data-id="{{ $perm->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Permission">
                                                 <i class="ki-duotone ki-pencil fs-3"><span class="path1"></span><span class="path2"></span></i>
                                             </button>
-                                            <button type="button" class="btn btn-icon btn-active-light-danger w-30px h-30px btn-delete-permission" data-id="{{ $perm->id }}" data-name="{{ $perm->name }}" title="Hapus Permission">
+                                            <button type="button" class="btn btn-icon btn-active-light-danger w-30px h-30px btn-delete-permission" data-id="{{ $perm->id }}" data-name="{{ $perm->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Permission">
                                                 <i class="ki-duotone ki-trash fs-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
                                             </button>
                                         </td>

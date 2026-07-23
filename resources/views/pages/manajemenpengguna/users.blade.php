@@ -23,15 +23,21 @@
                         </div>
                     </div>
                     <div class="card-toolbar gap-2 flex-wrap">
-                        <button type="button" class="btn btn-icon btn-light-warning" id="btn_assign_default_role" title="Pemberian Role 'User' Massal (Untuk Akun Tanpa Role)">
-                            <i class="ki-duotone ki-shield-tick fs-2"><span class="path1"></span><span class="path2"></span></i>
-                        </button>
-                        <button type="button" class="btn btn-icon btn-light-success" data-bs-toggle="modal" data-bs-target="#kt_modal_import_user" id="btn_import_user" title="Upload Massal Excel">
-                            <i class="ki-duotone ki-file-up fs-2"><span class="path1"></span><span class="path2"></span></i>
-                        </button>
-                        <button type="button" class="btn btn-icon btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_user" id="btn_add_user" title="Tambah User Baru">
-                            <i class="ki-duotone ki-plus fs-2"><span class="path1"></span><span class="path2"></span></i>
-                        </button>
+                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Pemberian Role 'User' Massal (Untuk Akun Tanpa Role)">
+                            <button type="button" class="btn btn-icon btn-light-warning" id="btn_assign_default_role">
+                                <i class="ki-duotone ki-shield-tick fs-2"><span class="path1"></span><span class="path2"></span></i>
+                            </button>
+                        </span>
+                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Upload Massal Excel">
+                            <button type="button" class="btn btn-icon btn-light-success" data-bs-toggle="modal" data-bs-target="#kt_modal_import_user" id="btn_import_user">
+                                <i class="ki-duotone ki-file-up fs-2"><span class="path1"></span><span class="path2"></span></i>
+                            </button>
+                        </span>
+                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Tambah User Baru">
+                            <button type="button" class="btn btn-icon btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_user" id="btn_add_user">
+                                <i class="ki-duotone ki-plus fs-2"><span class="path1"></span><span class="path2"></span></i>
+                            </button>
+                        </span>
                     </div>
                 </div>
 
@@ -57,7 +63,7 @@
                                                 <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}" style="width: 40px; height: 40px; object-fit: cover;" onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
                                             </div>
                                             <div class="d-flex flex-column">
-                                                <a href="#" class="text-gray-800 text-hover-primary mb-1 fw-bold btn-impersonate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" title="Klik untuk masuk ke akun ini (Switch User)">{{ $user->name }}</a>
+                                                <a href="#" class="text-gray-800 text-hover-primary mb-1 fw-bold btn-impersonate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Klik untuk masuk ke akun ini (Switch User)">{{ $user->name }}</a>
                                                 <span class="fs-7 text-muted">{{ $user->email }}</span>
                                             </div>
                                         </td>
@@ -91,24 +97,24 @@
                                         <td class="text-end">
                                             @if($user->id !== auth()->id())
                                                 @if(($user->status ?? 'approved') !== 'approved')
-                                                    <button type="button" class="btn btn-icon btn-active-light-success w-30px h-30px me-1 btn-approve-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" title="Setujui Akun Pengguna">
+                                                    <button type="button" class="btn btn-icon btn-active-light-success w-30px h-30px me-1 btn-approve-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Setujui Akun Pengguna">
                                                         <i class="ki-duotone ki-check fs-3"><span class="path1"></span><span class="path2"></span></i>
                                                     </button>
                                                 @endif
                                                 @if(($user->status ?? 'approved') !== 'rejected')
-                                                    <button type="button" class="btn btn-icon btn-active-light-warning w-30px h-30px me-1 btn-reject-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" title="Tolak Akun Pengguna">
+                                                    <button type="button" class="btn btn-icon btn-active-light-warning w-30px h-30px me-1 btn-reject-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Tolak Akun Pengguna">
                                                         <i class="ki-duotone ki-cross fs-3"><span class="path1"></span><span class="path2"></span></i>
                                                     </button>
                                                 @endif
                                             @endif
-                                            <button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px me-1 btn-edit-user" data-id="{{ $user->id }}" title="Edit User">
+                                            <button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px me-1 btn-edit-user" data-id="{{ $user->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit User">
                                                 <i class="ki-duotone ki-pencil fs-3"><span class="path1"></span><span class="path2"></span></i>
                                             </button>
                                             @if($user->id !== auth()->id())
-                                                <button type="button" class="btn btn-icon btn-active-light-info w-30px h-30px me-1 btn-impersonate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" title="Switch User (Masuk sebagai {{ $user->name }})">
+                                                <button type="button" class="btn btn-icon btn-active-light-info w-30px h-30px me-1 btn-impersonate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Switch User (Masuk sebagai {{ $user->name }})">
                                                     <i class="ki-duotone ki-switch fs-3"><span class="path1"></span><span class="path2"></span></i>
                                                 </button>
-                                                <button type="button" class="btn btn-icon btn-active-light-danger w-30px h-30px btn-delete-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" title="Hapus User">
+                                                <button type="button" class="btn btn-icon btn-active-light-danger w-30px h-30px btn-delete-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus User">
                                                     <i class="ki-duotone ki-trash fs-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
                                                 </button>
                                             @endif
