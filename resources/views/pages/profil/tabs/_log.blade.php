@@ -1,354 +1,131 @@
-<!--begin::Login sessions-->
-            <div class="card mb-5 mb-lg-10">
-                <!--begin::Card header-->
-                <div class="card-header">
-                    <!--begin::Heading-->
-                    <div class="card-title">
-                        <h3>Login Sessions</h3>
-                    </div>
-                    <!--end::Heading-->
-                    <!--begin::Toolbar-->
-                    <div class="card-toolbar">
-                        <div class="my-1 me-4">
-                            <!--begin::Select-->
-                            <select class="form-select form-select-sm form-select-solid w-125px" data-control="select2"
-                                data-placeholder="Select Hours" data-hide-search="true">
-                                <option value="1" selected="selected">
-                                    1 Hours
-                                </option>
-                                <option value="2">6 Hours</option>
-                                <option value="3">12 Hours</option>
-                                <option value="4">24 Hours</option>
-                            </select>
-                            <!--end::Select-->
-                        </div>
-                        <a href="javascript:void(0)" class="btn btn-sm btn-primary my-1">View All</a>
-                    </div>
-                    <!--end::Toolbar-->
+@php
+    $myLoginLogs = \App\Models\AppSupport\DataLogin::where('user_id', auth()->id())
+        ->orderBy('login_at', 'desc')
+        ->paginate(15);
+
+    $totalLogins = \App\Models\AppSupport\DataLogin::where('user_id', auth()->id())->sum('login_count');
+    $totalPoints = \App\Models\AppSupport\DataLogin::where('user_id', auth()->id())->where('point_awarded', true)->count();
+@endphp
+
+<!--begin::Summary Row-->
+<div class="row g-5 mb-5 mb-xl-8">
+    <div class="col-md-6">
+        <div class="card bg-light-primary border border-primary border-dashed p-4 rounded">
+            <div class="d-flex align-items-center">
+                <div class="symbol symbol-45px me-4">
+                    <span class="symbol-label bg-primary text-white">
+                        <i class="ki-duotone ki-key fs-1 text-white"><span class="path1"></span><span class="path2"></span></i>
+                    </span>
                 </div>
-                <!--end::Card header-->
-                <!--begin::Card body-->
-                <div class="card-body p-0">
-                    <!--begin::Table wrapper-->
-                    <div class="table-responsive">
-                        <!--begin::Table-->
-                        <table class="table align-middle table-row-bordered table-row-solid gy-4 gs-9">
-                            <!--begin::Thead-->
-                            <thead class="border-gray-200 fs-5 fw-semibold bg-lighten">
-                                <tr>
-                                    <th class="min-w-250px">Location</th>
-                                    <th class="min-w-100px">Status</th>
-                                    <th class="min-w-150px">Device</th>
-                                    <th class="min-w-150px">IP Address</th>
-                                    <th class="min-w-150px">Time</th>
-                                </tr>
-                            </thead>
-                            <!--end::Thead-->
-                            <!--begin::Tbody-->
-                            <tbody class="fw-6 fw-semibold text-gray-600">
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0)" class="text-hover-primary text-gray-600">USA(5)</a>
-                                    </td>
-                                    <td>
-                                        <span class="badge badge-light-success fs-7 fw-bold">OK</span>
-                                    </td>
-                                    <td>Chrome - Windows</td>
-                                    <td>236.125.56.78</td>
-                                    <td>2 mins ago</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0)" class="text-hover-primary text-gray-600">United Kingdom(10)</a>
-                                    </td>
-                                    <td>
-                                        <span class="badge badge-light-success fs-7 fw-bold">OK</span>
-                                    </td>
-                                    <td>Safari - Mac OS</td>
-                                    <td>236.125.56.78</td>
-                                    <td>10 mins ago</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0)" class="text-hover-primary text-gray-600">Norway(-)</a>
-                                    </td>
-                                    <td>
-                                        <span class="badge badge-light-danger fs-7 fw-bold">ERR</span>
-                                    </td>
-                                    <td>Firefox - Windows</td>
-                                    <td>236.125.56.10</td>
-                                    <td>20 mins ago</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0)" class="text-hover-primary text-gray-600">Japan(112)</a>
-                                    </td>
-                                    <td>
-                                        <span class="badge badge-light-success fs-7 fw-bold">OK</span>
-                                    </td>
-                                    <td>iOS - iPhone Pro</td>
-                                    <td>236.125.56.54</td>
-                                    <td>30 mins ago</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:void(0)" class="text-hover-primary text-gray-600">Italy(5)</a>
-                                    </td>
-                                    <td>
-                                        <span class="badge badge-light-warning fs-7 fw-bold">WRN</span>
-                                    </td>
-                                    <td>Samsung Noted 5- Android</td>
-                                    <td>236.100.56.50</td>
-                                    <td>40 mins ago</td>
-                                </tr>
-                            </tbody>
-                            <!--end::Tbody-->
-                        </table>
-                        <!--end::Table-->
-                    </div>
-                    <!--end::Table wrapper-->
+                <div>
+                    <div class="fs-4 fw-bold text-gray-900">{{ number_format($totalLogins) }}x Login</div>
+                    <div class="fs-7 text-muted">Total Seluruh Frekuensi Login Sesi Akun Anda</div>
                 </div>
-                <!--end::Card body-->
             </div>
-            <!--end::Login sessions-->
-            <!--begin::Card-->
-            <div class="card pt-4">
-                <!--begin::Card header-->
-                <div class="card-header border-0">
-                    <!--begin::Card title-->
-                    <div class="card-title">
-                        <h2>Logs</h2>
-                    </div>
-                    <!--end::Card title-->
-                    <!--begin::Card toolbar-->
-                    <div class="card-toolbar">
-                        <!--begin::Button-->
-                        <button type="button" class="btn btn-sm btn-light-primary">
-                            <i class="ki-duotone ki-cloud-download fs-3">
-                                <span class="path1"></span>
-                                <span class="path2"></span> </i>Download Report
-                        </button>
-                        <!--end::Button-->
-                    </div>
-                    <!--end::Card toolbar-->
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card bg-light-success border border-success border-dashed p-4 rounded">
+            <div class="d-flex align-items-center">
+                <div class="symbol symbol-45px me-4">
+                    <span class="symbol-label bg-success text-white">
+                        <i class="ki-duotone ki-award fs-1 text-white"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    </span>
                 </div>
-                <!--end::Card header-->
-                <!--begin::Card body-->
-                <div class="card-body py-0">
-                    <!--begin::Table wrapper-->
-                    <div class="table-responsive">
-                        <!--begin::Table-->
-                        <table class="table align-middle table-row-dashed fw-semibold text-gray-600 fs-6 gy-5"
-                            id="kt_table_customers_logs">
-                            <!--begin::Table body-->
-                            <tbody>
-                                <!--begin::Table row-->
-                                <tr>
-                                    <!--begin::Badge=-->
-                                    <td class="min-w-70px">
-                                        <div class="badge badge-light-danger">
-                                            500 ERR
-                                        </div>
-                                    </td>
-                                    <!--end::Badge=-->
-                                    <!--begin::Status=-->
-                                    <td>POST /v1/invoice/in_8447_1173/invalid</td>
-                                    <!--end::Status=-->
-                                    <!--begin::Timestamp=-->
-                                    <td class="pe-0 text-end min-w-200px">
-                                        10 Nov 2024, 2:40 pm
-                                    </td>
-                                    <!--end::Timestamp=-->
-                                </tr>
-                                <!--end::Table row-->
-                                <!--begin::Table row-->
-                                <tr>
-                                    <!--begin::Badge=-->
-                                    <td class="min-w-70px">
-                                        <div class="badge badge-light-success">
-                                            200 OK
-                                        </div>
-                                    </td>
-                                    <!--end::Badge=-->
-                                    <!--begin::Status=-->
-                                    <td>POST /v1/invoices/in_9264_9791/payment</td>
-                                    <!--end::Status=-->
-                                    <!--begin::Timestamp=-->
-                                    <td class="pe-0 text-end min-w-200px">
-                                        24 Jun 2024, 6:05 pm
-                                    </td>
-                                    <!--end::Timestamp=-->
-                                </tr>
-                                <!--end::Table row-->
-                                <!--begin::Table row-->
-                                <tr>
-                                    <!--begin::Badge=-->
-                                    <td class="min-w-70px">
-                                        <div class="badge badge-light-success">
-                                            200 OK
-                                        </div>
-                                    </td>
-                                    <!--end::Badge=-->
-                                    <!--begin::Status=-->
-                                    <td>POST /v1/invoices/in_9264_9791/payment</td>
-                                    <!--end::Status=-->
-                                    <!--begin::Timestamp=-->
-                                    <td class="pe-0 text-end min-w-200px">
-                                        25 Oct 2024, 5:30 pm
-                                    </td>
-                                    <!--end::Timestamp=-->
-                                </tr>
-                                <!--end::Table row-->
-                                <!--begin::Table row-->
-                                <tr>
-                                    <!--begin::Badge=-->
-                                    <td class="min-w-70px">
-                                        <div class="badge badge-light-success">
-                                            200 OK
-                                        </div>
-                                    </td>
-                                    <!--end::Badge=-->
-                                    <!--begin::Status=-->
-                                    <td>POST /v1/invoices/in_9902_6354/payment</td>
-                                    <!--end::Status=-->
-                                    <!--begin::Timestamp=-->
-                                    <td class="pe-0 text-end min-w-200px">
-                                        19 Aug 2024, 11:05 am
-                                    </td>
-                                    <!--end::Timestamp=-->
-                                </tr>
-                                <!--end::Table row-->
-                                <!--begin::Table row-->
-                                <tr>
-                                    <!--begin::Badge=-->
-                                    <td class="min-w-70px">
-                                        <div class="badge badge-light-danger">
-                                            500 ERR
-                                        </div>
-                                    </td>
-                                    <!--end::Badge=-->
-                                    <!--begin::Status=-->
-                                    <td>POST /v1/invoice/in_8447_1173/invalid</td>
-                                    <!--end::Status=-->
-                                    <!--begin::Timestamp=-->
-                                    <td class="pe-0 text-end min-w-200px">
-                                        10 Mar 2024, 11:05 am
-                                    </td>
-                                    <!--end::Timestamp=-->
-                                </tr>
-                                <!--end::Table row-->
-                                <!--begin::Table row-->
-                                <tr>
-                                    <!--begin::Badge=-->
-                                    <td class="min-w-70px">
-                                        <div class="badge badge-light-warning">
-                                            404 WRN
-                                        </div>
-                                    </td>
-                                    <!--end::Badge=-->
-                                    <!--begin::Status=-->
-                                    <td>
-                                        POST /v1/customer/c_6606385303e80/not_found
-                                    </td>
-                                    <!--end::Status=-->
-                                    <!--begin::Timestamp=-->
-                                    <td class="pe-0 text-end min-w-200px">
-                                        25 Jul 2024, 8:43 pm
-                                    </td>
-                                    <!--end::Timestamp=-->
-                                </tr>
-                                <!--end::Table row-->
-                                <!--begin::Table row-->
-                                <tr>
-                                    <!--begin::Badge=-->
-                                    <td class="min-w-70px">
-                                        <div class="badge badge-light-warning">
-                                            404 WRN
-                                        </div>
-                                    </td>
-                                    <!--end::Badge=-->
-                                    <!--begin::Status=-->
-                                    <td>
-                                        POST /v1/customer/c_6606385303e7f/not_found
-                                    </td>
-                                    <!--end::Status=-->
-                                    <!--begin::Timestamp=-->
-                                    <td class="pe-0 text-end min-w-200px">
-                                        25 Jul 2024, 6:43 am
-                                    </td>
-                                    <!--end::Timestamp=-->
-                                </tr>
-                                <!--end::Table row-->
-                                <!--begin::Table row-->
-                                <tr>
-                                    <!--begin::Badge=-->
-                                    <td class="min-w-70px">
-                                        <div class="badge badge-light-warning">
-                                            404 WRN
-                                        </div>
-                                    </td>
-                                    <!--end::Badge=-->
-                                    <!--begin::Status=-->
-                                    <td>
-                                        POST /v1/customer/c_6606385303e80/not_found
-                                    </td>
-                                    <!--end::Status=-->
-                                    <!--begin::Timestamp=-->
-                                    <td class="pe-0 text-end min-w-200px">
-                                        25 Jul 2024, 2:40 pm
-                                    </td>
-                                    <!--end::Timestamp=-->
-                                </tr>
-                                <!--end::Table row-->
-                                <!--begin::Table row-->
-                                <tr>
-                                    <!--begin::Badge=-->
-                                    <td class="min-w-70px">
-                                        <div class="badge badge-light-warning">
-                                            404 WRN
-                                        </div>
-                                    </td>
-                                    <!--end::Badge=-->
-                                    <!--begin::Status=-->
-                                    <td>
-                                        POST /v1/customer/c_6606385303e7f/not_found
-                                    </td>
-                                    <!--end::Status=-->
-                                    <!--begin::Timestamp=-->
-                                    <td class="pe-0 text-end min-w-200px">
-                                        10 Mar 2024, 10:30 am
-                                    </td>
-                                    <!--end::Timestamp=-->
-                                </tr>
-                                <!--end::Table row-->
-                                <!--begin::Table row-->
-                                <tr>
-                                    <!--begin::Badge=-->
-                                    <td class="min-w-70px">
-                                        <div class="badge badge-light-warning">
-                                            404 WRN
-                                        </div>
-                                    </td>
-                                    <!--end::Badge=-->
-                                    <!--begin::Status=-->
-                                    <td>
-                                        POST /v1/customer/c_6606385303e7f/not_found
-                                    </td>
-                                    <!--end::Status=-->
-                                    <!--begin::Timestamp=-->
-                                    <td class="pe-0 text-end min-w-200px">
-                                        20 Jun 2024, 5:30 pm
-                                    </td>
-                                    <!--end::Timestamp=-->
-                                </tr>
-                                <!--end::Table row-->
-                            </tbody>
-                            <!--end::Table body-->
-                        </table>
-                        <!--end::Table-->
-                    </div>
-                    <!--end::Table wrapper-->
+                <div>
+                    <div class="fs-4 fw-bold text-gray-900">{{ number_format($totalPoints) }} Poin</div>
+                    <div class="fs-7 text-muted">Total Poin Keaktifan Harian (1 Poin / Hari)</div>
                 </div>
-                <!--end::Card body-->
             </div>
-            <!--end::Card-->
+        </div>
+    </div>
+</div>
+<!--end::Summary Row-->
+
+<!--begin::Login Sessions Card-->
+<div class="card mb-5 mb-xl-10">
+    <!--begin::Card header-->
+    <div class="card-header border-0 pt-5">
+        <h3 class="card-title align-items-start flex-column">
+            <span class="card-label fw-bold fs-3 mb-1">Riwayat Login Harian Saya</span>
+            <span class="text-muted mt-1 fw-semibold fs-7">Catatan rekapan aktivitas login harian dan jumlah frekuensi login per tanggal</span>
+        </h3>
+        <div class="card-toolbar">
+            <span class="badge badge-light-primary fs-7 fw-bold">Total {{ $myLoginLogs->total() }} Hari Login</span>
+        </div>
+    </div>
+    <!--end::Card header-->
+
+    <!--begin::Card body-->
+    <div class="card-body py-3">
+        <!--begin::Table wrapper-->
+        <div class="table-responsive">
+            <!--begin::Table-->
+            <table class="table align-middle table-row-dashed table-row-gray-300 gy-4 gs-4">
+                <!--begin::Thead-->
+                <thead>
+                    <tr class="fw-bold text-gray-700 bg-light text-uppercase fs-8">
+                        <th class="w-50px text-center">No</th>
+                        <th class="min-w-200px">Tanggal & Waktu Login Pertama</th>
+                        <th class="min-w-175px text-center">Frekuensi Login Harian</th>
+                        <th class="min-w-150px">Alamat IP Terakhir</th>
+                        <th class="min-w-250px">User Agent / Perangkat</th>
+                    </tr>
+                </thead>
+                <!--end::Thead-->
+
+                <!--begin::Tbody-->
+                <tbody class="fw-semibold text-gray-600 fs-7">
+                    @forelse($myLoginLogs as $index => $log)
+                        <tr>
+                            <td class="text-center text-muted fw-bold">
+                                {{ $myLoginLogs->firstItem() + $index }}
+                            </td>
+                            <td>
+                                <div class="d-flex flex-column">
+                                    <span class="text-gray-800 fw-bold">{{ $log->login_at ? $log->login_at->format('d M Y, H:i:s') : '-' }}</span>
+                                    <span class="text-muted fs-8">{{ $log->login_at ? $log->login_at->diffForHumans() : '' }}</span>
+                                </div>
+                            </td>
+                            <td class="text-center">
+                                <span class="badge badge-light-primary fw-bold px-3 py-2 fs-7">
+                                    <i class="ki-duotone ki-arrows-loop fs-6 text-primary me-1"><span class="path1"></span><span class="path2"></span></i>
+                                    {{ $log->login_count }}x Login Hari Ini
+                                </span>
+                            </td>
+                            <td>
+                                <span class="badge badge-light-dark fw-bold px-3 py-2">
+                                    <i class="ki-duotone ki-geolocation fs-6 text-gray-600 me-1"><span class="path1"></span><span class="path2"></span></i>
+                                    {{ $log->ip_address ?? '127.0.0.1' }}
+                                </span>
+                            </td>
+                            <td>
+                                <span class="text-gray-700 text-truncate d-inline-block mw-300px" title="{{ $log->user_agent }}">
+                                    {{ Str::limit($log->user_agent, 55) ?? 'Unknown Device' }}
+                                </span>
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="5" class="text-center py-10 text-muted">
+                                <i class="ki-duotone ki-information fs-3x text-gray-400 mb-3 d-block"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                Belum ada riwayat sesi login yang terekam untuk akun Anda.
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+                <!--end::Tbody-->
+            </table>
+            <!--end::Table-->
+        </div>
+        <!--end::Table wrapper-->
+
+        @if($myLoginLogs->hasPages())
+            <div class="d-flex justify-content-end pt-4">
+                {{ $myLoginLogs->appends(['tab' => 'log'])->links() }}
+            </div>
+        @endif
+    </div>
+    <!--end::Card body-->
+</div>
+<!--end::Login Sessions Card-->
