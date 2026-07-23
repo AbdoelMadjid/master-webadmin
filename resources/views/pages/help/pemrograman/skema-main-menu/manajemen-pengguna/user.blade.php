@@ -245,7 +245,44 @@ public function getAvatarUrlAttribute()
                     </div>
 
                     <!--====================================================-->
-                    <!-- 8. KOTAK BAWAH 6: REKAPITULASI BERKAS UTAMA USER MANAGEMENT -->
+                    <!-- 8. KOTAK BAWAH 6: REGISTRASI WEB & PERSETUJUAN ADMIN -->
+                    <!--====================================================-->
+                    <div class="schema-col-12 mt-4">
+                        <div class="schema-card border-start border-4 border-info">
+                            <h4><i class="ki-duotone ki-shield-tick fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> 6. Registrasi Web, Validasi Real-time, Notifikasi & Persetujuan Admin</h4>
+                            <p class="fs-7 text-gray-700">
+                                Arsitektur registrasi akun publik, validasi password real-time, status persetujuan akun, notifikasi topbar admin, dan penugasan otomatis role <i>User</i>:
+                            </p>
+                            <div class="row g-4 mt-1">
+                                <div class="col-md-6">
+                                    <div class="p-4 rounded bg-light-info border border-info border-dashed h-100">
+                                        <h5 class="fw-bold text-info mb-2">A. Registrasi Publik & Validasi Real-Time</h5>
+                                        <ul class="schema-list fs-7 mb-0">
+                                            <li><strong>Form Register:</strong> Terletak pada rute <code>/register</code> (ditangani <code>RegisteredUserController</code>).</li>
+                                            <li><strong>Eye Toggle:</strong> Tombol ikon mata untuk menampilkan/menyembunyikan input kata sandi & konfirmasi kata sandi.</li>
+                                            <li><strong>Validasi Password Real-Time:</strong> Menguji kriteria &gt; 8 karakter, huruf besar (A-Z), huruf kecil (a-z), angka (0-9), serta kecocokan konfirmasi password secara langsung saat mengetik.</li>
+                                            <li><strong>Status Pending:</strong> Akun baru hasil registrasi publik otomatis berstatus <code>status = 'pending'</code> dan <strong>TIDAK langsung dikirim ke sesi login</strong>.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-4 rounded bg-light-success border border-success border-dashed h-100">
+                                        <h5 class="fw-bold text-success mb-2">B. Notifikasi, Persetujuan Admin & Proteksi Login</h5>
+                                        <ul class="schema-list fs-7 mb-0">
+                                            <li><strong>Notifikasi Bell Topbar:</strong> Notifikasi pendaftaran akun baru muncul di menu header (tab <i>Peringatan</i>) dan mengarahkan Admin/Master ke rute <code>/manajemenpengguna/users</code>.</li>
+                                            <li><strong>Action Setujui & Tolak:</strong> Admin/Master dapat menyetujui (<code>POST users/{id}/approve</code>) atau menolak (<code>POST users/{id}/reject</code>) akun pengguna.</li>
+                                            <li><strong>Penugasan Role Otomatis:</strong> Saat akun disetujui, sistem secara otomatis memberikan role <code>user</code> jika pengguna belum memiliki role.</li>
+                                            <li><strong>Proteksi Login (Block Unapproved):</strong> Akun berstatus <code>pending</code> atau <code>rejected</code> yang mencoba login di <code>LoginRequest</code> akan diblokir dengan pesan notifikasi yang sesuai.</li>
+                                            <li><strong>Pengecualian:</strong> Pengguna yang ditambahkan langsung oleh Admin via modal Form Tambah User atau Import Massal Excel otomatis berstatus <code>approved</code> (langsung aktif).</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 9. KOTAK BAWAH 7: REKAPITULASI BERKAS UTAMA USER MANAGEMENT -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
                         <div class="schema-card">
@@ -264,6 +301,11 @@ public function getAvatarUrlAttribute()
                                             <td><strong>Users CRUD</strong></td>
                                             <td><code>UserController.php</code><br><code>UserRequest.php</code><br><code>users.blade.php</code></td>
                                             <td>Pengelolaan akun pengguna, password hashing, penugasan role, dan notifikasi SwalHelper.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Registrasi & Persetujuan Admin</strong></td>
+                                            <td><code>RegisteredUserController.php</code><br><code>LoginRequest.php</code><br><code>UserController.php</code> (approve & reject)<br><code>register.blade.php</code></td>
+                                            <td>Registrasi publik, toggle eye & validasi password real-time, notifikasi topbar admin ke rute <code>manajemenpengguna/users</code>, persetujuan admin + auto role <code>user</code>, dan proteksi login akun unapproved.</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Pengelolaan Avatar</strong></td>

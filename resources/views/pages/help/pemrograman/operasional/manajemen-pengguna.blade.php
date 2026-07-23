@@ -331,6 +331,46 @@
                     </div>
 
                     <!--====================================================-->
+                    <!-- 7. ALUR REGISTRASI AKUN WEB, NOTIFIKASI & PERSETUJUAN ADMIN -->
+                    <!--====================================================-->
+                    <div class="schema-col-12 mt-6">
+                        <div class="border-start border-4 border-info ps-4 my-2">
+                            <h3 class="fw-bold text-gray-900 mb-1">7. Alur Registrasi Akun Web, Notifikasi & Persetujuan Admin</h3>
+                            <span class="text-muted fs-7">Registrasi publik, validasi password real-time, penanganan status persetujuan akun, notifikasi topbar admin, dan penugasan otomatis role User.</span>
+                        </div>
+                    </div>
+
+                    <div class="schema-col-6">
+                        <div class="schema-card">
+                            <h4><i class="ki-duotone ki-user-tick fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Alur Registrasi Publik & Validasi Real-Time</h4>
+                            <div class="schema-flow">
+                                <div class="schema-step">
+                                    <strong>Form Register Publik:</strong> Pengguna mendaftar melalui rute <code>/register</code> yang ditangani oleh <code>RegisteredUserController</code>.
+                                </div>
+                                <div class="schema-step">
+                                    <strong>Fitur Eye Toggle & Real-Time Check:</strong> Form dilengkapi tombol ikon mata untuk toggle password dan kartu checklist indikator real-time (&gt; 8 karakter, huruf besar, huruf kecil, angka, serta kecocokan konfirmasi password).
+                                </div>
+                                <div class="schema-step">
+                                    <strong>Status Akun Pending:</strong> Pengguna yang mendaftar via web publik diberi <code>status = 'pending'</code> dan <strong>TIDAK langsung di-login-kan secara otomatis</strong>, melainkan dialihkan ke <code>/login</code> berpesan peringatan.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="schema-col-6">
+                        <div class="schema-card">
+                            <h4><i class="ki-duotone ki-shield-tick fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Persetujuan Admin, Auto Role & Proteksi Login</h4>
+                            <ul class="schema-list">
+                                <li><strong>Notifikasi Header Admin:</strong> Notifikasi pendaftaran akun baru muncul pada dropdown notifikasi topbar (tab <em>Peringatan</em>) dan mengarahkan Admin/Master ke rute <code>/manajemenpengguna/users</code>.</li>
+                                <li><strong>Persetujuan & Penolakan:</strong> Admin/Master dapat menekan tombol <strong>Setujui</strong> (<code>POST users/{id}/approve</code>) atau <strong>Tolak</strong> (<code>POST users/{id}/reject</code>) pada tabel pengguna.</li>
+                                <li><strong>Penugasan Role 'User' Otomatis:</strong> Saat akun disetujui, sistem secara otomatis memberikan role <code>user</code> jika pengguna belum memiliki role.</li>
+                                <li><strong>Proteksi Akun Unapproved:</strong> Akun berstatus <code>pending</code> atau <code>rejected</code> yang mencoba login akan ditolak pada <code>LoginRequest</code> dengan pesan notifikasi yang sesuai.</li>
+                                <li><strong>Pengecualian:</strong> Akun yang dibuat langsung oleh Admin via Form Tambah User atau Import Massal Excel otomatis berstatus <code>approved</code> (langsung aktif).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
                     <!-- RINGKASAN REKAPITULASI PEMROGRAMAN -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-6">
@@ -346,6 +386,11 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <tr>
+                                            <td><strong>Registrasi Akun & Persetujuan Admin</strong></td>
+                                            <td><code>RegisteredUserController.php</code><br><code>LoginRequest.php</code><br><code>UserController.php</code> (approve & reject)<br><code>register.blade.php</code></td>
+                                            <td>Registrasi publik, toggle eye & validasi password real-time, notifikasi topbar admin ke rute <code>manajemenpengguna/users</code>, persetujuan admin + auto role <code>user</code>, dan proteksi login akun unapproved.</td>
+                                        </tr>
                                         <tr>
                                             <td><strong>Pengelolaan Avatar</strong></td>
                                             <td><code>ProfilPenggunaController.php</code><br><code>User.php</code> (getAvatarUrlAttribute)</td>
