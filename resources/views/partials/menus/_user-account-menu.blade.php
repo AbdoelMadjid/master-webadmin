@@ -74,21 +74,12 @@
     @endif
     <!--begin::Menu item-->
     <div class="menu-item px-5">
-        <a href="{{ route('pages.account.overview') }}" class="menu-link px-5">
+        <a href="{{ url('profil-pengguna') }}" class="menu-link px-5">
             {{ $isAltMenu ? 'My Profile' : __('menu.my_profile') }}
         </a>
     </div>
     <!--end::Menu item-->
-    <!--begin::Menu item-->
-    <div class="menu-item px-5">
-        <a href="{{ route('apps.projects.list') }}" class="menu-link px-5">
-            <span class="menu-text">{{ $isAltMenu ? 'My Projects' : __('menu.my_projects') }}</span>
-            <span class="menu-badge">
-                <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
-            </span>
-        </a>
-    </div>
-    <!--end::Menu item-->
+
     <!--begin::Menu item-->
     <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
         data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
@@ -99,22 +90,17 @@
         <!--begin::Menu sub-->
         <div class="menu-sub menu-sub-dropdown w-175px py-4">
             <div class="menu-item px-3">
-                <a href="{{ route('pages.account.referrals') }}" class="menu-link px-5">
+                <a href="{{ url('profil-pengguna?tab=referensi') }}" class="menu-link px-5">
                     {{ $isAltMenu ? 'Referrals' : __('menu.referrals') }}
                 </a>
             </div>
             <div class="menu-item px-3">
-                <a href="{{ route('pages.account.billing') }}" class="menu-link px-5">
+                <a href="{{ url('profil-pengguna?tab=tagihan') }}" class="menu-link px-5">
                     {{ $isAltMenu ? 'Billing' : __('menu.billing') }}
                 </a>
             </div>
             <div class="menu-item px-3">
-                <a href="{{ route('pages.account.statements') }}" class="menu-link px-5">
-                    {{ $isAltMenu ? 'Payments' : __('menu.payments') }}
-                </a>
-            </div>
-            <div class="menu-item px-3">
-                <a href="{{ route('pages.account.statements') }}" class="menu-link d-flex flex-stack px-5">
+                <a href="{{ url('profil-pengguna?tab=pernyataan') }}" class="menu-link d-flex flex-stack px-5">
                     {{ $isAltMenu ? 'Statements' : __('menu.statements') }}
                     <span class="ms-2 lh-0" data-bs-toggle="tooltip"
                         title="{{ __('menu.view_your_statements') ?? 'View your statements' }}">
@@ -137,13 +123,6 @@
             </div>
         </div>
         <!--end::Menu sub-->
-    </div>
-    <!--end::Menu item-->
-    <!--begin::Menu item-->
-    <div class="menu-item px-5">
-        <a href="{{ route('pages.account.statements') }}" class="menu-link px-5">
-            {{ $isAltMenu ? 'My Statements' : __('menu.my_statements') }}
-        </a>
     </div>
     <!--end::Menu item-->
     <!--begin::Menu separator-->
@@ -201,7 +180,7 @@
     <!--end::Menu separator-->
     <!--begin::Menu item-->
     <div class="menu-item px-5 my-1">
-        <a href="{{ route('pages.account.settings') }}" class="menu-link px-5">
+        <a href="{{ url('profil-pengguna?tab=pengaturan') }}" class="menu-link px-5">
             {{ $isAltMenu ? 'Account Settings' : __('menu.account_settings') }}
         </a>
     </div>
