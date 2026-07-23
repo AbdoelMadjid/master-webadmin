@@ -282,7 +282,43 @@ public function getAvatarUrlAttribute()
                     </div>
 
                     <!--====================================================-->
-                    <!-- 9. KOTAK BAWAH 7: REKAPITULASI BERKAS UTAMA USER MANAGEMENT -->
+                    <!-- 9. KOTAK BAWAH 7: SKEMA PENGHAPUSAN USER & CASCADING DELETION -->
+                    <!--====================================================-->
+                    <div class="schema-col-12 mt-4">
+                        <div class="schema-card border-start border-4 border-danger">
+                            <h4><i class="ki-duotone ki-trash fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> 7. Skema Penghapusan Pengguna & Pembersihan Relasi Otomatis (Cascading Deletion & DB Transaction)</h4>
+                            <p class="fs-7 text-gray-700">
+                                Arsitektur pembersihan data relasi dan berkas secara otomatis ketika akun pengguna dihapus dari sistem:
+                            </p>
+                            <div class="row g-4 mt-1">
+                                <div class="col-md-6">
+                                    <div class="p-4 rounded bg-light-danger border border-danger border-dashed h-100">
+                                        <h5 class="fw-bold text-danger mb-2">A. Event Listener Deleting (<code>User::booted()</code>)</h5>
+                                        <ul class="schema-list fs-7 mb-0">
+                                            <li><strong>Event Hook:</strong> Terpasang pada listener <code>static::deleting</code> di model <code>App\Models\User</code>.</li>
+                                            <li><strong>Pembersihan Berkas Avatar:</strong> Menghapus berkas fisik foto profil dari <code>storage/app/public/avatars</code> dan <code>public/uploads/avatars</code>.</li>
+                                            <li><strong>Pembersihan Riwayat Login:</strong> Mengosongkan seluruh data pada tabel <code>data_logins</code> (<code>$user->dataLogins()->delete()</code>).</li>
+                                            <li><strong>Pembersihan Reset Password:</strong> Menghapus permintaan reset password pada tabel <code>password_reset_requests</code>.</li>
+                                            <li><strong>Pelepasan Hak Akses:</strong> Melepas penugasan role dan izin khusus via <code>$user->roles()->detach()</code> & <code>$user->permissions()->detach()</code>.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-4 rounded bg-light-primary border border-primary border-dashed h-100">
+                                        <h5 class="fw-bold text-primary mb-2">B. Proteksi Transaksi Database (<code>DB::transaction</code>)</h5>
+                                        <ul class="schema-list fs-7 mb-0">
+                                            <li><strong>Transaksional Atomis:</strong> Metode <code>UserController@destroy</code> membungkus eksekusi <code>$user->delete()</code> di dalam <code>DB::transaction()</code>.</li>
+                                            <li><strong>Pencegahan Akun Sendiri:</strong> Proteksi pencegahan penghapusan akun milik admin yang sedang aktif/login (HTTP 422).</li>
+                                            <li><strong>Garansi Integritas Data:</strong> Jika salah satu proses penghapusan berkas/tabel relasi mengalami kendala, seluruh transaksi di-rollback secara utuh tanpa meninggalkan <i>orphan data</i>.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 10. KOTAK BAWAH 8: REKAPITULASI BERKAS UTAMA USER MANAGEMENT -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
                         <div class="schema-card">
@@ -301,6 +337,11 @@ public function getAvatarUrlAttribute()
                                             <td><strong>Users CRUD</strong></td>
                                             <td><code>UserController.php</code><br><code>UserRequest.php</code><br><code>users.blade.php</code></td>
                                             <td>Pengelolaan akun pengguna, password hashing, penugasan role, dan notifikasi SwalHelper.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Penghapusan User (Cascading Delete)</strong></td>
+                                            <td><code>User.php</code> (booted deleting)<br><code>UserController.php</code> (destroy)<br><code>users.blade.php</code></td>
+                                            <td>Pembersihan otomatis berkas avatar fisik, riwayat data logins, permintaan reset password, penugasan role Spatie, dan proteksi DB::transaction().</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Registrasi & Persetujuan Admin</strong></td>

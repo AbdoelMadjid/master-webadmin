@@ -112,15 +112,13 @@ class UserController extends Controller
             ], 422);
         }
 
-        if ($user->avatar && Storage::disk('public')->exists($user->avatar)) {
-            Storage::disk('public')->delete($user->avatar);
-        }
-
-        $user->delete();
+        \Illuminate\Support\Facades\DB::transaction(function () use ($user) {
+            $user->delete();
+        });
 
         return response()->json([
             'success' => true,
-            'message' => "Pengguna '{$user->name}' berhasil dihapus.",
+            'message' => "Pengguna '{$user->name}' beserta seluruh data relasinya berhasil dihapus.",
         ]);
     }
 

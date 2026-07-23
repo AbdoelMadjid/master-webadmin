@@ -80,6 +80,41 @@ class User extends Authenticatable
     }
 
     /**
+     * Boot model events for automatic cascading deletion of related records.
+     */
+    protected static function booted(): void
+    {
+        static::deleting(function (User $user) {
+            // 1. Hapus berkas fisik avatar pengguna jika ada
+            if ($user->avatar) {
+                if (\Illuminate\Support\Facades\Storage::disk('public')->exists($user->avatar)) {
+                    \Illuminate\Support\Facades\Storage::disk('public')->delete($user->avatar);
+                }
+                $publicPath = public_path($user->avatar);
+                if (file_exists($publicPath) && is_file($publicPath)) {
+                    @unlink($publicPath);
+                }
+            }
+
+            // 2. Hapus seluruh riwayat data login pengguna (data_logins)
+            $user->dataLogins()->delete();
+
+            // 3. Hapus seluruh permintaan reset password pengguna (password_reset_requests)
+            \App\Models\ManajemenPengguna\PasswordResetRequest::where('user_id', $user->id)
+                ->orWhere('email', $user->email)
+                ->delete();
+
+            // 4. Update rujukan admin penangan reset password jika admin dihapus
+            \App\Models\ManajemenPengguna\PasswordResetRequest::where('handled_by', $user->id)
+                ->update(['handled_by' => null]);
+
+            // 5. Lepas seluruh relasi Spatie Roles & Permissions (model_has_roles & model_has_permissions)
+            $user->roles()->detach();
+            $user->permissions()->detach();
+        });
+    }
+
+    /**
      * Cek apakah akun user sudah disetujui
      */
     public function isApproved(): bool

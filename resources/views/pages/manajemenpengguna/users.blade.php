@@ -23,14 +23,11 @@
                         </div>
                     </div>
                     <div class="card-toolbar gap-2 flex-wrap">
-                        <a href="{{ route('manajemenpengguna.users.template') }}" class="btn btn-light-info" id="btn_download_user_template" title="Download Format Excel Master">
-                            <i class="ki-duotone ki-file-down fs-2"><span class="path1"></span><span class="path2"></span></i> Master Excel
-                        </a>
-                        <button type="button" class="btn btn-light-success" data-bs-toggle="modal" data-bs-target="#kt_modal_import_user" id="btn_import_user">
-                            <i class="ki-duotone ki-file-up fs-2"><span class="path1"></span><span class="path2"></span></i> Upload Massal Excel
+                        <button type="button" class="btn btn-icon btn-light-success" data-bs-toggle="modal" data-bs-target="#kt_modal_import_user" id="btn_import_user" title="Upload Massal Excel">
+                            <i class="ki-duotone ki-file-up fs-2"><span class="path1"></span><span class="path2"></span></i>
                         </button>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_user" id="btn_add_user">
-                            <i class="ki-duotone ki-plus fs-2"><span class="path1"></span><span class="path2"></span></i> Tambah User Baru
+                        <button type="button" class="btn btn-icon btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_user" id="btn_add_user" title="Tambah User Baru">
+                            <i class="ki-duotone ki-plus fs-2"><span class="path1"></span><span class="path2"></span></i>
                         </button>
                     </div>
                 </div>

@@ -69,25 +69,76 @@
 
                 <!--begin::Col Total Points-->
                 <div class="col-12 col-md-4">
+                    @php
+                        $pts = $totalPoints ?? 0;
+                        if ($pts < 1000) {
+                            $target = 1000;
+                            $tierName = 'Target 1K Poin';
+                            $trophy = '🥉';
+                            $badgeClass = 'badge-light-primary text-primary';
+                            $barClass = 'bg-primary';
+                            $bgLightClass = 'bg-light-primary';
+                            $percent = min(100, round(($pts / 1000) * 100));
+                        } elseif ($pts < 5000) {
+                            $target = 5000;
+                            $tierName = 'Piala 1K Poin Achieved';
+                            $trophy = '🥉';
+                            $badgeClass = 'badge-light-info text-info';
+                            $barClass = 'bg-info';
+                            $bgLightClass = 'bg-light-info';
+                            $percent = min(100, round(($pts / 5000) * 100));
+                        } elseif ($pts < 10000) {
+                            $target = 10000;
+                            $tierName = 'Piala 5K Poin Achieved';
+                            $trophy = '🥈';
+                            $badgeClass = 'badge-light-warning text-warning';
+                            $barClass = 'bg-warning';
+                            $bgLightClass = 'bg-light-warning';
+                            $percent = min(100, round(($pts / 10000) * 100));
+                        } elseif ($pts < 25000) {
+                            $target = 25000;
+                            $tierName = 'Piala 10K Poin Achieved';
+                            $trophy = '🥇';
+                            $badgeClass = 'badge-light-success text-success';
+                            $barClass = 'bg-success';
+                            $bgLightClass = 'bg-light-success';
+                            $percent = min(100, round(($pts / 25000) * 100));
+                        } else {
+                            $target = 25000;
+                            $tierName = 'Piala 25K+ Max Legend';
+                            $trophy = '🏆';
+                            $badgeClass = 'badge-light-danger text-danger';
+                            $barClass = 'bg-danger';
+                            $bgLightClass = 'bg-light-danger';
+                            $percent = 100;
+                        }
+                    @endphp
                     <div class="card card-flush h-100 border border-gray-200">
-                        <div class="card-header pt-5">
+                        <div class="card-header pt-5 pb-1">
                             <div class="card-title d-flex flex-column">
                                 <div class="d-flex align-items-center mb-1">
-                                    <i class="ki-duotone ki-medal-star fs-2hx text-warning me-3">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                        <span class="path3"></span>
-                                        <span class="path4"></span>
-                                    </i>
-                                    <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2">{{ number_format($totalPoints ?? 0) }}</span>
+                                    <span class="fs-1 me-2">{{ $trophy }}</span>
+                                    <span class="fs-2hx fw-bold text-gray-900 me-2 lh-1 ls-n2">{{ number_format($pts) }}</span>
+                                    <span class="badge {{ $badgeClass }} fw-bold fs-8 px-2 py-1 ms-1">
+                                        {{ $tierName }}
+                                    </span>
                                 </div>
-                                <span class="text-gray-600 pt-1 fw-semibold fs-6">Total Poin Keaktifan Terkumpul</span>
+                                <span class="text-gray-800 fw-bold fs-6">Total Poin Keaktifan Terkumpul</span>
                             </div>
                         </div>
-                        <div class="card-body d-flex flex-column justify-content-end pt-2">
-                            <span class="fs-7 text-muted mb-2">Akumulasi poin harian seluruh pengguna (+1 poin/hari)</span>
-                            <div class="h-8px w-100 bg-light-warning rounded overflow-hidden">
-                                <div class="bg-warning rounded h-8px" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="card-body d-flex flex-column justify-content-end pt-2 pb-5">
+                            <div class="d-flex justify-content-between align-items-center fs-7 fw-bold mb-1">
+                                <span class="text-gray-600">Target Milestone: <strong>{{ number_format($target) }} Poin</strong></span>
+                                <span class="text-gray-900 fw-bolder">{{ $percent }}%</span>
+                            </div>
+                            <div class="h-8px w-100 {{ $bgLightClass }} rounded overflow-hidden">
+                                <div class="{{ $barClass }} rounded h-8px" role="progressbar" style="width: {{ $percent }}%" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="d-flex justify-content-between text-muted fs-8 mt-2 fw-semibold">
+                                <span title="Milestone 1.000 Poin" class="{{ $pts >= 1000 ? 'text-primary fw-bold' : '' }}">🥉 1K</span>
+                                <span title="Milestone 5.000 Poin" class="{{ $pts >= 5000 ? 'text-info fw-bold' : '' }}">🥈 5K</span>
+                                <span title="Milestone 10.000 Poin" class="{{ $pts >= 10000 ? 'text-warning fw-bold' : '' }}">🥇 10K</span>
+                                <span title="Milestone 25.000 Poin" class="{{ $pts >= 25000 ? 'text-danger fw-bold' : '' }}">🏆 25K</span>
                             </div>
                         </div>
                     </div>
