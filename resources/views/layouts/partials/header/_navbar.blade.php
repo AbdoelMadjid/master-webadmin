@@ -12,27 +12,35 @@
         <!--end::Search-->
 
         <!--begin::Activities-->
+        @if (isFeatureActive('topbar_activities'))
         <div data-quick-action-item class="d-flex align-items-stretch">
             @include('layouts.partials.header._app.activities')
         </div>
+        @endif
         <!--end::Activities-->
 
         <!--begin::Notifications-->
+        @if (isFeatureActive('topbar_notifications'))
         <div data-quick-action-item class="d-flex align-items-stretch">
             @include('layouts.partials.header._app.notifications')
         </div>
+        @endif
         <!--end::Notifications-->
 
         <!--begin::Chat-->
+        @if (isFeatureActive('topbar_chat'))
         <div data-quick-action-item class="d-flex align-items-stretch">
             @include('layouts.partials.header._app.chat')
         </div>
+        @endif
         <!--end::Chat-->
 
         <!--begin::My apps links-->
+        @if (isFeatureActive('topbar_my_apps'))
         <div data-quick-action-item class="d-flex align-items-stretch">
             @include('layouts.partials.header._app.my-app-link')
         </div>
+        @endif
         <!--end::My apps links-->
 
     </div>

@@ -11,7 +11,9 @@
         <!--begin::Menu-->
         <div class="menu menu-rounded menu-column menu-lg-row my-5 my-lg-0 align-items-stretch fw-semibold px-2 px-lg-0"
             id="kt_app_header_menu" data-kt-menu="true">
-            <!--begin:Menu item-->
+
+            <!--begin:Menu item Dashboards-->
+            @if (isFeatureActive('topbar_group_dashboards'))
             <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
                 class="menu-item {{ request()->routeIs(['homepage', 'dashboards.*']) ? 'here show' : '' }} menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
                 <!--begin:Menu link-->
@@ -27,8 +29,11 @@
                 </div>
                 <!--end:Menu sub-->
             </div>
-            <!--end:Menu item-->
-            <!--begin:Menu item-->
+            @endif
+            <!--end:Menu item Dashboards-->
+
+            <!--begin:Menu item PAGES-->
+            @if (isFeatureActive('topbar_group_pages'))
             <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
                 id="page-menu-item"
                 class="menu-item {{ request()->routeIs('pages.*') ? 'here show' : '' }} menu-lg-down-accordion me-0 me-lg-2">
@@ -45,11 +50,13 @@
                 </div>
                 <!--end:Menu sub-->
             </div>
-            <!--end:Menu item-->
-            <!--begin:Menu item-->
+            @endif
+            <!--end:Menu item PAGES-->
+
+            <!--begin:Menu item APPS-->
+            @if (isFeatureActive('topbar_group_apps'))
             <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
                 class="menu-item {{ request()->routeIs(['apps.*']) ? 'here show' : '' }} menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
-
                 <!--begin:Menu link-->
                 <span class="menu-link">
                     <span class="menu-title">{{ __('menu.apps') }}</span>
@@ -66,8 +73,11 @@
                 </div>
                 <!--end:Menu sub-->
             </div>
-            <!--end:Menu item-->
-            <!--begin:Menu item-->
+            @endif
+            <!--end:Menu item APPS-->
+
+            <!--begin:Menu item LAYOUTS-->
+            @if (isFeatureActive('topbar_group_layouts'))
             <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
                 class="menu-item {{ request()->routeIs(['layouts.*']) ? 'here show' : '' }} menu-lg-down-accordion me-0 me-lg-2">
                 <!--begin:Menu link-->
@@ -83,9 +93,11 @@
                 </div>
                 <!--end:Menu sub-->
             </div>
-            <!--end:Menu item-->
+            @endif
+            <!--end:Menu item LAYOUTS-->
 
-            <!--begin:Menu item-->
+            <!--begin:Menu item HELP-->
+            @if (isFeatureActive('topbar_group_help'))
             <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
                 class="menu-item {{ request()->routeIs(['help.*']) ? 'here show' : '' }} menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
                 <!--begin:Menu link-->
@@ -122,11 +134,16 @@
                     @endforeach
                     <!--end:Menu item-->
                 </div><!--end:Menu sub-->
-            </div><!--end:Menu item-->
+            </div>
+            @endif
+            <!--end:Menu item HELP-->
+
         </div>
         <!--end::Menu-->
     @endhasanyrole
+
     <!--begin::timmer-->
+    @if (isFeatureActive('topbar_time'))
     <div class="d-none d-lg-flex align-items-center ms-4">
         <div class="d-flex align-items-center px-3 py-2 rounded-2 border border-gray-300 bg-light-primary">
             <i class="ki-duotone ki-time fs-3 text-primary me-2">
@@ -138,5 +155,6 @@
             </span>
         </div>
     </div>
+    @endif
 </div>
 <!--end::Menu wrapper-->

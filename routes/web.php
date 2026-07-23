@@ -26,6 +26,7 @@ Route::get('/dashboard', function () {
     return redirect()->route('homepage');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+use App\Http\Controllers\AppSupport\AppFiturController;
 use App\Http\Controllers\AppSupport\AppProfilController;
 use App\Http\Controllers\AppSupport\BackupDbController;
 use App\Http\Controllers\AppSupport\MenuController;
@@ -34,6 +35,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('appsupport/app-fiturs', [AppFiturController::class, 'index'])->name('appsupport.app-fiturs');
+    Route::post('appsupport/app-fiturs/bulk-toggle', [AppFiturController::class, 'bulkToggle'])->name('appsupport.app-fiturs.bulk-toggle');
+    Route::post('appsupport/app-fiturs/{id}/toggle-status', [AppFiturController::class, 'toggleStatus'])->name('appsupport.app-fiturs.toggle-status');
 
     Route::post('appsupport/menu/sort', [MenuController::class, 'sort'])->name('appsupport.menu.sort');
     Route::post('appsupport/menu/{id}/toggle-status', [MenuController::class, 'toggleStatus'])->name('appsupport.menu.toggle-status');

@@ -1,3 +1,4 @@
+@if (isFeatureActive('group_pages'))
 <div class="menu-item pt-5">
     <div class="menu-content">
         <span class="menu-heading fw-bold text-uppercase fs-7">{{ __('menu.pages') }}</span>
@@ -82,7 +83,9 @@
 @foreach (config('sidebar._sidebar_pages.pages_menus', []) as $menu)
     @include('layouts.partials.sidebar._menu-item-temp', ['menu' => $menu])
 @endforeach
+@endif
 
+@if (isFeatureActive('group_apps'))
 <div class="menu-item pt-5">
     <div class="menu-content">
         <span class="menu-heading fw-bold text-uppercase fs-7">{{ __('menu.apps') }}</span>
@@ -91,7 +94,9 @@
 @foreach (config('sidebar._sidebar_apps.apps_menus', []) as $menu)
     @include('layouts.partials.sidebar._menu-item-temp', ['menu' => $menu])
 @endforeach
+@endif
 
+@if (isFeatureActive('group_layouts'))
 <div class="menu-item pt-5">
     <div class="menu-content">
         <span class="menu-heading fw-bold text-uppercase fs-7">{{ __('menu.layouts') }}</span>
@@ -100,7 +105,9 @@
 @foreach (config('sidebar._sidebar_layouts.layout_menus', []) as $menu)
     @include('layouts.partials.sidebar._menu-item-temp', ['menu' => $menu])
 @endforeach
+@endif
 
+@if (isFeatureActive('group_help'))
 <div class="menu-item pt-5">
     <div class="menu-content">
         <span class="menu-heading fw-bold text-uppercase fs-7">{{ __('menu.help') }}</span>
@@ -109,3 +116,4 @@
 @foreach (config('sidebar._sidebar_helps.help_menus', []) as $menu)
     @include('layouts.partials.sidebar._menu-item-temp', ['menu' => $menu])
 @endforeach
+@endif

@@ -117,7 +117,8 @@
                 @endforeach
                 <!--end:Menu item-->
 
-                <!--begin:Menu item-->
+                @if (isFeatureActive('group_pages'))
+                <!--begin:Menu item PAGES-->
                 <div class="menu-item pt-5"><!--begin:Menu content-->
                     <div class="menu-content"><span
                             class="menu-heading fw-bold text-uppercase fs-7">{{ __('menu.pages') }}</span>
@@ -129,9 +130,11 @@
                 @foreach (config('sidebar._sidebar_pages.pages_menus') as $menu)
                     @include('layouts.partials.sidebar._menu-item', ['menu' => $menu])
                 @endforeach
-                <!--end:Menu item-->
+                <!--end:Menu item PAGES-->
+                @endif
 
-                <!--begin:Menu item-->
+                @if (isFeatureActive('group_apps'))
+                <!--begin:Menu item APPS-->
                 <div class="menu-item pt-5">
                     <!--begin:Menu content-->
                     <div class="menu-content"><span
@@ -145,9 +148,11 @@
                 @foreach (config('sidebar._sidebar_apps.apps_menus') as $menu)
                     @include('layouts.partials.sidebar._menu-item', ['menu' => $menu])
                 @endforeach
-                <!--end:Menu item-->
+                <!--end:Menu item APPS-->
+                @endif
 
-                <!--begin:Menu item-->
+                @if (isFeatureActive('group_layouts'))
+                <!--begin:Menu item LAYOUTS-->
                 <div class="menu-item pt-5">
                     <!--begin:Menu content-->
                     <div class="menu-content"><span
@@ -161,9 +166,11 @@
                 @foreach (config('sidebar._sidebar_layouts.layout_menus') as $menu)
                     @include('layouts.partials.sidebar._menu-item', ['menu' => $menu])
                 @endforeach
-                <!--end:Menu item-->
+                <!--end:Menu item LAYOUTS-->
+                @endif
 
-                <!--begin:Menu item-->
+                @if (isFeatureActive('group_help'))
+                <!--begin:Menu item HELP-->
                 <div class="menu-item pt-5">
                     <!--begin:Menu content-->
                     <div class="menu-content"><span
@@ -173,12 +180,12 @@
                 </div>
                 <!--end:Menu item-->
 
-
                 <!--begin:Menu item-->
                 @foreach (config('sidebar._sidebar_helps.help_menus') as $menu)
                     @include('layouts.partials.sidebar._menu-item', ['menu' => $menu])
                 @endforeach
-                <!--end:Menu item-->
+                <!--end:Menu item HELP-->
+                @endif
             </div>
             <!--end::Menu-->
         </div>

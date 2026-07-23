@@ -110,6 +110,12 @@ if (!function_exists('sidebarAdditionalMenuSections')) {
 
         $sections = [];
         foreach ($categories as $category) {
+            $catLower = strtolower(trim($category));
+            if ($catLower === 'pages' && !isFeatureActive('group_pages')) continue;
+            if ($catLower === 'apps' && !isFeatureActive('group_apps')) continue;
+            if ($catLower === 'layouts' && !isFeatureActive('group_layouts')) continue;
+            if ($catLower === 'help' && !isFeatureActive('group_help')) continue;
+
             $categoryRows = $rows->where('category', $category)->values();
             // Bentuk adjacency list: parent_id => children.
             $childrenByParent = $categoryRows->groupBy('main_menu_id');
@@ -212,5 +218,30 @@ if (!function_exists('sidebarMenuSections')) {
     {
         // Backward-compatible alias.
         return sidebarAdditionalMenuSections();
+    }
+}
+
+if (!function_exists('isFeatureActive')) {
+    function isFeatureActive(string $featureKey, bool $default = true): bool
+    {
+        static $features = null;
+
+        if ($features === null) {
+            try {
+                if (\Illuminate\Support\Facades\Schema::hasTable('app_fiturs')) {
+                    $features = \App\Models\AppSupport\AppFitur::pluck('active', 'feature_key')->toArray();
+                } else {
+                    $features = [];
+                }
+            } catch (\Throwable $e) {
+                $features = [];
+            }
+        }
+
+        if (array_key_exists($featureKey, $features)) {
+            return (bool) $features[$featureKey];
+        }
+
+        return $default;
     }
 }
