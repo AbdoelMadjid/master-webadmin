@@ -27,6 +27,7 @@ Repository:
 - [Tutorial Singkat Skema Pemrograman](#tutorial-singkat-skema-pemrograman)
 - [Akses dari aplikasi](#akses-dari-aplikasi)
 - [Materi inti (sesuai menu sidebar)](#materi-inti-sesuai-menu-sidebar)
+- [Materi skema main menu](#materi-skema-main-menu)
 - [Materi operasional](#materi-operasional)
 - [Referensi file konfigurasi menu](#referensi-file-konfigurasi-menu)
 - [Validasi cepat route help](#validasi-cepat-route-help)
@@ -492,6 +493,47 @@ Seluruh daftar di bawah diselaraskan dengan route help:
 
 <div align="right"><a href="#table-of-contents" title="Back to Table of Contents">&#8679;</a></div>
 
+### Materi skema main menu
+
+#### App Support
+<table>
+  <thead>
+    <tr>
+      <th width="35%">Judul</th>
+      <th width="45%">Keterangan</th>
+      <th width="20%">URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Menu</td><td>Arsitektur manajemen menu dinamis, pengurutan hirarki drag & drop, dan sinkronisasi permission otomatis.</td><td><code>/help/pemrograman/skema-main-menu/app-support/menu</code></td></tr>
+    <tr><td>App Profil</td><td>Arsitektur identitas aplikasi, manajemen logo (Logo Utama, Logo Kotak, Favicon), dan Form Request Validation.</td><td><code>/help/pemrograman/skema-main-menu/app-support/app-profil</code></td></tr>
+    <tr><td>App Fitur</td><td>Arsitektur Feature Toggle (Feature Flags), sakelar status fitur, dan helper global <code>isFeatureActive()</code>.</td><td><code>/help/pemrograman/skema-main-menu/app-support/app-fitur</code></td></tr>
+    <tr><td>Backup DB</td><td>Mekanisme ekspor dump SQL, lokasi direktori terproteksi, serta prosedur restore dan hapus cadangan database.</td><td><code>/help/pemrograman/skema-main-menu/app-support/backup-db</code></td></tr>
+    <tr><td>Data Login</td><td>Arsitektur pencatatan riwayat login, frekuensi login harian (<code>login_count</code>), reward poin, dan widget user aktif 15 menit.</td><td><code>/help/pemrograman/skema-main-menu/app-support/data-login</code></td></tr>
+  </tbody>
+</table>
+
+#### Manajemen Pengguna
+<table>
+  <thead>
+    <tr>
+      <th width="35%">Judul</th>
+      <th width="45%">Keterangan</th>
+      <th width="20%">URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Role</td><td>Arsitektur pengelolaan Role pengguna, integrasi Spatie Permission, dan modal matriks CRUD tanpa scroll horizontal.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/role</code></td></tr>
+    <tr><td>Permission</td><td>Arsitektur ekstraksi aksi CRUD, visualisasi badge warna-warni, dropdown filter role (opsi All), dan tombol reset filter.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/permission</code></td></tr>
+    <tr><td>Akses Role</td><td>Arsitektur matriks hak akses per role, filter pencarian modul on-the-fly, kontrol toggle per baris, dan sync real-time.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/akses-role</code></td></tr>
+    <tr><td>Akses User</td><td>Arsitektur hak akses per user, pewarisan izin Spatie (Direct vs Role permissions), dan indikator badge Mengikuti Role.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/akses-user</code></td></tr>
+    <tr><td>User</td><td>Arsitektur pengelolaan akun pengguna (CRUD), penanganan upload avatar profil, hashing password, dan penugasan role.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/user</code></td></tr>
+    <tr><td>Reset Password</td><td>Arsitektur permintaan reset password (/forgot-password), pemicuan Notifikasi Peringatan Header & Red Badge Counter, serta reset password default <code>Password!12345</code>.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/reset-password</code></td></tr>
+  </tbody>
+</table>
+
+<div align="right"><a href="#table-of-contents" title="Back to Table of Contents">&#8679;</a></div>
+
 ### Materi operasional
 
 <table>
@@ -506,7 +548,7 @@ Seluruh daftar di bawah diselaraskan dengan route help:
   <tbody>
     <tr><td>Panduan Tambah Halaman</td><td>Flow end-to-end tambah halaman dari file Blade sampai validasi akhir.</td><td><code>/help/pemrograman/operasional/panduan-tambah-halaman</code></td><td><a href="./docs/skema-pemrograman/operasional/panduan-tambah-halaman.md">panduan-tambah-halaman.md</a></td></tr>
     <tr><td>Panduan Tambah Menu</td><td>Standar tambah item sidebar/header, route vs href, dan active state.</td><td><code>/help/pemrograman/operasional/panduan-tambah-menu</code></td><td><a href="./docs/skema-pemrograman/operasional/panduan-tambah-menu.md">panduan-tambah-menu.md</a></td></tr>
-    <tr><td>Panduan Pergantian Versi Metronic</td><td>Playbook upgrade versi tema agar tidak hardcode dan minim regresi.</td><td><code>/help/pemrograman/operasional/panduan-pergantian-versi-metronic</code></td><td><a href="./docs/skema-pemrograman/operasional/panduan-pergantian-versi-metronic.md">panduan-pergantian-versi-metronic.md</a></td></tr>
+    <tr><td>Manajemen Pengguna</td><td>Panduan alur pemrograman & operasional Avatar, Sistem Reward Poin Harian, Idle Logout 15 Menit, Impor Massal Excel, Impersonasi, & WIB Timezone.</td><td><code>/help/pemrograman/operasional/manajemen-pengguna</code></td><td><a href="./docs/skema-pemrograman/operasional/manajemen-pengguna.md">manajemen-pengguna.md</a></td></tr>
     <tr><td>Konvensi Penamaan</td><td>Aturan nama file, route, dan key translasi agar konsisten EN/ID.</td><td><code>/help/pemrograman/operasional/konvensi-penamaan</code></td><td><a href="./docs/skema-pemrograman/operasional/konvensi-penamaan.md">konvensi-penamaan.md</a></td></tr>
     <tr><td>Workflow Developer Harian</td><td>Ritme kerja harian: implementasi, quality gate, dan release readiness.</td><td><code>/help/pemrograman/operasional/workflow-developer-harian</code></td><td><a href="./docs/skema-pemrograman/operasional/workflow-developer-harian.md">workflow-developer-harian.md</a></td></tr>
     <tr><td>Checklist QA Smoke Test</td><td>Checklist minimum sebelum merge/release untuk menekan regresi.</td><td><code>/help/pemrograman/operasional/checklist-qa-smoke-test</code></td><td><a href="./docs/skema-pemrograman/operasional/checklist-qa-smoke-test.md">checklist-qa-smoke-test.md</a></td></tr>
