@@ -90,7 +90,7 @@
                                 </div>
                                 <div class="d-flex flex-column">
                                     <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1" id="stat_active_users">{{ number_format($activeUsers24h) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-6 mt-1">User Aktif (24 Jam)</span>
+                                    <span class="text-gray-500 fw-semibold fs-6 mt-1">User Aktif (15 Mins)</span>
                                 </div>
                             </div>
                         </div>

@@ -176,6 +176,7 @@
     @yield('scripts')
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
+    @include('partials._idle-timer')
 </body>
 <!--end::Body-->
 

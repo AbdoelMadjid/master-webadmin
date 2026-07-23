@@ -41,8 +41,15 @@
                             <input type="hidden" name="device_time" id="login_device_time">
 
                             @if (session('status'))
-                                <div class="alert alert-success g-mb-20" role="alert">
-                                    {{ session('status') }}
+                                @php
+                                    $isWarningStatus = \Illuminate\Support\Str::contains(session('status'), ['berakhir', 'terkeluar', '15 menit']);
+                                @endphp
+                                <div class="alert {{ $isWarningStatus ? 'alert-warning' : 'alert-success' }} g-mb-20" role="alert">
+                                    <i class="{{ $isWarningStatus ? 'fa fa-exclamation-triangle' : 'fa fa-check-circle' }} mr-2"></i> {{ session('status') }}
+                                </div>
+                            @elseif (request()->query('reason') === 'idle')
+                                <div class="alert alert-warning g-mb-20" role="alert">
+                                    <i class="fa fa-exclamation-triangle mr-2"></i> Sesi Anda telah berakhir dan terkeluar otomatis karena tidak ada aktivitas selama 15 menit. Silakan login kembali.
                                 </div>
                             @endif
 

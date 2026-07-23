@@ -21,9 +21,13 @@ class DataLoginController extends Controller
 
         $totalLogins = DataLogin::count();
         $todayLogins = DataLogin::whereDate('login_at', Carbon::today())->count();
-        $activeUsers24h = DataLogin::where('login_at', '>=', Carbon::now()->subHours(24))
-            ->distinct('user_id')
-            ->count('user_id');
+        $fifteenMinutesAgo = Carbon::now()->subMinutes(15);
+        $activeUsers24h = User::where('last_activity_at', '>=', $fifteenMinutesAgo)
+            ->orWhereHas('dataLogins', function ($query) use ($fifteenMinutesAgo) {
+                $query->where('login_at', '>=', $fifteenMinutesAgo);
+            })
+            ->distinct()
+            ->count();
         $totalPoints = User::sum('points');
 
         if ($request->wantsJson() || $request->ajax()) {

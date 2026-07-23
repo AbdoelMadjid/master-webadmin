@@ -47,6 +47,7 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
         $locale = $request->session()->get('locale');
+        $reason = $request->input('reason');
 
         Auth::guard('web')->logout();
 
@@ -58,7 +59,11 @@ class AuthenticatedSessionController extends Controller
             $request->session()->put('locale', $locale);
         }
 
-        return redirect('/');
+        if ($reason === 'idle') {
+            return redirect()->route('login')->with('status', 'Sesi Anda telah berakhir dan terkeluar otomatis karena tidak ada aktivitas selama 15 menit. Silakan login kembali.');
+        }
+
+        return redirect()->route('login');
     }
 }
 
