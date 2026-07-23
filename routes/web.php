@@ -19,7 +19,17 @@ Route::get('/landing', function () {
 })->name('dashboards.landing');
 
 Route::get('/homepage', function () {
-    return view('dashboard');
+    $totalUsers = \App\Models\User::count();
+    $totalPoints = \App\Models\User::sum('points') ?? 0;
+    $onlineUsersCount = \App\Models\User::where('last_activity_at', '>=', now()->subMinutes(15))->count();
+    $topUsers = \App\Models\User::withCount('dataLogins')
+        ->orderBy('points', 'desc')
+        ->orderBy('data_logins_count', 'desc')
+        ->take(5)
+        ->get();
+    $latestUsers = \App\Models\User::latest()->take(6)->get();
+
+    return view('dashboard', compact('totalUsers', 'totalPoints', 'onlineUsersCount', 'topUsers', 'latestUsers'));
 })->middleware(['auth', 'verified'])->name('homepage');
 
 Route::get('/dashboard', function () {
