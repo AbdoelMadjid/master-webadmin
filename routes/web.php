@@ -27,6 +27,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 use App\Http\Controllers\AppSupport\AppProfilController;
+use App\Http\Controllers\AppSupport\BackupDbController;
 use App\Http\Controllers\AppSupport\MenuController;
 
 Route::middleware('auth')->group(function () {
@@ -41,6 +42,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('appsupport/app-profil', AppProfilController::class)->names([
         'index' => 'appsupport.app-profil',
     ]);
+
+    Route::get('appsupport/backup-db', [BackupDbController::class, 'index'])->name('appsupport.backup-db');
+    Route::post('appsupport/backup-db', [BackupDbController::class, 'store'])->name('appsupport.backup-db.store');
+    Route::get('appsupport/backup-db/download/{filename}', [BackupDbController::class, 'download'])->name('appsupport.backup-db.download');
+    Route::post('appsupport/backup-db/restore/{filename}', [BackupDbController::class, 'restore'])->name('appsupport.backup-db.restore');
+    Route::delete('appsupport/backup-db/{filename}', [BackupDbController::class, 'destroy'])->name('appsupport.backup-db.destroy');
 });
 
 require __DIR__ . '/auth.php';
