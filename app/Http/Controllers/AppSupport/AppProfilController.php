@@ -11,39 +11,35 @@ use Illuminate\Support\Facades\Storage;
 class AppProfilController extends Controller
 {
     /**
-     * Tampilkan daftar profil aplikasi atau kembalikan data JSON jika AJAX
+     * Tampilkan form profil aplikasi aktif (single application settings)
      */
     public function index(Request $request)
     {
-        $appProfils = AppProfil::orderBy('id', 'desc')->get();
+        $appProfil = AppProfil::active()->first() ?? AppProfil::first();
 
         if ($request->wantsJson() || $request->ajax()) {
             return response()->json([
-                'success' => true,
-                'data' => $appProfils->map(function ($item) {
-                    return array_merge($item->toArray(), [
-                        'logo_url'       => $item->logo_url,
-                        'logo_small_url' => $item->logo_small_url,
-                        'favicon_url'    => $item->favicon_url,
-                    ]);
-                }),
+                'success'        => true,
+                'data'           => $appProfil,
+                'logo_url'       => $appProfil?->logo_url,
+                'logo_small_url' => $appProfil?->logo_small_url,
+                'favicon_url'    => $appProfil?->favicon_url,
             ]);
         }
 
-        return view('pages.appsupport.app-profil', compact('appProfils'));
+        return view('pages.appsupport.app-profil', compact('appProfil'));
     }
 
     /**
-     * Simpan data profil aplikasi baru
+     * Simpan data profil aplikasi baru (jika belum ada)
      */
     public function store(AppProfilRequest $request)
     {
         $data = $request->validated();
-        $data['active'] = $request->has('active') ? 1 : 0;
+        $data['active'] = 1;
 
-        if ($data['active'] === 1) {
-            AppProfil::query()->update(['active' => 0]);
-        }
+        // Reset status profil lain jika ada
+        AppProfil::query()->update(['active' => 0]);
 
         // Upload Logo Utama (Panjang / Horizontal)
         if ($request->hasFile('logo')) {
@@ -64,7 +60,7 @@ class AppProfilController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Profil aplikasi berhasil ditambahkan.',
+            'message' => 'Profil aplikasi berhasil disimpan.',
             'data'    => array_merge($profil->toArray(), [
                 'logo_url'       => $profil->logo_url,
                 'logo_small_url' => $profil->logo_small_url,
@@ -97,11 +93,10 @@ class AppProfilController extends Controller
         $profil = AppProfil::findOrFail($id);
 
         $data = $request->validated();
-        $data['active'] = $request->has('active') ? 1 : 0;
+        $data['active'] = 1;
 
-        if ($data['active'] === 1) {
-            AppProfil::where('id', '!=', $id)->update(['active' => 0]);
-        }
+        // Reset status profil lain jika ada
+        AppProfil::where('id', '!=', $id)->update(['active' => 0]);
 
         // Upload/Replace Logo Utama
         if ($request->hasFile('logo')) {
@@ -141,7 +136,7 @@ class AppProfilController extends Controller
     }
 
     /**
-     * Hapus profil aplikasi dan semua berkas gambarnya dari Storage
+     * Hapus profil aplikasi (opsional)
      */
     public function destroy($id)
     {
