@@ -20,13 +20,27 @@
                     </div>
 
                     <div class="fv-row mb-7">
-                        <label class="fs-6 fw-bold mb-2 text-gray-800">1. Penugasan Role (Roles Assignment)</label>
-                        <div class="d-flex flex-wrap gap-4 p-3 rounded border border-dashed">
+                        <label class="fs-6 fw-bold mb-2 text-gray-800 d-flex align-items-center justify-content-between">
+                            <span>1. Penugasan Role (Roles Assignment)</span>
+                            <span class="text-muted fs-7">Centang role untuk pengguna ini</span>
+                        </label>
+                        <div class="row g-3">
                             @foreach($roles as $role)
-                                <label class="form-check form-check-custom form-check-solid">
-                                    <input class="form-check-input akses-user-role-checkbox" type="checkbox" name="roles[]" value="{{ $role->name }}" id="akses_user_role_{{ $role->id }}" />
-                                    <span class="form-check-label text-gray-800 fw-semibold">{{ ucfirst($role->name) }}</span>
-                                </label>
+                                @php
+                                    $roleLower = strtolower($role->name);
+                                    $cardColor = match($roleLower) {
+                                        'master' => 'bg-light-danger border-danger border-opacity-25',
+                                        'admin'  => 'bg-light-primary border-primary border-opacity-25',
+                                        'user'   => 'bg-light-info border-info border-opacity-25',
+                                        default  => 'bg-light-success border-success border-opacity-25',
+                                    };
+                                @endphp
+                                <div class="col-6 col-sm-4 col-md-3">
+                                    <label class="d-flex align-items-center justify-content-between p-3 rounded-3 border border-2 border-dashed {{ $cardColor }} h-100 cursor-pointer shadow-xs">
+                                        <span class="fw-bold fs-7 text-gray-900 text-truncate me-2" title="{{ ucfirst($role->name) }}">{{ ucfirst($role->name) }}</span>
+                                        <input class="form-check-input akses-user-role-checkbox h-20px w-20px flex-shrink-0" type="checkbox" name="roles[]" value="{{ $role->name }}" id="akses_user_role_{{ $role->id }}" />
+                                    </label>
+                                </div>
                             @endforeach
                         </div>
                     </div>

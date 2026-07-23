@@ -45,7 +45,10 @@
                         <div class="card-body pt-0">
                             <div class="nav flex-column nav-pills me-3" id="role-tab" role="tablist" aria-orientation="vertical">
                                 @foreach($roles as $index => $role)
-                                    <button class="nav-link text-start mb-2 p-3 {{ $index === 0 ? 'active' : '' }} btn-select-role" id="tab_role_{{ $role->id }}" data-bs-toggle="pill" data-bs-target="#content_role_{{ $role->id }}" type="button" role="tab" data-role-id="{{ $role->id }}" data-role-name="{{ $role->name }}">
+                                    @php
+                                        $isActiveRole = isset($selectedRoleId) ? ($role->id == $selectedRoleId) : ($index === 0);
+                                    @endphp
+                                    <button class="nav-link text-start mb-2 p-3 {{ $isActiveRole ? 'active' : '' }} btn-select-role" id="tab_role_{{ $role->id }}" data-bs-toggle="pill" data-bs-target="#content_role_{{ $role->id }}" type="button" role="tab" data-role-id="{{ $role->id }}" data-role-name="{{ $role->name }}">
                                         <div class="d-flex align-items-center justify-content-between">
                                             <span class="fw-bold fs-6">{{ ucfirst($role->name) }}</span>
                                             <span class="badge badge-light-primary rounded-pill ms-2 role-perm-badge" id="role_badge_{{ $role->id }}">{{ $role->permissions->count() }} Izin</span>
@@ -63,7 +66,10 @@
                     <div class="card">
                         <div class="card-header border-0 pt-5">
                             <div class="card-title d-flex flex-column">
-                                <h3 class="fw-bold text-gray-900 mb-1" id="selected_role_title">Hak Akses Role: {{ ucfirst($roles->first()?->name ?? 'Role') }}</h3>
+                                @php
+                                    $activeRoleObj = isset($selectedRoleId) ? $roles->firstWhere('id', $selectedRoleId) : $roles->first();
+                                @endphp
+                                <h3 class="fw-bold text-gray-900 mb-1" id="selected_role_title">Hak Akses Role: {{ ucfirst($activeRoleObj?->name ?? 'Role') }}</h3>
                                 <span class="text-muted fs-7">Matriks Izin Akses CRUD per Modul Aplikasi</span>
                             </div>
                             <div class="card-toolbar gap-2 flex-wrap">
@@ -83,14 +89,15 @@
                         <div class="card-body pt-3">
                             <form id="form_akses_role" action="#">
                                 @csrf
-                                <input type="hidden" name="role_id" id="active_role_id" value="{{ $roles->first()?->id }}">
+                                <input type="hidden" name="role_id" id="active_role_id" value="{{ $activeRoleObj?->id }}">
 
                                 <div class="tab-content" id="role-tabContent">
                                     @foreach($roles as $index => $role)
                                         @php
                                             $assignedPerms = $role->permissions->pluck('name')->toArray();
+                                            $isActiveRole = isset($selectedRoleId) ? ($role->id == $selectedRoleId) : ($index === 0);
                                         @endphp
-                                        <div class="tab-pane fade {{ $index === 0 ? 'show active' : '' }}" id="content_role_{{ $role->id }}" role="tabpanel">
+                                        <div class="tab-pane fade {{ $isActiveRole ? 'show active' : '' }}" id="content_role_{{ $role->id }}" role="tabpanel">
                                             <div class="table-responsive border rounded max-h-500px scroll-y">
                                                 <table class="table table-row-bordered table-row-gray-300 align-middle gs-4 gy-3 mb-0 role-matrix-table">
                                                     <thead class="table-light text-gray-700 fw-bold fs-7 text-uppercase sticky-top">

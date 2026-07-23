@@ -185,16 +185,14 @@
                         <table class="table align-middle table-row-dashed fs-6 gy-4 w-100" id="kt_table_data_login">
                             <thead>
                                 <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="min-w-50px">No</th>
-                                    <th class="min-w-200px">User / Pengguna</th>
-                                    <th class="min-w-100px">Role</th>
-                                    <th class="min-w-150px">Waktu Login</th>
-                                    <th class="min-w-100px text-center">Jumlah Login</th>
-                                    <th class="min-w-125px">IP Address</th>
-                                    <th class="min-w-175px">Koordinat / Lokasi</th>
-                                    <th class="min-w-125px">Jumlah Poin</th>
-                                    <th class="min-w-200px">Device / Browser</th>
-                                    <th class="text-end min-w-80px">Aksi</th>
+                                    <th class="w-50px text-center">No</th>
+                                    <th class="min-w-150px">User / Pengguna</th>
+                                    <th class="min-w-90px">Role</th>
+                                    <th class="min-w-130px">Waktu Login</th>
+                                    <th class="min-w-90px text-center">Jumlah Login</th>
+                                    <th class="min-w-90px text-center">Jumlah Poin</th>
+                                    <th class="min-w-200px">Perangkat, IP & Lokasi</th>
+                                    <th class="text-end min-w-70px pe-4">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
@@ -217,14 +215,14 @@
                                         }
                                     @endphp
                                     <tr>
-                                        <td>{{ $index + 1 }}</td>
+                                        <td class="text-center">{{ $index + 1 }}</td>
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <div class="symbol symbol-circle symbol-35px me-3">
                                                     <img src="{{ $item->user ? $item->user->avatar_url : asset('assets/media/svg/avatars/default-avatar.svg') }}" alt="{{ $item->user ? $item->user->name : 'User' }}" style="width: 35px; height: 35px; object-fit: cover;" onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
                                                 </div>
                                                 <div class="d-flex flex-column">
-                                                    <span class="text-gray-800 text-hover-primary fw-bold">
+                                                    <span class="text-gray-800 fw-bold">
                                                         {{ $item->user ? $item->user->name : 'Pengguna Terhapus' }}
                                                     </span>
                                                     <span class="text-muted fs-7">
@@ -249,33 +247,13 @@
                                             </div>
                                         </td>
                                         <td class="text-center">
-                                            <span class="badge badge-light-info fw-bold fs-7" data-bs-toggle="tooltip" title="Total frekuensi login (berpoin + tanpa poin) pada hari tersebut">
+                                            <span class="badge badge-light-info fw-bold fs-7" data-bs-toggle="tooltip" data-bs-placement="top" title="Total frekuensi login harian">
                                                 <i class="ki-duotone ki-entrance-left fs-5 me-1 text-info"><span class="path1"></span><span class="path2"></span></i>
                                                 {{ $item->login_count ?? 1 }}x Login
                                             </span>
                                         </td>
-                                        <td>
-                                            <span class="badge badge-light-primary fw-bold font-monospace fs-7">
-                                                {{ $item->ip_address ?? '127.0.0.1' }}
-                                            </span>
-                                        </td>
-                                        <td>
-                                            @if ($item->latitude && $item->longitude)
-                                                <a href="https://maps.google.com/?q={{ $item->latitude }},{{ $item->longitude }}"
-                                                    target="_blank" class="btn btn-sm btn-light-info py-1 px-2 fs-7"
-                                                    data-bs-toggle="tooltip" title="Buka di Google Maps">
-                                                    <i class="ki-duotone ki-geolocation fs-4 me-1">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    {{ number_format($item->latitude, 4) }}, {{ number_format($item->longitude, 4) }}
-                                                </a>
-                                            @else
-                                                <span class="text-muted fs-7 italic">Koordinat tidak tersedia</span>
-                                            @endif
-                                        </td>
-                                        <td data-point="{{ $item->user?->points ?? 0 }}">
-                                            <span class="badge badge-light-success fw-bold fs-7" data-bs-toggle="tooltip" title="Total poin reward keaktifan user saat ini">
+                                        <td class="text-center" data-point="{{ $item->user?->points ?? 0 }}">
+                                            <span class="badge badge-light-success fw-bold fs-7" data-bs-toggle="tooltip" data-bs-placement="top" title="Total poin reward keaktifan user saat ini">
                                                 <i class="ki-duotone ki-award fs-5 me-1 text-success">
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
@@ -284,15 +262,31 @@
                                             </span>
                                         </td>
                                         <td>
-                                            <span class="text-gray-700 fs-7 text-truncate d-inline-block mw-200px" title="{{ $item->user_agent }}">
-                                                {{ $item->user_agent ? Str::limit($item->user_agent, 45) : '-' }}
-                                            </span>
+                                            <div class="d-flex flex-column gap-1">
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <span class="badge badge-light-primary fw-bold font-monospace fs-7">
+                                                        <i class="ki-duotone ki-network fs-7 me-1 text-primary"><span class="path1"></span><span class="path2"></span></i>
+                                                        {{ $item->ip_address ?? '127.0.0.1' }}
+                                                    </span>
+                                                    @if ($item->latitude && $item->longitude)
+                                                        <a href="https://maps.google.com/?q={{ $item->latitude }},{{ $item->longitude }}"
+                                                            target="_blank" class="btn btn-icon btn-xs btn-light-info w-25px h-25px"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Buka Maps ({{ number_format($item->latitude, 4) }}, {{ number_format($item->longitude, 4) }})">
+                                                            <i class="ki-duotone ki-geolocation fs-6"><span class="path1"></span><span class="path2"></span></i>
+                                                        </a>
+                                                    @endif
+                                                </div>
+                                                <div class="text-muted fs-8 text-truncate d-inline-block mw-200px" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $item->user_agent }}">
+                                                    <i class="ki-duotone ki-laptop fs-7 me-1 text-gray-500"><span class="path1"></span><span class="path2"></span></i>
+                                                    {{ $item->user_agent ? Str::limit($item->user_agent, 35) : '-' }}
+                                                </div>
+                                            </div>
                                         </td>
-                                        <td class="text-end">
+                                        <td class="text-end pe-4">
                                             <button type="button"
                                                 class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm"
                                                 onclick="deleteDataLogin({{ $item->id }})"
-                                                data-bs-toggle="tooltip" title="Hapus Catatan Login">
+                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Catatan Login">
                                                 <i class="ki-duotone ki-trash fs-2">
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
@@ -305,7 +299,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="10" class="text-center text-muted py-10">
+                                        <td colspan="8" class="text-center text-muted py-10">
                                             Belum ada riwayat login user tercatat.
                                         </td>
                                     </tr>
@@ -375,7 +369,7 @@
                     pageLength: 10,
                     lengthChange: true,
                     columnDefs: [
-                        { orderable: false, targets: 9 }
+                        { orderable: false, targets: 7 }
                     ]
                 });
 

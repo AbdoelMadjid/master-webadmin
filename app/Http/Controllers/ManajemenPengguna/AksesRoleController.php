@@ -49,16 +49,32 @@ class AksesRoleController extends Controller
 
         ksort($matrixPermissions);
 
+        $selectedRoleId = null;
+        if ($request->has('role')) {
+            $paramRole = strtolower(trim($request->input('role')));
+            $matchedRole = $roles->first(fn($r) => strtolower($r->name) === $paramRole);
+            if ($matchedRole) {
+                $selectedRoleId = $matchedRole->id;
+            }
+        } elseif ($request->has('role_id')) {
+            $selectedRoleId = (int) $request->input('role_id');
+        }
+
+        if (!$selectedRoleId && $roles->isNotEmpty()) {
+            $selectedRoleId = $roles->first()->id;
+        }
+
         if ($request->wantsJson() || $request->ajax()) {
             return response()->json([
                 'success'           => true,
                 'roles'             => $roles,
                 'permissions'       => $permissions,
                 'matrixPermissions' => $matrixPermissions,
+                'selectedRoleId'    => $selectedRoleId,
             ]);
         }
 
-        return view('pages.manajemenpengguna.akses-role', compact('roles', 'permissions', 'matrixPermissions'));
+        return view('pages.manajemenpengguna.akses-role', compact('roles', 'permissions', 'matrixPermissions', 'selectedRoleId'));
     }
 
     public function update(AksesRoleRequest $request)

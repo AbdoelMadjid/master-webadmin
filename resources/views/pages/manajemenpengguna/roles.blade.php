@@ -17,27 +17,110 @@
             <!--begin::Role Cards Grid-->
             <div class="row g-6 g-xl-9 mb-8">
                 @foreach($roles as $roleItem)
+                    @php
+                        $roleNameLower = strtolower($roleItem->name);
+                        $cardBgClass = match($roleNameLower) {
+                            'master' => 'bg-light-danger border border-danger border-opacity-20 shadow-sm',
+                            'admin'  => 'bg-light-primary border border-primary border-opacity-20 shadow-sm',
+                            'user'   => 'bg-light-info border border-info border-opacity-20 shadow-sm',
+                            default  => 'bg-light-success border border-success border-opacity-20 shadow-sm',
+                        };
+                        $badgeColor = match($roleNameLower) {
+                            'master' => 'badge-light-danger text-danger',
+                            'admin'  => 'badge-light-primary text-primary',
+                            'user'   => 'badge-light-info text-info',
+                            default  => 'badge-light-success text-success',
+                        };
+                        $iconClass = match($roleNameLower) {
+                            'master' => 'ki-security-user text-danger',
+                            'admin'  => 'ki-shield-tick text-primary',
+                            'user'   => 'ki-profile-user text-info',
+                            default  => 'ki-key text-success',
+                        };
+                        $bulletBg = match($roleNameLower) {
+                            'master' => 'bg-danger',
+                            'admin'  => 'bg-primary',
+                            'user'   => 'bg-info',
+                            default  => 'bg-success',
+                        };
+                    @endphp
                     <div class="col-md-6 col-xl-4">
-                        <div class="card card-flush h-md-100">
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <h2>{{ ucfirst($roleItem->name) }}</h2>
-                                </div>
-                            </div>
-                            <div class="card-body pt-1">
-                                <div class="fw-bold text-gray-600 mb-5">Total pengguna dengan role ini: {{ $roleItem->users_count }}</div>
-                                <div class="d-flex flex-column text-gray-600">
-                                    <div class="d-flex align-items-center py-2">
-                                        <span class="bullet bg-primary me-3"></span>{{ $roleItem->permissions_count }} Permissions Terhubung
+                        <div class="card card-flush h-md-100 {{ $cardBgClass }}">
+                            <!--begin::Card Header-->
+                            <div class="card-header pt-5 pb-1">
+                                <div class="card-title d-flex align-items-center gap-3">
+                                    <i class="ki-duotone {{ $iconClass }} fs-2hx">
+                                        <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+                                    </i>
+                                    <div>
+                                        <h2 class="fw-bold fs-3 m-0 text-gray-900">{{ ucfirst($roleItem->name) }}</h2>
+                                        <span class="badge {{ $badgeColor }} fw-bold fs-8 mt-1">{{ number_format($roleItem->users_count) }} Pengguna</span>
                                     </div>
                                 </div>
+                                <!--begin::Users Stack-->
+                                <div class="card-toolbar">
+                                    <div class="symbol-group symbol-hover flex-nowrap">
+                                        @foreach(($roleItem->users ?? collect())->take(4) as $u)
+                                            <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $u->name }}">
+                                                <img src="{{ $u->avatar_url }}" alt="{{ $u->name }}" onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
+                                            </div>
+                                        @endforeach
+                                        @if(($roleItem->users_count ?? 0) > 4)
+                                            <div class="symbol symbol-35px symbol-circle">
+                                                <span class="symbol-label bg-white text-gray-800 fw-bold fs-8">+{{ $roleItem->users_count - 4 }}</span>
+                                            </div>
+                                        @endif
+                                    </div>
+                                </div>
+                                <!--end::Users Stack-->
                             </div>
-                            <div class="card-footer flex-wrap pt-0">
-                                <button type="button" class="btn btn-light btn-active-primary btn-sm my-1 me-2 btn-edit-role" data-id="{{ $roleItem->id }}">Edit Role</button>
-                                @if($roleItem->name !== 'admin')
-                                    <button type="button" class="btn btn-light-danger btn-active-danger btn-sm my-1 btn-delete-role" data-id="{{ $roleItem->id }}" data-name="{{ $roleItem->name }}">Hapus</button>
-                                @endif
+                            <!--end::Card Header-->
+
+                            <!--begin::Card Body-->
+                            <div class="card-body pt-2 pb-4">
+                                <div class="text-gray-700 fw-semibold fs-7 mb-3">
+                                    Hak akses terhubung: <strong class="text-gray-900">{{ $roleItem->permissions_count }} Permissions</strong>
+                                </div>
+
+                                <!--begin::Permissions List-->
+                                <div class="d-flex flex-column text-gray-700 fs-7 gap-2" style="min-height: 110px;">
+                                    @forelse($roleItem->permissions->take(4) as $perm)
+                                        <div class="d-flex align-items-center">
+                                            <span class="bullet {{ $bulletBg }} me-3"></span>
+                                            <span class="text-gray-800 fw-bold fs-7">{{ $perm->name }}</span>
+                                        </div>
+                                    @empty
+                                        <span class="text-muted italic fs-7 py-2">Belum ada permission terhubung</span>
+                                    @endforelse
+
+                                    @if($roleItem->permissions_count > 4)
+                                        <div class="d-flex align-items-center pt-1 text-muted fs-8">
+                                            <span class="bullet bg-gray-400 me-3"></span>
+                                            <em>dan {{ $roleItem->permissions_count - 4 }} hak akses lainnya...</em>
+                                        </div>
+                                    @endif
+                                </div>
+                                <!--end::Permissions List-->
                             </div>
+                            <!--end::Card Body-->
+
+                            <!--begin::Card Footer-->
+                            <div class="card-footer d-flex align-items-center justify-content-between pt-0 pb-5">
+                                <div>
+                                    <button type="button" class="btn btn-sm btn-white btn-active-primary shadow-xs fw-bold me-2 btn-edit-role" data-id="{{ $roleItem->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Hak Akses Role">
+                                        <i class="ki-duotone ki-pencil fs-5 me-1"><span class="path1"></span><span class="path2"></span></i> Edit
+                                    </button>
+                                    @if(!in_array($roleNameLower, ['admin', 'master']))
+                                        <button type="button" class="btn btn-sm btn-light-danger btn-active-danger shadow-xs fw-bold me-2 btn-delete-role" data-id="{{ $roleItem->id }}" data-name="{{ $roleItem->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Role">
+                                            <i class="ki-duotone ki-trash fs-5 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> Hapus
+                                        </button>
+                                    @endif
+                                </div>
+                                <a href="{{ route('manajemenpengguna.akses-role') }}?role={{ strtolower($roleItem->name) }}" class="btn btn-sm btn-white btn-active-light-primary shadow-xs fw-bold" data-bs-toggle="tooltip" data-bs-placement="top" title="Kelola Matrix Hak Akses {{ ucfirst($roleItem->name) }}">
+                                    <i class="ki-duotone ki-key fs-5 me-1"><span class="path1"></span><span class="path2"></span></i> Matrix
+                                </a>
+                            </div>
+                            <!--end::Card Footer-->
                         </div>
                     </div>
                 @endforeach

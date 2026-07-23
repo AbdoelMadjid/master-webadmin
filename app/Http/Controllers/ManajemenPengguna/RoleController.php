@@ -12,7 +12,7 @@ class RoleController extends Controller
 {
     public function index(Request $request)
     {
-        $roles = Role::withCount(['users', 'permissions'])->with('permissions')->get();
+        $roles = Role::withCount(['users', 'permissions'])->with(['users' => function($q) { $q->take(5); }, 'permissions'])->get();
         $permissions = Permission::all();
 
         // Group permissions by module for CRUD Matrix

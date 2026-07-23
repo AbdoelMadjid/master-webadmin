@@ -17,13 +17,27 @@
                         <span class="fs-7 text-muted">Format direkomendasikan: <code>[aksi] [modul/rute]</code></span>
                     </div>
                     <div class="fv-row">
-                        <label class="fs-6 fw-semibold mb-2">Tugaskan ke Role (Opsional)</label>
-                        <div class="d-flex flex-column gap-2">
+                        <label class="fs-6 fw-semibold mb-2 text-gray-800 d-flex align-items-center justify-content-between">
+                            <span>Tugaskan ke Role (Opsional)</span>
+                            <span class="text-muted fs-7">Centang role untuk permission ini</span>
+                        </label>
+                        <div class="row g-3 pt-1">
                             @foreach($roles as $role)
-                                <label class="form-check form-check-custom form-check-solid">
-                                    <input class="form-check-input perm-role-checkbox" type="checkbox" name="roles[]" value="{{ $role->name }}" id="perm_role_{{ $role->id }}" />
-                                    <span class="form-check-label text-gray-800 fw-semibold">{{ ucfirst($role->name) }}</span>
-                                </label>
+                                @php
+                                    $roleLower = strtolower($role->name);
+                                    $cardColor = match($roleLower) {
+                                        'master' => 'bg-light-danger border-danger border-opacity-25',
+                                        'admin'  => 'bg-light-primary border-primary border-opacity-25',
+                                        'user'   => 'bg-light-info border-info border-opacity-25',
+                                        default  => 'bg-light-success border-success border-opacity-25',
+                                    };
+                                @endphp
+                                <div class="col-6 col-sm-4 col-md-3">
+                                    <label class="d-flex align-items-center justify-content-between p-3 rounded-3 border border-2 border-dashed {{ $cardColor }} h-100 cursor-pointer shadow-xs">
+                                        <span class="fw-bold fs-7 text-gray-900 text-truncate me-2" title="{{ ucfirst($role->name) }}">{{ ucfirst($role->name) }}</span>
+                                        <input class="form-check-input perm-role-checkbox h-20px w-20px flex-shrink-0" type="checkbox" name="roles[]" value="{{ $role->name }}" id="perm_role_{{ $role->id }}" />
+                                    </label>
+                                </div>
                             @endforeach
                         </div>
                     </div>

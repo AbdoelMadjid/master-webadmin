@@ -48,11 +48,28 @@
                                             </div>
                                         </td>
                                         <td>
-                                            @forelse($user->roles as $role)
-                                                <span class="badge badge-light-primary me-1 mb-1">{{ ucfirst($role->name) }}</span>
-                                            @empty
+                                            @if($user->roles->isNotEmpty())
+                                                <div class="d-flex flex-column gap-1">
+                                                    @foreach($user->roles->chunk(3) as $roleChunk)
+                                                        <div class="d-flex flex-wrap align-items-center gap-1">
+                                                            @foreach($roleChunk as $role)
+                                                                @php
+                                                                    $roleLower = strtolower($role->name);
+                                                                    $roleBadge = match($roleLower) {
+                                                                        'master' => 'badge-light-danger text-danger',
+                                                                        'admin'  => 'badge-light-primary text-primary',
+                                                                        'user'   => 'badge-light-info text-info',
+                                                                        default  => 'badge-light-success text-success',
+                                                                    };
+                                                                @endphp
+                                                                <span class="badge {{ $roleBadge }} fw-bold fs-8">{{ ucfirst($role->name) }}</span>
+                                                            @endforeach
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            @else
                                                 <span class="text-muted fs-7">Tanpa Role</span>
-                                            @endforelse
+                                            @endif
                                         </td>
                                         <td>
                                             @if($user->permissions->isNotEmpty())
