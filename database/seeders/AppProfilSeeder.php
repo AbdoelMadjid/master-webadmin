@@ -14,11 +14,11 @@ class AppProfilSeeder extends Seeder
     {
         if (AppProfil::count() === 0) {
             AppProfil::create([
-                'nama_aplikasi' => 'Master WebAdmin',
-                'singkatan_aplikasi' => 'MWA',
+                'nama_aplikasi' => 'Repalogic WebAdmin',
+                'singkatan_aplikasi' => 'RPW',
                 'tahun' => date('Y'),
-                'pembuat' => 'Master Admin Team',
-                'deskripsi' => 'Sistem Informasi Master WebAdmin',
+                'pembuat' => 'Repalogic Team',
+                'deskripsi' => 'Sistem Informasi Manajemen Repalogic',
                 'active' => 1,
             ]);
         }
