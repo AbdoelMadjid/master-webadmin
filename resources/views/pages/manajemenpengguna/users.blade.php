@@ -63,7 +63,7 @@
                                                 <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}" style="width: 40px; height: 40px; object-fit: cover;" onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
                                             </div>
                                             <div class="d-flex flex-column">
-                                                <a href="#" class="text-gray-800 text-hover-primary mb-1 fw-bold btn-impersonate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Klik untuk masuk ke akun ini (Switch User)">{{ $user->name }}</a>
+                                                <a href="javascript:void(0)" class="text-gray-800 text-hover-primary mb-1 fw-bold btn-impersonate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Klik untuk masuk ke akun ini (Switch User)">{{ $user->name }}</a>
                                                 <span class="fs-7 text-muted">{{ $user->email }}</span>
                                             </div>
                                         </td>
