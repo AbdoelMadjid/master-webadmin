@@ -252,7 +252,7 @@
 
                             <div class="border-start border-4 border-primary ps-3 my-4">
                                 <h4 class="fw-bold mb-0 text-gray-800">Manajemen Pengguna</h4>
-                                <span class="text-muted fs-7">Fitur pengelolaan pengguna sistem (Role, Permission, Akses Role, Akses User, & Users Management)</span>
+                                <span class="text-muted fs-7">Fitur pengelolaan pengguna sistem (Role, Permission, Akses Role, Akses User, User, & Reset Password)</span>
                             </div>
 
                             <div class="row g-5">
@@ -307,6 +307,17 @@
                                             <div>
                                                 <h3 class="mb-1 fs-4">User</h3>
                                                 <p class="text-gray-700 fs-7 mb-0">Arsitektur pengelolaan akun pengguna (CRUD), penanganan upload avatar profil, hashing password, dan penugasan role.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="{{ route('help.pemrograman.skema-main-menu.manajemen-pengguna.reset-password') }}" class="card card-flush h-100 bg-light-danger">
+                                        <div class="card-body d-flex align-items-start gap-3 py-4">
+                                            <i class="ki-duotone ki-key fs-2hx text-danger flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
+                                            <div>
+                                                <h3 class="mb-1 fs-4">Reset Password</h3>
+                                                <p class="text-gray-700 fs-7 mb-0">Arsitektur permintaan reset password (/forgot-password), pemicuan Notifikasi Peringatan Header & Red Badge Counter, serta reset password default <code>Password!12345</code>.</p>
                                             </div>
                                         </div>
                                     </a>

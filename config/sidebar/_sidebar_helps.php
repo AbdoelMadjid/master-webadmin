@@ -121,6 +121,10 @@ return [
                                     'title' => 'User',
                                     'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna.user',
                                 ],
+                                [
+                                    'title' => 'Reset Password',
+                                    'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna.reset-password',
+                                ],
                             ],
                         ],
                     ],

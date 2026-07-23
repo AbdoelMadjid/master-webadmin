@@ -289,6 +289,48 @@
                     </div>
 
                     <!--====================================================-->
+                    <!-- 7. ALUR PERMINTAAN RESET PASSWORD ADMIN -->
+                    <!--====================================================-->
+                    <div class="schema-col-12 mt-6">
+                        <div class="border-start border-4 border-danger ps-4 my-2">
+                            <h3 class="fw-bold text-gray-900 mb-1">7. Permintaan Reset Password (Lupa Password via Admin)</h3>
+                            <span class="text-muted fs-7">Sistem permintaan reset password dari website publik, pemicu notifikasi lonceng counter badge, dan eksekusi reset kata sandi default oleh Admin.</span>
+                        </div>
+                    </div>
+
+                    <div class="schema-col-6">
+                        <div class="schema-card">
+                            <h4><i class="ki-duotone ki-key fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i> Alur Permintaan Publik & Sesi Notifikasi</h4>
+                            <div class="schema-flow">
+                                <div class="schema-step">
+                                    <strong>Form Publik:</strong> Pengguna menginput email terdaftar pada <code>/forgot-password</code>.
+                                </div>
+                                <div class="schema-step">
+                                    <strong>Perekaman Database:</strong> <code>PasswordResetLinkController@store</code> membuat data <code>PasswordResetRequest</code> baru (<code>status = pending</code>, <code>is_read = false</code>).
+                                </div>
+                                <div class="schema-step">
+                                    <strong>Peringatan Lonceng Header:</strong> Lonceng notifikasi header (<code>notifications.blade.php</code>) secara otomatis menampilkan <strong>badge angka merah (misal: 1)</strong> dan efek pulse blink.
+                                </div>
+                                <div class="schema-step">
+                                    <strong>Peringatan Drawer:</strong> Item permintaan dirender pada tab <strong>Peringatan</strong> di <code>_notifications-menu.blade.php</code>.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="schema-col-6">
+                        <div class="schema-card">
+                            <h4><i class="ki-duotone ki-check-circle fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Penanganan Admin & Reset Password Default</h4>
+                            <ul class="schema-list">
+                                <li><strong>Halaman Kelola:</strong> Akses menu <code>Manajemen Pengguna > Reset Password</code> (rute <code>manajemenpengguna/reset-password</code>).</li>
+                                <li><strong>Auto Clear Notifikasi:</strong> Mengklik item notifikasi mengeksekusi <code>markAsRead()</code> sehingga <strong>badge counter angka dan item notifikasi langsung hilang</strong>.</li>
+                                <li><strong>Default Password:</strong> Modal reset secara otomatis terisi (<em>pre-filled</em>) kata sandi default <code>Password!12345</code> (dapat disesuaikan jika perlu).</li>
+                                <li><strong>Opsi Tolak:</strong> Admin memiliki wewenang menolak permintaan reset password jika terindikasi spam/salah akun.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
                     <!-- RINGKASAN REKAPITULASI PEMROGRAMAN -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-6">
@@ -328,6 +370,11 @@
                                             <td><strong>Switch User (Impersonasi)</strong></td>
                                             <td><code>UserController.php</code> (impersonate & leaveImpersonate)<br><code>_user-account-menu.blade.php</code><br><code>LogUserLogin.php</code></td>
                                             <td>Masuk ke akun lain tanpa password via ID di sesi (<code>impersonator_id</code>), bypass listener reward poin/login count, dan pemulihan akun asli via dropdown avatar.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Reset Password Admin</strong></td>
+                                            <td><code>PasswordResetLinkController.php</code><br><code>PasswordResetRequestController.php</code><br><code>PasswordResetRequest.php</code><br><code>reset-password.blade.php</code></td>
+                                            <td>Alur permintaan reset password dari website publik ke admin, notifikasi badge counter & tab Peringatan, serta reset ke password default <code>Password!12345</code>.</td>
                                         </tr>
                                         <tr>
                                             <td><strong>Zona Waktu Lokal (WIB)</strong></td>
