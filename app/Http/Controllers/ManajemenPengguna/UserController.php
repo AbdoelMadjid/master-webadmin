@@ -38,6 +38,7 @@ class UserController extends Controller
         $data = $request->validated();
         $data['password'] = Hash::make($data['password']);
         $data['email_verified_at'] = now();
+        $data['status'] = 'approved';
 
         if ($request->hasFile('avatar')) {
             $data['avatar'] = $request->file('avatar')->store('avatars', 'public');
@@ -246,6 +247,7 @@ class UserController extends Controller
                 'email'             => $email,
                 'password'          => Hash::make($password),
                 'email_verified_at' => now(),
+                'status'            => 'approved',
             ]);
 
             // Sync Role(s) if provided
@@ -327,5 +329,34 @@ class UserController extends Controller
         session()->forget('impersonator_id');
         session()->forget('is_leaving_impersonation');
         return redirect()->route('homepage');
+    }
+
+    public function approve($id)
+    {
+        $user = User::findOrFail($id);
+        $user->update(['status' => 'approved']);
+
+        if ($user->roles->isEmpty()) {
+            $role = Role::firstOrCreate(['name' => 'user', 'guard_name' => 'web']);
+            $user->assignRole($role);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => "Akun pengguna '{$user->name}' berhasil disetujui dan diberikan role User.",
+            'data'    => $user->load('roles'),
+        ]);
+    }
+
+    public function reject($id)
+    {
+        $user = User::findOrFail($id);
+        $user->update(['status' => 'rejected']);
+
+        return response()->json([
+            'success' => true,
+            'message' => "Akun pengguna '{$user->name}' telah ditolak.",
+            'data'    => $user->load('roles'),
+        ]);
     }
 }

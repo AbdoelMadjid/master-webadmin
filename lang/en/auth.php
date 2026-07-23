@@ -65,6 +65,7 @@ return [
         'password_incorrect' => 'The password you entered is incorrect.',
         'password_min' => 'The password must be more than 8 characters.',
         'password_uppercase' => 'The password must contain an uppercase letter.',
+        'password_lowercase' => 'The password must contain a lowercase letter.',
         'password_number' => 'The password must contain a number.',
         'password_symbol' => 'The password must contain a symbol.',
         'password_confirmed' => 'The password confirmation does not match.',

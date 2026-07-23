@@ -57,6 +57,8 @@ Route::middleware('auth')->group(function () {
         Route::post('users/import', [UserMgmtController::class, 'import'])->name('users.import');
         Route::get('users/leave-impersonate', [UserMgmtController::class, 'leaveImpersonate'])->name('users.leave-impersonate');
         Route::post('users/{id}/impersonate', [UserMgmtController::class, 'impersonate'])->name('users.impersonate');
+        Route::post('users/{id}/approve', [UserMgmtController::class, 'approve'])->name('users.approve');
+        Route::post('users/{id}/reject', [UserMgmtController::class, 'reject'])->name('users.reject');
 
         Route::resource('roles', RoleController::class)->names([
             'index' => 'roles',

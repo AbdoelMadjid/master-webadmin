@@ -75,6 +75,20 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        if ($user->isPending()) {
+            RateLimiter::hit($this->throttleKey());
+            throw ValidationException::withMessages([
+                'email' => 'Akun belum disetujui oleh admin.',
+            ]);
+        }
+
+        if ($user->isRejected()) {
+            RateLimiter::hit($this->throttleKey());
+            throw ValidationException::withMessages([
+                'email' => 'Akun Anda telah ditolak oleh admin.',
+            ]);
+        }
+
         Auth::login($user, $this->boolean('remember'));
 
         RateLimiter::clear($this->throttleKey());

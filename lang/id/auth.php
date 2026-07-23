@@ -65,6 +65,7 @@ return [
         'password_incorrect' => 'Password yang Anda masukkan salah.',
         'password_min' => 'Password harus lebih dari 8 karakter.',
         'password_uppercase' => 'Password harus mengandung huruf besar.',
+        'password_lowercase' => 'Password harus mengandung huruf kecil.',
         'password_number' => 'Password harus mengandung angka.',
         'password_symbol' => 'Password harus mengandung simbol.',
         'password_confirmed' => 'Konfirmasi password tidak sama.',

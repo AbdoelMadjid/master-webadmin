@@ -44,12 +44,12 @@ class RegisteredUserController extends Controller
                         $fail(__('auth.validation.password_uppercase'));
                     }
 
-                    if (! preg_match('/\d/', $value)) {
-                        $fail(__('auth.validation.password_number'));
+                    if (! preg_match('/[a-z]/', $value)) {
+                        $fail(__('auth.validation.password_lowercase'));
                     }
 
-                    if (! preg_match('/[^A-Za-z0-9]/', $value)) {
-                        $fail(__('auth.validation.password_symbol'));
+                    if (! preg_match('/\d/', $value)) {
+                        $fail(__('auth.validation.password_number'));
                     }
                 },
             ],
@@ -70,13 +70,12 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'status' => 'pending',
         ]);
 
         event(new Registered($user));
 
-        Auth::login($user);
-
-        return redirect(route('homepage', absolute: false));
+        return redirect()->route('login')->with('status', 'Registrasi berhasil! Akun Anda sedang menunggu persetujuan admin sebelum dapat login.');
     }
 }
 

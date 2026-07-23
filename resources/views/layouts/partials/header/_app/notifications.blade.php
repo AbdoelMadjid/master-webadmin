@@ -1,5 +1,6 @@
 @php
     $unreadResetRequestsCount = 0;
+    $pendingUsersCount = 0;
     if (auth()->check()) {
         try {
             $unreadResetRequestsCount = \App\Models\ManajemenPengguna\PasswordResetRequest::where('status', 'pending')
@@ -8,7 +9,14 @@
         } catch (\Throwable $e) {
             $unreadResetRequestsCount = 0;
         }
+
+        try {
+            $pendingUsersCount = \App\Models\User::where('status', 'pending')->count();
+        } catch (\Throwable $e) {
+            $pendingUsersCount = 0;
+        }
     }
+    $totalNotificationCount = $unreadResetRequestsCount + $pendingUsersCount;
 @endphp
 
 <div class="app-navbar-item ms-1 ms-md-4">
@@ -22,10 +30,10 @@
             <span class="path3"></span>
             <span class="path4"></span>
         </i>
-        @if($unreadResetRequestsCount > 0)
+        @if($totalNotificationCount > 0)
             <span class="bullet bullet-dot bg-danger h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
             <span class="badge badge-circle badge-danger position-absolute top-0 start-100 translate-middle fs-9 h-18px w-18px me-1 mt-1">
-                {{ $unreadResetRequestsCount }}
+                {{ $totalNotificationCount }}
             </span>
         @endif
     </div>

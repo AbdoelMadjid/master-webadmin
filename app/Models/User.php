@@ -25,6 +25,7 @@ class User extends Authenticatable
         'avatar',
         'points',
         'last_activity_at',
+        'status',
     ];
 
     /**
@@ -76,5 +77,29 @@ class User extends Authenticatable
     public function dataLogins(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(\App\Models\AppSupport\DataLogin::class, 'user_id');
+    }
+
+    /**
+     * Cek apakah akun user sudah disetujui
+     */
+    public function isApproved(): bool
+    {
+        return ($this->status ?? 'approved') === 'approved';
+    }
+
+    /**
+     * Cek apakah akun user sedang menunggu persetujuan
+     */
+    public function isPending(): bool
+    {
+        return $this->status === 'pending';
+    }
+
+    /**
+     * Cek apakah akun user ditolak
+     */
+    public function isRejected(): bool
+    {
+        return $this->status === 'rejected';
     }
 }

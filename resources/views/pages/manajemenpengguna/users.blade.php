@@ -42,10 +42,11 @@
                                 <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                     <th class="min-w-200px">Pengguna / User</th>
                                     <th class="min-w-150px">Role</th>
+                                    <th class="min-w-125px">Status</th>
                                     <th class="min-w-100px">Saldo Poin</th>
                                     <th class="min-w-150px">Aktivitas Terakhir</th>
                                     <th class="min-w-150px">Tanggal Bergabung</th>
-                                    <th class="text-end min-w-100px">Aksi</th>
+                                    <th class="text-end min-w-150px">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
@@ -74,6 +75,15 @@
                                             @endforelse
                                         </td>
                                         <td>
+                                            @if(($user->status ?? 'approved') === 'approved')
+                                                <span class="badge badge-light-success fw-bold">Disetujui</span>
+                                            @elseif(($user->status ?? 'approved') === 'pending')
+                                                <span class="badge badge-light-warning fw-bold">Menunggu Persetujuan</span>
+                                            @else
+                                                <span class="badge badge-light-danger fw-bold">Ditolak</span>
+                                            @endif
+                                        </td>
+                                        <td>
                                             <span class="badge badge-light-warning fw-bold">{{ $user->points ?? 0 }} Poin</span>
                                         </td>
                                         <td>
@@ -85,6 +95,18 @@
                                         </td>
                                         <td>{{ $user->created_at ? $user->created_at->format('d M Y H:i') : '-' }}</td>
                                         <td class="text-end">
+                                            @if($user->id !== auth()->id())
+                                                @if(($user->status ?? 'approved') !== 'approved')
+                                                    <button type="button" class="btn btn-icon btn-active-light-success w-30px h-30px me-1 btn-approve-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" title="Setujui Akun Pengguna">
+                                                        <i class="ki-duotone ki-check fs-3"><span class="path1"></span><span class="path2"></span></i>
+                                                    </button>
+                                                @endif
+                                                @if(($user->status ?? 'approved') !== 'rejected')
+                                                    <button type="button" class="btn btn-icon btn-active-light-warning w-30px h-30px me-1 btn-reject-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" title="Tolak Akun Pengguna">
+                                                        <i class="ki-duotone ki-cross fs-3"><span class="path1"></span><span class="path2"></span></i>
+                                                    </button>
+                                                @endif
+                                            @endif
                                             <button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px me-1 btn-edit-user" data-id="{{ $user->id }}" title="Edit User">
                                                 <i class="ki-duotone ki-pencil fs-3"><span class="path1"></span><span class="path2"></span></i>
                                             </button>
@@ -207,6 +229,80 @@
                     },
                     error: function(xhr) {
                         SwalHelper.validationError(xhr);
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-approve-user', function(e) {
+                e.preventDefault();
+                var btn = $(this).closest('.btn-approve-user');
+                var userId = btn.data('id') || $(this).data('id');
+                var userName = btn.data('name') || $(this).data('name');
+
+                Swal.fire({
+                    title: 'Setujui Pengguna?',
+                    text: "Apakah Anda yakin ingin menyetujui akun '" + userName + "'?",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, Setujui Akun',
+                    cancelButtonText: 'Batal',
+                    customClass: {
+                        confirmButton: 'btn btn-success',
+                        cancelButton: 'btn btn-light'
+                    }
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: "{{ url('manajemenpengguna/users') }}/" + userId + "/approve",
+                            type: "POST",
+                            data: { _token: "{{ csrf_token() }}" },
+                            success: function(res) {
+                                if (res.success) {
+                                    SwalHelper.success(res.message);
+                                    setTimeout(function() { location.reload(); }, 1200);
+                                }
+                            },
+                            error: function(xhr) {
+                                SwalHelper.error(xhr.responseJSON?.message || 'Gagal menyetujui akun.');
+                            }
+                        });
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-reject-user', function(e) {
+                e.preventDefault();
+                var btn = $(this).closest('.btn-reject-user');
+                var userId = btn.data('id') || $(this).data('id');
+                var userName = btn.data('name') || $(this).data('name');
+
+                Swal.fire({
+                    title: 'Tolak Pengguna?',
+                    text: "Apakah Anda yakin ingin menolak akun '" + userName + "'?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, Tolak Akun',
+                    cancelButtonText: 'Batal',
+                    customClass: {
+                        confirmButton: 'btn btn-danger',
+                        cancelButton: 'btn btn-light'
+                    }
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: "{{ url('manajemenpengguna/users') }}/" + userId + "/reject",
+                            type: "POST",
+                            data: { _token: "{{ csrf_token() }}" },
+                            success: function(res) {
+                                if (res.success) {
+                                    SwalHelper.success(res.message);
+                                    setTimeout(function() { location.reload(); }, 1200);
+                                }
+                            },
+                            error: function(xhr) {
+                                SwalHelper.error(xhr.responseJSON?.message || 'Gagal menolak akun.');
+                            }
+                        });
                     }
                 });
             });

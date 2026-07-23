@@ -116,13 +116,39 @@
                                             </div>
                                         </span>
                                         <input
-                                            class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12 @if ($passwordHasError) is-invalid @endif"
+                                            class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-0 g-px-20 g-py-12 @if ($passwordHasError) is-invalid @endif"
                                             type="password" id="passwordInput" name="password" autocomplete="new-password"
                                             placeholder="*********">
+                                        <span class="input-group-append g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-left-0 btn-toggle-password" style="cursor: pointer;" data-target="passwordInput" title="Tampilkan / Sembunyikan Password">
+                                            <div class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2">
+                                                <i class="fa fa-eye toggle-icon text-muted"></i>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div id="passwordFieldError"
                                         class="invalid-feedback @if ($passwordHasError) d-block @endif">
                                         {{ $errors->first('password') }}
+                                    </div>
+
+                                    <!-- Real-time Password Requirements Card -->
+                                    <div id="passwordRequirementsCard" class="g-mt-10 g-pa-12 g-bg-secondary rounded fs-7">
+                                        <div class="g-font-weight-600 g-mb-5 text-muted">Syarat Kata Sandi:</div>
+                                        <div class="d-flex align-items-center g-mb-3" id="req-length">
+                                            <i class="fa fa-circle-o text-muted mr-2 req-icon"></i>
+                                            <span class="req-text text-muted">Harus &gt; 8 karakter</span>
+                                        </div>
+                                        <div class="d-flex align-items-center g-mb-3" id="req-uppercase">
+                                            <i class="fa fa-circle-o text-muted mr-2 req-icon"></i>
+                                            <span class="req-text text-muted">Mengandung huruf besar (A-Z)</span>
+                                        </div>
+                                        <div class="d-flex align-items-center g-mb-3" id="req-lowercase">
+                                            <i class="fa fa-circle-o text-muted mr-2 req-icon"></i>
+                                            <span class="req-text text-muted">Mengandung huruf kecil (a-z)</span>
+                                        </div>
+                                        <div class="d-flex align-items-center" id="req-number">
+                                            <i class="fa fa-circle-o text-muted mr-2 req-icon"></i>
+                                            <span class="req-text text-muted">Mengandung angka (0-9)</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -138,13 +164,26 @@
                                             </div>
                                         </span>
                                         <input
-                                            class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12 @if ($passwordConfirmationHasError) is-invalid @endif"
+                                            class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-0 g-px-20 g-py-12 @if ($passwordConfirmationHasError) is-invalid @endif"
                                             type="password" id="passwordConfirmationInput" name="password_confirmation"
                                             autocomplete="new-password" placeholder="*********">
+                                        <span class="input-group-append g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-left-0 btn-toggle-password" style="cursor: pointer;" data-target="passwordConfirmationInput" title="Tampilkan / Sembunyikan Password">
+                                            <div class="input-group-text justify-content-center w-100 g-bg-secondary g-brd-secondary-light-v2">
+                                                <i class="fa fa-eye toggle-icon text-muted"></i>
+                                            </div>
+                                        </span>
                                     </div>
                                     <div id="passwordConfirmationFieldError"
                                         class="invalid-feedback @if ($passwordConfirmationHasError) d-block @endif">
                                         {{ $errors->first('password_confirmation') }}
+                                    </div>
+
+                                    <!-- Real-time Confirm Password Match Card -->
+                                    <div id="confirmPasswordMatchCard" class="g-mt-10 g-pa-12 g-bg-secondary rounded fs-7">
+                                        <div class="d-flex align-items-center" id="req-match">
+                                            <i class="fa fa-circle-o text-muted mr-2 req-icon"></i>
+                                            <span class="req-text text-muted">Kata sandi dan konfirmasi kata sandi cocok</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -281,9 +320,68 @@
                 return true;
             }
 
+            // Toggle Password Visibility (Eye Icon)
+            $('.btn-toggle-password').on('click', function() {
+                const targetId = $(this).data('target');
+                const input = document.getElementById(targetId);
+                const icon = $(this).find('.toggle-icon');
+
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.removeClass('fa-eye text-muted').addClass('fa-eye-slash text-primary');
+                } else {
+                    input.type = 'password';
+                    icon.removeClass('fa-eye-slash text-primary').addClass('fa-eye text-muted');
+                }
+            });
+
+            function updateRequirement(elementId, isMet) {
+                const el = $('#' + elementId);
+                const icon = el.find('.req-icon');
+                const text = el.find('.req-text');
+
+                if (isMet) {
+                    icon.removeClass('fa-circle-o fa-times-circle text-muted text-danger').addClass('fa-check-circle text-success');
+                    text.removeClass('text-muted text-danger').addClass('text-success font-weight-bold');
+                } else {
+                    icon.removeClass('fa-check-circle text-success').addClass('fa-circle-o text-muted');
+                    text.removeClass('text-success font-weight-bold').addClass('text-muted');
+                }
+            }
+
+            function validatePasswordRequirementsRealtime() {
+                const val = passwordInput.value;
+
+                const isLengthValid = val.length > 8; // Harus > 8 karakter
+                const isUppercaseValid = /[A-Z]/.test(val);
+                const isLowercaseValid = /[a-z]/.test(val);
+                const isNumberValid = /\d/.test(val);
+
+                updateRequirement('req-length', isLengthValid);
+                updateRequirement('req-uppercase', isUppercaseValid);
+                updateRequirement('req-lowercase', isLowercaseValid);
+                updateRequirement('req-number', isNumberValid);
+
+                return isLengthValid && isUppercaseValid && isLowercaseValid && isNumberValid;
+            }
+
+            function validatePasswordMatchRealtime() {
+                const pass = passwordInput.value;
+                const confirmPass = passwordConfirmationInput.value;
+                const isMatched = confirmPass.length > 0 && pass === confirmPass;
+
+                updateRequirement('req-match', isMatched);
+                return isMatched;
+            }
+
             function validatePasswordInline() {
                 if (passwordInput.value.length === 0) {
                     setFieldError(passwordInput, passwordFieldError, @json(__('auth.js.password_required')));
+                    return false;
+                }
+
+                if (!validatePasswordRequirementsRealtime()) {
+                    setFieldError(passwordInput, passwordFieldError, 'Password belum memenuhi seluruh kriteria.');
                     return false;
                 }
 
@@ -319,17 +417,34 @@
             emailInput.addEventListener('blur', validateEmailInline);
             passwordInput.addEventListener('input', function() {
                 validatePasswordInline();
-                validatePasswordConfirmationInline();
+                validatePasswordRequirementsRealtime();
+                validatePasswordMatchRealtime();
             });
-            passwordInput.addEventListener('blur', validatePasswordInline);
-            passwordConfirmationInput.addEventListener('input', validatePasswordConfirmationInline);
-            passwordConfirmationInput.addEventListener('blur', validatePasswordConfirmationInline);
+            passwordInput.addEventListener('blur', function() {
+                validatePasswordInline();
+                validatePasswordRequirementsRealtime();
+            });
+            passwordConfirmationInput.addEventListener('input', function() {
+                validatePasswordConfirmationInline();
+                validatePasswordMatchRealtime();
+            });
+            passwordConfirmationInput.addEventListener('blur', function() {
+                validatePasswordConfirmationInline();
+                validatePasswordMatchRealtime();
+            });
+
+            // Initial check if values are present
+            validatePasswordRequirementsRealtime();
+            validatePasswordMatchRealtime();
 
             form.addEventListener('submit', function(e) {
                 const validEmail = validateEmailInline();
                 const validPassword = validatePasswordInline();
                 const validPasswordConfirmation = validatePasswordConfirmationInline();
-                if (!validEmail || !validPassword || !validPasswordConfirmation) {
+                const reqsMet = validatePasswordRequirementsRealtime();
+                const matchMet = validatePasswordMatchRealtime();
+
+                if (!validEmail || !validPassword || !validPasswordConfirmation || !reqsMet || !matchMet) {
                     e.preventDefault();
                 }
             });
