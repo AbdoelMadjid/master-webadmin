@@ -40,13 +40,13 @@
                         <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_users_table">
                             <thead>
                                 <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="min-w-200px">Pengguna / User</th>
-                                    <th class="min-w-150px">Role</th>
-                                    <th class="min-w-125px">Status</th>
-                                    <th class="min-w-100px">Saldo Poin</th>
-                                    <th class="min-w-150px">Aktivitas Terakhir</th>
-                                    <th class="min-w-150px">Tanggal Bergabung</th>
-                                    <th class="text-end min-w-150px">Aksi</th>
+                                    <th class="min-w-150px">Pengguna / User</th>
+                                    <th class="min-w-100px">Role</th>
+                                    <th class="min-w-90px">Status</th>
+                                    <th class="min-w-80px">Saldo Poin</th>
+                                    <th class="min-w-100px">Aktivitas Terakhir</th>
+                                    <th class="min-w-110px">Tanggal Bergabung</th>
+                                    <th class="text-end min-w-100px pe-4">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
@@ -137,7 +137,7 @@
         $(document).ready(function() {
             var usersTable = $('#kt_users_table').DataTable({
                 pageLength: 10,
-                order: [],
+                order: [[0, 'asc']],
                 language: {
                     search: "",
                     searchPlaceholder: "Cari User..."
