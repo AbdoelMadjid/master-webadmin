@@ -494,6 +494,43 @@ Seluruh daftar di bawah diselaraskan dengan route help:
   </tbody>
 </table>
 
+#### Rincian Sub-Menu Skema App Support
+<table>
+  <thead>
+    <tr>
+      <th width="35%">Judul Sub-Menu</th>
+      <th width="45%">Keterangan Arsitektur</th>
+      <th width="20%">URL Sub-Tab</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Menu Dinamis</td><td>Arsitektur manajemen menu dinamis, pengurutan hirarki drag & drop, dan sinkronisasi permission otomatis.</td><td><code>/help/pemrograman/skema-main-menu/app-support/menu</code></td></tr>
+    <tr><td>App Profil</td><td>Arsitektur identitas aplikasi, manajemen logo (Logo Utama, Logo Kotak, Favicon), dan Form Request Validation.</td><td><code>/help/pemrograman/skema-main-menu/app-support/app-profil</code></td></tr>
+    <tr><td>App Fitur</td><td>Arsitektur Feature Toggle (Feature Flags), sakelar status fitur, dan helper global <code>isFeatureActive()</code>.</td><td><code>/help/pemrograman/skema-main-menu/app-support/app-fitur</code></td></tr>
+    <tr><td>Backup DB</td><td>Mekanisme ekspor dump SQL, lokasi direktori terproteksi, serta prosedur restore dan hapus cadangan database.</td><td><code>/help/pemrograman/skema-main-menu/app-support/backup-db</code></td></tr>
+    <tr><td>Data Login</td><td>Arsitektur pencatatan riwayat login, frekuensi login harian (<code>login_count</code>), reward poin, dan widget user aktif 15 menit.</td><td><code>/help/pemrograman/skema-main-menu/app-support/data-login</code></td></tr>
+  </tbody>
+</table>
+
+#### Rincian Sub-Menu Skema Manajemen Pengguna
+<table>
+  <thead>
+    <tr>
+      <th width="35%">Judul Sub-Menu</th>
+      <th width="45%">Keterangan Arsitektur</th>
+      <th width="20%">URL Sub-Tab</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Role</td><td>Arsitektur pengelolaan Role pengguna, integrasi Spatie Permission, dan modal matriks CRUD tanpa scroll horizontal.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/role</code></td></tr>
+    <tr><td>Permission</td><td>Arsitektur ekstraksi aksi CRUD, visualisasi badge warna-warni, dropdown filter role (opsi All), dan tombol reset filter.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/permission</code></td></tr>
+    <tr><td>Akses Role</td><td>Arsitektur matriks hak akses per role, filter pencarian modul on-the-fly, kontrol toggle per baris, dan sync real-time.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/akses-role</code></td></tr>
+    <tr><td>Akses User</td><td>Arsitektur hak akses per user, pewarisan izin Spatie (Direct vs Role permissions), dan indikator badge Mengikuti Role.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/akses-user</code></td></tr>
+    <tr><td>User</td><td>Arsitektur pengelolaan akun pengguna (CRUD), penanganan upload avatar profil, hashing password, dan penugasan role.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/user</code></td></tr>
+    <tr><td>Reset Password</td><td>Arsitektur permintaan reset password (/forgot-password), pemicuan Notifikasi Peringatan Header & Red Badge Counter, serta reset password default <code>Password!12345</code>.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/reset-password</code></td></tr>
+  </tbody>
+</table>
+
 <div align="right"><a href="#table-of-contents" title="Back to Table of Contents">&#8679;</a></div>
 
 ### Materi operasional
@@ -517,6 +554,43 @@ Seluruh daftar di bawah diselaraskan dengan route help:
     <tr><td>Workflow Developer Harian</td><td>Ritme kerja harian: implementasi, quality gate, dan release readiness.</td><td><code>/help/pemrograman/operasional/workflow-developer-harian</code></td><td><a href="./docs/skema-pemrograman/operasional/workflow-developer-harian.md">workflow-developer-harian.md</a></td></tr>
     <tr><td>Checklist QA Smoke Test</td><td>Checklist minimum sebelum merge/release untuk menekan regresi.</td><td><code>/help/pemrograman/operasional/checklist-qa-smoke-test</code></td><td><a href="./docs/skema-pemrograman/operasional/checklist-qa-smoke-test.md">checklist-qa-smoke-test.md</a></td></tr>
     <tr><td>Playbook Incident Response</td><td>Panduan aksi 0-15 menit berdasarkan severity saat incident.</td><td><code>/help/pemrograman/operasional/playbook-incident-response</code></td><td><a href="./docs/skema-pemrograman/operasional/playbook-incident-response.md">playbook-incident-response.md</a></td></tr>
+  </tbody>
+</table>
+
+#### Rincian Sub-Menu Operasional App Support
+<table>
+  <thead>
+    <tr>
+      <th width="35%">Judul Sub-Menu</th>
+      <th width="45%">Keterangan Operasional</th>
+      <th width="20%">URL Sub-Tab</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Menu Dinamis</td><td>Operasional pengurutan hirarki menu via drag & drop dan toggle status menu.</td><td><code>/help/pemrograman/operasional/app-support?tab=menu</code></td></tr>
+    <tr><td>App Profil</td><td>Operasional pembaruan identitas aplikasi (nama, deskripsi, copyright) dan upload logo/favicon.</td><td><code>/help/pemrograman/operasional/app-support?tab=app-profil</code></td></tr>
+    <tr><td>App Fitur</td><td>Operasional Feature Toggle untuk mengaktifkan/nonaktifkan modul global aplikasi.</td><td><code>/help/pemrograman/operasional/app-support?tab=app-fitur</code></td></tr>
+    <tr><td>Backup DB</td><td>Operasional ekspor dump SQL, pengunduhan file backup, restore DB, dan pembersihan cadangan.</td><td><code>/help/pemrograman/operasional/app-support?tab=backup-db</code></td></tr>
+    <tr><td>Data Login</td><td>Operasional pemantauan riwayat login pengguna (IP & browser agent) dan pembersihan log login.</td><td><code>/help/pemrograman/operasional/app-support?tab=data-login</code></td></tr>
+  </tbody>
+</table>
+
+#### Rincian Sub-Menu Operasional Manajemen Pengguna
+<table>
+  <thead>
+    <tr>
+      <th width="35%">Judul Sub-Menu</th>
+      <th width="45%">Keterangan Operasional</th>
+      <th width="20%">URL Sub-Tab</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Role</td><td>Operasional pembuatan dan pembaruan Role pengguna serta penugasan matriks Spatie Permission.</td><td><code>/help/pemrograman/operasional/manajemen-pengguna?tab=role</code></td></tr>
+    <tr><td>Permission</td><td>Operasional manajemen daftar permission, filter role dropdown, dan reset filter permission.</td><td><code>/help/pemrograman/operasional/manajemen-pengguna?tab=permission</code></td></tr>
+    <tr><td>Akses Role</td><td>Operasional penyesuaian matriks hak akses per role secara real-time.</td><td><code>/help/pemrograman/operasional/manajemen-pengguna?tab=akses-role</code></td></tr>
+    <tr><td>Akses User</td><td>Operasional pengaturan izin khusus per user (Direct Permissions vs Role Permissions).</td><td><code>/help/pemrograman/operasional/manajemen-pengguna?tab=akses-user</code></td></tr>
+    <tr><td>User</td><td>Operasional CRUD user, upload avatar, impersonasi user, approval pendaftaran user baru, dan impor Excel.</td><td><code>/help/pemrograman/operasional/manajemen-pengguna?tab=user</code></td></tr>
+    <tr><td>Reset Password</td><td>Operasional pengolahan klaim reset password dari pengguna dan eksekusi reset ke password default.</td><td><code>/help/pemrograman/operasional/manajemen-pengguna?tab=reset-password</code></td></tr>
   </tbody>
 </table>
 

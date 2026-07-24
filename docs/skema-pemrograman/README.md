@@ -37,8 +37,19 @@ Versi ringkas per submenu dari menu **Skema Pemrograman**.
 ## Kelompok Operasional
 - [Panduan Tambah Halaman](./operasional/panduan-tambah-halaman.md)
 - [Panduan Tambah Menu](./operasional/panduan-tambah-menu.md)
-- [Manajemen Pengguna](./operasional/manajemen-pengguna.md)
-- [App Support](./operasional/app-support.md)
+- [Manajemen Pengguna](./operasional/manajemen-pengguna.md) (`/help/pemrograman/operasional/manajemen-pengguna`):
+  - **Role** (`?tab=role`): Pembuatan dan pembaruan Role pengguna serta penugasan matriks Spatie Permission.
+  - **Permission** (`?tab=permission`): Manajemen daftar permission, filter role dropdown, dan reset filter.
+  - **Akses Role** (`?tab=akses-role`): Penyesuaian matriks hak akses per role secara real-time.
+  - **Akses User** (`?tab=akses-user`): Pengaturan izin khusus per user (Direct vs Role Permissions).
+  - **User** (`?tab=user`): CRUD user, upload avatar, impersonasi user, approval pendaftaran user baru, dan impor Excel.
+  - **Reset Password** (`?tab=reset-password`): Pengolahan klaim reset password dari pengguna dan eksekusi reset ke password default.
+- [App Support](./operasional/app-support.md) (`/help/pemrograman/operasional/app-support`):
+  - **Menu Dinamis** (`?tab=menu`): Pengurutan hirarki menu via drag & drop dan toggle status menu.
+  - **App Profil** (`?tab=app-profil`): Pembaruan identitas aplikasi (nama, deskripsi, copyright) dan upload logo/favicon.
+  - **App Fitur** (`?tab=app-fitur`): Feature Toggle untuk mengaktifkan/nonaktifkan modul global aplikasi.
+  - **Backup DB** (`?tab=backup-db`): Ekspor dump SQL, pengunduhan file backup, restore DB, dan pembersihan cadangan.
+  - **Data Login** (`?tab=data-login`): Pemantauan riwayat login pengguna (IP & browser agent) dan pembersihan log login.
 - [Notifikasi System](./operasional/notification.md)
 - [Konvensi Penamaan](./operasional/konvensi-penamaan.md)
 - [Workflow Developer Harian](./operasional/workflow-developer-harian.md)
