@@ -89,7 +89,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-element-11 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                <span class="badge badge-circle badge-light-primary text-primary fw-bold fs-6 me-2">1</span>
                                 {{ __('help.pages.skema.header-menu.heading_3') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -108,7 +108,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-tab fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <span class="badge badge-circle badge-light-success text-success fw-bold fs-6 me-2">2</span>
                                 {{ __('help.pages.skema.header-menu.heading_4') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -126,7 +126,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-layer fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <span class="badge badge-circle badge-light-info text-info fw-bold fs-6 me-2">3</span>
                                 {{ __('help.pages.skema.header-menu.heading_5') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -144,7 +144,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-row fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <span class="badge badge-circle badge-light-warning text-warning fw-bold fs-6 me-2">4</span>
                                 {{ __('help.pages.skema.header-menu.heading_6') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -162,7 +162,7 @@
                     <div class="schema-col-12">
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center mb-3">
-                                <i class="ki-duotone ki-setting-2 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <span class="badge badge-circle badge-light-danger text-danger fw-bold fs-6 me-2">5</span>
                                 {{ __('help.pages.skema.header-menu.heading_7') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -286,7 +286,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-element-11 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                <span class="badge badge-circle badge-light-primary text-primary fw-bold fs-6 me-2">1</span>
                                 {{ __('help.pages.skema.header-menu.heading_3') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -305,7 +305,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-tab fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <span class="badge badge-circle badge-light-success text-success fw-bold fs-6 me-2">2</span>
                                 {{ __('help.pages.skema.header-menu.heading_4') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -323,7 +323,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-layer fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <span class="badge badge-circle badge-light-info text-info fw-bold fs-6 me-2">3</span>
                                 {{ __('help.pages.skema.header-menu.heading_5') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -341,7 +341,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-row fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <span class="badge badge-circle badge-light-warning text-warning fw-bold fs-6 me-2">4</span>
                                 {{ __('help.pages.skema.header-menu.heading_6') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -359,7 +359,7 @@
                     <div class="schema-col-12">
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center mb-3">
-                                <i class="ki-duotone ki-setting-2 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <span class="badge badge-circle badge-light-danger text-danger fw-bold fs-6 me-2">5</span>
                                 {{ __('help.pages.skema.header-menu.heading_7') }}
                             </h4>
                             <ul class="schema-list fs-7">

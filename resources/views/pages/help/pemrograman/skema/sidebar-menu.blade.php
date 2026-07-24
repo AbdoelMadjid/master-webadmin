@@ -123,7 +123,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-badge fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span> me-2</i>
+                                <i class="ki-duotone ki-badge fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                                 {{ __('help.pages.skema.sidebar-menu.heading_4') }}
                             </h4>
                             <pre class="schema-code"><code>// Status Badge Example:
@@ -332,7 +332,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-badge fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span> me-2</i>
+                                <i class="ki-duotone ki-badge fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                                 {{ __('help.pages.skema.sidebar-menu.heading_4') }}
                             </h4>
                             <pre class="schema-code"><code>// Contoh Badge Status:
