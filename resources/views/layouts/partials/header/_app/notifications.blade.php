@@ -48,14 +48,62 @@
             <span class="path3"></span>
             <span class="path4"></span>
         </i>
-        @if($totalNotificationCount > 0)
-            <span class="bullet bullet-dot bg-danger h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
-            <span class="badge badge-circle badge-danger position-absolute top-0 start-100 translate-middle fs-9 h-18px w-18px me-1 mt-1">
-                {{ $totalNotificationCount }}
-            </span>
-        @endif
+        <span id="topbar_notification_badge_wrapper">
+            @if($totalNotificationCount > 0)
+                <span class="bullet bullet-dot bg-danger h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>
+                <span class="badge badge-circle badge-danger position-absolute top-0 start-100 translate-middle fs-9 h-18px w-18px me-1 mt-1">
+                    {{ $totalNotificationCount }}
+                </span>
+            @endif
+        </span>
     </div>
     <!--layout-partial:partials/menus/_notifications-menu.html-->
     @include('partials.menus._notifications-menu')
     <!--end::Menu wrapper-->
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        function fetchRealtimeNotifications() {
+            if (typeof $ === 'undefined') return;
+            $.ajax({
+                url: "{{ route('notifications.fetch') }}",
+                type: "GET",
+                dataType: "json",
+                success: function (res) {
+                    if (res && res.success) {
+                        var count = res.total_count || 0;
+                        var badgeWrapper = $('#topbar_notification_badge_wrapper');
+                        var tabBadgeWrapper = $('#topbar_notification_tab_badge');
+                        var itemsContainer = $('#topbar_notifications_warning_items');
+
+                        if (count > 0) {
+                            badgeWrapper.html(
+                                '<span class="bullet bullet-dot bg-danger h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink"></span>' +
+                                '<span class="badge badge-circle badge-danger position-absolute top-0 start-100 translate-middle fs-9 h-18px w-18px me-1 mt-1">' + count + '</span>'
+                            );
+                            tabBadgeWrapper.html(
+                                '<span class="badge badge-circle badge-danger fs-9 ms-1 h-16px w-16px">' + count + '</span>'
+                            );
+                        } else {
+                            badgeWrapper.empty();
+                            tabBadgeWrapper.empty();
+                        }
+
+                        if (res.html_peringatan && itemsContainer.length) {
+                            itemsContainer.html(res.html_peringatan);
+                        }
+                    }
+                }
+            });
+        }
+
+        // Trigger update on bell icon click/hover
+        $(document).on('click mouseenter', '#kt_menu_item_wow', function () {
+            fetchRealtimeNotifications();
+        });
+
+        // Polling background setiap 10 detik
+        setInterval(fetchRealtimeNotifications, 10000);
+    });
+</script>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AppSupport\NotificationController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DashboardController;
@@ -42,6 +43,8 @@ use App\Http\Controllers\ManajemenPengguna\UserController as UserMgmtController;
 use App\Http\Controllers\User\ProfilPenggunaController;
 
 Route::middleware('auth')->group(function () {
+    Route::get('/notifications/fetch', [NotificationController::class, 'fetch'])->name('notifications.fetch');
+
     Route::post('/profil-pengguna/avatar', [ProfilPenggunaController::class, 'updateAvatar'])->name('profil-pengguna.avatar.update');
     Route::post('/profil-pengguna/pengaturan', [ProfilPenggunaController::class, 'updatePengaturan'])->name('profil-pengguna.pengaturan.update');
     Route::post('/profil-pengguna/keamanan/password', [ProfilPenggunaController::class, 'updatePassword'])->name('profil-pengguna.keamanan.password.update');
