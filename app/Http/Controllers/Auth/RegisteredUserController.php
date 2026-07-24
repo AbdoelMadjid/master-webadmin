@@ -66,6 +66,9 @@ class RegisteredUserController extends Controller
             'password.confirmed' => __('auth.validation.password_confirmed'),
         ]);
 
+        // Hapus catatan penolakan jika pengguna mendaftar ulang
+        \App\Models\ManajemenPengguna\RejectedRegistration::where('email', $request->email)->delete();
+
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,

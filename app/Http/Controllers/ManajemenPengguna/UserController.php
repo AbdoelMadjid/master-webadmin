@@ -381,15 +381,21 @@ class UserController extends Controller
     public function reject($id)
     {
         $user = User::findOrFail($id);
-        $user->update([
-            'status'  => 'rejected',
-            'is_read' => true,
-        ]);
+
+        \App\Models\ManajemenPengguna\RejectedRegistration::updateOrCreate(
+            ['email' => $user->email],
+            [
+                'name'        => $user->name,
+                'rejected_at' => now(),
+            ]
+        );
+
+        $userName = $user->name;
+        $user->delete();
 
         return response()->json([
             'success' => true,
-            'message' => "Akun pengguna '{$user->name}' telah ditolak.",
-            'data'    => $user->load('roles'),
+            'message' => "Pengajuan akun baru '{$userName}' telah ditolak dan akun telah dihapus dari sistem.",
         ]);
     }
 

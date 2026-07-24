@@ -59,6 +59,16 @@ class LoginRequest extends FormRequest
 
         $email = $this->string('email')->toString();
         $password = $this->string('password')->toString();
+
+        // Cek terlebih dahulu apakah email ini terdapat dalam catatan pengajuan pendaftaran yang ditolak
+        $rejectedReg = \App\Models\ManajemenPengguna\RejectedRegistration::where('email', $email)->first();
+        if ($rejectedReg) {
+            RateLimiter::hit($this->throttleKey());
+            throw ValidationException::withMessages([
+                'email' => 'Pengajuan akun baru Anda telah ditolak oleh Admin. Silakan hubungi Administrator untuk informasi lebih lanjut.',
+            ]);
+        }
+
         $user = User::where('email', $email)->first();
 
         if (! $user) {
@@ -85,7 +95,7 @@ class LoginRequest extends FormRequest
         if ($user->isRejected()) {
             RateLimiter::hit($this->throttleKey());
             throw ValidationException::withMessages([
-                'email' => 'Akun Anda telah ditolak oleh admin.',
+                'email' => 'Pengajuan akun baru Anda telah ditolak oleh Admin. Silakan hubungi Administrator untuk informasi lebih lanjut.',
             ]);
         }
 
