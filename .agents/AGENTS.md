@@ -78,5 +78,10 @@
    - Ensure menu items configured in `config/sidebar/_sidebar_helps.php` and `config/header/_header_help.php` have exact corresponding translation key mappings in both `lang/en/menu.php` and `lang/id/menu.php` (e.g., `'manajemen_pengguna' => 'User Management'`).
    - Avoid mapping Indonesian keys to Indonesian text in `lang/en/menu.php`.
 
+4. **Uniform Card Box Border Styling**:
+   - All main section card boxes in Help & Documentation views must use clean, standard `<div class="schema-card">` or `<div class="schema-card h-100">` wrappers.
+   - Do not add custom colored left-border overrides (`border-start border-4 border-primary/warning/danger`) to main section cards to maintain visual uniformity across all help pages.
 
-
+5. **Mandatory Icon Prefix for Card Headings**:
+   - Every section card heading (`<h4>` or `<h5>`) MUST have a valid Keenicons duotone icon (`<i class="ki-duotone ki-<icon-name> fs-2 text-<color> me-2">`) placed directly before the heading title text.
+   - Icon classes MUST be valid Keenicons in Metronic 8 (e.g., `ki-route`, `ki-element-11`, `ki-layers`, `ki-global`, `ki-shield-tick`, `ki-key`, `ki-map`, `ki-wrench`, `ki-check-square`) and include all required child `<span class="pathN"></span>` elements.

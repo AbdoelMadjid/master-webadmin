@@ -46,7 +46,7 @@
                     <!-- 1. 4 MAIN BLADE DIRECTIVES -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-primary">
+                        <div class="schema-card">
                             <h4 class="d-flex align-items-center">
                                 <i class="ki-duotone ki-code fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.komponen-blade-partial.heading_1') }}
@@ -223,7 +223,7 @@
                     <!-- 7. ANTI-PATTERNS TO AVOID -->
                     <!--====================================================-->
                     <div class="schema-col-6">
-                        <div class="schema-card border-start border-4 border-danger h-100">
+                        <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center text-dark">
                                 <i class="ki-duotone ki-cross-circle fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.komponen-blade-partial.heading_7') }}
@@ -407,7 +407,7 @@
                     <!-- 1. 4 MAIN BLADE DIRECTIVES -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-primary">
+                        <div class="schema-card">
                             <h4 class="d-flex align-items-center">
                                 <i class="ki-duotone ki-code fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.komponen-blade-partial.heading_1') }}
@@ -584,7 +584,7 @@
                     <!-- 7. ANTI-PATTERNS TO AVOID -->
                     <!--====================================================-->
                     <div class="schema-col-6">
-                        <div class="schema-card border-start border-4 border-danger h-100">
+                        <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center text-dark">
                                 <i class="ki-duotone ki-cross-circle fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.komponen-blade-partial.heading_7') }}

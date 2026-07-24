@@ -46,9 +46,9 @@
                     <!-- 1. REQUEST LIFECYCLE FLOW -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-primary">
+                        <div class="schema-card">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-arrow-right-circle fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-route fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.route.heading_1') }}
                             </h4>
                             <p class="fs-7 text-gray-600 mb-4">
@@ -225,7 +225,7 @@ View Target: pages.help.pemrograman.skema.route</code></pre>
                     <!-- 6. STRICT ENGINEERING STANDARDS -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-danger">
+                        <div class="schema-card">
                             <h4 class="d-flex align-items-center text-dark">
                                 <i class="ki-duotone ki-shield-cross fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.route.heading_7') }}
@@ -309,9 +309,9 @@ View Target: pages.help.pemrograman.skema.route</code></pre>
                     <!-- 1. REQUEST LIFECYCLE FLOW -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-primary">
+                        <div class="schema-card">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-arrow-right-circle fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-route fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.route.heading_1') }}
                             </h4>
                             <p class="fs-7 text-gray-600 mb-4">
@@ -488,7 +488,7 @@ View Target: pages.help.pemrograman.skema.route</code></pre>
                     <!-- 6. STRICT ENGINEERING STANDARDS -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-danger">
+                        <div class="schema-card">
                             <h4 class="d-flex align-items-center text-dark">
                                 <i class="ki-duotone ki-shield-cross fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.route.heading_7') }}

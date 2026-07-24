@@ -100,7 +100,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-shield-check fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-shield-tick fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.auth-dan-middleware.heading_3') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -139,7 +139,7 @@ $middleware->web(append: [
                     <!-- 5. USER MANAGEMENT & SECURITY INTEGRATION CARD -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-primary">
+                        <div class="schema-card">
                             <div class="d-flex align-items-center justify-content-between mb-3">
                                 <h4 class="mb-0"><i class="ki-duotone ki-user-square fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> User Management &amp; Security Integration</h4>
                                 <a href="{{ route('help.pemrograman.operasional.manajemen-pengguna') }}" class="btn btn-sm btn-light-primary">
@@ -326,7 +326,7 @@ $middleware->web(append: [
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-shield-check fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-shield-tick fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.auth-dan-middleware.heading_3') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -365,7 +365,7 @@ $middleware->web(append: [
                     <!-- 5. USER MANAGEMENT & SECURITY INTEGRATION CARD -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-primary">
+                        <div class="schema-card">
                             <div class="d-flex align-items-center justify-content-between mb-3">
                                 <h4 class="mb-0"><i class="ki-duotone ki-user-square fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Integrasi Keamanan &amp; Manajemen Pengguna</h4>
                                 <a href="{{ route('help.pemrograman.operasional.manajemen-pengguna') }}" class="btn btn-sm btn-light-primary">

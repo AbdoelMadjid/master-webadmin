@@ -92,7 +92,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-link fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-element-11 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 {{ __('help.pages.skema.theme-assets.heading_3') }}
                             </h4>
                             <p class="text-gray-700 fs-7 mb-4">
@@ -295,7 +295,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-link fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-element-11 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 {{ __('help.pages.skema.theme-assets.heading_3') }}
                             </h4>
                             <p class="text-gray-700 fs-7 mb-4">

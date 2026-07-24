@@ -46,9 +46,9 @@
                     <!-- 1. RENDER LIFECYCLE FLOW -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-primary">
+                        <div class="schema-card">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-arrow-right-circle fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-element-7 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.layout.heading_1') }}
                             </h4>
                             <p class="fs-7 text-gray-600 mb-4">
@@ -234,7 +234,7 @@
                     <!-- 6. LAYOUT ANTI-PATTERNS -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-danger">
+                        <div class="schema-card">
                             <h4 class="d-flex align-items-center text-dark mb-3">
                                 <i class="ki-duotone ki-cross-circle fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.layout.heading_6') }}
@@ -272,7 +272,7 @@
                     <!-- 7. STRICT ENGINEERING STANDARDS -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-warning">
+                        <div class="schema-card">
                             <h4 class="d-flex align-items-center text-dark">
                                 <i class="ki-duotone ki-shield-tick fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.layout.heading_7') }}
@@ -356,9 +356,9 @@
                     <!-- 1. RENDER LIFECYCLE FLOW -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-primary">
+                        <div class="schema-card">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-arrow-right-circle fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-element-7 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.layout.heading_1') }}
                             </h4>
                             <p class="fs-7 text-gray-600 mb-4">
@@ -544,7 +544,7 @@
                     <!-- 6. LAYOUT ANTI-PATTERNS -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-danger">
+                        <div class="schema-card">
                             <h4 class="d-flex align-items-center text-dark mb-3">
                                 <i class="ki-duotone ki-cross-circle fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.layout.heading_6') }}
@@ -582,7 +582,7 @@
                     <!-- 7. STRICT ENGINEERING STANDARDS -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-warning">
+                        <div class="schema-card">
                             <h4 class="d-flex align-items-center text-dark">
                                 <i class="ki-duotone ki-shield-tick fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.layout.heading_7') }}

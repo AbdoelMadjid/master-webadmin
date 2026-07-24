@@ -35,7 +35,7 @@
                     <div class="schema-meta mt-3">
                         <span class="schema-chip"><i class="ki-duotone ki-folder fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.skema.struktur-config-menu.chip_1') }}</span>
                         <span class="schema-chip"><i class="ki-duotone ki-code fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.skema.struktur-config-menu.chip_2') }}</span>
-                        <span class="schema-chip"><i class="ki-duotone ki-translate fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.skema.struktur-config-menu.chip_3') }}</span>
+                        <span class="schema-chip"><i class="ki-duotone ki-global fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.skema.struktur-config-menu.chip_3') }}</span>
                     </div>
                 </div>
                 <!--end::Hero-->
@@ -110,7 +110,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-layer fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-element-7 fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 {{ __('help.pages.skema.struktur-config-menu.heading_4') }}
                             </h4>
                             <div class="schema-flow">
@@ -128,7 +128,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-translate fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-code fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.struktur-config-menu.heading_5') }}
                             </h4>
                             <pre class="schema-code"><code>// Helper Formula:
@@ -357,7 +357,7 @@ $titleKey = 'menu.' . strtolower(
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-layer fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-element-7 fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 {{ __('help.pages.skema.struktur-config-menu.heading_4') }}
                             </h4>
                             <div class="schema-flow">
@@ -375,7 +375,7 @@ $titleKey = 'menu.' . strtolower(
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-translate fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-code fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.struktur-config-menu.heading_5') }}
                             </h4>
                             <pre class="schema-code"><code>// Formula Helper:
