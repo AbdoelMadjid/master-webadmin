@@ -76,6 +76,10 @@ return [
                             'title' => 'App Support',
                             'route' => 'help.pemrograman.skema-main-menu.app-support',
                         ],
+                        [
+                            'title' => 'Notifikasi System',
+                            'route' => 'help.pemrograman.skema.notification',
+                        ],
                     ],
                 ],
                 [
@@ -112,6 +116,10 @@ return [
                         [
                             'title' => 'App Support',
                             'route' => 'help.pemrograman.operasional.app-support',
+                        ],
+                        [
+                            'title' => 'Notifikasi System',
+                            'route' => 'help.pemrograman.operasional.notification',
                         ],
                     ],
                 ],

@@ -216,6 +216,18 @@
                                 </div>
                             </a>
                         </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <a href="{{ route('help.pemrograman.skema.notification') }}" class="card card-flush h-100 bg-light-danger">
+                                <div class="card-body d-flex align-items-start gap-3 py-4">
+                                    <i class="ki-duotone ki-notification-status fs-2hx text-danger flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                    <div>
+                                        <h3 class="mb-1 fs-4">Notifikasi System</h3>
+                                        <p class="text-gray-700 fs-7 mb-0">Skema & Arsitektur pencacahan notifikasi lonceng topbar, pulsing red badge counter, dan dropdown popup 3-tab.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
 
                     <!--====================================================-->
@@ -323,6 +335,18 @@
                                     <div>
                                         <h3 class="mb-1 fs-4">App Support</h3>
                                         <p class="text-gray-700 fs-7 mb-0">Panduan operasional Menu Dinamis, App Profil, Feature Toggle, Backup DB, dan Data Login Audit Log.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <a href="{{ route('help.pemrograman.operasional.notification') }}" class="card card-flush h-100 bg-light-danger">
+                                <div class="card-body d-flex align-items-start gap-3 py-4">
+                                    <i class="ki-duotone ki-notification-status fs-2hx text-danger flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                    <div>
+                                        <h3 class="mb-1 fs-4">Notifikasi System</h3>
+                                        <p class="text-gray-700 fs-7 mb-0">Panduan operasional penanganan peringatan lonceng, mark-as-read, dan audit trail riwayat login topbar.</p>
                                     </div>
                                 </div>
                             </a>

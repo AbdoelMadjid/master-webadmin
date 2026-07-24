@@ -31,6 +31,7 @@ return [
                         ['title' => 'Skema i18n Lanjutan', 'route' => 'help.pemrograman.skema.i18n-lanjutan'],
                         ['title' => 'Manajemen Pengguna', 'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna'],
                         ['title' => 'App Support', 'route' => 'help.pemrograman.skema-main-menu.app-support'],
+                        ['title' => 'Notifikasi System', 'route' => 'help.pemrograman.skema.notification'],
                     ],
                 ],
                 [
@@ -44,6 +45,7 @@ return [
                         ['title' => 'Playbook Incident Response', 'route' => 'help.pemrograman.operasional.playbook-incident-response'],
                         ['title' => 'Manajemen Pengguna', 'route' => 'help.pemrograman.operasional.manajemen-pengguna'],
                         ['title' => 'App Support', 'route' => 'help.pemrograman.operasional.app-support'],
+                        ['title' => 'Notifikasi System', 'route' => 'help.pemrograman.operasional.notification'],
                     ],
                 ],
             ],
