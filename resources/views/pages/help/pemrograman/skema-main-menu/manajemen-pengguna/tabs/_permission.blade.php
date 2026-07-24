@@ -1,3 +1,103 @@
+@if(app()->getLocale() == 'en')
+<div class="schema-grid">
+    <!--====================================================-->
+    <!-- 1. BATCH VS SINGLE PERMISSION MODE COMPARISON -->
+    <!--====================================================-->
+    <div class="schema-col-12 mb-4">
+        <div class="schema-card border-start border-4 border-warning">
+            <h4><i class="ki-duotone ki-flash fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Permission Creation Modes Comparison</h4>
+            <div class="row g-4 mt-1">
+                <div class="col-md-6">
+                    <div class="p-4 rounded bg-light-warning border border-warning border-opacity-25 h-100">
+                        <h5 class="fw-bold text-gray-900 mb-2">⚡ 1. CRUD Module (Batch / Practical)</h5>
+                        <p class="fs-7 text-gray-700 mb-2">
+                            <strong>Goal:</strong> Generate all basic access rights for a new module in a single instant save.
+                        </p>
+                        <p class="fs-7 text-gray-700 mb-0">
+                            <strong>Automated Output:</strong> Simply type a module name (e.g. <code>transactions</code>), and the system automatically generates 4 permissions: <code>create transactions</code>, <code>read transactions</code>, <code>update transactions</code>, <code>delete transactions</code>.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 rounded bg-light-primary border border-primary border-opacity-25 h-100">
+                        <h5 class="fw-bold text-gray-900 mb-2">🔑 2. Single Permission (Custom)</h5>
+                        <p class="fs-7 text-gray-700 mb-2">
+                            <strong>Goal:</strong> Create a single specialized permission outside standard CRUD actions.
+                        </p>
+                        <p class="fs-7 text-gray-700 mb-0">
+                            <strong>Usage Example:</strong> <code>export-excel transactions</code>, <code>approve reset-password</code>, <code>impersonate users</code>, <code>print-pdf report</code>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--====================================================-->
+    <!-- 2. 1 MODULE 1 ROW TABLE ARCHITECTURE -->
+    <!--====================================================-->
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-key fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Grouping Table 1 Module 1 Row (<code>PermissionController</code>)</h4>
+            <pre class="schema-code"><code>// PermissionController@index
+$modules = $allPermissions->groupBy(function ($perm) {
+    $parts = explode(' ', $perm->name, 2);
+    return count($parts) === 2 ? strtolower($parts[1]) : strtolower($perm->name);
+})->map(function ($group, $moduleName) {
+    return (object) [
+        'module_name' => $moduleName,
+        'actions'     => $group->map(...),
+        'roles'       => $group->pluck('roles')->flatten()->pluck('name')->unique(),
+        'total_perms' => $group->count(),
+    ];
+});</code></pre>
+            <div class="schema-note mt-3">
+                All permissions are grouped by <code>module_name</code> so the table displays 1 module per row with inline CRUD action badges.
+            </div>
+        </div>
+    </div>
+
+    <!--====================================================-->
+    <!-- 3. UI BADGES & ACTION COLORS -->
+    <!--====================================================-->
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-color-swatch fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Metronic Action Badge Color Scheme</h4>
+            <div class="schema-flow">
+                <div class="schema-step">
+                    <strong><code>CREATE</code></strong> -> Badge <code>badge-light-success</code> (Green)
+                </div>
+                <div class="schema-step">
+                    <strong><code>READ</code></strong> -> Badge <code>badge-light-info</code> (Cyan)
+                </div>
+                <div class="schema-step">
+                    <strong><code>UPDATE</code></strong> -> Badge <code>badge-light-warning</code> (Yellow)
+                </div>
+                <div class="schema-step">
+                    <strong><code>DELETE</code></strong> -> Badge <code>badge-light-danger</code> (Red)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--====================================================-->
+    <!-- 4. SMART ROLE FILTER & BATCH ACTIONS -->
+    <!--====================================================-->
+    <div class="schema-col-12 mt-4">
+        <div class="schema-card border-start border-4 border-primary">
+            <h4><i class="ki-duotone ki-setting-2 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Batch Module Edit & Delete Features</h4>
+            <p class="fs-7 text-gray-700">
+                Admins can update or delete all access rights of an entire module instantly in one click:
+            </p>
+            <pre class="schema-code"><code>// Route API Batch Module
+Route::post('permissions/batch', [PermissionController::class, 'storeBatch'])->name('permissions.store-batch');
+Route::get('permissions/module/{module}', [PermissionController::class, 'getModuleData'])->name('permissions.module-data');
+Route::post('permissions/module-update', [PermissionController::class, 'updateModule'])->name('permissions.module-update');
+Route::delete('permissions/module/{module}', [PermissionController::class, 'destroyModule'])->name('permissions.module-destroy');</code></pre>
+        </div>
+    </div>
+</div>
+@else
 <div class="schema-grid">
     <!--====================================================-->
     <!-- 1. PERBEDAAAN MODUL CRUD BATCH VS SINGLE PERMISSION -->
@@ -96,3 +196,4 @@ Route::delete('permissions/module/{module}', [PermissionController::class, 'dest
         </div>
     </div>
 </div>
+@endif

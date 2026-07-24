@@ -198,8 +198,8 @@
                                 <div class="card-body d-flex align-items-start gap-3 py-4">
                                     <i class="ki-duotone ki-element-11 fs-2hx text-success flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                     <div>
-                                        <h3 class="mb-1 fs-4">App Support</h3>
-                                        <p class="text-gray-700 fs-7 mb-0">Skema & Arsitektur Menu Dinamis, App Profil, App Fitur (Feature Flag), Backup DB, dan Data Login.</p>
+                                        <h3 class="mb-1 fs-4">{{ __('help.app_support') }}</h3>
+                                        <p class="text-gray-700 fs-7 mb-0">{!! __('help.app_support_skema_desc') !!}</p>
                                     </div>
                                 </div>
                             </a>
@@ -210,8 +210,8 @@
                                 <div class="card-body d-flex align-items-start gap-3 py-4">
                                     <i class="ki-duotone ki-key fs-2hx text-primary flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
                                     <div>
-                                        <h3 class="mb-1 fs-4">Manajemen Pengguna</h3>
-                                        <p class="text-gray-700 fs-7 mb-0">Skema & Arsitektur User, Role, Permission (1 Modul 1 Baris), Akses Role, Akses User, dan Reset Password.</p>
+                                        <h3 class="mb-1 fs-4">{{ __('help.manajemen_pengguna') }}</h3>
+                                        <p class="text-gray-700 fs-7 mb-0">{!! __('help.manajemen_pengguna_skema_desc') !!}</p>
                                     </div>
                                 </div>
                             </a>
@@ -222,8 +222,8 @@
                                 <div class="card-body d-flex align-items-start gap-3 py-4">
                                     <i class="ki-duotone ki-notification-status fs-2hx text-danger flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                     <div>
-                                        <h3 class="mb-1 fs-4">Notifikasi System</h3>
-                                        <p class="text-gray-700 fs-7 mb-0">Skema & Arsitektur pencacahan notifikasi lonceng topbar, pulsing red badge counter, dan dropdown popup 3-tab.</p>
+                                        <h3 class="mb-1 fs-4">{{ __('help.notifikasi_system') }}</h3>
+                                        <p class="text-gray-700 fs-7 mb-0">{!! __('help.notifikasi_system_skema_desc') !!}</p>
                                     </div>
                                 </div>
                             </a>
@@ -321,8 +321,8 @@
                                 <div class="card-body d-flex align-items-start gap-3 py-4">
                                     <i class="ki-duotone ki-profile-user fs-2hx text-primary flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                     <div>
-                                        <h3 class="mb-1 fs-4">Manajemen Pengguna</h3>
-                                        <p class="text-gray-700 fs-7 mb-0">Panduan alur pemrograman & operasional Avatar, Sistem Reward Poin Harian, dan Idle Logout 15 Menit.</p>
+                                        <h3 class="mb-1 fs-4">{{ __('help.manajemen_pengguna') }}</h3>
+                                        <p class="text-gray-700 fs-7 mb-0">{!! __('help.manajemen_pengguna_operasional_desc') !!}</p>
                                     </div>
                                 </div>
                             </a>
@@ -333,8 +333,8 @@
                                 <div class="card-body d-flex align-items-start gap-3 py-4">
                                     <i class="ki-duotone ki-element-11 fs-2hx text-success flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                     <div>
-                                        <h3 class="mb-1 fs-4">App Support</h3>
-                                        <p class="text-gray-700 fs-7 mb-0">Panduan operasional Menu Dinamis, App Profil, Feature Toggle, Backup DB, dan Data Login Audit Log.</p>
+                                        <h3 class="mb-1 fs-4">{{ __('help.app_support') }}</h3>
+                                        <p class="text-gray-700 fs-7 mb-0">{!! __('help.app_support_operasional_desc') !!}</p>
                                     </div>
                                 </div>
                             </a>
@@ -345,8 +345,8 @@
                                 <div class="card-body d-flex align-items-start gap-3 py-4">
                                     <i class="ki-duotone ki-notification-status fs-2hx text-danger flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                     <div>
-                                        <h3 class="mb-1 fs-4">Notifikasi System</h3>
-                                        <p class="text-gray-700 fs-7 mb-0">Panduan operasional penanganan peringatan lonceng, mark-as-read, dan audit trail riwayat login topbar.</p>
+                                        <h3 class="mb-1 fs-4">{{ __('help.notifikasi_system') }}</h3>
+                                        <p class="text-gray-700 fs-7 mb-0">{!! __('help.notifikasi_system_operasional_desc') !!}</p>
                                     </div>
                                 </div>
                             </a>

@@ -64,4 +64,19 @@
    - In Bootstrap 5, elements with `data-bs-toggle="modal"` cannot hold `data-bs-toggle="tooltip"` on the same HTML tag due to plugin attribute collision.
    - Wrap modal trigger icon buttons inside a `<span data-bs-toggle="tooltip" data-bs-placement="top" title="...">` wrapper element so that both top tooltips and modal triggers function smoothly.
 
+# Rules for Bilingual Help & Documentation Pages
+
+1. **Mandatory 100% Bilingual Support**:
+   - Every Help/Documentation page, tab, sub-tab, card, table, list item, and code description MUST support both English and Indonesian locales (`en` and `id`).
+   - When the active locale is set to English (`en`), NO Indonesian text should remain visible in either the menu navigation or the view/tab content.
+
+2. **Bilingual Blade Template Pattern**:
+   - For rich documentation views and tab partials, wrap content using `@if(app()->getLocale() == 'en') ... @else ... @endif` conditional blocks to maintain clean HTML layout formatting, cards, tables, and code snippets.
+   - For UI labels, hero titles, lead texts, and card headers, use Laravel translation keys (e.g., `__('help.pages.skema.manajemen-pengguna.hero_title')`).
+
+3. **Menu Item Translation Keys**:
+   - Ensure menu items configured in `config/sidebar/_sidebar_helps.php` and `config/header/_header_help.php` have exact corresponding translation key mappings in both `lang/en/menu.php` and `lang/id/menu.php` (e.g., `'manajemen_pengguna' => 'User Management'`).
+   - Avoid mapping Indonesian keys to Indonesian text in `lang/en/menu.php`.
+
+
 

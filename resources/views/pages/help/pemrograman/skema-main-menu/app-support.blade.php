@@ -33,10 +33,10 @@
             <div class="schema-shell">
                 <!--begin::Hero-->
                 <div class="schema-hero mb-6">
-                    <span class="schema-pill">Skema Main Menu > App Support</span>
-                    <h2 class="fw-bold">Skema & Arsitektur Modul App Support</h2>
+                    <span class="schema-pill">{{ __('help.skema') }} > {{ __('help.app_support') }}</span>
+                    <h2 class="fw-bold">{{ __('help.pages.skema.app-support.hero_title') }}</h2>
                     <p class="schema-lead">
-                        Penjelasan arsitektur data, alur controller, dan skema pemrograman untuk seluruh sub-modul App Support: Menu Dinamis, App Profil, App Fitur (Feature Flag), Backup DB, dan Data Login.
+                        {{ __('help.pages.skema.app-support.hero_lead') }}
                     </p>
                 </div>
                 <!--end::Hero-->
@@ -47,28 +47,28 @@
                         <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold flex-wrap gap-2" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link text-active-primary py-3 me-4 {{ $activeTab == 'menu' ? 'active' : '' }}" href="{{ $currentUrl }}?tab=menu">
-                                    <i class="ki-duotone ki-element-11 fs-3 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> Menu Dinamis
-                                </a>
+                                     <i class="ki-duotone ki-element-11 fs-3 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> {{ __('menu.menu_dinamis') }}
+                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-active-primary py-3 me-4 {{ $activeTab == 'app-profil' ? 'active' : '' }}" href="{{ $currentUrl }}?tab=app-profil">
-                                    <i class="ki-duotone ki-picture fs-3 me-2"><span class="path1"></span><span class="path2"></span></i> App Profil
-                                </a>
+                                     <i class="ki-duotone ki-picture fs-3 me-2"><span class="path1"></span><span class="path2"></span></i> {{ __('menu.app_profil') }}
+                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-active-primary py-3 me-4 {{ $activeTab == 'app-fitur' ? 'active' : '' }}" href="{{ $currentUrl }}?tab=app-fitur">
-                                    <i class="ki-duotone ki-toggle-on fs-3 me-2"><span class="path1"></span><span class="path2"></span></i> App Fitur
-                                </a>
+                                     <i class="ki-duotone ki-toggle-on fs-3 me-2"><span class="path1"></span><span class="path2"></span></i> {{ __('menu.app_fitur') }}
+                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-active-primary py-3 me-4 {{ $activeTab == 'backup-db' ? 'active' : '' }}" href="{{ $currentUrl }}?tab=backup-db">
-                                    <i class="ki-duotone ki-cloud-add fs-3 me-2"><span class="path1"></span><span class="path2"></span></i> Backup DB
-                                </a>
+                                     <i class="ki-duotone ki-cloud-add fs-3 me-2"><span class="path1"></span><span class="path2"></span></i> {{ __('menu.backup_db') }}
+                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-active-primary py-3 me-4 {{ $activeTab == 'data-login' ? 'active' : '' }}" href="{{ $currentUrl }}?tab=data-login">
-                                    <i class="ki-duotone ki-chart-line fs-3 me-2"><span class="path1"></span><span class="path2"></span></i> Data Login
-                                </a>
+                                     <i class="ki-duotone ki-chart-line fs-3 me-2"><span class="path1"></span><span class="path2"></span></i> {{ __('menu.data_login') }}
+                                 </a>
                             </li>
                         </ul>
                     </div>

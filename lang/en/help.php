@@ -953,6 +953,46 @@ return [
     'skema_theme_assets' => 'Theme Assets Schema',
     'skema_theme_assets_desc' => 'Global and page-specific asset load order to keep the Metronic UI stable, lightweight, and maintainable.',
     'workflow_developer_harian' => 'Daily Developer Workflow',
+    'app_support' => 'App Support',
+    'manajemen_pengguna' => 'User Management',
+    'notifikasi_system' => 'System Notifications',
+    'app_support_skema_desc' => 'Schema & Architecture of Dynamic Menu, App Profile, App Feature Flags, DB Backup, and Data Login.',
+    'app_support_operasional_desc' => 'Operational guide for Dynamic Menu, App Profile, Feature Toggle, DB Backup, and Data Login Audit Log.',
+    'manajemen_pengguna_skema_desc' => 'Schema & Architecture of User, Role, Permission (1 Module 1 Row), Role Access, User Access, and Password Reset.',
+    'manajemen_pengguna_operasional_desc' => 'Operational guide for Avatar workflow, Daily Reward Points System, and 15-Minute Idle Logout.',
+    'notifikasi_system_skema_desc' => 'Schema & Architecture of topbar bell notification counting, pulsing red badge counter, and 3-tab popup dropdown.',
+    'notifikasi_system_operasional_desc' => 'Operational guide for handling bell alerts, mark-as-read, and topbar login history audit trail.',
+
+    // Pages - Skema & Operasional Notification
+    'pages.skema.notification.hero_title' => 'Topbar Notifications Schema & Architecture',
+    'pages.skema.notification.hero_lead' => 'Explanation of real-time notification counting architecture, pulsing red badge counter animation-blink, and 3-tab popup dropdown (Warnings, Announcements, Logs).',
+    'pages.skema.notification.card_1_title' => 'Header Trigger & Red Badge Counter',
+    'pages.skema.notification.card_1_note' => 'Notification counts are combined automatically from two main tables without impacting database queries via safe try-catch checks.',
+    'pages.skema.notification.card_2_title' => 'Dropdown Popup & Tab Layout',
+    'pages.skema.notification.card_2_note' => 'The dropdown menu is rendered responsively using Metronic Menu components (data-kt-menu="true").',
+    'pages.skema.notification.card_3_title' => 'Mark As Read Flow & Automatic Redirection',
+    'pages.skema.notification.card_3_lead' => 'When Admin clicks a notification item on the Warnings tab, the system executes status updates and page redirects:',
+    'pages.skema.notification.card_3_sub_a' => 'A. New Account Registration Item',
+    'pages.skema.notification.card_3_sub_b' => 'B. Password Reset Request Item',
+    'pages.skema.notification.card_4_title' => 'Topbar Notifications File Recapitulation',
+
+    'pages.operasional.notification.hero_title' => 'System Notifications Operational Guide & Workflow',
+    'pages.operasional.notification.hero_lead' => 'Complete guide for handling incoming alerts, resolving password reset requests, approving public user registrations, and monitoring login audit trails on the topbar bell menu.',
+    'pages.operasional.notification.sec_1_title' => '1. New Account Registration Alert Operations',
+    'pages.operasional.notification.sec_2_title' => '2. Password Reset Request Operations (Mark As Read)',
+    'pages.operasional.notification.sec_3_title' => '3. Login Audit Trail Monitoring (Logs Tab)',
+
+    // Pages - Skema & Operasional Manajemen Pengguna
+    'pages.skema.manajemen-pengguna.hero_title' => 'User Management Schema & Architecture',
+    'pages.skema.manajemen-pengguna.hero_lead' => 'Explanation of data architecture, controller flow, and programming blueprint for all User Management sub-modules: User, Role, Permission, Role Access, User Access, and Password Reset.',
+    'pages.operasional.manajemen-pengguna.hero_title' => 'User Management Operational Guide & Workflow',
+    'pages.operasional.manajemen-pengguna.hero_lead' => 'Operational guide and workflow for user management, role & permission access control, password reset, registration approval, avatars, and reward points.',
+
+    // Pages - Skema & Operasional App Support
+    'pages.skema.app-support.hero_title' => 'App Support Module Schema & Architecture',
+    'pages.skema.app-support.hero_lead' => 'Explanation of data architecture, controller flow, and programming blueprint for all App Support sub-modules: Dynamic Menu, App Profile, Feature Flags, Database Backup, and Login Data.',
+    'pages.operasional.app-support.hero_title' => 'App Support Operational Guide & Workflow',
+    'pages.operasional.app-support.hero_lead' => 'Operational guide and workflow for app menu management, app profile identity, feature flags, DB backup export/restore, and login data audit trails.',
 ];
 
 

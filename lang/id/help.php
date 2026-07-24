@@ -953,6 +953,46 @@ return [
     'skema_theme_assets' => 'Skema Aset Tema',
     'skema_theme_assets_desc' => 'Urutan load asset global dan page-specific agar UI Metronic stabil, ringan, dan mudah dirawat.',
     'workflow_developer_harian' => 'Workflow Developer Harian',
+    'app_support' => 'App Support',
+    'manajemen_pengguna' => 'Manajemen Pengguna',
+    'notifikasi_system' => 'Notifikasi System',
+    'app_support_skema_desc' => 'Skema & Arsitektur Menu Dinamis, App Profil, App Fitur (Feature Flag), Backup DB, dan Data Login.',
+    'app_support_operasional_desc' => 'Panduan operasional Menu Dinamis, App Profil, Feature Toggle, Backup DB, dan Data Login Audit Log.',
+    'manajemen_pengguna_skema_desc' => 'Skema & Arsitektur User, Role, Permission (1 Modul 1 Baris), Akses Role, Akses User, dan Reset Password.',
+    'manajemen_pengguna_operasional_desc' => 'Panduan alur pemrograman & operasional Avatar, Sistem Reward Poin Harian, dan Idle Logout 15 Menit.',
+    'notifikasi_system_skema_desc' => 'Skema & Arsitektur pencacahan notifikasi lonceng topbar, pulsing red badge counter, dan dropdown popup 3-tab.',
+    'notifikasi_system_operasional_desc' => 'Panduan operasional penanganan peringatan lonceng, mark-as-read, dan audit trail riwayat login topbar.',
+
+    // Pages - Skema & Operasional Notification
+    'pages.skema.notification.hero_title' => 'Skema & Arsitektur Notifikasi Topbar',
+    'pages.skema.notification.hero_lead' => 'Penjelasan arsitektur pencacahan notifikasi real-time, lencana lonceng berkedip (red badge counter animation-blink), serta dropdown popup 3-tab (Peringatan, Pengumuman, Logs).',
+    'pages.skema.notification.card_1_title' => 'Header Trigger & Red Badge Counter',
+    'pages.skema.notification.card_1_note' => 'Pencacahan digabung secara otomatis dari dua tabel utama tanpa membebankan query database via pengecekan aman try-catch.',
+    'pages.skema.notification.card_2_title' => 'Dropdown Popup & Tab Layout',
+    'pages.skema.notification.card_2_note' => 'Menu disajikan secara responsif menggunakan komponen Metronic Menu (data-kt-menu="true").',
+    'pages.skema.notification.card_3_title' => 'Alur Tandai Dibaca (Mark As Read) & Redireksi Otomatis',
+    'pages.skema.notification.card_3_lead' => 'Saat Admin mengklik item notifikasi pada tab Peringatan, sistem mengeksekusi alur pembaruan status dan pengalihan halaman:',
+    'pages.skema.notification.card_3_sub_a' => 'A. Item Pendaftaran Akun Baru',
+    'pages.skema.notification.card_3_sub_b' => 'B. Item Permintaan Reset Password',
+    'pages.skema.notification.card_4_title' => 'Rekapitulasi Berkas Notifikasi Topbar',
+
+    'pages.operasional.notification.hero_title' => 'Panduan Operasional & Workflow Notifikasi System',
+    'pages.operasional.notification.hero_lead' => 'Panduan lengkap penanganan peringatan masuk, penyelesaian permohonan reset password, persetujuan pendaftaran akun publik, serta audit trail riwayat login pada menu lonceng topbar.',
+    'pages.operasional.notification.sec_1_title' => '1. Operasional Peringatan Pendaftaran Akun Baru',
+    'pages.operasional.notification.sec_2_title' => '2. Operasional Permintaan Reset Password (Mark As Read)',
+    'pages.operasional.notification.sec_3_title' => '3. Pemantauan Audit Trail Login (Tab Logs)',
+
+    // Pages - Skema & Operasional Manajemen Pengguna
+    'pages.skema.manajemen-pengguna.hero_title' => 'Skema & Arsitektur Modul Manajemen Pengguna',
+    'pages.skema.manajemen-pengguna.hero_lead' => 'Penjelasan arsitektur data, alur controller, dan skema pemrograman untuk seluruh sub-modul Manajemen Pengguna: User, Role, Permission, Akses Role, Akses User, dan Reset Password.',
+    'pages.operasional.manajemen-pengguna.hero_title' => 'Panduan Operasional & Workflow Manajemen Pengguna',
+    'pages.operasional.manajemen-pengguna.hero_lead' => 'Panduan operasional dan alur kerja pengelolaan pengguna, hak akses role & permission, reset password, persetujuan pendaftaran, avatar, dan poin reward.',
+
+    // Pages - Skema & Operasional App Support
+    'pages.skema.app-support.hero_title' => 'Skema & Arsitektur Modul App Support',
+    'pages.skema.app-support.hero_lead' => 'Penjelasan arsitektur data, alur controller, dan skema pemrograman untuk seluruh sub-modul App Support: Menu Dinamis, App Profil, Feature Flags, Backup Database, dan Data Login.',
+    'pages.operasional.app-support.hero_title' => 'Panduan Operasional & Workflow App Support',
+    'pages.operasional.app-support.hero_lead' => 'Panduan operasional dan alur kerja pengelolaan menu aplikasi, identitas profil app, sakelar fitur (feature flags), ekspor/restore backup DB, dan pemantauan data login.',
 ];
 
 
