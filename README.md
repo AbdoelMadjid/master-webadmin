@@ -27,7 +27,6 @@ Repository:
 - [Tutorial Singkat Skema Pemrograman](#tutorial-singkat-skema-pemrograman)
 - [Akses dari aplikasi](#akses-dari-aplikasi)
 - [Materi inti (sesuai menu sidebar)](#materi-inti-sesuai-menu-sidebar)
-- [Materi skema main menu](#materi-skema-main-menu)
 - [Materi operasional](#materi-operasional)
 - [Referensi file konfigurasi menu](#referensi-file-konfigurasi-menu)
 - [Validasi cepat route help](#validasi-cepat-route-help)
@@ -488,49 +487,10 @@ Seluruh daftar di bawah diselaraskan dengan route help:
     <tr><td>Skema Cache & Deployment</td><td>Strategi cache command dan urutan deploy yang minim risiko.</td><td><code>/help/pemrograman/skema/cache-dan-deployment</code></td><td><a href="./docs/skema-pemrograman/skema/cache-dan-deployment.md">cache-dan-deployment.md</a></td></tr>
     <tr><td>Skema Pemilihan Bahasa</td><td>Switch locale berbasis session dan dampaknya ke translasi UI.</td><td><code>/help/pemrograman/skema/pemilihan-bahasa</code></td><td><a href="./docs/skema-pemrograman/skema/pemilihan-bahasa.md">pemilihan-bahasa.md</a></td></tr>
     <tr><td>Skema i18n Lanjutan</td><td>Standar key translasi, fallback, dan governance i18n tim.</td><td><code>/help/pemrograman/skema/i18n-lanjutan</code></td><td><a href="./docs/skema-pemrograman/skema/i18n-lanjutan.md">i18n-lanjutan.md</a></td></tr>
+    <tr><td>Manajemen Pengguna</td><td>Arsitektur pengelolaan Role, Permission, Akses Role, Akses User, User CRUD, dan Reset Password.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna</code></td><td>-</td></tr>
+    <tr><td>App Support</td><td>Arsitektur Menu Dinamis, App Profil, App Fitur (Feature Toggle), Backup DB, dan Data Login.</td><td><code>/help/pemrograman/skema-main-menu/app-support</code></td><td>-</td></tr>
     <tr><td>Skema Notifikasi System</td><td>Arsitektur notifikasi topbar bell & popup dropdown, red badge counter, 3 tab layout (Alerts, Updates, Logs), serta mark as read flow.</td><td><code>/help/pemrograman/skema/notification</code></td><td><a href="./docs/skema-pemrograman/skema/notification.md">notification.md</a></td></tr>
     <tr><td>Skema SweetAlert2</td><td>Penggunaan helper JavaScript global <code>SwalHelper</code> (success toast/modal, general error, 422 XHR validation, confirm delete).</td><td><code>/help/pemrograman/skema/sweetalert2</code></td><td><a href="./docs/skema-pemrograman/skema/sweetalert2.md">sweetalert2.md</a></td></tr>
-  </tbody>
-</table>
-
-<div align="right"><a href="#table-of-contents" title="Back to Table of Contents">&#8679;</a></div>
-
-### Materi skema main menu
-
-#### App Support
-<table>
-  <thead>
-    <tr>
-      <th width="35%">Judul</th>
-      <th width="45%">Keterangan</th>
-      <th width="20%">URL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>Menu</td><td>Arsitektur manajemen menu dinamis, pengurutan hirarki drag & drop, dan sinkronisasi permission otomatis.</td><td><code>/help/pemrograman/skema-main-menu/app-support/menu</code></td></tr>
-    <tr><td>App Profil</td><td>Arsitektur identitas aplikasi, manajemen logo (Logo Utama, Logo Kotak, Favicon), dan Form Request Validation.</td><td><code>/help/pemrograman/skema-main-menu/app-support/app-profil</code></td></tr>
-    <tr><td>App Fitur</td><td>Arsitektur Feature Toggle (Feature Flags), sakelar status fitur, dan helper global <code>isFeatureActive()</code>.</td><td><code>/help/pemrograman/skema-main-menu/app-support/app-fitur</code></td></tr>
-    <tr><td>Backup DB</td><td>Mekanisme ekspor dump SQL, lokasi direktori terproteksi, serta prosedur restore dan hapus cadangan database.</td><td><code>/help/pemrograman/skema-main-menu/app-support/backup-db</code></td></tr>
-    <tr><td>Data Login</td><td>Arsitektur pencatatan riwayat login, frekuensi login harian (<code>login_count</code>), reward poin, dan widget user aktif 15 menit.</td><td><code>/help/pemrograman/skema-main-menu/app-support/data-login</code></td></tr>
-  </tbody>
-</table>
-
-#### Manajemen Pengguna
-<table>
-  <thead>
-    <tr>
-      <th width="35%">Judul</th>
-      <th width="45%">Keterangan</th>
-      <th width="20%">URL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td>Role</td><td>Arsitektur pengelolaan Role pengguna, integrasi Spatie Permission, dan modal matriks CRUD tanpa scroll horizontal.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/role</code></td></tr>
-    <tr><td>Permission</td><td>Arsitektur ekstraksi aksi CRUD, visualisasi badge warna-warni, dropdown filter role (opsi All), dan tombol reset filter.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/permission</code></td></tr>
-    <tr><td>Akses Role</td><td>Arsitektur matriks hak akses per role, filter pencarian modul on-the-fly, kontrol toggle per baris, dan sync real-time.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/akses-role</code></td></tr>
-    <tr><td>Akses User</td><td>Arsitektur hak akses per user, pewarisan izin Spatie (Direct vs Role permissions), dan indikator badge Mengikuti Role.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/akses-user</code></td></tr>
-    <tr><td>User</td><td>Arsitektur pengelolaan akun pengguna (CRUD), penanganan upload avatar profil, hashing password, dan penugasan role.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/user</code></td></tr>
-    <tr><td>Reset Password</td><td>Arsitektur permintaan reset password (/forgot-password), pemicuan Notifikasi Peringatan Header & Red Badge Counter, serta reset password default <code>Password!12345</code>.</td><td><code>/help/pemrograman/skema-main-menu/manajemen-pengguna/reset-password</code></td></tr>
   </tbody>
 </table>
 
