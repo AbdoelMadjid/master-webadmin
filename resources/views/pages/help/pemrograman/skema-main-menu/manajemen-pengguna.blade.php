@@ -13,7 +13,7 @@
             {{ __('help.skema_pemrograman') }}
         @endslot
         @slot('li_3')
-            Operasional > Manajemen Pengguna
+            Skema Main Menu > Manajemen Pengguna
         @endslot
     @endcomponent
 @endsection
@@ -33,10 +33,10 @@
             <div class="schema-shell">
                 <!--begin::Hero-->
                 <div class="schema-hero mb-6">
-                    <span class="schema-pill">Operasional & Technical Guide > Manajemen Pengguna</span>
-                    <h2 class="fw-bold">Panduan Operasional Fitur Manajemen Pengguna</h2>
+                    <span class="schema-pill">Skema Main Menu > Manajemen Pengguna</span>
+                    <h2 class="fw-bold">Skema & Arsitektur Modul Manajemen Pengguna</h2>
                     <p class="schema-lead">
-                        Dokumentasi teknis dan panduan operasional lengkap untuk seluruh menu di bawah modul Manajemen Pengguna, meliputi User, Role, Permission, Akses Role, Akses User, dan Reset Password.
+                        Penjelasan arsitektur data, alur controller, dan skema pemrograman untuk seluruh sub-modul Manajemen Pengguna: User, Role, Permission, Akses Role, Akses User, dan Reset Password.
                     </p>
                 </div>
                 <!--end::Hero-->
@@ -81,7 +81,7 @@
                 <!--end::Sub-Menu Nav Tabs-->
 
                 <!--begin::Tab Content Inclusion-->
-                @include('pages.help.pemrograman.operasional.tabs._' . str_replace('-', '_', $activeTab))
+                @include('pages.help.pemrograman.skema-main-menu.manajemen-pengguna.tabs._' . str_replace('-', '_', $activeTab))
                 <!--end::Tab Content Inclusion-->
             </div>
         </div>

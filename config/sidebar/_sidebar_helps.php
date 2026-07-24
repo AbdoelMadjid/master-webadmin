@@ -68,64 +68,13 @@ return [
                             'title' => 'Skema i18n Lanjutan',
                             'route' => 'help.pemrograman.skema.i18n-lanjutan',
                         ],
-                    ],
-                ],
-                [
-                    'title' => 'Skema Main Menu',
-                    'children' => [
                         [
                             'title' => 'App Support',
-                            'children' => [
-                                [
-                                    'title' => 'Menu',
-                                    'route' => 'help.pemrograman.skema-main-menu.app-support.menu',
-                                ],
-                                [
-                                    'title' => 'App Profil',
-                                    'route' => 'help.pemrograman.skema-main-menu.app-support.app-profil',
-                                ],
-                                [
-                                    'title' => 'App Fitur',
-                                    'route' => 'help.pemrograman.skema-main-menu.app-support.app-fitur',
-                                ],
-                                [
-                                    'title' => 'Backup DB',
-                                    'route' => 'help.pemrograman.skema-main-menu.app-support.backup-db',
-                                ],
-                                [
-                                    'title' => 'Data Login',
-                                    'route' => 'help.pemrograman.skema-main-menu.app-support.data-login',
-                                ],
-                            ],
+                            'route' => 'help.pemrograman.skema-main-menu.app-support',
                         ],
                         [
                             'title' => 'Manajemen Pengguna',
-                            'children' => [
-                                [
-                                    'title' => 'Role',
-                                    'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna.role',
-                                ],
-                                [
-                                    'title' => 'Permission',
-                                    'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna.permission',
-                                ],
-                                [
-                                    'title' => 'Akses Role',
-                                    'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna.akses-role',
-                                ],
-                                [
-                                    'title' => 'Akses User',
-                                    'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna.akses-user',
-                                ],
-                                [
-                                    'title' => 'User',
-                                    'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna.user',
-                                ],
-                                [
-                                    'title' => 'Reset Password',
-                                    'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna.reset-password',
-                                ],
-                            ],
+                            'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna',
                         ],
                     ],
                 ],
@@ -139,10 +88,6 @@ return [
                         [
                             'title' => 'Panduan Tambah Menu',
                             'route' => 'help.pemrograman.operasional.panduan-tambah-menu',
-                        ],
-                        [
-                            'title' => 'Manajemen Pengguna',
-                            'route' => 'help.pemrograman.operasional.manajemen-pengguna',
                         ],
                         [
                             'title' => 'Konvensi Penamaan',
@@ -159,6 +104,14 @@ return [
                         [
                             'title' => 'Playbook Incident Response',
                             'route' => 'help.pemrograman.operasional.playbook-incident-response',
+                        ],
+                        [
+                            'title' => 'Manajemen Pengguna',
+                            'route' => 'help.pemrograman.operasional.manajemen-pengguna',
+                        ],
+                        [
+                            'title' => 'App Support',
+                            'route' => 'help.pemrograman.operasional.app-support',
                         ],
                     ],
                 ],

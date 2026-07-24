@@ -1,0 +1,308 @@
+<div class="schema-grid">
+    <!--====================================================-->
+    <!-- 1. ALUR FITUR AVATAR PENGGUNA -->
+    <!--====================================================-->
+    <div class="schema-col-12">
+        <div class="border-start border-4 border-primary ps-4 my-2">
+            <h3 class="fw-bold text-gray-900 mb-1">1. Penambahan & Pengelolaan Avatar Pengguna</h3>
+            <span class="text-muted fs-7">Alur pengunggahan gambar profil, enkapsulasi URL, dan fallback avatar otomatis.</span>
+        </div>
+    </div>
+
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-code fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Alur Pemrograman Avatar</h4>
+            <div class="schema-flow">
+                <div class="schema-step">
+                    <strong>Route & Controller:</strong> Form diubah via <code>POST /profil-pengguna/avatar</code> yang ditangani oleh <code>ProfilPenggunaController@updateAvatar</code>.
+                </div>
+                <div class="schema-step">
+                    <strong>Validasi File:</strong> File gambar diverifikasi dengan aturan <code>image|mimes:jpeg,png,jpg,gif,svg|max:2048</code> (maksimal 2MB).
+                </div>
+                <div class="schema-step">
+                    <strong>Penyimpanan:</strong> File fisik disimpan pada direktori <code>public/uploads/avatars/</code> dengan penamaan nama file unik berdasarkan timestamp dan ID user.
+                </div>
+                <div class="schema-step">
+                    <strong>Model Accessor:</strong> URL avatar diambil melalui accessor <code>$user->avatar_url</code> yang didukung oleh helper <code>getUserAvatarUrl($user)</code>.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-screen fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Operasional & Tampilan UI Avatar</h4>
+            <ul class="schema-list">
+                <li><strong>Halaman Profil:</strong> Pengguna dapat mengunggah atau mengganti foto avatar secara mandiri pada rute <code>/profil-pengguna</code>.</li>
+                <li><strong>TopBar & Dropdown Avatar:</strong> Foto profil dirender secara otomatis pada header kanan atas dan menu akun user.</li>
+                <li><strong>Tabel Data Login:</strong> Avatar user ditampilkan dalam bentuk simbol lingkaran (symbol circle) pada kolom <em>User / Pengguna</em> di rute <code>/appsupport/data-login</code>.</li>
+                <li><strong>Fallback SVG Initial:</strong> Jika pengguna belum mengunggah foto avatar, sistem secara otomatis menggenerate avatar initial huruf depan nama user (misal: "A" untuk Admin).</li>
+            </ul>
+            <div class="schema-note mt-4">
+                Avatar terintegrasi secara terpusat melalui accessor <code>$user->avatar_url</code> sehingga perubahan foto profil langsung terefleksi secara real-time di seluruh komponen layout.
+            </div>
+        </div>
+    </div>
+
+    <!--====================================================-->
+    <!-- 2. ALUR FITUR REWARD POIN USER -->
+    <!--====================================================-->
+    <div class="schema-col-12 mt-6">
+        <div class="border-start border-4 border-success ps-4 my-2">
+            <h3 class="fw-bold text-gray-900 mb-1">2. Penambahan & Akumulasi Poin Keaktifan User</h3>
+            <span class="text-muted fs-7">Arsitektur reward 1 poin harian, event listener login, dan rekonsiliasi histori.</span>
+        </div>
+    </div>
+
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-database fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Alur Pemrograman Poin & Logika Harian</h4>
+            <div class="schema-flow">
+                <div class="schema-step">
+                    <strong>Event & Listener:</strong> Setiap kali proses login berhasil, Laravel memicu event <code>Illuminate\Auth\Events\Login</code> yang ditangkap oleh listener <code>App\Listeners\LogUserLogin</code>.
+                </div>
+                <div class="schema-step">
+                    <strong>Pemeriksaan Hari (Calendar Date):</strong> Listener mengeksekusi pencarian <code>DataLogin::where('user_id', $user->id)->whereDate('login_at', $today)</code>.
+                </div>
+                <div class="schema-step">
+                    <strong>Kondisi Poin Baru:</strong> Jika belum ada rekaman login pada hari yang sama, sistem menambahkan log baru dan meng-increment <code>$user->increment('points', 1)</code>.
+                </div>
+                <div class="schema-step">
+                    <strong>Login Berulang di Hari Sama:</strong> Jika pengguna login kembali pada hari yang sama, sistem hanya meng-increment <code>login_count</code> pada baris log hari tersebut <em>tanpa menambahkan poin lagi</em>.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-chart-line fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Visualisasi Poin & Klasemen Dashboard</h4>
+            <ul class="schema-list">
+                <li><strong>Stat Card User Poin:</strong> Total saldo poin pengguna ditampilkan pada card summary di Dashboard dan Header Profil User.</li>
+                <li><strong>Widget Klasemen Keaktifan:</strong> Menampilkan peringkat pengguna aktif berdasar akumulasi poin login harian terbanyak.</li>
+                <li><strong>Proteksi Beralih Akun (Impersonasi):</strong> Listener secara cerdas mendeteksi sesi <code>impersonator_id</code> untuk mencegah penambahan poin palsu saat admin beralih akun.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!--====================================================-->
+    <!-- 3. KEAMANAN IDLE AUTO-LOGOUT 15 MENIT -->
+    <!--====================================================-->
+    <div class="schema-col-12 mt-6">
+        <div class="border-start border-4 border-danger ps-4 my-2">
+            <h3 class="fw-bold text-gray-900 mb-1">3. Keamanan Idle Auto-Logout (15 Menit Inaktivitas)</h3>
+            <span class="text-muted fs-7">Sistem pemantau inaktivitas client-side, middleware pelacak aktivitas terakhir, dan pengakhiran sesi otomatis.</span>
+        </div>
+    </div>
+
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-timer fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i> Alur Pemrograman Idle Timeout (15 Menit)</h4>
+            <div class="schema-flow">
+                <div class="schema-step">
+                    <strong>Client-Side Listener:</strong> Partial <code>resources/views/partials/_idle-timer.blade.php</code> dipasang secara global pada layout. Listener memantau interaksi user (<code>mousemove</code>, <code>keydown</code>, <code>scroll</code>, <code>click</code>).
+                </div>
+                <div class="schema-step">
+                    <strong>Batas Waktu (15 Mins):</strong> Pemantau menyetel timer inaktivitas selama <strong>15 menit (900.000 ms)</strong>. Setiap ada aktivitas user, timer di-reset kembali dari awal.
+                </div>
+                <div class="schema-step">
+                    <strong>Eksekusi Auto-Logout:</strong> Jika timer 15 menit habis tanpa aktivitas, skrip otomatis mengirimkan request <code>POST /logout</code> dengan parameter hidden <code>reason=idle</code>.
+                </div>
+                <div class="schema-step">
+                    <strong>Redirection & Alert:</strong> <code>AuthenticatedSessionController@destroy</code> menangkap parameter <code>reason=idle</code>, menghapus sesi, lalu melakukan <code>redirect()->route('login')->with('status', '...')</code>.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-security-user fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Tampilan & Operasional Keamanan Sesi</h4>
+            <ul class="schema-list">
+                <li><strong>Banner Peringatan Halaman Login:</strong> Saat dialihkan akibat idle timeout, halaman <code>/login</code> menampilkan banner peringatan <code>alert-warning</code> berwarna kuning yang menginfokan sesi telah habis akibat inaktivitas 15 menit.</li>
+                <li><strong>Sign Out Menu Avatar:</strong> Mengklik tombol <em>Sign Out</em> pada dropdown avatar user di kanan pojok atas secara konsisten akan langsung mengarahkan pengguna kembali ke halaman login.</li>
+                <li><strong>Tracking User Aktif Real-Time:</strong> Middleware <code>UpdateUserLastActivity</code> memperbarui timestamp <code>last_activity_at</code> user saat beraktivitas untuk menghitung data widget <strong>User Aktif (15 Mins)</strong> secara akurat.</li>
+            </ul>
+            <div class="schema-warn mt-4">
+                Fitur idle auto-logout 15 menit melindungi akun dari akses pihak yang tidak berwenang ketika komputer/gadget ditinggalkan oleh pengguna.
+            </div>
+        </div>
+    </div>
+
+    <!--====================================================-->
+    <!-- 4. ALUR FITUR IMPOR MASSAL EXCEL -->
+    <!--====================================================-->
+    <div class="schema-col-12 mt-6">
+        <div class="border-start border-4 border-info ps-4 my-2">
+            <h3 class="fw-bold text-gray-900 mb-1">4. Impor Massal Pengguna via Excel & Master Format (.xlsx)</h3>
+            <span class="text-muted fs-7">Sistem ekstraksi berkas spreadsheet PhpSpreadsheet, penjanaan template master, validasi duplikat, dan penugasan role otomatis.</span>
+        </div>
+    </div>
+
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-file-down fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Master Template Excel (.xlsx)</h4>
+            <ul class="schema-list">
+                <li><strong>Endpoint:</strong> <code>GET /manajemenpengguna/users/template</code> (<code>UserController@downloadTemplate</code>).</li>
+                <li><strong>Styling & Header:</strong> Menggunakan <code>PhpOffice\PhpSpreadsheet</code> dengan desain header tebal <code>#1E1E2D</code>.</li>
+                <li><strong>Struktur Kolom:</strong> <code>No</code>, <code>Nama Lengkap *</code>, <code>Email *</code>, <code>Password *</code>, <code>Role (opsional)</code>.</li>
+                <li><strong>Panduan Sampel:</strong> Dilengkapi 3 baris sampel otomatis & auto-fit lebar kolom.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-file-up fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Import Engine & Validasi Massal</h4>
+            <ul class="schema-list">
+                <li><strong>Endpoint:</strong> <code>POST /manajemenpengguna/users/import</code> (<code>UserController@import</code>).</li>
+                <li><strong>Format & Ukuran:</strong> Mendukung berkas <code>.xlsx</code>, <code>.xls</code>, <code>.csv</code> (maksimal 5MB).</li>
+                <li><strong>Pengecekan Duplikat:</strong> Memeriksa alamat email di database <code>users</code>. Jika sudah terdaftar, baris tersebut dilewati secara aman.</li>
+                <li><strong>Auto Role Sync:</strong> Membaca kolom role dan menugaskan role ke user baru secara otomatis.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!--====================================================-->
+    <!-- 5. ALUR MODE SWITCH USER (IMPERSONASI AKUN) -->
+    <!--====================================================-->
+    <div class="schema-col-12 mt-6">
+        <div class="border-start border-4 border-warning ps-4 my-2">
+            <h3 class="fw-bold text-gray-900 mb-1">5. Mode Switch User (Impersonasi Akun Tanpa Password)</h3>
+            <span class="text-muted fs-7">Fitur pengalihan akun tanpa login kata sandi, penyimpanan ID admin di sesi, dan pemulihan akun asli via dropdown avatar.</span>
+        </div>
+    </div>
+
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-switch fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Alur Beralih Akun (Impersonate)</h4>
+            <div class="schema-flow">
+                <div class="schema-step">
+                    <strong>Interaksi:</strong> Klik langsung nama user atau icon Switch (<i class="ki-duotone ki-switch"></i>) pada tabel <code>users.blade.php</code>.
+                </div>
+                <div class="schema-step">
+                    <strong>Endpoint & Sesi:</strong> <code>POST /manajemenpengguna/users/{id}/impersonate</code> menyimpan ID admin ke <code>session(['impersonator_id' => Auth::id()])</code> dan mengeksekusi <code>Auth::login($targetUser)</code>.
+                </div>
+                <div class="schema-step">
+                    <strong>Banner Indikator:</strong> Header aplikasi menampilkan banner khusus berwarna kuning bahwa Anda sedang dalam mode impersonasi.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-exit-right fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i> Alur Kembali ke Akun Asli (Leave Impersonate)</h4>
+            <div class="schema-flow">
+                <div class="schema-step">
+                    <strong>Interaksi:</strong> Klik tombol <em>Kembali ke Akun Utama</em> pada banner topbar atau menu profil avatar.
+                </div>
+                <div class="schema-step">
+                    <strong>Endpoint Pemulihan:</strong> <code>GET /manajemenpengguna/users/leave-impersonate</code> membaca ID asli dari <code>session('impersonator_id')</code>.
+                </div>
+                <div class="schema-step">
+                    <strong>Login Kembali Admin:</strong> <code>Auth::loginUsingId($originalId)</code> mengembalikan hak akses admin dan menghapus variabel sesi impersonasi.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--====================================================-->
+    <!-- 6. ALUR PENDAFTARAN PUBLIK & PERSETUJUAN ADMIN -->
+    <!--====================================================-->
+    <div class="schema-col-12 mt-6">
+        <div class="border-start border-4 border-primary ps-4 my-2">
+            <h3 class="fw-bold text-gray-900 mb-1">6. Pendaftaran Akun Publik & Persetujuan Admin (Approval System)</h3>
+            <span class="text-muted fs-7">Sistem verifikasi pendaftaran akun publik, status pending, notifikasi admin, dan auto penugasan role 'user'.</span>
+        </div>
+    </div>
+
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-user-plus fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Pendaftaran Publik (Form Register)</h4>
+            <div class="schema-flow">
+                <div class="schema-step">
+                    <strong>Form Register:</strong> Pendaftaran akun dari halaman publik <code>/register</code> dengan validasi password real-time dan toggle mata.
+                </div>
+                <div class="schema-step">
+                    <strong>Status Akun Pending:</strong> Pengguna yang mendaftar via web publik diberi <code>status = 'pending'</code> dan <strong>TIDAK langsung di-login-kan secara otomatis</strong>, melainkan dialihkan ke <code>/login</code> berpesan peringatan.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="schema-col-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-shield-tick fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Persetujuan Admin, Auto Role & Proteksi Login</h4>
+            <ul class="schema-list">
+                <li><strong>Notifikasi Header Admin:</strong> Notifikasi pendaftaran akun baru muncul pada dropdown notifikasi topbar (tab <em>Peringatan</em>) dan mengarahkan Admin/Master ke rute <code>/manajemenpengguna/users</code>.</li>
+                <li><strong>Persetujuan & Penolakan:</strong> Admin/Master dapat menekan tombol <strong>Setujui</strong> (<code>POST users/{id}/approve</code>) atau <strong>Tolak</strong> (<code>POST users/{id}/reject</code>) pada tabel pengguna.</li>
+                <li><strong>Penugasan Role 'User' Otomatis:</strong> Saat akun disetujui, sistem secara otomatis memberikan role <code>user</code> jika pengguna belum memiliki role.</li>
+                <li><strong>Proteksi Akun Unapproved:</strong> Akun berstatus <code>pending</code> atau <code>rejected</code> yang mencoba login akan ditolak pada <code>LoginRequest</code> dengan pesan notifikasi yang sesuai.</li>
+                <li><strong>Pengecualian:</strong> Akun yang dibuat langsung oleh Admin via Form Tambah User atau Import Massal Excel otomatis berstatus <code>approved</code> (langsung aktif).</li>
+            </ul>
+        </div>
+    </div>
+
+    <!--====================================================-->
+    <!-- 7. REKAPITULASI BERKAS & KOMPONEN TERKAIT -->
+    <!--====================================================-->
+    <div class="schema-col-12 mt-6">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-file-sheet fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Ringkasan Berkas & Komponen Terkait</h4>
+            <div class="table-responsive mt-3">
+                <table class="table table-row-dashed align-middle gy-3 fs-7">
+                    <thead>
+                        <tr class="fw-bold text-gray-700 bg-light">
+                            <th>Komponen Fitur</th>
+                            <th>File Berkas Utama</th>
+                            <th>Fungsi / Peran Pemrograman</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Registrasi Akun & Persetujuan Admin</strong></td>
+                            <td><code>RegisteredUserController.php</code><br><code>LoginRequest.php</code><br><code>UserController.php</code> (approve & reject)<br><code>register.blade.php</code></td>
+                            <td>Registrasi publik, toggle eye & validasi password real-time, notifikasi topbar admin ke rute <code>manajemenpengguna/users</code>, persetujuan admin + auto role <code>user</code>, dan proteksi login akun unapproved.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pengelolaan Avatar</strong></td>
+                            <td><code>ProfilPenggunaController.php</code><br><code>User.php</code> (getAvatarUrlAttribute)</td>
+                            <td>Menangani upload file avatar, validasi image, penyimpanan ke <code>public/uploads/avatars</code>, serta fungsi fallback SVG.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sistem Reward Poin</strong></td>
+                            <td><code>LogUserLogin.php</code><br><code>DataLogin.php</code></td>
+                            <td>Mendengar event login, memvalidasi perolehan 1 poin per-hari kalender, meng-increment <code>login_count</code> per hari, dan memperbarui saldo <code>user.points</code>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Idle Logout 15 Mins</strong></td>
+                            <td><code>_idle-timer.blade.php</code><br><code>UpdateUserLastActivity.php</code><br><code>AuthenticatedSessionController.php</code></td>
+                            <td>Skrip timer inaktivitas 15 menit, middleware update timestamp `last_activity_at`, dan pengalihan logout otomatis berpesan peringatan.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Upload Massal Excel</strong></td>
+                            <td><code>UserController.php</code> (import & downloadTemplate)<br><code>user-import-modal.blade.php</code></td>
+                            <td>Penjanaan master template (.xlsx) via PhpSpreadsheet, impor massal baris pengguna, validasi email duplikat, dan auto role sync.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Switch User (Impersonasi)</strong></td>
+                            <td><code>UserController.php</code> (impersonate & leaveImpersonate)<br><code>_user-account-menu.blade.php</code><br><code>LogUserLogin.php</code></td>
+                            <td>Masuk ke akun lain tanpa password via ID di sesi (<code>impersonator_id</code>), bypass listener reward poin/login count, dan pemulihan akun asli via dropdown avatar.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reset Password Admin</strong></td>
+                            <td><code>PasswordResetLinkController.php</code><br><code>PasswordResetRequestController.php</code><br><code>PasswordResetRequest.php</code><br><code>reset-password.blade.php</code></td>
+                            <td>Alur permintaan reset password dari website publik ke admin, notifikasi badge counter & tab Peringatan, serta reset ke password default <code>Password!12345</code>.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Zona Waktu Lokal (WIB)</strong></td>
+                            <td><code>config/app.php</code><br><code>.env</code> (APP_TIMEZONE=Asia/Jakarta)</td>
+                            <td>Perekaman timestamp database (created_at, updated_at, login_at, last_activity_at) 100% tersimpan dan disajikan mengikuti zona waktu lokal (Asia/Jakarta, UTC+7).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
