@@ -20,7 +20,7 @@
                     <div class="card card-flush h-md-100 bg-body border border-dashed border-primary">
                         <div class="card-body d-flex align-items-center justify-content-between p-6">
                             <div>
-                                <span class="fs-2hx fw-bold text-primary">{{ count($permissions) }}</span>
+                                <span class="fs-2hx fw-bold text-primary">{{ $totalPermissions }}</span>
                                 <span class="text-gray-600 fw-semibold d-block fs-6 mt-1">Total Permission Terdaftar</span>
                             </div>
                             <div class="symbol symbol-50px">
@@ -51,7 +51,7 @@
                         <div class="card-body d-flex align-items-center justify-content-between p-6">
                             <div>
                                 <span class="fs-2hx fw-bold {{ $unassignedCount > 0 ? 'text-warning' : 'text-success' }}">{{ $unassignedCount }}</span>
-                                <span class="text-gray-600 fw-semibold d-block fs-6 mt-1">Permission Belum Ditugaskan</span>
+                                <span class="text-gray-600 fw-semibold d-block fs-6 mt-1">Modul Belum Ditugaskan</span>
                             </div>
                             <div class="symbol symbol-50px">
                                 <span class="symbol-label {{ $unassignedCount > 0 ? 'bg-light-warning text-warning' : 'bg-light-success text-success' }}">
@@ -71,7 +71,7 @@
                         <!--begin::Search Filter-->
                         <div class="d-flex align-items-center position-relative my-1">
                             <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5"><span class="path1"></span><span class="path2"></span></i>
-                            <input type="text" id="kt_permissions_search" class="form-control form-control-solid w-250px ps-13" placeholder="Cari Permission / Modul..." />
+                            <input type="text" id="kt_permissions_search" class="form-control form-control-solid w-250px ps-13" placeholder="Cari Modul / Fitur..." />
                         </div>
                         <!--end::Search Filter-->
 
@@ -92,9 +92,12 @@
                         </div>
                         <!--end::Role Filter Dropdown & Reset-->
                     </div>
-                    <div class="card-toolbar">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_permission" id="btn_add_permission">
-                            <i class="ki-duotone ki-plus fs-2"></i> Tambah Permission
+                    <div class="card-toolbar gap-2">
+                        <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_permission" id="btn_add_batch_permission">
+                            <i class="ki-duotone ki-flash fs-2"><span class="path1"></span><span class="path2"></span></i> + Modul CRUD (Praktis)
+                        </button>
+                        <button type="button" class="btn btn-light-primary fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_permission" id="btn_add_single_permission">
+                            <i class="ki-duotone ki-plus fs-2"></i> Single Permission
                         </button>
                     </div>
                 </div>
@@ -104,51 +107,55 @@
                         <table class="table align-middle table-row-dashed fs-6 gy-4" id="kt_permissions_table">
                             <thead>
                                 <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="min-w-80px">Tipe Aksi</th>
-                                    <th class="min-w-200px">Modul / Fitur</th>
-                                    <th class="min-w-200px">Nama Permission</th>
+                                    <th class="min-w-180px">Modul / Fitur Aplikasi</th>
+                                    <th class="min-w-220px">Tipe Aksi Terdaftar (CRUD)</th>
                                     <th class="min-w-200px">Ditugaskan Ke Role</th>
-                                    <th class="min-w-140px">Tanggal Dibuat</th>
+                                    <th class="min-w-100px">Jumlah Izin</th>
                                     <th class="text-end min-w-100px">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
-                                @foreach($permissions as $perm)
+                                @foreach($modules as $module)
                                     @php
-                                        $actionBadgeClass = match($perm->action_type) {
-                                            'create' => 'badge-light-success',
-                                            'read'   => 'badge-light-info',
-                                            'update' => 'badge-light-warning',
-                                            'delete' => 'badge-light-danger',
-                                            default  => 'badge-light-primary'
-                                        };
-                                        $assignedRoleNames = $perm->roles->pluck('name')->map(fn($r) => strtolower($r))->join(' ');
+                                        $assignedRoleNames = collect($module->roles)->map(fn($r) => strtolower($r))->join(' ');
                                     @endphp
                                     <tr data-roles="{{ $assignedRoleNames }}">
                                         <td>
-                                            <span class="badge {{ $actionBadgeClass }} fw-bold text-uppercase fs-8 py-2 px-3">
-                                                {{ strtoupper($perm->action_type) }}
-                                            </span>
+                                            <code class="text-gray-900 fw-bold fs-6">{{ $module->module_name }}</code>
                                         </td>
                                         <td>
-                                            <code class="text-gray-800 fw-bold fs-7">{{ $perm->module_name }}</code>
+                                            <div class="d-flex align-items-center gap-1.5 flex-wrap">
+                                                @foreach($module->actions as $act)
+                                                    @php
+                                                        $badgeClass = match($act->action_type) {
+                                                            'create' => 'badge-light-success',
+                                                            'read'   => 'badge-light-info',
+                                                            'update' => 'badge-light-warning',
+                                                            'delete' => 'badge-light-danger',
+                                                            default  => 'badge-light-primary'
+                                                        };
+                                                    @endphp
+                                                    <span class="badge {{ $badgeClass }} fw-bold text-uppercase fs-8 py-1.5 px-2.5" title="{{ $act->name }}">
+                                                        {{ strtoupper($act->action_type) }}
+                                                    </span>
+                                                @endforeach
+                                            </div>
                                         </td>
                                         <td>
-                                            <span class="text-gray-800 fw-bold fs-7">{{ $perm->name }}</span>
-                                        </td>
-                                        <td>
-                                            @forelse($perm->roles as $role)
-                                                <span class="badge badge-light-primary me-1 mb-1">{{ ucfirst($role->name) }}</span>
+                                            @forelse($module->roles as $roleName)
+                                                <span class="badge badge-light-primary me-1 mb-1">{{ ucfirst($roleName) }}</span>
                                             @empty
                                                 <span class="badge badge-light-secondary text-gray-500 fs-8">Belum ditugaskan</span>
                                             @endforelse
                                         </td>
-                                        <td>{{ $perm->created_at ? $perm->created_at->format('d M Y H:i') : '-' }}</td>
+                                        <td>
+                                            <span class="badge badge-light-secondary text-gray-800 fw-bold fs-7">{{ $module->total_perms }} Akses</span>
+                                        </td>
                                         <td class="text-end">
-                                            <button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px me-1 btn-edit-permission" data-id="{{ $perm->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Permission">
+                                            <button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px me-1 btn-edit-module" data-module="{{ $module->module_name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Akses Modul '{{ $module->module_name }}'">
                                                 <i class="ki-duotone ki-pencil fs-3"><span class="path1"></span><span class="path2"></span></i>
                                             </button>
-                                            <button type="button" class="btn btn-icon btn-active-light-danger w-30px h-30px btn-delete-permission" data-id="{{ $perm->id }}" data-name="{{ $perm->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Permission">
+                                            <button type="button" class="btn btn-icon btn-active-light-danger w-30px h-30px btn-delete-module" data-module="{{ $module->module_name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Modul '{{ $module->module_name }}'">
                                                 <i class="ki-duotone ki-trash fs-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
                                             </button>
                                         </td>
@@ -179,7 +186,7 @@
                 order: [],
                 language: {
                     search: "",
-                    searchPlaceholder: "Cari Permission..."
+                    searchPlaceholder: "Cari Modul / Fitur..."
                 }
             });
 
@@ -204,11 +211,11 @@
             $('#filter_role').on('change', function() {
                 var selectedRole = $(this).val().toLowerCase();
                 if(selectedRole === 'unassigned') {
-                    permissionsTable.column(3).search('Belum ditugaskan').draw();
+                    permissionsTable.column(2).search('Belum ditugaskan').draw();
                 } else if(selectedRole === 'all' || !selectedRole) {
-                    permissionsTable.column(3).search('').draw();
+                    permissionsTable.column(2).search('').draw();
                 } else {
-                    permissionsTable.column(3).search(selectedRole).draw();
+                    permissionsTable.column(2).search(selectedRole).draw();
                 }
                 checkFilterResetVisibility();
             });
@@ -217,82 +224,157 @@
             $('#btn_reset_filter').on('click', function() {
                 $('#kt_permissions_search').val('');
                 $('#filter_role').val('all').trigger('change.select2');
-                permissionsTable.search('').column(3).search('').draw();
+                permissionsTable.search('').column(2).search('').draw();
                 $(this).addClass('d-none');
             });
 
-            // Reset Form for Adding New Permission
-            $('#btn_add_permission').on('click', function() {
-                $('#permission_modal_title').text('Tambah Permission Baru');
+            // Quick Select / Deselect All Roles Handlers
+            $('#btn_select_all_batch_roles').on('click', function() {
+                $('.perm-batch-role-checkbox').prop('checked', true);
+            });
+            $('#btn_deselect_all_batch_roles').on('click', function() {
+                $('.perm-batch-role-checkbox').prop('checked', false);
+            });
+            $('#btn_select_all_single_roles').on('click', function() {
+                $('.perm-role-checkbox').prop('checked', true);
+            });
+            $('#btn_deselect_all_single_roles').on('click', function() {
+                $('.perm-role-checkbox').prop('checked', false);
+            });
+
+            // Handler Tambah Modul CRUD Batch
+            $('#btn_add_batch_permission').on('click', function() {
+                $('#permission_modal_title').text('Tambah Permission Modul (Batch CRUD)');
+                $('#permissionTab').removeClass('d-none');
+                $('#tab_batch_btn').tab('show');
+                $('#kt_modal_permission_batch_form')[0].reset();
+                $('#kt_modal_permission_batch_form').data('mode', 'store');
+                $('.batch-action-checkbox').prop('checked', true);
+                $('.perm-batch-role-checkbox').prop('checked', false);
+            });
+
+            // Handler Tambah Single Permission
+            $('#btn_add_single_permission').on('click', function() {
+                $('#permission_modal_title').text('Tambah Single Permission');
+                $('#permissionTab').removeClass('d-none');
+                $('#tab_single_btn').tab('show');
                 $('#kt_modal_permission_form')[0].reset();
                 $('#permission_id').val('');
                 $('.perm-role-checkbox').prop('checked', false);
             });
 
-            // Edit Button Handler
-            $(document).on('click', '.btn-edit-permission', function(e) {
+            // Edit Module Batch Handler
+            $(document).on('click', '.btn-edit-module', function(e) {
                 e.preventDefault();
-                var btn = $(this).closest('.btn-edit-permission');
-                var permId = btn.data('id') || $(this).data('id');
+                var btn = $(this).closest('.btn-edit-module');
+                var moduleName = btn.data('module') || $(this).data('module');
+                if (!moduleName) return;
+
+                var encodedModule = btoa(moduleName);
 
                 $.ajax({
-                    url: "{{ url('manajemenpengguna/permissions') }}/" + permId,
+                    url: "{{ url('manajemenpengguna/permissions/module') }}/" + encodedModule,
                     type: 'GET',
                     dataType: 'json',
                     success: function(res) {
                         if(res.success) {
-                            $('#permission_modal_title').text('Edit Permission');
-                            $('#permission_id').val(res.data.id);
-                            $('#permission_name').val(res.data.name);
-
-                            $('.perm-role-checkbox').prop('checked', false);
-                            if(res.data.roles) {
-                                res.data.roles.forEach(function(role) {
-                                    $(".perm-role-checkbox[value='" + role.name + "']").prop('checked', true);
+                            $('#permission_modal_title').text('Edit Hak Akses Modul (Batch): ' + res.module_name);
+                            $('#permissionTab').removeClass('d-none');
+                            $('#tab_batch_btn').tab('show');
+                            
+                            $('#batch_module_name').val(res.module_name);
+                            
+                            $('.batch-action-checkbox').prop('checked', false);
+                            if(res.existing_actions) {
+                                res.existing_actions.forEach(function(act) {
+                                    $(".batch-action-checkbox[value='" + act + "']").prop('checked', true);
                                 });
                             }
+                            
+                            $('.perm-batch-role-checkbox').prop('checked', false);
+                            if(res.assigned_roles) {
+                                res.assigned_roles.forEach(function(role) {
+                                    $(".perm-batch-role-checkbox[value='" + role + "']").prop('checked', true);
+                                });
+                            }
+
+                            $('#kt_modal_permission_batch_form').data('mode', 'update');
                             $('#kt_modal_permission').modal('show');
                         }
                     },
                     error: function(xhr) {
-                        SwalHelper.error(xhr.responseJSON?.message || 'Gagal mengambil data permission.');
+                        SwalHelper.error(xhr.responseJSON?.message || 'Gagal mengambil data modul.');
                     }
                 });
             });
 
-            // Form Submit Handler
-            $('#kt_modal_permission_form').on('submit', function(e) {
+            // Batch CRUD Form Submit Handler
+            $('#kt_modal_permission_batch_form').on('submit', function(e) {
                 e.preventDefault();
-                var permId = $('#permission_id').val();
-                var url = permId ? "{{ url('manajemenpengguna/permissions') }}/" + permId : "{{ route('manajemenpengguna.permissions.store') }}";
-                var type = permId ? "PUT" : "POST";
+                var btn = $('#kt_modal_permission_batch_submit');
+                btn.prop('disabled', true);
+
+                var mode = $(this).data('mode');
+                var targetUrl = (mode === 'update') 
+                    ? "{{ route('manajemenpengguna.permissions.module-update') }}"
+                    : "{{ route('manajemenpengguna.permissions.store-batch') }}";
 
                 $.ajax({
-                    url: url,
-                    type: type,
+                    url: targetUrl,
+                    type: "POST",
                     data: $(this).serialize(),
                     success: function(res) {
+                        btn.prop('disabled', false);
                         if(res.success) {
                             $('#kt_modal_permission').modal('hide');
                             SwalHelper.success(res.message);
                         }
                     },
                     error: function(xhr) {
+                        btn.prop('disabled', false);
                         SwalHelper.validationError(xhr);
                     }
                 });
             });
 
-            // Delete Button Handler
-            $(document).on('click', '.btn-delete-permission', function(e) {
+            // Single Form Submit Handler
+            $('#kt_modal_permission_form').on('submit', function(e) {
                 e.preventDefault();
-                var btn = $(this).closest('.btn-delete-permission');
-                var permId = btn.data('id') || $(this).data('id');
-                var permName = btn.data('name') || $(this).data('name');
+                var permId = $('#permission_id').val();
+                var url = permId ? "{{ url('manajemenpengguna/permissions') }}/" + permId : "{{ route('manajemenpengguna.permissions.store') }}";
+                var type = permId ? "PUT" : "POST";
+                var btn = $('#kt_modal_permission_submit');
+                btn.prop('disabled', true);
 
-                SwalHelper.confirmDelete(permName, function() {
+                $.ajax({
+                    url: url,
+                    type: type,
+                    data: $(this).serialize(),
+                    success: function(res) {
+                        btn.prop('disabled', false);
+                        if(res.success) {
+                            $('#kt_modal_permission').modal('hide');
+                            SwalHelper.success(res.message);
+                        }
+                    },
+                    error: function(xhr) {
+                        btn.prop('disabled', false);
+                        SwalHelper.validationError(xhr);
+                    }
+                });
+            });
+
+            // Delete Module Handler
+            $(document).on('click', '.btn-delete-module', function(e) {
+                e.preventDefault();
+                var btn = $(this).closest('.btn-delete-module');
+                var moduleName = btn.data('module') || $(this).data('module');
+                if (!moduleName) return;
+
+                SwalHelper.confirmDelete("seluruh hak akses modul '" + moduleName + "'", function() {
+                    var encodedModule = btoa(moduleName);
                     $.ajax({
-                        url: "{{ url('manajemenpengguna/permissions') }}/" + permId,
+                        url: "{{ url('manajemenpengguna/permissions/module') }}/" + encodedModule,
                         type: "DELETE",
                         data: { _token: "{{ csrf_token() }}" },
                         success: function(res) {
@@ -301,7 +383,7 @@
                             }
                         },
                         error: function(xhr) {
-                            SwalHelper.error(xhr.responseJSON?.message || 'Gagal menghapus permission.');
+                            SwalHelper.error(xhr.responseJSON?.message || 'Gagal menghapus modul.');
                         }
                     });
                 });

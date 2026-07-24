@@ -51,7 +51,7 @@
                                     };
                                 @endphp
                                 <div class="col-6 col-sm-4 col-md-3">
-                                    <label class="d-flex align-items-center justify-content-between p-3 rounded-3 border border-2 border-dashed {{ $cardColor }} h-100 cursor-pointer shadow-xs">
+                                    <label class="d-flex align-items-center justify-content-between p-3 rounded-3 border {{ $cardColor }} h-100 cursor-pointer shadow-xs">
                                         <span class="fw-bold fs-7 text-gray-900 text-truncate me-2" title="{{ ucfirst($role->name) }}">{{ ucfirst($role->name) }}</span>
                                         <input class="form-check-input user-role-checkbox h-20px w-20px flex-shrink-0" type="checkbox" name="roles[]" value="{{ $role->name }}" id="user_role_{{ $role->id }}" />
                                     </label>

@@ -66,6 +66,10 @@ Route::middleware('auth')->group(function () {
         Route::resource('roles', RoleController::class)->names([
             'index' => 'roles',
         ]);
+        Route::post('permissions/batch', [PermissionController::class, 'storeBatch'])->name('permissions.store-batch');
+        Route::get('permissions/module/{module}', [PermissionController::class, 'getModuleData'])->name('permissions.module-data');
+        Route::post('permissions/module-update', [PermissionController::class, 'updateModule'])->name('permissions.module-update');
+        Route::delete('permissions/module/{module}', [PermissionController::class, 'destroyModule'])->name('permissions.module-destroy');
         Route::resource('permissions', PermissionController::class)->names([
             'index' => 'permissions',
         ]);
