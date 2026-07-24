@@ -10,10 +10,10 @@
             Help
         @endslot
         @slot('li_2')
-            {{ __('help.skema_pemrograman') }}
+            {{ __('help.operasional') }}
         @endslot
         @slot('li_3')
-            {{ __('help.operasional') }}
+            {{ __('help.panduan_tambah_halaman') }}
         @endslot
     @endcomponent
 @endsection
@@ -22,18 +22,36 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_content_container" class="app-container container-fluid">
             <div class="schema-shell">
-                <div class="schema-hero">
-                    <span class="schema-pill">Developer Workflow</span>
-                    <h2 class="fw-bold">{{ __('help.panduan_tambah_halaman') }}</h2>
+                <!--begin::Hero-->
+                <div class="schema-hero mb-6">
+                    <span class="schema-pill">
+                        <i class="ki-duotone ki-file-plus text-white fs-7 me-1"><span class="path1"></span><span class="path2"></span></i>
+                        Developer Workflow
+                    </span>
+                    <h2 class="fw-bold">{{ __('help.pages.operasional.panduan-tambah-halaman.hero_title') }}</h2>
                     <p class="schema-lead">
-                        {{ __('help.pages.operasional.panduan-tambah-halaman.lead') }}
+                        {{ __('help.pages.operasional.panduan-tambah-halaman.hero_lead') }}
                     </p>
+                    <div class="schema-meta mt-3">
+                        <span class="schema-chip"><i class="ki-duotone ki-flash-circle fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.operasional.panduan-tambah-halaman.chip_1') }}</span>
+                        <span class="schema-chip"><i class="ki-duotone ki-element-3 fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.operasional.panduan-tambah-halaman.chip_2') }}</span>
+                        <span class="schema-chip"><i class="ki-duotone ki-table fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> {{ __('help.pages.operasional.panduan-tambah-halaman.chip_3') }}</span>
+                        <span class="schema-chip"><i class="ki-duotone ki-notification-status fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> {{ __('help.pages.operasional.panduan-tambah-halaman.chip_4') }}</span>
+                    </div>
                 </div>
+                <!--end::Hero-->
 
+                @if(app()->getLocale() == 'en')
                 <div class="schema-grid">
+                    <!--====================================================-->
+                    <!-- 1. DAILY DEVELOPER WORKFLOW -->
+                    <!--====================================================-->
                     <div class="schema-col-6">
-                        <div class="schema-card">
-                            <h4>{!! __('help.pages.operasional.panduan-tambah-halaman.heading_1') !!}</h4>
+                        <div class="schema-card h-100">
+                            <h4 class="d-flex align-items-center">
+                                <i class="ki-duotone ki-route fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_1') }}
+                            </h4>
                             <div class="schema-flow">
                                 <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_5') !!}</div>
                                 <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_1') !!}</div>
@@ -44,105 +62,353 @@
                         </div>
                     </div>
 
+                    <!--====================================================-->
+                    <!-- 2. AUTOMATIC NAMING & ROUTING EXAMPLE -->
+                    <!--====================================================-->
                     <div class="schema-col-6">
-                        <div class="schema-card">
-                            <h4>{!! __('help.pages.operasional.panduan-tambah-halaman.heading_2') !!}</h4>
-                            <pre class="schema-code"><code>resources/views/pages/help/pemrograman/operasional/
-  panduan-foo.blade.php</code></pre>
-                            <pre class="schema-code mt-4"><code>// route name otomatis
-help.pemrograman.operasional.panduan-foo
+                        <div class="schema-card h-100">
+                            <h4 class="d-flex align-items-center">
+                                <i class="ki-duotone ki-code fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_2') }}
+                            </h4>
+                            <pre class="schema-code"><code>// 1. New Blade file:
+resources/views/pages/appsupport/feature.blade.php
 
-// URL otomatis
-/help/pemrograman/operasional/panduan-foo</code></pre>
+// 2. Auto-generated route name:
+help.pemrograman.appsupport.feature (or appsupport.feature)
+
+// 3. Auto-generated URL:
+/appsupport/feature</code></pre>
                             <div class="schema-note mt-4">{!! __('help.pages.operasional.panduan-tambah-halaman.note_1') !!}</div>
                         </div>
                     </div>
 
-                    <div class="schema-col-6">
+                    <!--====================================================-->
+                    <!-- 3. MULTI-TAB LAYOUT & CORE LAYOUT RULES -->
+                    <!--====================================================-->
+                    <div class="schema-col-12">
                         <div class="schema-card">
-                            <h4>{!! __('help.pages.operasional.panduan-tambah-halaman.heading_3') !!}</h4>
-                            <ul class="schema-list">
+                            <h4 class="d-flex align-items-center mb-3">
+                                <i class="ki-duotone ki-element-3 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_3') }}
+                            </h4>
+                            <ul class="schema-list fs-7">
                                 <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_1') !!}</li>
                                 <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_2') !!}</li>
                                 <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_3') !!}</li>
                                 <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_4') !!}</li>
                             </ul>
-                            <div class="schema-meta">
-                                <span class="schema-chip">{!! __('help.pages.operasional.panduan-tambah-halaman.chip_1') !!}</span>
-                                <span class="schema-chip">{!! __('help.pages.operasional.panduan-tambah-halaman.chip_2') !!}</span>
-                            </div>
                         </div>
                     </div>
 
+                    <!--====================================================-->
+                    <!-- 4. RESPONSIVE TABLE CREATION RULES -->
+                    <!--====================================================-->
                     <div class="schema-col-6">
-                        <div class="schema-card">
-                            <h4>{!! __('help.pages.operasional.panduan-tambah-halaman.heading_4') !!}</h4>
-                            <ul class="schema-list">
+                        <div class="schema-card h-100">
+                            <h4 class="d-flex align-items-center">
+                                <i class="ki-duotone ki-table fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_4') }}
+                            </h4>
+                            <ul class="schema-list fs-7">
                                 <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_5') !!}</li>
                                 <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_6') !!}</li>
                                 <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_7') !!}</li>
-                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_8') !!}</li>
                             </ul>
                         </div>
                     </div>
 
+                    <!--====================================================-->
+                    <!-- 5. CONTROLLER, MODEL & FORM PARTIAL STRUCTURE -->
+                    <!--====================================================-->
+                    <div class="schema-col-6">
+                        <div class="schema-card h-100">
+                            <h4 class="d-flex align-items-center">
+                                <i class="ki-duotone ki-folder fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_5') }}
+                            </h4>
+                            <ul class="schema-list fs-7">
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_8') !!}</li>
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_9') !!}</li>
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_10') !!}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 6. CRUD NOTIFICATION JS HELPER (SWALHELPER) -->
+                    <!--====================================================-->
                     <div class="schema-col-12">
                         <div class="schema-card">
-                            <h4>{!! __('help.pages.operasional.panduan-tambah-halaman.heading_5') !!}</h4>
-                            <pre class="schema-code"><code>php artisan route:list --name=help.pemrograman
-php artisan optimize:clear
-composer test</code></pre>
+                            <h4 class="d-flex align-items-center mb-3">
+                                <i class="ki-duotone ki-notification-status fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_6') }}
+                            </h4>
+                            <ul class="schema-list fs-7 mb-4">
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_11') !!}</li>
+                            </ul>
+                            <pre class="schema-code"><code>// Success toast/alert:
+SwalHelper.success('Data saved successfully');
+
+// General error alert:
+SwalHelper.error('Failed to save data');
+
+// AJAX 422 XHR validation error:
+SwalHelper.validationError(xhr);
+
+// Delete confirmation prompt:
+SwalHelper.confirmDelete('User Record', function() {
+    // execute AJAX delete action
+});</code></pre>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 7. TOP TOOLTIPS & MODAL TRIGGER WRAPPER -->
+                    <!--====================================================-->
+                    <div class="schema-col-6">
+                        <div class="schema-card h-100">
+                            <h4 class="d-flex align-items-center">
+                                <i class="ki-duotone ki-information fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_7') }}
+                            </h4>
+                            <ul class="schema-list fs-7 mb-3">
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_12') !!}</li>
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_13') !!}</li>
+                            </ul>
+                            <pre class="schema-code"><code>&lt;!-- Wrapper element prevents attribute collision --&gt;
+&lt;span data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Item"&gt;
+    &lt;button type="button" class="btn btn-icon btn-light-primary"
+            data-bs-toggle="modal" data-bs-target="#modal_edit"&gt;
+        &lt;i class="ki-duotone ki-pencil fs-5"&gt;...&lt;/i&gt;
+    &lt;/button&gt;
+&lt;/span&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 8. INSPECTION COMMAND & RELEASE VERIFICATION -->
+                    <!--====================================================-->
+                    <div class="schema-col-6">
+                        <div class="schema-card h-100">
+                            <h4 class="d-flex align-items-center">
+                                <i class="ki-duotone ki-terminal fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_8') }}
+                            </h4>
+                            <pre class="schema-code"><code># Check route registration in CLI:
+php artisan route:list --name=appsupport.feature
+
+# Clear views and route cache:
+php artisan view:clear
+php artisan route:clear</code></pre>
                             <div class="schema-warn mt-4">{!! __('help.pages.operasional.panduan-tambah-halaman.warn_1') !!}</div>
                         </div>
                     </div>
 
-                    <div class="schema-col-12 mt-6">
+                    <!--====================================================-->
+                    <!-- 9. TEAM STANDARD & STRICT RULES -->
+                    <!--====================================================-->
+                    <div class="schema-col-12">
                         <div class="schema-card">
-                            <h4>Aturan Halaman Multi-Tab & Preservasi Core Layout</h4>
-                            <ul class="schema-list">
-                                <li><strong>Jangan Mengubah File Layout Core & Seeder:</strong> Dilarang mengubah file layout bawaan (seperti <code>_menu-item.blade.php</code>, <code>_menu-item-temp.blade.php</code>, <code>navs.blade.php</code>) atau seeder menu (<code>config/menu_seeder/*_seeder.php</code>) hanya untuk menambahkan sub-tab.</li>
-                                <li><strong>Arsitektur Multi-Tab Single-Route:</strong> Gunakan rute tunggal (misal <code>/profil-pengguna?tab=...</code>) dan panggil partial tab secara dinamis via Blade <code>@@include('pages.feature.tabs._tab')</code> agar highlight aktif pada menu sidebar tetap terjaga 100%.</li>
-                                <li><strong>Integritas Partial Blade:</strong> File partial tab TIDAK boleh berisi tag <code>@@endsection</code>, <code>@@extends</code>, atau tag penutup <code>&lt;/div&gt;</code> kontainer utama agar tidak merusak tata letak footer atau menutup section lebih awal.</li>
-                                <li><strong>Pemuatan Bundel Script:</strong> Pastikan <code>@@section('scripts')</code> pada view utama memuat pustaka JS pendukung (seperti <code>widgets.bundle.js</code>, <code>custom/widgets.js</code>, <code>datatables.bundle.js</code>) agar grafik dan komponen interaktif berjalan normal.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="schema-col-12 mt-6">
-                        <div class="schema-card">
-                            <h4>Aturan Pembuatan Tabel Responsif</h4>
-                            <ul class="schema-list">
-                                <li><strong>Tanpa Blok CSS Custom:</strong> Dilarang membuat tag <code>&lt;style&gt;</code> atau CSS override custom untuk tabel. Gunakan 100% kelas bawaan Metronic & Bootstrap 5 (seperti <code>table</code>, <code>align-middle</code>, <code>table-row-dashed</code>, <code>fs-6</code>, <code>gy-4</code>, <code>w-100</code>).</li>
-                                <li><strong>Pembungkus Responsif Bawaan:</strong> Wajib membungkus tabel data dengan <code>&lt;div class="table-responsive"&gt;</code>. Ini menjamin tampilan tabel pas di desktop dan otomatis mengaktifkan scroll horizontal di perangkat mobile/gadget.</li>
-                                <li><strong>Menjaga Lebar Kolom dengan Kelas Bawaan:</strong> Gunakan kelas minimum width bawaan Metronic (seperti <code>min-w-200px</code>, <code>min-w-150px</code>, <code>min-w-125px</code>) pada elemen <code>&lt;th&gt;</code> agar kolom (seperti URL/Route, Nama, Permission) tidak gepeng atau menyusut.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="schema-col-12 mt-6">
-                        <div class="schema-card">
-                            <h4>Aturan Struktur Berkas Controller, Model & Form Partial</h4>
-                            <ul class="schema-list">
-                                <li><strong>Struktur Folder Sejajar (Mirror Structure):</strong> Berkas Controller dan Model wajib dibuat di dalam sub-folder yang mencerminkan struktur folder view Blade di <code>resources/views/pages/</code>. Contoh: View <code>pages.appsupport.app-profil</code> memiliki Controller <code>App\Http\Controllers\AppSupport\AppProfilController</code> dan Model <code>App\Models\AppSupport\AppProfil</code>.</li>
-                                <li><strong>Pemisahan Form Partial:</strong> Form HTML (seperti form modal CRUD) wajib dipisahkan ke dalam berkas partial terpisah di folder <code>resources/views/pages/&lt;folder&gt;/partials/&lt;fitur&gt;-form.blade.php</code> dan dipanggil menggunakan Blade <code>@@include('pages.&lt;folder&gt;.partials.&lt;fitur&gt;-form')</code>.</li>
-                                <li><strong>Validasi Form Request (Form Request Mirroring):</strong> Aturan validasi wajib dipisahkan ke berkas Laravel Form Request di folder <code>App\Http\Requests\&lt;SubFolder&gt;\&lt;FeatureRequest&gt;.php</code> yang sejajar dengan lokasi view/controller. Contoh: <code>App\Http\Requests\AppSupport\AppProfilRequest</code>.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="schema-col-12 mt-6">
-                        <div class="schema-card">
-                            <h4>Aturan Notifikasi CRUD JS Helper (<code>SwalHelper</code>)</h4>
-                            <ul class="schema-list">
-                                <li><strong>Helper Notifikasi Global:</strong> Dilarang menulis konfigurasi <code>Swal.fire</code> secara berulang di berkas Blade. Gunakan helper global <code>SwalHelper</code> (berkas <code>public/assets/js/custom/crud-helper.js</code>):</li>
-                                <li><strong>Sukses:</strong> <code>SwalHelper.success('Pesan Sukses')</code>.</li>
-                                <li><strong>Gagal / Error:</strong> <code>SwalHelper.error('Pesan Error')</code>.</li>
-                                <li><strong>Validasi Error (AJAX 422):</strong> <code>SwalHelper.validationError(xhr)</code>.</li>
-                                <li><strong>Konfirmasi Hapus:</strong> <code>SwalHelper.confirmDelete('Nama Item', callback)</code>.</li>
-                            </ul>
+                            <h4 class="d-flex align-items-center mb-3">
+                                <i class="ki-duotone ki-shield-cross fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_9') }}
+                            </h4>
+                            <div class="schema-flow">
+                                <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_6') !!}</div>
+                                <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_7') !!}</div>
+                                <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_8') !!}</div>
+                                <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_9') !!}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                @else
+                <!--====================================================-->
+                <!-- INDONESIAN LOCALE CONTENT -->
+                <!--====================================================-->
+                <div class="schema-grid">
+                    <!--====================================================-->
+                    <!-- 1. DAILY DEVELOPER WORKFLOW -->
+                    <!--====================================================-->
+                    <div class="schema-col-6">
+                        <div class="schema-card h-100">
+                            <h4 class="d-flex align-items-center">
+                                <i class="ki-duotone ki-route fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_1') }}
+                            </h4>
+                            <div class="schema-flow">
+                                <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_5') !!}</div>
+                                <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_1') !!}</div>
+                                <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_2') !!}</div>
+                                <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_3') !!}</div>
+                                <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_4') !!}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 2. AUTOMATIC NAMING & ROUTING EXAMPLE -->
+                    <!--====================================================-->
+                    <div class="schema-col-6">
+                        <div class="schema-card h-100">
+                            <h4 class="d-flex align-items-center">
+                                <i class="ki-duotone ki-code fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_2') }}
+                            </h4>
+                            <pre class="schema-code"><code>// 1. File Blade baru:
+resources/views/pages/appsupport/feature.blade.php
+
+// 2. Nama route otomatis:
+help.pemrograman.appsupport.feature (atau appsupport.feature)
+
+// 3. URL otomatis:
+/appsupport/feature</code></pre>
+                            <div class="schema-note mt-4">{!! __('help.pages.operasional.panduan-tambah-halaman.note_1') !!}</div>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 3. MULTI-TAB LAYOUT & CORE LAYOUT RULES -->
+                    <!--====================================================-->
+                    <div class="schema-col-12">
+                        <div class="schema-card">
+                            <h4 class="d-flex align-items-center mb-3">
+                                <i class="ki-duotone ki-element-3 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_3') }}
+                            </h4>
+                            <ul class="schema-list fs-7">
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_1') !!}</li>
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_2') !!}</li>
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_3') !!}</li>
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_4') !!}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 4. RESPONSIVE TABLE CREATION RULES -->
+                    <!--====================================================-->
+                    <div class="schema-col-6">
+                        <div class="schema-card h-100">
+                            <h4 class="d-flex align-items-center">
+                                <i class="ki-duotone ki-table fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_4') }}
+                            </h4>
+                            <ul class="schema-list fs-7">
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_5') !!}</li>
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_6') !!}</li>
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_7') !!}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 5. CONTROLLER, MODEL & FORM PARTIAL STRUCTURE -->
+                    <!--====================================================-->
+                    <div class="schema-col-6">
+                        <div class="schema-card h-100">
+                            <h4 class="d-flex align-items-center">
+                                <i class="ki-duotone ki-folder fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_5') }}
+                            </h4>
+                            <ul class="schema-list fs-7">
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_8') !!}</li>
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_9') !!}</li>
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_10') !!}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 6. CRUD NOTIFICATION JS HELPER (SWALHELPER) -->
+                    <!--====================================================-->
+                    <div class="schema-col-12">
+                        <div class="schema-card">
+                            <h4 class="d-flex align-items-center mb-3">
+                                <i class="ki-duotone ki-notification-status fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_6') }}
+                            </h4>
+                            <ul class="schema-list fs-7 mb-4">
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_11') !!}</li>
+                            </ul>
+                            <pre class="schema-code"><code>// Notifikasi Sukses:
+SwalHelper.success('Data berhasil disimpan');
+
+// Notifikasi Error Umum:
+SwalHelper.error('Gagal menyimpan data');
+
+// Notifikasi Error Validasi AJAX 422 XHR:
+SwalHelper.validationError(xhr);
+
+// Dialog Konfirmasi Hapus:
+SwalHelper.confirmDelete('Data Pengguna', function() {
+    // eksekusi AJAX delete
+});</code></pre>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 7. TOP TOOLTIPS & MODAL TRIGGER WRAPPER -->
+                    <!--====================================================-->
+                    <div class="schema-col-6">
+                        <div class="schema-card h-100">
+                            <h4 class="d-flex align-items-center">
+                                <i class="ki-duotone ki-information fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_7') }}
+                            </h4>
+                            <ul class="schema-list fs-7 mb-3">
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_12') !!}</li>
+                                <li>{!! __('help.pages.operasional.panduan-tambah-halaman.item_13') !!}</li>
+                            </ul>
+                            <pre class="schema-code"><code>&lt;!-- Tag pembungkus mencegah konflik atribut Bootstrap 5 --&gt;
+&lt;span data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Item"&gt;
+    &lt;button type="button" class="btn btn-icon btn-light-primary"
+            data-bs-toggle="modal" data-bs-target="#modal_edit"&gt;
+        &lt;i class="ki-duotone ki-pencil fs-5"&gt;...&lt;/i&gt;
+    &lt;/button&gt;
+&lt;/span&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 8. INSPECTION COMMAND & RELEASE VERIFICATION -->
+                    <!--====================================================-->
+                    <div class="schema-col-6">
+                        <div class="schema-card h-100">
+                            <h4 class="d-flex align-items-center">
+                                <i class="ki-duotone ki-terminal fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_8') }}
+                            </h4>
+                            <pre class="schema-code"><code># Cek registrasi route di CLI:
+php artisan route:list --name=appsupport.feature
+
+# Bersihkan cache view &amp; route:
+php artisan view:clear
+php artisan route:clear</code></pre>
+                            <div class="schema-warn mt-4">{!! __('help.pages.operasional.panduan-tambah-halaman.warn_1') !!}</div>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 9. TEAM STANDARD & STRICT RULES -->
+                    <!--====================================================-->
+                    <div class="schema-col-12">
+                        <div class="schema-card">
+                            <h4 class="d-flex align-items-center mb-3">
+                                <i class="ki-duotone ki-shield-cross fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                {{ __('help.pages.operasional.panduan-tambah-halaman.heading_9') }}
+                            </h4>
+                            <div class="schema-flow">
+                                <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_6') !!}</div>
+                                <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_7') !!}</div>
+                                <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_8') !!}</div>
+                                <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_9') !!}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
     </div>
