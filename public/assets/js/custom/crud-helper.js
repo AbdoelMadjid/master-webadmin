@@ -6,19 +6,27 @@ window.SwalHelper = {
     /**
      * Notifikasi Sukses
      * @param {string} message Pesan sukses (Opsional)
-     * @param {function|null} callback Callback setelah Notifikasi ditutup (Default: location.reload())
+     * @param {function|null|boolean} callback Callback setelah Notifikasi ditutup (Default: location.reload())
+     * @param {number} timer Durasi waktu tayang dalam milidetik (Default: 6000ms / 6 detik)
      */
-    success: function(message = 'Data berhasil disimpan.', callback = null) {
+    success: function(message = 'Data berhasil disimpan.', callback = null, timer = 6000) {
         Swal.fire({
             icon: 'success',
             title: 'Berhasil!',
             text: message,
-            timer: 1500,
-            showConfirmButton: false
-        }).then(function() {
+            timer: timer,
+            timerProgressBar: true,
+            showConfirmButton: true,
+            confirmButtonText: 'OK',
+            allowOutsideClick: false,
+            buttonsStyling: false,
+            customClass: {
+                confirmButton: 'btn btn-primary btn-sm'
+            }
+        }).then(function(result) {
             if (typeof callback === 'function') {
-                callback();
-            } else {
+                callback(result);
+            } else if (callback === null) {
                 location.reload();
             }
         });
@@ -33,7 +41,11 @@ window.SwalHelper = {
         Swal.fire({
             icon: 'error',
             title: title,
-            html: message
+            html: message,
+            buttonsStyling: false,
+            customClass: {
+                confirmButton: 'btn btn-danger btn-sm'
+            }
         });
     },
 
@@ -55,7 +67,11 @@ window.SwalHelper = {
         Swal.fire({
             icon: 'error',
             title: 'Validasi Gagal',
-            html: errorMsg
+            html: errorMsg,
+            buttonsStyling: false,
+            customClass: {
+                confirmButton: 'btn btn-danger btn-sm'
+            }
         });
     },
 
@@ -70,8 +86,11 @@ window.SwalHelper = {
             text: 'Data "' + itemName + '" akan dihapus permanen dari sistem!',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
+            buttonsStyling: false,
+            customClass: {
+                confirmButton: 'btn btn-danger btn-sm me-2',
+                cancelButton: 'btn btn-light btn-sm'
+            },
             confirmButtonText: 'Ya, Hapus!',
             cancelButtonText: 'Batal'
         }).then(function(result) {

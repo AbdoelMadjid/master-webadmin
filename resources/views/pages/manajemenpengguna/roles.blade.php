@@ -301,7 +301,6 @@
                         if(res.success) {
                             $('#kt_modal_role').modal('hide');
                             SwalHelper.success(res.message);
-                            setTimeout(function() { location.reload(); }, 1200);
                         }
                     },
                     error: function(xhr) {
@@ -324,7 +323,6 @@
                         success: function(res) {
                             if(res.success) {
                                 SwalHelper.success(res.message);
-                                setTimeout(function() { location.reload(); }, 1200);
                             }
                         },
                         error: function(xhr) {

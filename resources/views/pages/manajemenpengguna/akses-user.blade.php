@@ -164,7 +164,6 @@
                         if(res.success) {
                             $('#kt_modal_akses_user').modal('hide');
                             SwalHelper.success(res.message);
-                            setTimeout(function() { location.reload(); }, 1200);
                         }
                     },
                     error: function(xhr) {
