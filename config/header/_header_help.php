@@ -29,8 +29,8 @@ return [
                         ['title' => 'Skema Cache & Deployment', 'route' => 'help.pemrograman.skema.cache-dan-deployment'],
                         ['title' => 'Skema Pemilihan Bahasa', 'route' => 'help.pemrograman.skema.pemilihan-bahasa'],
                         ['title' => 'Skema i18n Lanjutan', 'route' => 'help.pemrograman.skema.i18n-lanjutan'],
-                        ['title' => 'App Support', 'route' => 'help.pemrograman.skema-main-menu.app-support'],
                         ['title' => 'Manajemen Pengguna', 'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna'],
+                        ['title' => 'App Support', 'route' => 'help.pemrograman.skema-main-menu.app-support'],
                     ],
                 ],
                 [

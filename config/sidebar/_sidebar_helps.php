@@ -69,12 +69,12 @@ return [
                             'route' => 'help.pemrograman.skema.i18n-lanjutan',
                         ],
                         [
-                            'title' => 'App Support',
-                            'route' => 'help.pemrograman.skema-main-menu.app-support',
-                        ],
-                        [
                             'title' => 'Manajemen Pengguna',
                             'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna',
+                        ],
+                        [
+                            'title' => 'App Support',
+                            'route' => 'help.pemrograman.skema-main-menu.app-support',
                         ],
                     ],
                 ],
