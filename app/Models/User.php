@@ -26,6 +26,7 @@ class User extends Authenticatable
         'points',
         'last_activity_at',
         'status',
+        'is_read',
     ];
 
     /**
@@ -77,6 +78,22 @@ class User extends Authenticatable
     public function dataLogins(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(\App\Models\AppSupport\DataLogin::class, 'user_id');
+    }
+
+    /**
+     * Identitas & detail pengguna (users_details)
+     */
+    public function userDetail(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(\App\Models\User\UserDetail::class, 'user_id');
+    }
+
+    /**
+     * Alias relasi detail pengguna
+     */
+    public function detail(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->userDetail();
     }
 
     /**
@@ -136,5 +153,21 @@ class User extends Authenticatable
     public function isRejected(): bool
     {
         return $this->status === 'rejected';
+    }
+
+    /**
+     * Cek apakah akun user non-aktif
+     */
+    public function isInactive(): bool
+    {
+        return $this->status === 'inactive';
+    }
+
+    /**
+     * Cek apakah akun user sedang mengajukan penonaktifan ke admin
+     */
+    public function isDeactivatePending(): bool
+    {
+        return $this->status === 'deactivate_pending';
     }
 }

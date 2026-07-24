@@ -361,7 +361,10 @@ class UserController extends Controller
     public function approve($id)
     {
         $user = User::findOrFail($id);
-        $user->update(['status' => 'approved']);
+        $user->update([
+            'status'  => 'approved',
+            'is_read' => true,
+        ]);
 
         if ($user->roles->isEmpty()) {
             $role = Role::firstOrCreate(['name' => 'user', 'guard_name' => 'web']);
@@ -378,12 +381,82 @@ class UserController extends Controller
     public function reject($id)
     {
         $user = User::findOrFail($id);
-        $user->update(['status' => 'rejected']);
+        $user->update([
+            'status'  => 'rejected',
+            'is_read' => true,
+        ]);
 
         return response()->json([
             'success' => true,
             'message' => "Akun pengguna '{$user->name}' telah ditolak.",
             'data'    => $user->load('roles'),
         ]);
+    }
+
+    public function deactivate($id)
+    {
+        $user = User::findOrFail($id);
+
+        if ($user->id === auth()->id()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Anda tidak dapat menonaktifkan akun Anda sendiri yang sedang aktif.',
+            ], 422);
+        }
+
+        $user->update([
+            'status'           => 'inactive',
+            'is_read'          => true,
+            'last_activity_at' => null,
+        ]);
+
+        // Hapus sesi pengguna jika tabel sessions tersedia di database
+        try {
+            if (\Illuminate\Support\Facades\Schema::hasTable('sessions')) {
+                \Illuminate\Support\Facades\DB::table('sessions')
+                    ->where('user_id', $user->id)
+                    ->delete();
+            }
+        } catch (\Throwable $e) {
+            // Abaikan jika tabel sessions tidak digunakan
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => "Akun pengguna '{$user->name}' berhasil dinonaktifkan.",
+            'data'    => $user->load('roles'),
+        ]);
+    }
+
+    public function activate($id)
+    {
+        $user = User::findOrFail($id);
+
+        $user->update([
+            'status'  => 'approved',
+            'is_read' => true,
+        ]);
+
+        if ($user->roles->isEmpty()) {
+            $role = Role::firstOrCreate(['name' => 'user', 'guard_name' => 'web']);
+            $user->assignRole($role);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => "Akun pengguna '{$user->name}' berhasil diaktifkan kembali.",
+            'data'    => $user->load('roles'),
+        ]);
+    }
+
+    /**
+     * Tandai notifikasi akun/deaktivasi telah dibaca, lalu redirect ke tabel pengguna dengan query search nama akun.
+     */
+    public function markAsRead($id)
+    {
+        $user = User::findOrFail($id);
+        $user->update(['is_read' => true]);
+
+        return redirect()->route('manajemenpengguna.users', ['search' => $user->name]);
     }
 }

@@ -8,26 +8,44 @@
 
     $unreadPasswordResets = collect();
     $pendingUsers = collect();
+    $pendingDeactivations = collect();
     if (auth()->check()) {
-        try {
-            $unreadPasswordResets = \App\Models\ManajemenPengguna\PasswordResetRequest::with('user')
-                ->where('status', 'pending')
-                ->where('is_read', false)
-                ->orderBy('created_at', 'desc')
-                ->get();
-        } catch (\Throwable $e) {
-            $unreadPasswordResets = collect();
-        }
+        $authUser = auth()->user();
+        $isAdminOrMaster = method_exists($authUser, 'hasAnyRole') 
+            ? $authUser->hasAnyRole(['master', 'admin', 'Master', 'Admin'])
+            : in_array(strtolower($authUser->role ?? ''), ['master', 'admin']);
 
-        try {
-            $pendingUsers = \App\Models\User::where('status', 'pending')
-                ->orderBy('created_at', 'desc')
-                ->get();
-        } catch (\Throwable $e) {
-            $pendingUsers = collect();
+        if ($isAdminOrMaster) {
+            try {
+                $unreadPasswordResets = \App\Models\ManajemenPengguna\PasswordResetRequest::with('user')
+                    ->where('status', 'pending')
+                    ->where('is_read', false)
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+            } catch (\Throwable $e) {
+                $unreadPasswordResets = collect();
+            }
+
+            try {
+                $pendingUsers = \App\Models\User::where('status', 'pending')
+                    ->where('is_read', false)
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+            } catch (\Throwable $e) {
+                $pendingUsers = collect();
+            }
+
+            try {
+                $pendingDeactivations = \App\Models\User::where('status', 'deactivate_pending')
+                    ->where('is_read', false)
+                    ->orderBy('updated_at', 'desc')
+                    ->get();
+            } catch (\Throwable $e) {
+                $pendingDeactivations = collect();
+            }
         }
     }
-    $totalPeringatan = $unreadPasswordResets->count() + $pendingUsers->count();
+    $totalPeringatan = $unreadPasswordResets->count() + $pendingUsers->count() + $pendingDeactivations->count();
 @endphp
 
 <!--begin::Menu-->
@@ -78,7 +96,7 @@
                             </span>
                         </div>
                         <div class="d-flex flex-column flex-grow-1">
-                            <a href="{{ route('manajemenpengguna.users') }}" class="fs-6 text-gray-800 text-hover-primary fw-bold mb-1">
+                            <a href="{{ route('manajemenpengguna.users.mark-read', $pendingUser->id) }}" class="fs-6 text-gray-800 text-hover-primary fw-bold mb-1">
                                 Pendaftaran Akun Baru
                             </a>
                             <div class="text-gray-700 fs-7 mb-2">
@@ -120,7 +138,33 @@
                     </div>
                 @endforeach
 
-                @if($pendingUsers->isEmpty() && $unreadPasswordResets->isEmpty())
+                @foreach($pendingDeactivations as $deactUser)
+                    <div class="d-flex align-items-start py-3 border-bottom border-gray-200 border-bottom-dashed">
+                        <div class="symbol symbol-35px me-3 flex-shrink-0 mt-1">
+                            <span class="symbol-label bg-light-danger">
+                                <i class="ki-duotone ki-shield-cross fs-2 text-danger">
+                                    <span class="path1"></span><span class="path2"></span><span class="path3"></span>
+                                </i>
+                            </span>
+                        </div>
+                        <div class="d-flex flex-column flex-grow-1">
+                            <a href="{{ route('manajemenpengguna.users.mark-read', $deactUser->id) }}" class="fs-6 text-gray-800 text-hover-primary fw-bold mb-1">
+                                Pengajuan Deaktivasi Akun
+                            </a>
+                            <div class="text-gray-700 fs-7 mb-2">
+                                Dari <strong>{{ $deactUser->name }}</strong> ({{ $deactUser->email }})
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <span class="badge badge-light-danger fs-8">
+                                    <i class="ki-duotone ki-time fs-8 text-danger me-1"><span class="path1"></span><span class="path2"></span></i>
+                                    {{ $deactUser->updated_at ? $deactUser->updated_at->diffForHumans() : 'Baru' }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+                @if($pendingUsers->isEmpty() && $unreadPasswordResets->isEmpty() && $pendingDeactivations->isEmpty())
                     <div class="d-flex align-items-start py-3 border-bottom border-gray-200 border-bottom-dashed">
                         <div class="symbol symbol-35px me-3 flex-shrink-0 mt-1">
                             <span class="symbol-label bg-light-warning">

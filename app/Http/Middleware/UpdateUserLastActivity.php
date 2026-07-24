@@ -20,6 +20,25 @@ class UpdateUserLastActivity
         if (Auth::check()) {
             /** @var \App\Models\User $user */
             $user = Auth::user();
+
+            // Jika status pengguna adalah inactive, paksa logout secara otomatis
+            if ($user->status === 'inactive' || $user->isInactive()) {
+                Auth::logout();
+
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+
+                if ($request->expectsJson() || $request->ajax()) {
+                    return response()->json([
+                        'success'      => false,
+                        'message'      => 'Akun Anda telah dinonaktifkan oleh Administrator.',
+                        'redirect_url' => route('login'),
+                    ], 403);
+                }
+
+                return redirect()->route('login')->with('error', 'Akun Anda telah dinonaktifkan oleh Administrator. Silakan hubungi admin untuk mengaktifkan kembali.');
+            }
+
             $now = Carbon::now();
 
             // Update last_activity_at jika belum ada atau jika sudah lebih dari 30 detik sejak update terakhir

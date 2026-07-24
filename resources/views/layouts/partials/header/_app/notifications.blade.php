@@ -1,22 +1,40 @@
 @php
     $unreadResetRequestsCount = 0;
     $pendingUsersCount = 0;
+    $pendingDeactivationsCount = 0;
     if (auth()->check()) {
-        try {
-            $unreadResetRequestsCount = \App\Models\ManajemenPengguna\PasswordResetRequest::where('status', 'pending')
-                ->where('is_read', false)
-                ->count();
-        } catch (\Throwable $e) {
-            $unreadResetRequestsCount = 0;
-        }
+        $authUser = auth()->user();
+        $isAdminOrMaster = method_exists($authUser, 'hasAnyRole') 
+            ? $authUser->hasAnyRole(['master', 'admin', 'Master', 'Admin'])
+            : in_array(strtolower($authUser->role ?? ''), ['master', 'admin']);
 
-        try {
-            $pendingUsersCount = \App\Models\User::where('status', 'pending')->count();
-        } catch (\Throwable $e) {
-            $pendingUsersCount = 0;
+        if ($isAdminOrMaster) {
+            try {
+                $unreadResetRequestsCount = \App\Models\ManajemenPengguna\PasswordResetRequest::where('status', 'pending')
+                    ->where('is_read', false)
+                    ->count();
+            } catch (\Throwable $e) {
+                $unreadResetRequestsCount = 0;
+            }
+
+            try {
+                $pendingUsersCount = \App\Models\User::where('status', 'pending')
+                    ->where('is_read', false)
+                    ->count();
+            } catch (\Throwable $e) {
+                $pendingUsersCount = 0;
+            }
+
+            try {
+                $pendingDeactivationsCount = \App\Models\User::where('status', 'deactivate_pending')
+                    ->where('is_read', false)
+                    ->count();
+            } catch (\Throwable $e) {
+                $pendingDeactivationsCount = 0;
+            }
         }
     }
-    $totalNotificationCount = $unreadResetRequestsCount + $pendingUsersCount;
+    $totalNotificationCount = $unreadResetRequestsCount + $pendingUsersCount + $pendingDeactivationsCount;
 @endphp
 
 <div class="app-navbar-item ms-1 ms-md-4">

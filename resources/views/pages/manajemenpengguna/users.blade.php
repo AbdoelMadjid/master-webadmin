@@ -14,12 +14,22 @@
 @section('content')
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_content_container" class="app-container container-fluid">
+            @if(request('search'))
+                <div class="alert alert-info d-flex align-items-center p-4 mb-5">
+                    <i class="ki-duotone ki-information-5 fs-2hx text-info me-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    <div class="d-flex flex-column">
+                        <h5 class="mb-1 text-gray-900 fw-bold">Notifikasi Pengguna</h5>
+                        <span>Membuka data pengguna untuk nama akun: <strong>"{{ request('search') }}"</strong>. Tabel telah terfilter secara otomatis.</span>
+                    </div>
+                </div>
+            @endif
+
             <div class="card">
                 <div class="card-header border-0 pt-6">
                     <div class="card-title">
                         <div class="d-flex align-items-center position-relative my-1">
                             <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5"><span class="path1"></span><span class="path2"></span></i>
-                            <input type="text" id="kt_users_search" class="form-control form-control-solid w-250px ps-13" placeholder="Cari User..." />
+                            <input type="text" id="users_search_input" class="form-control form-control-solid w-250px ps-13" placeholder="Cari User..." value="{{ request('search') }}" />
                         </div>
                     </div>
                     <div class="card-toolbar gap-2 flex-wrap">
@@ -58,13 +68,15 @@
                             <tbody class="fw-semibold text-gray-600">
                                 @foreach($users as $user)
                                     <tr>
-                                        <td class="d-flex align-items-center">
-                                            <div class="symbol symbol-circle symbol-40px overflow-hidden me-3">
-                                                <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}" style="width: 40px; height: 40px; object-fit: cover;" onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
-                                            </div>
-                                            <div class="d-flex flex-column">
-                                                <a href="javascript:void(0)" class="text-gray-800 text-hover-primary mb-1 fw-bold btn-impersonate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Klik untuk masuk ke akun ini (Switch User)">{{ $user->name }}</a>
-                                                <span class="fs-7 text-muted">{{ $user->email }}</span>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <div class="symbol symbol-circle symbol-40px overflow-hidden me-3">
+                                                    <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}" style="width: 40px; height: 40px; object-fit: cover;" onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
+                                                </div>
+                                                <div class="d-flex flex-column">
+                                                    <a href="javascript:void(0)" class="text-gray-800 text-hover-primary mb-1 fw-bold btn-impersonate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Klik untuk masuk ke akun ini (Switch User)">{{ $user->name }}</a>
+                                                    <span class="fs-7 text-muted">{{ $user->email }}</span>
+                                                </div>
                                             </div>
                                         </td>
                                         <td>
@@ -92,9 +104,14 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @if(($user->status ?? 'approved') === 'approved')
-                                                <span class="badge badge-light-success fw-bold">Disetujui</span>
-                                            @elseif(($user->status ?? 'approved') === 'pending')
+                                            @php $st = $user->status ?? 'approved'; @endphp
+                                            @if($st === 'approved')
+                                                <span class="badge badge-light-success fw-bold">Aktif</span>
+                                            @elseif($st === 'inactive')
+                                                <span class="badge badge-light-dark fw-bold">Non-Aktif</span>
+                                            @elseif($st === 'deactivate_pending')
+                                                <span class="badge badge-light-danger fw-bold">Pengajuan Deaktivasi</span>
+                                            @elseif($st === 'pending')
                                                 <span class="badge badge-light-warning fw-bold">Menunggu Persetujuan</span>
                                             @else
                                                 <span class="badge badge-light-danger fw-bold">Ditolak</span>
@@ -113,12 +130,17 @@
                                         <td>{{ $user->created_at ? $user->created_at->format('d M Y H:i') : '-' }}</td>
                                         <td class="text-end">
                                             @if($user->id !== auth()->id())
-                                                @if(($user->status ?? 'approved') !== 'approved')
-                                                    <button type="button" class="btn btn-icon btn-active-light-success w-30px h-30px me-1 btn-approve-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Setujui Akun Pengguna">
+                                                @if(in_array($st, ['pending', 'deactivate_pending', 'inactive']))
+                                                    <button type="button" class="btn btn-icon btn-active-light-success w-30px h-30px me-1 btn-activate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Aktifkan / Setujui Pembatalan Deaktivasi">
                                                         <i class="ki-duotone ki-check fs-3"><span class="path1"></span><span class="path2"></span></i>
                                                     </button>
                                                 @endif
-                                                @if(($user->status ?? 'approved') !== 'rejected')
+                                                @if(in_array($st, ['approved', 'deactivate_pending']))
+                                                    <button type="button" class="btn btn-icon btn-active-light-danger w-30px h-30px me-1 btn-deactivate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Nonaktifkan / Setujui Deaktivasi Akun">
+                                                        <i class="ki-duotone ki-cross-circle fs-3"><span class="path1"></span><span class="path2"></span></i>
+                                                    </button>
+                                                @endif
+                                                @if($st === 'pending')
                                                     <button type="button" class="btn btn-icon btn-active-light-warning w-30px h-30px me-1 btn-reject-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Tolak Akun Pengguna">
                                                         <i class="ki-duotone ki-cross fs-3"><span class="path1"></span><span class="path2"></span></i>
                                                     </button>
@@ -160,14 +182,27 @@
         $(document).ready(function() {
             var usersTable = $('#kt_users_table').DataTable({
                 pageLength: 10,
-                order: [[0, 'asc']],
+                order: [],
+                columnDefs: [
+                    { orderable: false, targets: [6] }
+                ],
                 language: {
+                    zeroRecords: "Pengguna tidak ditemukan.",
+                    emptyTable: "Belum ada data pengguna.",
                     search: "",
                     searchPlaceholder: "Cari User..."
                 }
             });
 
-            $('#kt_users_search').on('keyup', function() {
+            var initialSearch = $('#users_search_input').val();
+            if (initialSearch) {
+                usersTable.search(initialSearch).draw();
+                if (window.history.replaceState) {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                }
+            }
+
+            $('#users_search_input').on('keyup input', function() {
                 usersTable.search(this.value).draw();
             });
 
@@ -273,7 +308,9 @@
                     success: function(res) {
                         if(res.success) {
                             $('#kt_modal_user').modal('hide');
-                            SwalHelper.success(res.message);
+                            SwalHelper.success(res.message, function() {
+                                location.reload();
+                            });
                         }
                     },
                     error: function(xhr) {
@@ -307,7 +344,9 @@
                             data: { _token: "{{ csrf_token() }}" },
                             success: function(res) {
                                 if (res.success) {
-                                    SwalHelper.success(res.message);
+                                    SwalHelper.success(res.message, function() {
+                                        location.reload();
+                                    });
                                 }
                             },
                             error: function(xhr) {
@@ -343,11 +382,89 @@
                             data: { _token: "{{ csrf_token() }}" },
                             success: function(res) {
                                 if (res.success) {
-                                    SwalHelper.success(res.message);
+                                    SwalHelper.success(res.message, function() {
+                                        location.reload();
+                                    });
                                 }
                             },
                             error: function(xhr) {
                                 SwalHelper.error(xhr.responseJSON?.message || 'Gagal menolak akun.');
+                            }
+                        });
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-activate-user', function(e) {
+                e.preventDefault();
+                var btn = $(this).closest('.btn-activate-user');
+                var userId = btn.data('id') || $(this).data('id');
+                var userName = btn.data('name') || $(this).data('name');
+
+                Swal.fire({
+                    title: 'Aktifkan Akun?',
+                    text: "Apakah Anda yakin ingin mengaktifkan kembali akun '" + userName + "'?",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, Aktifkan Akun',
+                    cancelButtonText: 'Batal',
+                    customClass: {
+                        confirmButton: 'btn btn-success',
+                        cancelButton: 'btn btn-light'
+                    }
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: "{{ url('manajemenpengguna/users') }}/" + userId + "/activate",
+                            type: "POST",
+                            data: { _token: "{{ csrf_token() }}" },
+                            success: function(res) {
+                                if (res.success) {
+                                    SwalHelper.success(res.message, function() {
+                                        location.reload();
+                                    });
+                                }
+                            },
+                            error: function(xhr) {
+                                SwalHelper.error(xhr.responseJSON?.message || 'Gagal mengaktifkan akun.');
+                            }
+                        });
+                    }
+                });
+            });
+
+            $(document).on('click', '.btn-deactivate-user', function(e) {
+                e.preventDefault();
+                var btn = $(this).closest('.btn-deactivate-user');
+                var userId = btn.data('id') || $(this).data('id');
+                var userName = btn.data('name') || $(this).data('name');
+
+                Swal.fire({
+                    title: 'Nonaktifkan Akun?',
+                    text: "Apakah Anda yakin ingin menonaktifkan akun '" + userName + "'?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, Nonaktifkan Akun',
+                    cancelButtonText: 'Batal',
+                    customClass: {
+                        confirmButton: 'btn btn-danger',
+                        cancelButton: 'btn btn-light'
+                    }
+                }).then(function(result) {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: "{{ url('manajemenpengguna/users') }}/" + userId + "/deactivate",
+                            type: "POST",
+                            data: { _token: "{{ csrf_token() }}" },
+                            success: function(res) {
+                                if (res.success) {
+                                    SwalHelper.success(res.message, function() {
+                                        location.reload();
+                                    });
+                                }
+                            },
+                            error: function(xhr) {
+                                SwalHelper.error(xhr.responseJSON?.message || 'Gagal menonaktifkan akun.');
                             }
                         });
                     }
@@ -367,7 +484,9 @@
                         data: { _token: "{{ csrf_token() }}" },
                         success: function(res) {
                             if(res.success) {
-                                SwalHelper.success(res.message);
+                                SwalHelper.success(res.message, function() {
+                                    location.reload();
+                                });
                             }
                         },
                         error: function(xhr) {

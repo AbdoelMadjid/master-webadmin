@@ -89,6 +89,13 @@ class LoginRequest extends FormRequest
             ]);
         }
 
+        if ($user->isInactive()) {
+            RateLimiter::hit($this->throttleKey());
+            throw ValidationException::withMessages([
+                'email' => 'Akun Anda telah dinonaktifkan oleh admin. Silakan hubungi admin untuk mengaktifkan kembali.',
+            ]);
+        }
+
         Auth::login($user, $this->boolean('remember'));
 
         RateLimiter::clear($this->throttleKey());

@@ -43,6 +43,10 @@ use App\Http\Controllers\User\ProfilPenggunaController;
 
 Route::middleware('auth')->group(function () {
     Route::post('/profil-pengguna/avatar', [ProfilPenggunaController::class, 'updateAvatar'])->name('profil-pengguna.avatar.update');
+    Route::post('/profil-pengguna/pengaturan', [ProfilPenggunaController::class, 'updatePengaturan'])->name('profil-pengguna.pengaturan.update');
+    Route::post('/profil-pengguna/keamanan/password', [ProfilPenggunaController::class, 'updatePassword'])->name('profil-pengguna.keamanan.password.update');
+    Route::post('/profil-pengguna/keamanan/deactivate', [ProfilPenggunaController::class, 'deactivateAccount'])->name('profil-pengguna.keamanan.deactivate');
+    Route::post('/profil-pengguna/keamanan/cancel-deactivate', [ProfilPenggunaController::class, 'cancelDeactivateAccount'])->name('profil-pengguna.keamanan.cancel-deactivate');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -62,6 +66,9 @@ Route::middleware('auth')->group(function () {
         Route::post('users/{id}/impersonate', [UserMgmtController::class, 'impersonate'])->name('users.impersonate');
         Route::post('users/{id}/approve', [UserMgmtController::class, 'approve'])->name('users.approve');
         Route::post('users/{id}/reject', [UserMgmtController::class, 'reject'])->name('users.reject');
+        Route::get('users/{id}/mark-read', [UserMgmtController::class, 'markAsRead'])->name('users.mark-read');
+        Route::post('users/{id}/deactivate', [UserMgmtController::class, 'deactivate'])->name('users.deactivate');
+        Route::post('users/{id}/activate', [UserMgmtController::class, 'activate'])->name('users.activate');
 
         Route::resource('roles', RoleController::class)->names([
             'index' => 'roles',
