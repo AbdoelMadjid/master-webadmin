@@ -993,6 +993,11 @@ return [
     'pages.skema.app-support.hero_lead' => 'Penjelasan arsitektur data, alur controller, dan skema pemrograman untuk seluruh sub-modul App Support: Menu Dinamis, App Profil, Feature Flags, Backup Database, dan Data Login.',
     'pages.operasional.app-support.hero_title' => 'Panduan Operasional & Workflow App Support',
     'pages.operasional.app-support.hero_lead' => 'Panduan operasional dan alur kerja pengelolaan menu aplikasi, identitas profil app, sakelar fitur (feature flags), ekspor/restore backup DB, dan pemantauan data login.',
+
+    // Pages - Skema SweetAlert2
+    'pages.skema.sweetalert2.hero_title' => 'Skema & Standarisasi JavaScript SwalHelper (SweetAlert2)',
+    'pages.skema.sweetalert2.hero_lead' => 'Panduan komprehensif penggunaan global JavaScript helper SwalHelper untuk notifikasi CRUD, konfirmasi hapus, dan penanganan error validasi AJAX 422 XHR.',
+    'sweetalert2_skema_desc' => 'Standarisasi global JavaScript helper <code>SwalHelper</code> untuk notifikasi CRUD, konfirmasi hapus, dan validasi 422 XHR.',
 ];
 
 

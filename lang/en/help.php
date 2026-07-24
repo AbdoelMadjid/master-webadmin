@@ -993,6 +993,11 @@ return [
     'pages.skema.app-support.hero_lead' => 'Explanation of data architecture, controller flow, and programming blueprint for all App Support sub-modules: Dynamic Menu, App Profile, Feature Flags, Database Backup, and Login Data.',
     'pages.operasional.app-support.hero_title' => 'App Support Operational Guide & Workflow',
     'pages.operasional.app-support.hero_lead' => 'Operational guide and workflow for app menu management, app profile identity, feature flags, DB backup export/restore, and login data audit trails.',
+
+    // Pages - Skema SweetAlert2
+    'pages.skema.sweetalert2.hero_title' => 'JavaScript SwalHelper (SweetAlert2) Scheme & Standardization',
+    'pages.skema.sweetalert2.hero_lead' => 'Comprehensive guide to using the global JavaScript helper SwalHelper for CRUD notifications, delete confirmations, and AJAX 422 XHR validation error handling.',
+    'sweetalert2_skema_desc' => 'Standardization of global JavaScript helper <code>SwalHelper</code> for CRUD toasts, delete prompts, and 422 XHR validation handling.',
 ];
 
 

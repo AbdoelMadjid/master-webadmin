@@ -17,55 +17,55 @@ return [
                     'title' => 'Skema',
                     'children' => [
                         [
-                            'title' => 'Skema Route',
+                            'title' => 'Route',
                             'route' => 'help.pemrograman.skema.route',
                         ],
                         [
-                            'title' => 'Skema Layout',
+                            'title' => 'Layout',
                             'route' => 'help.pemrograman.skema.layout',
                         ],
                         [
-                            'title' => 'Skema Komponen Blade & Partial',
+                            'title' => 'Komponen Blade & Partial',
                             'route' => 'help.pemrograman.skema.komponen-blade-partial',
                         ],
                         [
-                            'title' => 'Skema Theme Assets',
+                            'title' => 'Theme Assets',
                             'route' => 'help.pemrograman.skema.theme-assets',
                         ],
                         [
-                            'title' => 'Skema Auth dan Middleware',
+                            'title' => 'Auth dan Middleware',
                             'route' => 'help.pemrograman.skema.auth-dan-middleware',
                         ],
                         [
-                            'title' => 'Skema Struktur Config Menu',
+                            'title' => 'Struktur Config Menu',
                             'route' => 'help.pemrograman.skema.struktur-config-menu',
                         ],
                         [
-                            'title' => 'Skema Sidebar Menu',
+                            'title' => 'Sidebar Menu',
                             'route' => 'help.pemrograman.skema.sidebar-menu',
                         ],
                         [
-                            'title' => 'Skema Header Menu',
+                            'title' => 'Header Menu',
                             'route' => 'help.pemrograman.skema.header-menu',
                         ],
                         [
-                            'title' => 'Skema Data Layer',
+                            'title' => 'Data Layer',
                             'route' => 'help.pemrograman.skema.data-layer',
                         ],
                         [
-                            'title' => 'Skema Error Handling & Fallback',
+                            'title' => 'Error Handling & Fallback',
                             'route' => 'help.pemrograman.skema.error-handling-dan-fallback',
                         ],
                         [
-                            'title' => 'Skema Cache & Deployment',
+                            'title' => 'Cache & Deployment',
                             'route' => 'help.pemrograman.skema.cache-dan-deployment',
                         ],
                         [
-                            'title' => 'Skema Pemilihan Bahasa',
+                            'title' => 'Pemilihan Bahasa',
                             'route' => 'help.pemrograman.skema.pemilihan-bahasa',
                         ],
                         [
-                            'title' => 'Skema i18n Lanjutan',
+                            'title' => 'i18n Lanjutan',
                             'route' => 'help.pemrograman.skema.i18n-lanjutan',
                         ],
                         [
@@ -79,6 +79,10 @@ return [
                         [
                             'title' => 'Notifikasi System',
                             'route' => 'help.pemrograman.skema.notification',
+                        ],
+                        [
+                            'title' => 'SweetAlert2',
+                            'route' => 'help.pemrograman.skema.sweetalert2',
                         ],
                     ],
                 ],
