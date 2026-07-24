@@ -18,6 +18,8 @@ Versi ringkas per submenu dari menu **Skema Pemrograman**.
 - [Skema Cache dan Deployment](./skema/cache-dan-deployment.md)
 - [Skema Pemilihan Bahasa](./skema/pemilihan-bahasa.md)
 - [Skema i18n Lanjutan](./skema/i18n-lanjutan.md)
+- [Skema Notifikasi System](./skema/notification.md)
+- [Skema SweetAlert2](./skema/sweetalert2.md)
 
 ## Kelompok Skema Main Menu
 
@@ -40,6 +42,8 @@ Versi ringkas per submenu dari menu **Skema Pemrograman**.
 - [Panduan Tambah Halaman](./operasional/panduan-tambah-halaman.md)
 - [Panduan Tambah Menu](./operasional/panduan-tambah-menu.md)
 - [Manajemen Pengguna](./operasional/manajemen-pengguna.md)
+- [App Support](./operasional/app-support.md)
+- [Notifikasi System](./operasional/notification.md)
 - [Konvensi Penamaan](./operasional/konvensi-penamaan.md)
 - [Workflow Developer Harian](./operasional/workflow-developer-harian.md)
 - [Checklist QA Smoke Test](./operasional/checklist-qa-smoke-test.md)
