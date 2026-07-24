@@ -47,6 +47,9 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
+        if ($user) {
+            $user->update(['last_activity_at' => null]);
+        }
 
         Auth::logout();
 

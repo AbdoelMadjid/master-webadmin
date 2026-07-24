@@ -56,6 +56,7 @@ class LogUserLogin
             $existingLoginToday->increment('login_count');
 
             $updateData = [
+                'login_at'   => $now,
                 'ip_address' => $ip,
                 'user_agent' => $userAgent,
             ];
@@ -83,5 +84,8 @@ class LogUserLogin
                 'login_count'   => 1,
             ]);
         }
+
+        // Update user last_activity_at marker for current online session
+        $user->update(['last_activity_at' => $now]);
     }
 }

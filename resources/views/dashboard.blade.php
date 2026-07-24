@@ -8,18 +8,6 @@
 @endsection
 @section('toolbar')
     @component('layouts.partials._toolbar')
-        @slot('action')
-            <div class="d-flex align-items-center gap-2 gap-lg-3">
-                <!--begin::Secondary button-->
-                <a href="javascript:void(0)" class="btn btn-sm fw-bold btn-secondary" data-bs-toggle="modal"
-                    data-bs-target="#kt_modal_create_app">Rollover</a>
-                <!--end::Secondary button-->
-                <!--begin::Primary button-->
-                <a href="javascript:void(0)" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#kt_modal_new_target">Add Target</a>
-                <!--end::Primary button-->
-            </div>
-        @endslot
     @endcomponent
 @endsection
 @section('content')
@@ -30,38 +18,60 @@
             <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
                 <!--begin::Col Total Users-->
                 <div class="col-12 col-md-4">
-                    <div class="card card-flush h-100 bgi-no-repeat bgi-size-contain bgi-position-x-end"
-                        style="background-color: #1e1e2d; background-image: url('{{ asset('assets/media/patterns/vector-1.png') }}');">
-                        <div class="card-header pt-5">
-                            <div class="card-title d-flex flex-column">
-                                <div class="d-flex align-items-center mb-1">
-                                    <i class="ki-duotone ki-profile-user fs-2hx text-primary me-3">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                        <span class="path3"></span>
-                                        <span class="path4"></span>
-                                    </i>
-                                    <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{ number_format($totalUsers ?? 0) }}</span>
-                                </div>
-                                <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Total Pengguna Terdaftar</span>
-                            </div>
+                    <div class="card card-flush h-100 position-relative overflow-hidden" style="background-color: #1e1e2d;">
+                        <!--begin::Pattern Overlay with Smooth Fade-->
+                        <div class="position-absolute top-0 end-0 bottom-0 w-100 bgi-no-repeat bgi-position-x-end bgi-position-y-center opacity-75 pointer-events-none"
+                            style="background-image: url('{{ asset('assets/media/patterns/vector-1.png') }}'); background-size: cover; mask-image: linear-gradient(to right, transparent 0%, black 65%); -webkit-mask-image: linear-gradient(to right, transparent 0%, black 65%);">
                         </div>
-                        <div class="card-body d-flex align-items-end pt-0">
-                            <div class="d-flex align-items-center justify-content-between w-100">
-                                <span class="badge badge-light-success fs-8 fw-bold px-3 py-2">
-                                    <i class="ki-duotone ki-check-circle fs-7 text-success me-1"><span class="path1"></span><span class="path2"></span></i>
-                                    {{ $onlineUsersCount ?? 0 }} Online (15m)
-                                </span>
-                                <!--begin::Users Stack-->
-                                <div class="symbol-group symbol-hover">
-                                    @foreach(($latestUsers ?? []) as $u)
-                                        <div class="symbol symbol-30px symbol-circle" data-bs-toggle="tooltip" title="{{ $u->name }}">
-                                            <img src="{{ $u->avatar_url }}" alt="{{ $u->name }}" onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
-                                        </div>
-                                    @endforeach
+                        <!--end::Pattern Overlay-->
+
+                        <div class="card-body p-5 d-flex align-items-center justify-content-between position-relative z-index-2 h-100">
+                            <!--begin::Left Content-->
+                            <div class="d-flex flex-column justify-content-between h-100 me-2">
+                                <div>
+                                    <div class="d-flex align-items-center mb-1">
+                                        <i class="ki-duotone ki-profile-user fs-2hx text-primary me-3">
+                                            <span class="path1"></span>
+                                            <span class="path2"></span>
+                                            <span class="path3"></span>
+                                            <span class="path4"></span>
+                                        </i>
+                                        <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{ number_format($totalUsers ?? 0) }}</span>
+                                    </div>
+                                    <span class="text-white opacity-75 pt-1 fw-semibold fs-6">Total Pengguna Terdaftar</span>
                                 </div>
-                                <!--end::Users Stack-->
+                                <div class="pt-3">
+                                    <span class="badge badge-light-success fs-8 fw-bold px-3 py-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Pengguna yang sedang aktif di sistem saat ini">
+                                        <i class="ki-duotone ki-check-circle fs-7 text-success me-1"><span class="path1"></span><span class="path2"></span></i>
+                                        <span id="online-users-count" class="me-1">{{ $onlineUsersCount ?? 0 }}</span>Online
+                                    </span>
+                                </div>
                             </div>
+                            <!--end::Left Content-->
+
+                            <!--begin::Right Content (Dynamic Roles Chunked in Columns of 5 - Full Width Equal Badges)-->
+                            <div class="d-flex align-items-start gap-3 border-start border-white border-opacity-10 ps-4 overflow-x-auto h-100">
+                                @foreach(($roleBreakdown ?? collect())->chunk(5) as $roleChunk)
+                                    <div class="d-flex flex-column justify-content-start align-items-stretch min-w-125px">
+                                        @foreach($roleChunk as $roleItem)
+                                            @php
+                                                $roleLower = strtolower($roleItem['name']);
+                                                $badgeStyle = match($roleLower) {
+                                                    'master' => 'badge-light-danger',
+                                                    'admin'  => 'badge-light-primary',
+                                                    'user'   => 'badge-light-info',
+                                                    default  => 'badge-light-secondary text-gray-800',
+                                                };
+                                            @endphp
+                                            <span class="badge {{ $badgeStyle }} fs-8 fw-bold px-3 py-2 text-nowrap mb-2 d-flex align-items-center justify-content-between w-100" data-bs-toggle="tooltip" data-bs-placement="top" title="Total Akun {{ $roleItem['name'] }}">
+                                                <span class="text-truncate me-2">{{ $roleItem['name'] }}</span>
+                                                <span class="fw-bolder">{{ number_format($roleItem['count']) }}</span>
+                                            </span>
+                                        @endforeach
+                                    </div>
+                                @endforeach
+                            </div>
+                            <!--end::Right Content-->
                         </div>
                     </div>
                 </div>
@@ -179,7 +189,45 @@
             </div>
             <!--end::User & Points Stat Cards Row-->
 
+            <!--begin::Online Users Dedicated Widget-->
+            <div class="card card-flush mb-5 mb-xl-10 border border-gray-200">
+                <div class="card-header pt-5 pb-3 align-items-center">
+                    <div class="card-title d-flex align-items-center gap-3">
+                        <div class="symbol symbol-35px symbol-circle bg-light-success">
+                            <span class="symbol-label">
+                                <i class="ki-duotone ki-check-circle fs-3 text-success">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
+                        </div>
+                        <div>
+                            <div class="d-flex align-items-center gap-2">
+                                <h3 class="fw-bold fs-5 text-gray-900 m-0">Pengguna Sedang Online</h3>
+                                <span class="badge badge-light-success fw-bolder fs-8 px-2.5 py-1" id="online-users-header-count">
+                                    {{ $onlineUsersCount ?? 0 }} Online
+                                </span>
+                            </div>
+                            <span class="text-muted fs-7">Daftar pengguna yang sedang login di sistem saat ini</span>
+                        </div>
+                    </div>
+                    <div class="card-toolbar">
+                        <span class="badge badge-light-primary fs-8 fw-semibold px-2.5 py-1.5" data-bs-toggle="tooltip" data-bs-placement="top" title="Status otomatis diperbarui secara realtime">
+                            <i class="ki-duotone ki-arrows-loop fs-7 text-primary me-1"><span class="path1"></span><span class="path2"></span></i>
+                            Realtime
+                        </span>
+                    </div>
+                </div>
+                <div class="card-body pt-2 pb-5">
+                    <div class="row g-3" id="online-users-container">
+                        @include('pages.dashboard.partials._online_users_list', ['onlineUsers' => $onlineUsers])
+                    </div>
+                </div>
+            </div>
+            <!--end::Online Users Dedicated Widget-->
+
             <!--begin::Leaderboard Points Table Widget-->
+            @hasanyrole('master|admin')
             <div class="card card-flush mb-5 mb-xl-10">
                 <div class="card-header pt-6 pb-4 align-items-center">
                     <div class="card-title d-flex align-items-center gap-3">
@@ -192,14 +240,12 @@
                             <span class="text-muted fs-7">Top 5 Pengguna dengan perolehan poin login harian tertinggi</span>
                         </div>
                     </div>
-                    @hasanyrole('admin|master')
-                        <div class="card-toolbar">
-                            <a href="{{ url('manajemenpengguna/users') }}" class="btn btn-sm btn-light-primary fw-bold">
-                                <i class="ki-duotone ki-profile-user fs-5 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-                                Kelola Pengguna
-                            </a>
-                        </div>
-                    @endhasanyrole
+                    <div class="card-toolbar">
+                        <a href="{{ url('manajemenpengguna/users') }}" class="btn btn-sm btn-light-primary fw-bold">
+                            <i class="ki-duotone ki-profile-user fs-5 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                            Kelola Pengguna
+                        </a>
+                    </div>
                 </div>
                 <div class="card-body pt-0">
                     <div class="table-responsive">
@@ -210,9 +256,7 @@
                                     <th class="min-w-200px">Pengguna</th>
                                     <th class="min-w-125px text-center">Total Login</th>
                                     <th class="min-w-150px text-center">Perolehan Poin</th>
-                                    @hasanyrole('admin|master')
-                                        <th class="text-end min-w-100px pe-4">Aksi</th>
-                                    @endhasanyrole
+                                    <th class="text-end min-w-100px pe-4">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
@@ -265,17 +309,15 @@
                                                 {{ number_format($user->points ?? 0) }} Poin
                                             </span>
                                         </td>
-                                        @hasanyrole('admin|master')
-                                            <td class="text-end pe-4">
-                                                <a href="{{ url('manajemenpengguna/users') }}" class="btn btn-sm btn-icon btn-light-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Detail User">
-                                                    <i class="ki-duotone ki-eye fs-4"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-                                                </a>
-                                            </td>
-                                        @endhasanyrole
+                                        <td class="text-end pe-4">
+                                            <a href="{{ url('manajemenpengguna/users') }}" class="btn btn-sm btn-icon btn-light-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Lihat Detail User">
+                                                <i class="ki-duotone ki-eye fs-4"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="{{ auth()->user()?->hasAnyRole(['admin', 'master']) ? 5 : 4 }}" class="text-center py-6 text-muted">
+                                        <td colspan="5" class="text-center py-6 text-muted">
                                             Belum ada data poin pengguna.
                                         </td>
                                     </tr>
@@ -285,14 +327,11 @@
                     </div>
                 </div>
             </div>
+            @endhasanyrole
             <!--end::Leaderboard Points Table Widget-->
 
         </div>
     </div>
-
-    <!--begin::Original Demo Content-->
-    @include('layouts.partials._content')
-    <!--end::Original Demo Content-->
 @endsection
 
 @section('scripts')
@@ -320,4 +359,31 @@
     <script src="{{ asset('assets/js/custom/utilities/modals/new-target.js') }}"></script>
     <script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>
     <!--end::Custom Javascript-->
+
+    <!--begin::Realtime Online Users Sync Script-->
+    <script>
+        $(document).ready(function() {
+            function syncOnlineUsers() {
+                $.ajax({
+                    url: "{{ route('dashboard.online-users') }}",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(res) {
+                        if (res && res.success) {
+                            $('#online-users-count').text(res.online_users_count);
+                            $('#online-users-header-count').text(res.online_users_count + ' Online');
+                            $('#online-users-container').html(res.html);
+                        }
+                    },
+                    error: function(err) {
+                        console.warn('Realtime sync online users warning:', err);
+                    }
+                });
+            }
+
+            // Periodically sync online users status every 10 seconds
+            setInterval(syncOnlineUsers, 10000);
+        });
+    </script>
+    <!--end::Realtime Online Users Sync Script-->
 @endsection

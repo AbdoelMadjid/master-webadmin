@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\DashboardController;
+
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
@@ -18,23 +20,13 @@ Route::get('/landing', function () {
     return redirect('/');
 })->name('dashboards.landing');
 
-Route::get('/homepage', function () {
-    $totalUsers = \App\Models\User::count();
-    $totalPoints = \App\Models\User::sum('points') ?? 0;
-    $onlineUsersCount = \App\Models\User::where('last_activity_at', '>=', now()->subMinutes(15))->count();
-    $topUsers = \App\Models\User::withCount('dataLogins')
-        ->orderBy('points', 'desc')
-        ->orderBy('data_logins_count', 'desc')
-        ->take(5)
-        ->get();
-    $latestUsers = \App\Models\User::latest()->take(6)->get();
-
-    return view('dashboard', compact('totalUsers', 'totalPoints', 'onlineUsersCount', 'topUsers', 'latestUsers'));
-})->middleware(['auth', 'verified'])->name('homepage');
+Route::get('/homepage', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('homepage');
 
 Route::get('/dashboard', function () {
     return redirect()->route('homepage');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard/online-users', [DashboardController::class, 'getOnlineUsers'])->middleware(['auth', 'verified'])->name('dashboard.online-users');
 
 use App\Http\Controllers\AppSupport\AppFiturController;
 use App\Http\Controllers\AppSupport\AppProfilController;
