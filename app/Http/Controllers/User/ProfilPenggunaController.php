@@ -126,23 +126,21 @@ class ProfilPenggunaController extends Controller
         if ($request->hasFile('avatar_file')) {
             $file = $request->file('avatar_file');
 
-            $uploadDir = public_path('uploads/avatars');
-            if (!File::exists($uploadDir)) {
-                File::makeDirectory($uploadDir, 0755, true, true);
-            }
-
-            // Hapus avatar lama jika fisik filenya ada di uploads/avatars/
-            if ($user->avatar && str_contains($user->avatar, 'uploads/avatars/')) {
-                $oldPath = public_path($user->avatar);
-                if (File::exists($oldPath)) {
-                    File::delete($oldPath);
+            // Hapus avatar lama jika fisik filenya ada
+            if ($user->avatar) {
+                // Hapus dari disk storage (bisa berupa path relatif)
+                if (Storage::disk('public')->exists($user->avatar)) {
+                    Storage::disk('public')->delete($user->avatar);
+                }
+                // Hapus legacy path jika masih ada di public folder
+                $oldLegacyPath = public_path($user->avatar);
+                if (File::exists($oldLegacyPath) && is_file($oldLegacyPath)) {
+                    File::delete($oldLegacyPath);
                 }
             }
 
-            $filename = 'avatar_' . $user->id . '_' . time() . '.' . $file->getClientOriginalExtension();
-            $file->move($uploadDir, $filename);
-
-            $avatarPath = 'uploads/avatars/' . $filename;
+            // Simpan file avatar baru ke storage public ('storage/app/public/avatars')
+            $avatarPath = $file->store('avatars', 'public');
             $user->update(['avatar' => $avatarPath]);
 
             $avatarUrl = getUserAvatarUrl($user);

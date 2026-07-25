@@ -21,7 +21,7 @@
                     <strong>File Validation:</strong> Image files verified with rule <code>image|mimes:jpeg,png,jpg,gif,svg|max:2048</code> (max 2MB).
                 </div>
                 <div class="schema-step">
-                    <strong>Storage:</strong> Physical files stored in <code>public/uploads/avatars/</code> with unique timestamp + user ID naming.
+                    <strong>Storage:</strong> Physical files stored in <code>storage/app/public/avatars/</code> via <code>Storage::disk('public')</code>.
                 </div>
                 <div class="schema-step">
                     <strong>Model Accessor:</strong> Avatar URL fetched via accessor <code>$user->avatar_url</code> powered by helper <code>getUserAvatarUrl($user)</code>.
@@ -269,7 +269,7 @@
                         <tr>
                             <td><strong>Avatar Management</strong></td>
                             <td><code>ProfilPenggunaController.php</code><br><code>User.php</code> (getAvatarUrlAttribute)</td>
-                            <td>Handles avatar uploads, image validation, storage in <code>public/uploads/avatars</code>, and initial SVG fallbacks.</td>
+                            <td>Handles avatar uploads, image validation, storage in <code>storage/app/public/avatars</code>, and initial SVG fallbacks.</td>
                         </tr>
                         <tr>
                             <td><strong>Reward Points System</strong></td>
@@ -330,7 +330,7 @@
                     <strong>Validasi File:</strong> File gambar diverifikasi dengan aturan <code>image|mimes:jpeg,png,jpg,gif,svg|max:2048</code> (maksimal 2MB).
                 </div>
                 <div class="schema-step">
-                    <strong>Penyimpanan:</strong> File fisik disimpan pada direktori <code>public/uploads/avatars/</code> dengan penamaan nama file unik berdasarkan timestamp dan ID user.
+                    <strong>Penyimpanan:</strong> File fisik disimpan pada direktori <code>storage/app/public/avatars/</code> via <code>Storage::disk('public')</code>.
                 </div>
                 <div class="schema-step">
                     <strong>Model Accessor:</strong> URL avatar diambil melalui accessor <code>$user->avatar_url</code> yang didukung oleh helper <code>getUserAvatarUrl($user)</code>.
@@ -578,7 +578,7 @@
                         <tr>
                             <td><strong>Pengelolaan Avatar</strong></td>
                             <td><code>ProfilPenggunaController.php</code><br><code>User.php</code> (getAvatarUrlAttribute)</td>
-                            <td>Menangani upload file avatar, validasi image, penyimpanan ke <code>public/uploads/avatars</code>, serta fungsi fallback SVG.</td>
+                            <td>Menangani upload file avatar, validasi image, penyimpanan ke <code>storage/app/public/avatars</code>, serta fungsi fallback SVG.</td>
                         </tr>
                         <tr>
                             <td><strong>Sistem Reward Poin</strong></td>

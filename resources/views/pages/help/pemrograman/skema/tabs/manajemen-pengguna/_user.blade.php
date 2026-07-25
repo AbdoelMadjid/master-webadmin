@@ -59,7 +59,7 @@ public function getAvatarUrlAttribute()
                         <ul class="schema-list fs-7 mb-0">
                             <li>Form uploaded via <code>POST /profil-pengguna/avatar</code> (handled by <code>ProfilPenggunaController@updateAvatar</code>) or during user creation/edit in <code>UserController</code>.</li>
                             <li>Files are validated with rule <code>image|mimes:jpeg,png,jpg,gif,svg|max:2048</code> (max 2MB).</li>
-                            <li>Saved under <code>public/uploads/avatars/</code> with unique timestamp + user ID naming.</li>
+                            <li>Saved under <code>storage/app/public/avatars/</code> via <code>Storage::disk('public')</code>.</li>
                         </ul>
                     </div>
                 </div>
@@ -412,7 +412,7 @@ public function getAvatarUrlAttribute()
                         <ul class="schema-list fs-7 mb-0">
                             <li>Form diunggah via <code>POST /profil-pengguna/avatar</code> (ditangani <code>ProfilPenggunaController@updateAvatar</code>) atau saat registrasi/edit di <code>UserController</code>.</li>
                             <li>File diverifikasi dengan aturan <code>image|mimes:jpeg,png,jpg,gif,svg|max:2048</code> (maksimal 2MB).</li>
-                            <li>Penyimpanan di <code>public/uploads/avatars/</code> dengan penamaan unik timestamp + ID user.</li>
+                            <li>Penyimpanan di <code>storage/app/public/avatars/</code> via <code>Storage::disk('public')</code>.</li>
                         </ul>
                     </div>
                 </div>
