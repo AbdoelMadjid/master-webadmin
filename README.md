@@ -357,47 +357,65 @@ resources/views/
 
 ## Alur MVC (Model-View-Controller)
 
-Project ini menggunakan pola MVC Laravel dengan routing dinamis untuk halaman di folder `resources/views/pages`. Alurnya sebagai berikut:
+Project ini menggabungkan **Routing Dinamis Metronic berbasis View** untuk navigasi halaman dan **Pola Mirroring MVC + Form Request** untuk pengolahan data dan fitur CRUD. Alurnya sebagai berikut:
 
 ```mermaid
 graph TD
-    A[User/Browser] -->|Request URL| B(routes/web.php)
-    B -->|require routes/menu.php| C[routes/menu.php]
-    C -->|Map URL ke view pages.*| D[Blade View]
-    D -->|Render| E[HTML Response]
-    D -.->|Opsional data| F[Model/Eloquent]
+    A[User/Browser] -->|Request URL / feature| B(routes/web.php)
+    B -->|Routing Dinamis Pages| C[routes/menu.php]
+    C -->|Render View Direct| D[Blade View pages.*]
+    
+    B -->|Aksi Form / CRUD / Resource| E[Controller SubFolder]
+    E -->|Validasi Input| F[Form Request SubFolder]
+    E -->|Olah Data| G[Model Eloquent SubFolder]
+    G -.->|Return Query/Result| E
+    E -->|Response JSON / Redirect / View| D
+    
+    D -->|AJAX / Form Submission| E
+    D -->|Render Output HTML| H[HTML Response]
 ```
 
-### Penjelasan Singkat:
+### Penjelasan Utama MVC & Konvensi Architecture:
 
-1. **Routing utama**: `routes/web.php` mendaftarkan route umum (`/`, `/dashboard`, auth, profile), lalu me-load `routes/menu.php`.
-2. **Routing dinamis pages**: `routes/menu.php` scan seluruh file `resources/views/pages/**/*.blade.php`, lalu otomatis membuat:
-    - URL path (format slash), contoh: `/help/pemrograman/skema/route`
-    - route name (format titik), contoh: `help.pemrograman.skema.route`
-3. **View (V)**: route dinamis langsung merender view `pages.*` via closure route (tanpa controller khusus untuk mapping halaman).
-4. **Model (M)**: dipakai saat halaman butuh data dinamis, melalui Eloquent di `app/Models/*` atau layer service/query lain.
-5. **Controller (C)**: tetap dipakai untuk endpoint yang memang berbasis aksi, contohnya `ProfileController` di `routes/web.php`.
-6. **Middleware**: seluruh route dinamis pages berada di middleware `auth`, jadi hanya user login yang bisa mengaksesnya.
-7. **Fallback**: jika route tidak ditemukan, aplikasi menampilkan view `pages.pages.authentication.general.error-404`.
+1. **Routing Utama (`routes/web.php`) & Routing Dinamis (`routes/menu.php`)**:
+   - `routes/web.php` me-load `routes/menu.php` untuk scan otomatis seluruh Blade view di `resources/views/pages/**/*.blade.php`.
+   - URL path (`/`) dan route name (`.`) terbentuk secara otomatis dari struktur file view.
+   - Endpoint aksi CRUD (POST/PUT/DELETE) didefinisikan secara eksplisit di `routes/web.php` mengarah ke Controller terkait.
+
+2. **Konvensi Mirroring Subfolder (Controller, Model, Form Request)**:
+   - Struktur Controller, Model, dan Form Request **wajib mencerminkan (mirror)** hirarki folder Blade View di bawah `resources/views/pages/`.
+   - **Contoh Mapping Fitur**:
+     - View: `resources/views/pages/appsupport/app-profil.blade.php`
+     - Controller: `App\Http\Controllers\AppSupport\AppProfilController`
+     - Model: `App\Models\AppSupport\AppProfil`
+     - Form Request: `App\Http\Requests\AppSupport\AppProfilRequest`
+
+3. **Layer Validasi via Form Request**:
+   - Seluruh aturan validasi dikumpulkan dalam kelas Form Request di `App\Http\Requests\<SubFolder>\<FeatureRequest>.php`, bukan ditulis inline di dalam Controller.
+   - Respon validasi 422 XHR ditangani secara otomatis oleh frontend menggunakan helper JavaScript global `SwalHelper.validationError(xhr)`.
+
+4. **Multi-Tab Sub-View pada Single Route**:
+   - Halaman fitur yang memiliki banyak sub-tab menggunakan query parameter (contoh: `/profil-pengguna?tab=...` atau `/appsupport?tab=...`).
+   - Pendekatan ini menjaga highlight aktif menu sidebar tetap utuh pada route utama sambil me-`@include` partial tab dari subfolder `tabs/<feature>/`.
+
+5. **Middleware & Otentikasi**:
+   - Seluruh route halaman `pages.*` dibungkus oleh middleware `auth` dan terintegrasi dengan Spatie Permission (`assignRole`, `hasPermissionTo`) serta helper global fitur (`isFeatureActive()`).
 
 ### Cross-reference ke Panduan_MVC.md
 
 <a id="readme-mvc-routing"></a>
 **Routing**
-
 - Ringkasan ada di section ini.
 - Detail teknis ada di: [Panduan MVC - Routing (Entry Point)](./Panduan_MVC.md#mvc-routing)
 
 <a id="readme-mvc-controller"></a>
-**Controller**
-
+**Controller & Form Request**
 - Ringkasan ada di section ini.
 - Detail teknis ada di: [Panduan MVC - Controller](./Panduan_MVC.md#mvc-controller)
 
 <a id="readme-mvc-crud"></a>
-**CRUD**
-
-- Ringkasan: untuk CRUD disarankan pakai controller + route spesifik/resource, bukan mengandalkan route view dinamis.
+**CRUD & Mirroring Structure**
+- Ringkasan: Pengolahan CRUD menggunakan controller, model, dan form request berbasis konvensi subfolder ter-mirror.
 - Detail teknis ada di: [Panduan MVC - Menambah Fitur CRUD](./Panduan_MVC.md#mvc-crud)
 
 Dokumen lengkap: [Panduan MVC Lengkap](./Panduan_MVC.md)

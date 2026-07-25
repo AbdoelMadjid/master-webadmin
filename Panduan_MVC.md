@@ -81,18 +81,19 @@ resources/views/pages/help/pemrograman/skema/route.blade.php
 Semua route dinamis ini berada dalam middleware `auth`.
 
 <a id="mvc-controller"></a>
-## 3. Controller (C pada MVC)
+## 3. Controller & Form Request (C pada MVC)
 
-Saat ini controller yang dipakai jelas di route utama adalah:
-- `app/Http/Controllers/ProfileController.php`
+Aturan utama pembuatan Controller:
+- Structure Mirroring: Controller & Form Request **wajib dibuat di dalam subfolder yang mencerminkan hirarki View** di `resources/views/pages/`.
+- Contoh: View `resources/views/pages/appsupport/app-profil.blade.php` 
+  -> Controller: `App\Http\Controllers\AppSupport\AppProfilController`
+  -> Form Request: `App\Http\Requests\AppSupport\AppProfilRequest`
 
 Catatan penting:
 - Project ini **tidak** memakai `RoutingController` untuk mapping view dinamis.
 - Mapping halaman `pages/*` dilakukan langsung oleh closure route di `routes/menu.php`.
-
-Kapan menambah controller baru?
-- Saat ada proses bisnis (simpan data, validasi kompleks, API, export/import, dsb).
-- Jangan memindahkan mapping route dinamis ke controller jika tujuannya hanya render view statis.
+- Gunakan Form Request di `App\Http\Requests\<SubFolder>\<FeatureRequest>.php` untuk memisahkan aturan validasi dari controller.
+- Notifikasi respon AJAX 422 (validasi) dan aksi sukses diserahkan ke JavaScript helper global `SwalHelper`.
 
 <a id="mvc-bab-4"></a>
 ## 4. View (V pada MVC)
@@ -101,6 +102,8 @@ View menggunakan Blade, lokasi utama:
 - `resources/views/layouts/**` untuk shell/layout global
 - `resources/views/layouts/partials/**` untuk bagian reusable (sidebar, header, footer, dsb)
 - `resources/views/pages/**` untuk halaman konten
+- `resources/views/pages/<subfolder>/partials/` untuk modal form & partial fitur
+- `resources/views/pages/<subfolder>/tabs/<feature>/` untuk sub-tab multi-tab (_*.blade.php)
 
 Pola render route dinamis:
 - URL `/a/b/c` -> cari `resources/views/pages/a/b/c.blade.php`
@@ -112,10 +115,8 @@ Jika tidak ada route yang cocok, fallback diarahkan ke:
 ## 5. Model (M pada MVC)
 
 Model berada di:
-- `app/Models/**`
-
-Model default:
-- `app/Models/User.php`
+- `app/Models/<SubFolder>/<Feature>.php` (mengikuti konvensi subfolder view ter-mirror)
+- Model default: `app/Models/User.php`
 
 Seeder user development:
 - `database/seeders/UserSeeder.php` membuat akun `master@gmail.com`, `admin@gmail.com`, dan `user@gmail.com`
@@ -148,20 +149,20 @@ Contoh:
 <a id="mvc-crud"></a>
 ## 8. Menambah Fitur CRUD (Rekomendasi Real)
 
-Untuk CRUD, gunakan route/controller spesifik di `routes/web.php`, misalnya:
+Untuk CRUD, gunakan konvensi subfolder ter-mirror + route/controller spesifik di `routes/web.php`:
 
 ```php
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AppSupport\AppProfilController;
 
 Route::middleware('auth')->group(function () {
-    Route::resource('products', ProductController::class);
+    Route::post('/appsupport/app-profil', [AppProfilController::class, 'update'])->name('appsupport.app-profil.update');
 });
 ```
 
-Kenapa tetap disarankan resource/controller?
-- Validasi request lebih rapi
-- Otorisasi lebih mudah
-- Maintainability lebih baik dibanding mengandalkan view dinamis murni
+Kenapa memakai konvensi Subfolder Mirroring + Form Request?
+- Structure Mirroring membuat pencarian kode (View, Controller, Model, Request) mudah ditebak dan teratur.
+- Form Request (`App\Http\Requests\<SubFolder>\<FeatureRequest>.php`) menjaga Controller tetap ringkas.
+- Penanganan validasi XHR 422 otomatis ditangani oleh `SwalHelper.validationError(xhr)`.
 
 Catatan:
 - Route spesifik (seperti `products/*`) tetap aman berdampingan dengan route dinamis dari `routes/menu.php`.
