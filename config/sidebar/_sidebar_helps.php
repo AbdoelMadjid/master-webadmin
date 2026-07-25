@@ -70,11 +70,11 @@ return [
                         ],
                         [
                             'title' => 'Manajemen Pengguna',
-                            'route' => 'help.pemrograman.skema-main-menu.manajemen-pengguna',
+                            'route' => 'help.pemrograman.skema.manajemen-pengguna',
                         ],
                         [
                             'title' => 'App Support',
-                            'route' => 'help.pemrograman.skema-main-menu.app-support',
+                            'route' => 'help.pemrograman.skema.app-support',
                         ],
                         [
                             'title' => 'Notifikasi System',

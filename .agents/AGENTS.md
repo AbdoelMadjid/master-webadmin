@@ -85,3 +85,25 @@
 5. **Mandatory Icon Prefix for Card Headings**:
    - Every section card heading (`<h4>` or `<h5>`) MUST have a valid Keenicons duotone icon (`<i class="ki-duotone ki-<icon-name> fs-2 text-<color> me-2">`) placed directly before the heading title text.
    - Icon classes MUST be valid Keenicons in Metronic 8 (e.g., `ki-route`, `ki-element-11`, `ki-layers`, `ki-global`, `ki-shield-tick`, `ki-key`, `ki-map`, `ki-wrench`, `ki-check-square`) and include all required child `<span class="pathN"></span>` elements.
+
+# Rules for Route-to-Blade File Placement & Multi-Tab Subfolder Architecture
+
+1. **Strict Route-to-Blade View Path Alignment**:
+   - Every route rendering a Blade view MUST map directly to a main view file at the matching path under `resources/views/pages/`.
+   - **Pattern**: Route `/{subfolder}/{feature}` &rarr; Main View File `resources/views/pages/{subfolder}/{feature}.blade.php`.
+   - **Example**: Route `/help/pemrograman/skema/manajemen-pengguna` &rarr; `resources/views/pages/help/pemrograman/skema/manajemen-pengguna.blade.php`.
+   - **Example**: Route `/profil-pengguna` &rarr; `resources/views/pages/profil-pengguna.blade.php`.
+
+2. **Universal Multi-Tab Subfolder Architecture (`tabs/<feature>/`)**:
+   - For any multi-tab feature using single route query parameters (`/{subfolder}/{feature}?tab=...`), all sub-tab partial files (prefixed with `_`) MUST be placed inside a dedicated `tabs/<feature>/` subdirectory.
+   - **Pattern**: `resources/views/pages/{subfolder}/tabs/{feature}/_{tab}.blade.php`.
+   - **Example**: Tab `user` on `/help/pemrograman/skema/manajemen-pengguna?tab=user` &rarr; `resources/views/pages/help/pemrograman/skema/tabs/manajemen-pengguna/_user.blade.php`.
+   - **Example**: Tab `app-fitur` on `/appsupport?tab=app-fitur` &rarr; `resources/views/pages/appsupport/tabs/app-support/_app_fitur.blade.php`.
+
+3. **Dynamic `@include` Path Invariant**:
+   - Main multi-tab view templates MUST dynamically include tab partials using the standardized path structure:
+     `@include('pages.{subfolder}.tabs.{feature}._' . str_replace('-', '_', $activeTab))`
+   - Never include tab partials directly from parent folders or non-standard paths.
+
+4. **Prohibition of Redundant Feature Directories**:
+   - Do NOT create standalone non-tab feature subdirectories directly under parent view folders (e.g., do NOT create `pages/{subfolder}/{feature}/` to hold main view files or stray tab views). All sub-tab partials MUST reside cleanly inside `pages/{subfolder}/tabs/{feature}/`.

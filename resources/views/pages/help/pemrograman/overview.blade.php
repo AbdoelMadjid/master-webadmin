@@ -194,7 +194,7 @@
                         </div>
 
                         <div class="col-12 col-md-6 col-lg-4">
-                            <a href="{{ route('help.pemrograman.skema-main-menu.app-support') }}" class="card card-flush h-100 bg-light-success">
+                            <a href="{{ route('help.pemrograman.skema.app-support') }}" class="card card-flush h-100 bg-light-success">
                                 <div class="card-body d-flex align-items-start gap-3 py-4">
                                     <i class="ki-duotone ki-element-11 fs-2hx text-success flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                     <div>
@@ -206,7 +206,7 @@
                         </div>
 
                         <div class="col-12 col-md-6 col-lg-4">
-                            <a href="{{ route('help.pemrograman.skema-main-menu.manajemen-pengguna') }}" class="card card-flush h-100 bg-light-primary">
+                            <a href="{{ route('help.pemrograman.skema.manajemen-pengguna') }}" class="card card-flush h-100 bg-light-primary">
                                 <div class="card-body d-flex align-items-start gap-3 py-4">
                                     <i class="ki-duotone ki-key fs-2hx text-primary flex-shrink-0 mt-1"><span class="path1"></span><span class="path2"></span></i>
                                     <div>

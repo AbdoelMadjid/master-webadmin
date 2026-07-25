@@ -13,7 +13,7 @@
             {{ __('help.skema_pemrograman') }}
         @endslot
         @slot('li_3')
-            Skema Main Menu > App Support
+            Skema > App Support
         @endslot
     @endcomponent
 @endsection
@@ -76,7 +76,7 @@
                 <!--end::Sub-Menu Nav Tabs-->
 
                 <!--begin::Tab Content Inclusion-->
-                @include('pages.help.pemrograman.skema-main-menu.app-support.tabs._' . str_replace('-', '_', $activeTab))
+                @include('pages.help.pemrograman.skema.tabs.app-support._' . str_replace('-', '_', $activeTab))
                 <!--end::Tab Content Inclusion-->
             </div>
         </div>

@@ -81,7 +81,7 @@
                 <!--end::Sub-Menu Nav Tabs-->
 
                 <!--begin::Tab Content Inclusion-->
-                @include('pages.help.pemrograman.operasional.tabs._' . str_replace('-', '_', $activeTab))
+                @include('pages.help.pemrograman.operasional.tabs.manajemen-pengguna._' . str_replace('-', '_', $activeTab))
                 <!--end::Tab Content Inclusion-->
             </div>
         </div>

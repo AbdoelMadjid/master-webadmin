@@ -13,7 +13,7 @@
             {{ __('help.skema_pemrograman') }}
         @endslot
         @slot('li_3')
-            Skema Main Menu > Manajemen Pengguna
+            Skema > Manajemen Pengguna
         @endslot
     @endcomponent
 @endsection
@@ -81,7 +81,7 @@
                 <!--end::Sub-Menu Nav Tabs-->
 
                 <!--begin::Tab Content Inclusion-->
-                @include('pages.help.pemrograman.skema-main-menu.manajemen-pengguna.tabs._' . str_replace('-', '_', $activeTab))
+                @include('pages.help.pemrograman.skema.tabs.manajemen-pengguna._' . str_replace('-', '_', $activeTab))
                 <!--end::Tab Content Inclusion-->
             </div>
         </div>
