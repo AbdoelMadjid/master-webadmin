@@ -118,8 +118,8 @@ Model default:
 - `app/Models/User.php`
 
 Seeder user development:
-- `database/seeders/DatabaseSeeder.php` membuat `test@example.com`
-- Password default factory: `password` (`database/factories/UserFactory.php`)
+- `database/seeders/UserSeeder.php` membuat akun `master@gmail.com`, `admin@gmail.com`, dan `user@gmail.com`
+- Password default: `password`
 
 <a id="mvc-bab-6"></a>
 ## 6. Middleware dan Proteksi Akses

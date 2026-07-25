@@ -180,14 +180,15 @@ php artisan test
 
 ## Akun Login Development
 
-Data akun default berdasarkan seeder project saat ini (`database/seeders/DatabaseSeeder.php`):
+Data akun default berdasarkan seeder project saat ini (`database/seeders/UserSeeder.php` via `DatabaseSeeder.php`):
 
-```text
-URL Login : http://127.0.0.1:8000/login
-Email     : test@example.com
-Password  : password
-Nama      : Test User
-```
+URL Login: `http://127.0.0.1:8000/login`
+
+| Role | Nama | Email | Password |
+| :--- | :--- | :--- | :--- |
+| **Master** | master | `master@gmail.com` | `password` |
+| **Admin** | admin | `admin@gmail.com` | `password` |
+| **User** | user | `user@gmail.com` | `password` |
 
 Cara membuat akun ini:
 
@@ -197,7 +198,8 @@ php artisan migrate:fresh --seed
 
 Catatan:
 
-- Password `password` berasal dari default `UserFactory` (`database/factories/UserFactory.php`).
+- Masing-masing akun otomatis ditugaskan Role Spatie (`master`, `admin`, `user`).
+- Password default untuk seluruh akun seeder adalah `password`.
 - Jika database sudah berisi data lama, gunakan `migrate:fresh --seed` hanya di environment local/dev.
 
 <div align="right"><a href="#table-of-contents" title="Back to Table of Contents">&#8679;</a></div>
