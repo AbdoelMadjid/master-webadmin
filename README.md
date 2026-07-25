@@ -318,23 +318,38 @@ resources/views/
 ├── layouts/               # Layout utama aplikasi
 │   ├── header/            # Struktur header layout
 │   └── partials/          # Partial layout (sidebar, footer, toolbar, docs, dll)
-├── pages/                 # Seluruh halaman fitur
+├── pages/                 # Seluruh halaman fitur utama
 │   ├── apps/              # Halaman aplikasi (chat, e-commerce, dsb)
+│   ├── appsupport/        # Modul App Support (Form partials & subfolder tabs/)
 │   ├── dashboards/        # Halaman dashboard
 │   ├── demo/              # Halaman demo Metronic
 │   ├── docs/              # Halaman dokumentasi
-│   ├── help/              # Help internal (termasuk Skema Pemrograman)
-│   ├── layouts/           # Varian layout page-level
-│   └── pages/             # Group halaman umum/metronic pages
+│   ├── help/              # Help internal (termasuk Skema Pemrograman & tabs/)
+│   ├── profil/            # Form partials & sub-tab partials profil user
+│   │   ├── partials/      # Modal forms & layout header details
+│   │   └── tabs/          # Penampung partial sub-tab profil (_*.blade.php)
+│   └── profil-pengguna.blade.php # View utama fitur profil (?tab=...)
 ├── partials/              # Widget/partial global reusable lintas halaman
 └── profile/               # Halaman profil user
 ```
 
-Catatan cepat:
+### Konvensi Partials & Arsitektur Multi-Tab
 
-- Tambah halaman baru umumnya di `resources/views/pages/...`.
-- Shared widget/komponen sebaiknya di `resources/views/partials/...` atau `resources/views/components/...`.
-- Perubahan struktur shell/layout global dikerjakan di `resources/views/layouts/...`.
+1. **Struktur Route ke View Utama**:
+   - Setiap route Blade dipetakan langsung ke file view utama di `resources/views/pages/{subfolder}/{feature}.blade.php`.
+
+2. **Form & Component Partials (`partials/`)**:
+   - Form HTML (seperti modal CRUD) atau bagian layout khusus dipisahkan ke dalam subfolder `partials/` (contoh: `resources/views/pages/{subfolder}/partials/{feature}-form.blade.php`).
+   - Di-`@include` secara eksplisit di dalam view utama.
+
+3. **Arsitektur Sub-Tab Multi-Tab (`tabs/{feature}/`)**:
+   - Untuk fitur yang memiliki sub-tab berbasis single route dengan query parameter (`/{subfolder}/{feature}?tab=...`), seluruh file partial sub-tab **wajib** disimpan dalam direktori khusus `tabs/{feature}/`.
+   - File partial sub-tab menggunakan awalan *underscore* `_` (contoh: `resources/views/pages/{subfolder}/tabs/{feature}/_{tab}.blade.php`).
+   - Di-`@include` secara dinamis pada view utama menggunakan pola:
+     ```php
+     @include('pages.{subfolder}.tabs.{feature}._' . str_replace('-', '_', $activeTab))
+     ```
+   - **Aturan Partial Tab**: File partial sub-tab **tidak boleh** mengandung `@extends`, `@section`, atau tag penutup `</div>` container parent agar tidak merusak layout global dan posisi footer.
 
 <div align="right"><a href="#table-of-contents" title="Back to Table of Contents">&#8679;</a></div>
 
