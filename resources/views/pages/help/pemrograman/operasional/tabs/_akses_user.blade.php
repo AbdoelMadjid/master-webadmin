@@ -4,7 +4,7 @@
     <!-- 1. USER DIRECT PERMISSIONS WORKFLOW -->
     <!--====================================================-->
     <div class="schema-col-12">
-        <div class="border-start border-4 border-primary ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">1. User Specific Access Rights (User Direct Permissions)</h3>
             <span class="text-muted fs-7">Operational guide for assigning custom permissions directly to individual users.</span>
         </div>
@@ -44,7 +44,7 @@
     <!-- 1. ALUR MANAJEMEN HAK AKSES USER (USER DIRECT PERMISSIONS) -->
     <!--====================================================-->
     <div class="schema-col-12">
-        <div class="border-start border-4 border-primary ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">1. Hak Akses Spesifik Pengguna (User Direct Permissions)</h3>
             <span class="text-muted fs-7">Panduan operasional penugasan perizinan khusus langsung kepada individu pengguna.</span>
         </div>

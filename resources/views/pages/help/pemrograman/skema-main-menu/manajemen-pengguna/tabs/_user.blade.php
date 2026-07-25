@@ -47,7 +47,7 @@ public function getAvatarUrlAttribute()
     <!-- 3. BOX 1: USER AVATAR MANAGEMENT -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-primary">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-picture fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> 1. User Profile Avatar Management</h4>
             <p class="fs-7 text-gray-700">
                 Image upload workflow, URL encapsulation, and automatic avatar fallback across the entire application interface:
@@ -55,7 +55,7 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-primary border border-primary border-dashed">
-                        <h5 class="fw-bold text-primary">Avatar Code Flow</h5>
+                        <h5 class="fw-bold text-primary"><i class="ki-duotone ki-code fs-3 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>Avatar Code Flow</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li>Form uploaded via <code>POST /profil-pengguna/avatar</code> (handled by <code>ProfilPenggunaController@updateAvatar</code>) or during user creation/edit in <code>UserController</code>.</li>
                             <li>Files are validated with rule <code>image|mimes:jpeg,png,jpg,gif,svg|max:2048</code> (max 2MB).</li>
@@ -65,7 +65,7 @@ public function getAvatarUrlAttribute()
                 </div>
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-info border border-info border-dashed">
-                        <h5 class="fw-bold text-info">Visualization & Dimensions</h5>
+                        <h5 class="fw-bold text-info"><i class="ki-duotone ki-element-11 fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span></i>Visualization & Dimensions</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li>Standardized rendering dimension <code>40x40px</code> with <code>object-fit: cover</code>.</li>
                             <li>If no avatar is uploaded, helper <code>normalizeAvatarUrl()</code> generates an SVG initial of the user's name automatically.</li>
@@ -80,7 +80,7 @@ public function getAvatarUrlAttribute()
     <!-- 4. BOX 2: USER REWARD POINTS SYSTEM -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-success">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-award fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> 2. User Activity Reward Points System (1 Daily Point)</h4>
             <p class="fs-7 text-gray-700">
                 Reward architecture for 1 point per calendar day, login event listener, and data reconciliation:
@@ -114,7 +114,7 @@ public function getAvatarUrlAttribute()
     <!-- 5. BOX 3: 15-MINUTE AUTOMATIC IDLE LOGOUT -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-danger">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-timer fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i> 3. Automatic 15-Minute Idle Logout & Session Security</h4>
             <p class="fs-7 text-gray-700">
                 15-minute inactivity monitor, route redirection handling, and real-time active user indicators:
@@ -122,7 +122,7 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">Inactivity Listener Script</h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-time fs-3 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>Inactivity Listener Script</h5>
                         <p class="fs-7 text-gray-600 mb-0">
                             Partial <code>_idle-timer.blade.php</code> is mounted globally on layout to track user events (mousemove, keydown, scroll). If 15 minutes pass without activity, it automatically submits <code>POST /logout</code> with parameter <code>reason=idle</code>.
                         </p>
@@ -130,7 +130,7 @@ public function getAvatarUrlAttribute()
                 </div>
                 <div class="col-md-6">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">Login Page Alert Banner</h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-information-5 fs-3 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>Login Page Alert Banner</h5>
                         <p class="fs-7 text-gray-600 mb-0">
                             When redirected due to idle timeout, the <code>/login</code> page displays a yellow <code>alert-warning</code> banner informing the user that their session expired due to 15 minutes of inactivity.
                         </p>
@@ -144,7 +144,7 @@ public function getAvatarUrlAttribute()
     <!-- 6. BOX 4: BULK EXCEL IMPORT & MASTER TEMPLATE -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-success">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-file-up fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> 4. Bulk User Excel Import & Master Template (.xlsx)</h4>
             <p class="fs-7 text-gray-700">
                 Bulk spreadsheet user import architecture, PhpSpreadsheet extraction, and automatic role assignment:
@@ -152,7 +152,7 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-info border border-info border-dashed h-100">
-                        <h5 class="fw-bold text-info mb-2">A. Excel Master Template Generation</h5>
+                        <h5 class="fw-bold text-info mb-2"><i class="ki-duotone ki-file-down fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span></i>A. Excel Master Template Generation</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Endpoint:</strong> <code>GET /manajemenpengguna/users/template</code> (<code>UserController@downloadTemplate</code>).</li>
                             <li><strong>Library:</strong> Uses <code>PhpOffice\PhpSpreadsheet</code> with bold <code>#1E1E2D</code> header styling.</li>
@@ -163,7 +163,7 @@ public function getAvatarUrlAttribute()
                 </div>
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-success border border-success border-dashed h-100">
-                        <h5 class="fw-bold text-success mb-2">B. Import Engine & Processing Flow</h5>
+                        <h5 class="fw-bold text-success mb-2"><i class="ki-duotone ki-file-up fs-3 text-success me-2"><span class="path1"></span><span class="path2"></span></i>B. Import Engine & Processing Flow</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Endpoint:</strong> <code>POST /manajemenpengguna/users/import</code> (<code>UserController@import</code>).</li>
                             <li>Validates <code>.xlsx</code>, <code>.xls</code>, <code>.csv</code> files (max 5MB).</li>
@@ -180,7 +180,7 @@ public function getAvatarUrlAttribute()
     <!-- 7. BOX 5: USER SWITCH MODE (IMPERSONATION) -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-warning">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-switch fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> 5. User Switch Mode (Passwordless Account Impersonation)</h4>
             <p class="fs-7 text-gray-700">
                 Passwordless account switching architecture, admin session ID preservation, and original account restoration:
@@ -188,7 +188,7 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-warning border border-warning border-dashed h-100">
-                        <h5 class="fw-bold text-warning mb-2">A. Impersonate Account Workflow</h5>
+                        <h5 class="fw-bold text-warning mb-2"><i class="ki-duotone ki-user-tick fs-3 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>A. Impersonate Account Workflow</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Trigger:</strong> Click user name or switch icon button in <code>users.blade.php</code>.</li>
                             <li><strong>Endpoint:</strong> <code>POST /manajemenpengguna/users/{id}/impersonate</code> (<code>UserController@impersonate</code>).</li>
@@ -200,7 +200,7 @@ public function getAvatarUrlAttribute()
                 </div>
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-danger border border-danger border-dashed h-100">
-                        <h5 class="fw-bold text-danger mb-2">B. Restore Original Account (Leave Impersonate)</h5>
+                        <h5 class="fw-bold text-danger mb-2"><i class="ki-duotone ki-arrows-loop fs-3 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>B. Restore Original Account (Leave Impersonate)</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>User Avatar Dropdown:</strong> Special menu item <code>Back to Original Account</code> on <code>_user-account-menu.blade.php</code> at top right.</li>
                             <li><strong>Endpoint:</strong> <code>GET /manajemenpengguna/users/leave-impersonate</code> (<code>UserController@leaveImpersonate</code>) restores original admin session.</li>
@@ -215,7 +215,7 @@ public function getAvatarUrlAttribute()
     <!-- 8. BOX 6: WEB REGISTRATION & ADMIN APPROVAL -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-info">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-shield-tick fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> 6. Web Registration, Real-time Validation, Notifications & Admin Approval</h4>
             <p class="fs-7 text-gray-700">
                 Public account registration architecture, real-time password validation, approval status, admin topbar alerts, and automatic <i>User</i> role assignment:
@@ -223,7 +223,7 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-info border border-info border-dashed h-100">
-                        <h5 class="fw-bold text-info mb-2">A. Public Registration & Real-Time Validation</h5>
+                        <h5 class="fw-bold text-info mb-2"><i class="ki-duotone ki-profile-user fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>A. Public Registration & Real-Time Validation</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Register Form:</strong> Located at route <code>/register</code> (handled by <code>RegisteredUserController</code>).</li>
                             <li><strong>Eye Toggle:</strong> Eye icon toggle button to show/hide password and password confirmation inputs.</li>
@@ -234,7 +234,7 @@ public function getAvatarUrlAttribute()
                 </div>
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-success border border-success border-dashed h-100">
-                        <h5 class="fw-bold text-success mb-2">B. Notifications, Admin Approval & Login Protection</h5>
+                        <h5 class="fw-bold text-success mb-2"><i class="ki-duotone ki-shield-tick fs-3 text-success me-2"><span class="path1"></span><span class="path2"></span></i>B. Notifications, Admin Approval & Login Protection</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Topbar Bell Notification:</strong> New registration alerts appear in header bell dropdown (<i>Alerts</i> tab), directing Admin/Master to <code>/manajemenpengguna/users</code>.</li>
                             <li><strong>Approve & Reject Actions:</strong> Admin/Master can approve (<code>POST users/{id}/approve</code>) or reject (<code>POST users/{id}/reject</code>) accounts.</li>
@@ -252,7 +252,7 @@ public function getAvatarUrlAttribute()
     <!-- 9. BOX 7: USER DELETION SCHEMA & CASCADING CLEANUP -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-danger">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-trash fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> 7. User Deletion Schema & Automatic Cascading Cleanup (DB Transactions)</h4>
             <p class="fs-7 text-gray-700">
                 Relational data and physical file cleanup architecture executed automatically when a user account is deleted:
@@ -260,7 +260,7 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-danger border border-danger border-dashed h-100">
-                        <h5 class="fw-bold text-danger mb-2">A. Deleting Event Listener (<code>User::booted()</code>)</h5>
+                        <h5 class="fw-bold text-danger mb-2"><i class="ki-duotone ki-trash fs-3 text-danger me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>A. Deleting Event Listener (<code>User::booted()</code>)</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Event Hook:</strong> Mounted on <code>static::deleting</code> listener in <code>App\Models\User</code> model.</li>
                             <li><strong>Avatar Cleanup:</strong> Removes physical avatar image files from <code>storage/app/public/avatars</code> and <code>public/uploads/avatars</code>.</li>
@@ -272,7 +272,7 @@ public function getAvatarUrlAttribute()
                 </div>
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-primary border border-primary border-dashed h-100">
-                        <h5 class="fw-bold text-primary mb-2">B. Database Transaction Protection (<code>DB::transaction</code>)</h5>
+                        <h5 class="fw-bold text-primary mb-2"><i class="ki-duotone ki-shield-cross fs-3 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>B. Database Transaction Protection (<code>DB::transaction</code>)</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Atomic Transaction:</strong> Method <code>UserController@destroy</code> wraps <code>$user->delete()</code> execution inside <code>DB::transaction()</code>.</li>
                             <li><strong>Self-Deletion Prevention:</strong> Protection preventing logged-in admins from deleting their own active account (HTTP 422).</li>
@@ -400,7 +400,7 @@ public function getAvatarUrlAttribute()
     <!-- 3. KOTAK BAWAH 1: PENGELOLAAN AVATAR PENGGUNA -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-primary">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-picture fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> 1. Pengelolaan Avatar Profil Pengguna</h4>
             <p class="fs-7 text-gray-700">
                 Alur pengungahan gambar profil, enkapsulasi URL, dan fallback avatar otomatis di seluruh tampilan aplikasi:
@@ -408,7 +408,7 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-primary border border-primary border-dashed">
-                        <h5 class="fw-bold text-primary">Alur Pemrograman Avatar</h5>
+                        <h5 class="fw-bold text-primary"><i class="ki-duotone ki-code fs-3 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>Alur Pemrograman Avatar</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li>Form diunggah via <code>POST /profil-pengguna/avatar</code> (ditangani <code>ProfilPenggunaController@updateAvatar</code>) atau saat registrasi/edit di <code>UserController</code>.</li>
                             <li>File diverifikasi dengan aturan <code>image|mimes:jpeg,png,jpg,gif,svg|max:2048</code> (maksimal 2MB).</li>
@@ -418,7 +418,7 @@ public function getAvatarUrlAttribute()
                 </div>
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-info border border-info border-dashed">
-                        <h5 class="fw-bold text-info">Visualisasi & Dimensions</h5>
+                        <h5 class="fw-bold text-info"><i class="ki-duotone ki-element-11 fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span></i>Visualisasi & Dimensi</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li>Dimensi rendering terstandarisasi <code>40x40px</code> dengan <code>object-fit: cover</code>.</li>
                             <li>Jika avatar belum diunggah, helper <code>normalizeAvatarUrl()</code> menghasilkan SVG initial huruf depan nama user secara otomatis.</li>
@@ -433,7 +433,7 @@ public function getAvatarUrlAttribute()
     <!-- 4. KOTAK BAWAH 2: REWARD POIN KEAKTIFAN USER -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-success">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-award fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> 2. Sistem Reward Poin Keaktifan User (1 Poin Harian)</h4>
             <p class="fs-7 text-gray-700">
                 Arsitektur reward 1 poin per-hari kalender, event listener login, dan rekonsiliasi data:
@@ -467,7 +467,7 @@ public function getAvatarUrlAttribute()
     <!-- 5. KOTAK BAWAH 3: MASA IDLE LOGOUT OTOMATIS 15 MENIT -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-danger">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-timer fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i> 3. Masa Idle Logout Otomatis (15 Menit) & Keamanan Sesi</h4>
             <p class="fs-7 text-gray-700">
                 Pemantau inaktivitas 15 menit, penanganan pengalihan rute, dan indikator user aktif real-time:
@@ -475,7 +475,7 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">Skrip Listener Inaktivitas</h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-time fs-3 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>Skrip Listener Inaktivitas</h5>
                         <p class="fs-7 text-gray-600 mb-0">
                             Partial <code>_idle-timer.blade.php</code> dipasang secara global pada layout untuk memantau interaksi (mousemove, keydown, scroll). Jika 15 menit tanpa aktivitas, otomatis mengirim <code>POST /logout</code> dengan parameter <code>reason=idle</code>.
                         </p>
@@ -483,7 +483,7 @@ public function getAvatarUrlAttribute()
                 </div>
                 <div class="col-md-6">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">Banner Peringatan Halaman Login</h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-information-5 fs-3 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>Banner Peringatan Halaman Login</h5>
                         <p class="fs-7 text-gray-600 mb-0">
                             Saat dialihkan akibat idle timeout, halaman <code>/login</code> menampilkan banner peringatan <code>alert-warning</code> berwarna kuning yang menginfokan bahwa sesi pengguna telah berakhir akibat inaktivitas 15 menit.
                         </p>
@@ -497,7 +497,7 @@ public function getAvatarUrlAttribute()
     <!-- 6. KOTAK BAWAH 4: UPLOAD MASSAL VIA EXCEL & MASTER TEMPLATE -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-success">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-file-up fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> 4. Upload Massal User via Excel & Master Template (.xlsx)</h4>
             <p class="fs-7 text-gray-700">
                 Arsitektur penjaminan impor massal data pengguna dari berkas spreadsheet, ekstraksi PhpSpreadsheet, dan penugasan role otomatis:
@@ -505,7 +505,7 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-info border border-info border-dashed h-100">
-                        <h5 class="fw-bold text-info mb-2">A. Penjanaan Master Template Excel</h5>
+                        <h5 class="fw-bold text-info mb-2"><i class="ki-duotone ki-file-down fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span></i>A. Penjanaan Master Template Excel</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Endpoint:</strong> <code>GET /manajemenpengguna/users/template</code> (<code>UserController@downloadTemplate</code>).</li>
                             <li><strong>Library:</strong> Menggunakan <code>PhpOffice\PhpSpreadsheet</code> dengan styling header tebal <code>#1E1E2D</code>.</li>
@@ -516,7 +516,7 @@ public function getAvatarUrlAttribute()
                 </div>
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-success border border-success border-dashed h-100">
-                        <h5 class="fw-bold text-success mb-2">B. Alur Pemrosesan & Import Engine</h5>
+                        <h5 class="fw-bold text-success mb-2"><i class="ki-duotone ki-file-up fs-3 text-success me-2"><span class="path1"></span><span class="path2"></span></i>B. Alur Pemrosesan & Import Engine</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Endpoint:</strong> <code>POST /manajemenpengguna/users/import</code> (<code>UserController@import</code>).</li>
                             <li>Memvalidasi file <code>.xlsx</code>, <code>.xls</code>, <code>.csv</code> (maks 5MB).</li>
@@ -533,7 +533,7 @@ public function getAvatarUrlAttribute()
     <!-- 7. KOTAK BAWAH 5: MODE SWITCH USER (IMPERSONASI AKUN) -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-warning">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-switch fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> 5. Mode Switch User (Impersonasi Akun Tanpa Password)</h4>
             <p class="fs-7 text-gray-700">
                 Arsitektur pengalihan akun tanpa masukan kata sandi, penyimpanan id admin di sesi, dan pemulihan akun asli:
@@ -541,7 +541,7 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-warning border border-warning border-dashed h-100">
-                        <h5 class="fw-bold text-warning mb-2">A. Alur Beralih Akun (Impersonate)</h5>
+                        <h5 class="fw-bold text-warning mb-2"><i class="ki-duotone ki-user-tick fs-3 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>A. Alur Beralih Akun (Impersonate)</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Trigger:</strong> Klik nama user atau tombol icon switch di <code>users.blade.php</code>.</li>
                             <li><strong>Endpoint:</strong> <code>POST /manajemenpengguna/users/{id}/impersonate</code> (<code>UserController@impersonate</code>).</li>
@@ -553,7 +553,7 @@ public function getAvatarUrlAttribute()
                 </div>
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-danger border border-danger border-dashed h-100">
-                        <h5 class="fw-bold text-danger mb-2">B. Pemulihan Akun Asli (Leave Impersonate)</h5>
+                        <h5 class="fw-bold text-danger mb-2"><i class="ki-duotone ki-arrows-loop fs-3 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>B. Pemulihan Akun Asli (Leave Impersonate)</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Dropdown Avatar User:</strong> Item menu khusus <code>Kembali ke Akun Asli</code> pada <code>_user-account-menu.blade.php</code> di sudut kanan atas.</li>
                             <li><strong>Endpoint:</strong> <code>GET /manajemenpengguna/users/leave-impersonate</code> (<code>UserController@leaveImpersonate</code>) memulihkan sesi admin asli.</li>
@@ -568,7 +568,7 @@ public function getAvatarUrlAttribute()
     <!-- 8. KOTAK BAWAH 6: REGISTRASI WEB & PERSETUJUAN ADMIN -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-info">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-shield-tick fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> 6. Registrasi Web, Validasi Real-time, Notifikasi & Persetujuan Admin</h4>
             <p class="fs-7 text-gray-700">
                 Arsitektur registrasi akun publik, validasi password real-time, status persetujuan akun, notifikasi topbar admin, dan penugasan otomatis role <i>User</i>:
@@ -576,7 +576,7 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-info border border-info border-dashed h-100">
-                        <h5 class="fw-bold text-info mb-2">A. Registrasi Publik & Validasi Real-Time</h5>
+                        <h5 class="fw-bold text-info mb-2"><i class="ki-duotone ki-profile-user fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>A. Registrasi Publik & Validasi Real-Time</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Form Register:</strong> Terletak pada rute <code>/register</code> (ditangani <code>RegisteredUserController</code>).</li>
                             <li><strong>Eye Toggle:</strong> Tombol ikon mata untuk menampilkan/menyembunyikan input kata sandi & konfirmasi kata sandi.</li>
@@ -587,7 +587,7 @@ public function getAvatarUrlAttribute()
                 </div>
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-success border border-success border-dashed h-100">
-                        <h5 class="fw-bold text-success mb-2">B. Notifikasi, Persetujuan Admin & Proteksi Login</h5>
+                        <h5 class="fw-bold text-success mb-2"><i class="ki-duotone ki-shield-tick fs-3 text-success me-2"><span class="path1"></span><span class="path2"></span></i>B. Notifikasi, Persetujuan Admin & Proteksi Login</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Notifikasi Bell Topbar:</strong> Notifikasi pendaftaran akun baru muncul di menu header (tab <i>Peringatan</i>) dan mengarahkan Admin/Master ke rute <code>/manajemenpengguna/users</code>.</li>
                             <li><strong>Action Setujui & Tolak:</strong> Admin/Master dapat menyetujui (<code>POST users/{id}/approve</code>) atau menolak (<code>POST users/{id}/reject</code>) akun pengguna.</li>
@@ -605,7 +605,7 @@ public function getAvatarUrlAttribute()
     <!-- 9. KOTAK BAWAH 7: SKEMA PENGHAPUSAN USER & CASCADING DELETION -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-danger">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-trash fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> 7. Skema Penghapusan Pengguna & Pembersihan Relasi Otomatis (Cascading Deletion & DB Transaction)</h4>
             <p class="fs-7 text-gray-700">
                 Arsitektur pembersihan data relasi dan berkas secara otomatis ketika akun pengguna dihapus dari sistem:
@@ -613,7 +613,7 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-danger border border-danger border-dashed h-100">
-                        <h5 class="fw-bold text-danger mb-2">A. Event Listener Deleting (<code>User::booted()</code>)</h5>
+                        <h5 class="fw-bold text-danger mb-2"><i class="ki-duotone ki-trash fs-3 text-danger me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>A. Event Listener Deleting (<code>User::booted()</code>)</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Event Hook:</strong> Terpasang pada listener <code>static::deleting</code> di model <code>App\Models\User</code>.</li>
                             <li><strong>Pembersihan Berkas Avatar:</strong> Menghapus berkas fisik foto profil dari <code>storage/app/public/avatars</code> dan <code>public/uploads/avatars</code>.</li>
@@ -625,7 +625,7 @@ public function getAvatarUrlAttribute()
                 </div>
                 <div class="col-md-6">
                     <div class="p-4 rounded bg-light-primary border border-primary border-dashed h-100">
-                        <h5 class="fw-bold text-primary mb-2">B. Proteksi Transaksi Database (<code>DB::transaction</code>)</h5>
+                        <h5 class="fw-bold text-primary mb-2"><i class="ki-duotone ki-shield-cross fs-3 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>B. Proteksi Transaksi Database (<code>DB::transaction</code>)</h5>
                         <ul class="schema-list fs-7 mb-0">
                             <li><strong>Transaksional Atomis:</strong> Metode <code>UserController@destroy</code> membungkus eksekusi <code>$user->delete()</code> di dalam <code>DB::transaction()</code>.</li>
                             <li><strong>Pencegahan Akun Sendiri:</strong> Proteksi pencegahan penghapusan akun milik admin yang sedang aktif/login (HTTP 422).</li>

@@ -35,7 +35,7 @@
                     <div class="schema-meta mt-3">
                         <span class="schema-chip"><i class="ki-duotone ki-flash-circle fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.operasional.panduan-tambah-halaman.chip_1') }}</span>
                         <span class="schema-chip"><i class="ki-duotone ki-element-3 fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.operasional.panduan-tambah-halaman.chip_2') }}</span>
-                        <span class="schema-chip"><i class="ki-duotone ki-table fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> {{ __('help.pages.operasional.panduan-tambah-halaman.chip_3') }}</span>
+                        <span class="schema-chip"><i class="ki-duotone ki-element-11 fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> {{ __('help.pages.operasional.panduan-tambah-halaman.chip_3') }}</span>
                         <span class="schema-chip"><i class="ki-duotone ki-notification-status fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> {{ __('help.pages.operasional.panduan-tambah-halaman.chip_4') }}</span>
                     </div>
                 </div>
@@ -107,7 +107,7 @@ help.pemrograman.appsupport.feature (or appsupport.feature)
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-table fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-element-11 fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 {{ __('help.pages.operasional.panduan-tambah-halaman.heading_4') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -192,7 +192,7 @@ SwalHelper.confirmDelete('User Record', function() {
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-terminal fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-code fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.operasional.panduan-tambah-halaman.heading_8') }}
                             </h4>
                             <pre class="schema-code"><code># Check route registration in CLI:
@@ -292,7 +292,7 @@ help.pemrograman.appsupport.feature (atau appsupport.feature)
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-table fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-element-11 fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 {{ __('help.pages.operasional.panduan-tambah-halaman.heading_4') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -377,7 +377,7 @@ SwalHelper.confirmDelete('Data Pengguna', function() {
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-terminal fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-code fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.operasional.panduan-tambah-halaman.heading_8') }}
                             </h4>
                             <pre class="schema-code"><code># Cek registrasi route di CLI:

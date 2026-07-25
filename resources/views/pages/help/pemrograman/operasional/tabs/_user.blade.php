@@ -4,7 +4,7 @@
     <!-- 1. USER AVATAR FEATURE WORKFLOW -->
     <!--====================================================-->
     <div class="schema-col-12">
-        <div class="border-start border-4 border-primary ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">1. User Avatar Management & Uploads</h3>
             <span class="text-muted fs-7">Profile picture upload workflow, URL encapsulation, and automatic initial fallbacks.</span>
         </div>
@@ -49,7 +49,7 @@
     <!-- 2. USER REWARD POINTS FEATURE -->
     <!--====================================================-->
     <div class="schema-col-12 mt-6">
-        <div class="border-start border-4 border-success ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">2. User Activity Reward Points System</h3>
             <span class="text-muted fs-7">1 daily point reward architecture, login event listener, and history tracking.</span>
         </div>
@@ -57,7 +57,7 @@
 
     <div class="schema-col-6">
         <div class="schema-card">
-            <h4><i class="ki-duotone ki-database fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Point Logic & Daily Workflow</h4>
+            <h4><i class="ki-duotone ki-data fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> Point Logic & Daily Workflow</h4>
             <div class="schema-flow">
                 <div class="schema-step">
                     <strong>Event & Listener:</strong> Upon successful login, Laravel fires <code>Illuminate\Auth\Events\Login</code> caught by listener <code>App\Listeners\LogUserLogin</code>.
@@ -90,7 +90,7 @@
     <!-- 3. 15-MINUTE AUTOMATIC IDLE LOGOUT SECURITY -->
     <!--====================================================-->
     <div class="schema-col-12 mt-6">
-        <div class="border-start border-4 border-danger ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">3. Automatic 15-Minute Idle Logout Security</h3>
             <span class="text-muted fs-7">Client-side inactivity monitor, last activity tracking middleware, and automatic session termination.</span>
         </div>
@@ -134,7 +134,7 @@
     <!-- 4. BULK EXCEL IMPORT FEATURE -->
     <!--====================================================-->
     <div class="schema-col-12 mt-6">
-        <div class="border-start border-4 border-info ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">4. Bulk User Excel Import & Master Format (.xlsx)</h3>
             <span class="text-muted fs-7">PhpSpreadsheet extraction engine, master template generator, duplicate validation, and auto role assignment.</span>
         </div>
@@ -168,7 +168,7 @@
     <!-- 5. USER SWITCH MODE (IMPERSONATION) -->
     <!--====================================================-->
     <div class="schema-col-12 mt-6">
-        <div class="border-start border-4 border-warning ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">5. User Switch Mode (Passwordless Account Impersonation)</h3>
             <span class="text-muted fs-7">Passwordless account switching feature, admin session ID preservation, and original account restoration via avatar dropdown.</span>
         </div>
@@ -212,7 +212,7 @@
     <!-- 6. PUBLIC REGISTRATION & ADMIN APPROVAL -->
     <!--====================================================-->
     <div class="schema-col-12 mt-6">
-        <div class="border-start border-4 border-primary ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">6. Public Registration & Admin Approval System</h3>
             <span class="text-muted fs-7">Public account registration verification, pending status, admin topbar alerts, and auto 'user' role assignment.</span>
         </div>
@@ -220,7 +220,7 @@
 
     <div class="schema-col-6">
         <div class="schema-card">
-            <h4><i class="ki-duotone ki-user-plus fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Public Registration (Register Form)</h4>
+            <h4><i class="ki-duotone ki-profile-user fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> Public Registration (Register Form)</h4>
             <div class="schema-flow">
                 <div class="schema-step">
                     <strong>Register Form:</strong> Account registration from public page <code>/register</code> with real-time password validation and eye toggle.
@@ -313,7 +313,7 @@
     <!-- 1. ALUR FITUR AVATAR PENGGUNA -->
     <!--====================================================-->
     <div class="schema-col-12">
-        <div class="border-start border-4 border-primary ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">1. Penambahan & Pengelolaan Avatar Pengguna</h3>
             <span class="text-muted fs-7">Alur pengunggahan gambar profil, enkapsulasi URL, dan fallback avatar otomatis.</span>
         </div>
@@ -358,7 +358,7 @@
     <!-- 2. ALUR FITUR REWARD POIN USER -->
     <!--====================================================-->
     <div class="schema-col-12 mt-6">
-        <div class="border-start border-4 border-success ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">2. Penambahan & Akumulasi Poin Keaktifan User</h3>
             <span class="text-muted fs-7">Arsitektur reward 1 poin harian, event listener login, dan rekonsiliasi histori.</span>
         </div>
@@ -366,7 +366,7 @@
 
     <div class="schema-col-6">
         <div class="schema-card">
-            <h4><i class="ki-duotone ki-database fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Alur Pemrograman Poin & Logika Harian</h4>
+            <h4><i class="ki-duotone ki-data fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> Alur Pemrograman Poin & Logika Harian</h4>
             <div class="schema-flow">
                 <div class="schema-step">
                     <strong>Event & Listener:</strong> Setiap kali proses login berhasil, Laravel memicu event <code>Illuminate\Auth\Events\Login</code> yang ditangkap oleh listener <code>App\Listeners\LogUserLogin</code>.
@@ -399,7 +399,7 @@
     <!-- 3. KEAMANAN IDLE AUTO-LOGOUT 15 MENIT -->
     <!--====================================================-->
     <div class="schema-col-12 mt-6">
-        <div class="border-start border-4 border-danger ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">3. Keamanan Idle Auto-Logout (15 Menit Inaktivitas)</h3>
             <span class="text-muted fs-7">Sistem pemantau inaktivitas client-side, middleware pelacak aktivitas terakhir, dan pengakhiran sesi otomatis.</span>
         </div>
@@ -443,7 +443,7 @@
     <!-- 4. ALUR FITUR IMPOR MASSAL EXCEL -->
     <!--====================================================-->
     <div class="schema-col-12 mt-6">
-        <div class="border-start border-4 border-info ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">4. Impor Massal Pengguna via Excel & Master Format (.xlsx)</h3>
             <span class="text-muted fs-7">Sistem ekstraksi berkas spreadsheet PhpSpreadsheet, penjanaan template master, validasi duplikat, dan penugasan role otomatis.</span>
         </div>
@@ -477,7 +477,7 @@
     <!-- 5. ALUR MODE SWITCH USER (IMPERSONASI AKUN) -->
     <!--====================================================-->
     <div class="schema-col-12 mt-6">
-        <div class="border-start border-4 border-warning ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">5. Mode Switch User (Impersonasi Akun Tanpa Password)</h3>
             <span class="text-muted fs-7">Fitur pengalihan akun tanpa login kata sandi, penyimpanan ID admin di sesi, dan pemulihan akun asli via dropdown avatar.</span>
         </div>
@@ -521,7 +521,7 @@
     <!-- 6. ALUR PENDAFTARAN PUBLIK & PERSETUJUAN ADMIN -->
     <!--====================================================-->
     <div class="schema-col-12 mt-6">
-        <div class="border-start border-4 border-primary ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">6. Pendaftaran Akun Publik & Persetujuan Admin (Approval System)</h3>
             <span class="text-muted fs-7">Sistem verifikasi pendaftaran akun publik, status pending, notifikasi admin, dan auto penugasan role 'user'.</span>
         </div>
@@ -529,7 +529,7 @@
 
     <div class="schema-col-6">
         <div class="schema-card">
-            <h4><i class="ki-duotone ki-user-plus fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Pendaftaran Publik (Form Register)</h4>
+            <h4><i class="ki-duotone ki-profile-user fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> Pendaftaran Publik (Form Register)</h4>
             <div class="schema-flow">
                 <div class="schema-step">
                     <strong>Form Register:</strong> Pendaftaran akun dari halaman publik <code>/register</code> dengan validasi password real-time dan toggle mata.

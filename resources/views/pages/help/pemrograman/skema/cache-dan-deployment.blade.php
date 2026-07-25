@@ -48,7 +48,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-target fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-rocket fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.cache-dan-deployment.heading_1') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -228,7 +228,7 @@ php artisan route:list --name=help.pemrograman</code></pre>
                     <div class="schema-col-12">
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center mb-3">
-                                <i class="ki-duotone ki-undo fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-arrows-loop fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.cache-dan-deployment.heading_9') }}
                             </h4>
                             <pre class="schema-code"><code>Trigger Rollback If:
@@ -301,7 +301,7 @@ Rollback Steps:
                     <div class="schema-col-12">
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center mb-3">
-                                <i class="ki-duotone ki-terminal fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-code fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.cache-dan-deployment.heading_12') }}
                             </h4>
                             <pre class="schema-code"><code># A. Pre-check
@@ -398,7 +398,7 @@ php artisan route:list --name=help.pemrograman</code></pre>
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-target fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-rocket fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.cache-dan-deployment.heading_1') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -578,7 +578,7 @@ php artisan route:list --name=help.pemrograman</code></pre>
                     <div class="schema-col-12">
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center mb-3">
-                                <i class="ki-duotone ki-undo fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-arrows-loop fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.cache-dan-deployment.heading_9') }}
                             </h4>
                             <pre class="schema-code"><code>Trigger Rollback Jika:
@@ -651,7 +651,7 @@ Langkah Rollback:
                     <div class="schema-col-12">
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center mb-3">
-                                <i class="ki-duotone ki-terminal fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-code fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.cache-dan-deployment.heading_12') }}
                             </h4>
                             <pre class="schema-code"><code># A. Pre-check

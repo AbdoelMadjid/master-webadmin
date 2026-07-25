@@ -4,7 +4,7 @@
     <!-- 1. DATABASE BACKUP & RESTORE WORKFLOW -->
     <!--====================================================-->
     <div class="schema-col-12">
-        <div class="border-start border-4 border-info ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">1. Database Backup & Restoration Management</h3>
             <span class="text-muted fs-7">Operational guide for SQL dump exports, database restoration, and backup file management.</span>
         </div>
@@ -51,7 +51,7 @@
     <!-- 1. ALUR CADANGAN & PEMULIHAN DATABASE (BACKUP DB) -->
     <!--====================================================-->
     <div class="schema-col-12">
-        <div class="border-start border-4 border-info ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">1. Pengelolaan Cadangan & Pemulihan Database (Database Backup & Restore)</h3>
             <span class="text-muted fs-7">Panduan operasional ekspor dump SQL, restorasi basis data, dan pengelolaan file cadangan.</span>
         </div>

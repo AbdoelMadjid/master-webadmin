@@ -76,7 +76,7 @@ $allPerms = $user->getAllPermissions()->pluck('name');</code></pre>
                     <!-- 3. TABLE INDICATORS & MODAL FIX -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
-                        <div class="schema-card border-start border-4 border-info">
+                        <div class="schema-card">
                             <h4><i class="ki-duotone ki-element-11 fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Indikator Transparan & Modal Matriks Bebas Scroll Horizontal</h4>
                             <p class="fs-7 text-gray-700">
                                 Tabel Akses User memberikan kepastian visual kepada administrator mengenai sumber izin pengguna:

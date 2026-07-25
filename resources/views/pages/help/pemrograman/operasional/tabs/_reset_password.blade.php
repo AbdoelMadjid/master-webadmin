@@ -4,7 +4,7 @@
     <!-- 1. PASSWORD RESET REQUESTS WORKFLOW -->
     <!--====================================================-->
     <div class="schema-col-12">
-        <div class="border-start border-4 border-primary ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">1. Password Reset Requests Management</h3>
             <span class="text-muted fs-7">Operational guide for processing user password reset applications.</span>
         </div>
@@ -48,7 +48,7 @@
     <!-- 1. ALUR PERMINTAAN RESET PASSWORD (PASSWORD RESET REQUESTS) -->
     <!--====================================================-->
     <div class="schema-col-12">
-        <div class="border-start border-4 border-primary ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">1. Pengelolaan Permintaan Reset Password (Password Reset Requests)</h3>
             <span class="text-muted fs-7">Panduan operasional pemrosesan pengajuan reset kata sandi pengguna yang lupa password.</span>
         </div>

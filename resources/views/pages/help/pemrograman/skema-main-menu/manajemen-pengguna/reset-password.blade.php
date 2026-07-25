@@ -38,7 +38,7 @@
                     <!--====================================================-->
                     <div class="schema-col-6">
                         <div class="schema-card">
-                            <h4><i class="ki-duotone ki-database fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Model & Migration Structure</h4>
+                            <h4><i class="ki-duotone ki-data fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> Struktur Model & Migrasi</h4>
                             <pre class="schema-code"><code>// Model: App\Models\ManajemenPengguna\PasswordResetRequest
 // Table: password_reset_requests
 
@@ -64,7 +64,7 @@ Schema::create('password_reset_requests', function (Blueprint $table) {
                     <!--====================================================-->
                     <div class="schema-col-6">
                         <div class="schema-card">
-                            <h4><i class="ki-duotone ki-send fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Public Request Controller</h4>
+                            <h4><i class="ki-duotone ki-send fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Controller Permintaan Publik</h4>
                             <pre class="schema-code"><code>// Controller: App\Http\Controllers\Auth\PasswordResetLinkController@store
 
 $user = User::where('email', $request->email)->first();
@@ -91,7 +91,7 @@ return back()->with('status', 'Permintaan reset password telah berhasil dikirimk
                     <!--====================================================-->
                     <div class="schema-col-6">
                         <div class="schema-card">
-                            <h4><i class="ki-duotone ki-setting-3 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Admin Controller & Route</h4>
+                            <h4><i class="ki-duotone ki-setting-3 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Controller & Route Admin</h4>
                             <pre class="schema-code"><code>// Controller: App\Http\Controllers\ManajemenPengguna\PasswordResetRequestController
 // Route: manajemenpengguna/reset-password
 
@@ -112,7 +112,7 @@ Route::prefix('manajemenpengguna')->name('manajemenpengguna.')->group(function (
                     <!--====================================================-->
                     <div class="schema-col-6">
                         <div class="schema-card">
-                            <h4><i class="ki-duotone ki-key fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Client-Side DataTables & Default Password</h4>
+                            <h4><i class="ki-duotone ki-key fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> DataTables Client-Side & Password Default</h4>
                             <pre class="schema-code"><code>// DataTables Client-Side Search (0ms Latency)
 var resetTable = $('#kt_reset_password_table').DataTable({
     pageLength: 10,

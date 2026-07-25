@@ -149,7 +149,7 @@ Next Update: 15 minutes.</code></pre>
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-terminal fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-code fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.operasional.playbook-incident-response.heading_7') }}
                             </h4>
                             <pre class="schema-code"><code>// Turn on Maintenance Mode:
@@ -296,7 +296,7 @@ Next Update: 15 menit.</code></pre>
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-terminal fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-code fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.operasional.playbook-incident-response.heading_7') }}
                             </h4>
                             <pre class="schema-code"><code>// Aktifkan Mode Maintenance:

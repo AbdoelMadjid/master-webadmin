@@ -35,7 +35,7 @@
                     <div class="schema-meta mt-3">
                         <span class="schema-chip"><i class="ki-duotone ki-code fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.operasional.workflow-developer-harian.chip_1') }}</span>
                         <span class="schema-chip"><i class="ki-duotone ki-element-3 fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.operasional.workflow-developer-harian.chip_2') }}</span>
-                        <span class="schema-chip"><i class="ki-duotone ki-global fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.operasional.workflow-developer-harian.chip_3') }}</span>
+                        <span class="schema-chip"><i class="ki-duotone ki-message-text-2 fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> {{ __('help.pages.operasional.workflow-developer-harian.chip_3') }}</span>
                         <span class="schema-chip"><i class="ki-duotone ki-shield-tick fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.operasional.workflow-developer-harian.chip_4') }}</span>
                     </div>
                 </div>
@@ -90,7 +90,7 @@ php artisan migrate</code></pre>
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-global fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-message-text-2 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                                 {{ __('help.pages.operasional.workflow-developer-harian.heading_3') }}
                             </h4>
                             <ul class="schema-list fs-7 mb-3">
@@ -153,7 +153,7 @@ SwalHelper.success('Data saved successfully');
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-git fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 {{ __('help.pages.operasional.workflow-developer-harian.heading_6') }}
                             </h4>
                             <ul class="schema-list fs-7 mb-3">
@@ -238,7 +238,7 @@ php artisan migrate</code></pre>
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-global fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-message-text-2 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                                 {{ __('help.pages.operasional.workflow-developer-harian.heading_3') }}
                             </h4>
                             <ul class="schema-list fs-7 mb-3">
@@ -301,7 +301,7 @@ SwalHelper.success('Data berhasil disimpan');
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-git fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 {{ __('help.pages.operasional.workflow-developer-harian.heading_6') }}
                             </h4>
                             <ul class="schema-list fs-7 mb-3">

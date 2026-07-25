@@ -34,9 +34,9 @@
                     </p>
                     <div class="schema-meta mt-3">
                         <span class="schema-chip"><i class="ki-duotone ki-route fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.operasional.checklist-qa-smoke-test.chip_1') }}</span>
-                        <span class="schema-chip"><i class="ki-duotone ki-table fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.operasional.checklist-qa-smoke-test.chip_2') }}</span>
+                        <span class="schema-chip"><i class="ki-duotone ki-element-11 fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> {{ __('help.pages.operasional.checklist-qa-smoke-test.chip_2') }}</span>
                         <span class="schema-chip"><i class="ki-duotone ki-notification-status fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.operasional.checklist-qa-smoke-test.chip_3') }}</span>
-                        <span class="schema-chip"><i class="ki-duotone ki-global fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.operasional.checklist-qa-smoke-test.chip_4') }}</span>
+                        <span class="schema-chip"><i class="ki-duotone ki-message-text-2 fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> {{ __('help.pages.operasional.checklist-qa-smoke-test.chip_4') }}</span>
                     </div>
                 </div>
                 <!--end::Hero-->
@@ -66,7 +66,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-table fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-element-11 fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 {{ __('help.pages.operasional.checklist-qa-smoke-test.heading_2') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -116,7 +116,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-global fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-message-text-2 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                                 {{ __('help.pages.operasional.checklist-qa-smoke-test.heading_5') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -132,7 +132,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-terminal fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-code fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.operasional.checklist-qa-smoke-test.heading_6') }}
                             </h4>
                             <ul class="schema-list fs-7 mb-3">
@@ -192,7 +192,7 @@ npm run build</code></pre>
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-table fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-element-11 fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 {{ __('help.pages.operasional.checklist-qa-smoke-test.heading_2') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -242,7 +242,7 @@ npm run build</code></pre>
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-global fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-message-text-2 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                                 {{ __('help.pages.operasional.checklist-qa-smoke-test.heading_5') }}
                             </h4>
                             <ul class="schema-list fs-7">
@@ -258,7 +258,7 @@ npm run build</code></pre>
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-terminal fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-code fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.operasional.checklist-qa-smoke-test.heading_6') }}
                             </h4>
                             <ul class="schema-list fs-7 mb-3">

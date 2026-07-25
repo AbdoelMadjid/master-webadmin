@@ -37,12 +37,12 @@
                     <!-- 1. PERBEDAAAN MODUL CRUD BATCH VS SINGLE PERMISSION -->
                     <!--====================================================-->
                     <div class="schema-col-12 mb-4">
-                        <div class="schema-card border-start border-4 border-warning">
-                            <h4><i class="ki-duotone ki-flash fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Perbandingan Mode Pembuatan Permission</h4>
+                        <div class="schema-card">
+                            <h4><i class="ki-duotone ki-flash-circle fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Perbandingan Mode Pembuatan Permission</h4>
                             <div class="row g-4 mt-1">
                                 <div class="col-md-6">
                                     <div class="p-4 rounded bg-light-warning border border-warning border-opacity-25 h-100">
-                                        <h5 class="fw-bold text-gray-900 mb-2">⚡ 1. Modul CRUD (Praktis)</h5>
+                                        <h5 class="fw-bold text-gray-900 mb-2"><i class="ki-duotone ki-element-plus fs-3 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> 1. Modul CRUD (Praktis)</h5>
                                         <p class="fs-7 text-gray-700 mb-2">
                                             <strong>Tujuan:</strong> Membuat seluruh hak akses dasar untuk modul/fitur baru secara instant dalam 1 kali simpan.
                                         </p>
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="p-4 rounded bg-light-primary border border-primary border-opacity-25 h-100">
-                                        <h5 class="fw-bold text-gray-900 mb-2">🔑 2. Single Permission (Kustom)</h5>
+                                        <h5 class="fw-bold text-gray-900 mb-2"><i class="ki-duotone ki-key fs-3 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> 2. Single Permission (Kustom)</h5>
                                         <p class="fs-7 text-gray-700 mb-2">
                                             <strong>Tujuan:</strong> Membuat 1 buah hak akses khusus yang bukan merupakan aksi CRUD biasa.
                                         </p>
@@ -117,7 +117,7 @@ $modules = $allPermissions->groupBy(function ($perm) {
                     <!-- 4. SMART ROLE FILTER & BATCH ACTIONS -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
-                        <div class="schema-card border-start border-4 border-primary">
+                        <div class="schema-card">
                             <h4><i class="ki-duotone ki-setting-2 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Fitur Batch Edit & Hapus Modul</h4>
                             <p class="fs-7 text-gray-700">
                                 Admin dapat melakukan update atau penghapusan seluruh hak akses 1 modul sekaligus secara instant:

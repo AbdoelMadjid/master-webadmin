@@ -23,7 +23,7 @@ $modules = $permissions->groupBy(function ($perm) {
     <!--====================================================-->
     <div class="schema-col-6">
         <div class="schema-card">
-            <h4><i class="ki-duotone ki-sync fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Controller Update (<code>AksesRoleController</code>)</h4>
+            <h4><i class="ki-duotone ki-arrows-loop fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Controller Update (<code>AksesRoleController</code>)</h4>
             <div class="schema-flow">
                 <div class="schema-step">
                     <strong><code>POST /manajemenpengguna/akses-role</code></strong><br>
@@ -40,7 +40,7 @@ $modules = $permissions->groupBy(function ($perm) {
     <!-- 3. SMART SEARCH & BULK TOGGLE -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-success">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-check-square fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Bulk Access Controls & Live Search</h4>
             <p class="fs-7 text-gray-700">
                 Interactive features on <code>akses-role.blade.php</code> equipped with <strong>Select All</strong>, <strong>Clear All</strong>, module row checkboxes, and live module search:
@@ -62,7 +62,7 @@ $('#search_module').on('keyup', function() {
     <!--====================================================-->
     <div class="schema-col-6">
         <div class="schema-card">
-            <h4><i class="ki-duotone ki-element-11 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Structure & CRUD Matrix Grouping</h4>
+            <h4><i class="ki-duotone ki-element-11 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Struktur & Pengelompokan Matriks CRUD</h4>
             <pre class="schema-code"><code>// AksesRoleController@index
 $permissions = Permission::all();
 $modules = $permissions->groupBy(function ($perm) {
@@ -80,7 +80,7 @@ $modules = $permissions->groupBy(function ($perm) {
     <!--====================================================-->
     <div class="schema-col-6">
         <div class="schema-card">
-            <h4><i class="ki-duotone ki-sync fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Controller Update (<code>AksesRoleController</code>)</h4>
+            <h4><i class="ki-duotone ki-arrows-loop fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Pembaruan Controller (<code>AksesRoleController</code>)</h4>
             <div class="schema-flow">
                 <div class="schema-step">
                     <strong><code>POST /manajemenpengguna/akses-role</code></strong><br>
@@ -97,7 +97,7 @@ $modules = $permissions->groupBy(function ($perm) {
     <!-- 3. SMART SEARCH & BULK TOGGLE -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-success">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-check-square fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Kontrol Akses Massal & Live Search</h4>
             <p class="fs-7 text-gray-700">
                 Fitur interaktif di <code>akses-role.blade.php</code> dilengkapi tombol <strong>Pilih Semua</strong>, <strong>Kosongkan</strong>, centang baris modul, dan pencarian live modul:

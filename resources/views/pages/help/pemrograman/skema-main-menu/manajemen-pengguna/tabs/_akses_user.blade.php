@@ -49,7 +49,7 @@ $user->hasPermissionTo('create users');
     <!-- 3. UI TRANSPARENT INDICATOR -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-info">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-element-11 fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Transparent Indicators & Zero Horizontal Scroll Matrix Modal</h4>
             <p class="fs-7 text-gray-700">
                 Permission checkboxes on the <code>akses-user</code> modal feature visual indicators distinguishing Role Inherited vs Direct permissions:
@@ -126,7 +126,7 @@ $user->hasPermissionTo('create users');
     <!-- 3. UI TRANSPARENT INDICATOR -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-info">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-element-11 fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Indikator Transparan & Modal Matriks Bebas Scroll Horizontal</h4>
             <p class="fs-7 text-gray-700">
                 Checkbox perizinan pada modal <code>akses-user</code> dilengkapi penanda visual yang membedakan izin warisan Role vs Izin Langsung (Direct):

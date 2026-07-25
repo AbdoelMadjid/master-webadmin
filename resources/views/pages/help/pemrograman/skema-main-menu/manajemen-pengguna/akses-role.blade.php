@@ -38,7 +38,7 @@
                     <!--====================================================-->
                     <div class="schema-col-6">
                         <div class="schema-card">
-                            <h4><i class="ki-duotone ki-element-11 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Structure & CRUD Matrix Grouping</h4>
+                            <h4><i class="ki-duotone ki-element-11 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Struktur & Pengelompokan Matriks CRUD</h4>
                             <pre class="schema-code"><code>// AksesRoleController@index
 $matrixPermissions = [];
 foreach ($permissions as $perm) {
@@ -65,7 +65,7 @@ foreach ($permissions as $perm) {
                     <!--====================================================-->
                     <div class="schema-col-6">
                         <div class="schema-card">
-                            <h4><i class="ki-duotone ki-sync fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Controller Update (<code>AksesRoleController</code>)</h4>
+                            <h4><i class="ki-duotone ki-arrows-loop fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Pembaruan Controller (<code>AksesRoleController</code>)</h4>
                             <div class="schema-flow">
                                 <div class="schema-step">
                                     <strong><code>POST /manajemenpengguna/akses-role</code></strong><br>
@@ -85,7 +85,7 @@ foreach ($permissions as $perm) {
                     <!-- 3. INTERACTIVE MATRIX UI -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
-                        <div class="schema-card border-start border-4 border-success">
+                        <div class="schema-card">
                             <h4><i class="ki-duotone ki-check-square fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i> Kontrol Akses Massal & Live Search</h4>
                             <p class="fs-7 text-gray-700">
                                 Halaman dilengkapi kontrol praktis untuk menangani jumlah modul yang sangat banyak:

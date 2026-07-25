@@ -38,7 +38,7 @@
                     <!--====================================================-->
                     <div class="schema-col-6">
                         <div class="schema-card">
-                            <h4><i class="ki-duotone ki-database fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Structure & Database Model</h4>
+                            <h4><i class="ki-duotone ki-data fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> Struktur & Model Database</h4>
                             <pre class="schema-code"><code>// Migration: menus
 $table->id();
 $table->string('name');            // Nama Menu
@@ -91,8 +91,8 @@ public function permissions() {
                     <!-- 3. SINKRONISASI REAL-TIME SIDEBAR -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
-                        <div class="schema-card border-start border-4 border-info">
-                            <h4><i class="ki-duotone ki-refresh fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Pembaharuan Sidebar Real-time Tanpa Reload Halaman</h4>
+                        <div class="schema-card">
+                            <h4><i class="ki-duotone ki-arrows-loop fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Pembaharuan Sidebar Real-time Tanpa Reload Halaman</h4>
                             <p class="fs-7 text-gray-700">
                                 Setiap kali pengurutan menu diubah (drag & drop) atau status aktif toggle diubah, `MenuController` merender ulang partial view sidebar `layouts.partials.sidebar._menu` dan mengirimkannya via response JSON:
                             </p>

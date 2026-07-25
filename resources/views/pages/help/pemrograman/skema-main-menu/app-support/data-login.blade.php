@@ -38,7 +38,7 @@
                     <!--====================================================-->
                     <div class="schema-col-6">
                         <div class="schema-card">
-                            <h4><i class="ki-duotone ki-database fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Structure & Database Model</h4>
+                            <h4><i class="ki-duotone ki-data fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> Struktur & Model Database</h4>
                             <pre class="schema-code"><code>// Migration: data_logins
 $table->id();
 $table->foreignId('user_id')->constrained()->onDelete('cascade');
@@ -91,7 +91,7 @@ public function user() {
                     <!-- 3. INFORMASI KOLOM TABEL DATA LOGIN -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
-                        <div class="schema-card border-start border-4 border-warning">
+                        <div class="schema-card">
                             <h4><i class="ki-duotone ki-table fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Kolom Tabel Data Login pada Rute <code>/appsupport/data-login</code></h4>
                             <div class="table-responsive mt-3">
                                 <table class="table table-row-dashed align-middle gy-3 fs-7">

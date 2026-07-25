@@ -188,7 +188,7 @@
                     <div class="schema-col-12">
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center mb-3">
-                                <i class="ki-duotone ki-chart-column fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-chart-line fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.header-menu.heading_8') }}
                             </h4>
                             <div class="schema-flow">
@@ -385,7 +385,7 @@
                     <div class="schema-col-12">
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center mb-3">
-                                <i class="ki-duotone ki-chart-column fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-chart-line fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.skema.header-menu.heading_8') }}
                             </h4>
                             <div class="schema-flow">

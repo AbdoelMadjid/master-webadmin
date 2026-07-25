@@ -38,7 +38,7 @@
                     <!--====================================================-->
                     <div class="schema-col-6">
                         <div class="schema-card">
-                            <h4><i class="ki-duotone ki-database fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Structure & Spatie Role Model</h4>
+                            <h4><i class="ki-duotone ki-data fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> Struktur & Model Role Spatie</h4>
                             <pre class="schema-code"><code>// Model: Spatie\Permission\Models\Role
 $role = Role::create(['name' => 'editor', 'guard_name' => 'web']);
 
@@ -84,7 +84,7 @@ $roles = Role::withCount(['users', 'permissions'])
                     <!-- 3. MODAL MATRIX UI -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
-                        <div class="schema-card border-start border-4 border-info">
+                        <div class="schema-card">
                             <h4><i class="ki-duotone ki-element-11 fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Tampilan Modal Edit Role (CRUD Matrix & Zero Horizontal Scroll)</h4>
                             <p class="fs-7 text-gray-700">
                                 Form modal <code>role-form.blade.php</code> dirancang tanpa scroll horizontal menggunakan penguncian persentase <code>table-layout: fixed</code> dan scroll vertikal presisi:

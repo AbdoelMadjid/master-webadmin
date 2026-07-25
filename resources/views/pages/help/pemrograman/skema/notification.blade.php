@@ -86,7 +86,7 @@ $userLoginLogs = DataLogin::where('user_id', auth()->id())
                     <!-- 3. MARK AS READ & DISPATCH FLOW -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
-                        <div class="schema-card border-start border-4 border-info">
+                        <div class="schema-card">
                             <h4><i class="ki-duotone ki-check-circle fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Mark As Read Flow & Automatic Redirection</h4>
                             <p class="fs-7 text-gray-700">
                                 When Admin clicks a notification item on the <strong>Alerts</strong> tab, the system executes status updates and page redirects:
@@ -94,7 +94,7 @@ $userLoginLogs = DataLogin::where('user_id', auth()->id())
                             <div class="row g-4 mt-1">
                                 <div class="col-md-6">
                                     <div class="p-4 rounded bg-light-info border border-info border-dashed h-100">
-                                        <h5 class="fw-bold text-info mb-2">A. New Account Registration Item</h5>
+                                        <h5 class="fw-bold text-info mb-2"><i class="ki-duotone ki-profile-user fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>A. New Account Registration Item</h5>
                                         <ul class="schema-list fs-7 mb-0">
                                             <li><strong>Target Route:</strong> <code>GET /manajemenpengguna/users</code> (<code>manajemenpengguna.users</code>).</li>
                                             <li><strong>Admin Action:</strong> Review public applicant data and click <strong>Approve</strong> or <strong>Reject</strong> buttons.</li>
@@ -104,7 +104,7 @@ $userLoginLogs = DataLogin::where('user_id', auth()->id())
                                 </div>
                                 <div class="col-md-6">
                                     <div class="p-4 rounded bg-light-primary border border-primary border-dashed h-100">
-                                        <h5 class="fw-bold text-primary mb-2">B. Password Reset Request Item</h5>
+                                        <h5 class="fw-bold text-primary mb-2"><i class="ki-duotone ki-key fs-3 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>B. Password Reset Request Item</h5>
                                         <ul class="schema-list fs-7 mb-0">
                                             <li><strong>Endpoint Interceptor:</strong> <code>GET /manajemenpengguna/reset-password/{id}/mark-read</code>.</li>
                                             <li><strong>Controller Hook:</strong> <code>PasswordResetRequestController@markAsRead</code> updates <code>is_read = true</code>.</li>
@@ -163,7 +163,7 @@ $userLoginLogs = DataLogin::where('user_id', auth()->id())
                     <!--====================================================-->
                     <div class="schema-col-6">
                         <div class="schema-card">
-                            <h4><i class="ki-duotone ki-notification-status fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> Header Trigger & Red Badge Counter</h4>
+                            <h4><i class="ki-duotone ki-notification-status fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> Trigger Lonceng Header & Counter Badge Merah</h4>
                             <pre class="schema-code"><code>// Blade: layouts/partials/header/_app/notifications.blade.php
 $unreadResetRequestsCount = PasswordResetRequest::where('status', 'pending')
     ->where('is_read', false)
@@ -186,7 +186,7 @@ $totalNotificationCount = $unreadResetRequestsCount + $pendingUsersCount;
                     <!--====================================================-->
                     <div class="schema-col-6">
                         <div class="schema-card">
-                            <h4><i class="ki-duotone ki-element-11 fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> Dropdown Popup & Tab Layout</h4>
+                            <h4><i class="ki-duotone ki-element-11 fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> Popup Dropdown & Layout 3 Tab</h4>
                             <pre class="schema-code"><code>// Partial: partials/menus/_notifications-menu.blade.php
 // Tab 1: Peringatan (Active items & red badges)
 $unreadPasswordResets = PasswordResetRequest::with('user')
@@ -210,7 +210,7 @@ $userLoginLogs = DataLogin::where('user_id', auth()->id())
                     <!-- 3. MARK AS READ & DISPATCH FLOW -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
-                        <div class="schema-card border-start border-4 border-info">
+                        <div class="schema-card">
                             <h4><i class="ki-duotone ki-check-circle fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Alur Tandai Dibaca (Mark As Read) & Redireksi Otomatis</h4>
                             <p class="fs-7 text-gray-700">
                                 Saat Admin mengklik item notifikasi pada tab <strong>Peringatan</strong>, sistem mengeksekusi alur pembaruan status dan pengalihan halaman:
@@ -218,7 +218,7 @@ $userLoginLogs = DataLogin::where('user_id', auth()->id())
                             <div class="row g-4 mt-1">
                                 <div class="col-md-6">
                                     <div class="p-4 rounded bg-light-info border border-info border-dashed h-100">
-                                        <h5 class="fw-bold text-info mb-2">A. Item Pendaftaran Akun Baru</h5>
+                                        <h5 class="fw-bold text-info mb-2"><i class="ki-duotone ki-profile-user fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>A. Item Pendaftaran Akun Baru</h5>
                                         <ul class="schema-list fs-7 mb-0">
                                             <li><strong>Rute Tujuan:</strong> <code>GET /manajemenpengguna/users</code> (<code>manajemenpengguna.users</code>).</li>
                                             <li><strong>Aksi Admin:</strong> Meninjau data pendaftar publik dan mengklik tombol <strong>Setujui</strong> atau <strong>Tolak</strong>.</li>
@@ -228,7 +228,7 @@ $userLoginLogs = DataLogin::where('user_id', auth()->id())
                                 </div>
                                 <div class="col-md-6">
                                     <div class="p-4 rounded bg-light-primary border border-primary border-dashed h-100">
-                                        <h5 class="fw-bold text-primary mb-2">B. Item Permintaan Reset Password</h5>
+                                        <h5 class="fw-bold text-primary mb-2"><i class="ki-duotone ki-key fs-3 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>B. Item Permintaan Reset Password</h5>
                                         <ul class="schema-list fs-7 mb-0">
                                             <li><strong>Endpoint Interceptor:</strong> <code>GET /manajemenpengguna/reset-password/{id}/mark-read</code>.</li>
                                             <li><strong>Controller Hook:</strong> <code>PasswordResetRequestController@markAsRead</code> memperbarui <code>is_read = true</code>.</li>

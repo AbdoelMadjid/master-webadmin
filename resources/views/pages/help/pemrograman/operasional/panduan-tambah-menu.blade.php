@@ -172,7 +172,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-global fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-message-text-2 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                                 {{ __('help.pages.operasional.panduan-tambah-menu.heading_6') }}
                             </h4>
                             <div class="schema-flow">
@@ -224,7 +224,7 @@
                     <div class="schema-col-12">
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center mb-3">
-                                <i class="ki-duotone ki-shield-cross fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-shield-tick fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.operasional.panduan-tambah-menu.heading_9') }}
                             </h4>
                             <ul class="schema-list fs-7 mb-4">
@@ -371,7 +371,7 @@
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
-                                <i class="ki-duotone ki-global fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-message-text-2 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                                 {{ __('help.pages.operasional.panduan-tambah-menu.heading_6') }}
                             </h4>
                             <div class="schema-flow">
@@ -423,7 +423,7 @@
                     <div class="schema-col-12">
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center mb-3">
-                                <i class="ki-duotone ki-shield-cross fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-shield-tick fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>
                                 {{ __('help.pages.operasional.panduan-tambah-menu.heading_9') }}
                             </h4>
                             <ul class="schema-list fs-7 mb-4">

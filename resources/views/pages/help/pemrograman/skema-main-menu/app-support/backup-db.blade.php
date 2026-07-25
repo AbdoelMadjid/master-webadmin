@@ -90,7 +90,7 @@ backup-database-2026-07-23-113000.sql</code></pre>
                     <!-- 3. MEKANISME DUMP SQL & RESTORE -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
-                        <div class="schema-card border-start border-4 border-info">
+                        <div class="schema-card">
                             <h4><i class="ki-duotone ki-cloud-add fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Mekanisme Ekspor Dump & Impor Restore SQL</h4>
                             <div class="row g-4 mt-1">
                                 <div class="col-md-6">

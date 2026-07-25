@@ -38,7 +38,7 @@
                     <!-- 1. STANDARDIZATION ARCHITECTURE -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-primary">
+                        <div class="schema-card">
                             <h4><i class="ki-duotone ki-shield-tick fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Global JS Helper Philosophy (<code>SwalHelper</code>)</h4>
                             <p class="fs-7 text-gray-700">
                                 To maintain consistent UX and clean codebase architecture across all Metronic views, inline verbose <code>Swal.fire({...})</code> configurations are prohibited in Blade views. Always use the global helper <code>SwalHelper</code>:
@@ -46,25 +46,25 @@
                             <div class="row g-4 mt-1">
                                 <div class="col-md-3">
                                     <div class="p-3 bg-light-success rounded border border-success border-dashed">
-                                        <h5 class="fw-bold fs-6 text-success">1. Success Toast / Modal</h5>
+                                        <h5 class="fw-bold fs-6 text-success"><i class="ki-duotone ki-check-circle fs-3 text-success me-2"><span class="path1"></span><span class="path2"></span></i>1. Success Toast / Modal</h5>
                                         <code>SwalHelper.success(msg)</code>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="p-3 bg-light-danger rounded border border-danger border-dashed">
-                                        <h5 class="fw-bold fs-6 text-danger">2. General Error Alert</h5>
+                                        <h5 class="fw-bold fs-6 text-danger"><i class="ki-duotone ki-cross-circle fs-3 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>2. General Error Alert</h5>
                                         <code>SwalHelper.error(msg)</code>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="p-3 bg-light-warning rounded border border-warning border-dashed">
-                                        <h5 class="fw-bold fs-6 text-warning">3. 422 XHR Validation</h5>
+                                        <h5 class="fw-bold fs-6 text-warning"><i class="ki-duotone ki-information fs-3 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>3. 422 XHR Validation</h5>
                                         <code>SwalHelper.validationError(xhr)</code>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="p-3 bg-light-info rounded border border-info border-dashed">
-                                        <h5 class="fw-bold fs-6 text-info">4. Delete Prompt</h5>
+                                        <h5 class="fw-bold fs-6 text-info"><i class="ki-duotone ki-trash fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>4. Delete Prompt</h5>
                                         <code>SwalHelper.confirmDelete(name, cb)</code>
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@ $.ajax({
                     <!-- 4. DELETE CONFIRMATION DIALOG -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
-                        <div class="schema-card border-start border-4 border-danger">
+                        <div class="schema-card">
                             <h4><i class="ki-duotone ki-trash fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> Standardized Delete Confirmation Prompt</h4>
                             <p class="fs-7 text-gray-700">
                                 When performing record deletion via DataTables or button triggers, invoke <code>SwalHelper.confirmDelete</code> to present a standardized modal prompt:
@@ -157,7 +157,7 @@ $(document).on('click', '.btn-delete', function() {
                     <!-- 1. ARSITEKTUR STANDARISASI -->
                     <!--====================================================-->
                     <div class="schema-col-12">
-                        <div class="schema-card border-start border-4 border-primary">
+                        <div class="schema-card">
                             <h4><i class="ki-duotone ki-shield-tick fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Filosofi Helper Global JS (<code>SwalHelper</code>)</h4>
                             <p class="fs-7 text-gray-700">
                                 Untuk menjaga konsistensi UX dan kebersihan arsitektur codebase di seluruh Blade view, penulisan konfigurasi <code>Swal.fire({...})</code> secara inline sangat dilarang. Selalu gunakan helper terpusat <code>SwalHelper</code>:
@@ -165,25 +165,25 @@ $(document).on('click', '.btn-delete', function() {
                             <div class="row g-4 mt-1">
                                 <div class="col-md-3">
                                     <div class="p-3 bg-light-success rounded border border-success border-dashed">
-                                        <h5 class="fw-bold fs-6 text-success">1. Notifikasi Sukses</h5>
+                                        <h5 class="fw-bold fs-6 text-success"><i class="ki-duotone ki-check-circle fs-3 text-success me-2"><span class="path1"></span><span class="path2"></span></i>1. Notifikasi Sukses</h5>
                                         <code>SwalHelper.success(msg)</code>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="p-3 bg-light-danger rounded border border-danger border-dashed">
-                                        <h5 class="fw-bold fs-6 text-danger">2. Alert Error Umum</h5>
+                                        <h5 class="fw-bold fs-6 text-danger"><i class="ki-duotone ki-cross-circle fs-3 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>2. Alert Error Umum</h5>
                                         <code>SwalHelper.error(msg)</code>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="p-3 bg-light-warning rounded border border-warning border-dashed">
-                                        <h5 class="fw-bold fs-6 text-warning">3. Validasi 422 XHR</h5>
+                                        <h5 class="fw-bold fs-6 text-warning"><i class="ki-duotone ki-information fs-3 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>3. Validasi 422 XHR</h5>
                                         <code>SwalHelper.validationError(xhr)</code>
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="p-3 bg-light-info rounded border border-info border-dashed">
-                                        <h5 class="fw-bold fs-6 text-info">4. Konfirmasi Hapus</h5>
+                                        <h5 class="fw-bold fs-6 text-info"><i class="ki-duotone ki-trash fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>4. Konfirmasi Hapus</h5>
                                         <code>SwalHelper.confirmDelete(name, cb)</code>
                                     </div>
                                 </div>
@@ -242,7 +242,7 @@ $.ajax({
                     <!-- 4. DIALOG KONFIRMASI HAPUS -->
                     <!--====================================================-->
                     <div class="schema-col-12 mt-4">
-                        <div class="schema-card border-start border-4 border-danger">
+                        <div class="schema-card">
                             <h4><i class="ki-duotone ki-trash fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> Standarisasi Dialog Konfirmasi Penghapusan</h4>
                             <p class="fs-7 text-gray-700">
                                 Saat melakukan penghapusan record data melalui DataTables atau tombol aksi, panggil <code>SwalHelper.confirmDelete</code> untuk menampilkan konfirmasi yang seragam:

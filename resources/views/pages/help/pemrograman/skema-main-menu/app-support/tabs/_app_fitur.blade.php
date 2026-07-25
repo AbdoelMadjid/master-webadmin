@@ -5,7 +5,7 @@
     <!--====================================================-->
     <div class="schema-col-6">
         <div class="schema-card">
-            <h4><i class="ki-duotone ki-database fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Structure & Database Model</h4>
+            <h4><i class="ki-duotone ki-data fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> Structure & Database Model</h4>
             <pre class="schema-code"><code>// Migration: app_fiturs
 $table->id();
 $table->string('name');         // Feature Name (e.g., "E-Commerce Module")
@@ -55,7 +55,7 @@ public function scopeActive($query) {
     <!-- 3. GLOBAL HELPER & CODEBASE USAGE -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-warning">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-code fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Global Helper Usage <code>isFeatureActive()</code></h4>
             <p class="fs-7 text-gray-700">
                 To check feature active status in Controllers, Blade Views, or Middleware before rendering UI / executing logic:
@@ -63,7 +63,7 @@ public function scopeActive($query) {
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">A. Example in Blade View</h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-element-11 fs-3 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>A. Example in Blade View</h5>
                         <pre class="schema-code mt-2"><code>@if(function_exists('isFeatureActive') && isFeatureActive('modul_backup'))
     &lt;a href="{{ route('appsupport.backup-db') }}" class="btn btn-primary"&gt;
         DB Backup Feature Active
@@ -73,7 +73,7 @@ public function scopeActive($query) {
                 </div>
                 <div class="col-md-6">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">B. Example in Controller / Middleware</h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-code fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span></i>B. Example in Controller / Middleware</h5>
                         <pre class="schema-code mt-2"><code>if (!isFeatureActive('modul_ecommerce')) {
     abort(403, 'This feature is currently disabled by Administrator.');
 }
@@ -106,7 +106,7 @@ public function scopeActive($query) {
     <!--====================================================-->
     <div class="schema-col-6">
         <div class="schema-card">
-            <h4><i class="ki-duotone ki-database fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Structure & Database Model</h4>
+            <h4><i class="ki-duotone ki-data fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> Struktur & Model Database</h4>
             <pre class="schema-code"><code>// Migration: app_fiturs
 $table->id();
 $table->string('name');         // Nama Fitur (mis: "Modul E-Commerce")
@@ -156,7 +156,7 @@ public function scopeActive($query) {
     <!-- 3. HELPER GLOBAL & PENGGUNAAN PADA CODEBASE -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-warning">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-code fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Penggunaan Helper Global <code>isFeatureActive()</code></h4>
             <p class="fs-7 text-gray-700">
                 Untuk mengecek status keaktifan fitur pada Controller, Blade View, atau Middleware sebelum merender UI / mengeksekusi logika:
@@ -164,7 +164,7 @@ public function scopeActive($query) {
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">A. Contoh di Blade View</h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-element-11 fs-3 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>A. Contoh di Blade View</h5>
                         <pre class="schema-code mt-2"><code>@if(function_exists('isFeatureActive') && isFeatureActive('modul_backup'))
     &lt;a href="{{ route('appsupport.backup-db') }}" class="btn btn-primary"&gt;
         Fitur Backup DB Aktif
@@ -174,7 +174,7 @@ public function scopeActive($query) {
                 </div>
                 <div class="col-md-6">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">B. Contoh di Controller / Middleware</h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-code fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span></i>B. Contoh di Controller / Middleware</h5>
                         <pre class="schema-code mt-2"><code>if (!isFeatureActive('modul_ecommerce')) {
     abort(403, 'Fitur ini sedang dinonaktifkan oleh Administrator.');
 }

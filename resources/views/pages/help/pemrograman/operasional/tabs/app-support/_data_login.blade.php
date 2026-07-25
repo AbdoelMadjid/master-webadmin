@@ -4,7 +4,7 @@
     <!-- 1. AUDIT LOG & LOGIN HISTORY WORKFLOW -->
     <!--====================================================-->
     <div class="schema-col-12">
-        <div class="border-start border-4 border-success ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">1. Session Audit Log & User Login History (Data Login Audit)</h3>
             <span class="text-muted fs-7">Operational guide for monitoring login session footprints, activity stats, and audit log clearing.</span>
         </div>
@@ -48,7 +48,7 @@
     <!-- 1. ALUR AUDIT LOG & RIWAYAT LOGIN (DATA LOGIN) -->
     <!--====================================================-->
     <div class="schema-col-12">
-        <div class="border-start border-4 border-success ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">1. Audit Log Sesi & Riwayat Login Pengguna (Data Login Audit)</h3>
             <span class="text-muted fs-7">Panduan operasional pemantauan jejak sesi login, statistik keaktifan, dan pembersihan log audit.</span>
         </div>

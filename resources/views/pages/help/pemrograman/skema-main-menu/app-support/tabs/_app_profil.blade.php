@@ -5,7 +5,7 @@
     <!--====================================================-->
     <div class="schema-col-6">
         <div class="schema-card">
-            <h4><i class="ki-duotone ki-database fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Structure & Database Model</h4>
+            <h4><i class="ki-duotone ki-data fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> Structure & Database Model</h4>
             <pre class="schema-code"><code>// Migration: app_profils
 $table->id();
 $table->string('app_name');        // App Name
@@ -58,7 +58,7 @@ public function scopeActive($query) {
     <!-- 3. GLOBAL ACCESSOR & HELPER BRANDING -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-info">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-element-11 fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Logo Accessors & Global Layout Branding Integration</h4>
             <p class="fs-7 text-gray-700">
                 The <code>AppProfil</code> model provides encapsulated URL accessors to simplify usage across sidebar, header, and browser favicon layouts:
@@ -66,7 +66,7 @@ public function scopeActive($query) {
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">1. <code>$appProfil->logo_url</code></h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-picture fs-3 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>1. <code>$appProfil->logo_url</code></h5>
                         <p class="fs-7 text-gray-600 mb-0">
                             Returns full URL of the main horizontal logo for expanded header/sidebar (with default logo fallback).
                         </p>
@@ -74,7 +74,7 @@ public function scopeActive($query) {
                 </div>
                 <div class="col-md-4">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">2. <code>$appProfil->logo_small_url</code></h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-element-plus fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span></i>2. <code>$appProfil->logo_small_url</code></h5>
                         <p class="fs-7 text-gray-600 mb-0">
                             Returns URL of mini/square logo when sidebar is in collapsed mode.
                         </p>
@@ -82,7 +82,7 @@ public function scopeActive($query) {
                 </div>
                 <div class="col-md-4">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">3. <code>$appProfil->favicon_url</code></h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-global fs-3 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>3. <code>$appProfil->favicon_url</code></h5>
                         <p class="fs-7 text-gray-600 mb-0">
                             Returns URL of shortcut icon mounted in HTML header <code>&lt;link rel="shortcut icon"&gt;</code> tag.
                         </p>
@@ -100,7 +100,7 @@ public function scopeActive($query) {
     <!--====================================================-->
     <div class="schema-col-6">
         <div class="schema-card">
-            <h4><i class="ki-duotone ki-database fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Structure & Database Model</h4>
+            <h4><i class="ki-duotone ki-data fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> Struktur & Model Database</h4>
             <pre class="schema-code"><code>// Migration: app_profils
 $table->id();
 $table->string('app_name');        // Nama Aplikasi
@@ -132,7 +132,7 @@ public function scopeActive($query) {
     <!--====================================================-->
     <div class="schema-col-6">
         <div class="schema-card">
-            <h4><i class="ki-duotone ki-route fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Controller & Form Request Mirroring</h4>
+            <h4><i class="ki-duotone ki-route fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Struktur Controller & Form Request</h4>
             <div class="schema-flow">
                 <div class="schema-step">
                     <strong><code>GET /appsupport/app-profil</code></strong><br>
@@ -153,7 +153,7 @@ public function scopeActive($query) {
     <!-- 3. ACCESSOR & HELPER IDENTITAS GLOBAL -->
     <!--====================================================-->
     <div class="schema-col-12 mt-4">
-        <div class="schema-card border-start border-4 border-info">
+        <div class="schema-card">
             <h4><i class="ki-duotone ki-element-11 fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i> Accessor Logo & Integrasi Branding Layout Global</h4>
             <p class="fs-7 text-gray-700">
                 Model <code>AppProfil</code> menyediakan URL accessor terenkapsulasi untuk mempermudah pemanggilan di layout sidebar, header, dan browser favicon:
@@ -161,7 +161,7 @@ public function scopeActive($query) {
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">1. <code>$appProfil->logo_url</code></h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-picture fs-3 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>1. <code>$appProfil->logo_url</code></h5>
                         <p class="fs-7 text-gray-600 mb-0">
                             Mengembalikan URL lengkap logo utama horizontal untuk header/sidebar versi expanded (dengan fallback logo default).
                         </p>
@@ -169,7 +169,7 @@ public function scopeActive($query) {
                 </div>
                 <div class="col-md-4">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">2. <code>$appProfil->logo_small_url</code></h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-element-plus fs-3 text-info me-2"><span class="path1"></span><span class="path2"></span></i>2. <code>$appProfil->logo_small_url</code></h5>
                         <p class="fs-7 text-gray-600 mb-0">
                             Mengembalikan URL logo versi mini/kotak saat sidebar dalam kondisi terlipat (collapsed mode).
                         </p>
@@ -177,7 +177,7 @@ public function scopeActive($query) {
                 </div>
                 <div class="col-md-4">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800">3. <code>$appProfil->favicon_url</code></h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-global fs-3 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>3. <code>$appProfil->favicon_url</code></h5>
                         <p class="fs-7 text-gray-600 mb-0">
                             Mengembalikan URL shortcut icon yang dipasang pada tag <code>&lt;link rel="shortcut icon"&gt;</code> HTML header.
                         </p>

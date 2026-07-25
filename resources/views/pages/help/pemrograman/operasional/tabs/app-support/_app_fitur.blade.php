@@ -4,7 +4,7 @@
     <!-- 1. DYNAMIC FEATURE TOGGLE / FEATURE FLAG WORKFLOW -->
     <!--====================================================-->
     <div class="schema-col-12">
-        <div class="border-start border-4 border-warning ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">1. Dynamic Feature Switch System (Feature Toggle / Feature Flag)</h3>
             <span class="text-muted fs-7">Operational guide for real-time control of active/inactive module switches and components.</span>
         </div>
@@ -47,7 +47,7 @@
     <!-- 1. ALUR FEATURE TOGGLE / FEATURE FLAG (APP FITUR) -->
     <!--====================================================-->
     <div class="schema-col-12">
-        <div class="border-start border-4 border-warning ps-4 my-2">
+        <div class="ps-4 my-2">
             <h3 class="fw-bold text-gray-900 mb-1">1. Sistem Switch Fitur Dinamis (Feature Toggle / Feature Flag)</h3>
             <span class="text-muted fs-7">Panduan operasional kontrol sakelar aktif/nonaktif modul dan komponen aplikasi secara real-time.</span>
         </div>
