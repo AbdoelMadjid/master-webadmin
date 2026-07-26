@@ -1,186 +1,150 @@
-<!--begin::Modal - Roles Operational Guide-->
+<!--begin::Modal - Petunjuk Operasional Manajemen Role-->
 <div class="modal fade" id="kt_modal_roles_help" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-dialog modal-dialog-centered mw-850px">
         <div class="modal-content rounded">
-            <!--begin::Modal Header-->
-            <div class="modal-header pb-0 border-0 justify-content-between align-items-center">
-                <div class="d-flex align-items-center gap-2">
-                    <div class="symbol symbol-40px symbol-circle bg-light-info p-2 me-2">
-                        <i class="ki-duotone ki-question text-info fs-1">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                            <span class="path3"></span>
-                        </i>
-                    </div>
-                    <div>
-                        <h3 class="modal-title fw-bold text-gray-900 fs-3 m-0">
-                            @if(app()->getLocale() == 'en')
-                                Operational Guide: Role Management
-                            @else
-                                Petunjuk Operasional: Manajemen Role
-                            @endif
-                        </h3>
-                        <span class="text-muted fs-7">
-                            @if(app()->getLocale() == 'en')
-                                Complete guide for managing system user roles and permission matrix.
-                            @else
-                                Panduan lengkap pengelolaan role pengguna dan matriks hak akses sistem.
-                            @endif
-                        </span>
-                    </div>
-                </div>
-
+            <!--begin::Modal header-->
+            <div class="modal-header pb-0 border-0 justify-content-end">
                 <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-                    <i class="ki-duotone ki-cross fs-1">
-                        <span class="path1"></span>
-                        <span class="path2"></span>
-                    </i>
+                    <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
                 </div>
             </div>
-            <!--end::Modal Header-->
+            <!--end::Modal header-->
 
-            <!--begin::Modal Body-->
-            <div class="modal-body scroll-y px-10 pt-4 pb-8">
-                @if(app()->getLocale() == 'en')
-                    <!--=================== ENGLISH CONTENT ===================-->
-                    <!-- Section 1: Overview -->
-                    <div class="card bg-light-primary border border-primary border-opacity-20 mb-5">
-                        <div class="card-body py-4">
-                            <h4 class="fw-bold text-primary mb-2">
-                                <i class="ki-duotone ki-shield-tick fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Overview & Role Architecture
+            <!--begin::Modal body-->
+            <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+                <div class="mb-10 text-center">
+                    <div class="symbol symbol-60px symbol-circle bg-light-danger mb-4 p-3">
+                        <i class="ki-duotone ki-shield-tick fs-3x text-danger">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                        </i>
+                    </div>
+                    <h1 class="mb-3 text-gray-900 fw-bold">
+                        {{ app()->getLocale() == 'en' ? 'Operational Guide: Role Management' : 'Petunjuk Operasional: Manajemen Role' }}
+                    </h1>
+                    <div class="text-muted fw-semibold fs-5">
+                        {{ app()->getLocale() == 'en' ? 'Role-Based Access Control (RBAC), user role configuration, and permission assignment' : 'Panduan lengkap pengelolaan role pengguna dan matriks hak akses sistem berbasis RBAC' }}
+                    </div>
+                </div>
+
+                @if (app()->getLocale() == 'en')
+                    <!--English Version-->
+                    <div class="d-flex flex-column gap-6">
+                        <!--Section 1: Overview-->
+                        <div class="card schema-card bg-light-primary border border-primary p-6 rounded">
+                            <h4 class="fw-bold text-primary mb-3 d-flex align-items-center">
+                                <i class="ki-duotone ki-abstract-26 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                System Overview & RBAC Architecture
                             </h4>
-                            <p class="text-gray-700 fs-7 mb-0">
-                                This module handles Role-Based Access Control (RBAC) using Spatie Laravel Permission. A <strong>Role</strong> is a collection of access permissions (Create, Read, Update, Delete, or Custom actions) assigned to user accounts to control feature availability across the application.
+                            <p class="fs-6 text-gray-700 m-0">
+                                The <strong>Role Management Module</strong> implements Role-Based Access Control (RBAC) powered by Spatie Laravel Permission. A <strong>Role</strong> is a collection of access permissions (Create, Read, Update, Delete, or Custom actions) assigned to user accounts to control feature availability across the application.
                             </p>
                         </div>
-                    </div>
 
-                    <!-- Section 2: Step-by-Step Operations -->
-                    <div class="card bg-light border border-gray-300 mb-5">
-                        <div class="card-body py-4">
-                            <h4 class="fw-bold text-gray-900 mb-3">
-                                <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> Step-by-Step Operational Workflow
+                        <!--Section 2: Architecture-->
+                        <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
+                            <h4 class="fw-bold text-gray-900 mb-3 d-flex align-items-center">
+                                <i class="ki-duotone ki-layers fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                Core System Roles vs Custom Roles
                             </h4>
-                            <div class="d-flex flex-column gap-3 fs-7 text-gray-700">
-                                <div class="d-flex align-items-start gap-2">
-                                    <span class="badge badge-light-primary fw-bold me-2">1</span>
-                                    <div>
-                                        <strong>Create New Role:</strong> Click the <span class="badge badge-primary px-2 py-1"><i class="ki-duotone ki-plus text-white me-1"></i> Add Role</span> button, specify a unique role name (e.g., <code>Editor</code>, <code>Operator</code>), check the required permissions in the module matrix, and click <strong>Save</strong>.
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-start gap-2">
-                                    <span class="badge badge-light-primary fw-bold me-2">2</span>
-                                    <div>
-                                        <strong>Edit Role & Permissions:</strong> Click the <span class="badge badge-light-primary text-primary px-2 py-1"><i class="ki-duotone ki-pencil me-1"></i> Edit</span> button on a role card or table row to modify its name or adjust specific CRUD permissions in the pop-up modal.
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-start gap-2">
-                                    <span class="badge badge-light-primary fw-bold me-2">3</span>
-                                    <div>
-                                        <strong>Access Rights Matrix:</strong> Click the <span class="badge badge-light-primary text-primary px-2 py-1"><i class="ki-duotone ki-key me-1"></i> Matrix</span> button to navigate to the full interactive Role Access Rights Matrix page (<code>/manajemenpengguna/akses-role</code>).
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-start gap-2">
-                                    <span class="badge badge-light-primary fw-bold me-2">4</span>
-                                    <div>
-                                        <strong>Delete Custom Role:</strong> Click the <span class="badge badge-light-danger text-danger px-2 py-1"><i class="ki-duotone ki-trash me-1"></i> Delete</span> button to remove a custom role. System core roles (<code>Master</code> & <code>Admin</code>) are protected against accidental deletion.
-                                    </div>
-                                </div>
-                            </div>
+                            <ul class="fs-6 text-gray-700 m-0 ps-5">
+                                <li class="mb-2"><strong>Core System Roles:</strong> Protected system anchors (<code>Master</code> & <code>Admin</code>) protected against deletion.</li>
+                                <li class="mb-2"><strong>Custom Roles:</strong> Dynamic user-created roles (e.g., <code>Editor</code>, <code>Operator</code>, <code>Auditor</code>).</li>
+                                <li><strong>Permission Grouping:</strong> Modules and permissions mapped directly to each role.</li>
+                            </ul>
                         </div>
-                    </div>
 
-                    <!-- Section 3: Best Practices & Safeguards -->
-                    <div class="card bg-light-warning border border-warning border-opacity-30">
-                        <div class="card-body py-4">
-                            <h4 class="fw-bold text-warning mb-2">
-                                <i class="ki-duotone ki-information-5 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Key Rules & Important Notes
+                        <!--Section 3: Workflow-->
+                        <div class="card schema-card bg-light-info border border-info p-6 rounded">
+                            <h4 class="fw-bold text-info mb-3 d-flex align-items-center">
+                                <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                Step-by-Step Operational Workflow
                             </h4>
-                            <ul class="text-gray-700 fs-7 mb-0 ps-5">
-                                <li><strong>Protected Core Roles:</strong> The <code>Master</code> and <code>Admin</code> roles are essential system anchors and cannot be deleted.</li>
-                                <li><strong>Assigned Users:</strong> Deleting a role will automatically revoke that role from assigned users, but the user accounts themselves will remain intact.</li>
-                                <li><strong>Real-time Authorization:</strong> Permission updates take effect immediately for active user sessions upon page refresh.</li>
+                            <ol class="fs-6 text-gray-700 m-0 ps-5">
+                                <li class="mb-2"><strong>Create New Role:</strong> Click <span class="badge badge-primary">+ Add Role</span>, enter the role name, check permissions, and click <strong>Save</strong>.</li>
+                                <li class="mb-2"><strong>Edit Role Permissions:</strong> Click <span class="badge badge-light-primary text-primary">Edit</span> to adjust role permissions in the modal.</li>
+                                <li class="mb-2"><strong>Open Access Matrix:</strong> Click <span class="badge badge-light-primary text-primary">Matrix</span> to open the interactive Role Access Matrix.</li>
+                                <li><strong>Delete Custom Role:</strong> Click <span class="badge badge-light-danger text-danger">Delete</span> to remove a custom role.</li>
+                            </ol>
+                        </div>
+
+                        <!--Section 4: System Rules-->
+                        <div class="card schema-card bg-light-warning border border-warning p-6 rounded">
+                            <h4 class="fw-bold text-warning mb-3 d-flex align-items-center">
+                                <i class="ki-duotone ki-shield-cross fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                System Safeguards & Rules
+                            </h4>
+                            <ul class="fs-6 text-gray-700 m-0 ps-5">
+                                <li class="mb-2"><strong>Protected Core Anchor:</strong> The <code>Master</code> role is protected from deletion and lockout.</li>
+                                <li class="mb-2"><strong>Safe Deletion Unlinking:</strong> Deleting a role revokes permissions from users without deleting user accounts.</li>
+                                <li><strong>Immediate Authorization Update:</strong> Permission changes take effect on active sessions upon page refresh.</li>
                             </ul>
                         </div>
                     </div>
                 @else
-                    <!--=================== INDONESIAN CONTENT ===================-->
-                    <!-- Section 1: Overview -->
-                    <div class="card bg-light-primary border border-primary border-opacity-20 mb-5">
-                        <div class="card-body py-4">
-                            <h4 class="fw-bold text-primary mb-2">
-                                <i class="ki-duotone ki-shield-tick fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i> Overview & Arsitektur Role
+                    <!--Indonesian Version-->
+                    <div class="d-flex flex-column gap-6">
+                        <!--Section 1: Overview-->
+                        <div class="card schema-card bg-light-primary border border-primary p-6 rounded">
+                            <h4 class="fw-bold text-primary mb-3 d-flex align-items-center">
+                                <i class="ki-duotone ki-abstract-26 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                Gambaran Umum & Arsitektur RBAC
                             </h4>
-                            <p class="text-gray-700 fs-7 mb-0">
-                                Modul ini mengelola sistem hak akses berbasis peran (RBAC) menggunakan Spatie Laravel Permission. <strong>Role (Peran)</strong> adalah kumpulan izin akses (Create, Read, Update, Delete, atau aksi khusus) yang diberikan kepada pengguna untuk mengontrol akses fitur di seluruh aplikasi.
+                            <p class="fs-6 text-gray-700 m-0">
+                                <strong>Modul Manajemen Role</strong> mengelola sistem hak akses berbasis peran (RBAC) menggunakan Spatie Laravel Permission. <strong>Role (Peran)</strong> adalah kumpulan izin akses (Create, Read, Update, Delete, atau aksi khusus) yang diberikan kepada pengguna untuk mengontrol akses fitur di seluruh aplikasi.
                             </p>
                         </div>
-                    </div>
 
-                    <!-- Section 2: Step-by-Step Operations -->
-                    <div class="card bg-light border border-gray-300 mb-5">
-                        <div class="card-body py-4">
-                            <h4 class="fw-bold text-gray-900 mb-3">
-                                <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> Alur Operasional Langkah Demi Langkah
+                        <!--Section 2: Architecture-->
+                        <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
+                            <h4 class="fw-bold text-gray-900 mb-3 d-flex align-items-center">
+                                <i class="ki-duotone ki-layers fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                Role Inti Sistem vs Role Kustom
                             </h4>
-                            <div class="d-flex flex-column gap-3 fs-7 text-gray-700">
-                                <div class="d-flex align-items-start gap-2">
-                                    <span class="badge badge-light-primary fw-bold me-2">1</span>
-                                    <div>
-                                        <strong>Menambah Role Baru:</strong> Klik tombol <span class="badge badge-primary px-2 py-1"><i class="ki-duotone ki-plus text-white me-1"></i> Tambah Role</span>, isikan nama role unik (contoh: <code>Editor</code>, <code>Operator</code>), centang hak akses per modul pada matriks, lalu klik <strong>Simpan</strong>.
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-start gap-2">
-                                    <span class="badge badge-light-primary fw-bold me-2">2</span>
-                                    <div>
-                                        <strong>Mengubah Role & Hak Akses:</strong> Klik tombol <span class="badge badge-light-primary text-primary px-2 py-1"><i class="ki-duotone ki-pencil me-1"></i> Edit</span> pada card role atau baris tabel untuk mengubah nama role atau memperbarui centang izin CRUD di form modal popup.
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-start gap-2">
-                                    <span class="badge badge-light-primary fw-bold me-2">3</span>
-                                    <div>
-                                        <strong>Matriks Hak Akses Terpusat:</strong> Klik tombol <span class="badge badge-light-primary text-primary px-2 py-1"><i class="ki-duotone ki-key me-1"></i> Matrix</span> untuk berpindah ke halaman penuh Matriks Hak Akses Role (<code>/manajemenpengguna/akses-role</code>).
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-start gap-2">
-                                    <span class="badge badge-light-primary fw-bold me-2">4</span>
-                                    <div>
-                                        <strong>Menghapus Role Kustom:</strong> Klik tombol <span class="badge badge-light-danger text-danger px-2 py-1"><i class="ki-duotone ki-trash me-1"></i> Hapus</span> untuk menghapus role kustom. Role inti sistem (<code>Master</code> & <code>Admin</code>) dilindungi dan tidak dapat dihapus.
-                                    </div>
-                                </div>
-                            </div>
+                            <ul class="fs-6 text-gray-700 m-0 ps-5">
+                                <li class="mb-2"><strong>Role Inti Sistem:</strong> Role fondasi utama (<code>Master</code> & <code>Admin</code>) yang dilindungi agar tidak dapat dihapus.</li>
+                                <li class="mb-2"><strong>Role Kustom:</strong> Role dinamis yang dibuat pengguna (contoh: <code>Editor</code>, <code>Operator</code>, <code>Auditor</code>).</li>
+                                <li><strong>Pengelompokan Permission:</strong> Modul dan perizinan yang dipetakan langsung ke setiap role.</li>
+                            </ul>
                         </div>
-                    </div>
 
-                    <!-- Section 3: Best Practices & Safeguards -->
-                    <div class="card bg-light-warning border border-warning border-opacity-30">
-                        <div class="card-body py-4">
-                            <h4 class="fw-bold text-warning mb-2">
-                                <i class="ki-duotone ki-information-5 fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Aturan Utama & Catatan Penting
+                        <!--Section 3: Workflow-->
+                        <div class="card schema-card bg-light-info border border-info p-6 rounded">
+                            <h4 class="fw-bold text-info mb-3 d-flex align-items-center">
+                                <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                Alur Operasional Pengelolaan Role
                             </h4>
-                            <ul class="text-gray-700 fs-7 mb-0 ps-5">
-                                <li><strong>Role Inti Dilindungi:</strong> Role <code>Master</code> dan <code>Admin</code> adalah fondasi utama akses sistem dan tidak dapat dihapus.</li>
-                                <li><strong>Pengguna Terhubung:</strong> Menghapus role akan mencabut role tersebut dari pengguna terkait secara otomatis, namun akun pengguna tetap aman.</li>
-                                <li><strong>Pembaruan Real-Time:</strong> Perubahan matriks hak akses langsung berlaku bagi sesi pengguna aktif setelah halaman diperbarui.</li>
+                            <ol class="fs-6 text-gray-700 m-0 ps-5">
+                                <li class="mb-2"><strong>Menambah Role Baru:</strong> Klik tombol <span class="badge badge-primary">+ Tambah Role</span>, isikan nama role, centang perizinan, lalu klik <strong>Simpan</strong>.</li>
+                                <li class="mb-2"><strong>Mengubah Role & Perizinan:</strong> Klik <span class="badge badge-light-primary text-primary">Edit</span> untuk memperbarui perizinan role di form modal.</li>
+                                <li class="mb-2"><strong>Matriks Hak Akses:</strong> Klik <span class="badge badge-light-primary text-primary">Matrix</span> untuk membuka halaman penuh Matriks Hak Akses Role.</li>
+                                <li><strong>Menghapus Role Kustom:</strong> Klik <span class="badge badge-light-danger text-danger">Hapus</span> untuk menghapus role kustom.</li>
+                            </ol>
+                        </div>
+
+                        <!--Section 4: System Rules-->
+                        <div class="card schema-card bg-light-warning border border-warning p-6 rounded">
+                            <h4 class="fw-bold text-warning mb-3 d-flex align-items-center">
+                                <i class="ki-duotone ki-shield-cross fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                Aturan & Proteksi Sistem
+                            </h4>
+                            <ul class="fs-6 text-gray-700 m-0 ps-5">
+                                <li class="mb-2"><strong>Proteksi Role Inti:</strong> Role <code>Master</code> dilindungi penuh dari penghapusan dan penguncian akses.</li>
+                                <li class="mb-2"><strong>Pencabutan Aman:</strong> Menghapus role mencabut perizinan dari pengguna tanpa menghapus akun pengguna.</li>
+                                <li><strong>Pembaruan Otorisasi Real-Time:</strong> Perubahan perizinan langsung berlaku pada sesi aktif setelah muat ulang halaman.</li>
                             </ul>
                         </div>
                     </div>
                 @endif
-            </div>
-            <!--end::Modal Body-->
 
-            <!--begin::Modal Footer-->
-            <div class="modal-footer border-0 pt-0">
-                <button type="button" class="btn btn-light-primary fw-bold" data-bs-dismiss="modal">
-                    @if(app()->getLocale() == 'en')
-                        Close Guide
-                    @else
-                        Tutup Petunjuk
-                    @endif
-                </button>
+                <div class="text-center mt-10">
+                    <button type="button" class="btn btn-primary min-w-150px" data-bs-dismiss="modal">
+                        {{ app()->getLocale() == 'en' ? 'Understood' : 'Saya Mengerti' }}
+                    </button>
+                </div>
             </div>
-            <!--end::Modal Footer-->
+            <!--end::Modal body-->
         </div>
     </div>
 </div>
-<!--end::Modal - Roles Operational Guide-->
+<!--end::Modal - Petunjuk Operasional Manajemen Role-->

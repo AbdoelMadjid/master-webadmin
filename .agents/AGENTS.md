@@ -137,3 +137,22 @@
 4. **Placement in Top Header Action Bar**:
    - Place the operational guide trigger button in the top page header action bar (`d-flex align-items-center gap-2`) alongside primary page action buttons (e.g. Add/Import buttons) to ensure high visibility upon page load without duplicating buttons in child datatable toolbars.
 
+5. **Uniform Modal Layout & Header Centering**:
+   - The modal dialog container MUST use `modal-dialog-centered mw-850px` for optimal reading width on all devices.
+   - The modal header MUST have `pb-0 border-0 justify-content-end` containing only the top-right close button.
+   - The top of the modal body MUST include a centered branding header featuring:
+     - Big circular duotone icon badge: `<div class="symbol symbol-60px symbol-circle bg-light-danger mb-4 p-3"><i class="ki-duotone ki-<icon-name> fs-3x text-danger">...</i></div>`.
+     - Bold main title: `<h1 class="mb-3 text-gray-900 fw-bold">`.
+     - Subtitle lead text: `<div class="text-muted fw-semibold fs-5">`.
+
+6. **Uniform 4-Card Box Sectioning & HTML Formatting**:
+   - All section cards inside the modal body MUST be grouped within a `<div class="d-flex flex-column gap-6">` wrapper.
+   - Every section card MUST use standard `<div class="card schema-card bg-light-<type> border border-<color> p-6 rounded">` styling:
+     * **Section 1 (System Overview & Purpose)**: `bg-light-primary border-primary` with icon `<i class="ki-duotone ki-abstract-26 fs-2 text-primary me-2">`
+     * **Section 2 (Architecture & Features)**: `bg-light-secondary border-gray-300` with icon `<i class="ki-duotone ki-layers fs-2 text-dark me-2">`
+     * **Section 3 (Step-by-Step Workflow)**: `bg-light-info border-info` with icon `<i class="ki-duotone ki-route fs-2 text-info me-2">`
+     * **Section 4 (Safeguards & System Rules)**: `bg-light-warning border-warning` with icon `<i class="ki-duotone ki-shield-cross fs-2 text-warning me-2">`
+   - **Text Formatting Invariant**: Do NOT use raw markdown asterisks (`*text*`) or raw markdown code ticks inside Blade views. Always use proper HTML tags (`<em>`, `<code>`, `<strong>`, and `<span class="badge badge-light-...">`).
+   - The modal body MUST end with a centered primary dismiss button: `<div class="text-center mt-10"><button type="button" class="btn btn-primary min-w-150px" data-bs-dismiss="modal">{{ app()->getLocale() == 'en' ? 'Understood' : 'Saya Mengerti' }}</button></div>`.
+
+
