@@ -28,9 +28,20 @@
                             </i>
                         </div>
                         <div class="d-flex flex-column">
-                            <h3 class="card-title fw-bold fs-3 text-gray-900 m-0">Pengaturan Profil Aplikasi</h3>
-                            <span class="text-muted fs-7">Kelola identitas, logo, favicon, dan hak cipta footer aplikasi Anda.</span>
+                            <h3 class="card-title fw-bold fs-3 text-gray-900 m-0">
+                                {{ app()->getLocale() == 'en' ? 'Application Profile & Branding Settings' : 'Pengaturan Profil & Identitas Aplikasi' }}
+                            </h3>
+                            <span class="text-muted fs-7">
+                                {{ app()->getLocale() == 'en' ? 'Manage application name, logo, favicon, and global footer copyright text.' : 'Kelola identitas, logo, favicon, dan hak cipta footer aplikasi Anda.' }}
+                            </span>
                         </div>
+                    </div>
+                    <div class="card-toolbar">
+                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                            <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_app_profil_help">
+                                <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                            </button>
+                        </span>
                     </div>
                 </div>
                 <!--end::Card Header-->
@@ -46,6 +57,7 @@
         </div>
         <!--end::Content container-->
     </div>
+    @include('pages.appsupport.partials.app-profil-help-modal')
 @endsection
 
 @section('scripts')

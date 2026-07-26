@@ -25,7 +25,7 @@
                 <!--begin::Hero-->
                 <div class="schema-hero mb-6">
                     <span class="schema-pill">
-                        <i class="ki-duotone ki-database text-white fs-7 me-1"><span class="path1"></span><span class="path2"></span></i>
+                        <i class="ki-duotone ki-disk text-white fs-7 me-1"><span class="path1"></span><span class="path2"></span></i>
                         Data Layer Architecture
                     </span>
                     <h2 class="fw-bold">{{ __('help.pages.skema.data-layer.hero_title') }}</h2>

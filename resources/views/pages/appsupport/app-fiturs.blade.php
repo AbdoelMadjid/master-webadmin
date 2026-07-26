@@ -18,19 +18,32 @@
 
             <!--begin::Header Notice Card-->
             <div class="card card-flush mb-8 bg-light-primary border border-primary">
-                <div class="card-body d-flex align-items-center py-6">
-                    <div class="symbol symbol-50px me-5">
-                        <span class="symbol-label bg-primary text-white">
-                            <i class="ki-duotone ki-eye fs-2x text-white">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                        </span>
+                <div class="card-body d-flex align-items-center justify-content-between py-6">
+                    <div class="d-flex align-items-center me-3">
+                        <div class="symbol symbol-50px me-5">
+                            <span class="symbol-label bg-primary text-white">
+                                <i class="ki-duotone ki-eye fs-2x text-white">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                </i>
+                            </span>
+                        </div>
+                        <div class="d-flex flex-column">
+                            <h3 class="fw-bold text-gray-900 mb-1">
+                                {{ app()->getLocale() == 'en' ? 'Dynamic Feature Switch System (Feature Toggle)' : 'Pengaturan Visibilitas Fitur & UI (Feature Toggle)' }}
+                            </h3>
+                            <span class="text-gray-700 fs-6">
+                                {{ app()->getLocale() == 'en' ? 'Operational guide for real-time control of active/inactive module switches and UI components.' : 'Sembunyikan atau tampilkan elemen navigasi seperti grup menu sidebar (PAGES, APPS, LAYOUTS, HELP), ikon topbar navigasi, jam digital, hingga tombol drawer melayang.' }}
+                            </span>
+                        </div>
                     </div>
-                    <div class="d-flex flex-column">
-                        <h3 class="fw-bold text-gray-900 mb-1">Pengaturan Visibilitas Fitur & UI</h3>
-                        <span class="text-gray-700 fs-6">Sembunyikan atau tampilkan elemen navigasi seperti grup menu sidebar (PAGES, APPS, LAYOUTS, HELP), ikon topbar navigasi, jam digital, hingga tombol drawer melayang di samping kanan layar.</span>
+                    <div>
+                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                            <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_app_fitur_help">
+                                <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                            </button>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -136,6 +149,7 @@
         </div>
         <!--end::Content container-->
     </div>
+    @include('pages.appsupport.partials.app-fitur-help-modal')
 @endsection
 
 @section('scripts')
