@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'App Support',
+    'title' => 'Dukungan Aplikasi',
     'title_en' => 'App Support',
     'title_key' => 'md_app_support',
     'route' => 'appsupport',
@@ -19,7 +19,7 @@ return [
             'roles' => ['admin'],
         ],
         [
-            'title' => 'App Profil',
+            'title' => 'Profil Aplikasi',
             'title_en' => 'App Profile',
             'title_key' => 'md_app_profil',
             'route' => 'appsupport/app-profil',
@@ -27,7 +27,7 @@ return [
             'roles' => ['admin'],
         ],
         [
-            'title' => 'App Fitur',
+            'title' => 'Fitur Aplikasi',
             'title_en' => 'App Features',
             'title_key' => 'md_app_fitur',
             'route' => 'appsupport/app-fiturs',
