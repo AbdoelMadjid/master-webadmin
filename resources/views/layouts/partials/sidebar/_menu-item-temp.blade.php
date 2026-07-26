@@ -43,6 +43,14 @@
             : 'menu.' . strtolower(str_replace([' ', '&', '/'], ['_', 'and', '_'], $item['title'] ?? ''));
         return __($titleKey) != $titleKey ? __($titleKey) : $item['title'] ?? '';
     };
+    $resolveMenuBadgeLabel = function ($item) {
+        if (!isset($item['badge']['label'])) {
+            return '';
+        }
+        $label = (string) $item['badge']['label'];
+        $badgeKey = 'menu.' . strtolower(str_replace([' ', '&', '/'], ['_', 'and', '_'], trim($label)));
+        return __($badgeKey) != $badgeKey ? __($badgeKey) : $label;
+    };
 @endphp
 
 @if ($hasChildren && !($menu['dropdown'] ?? false))
@@ -176,7 +184,7 @@
             @if (isset($menu['badge']))
                 <span class="menu-badge">
                     <span class="{{ $menu['badge']['class'] ?? 'badge badge-info' }}">
-                        {{ $menu['badge']['label'] ?? '' }}
+                        {{ $resolveMenuBadgeLabel($menu) }}
                     </span>
                 </span>
             @endif

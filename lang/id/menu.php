@@ -349,6 +349,7 @@ return array (
   'my_statements' => 'Pernyataan Saya',
   'my_subscription' => 'Langganan Saya',
   'nested' => 'Bersarang',
+  'new' => 'Baru',
   'new_address' => 'Alamat Baru',
   'new_card' => 'Kartu Baru',
   'new_password' => 'Kata Sandi Baru',

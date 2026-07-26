@@ -349,6 +349,7 @@ return array (
   'my_statements' => 'My Statements',
   'my_subscription' => 'My Subscription',
   'nested' => 'Nested',
+  'new' => 'New',
   'new_address' => 'New Address',
   'new_card' => 'New Card',
   'new_password' => 'New Password',
