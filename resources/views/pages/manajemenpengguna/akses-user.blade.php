@@ -14,6 +14,31 @@
 @section('content')
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_content_container" class="app-container container-fluid">
+            <!--begin::Page Header & Guide Action-->
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
+                        <i class="ki-duotone ki-profile-user text-primary fs-2x"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    </div>
+                    <div>
+                        <h2 class="text-gray-900 fw-bold fs-3 m-0">
+                            {{ app()->getLocale() == 'en' ? 'User Direct Access Rights' : 'Hak Akses Spesifik Pengguna (User Direct Permissions)' }}
+                        </h2>
+                        <span class="text-muted fs-7">
+                            {{ app()->getLocale() == 'en' ? 'Manage custom direct permission assignments per individual user account.' : 'Kelola penugasan perizinan khusus langsung kepada individu pengguna.' }}
+                        </span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_akses_user_help">
+                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <!--end::Page Header & Guide Action-->
+
             <div class="card">
                 <div class="card-header border-0 pt-6">
                     <div class="card-title">
@@ -99,6 +124,7 @@
     </div>
 
     @include('pages.manajemenpengguna.partials.akses-user-form')
+    @include('pages.manajemenpengguna.partials.akses-user-help-modal')
 @endsection
 
 @section('styles')

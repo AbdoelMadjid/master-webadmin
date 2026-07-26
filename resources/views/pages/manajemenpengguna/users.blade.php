@@ -14,6 +14,31 @@
 @section('content')
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_content_container" class="app-container container-fluid">
+            <!--begin::Page Header & Guide Action-->
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
+                        <i class="ki-duotone ki-user text-primary fs-2x"><span class="path1"></span><span class="path2"></span></i>
+                    </div>
+                    <div>
+                        <h2 class="text-gray-900 fw-bold fs-3 m-0">
+                            {{ app()->getLocale() == 'en' ? 'User Directory & Account Management' : 'Direktori Pengguna & Manajemen Akun' }}
+                        </h2>
+                        <span class="text-muted fs-7">
+                            {{ app()->getLocale() == 'en' ? 'Manage user profiles, assign roles, bulk import accounts, and status activation.' : 'Kelola profil pengguna, penugasan role, import akun massal, dan aktivasi status.' }}
+                        </span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_users_help">
+                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <!--end::Page Header & Guide Action-->
+
             @if(request('search'))
                 <div class="alert alert-info d-flex align-items-center p-4 mb-5">
                     <i class="ki-duotone ki-information-5 fs-2hx text-info me-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
@@ -170,6 +195,7 @@
 
     @include('pages.manajemenpengguna.partials.user-form')
     @include('pages.manajemenpengguna.partials.user-import-modal')
+    @include('pages.manajemenpengguna.partials.users-help-modal')
 @endsection
 
 @section('styles')

@@ -14,6 +14,34 @@
 @section('content')
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_content_container" class="app-container container-fluid">
+            <!--begin::Page Header & Guide Action-->
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
+                        <i class="ki-duotone ki-shield-tick text-primary fs-2x"><span class="path1"></span><span class="path2"></span></i>
+                    </div>
+                    <div>
+                        <h2 class="text-gray-900 fw-bold fs-3 m-0">
+                            {{ app()->getLocale() == 'en' ? 'Role & Permission Management' : 'Manajemen Role & Hak Akses' }}
+                        </h2>
+                        <span class="text-muted fs-7">
+                            {{ app()->getLocale() == 'en' ? 'Manage user roles, permission assignments, and access levels.' : 'Kelola role pengguna, penugasan perizinan, dan tingkat hak akses sistem.' }}
+                        </span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_roles_help">
+                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        </button>
+                    </span>
+                    <button type="button" class="btn btn-primary fw-bold px-4" data-bs-toggle="modal" data-bs-target="#kt_modal_role" id="btn_add_role_top">
+                        <i class="ki-duotone ki-plus fs-2 me-1"></i> {{ app()->getLocale() == 'en' ? 'Add Role' : 'Tambah Role' }}
+                    </button>
+                </div>
+            </div>
+            <!--end::Page Header & Guide Action-->
+
             <!--begin::Role Cards Grid-->
             <div class="row g-6 g-xl-9 mb-8">
                 @foreach($roles as $roleItem)
@@ -136,11 +164,7 @@
                             <input type="text" id="kt_roles_search" class="form-control form-control-solid w-250px ps-13" placeholder="Cari Role..." />
                         </div>
                     </div>
-                    <div class="card-toolbar">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_role" id="btn_add_role">
-                            <i class="ki-duotone ki-plus fs-2"></i> Tambah Role
-                        </button>
-                    </div>
+
                 </div>
                 <div class="card-body pt-0">
                     <div class="table-responsive">
@@ -185,6 +209,7 @@
     </div>
 
     @include('pages.manajemenpengguna.partials.role-form')
+    @include('pages.manajemenpengguna.partials.roles-help-modal')
 @endsection
 
 @section('styles')
@@ -208,7 +233,7 @@
                 rolesTable.search(this.value).draw();
             });
 
-            $('#btn_add_role').on('click', function() {
+            $('#btn_add_role, #btn_add_role_top').on('click', function() {
                 $('#role_modal_title').text('Tambah Role Baru');
                 $('#kt_modal_role_form')[0].reset();
                 $('#role_id').val('');

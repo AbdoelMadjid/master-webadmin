@@ -107,3 +107,33 @@
 
 4. **Prohibition of Redundant Feature Directories**:
    - Do NOT create standalone non-tab feature subdirectories directly under parent view folders (e.g., do NOT create `pages/{subfolder}/{feature}/` to hold main view files or stray tab views). All sub-tab partials MUST reside cleanly inside `pages/{subfolder}/tabs/{feature}/`.
+
+# Rules for Page Operational Guide Modals (`Petunjuk Operasional`)
+
+1. **Dedicated Partial Location for Operational Modals**:
+   - Every page operational guide modal HTML MUST be extracted into a dedicated partial file under `resources/views/pages/<subfolder>/partials/<feature>-help-modal.blade.php`.
+   - **Example**: For route `/manajemenpengguna/roles` (`pages/manajemenpengguna/roles.blade.php`), the modal partial file MUST be `resources/views/pages/manajemenpengguna/partials/roles-help-modal.blade.php`.
+   - Cleanly `@include('pages.<subfolder>.partials.<feature>-help-modal')` near the bottom of the main view.
+
+2. **Standardized Trigger Button & Tooltip Wrapper**:
+   - The operational guide trigger MUST be a solid danger icon-only button (`btn btn-icon btn-danger shadow-xs`) using the valid Metronic 8 Keenicon `ki-question` with 3 child path elements (`<i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>`).
+   - The trigger button MUST be wrapped inside a `<span data-bs-toggle="tooltip" data-bs-placement="top" title="...">` element to ensure top tooltips function smoothly without Bootstrap 5 modal attribute collision.
+   - **Pattern**:
+     ```html
+     <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+         <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_<feature>_help">
+             <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+         </button>
+     </span>
+     ```
+
+3. **Mandatory 100% Bilingual Operational Content**:
+   - Modal body content MUST use `@if(app()->getLocale() == 'en') ... @else ... @endif` conditional blocks to present comprehensive operational instructions in both English and Indonesian.
+   - Content MUST include:
+     - **Overview & Feature Architecture**: Clear explanation of what the module does and its underlying system architecture.
+     - **Step-by-Step Operational Workflow**: Numbered sequential steps for performing CRUD actions (Create, Read, Update, Delete, Import, Export, etc.).
+     - **Rules & Important Notes**: Key operational rules, safeguards (e.g. protected core roles), and best practices.
+
+4. **Placement in Top Header Action Bar**:
+   - Place the operational guide trigger button in the top page header action bar (`d-flex align-items-center gap-2`) alongside primary page action buttons (e.g. Add/Import buttons) to ensure high visibility upon page load without duplicating buttons in child datatable toolbars.
+

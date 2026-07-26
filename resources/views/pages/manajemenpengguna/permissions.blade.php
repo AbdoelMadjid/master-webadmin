@@ -14,6 +14,31 @@
 @section('content')
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_content_container" class="app-container container-fluid">
+            <!--begin::Page Header & Guide Action-->
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
+                        <i class="ki-duotone ki-key text-primary fs-2x"><span class="path1"></span><span class="path2"></span></i>
+                    </div>
+                    <div>
+                        <h2 class="text-gray-900 fw-bold fs-3 m-0">
+                            {{ app()->getLocale() == 'en' ? 'Permission & Feature Access Management' : 'Manajemen Permission & Hak Akses Fitur' }}
+                        </h2>
+                        <span class="text-muted fs-7">
+                            {{ app()->getLocale() == 'en' ? 'Manage system feature permissions, module grouping, and CRUD permission generation.' : 'Kelola izin akses fitur sistem, pengelompokan modul, dan generator permission CRUD.' }}
+                        </span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-2">
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_permissions_help">
+                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <!--end::Page Header & Guide Action-->
+
             <!--begin::Stats Summary Cards-->
             <div class="row g-5 g-xl-8 mb-6">
                 <div class="col-md-4">
@@ -171,6 +196,7 @@
     </div>
 
     @include('pages.manajemenpengguna.partials.permission-form')
+    @include('pages.manajemenpengguna.partials.permissions-help-modal')
 @endsection
 
 @section('styles')

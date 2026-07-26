@@ -26,7 +26,12 @@
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-2">
-                            <span class="badge badge-light-primary fs-7 fw-bold" id="total_perms_info">Total {{ count($permissions) }} Permissions</span>
+                            <span class="badge badge-light-primary fs-7 fw-bold me-2" id="total_perms_info">Total {{ count($permissions) }} Permissions</span>
+                            <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                                <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_akses_role_help">
+                                    <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                </button>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -287,4 +292,5 @@
             });
         });
     </script>
+    @include('pages.manajemenpengguna.partials.akses-role-help-modal')
 @endsection
