@@ -23,21 +23,9 @@
                     <span class="path1"></span>
                     <span class="path2"></span>
                 </i>
-                <form action="{{ route('appsupport.referensi') }}" method="GET" class="d-flex align-items-center">
-                    <input type="hidden" name="tab" value="item" />
-                    @if ($selectedKategoriId)
-                        <input type="hidden" name="kategori_id" value="{{ $selectedKategoriId }}" />
-                    @endif
-                    <input type="text" name="q" value="{{ $activeTab === 'item' ? $searchQuery : '' }}"
-                        class="form-control form-control-solid w-250px ps-12"
-                        placeholder="{{ app()->getLocale() == 'en' ? 'Search item code or name...' : 'Cari kode atau nama item...' }}" />
-                    @if ($searchQuery && $activeTab === 'item')
-                        <a href="{{ route('appsupport.referensi', array_merge(['tab' => 'item'], $selectedKategoriId ? ['kategori_id' => $selectedKategoriId] : [])) }}" class="btn btn-icon btn-sm btn-light ms-2"
-                            data-bs-toggle="tooltip" title="{{ app()->getLocale() == 'en' ? 'Reset Search' : 'Reset Pencarian' }}">
-                            <i class="ki-duotone ki-cross fs-3"><span class="path1"></span><span class="path2"></span></i>
-                        </a>
-                    @endif
-                </form>
+                <input type="text" id="kt_referensi_item_search" value="{{ $activeTab === 'item' ? $searchQuery : '' }}"
+                    class="form-control form-control-solid w-250px ps-12"
+                    placeholder="{{ app()->getLocale() == 'en' ? 'Search item code or name...' : 'Cari kode atau nama item...' }}" />
             </div>
             <!--end::Search-->
         </div>
@@ -60,17 +48,17 @@
     <div class="card-body pt-0">
         <!--begin::Table responsive-->
         <div class="table-responsive">
-            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_referensi_item">
+            <table class="table align-middle table-row-dashed fs-6 gy-5 w-100" id="kt_table_referensi_item">
                 <thead>
                     <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
-                        <th class="min-w-50px text-center">#</th>
-                        <th class="min-w-175px">{{ app()->getLocale() == 'en' ? 'Category' : 'Kategori' }}</th>
-                        <th class="min-w-125px">{{ app()->getLocale() == 'en' ? 'Option Code' : 'Kode Opsi' }}</th>
-                        <th class="min-w-200px">{{ app()->getLocale() == 'en' ? 'Option Label' : 'Nama Label Opsi' }}</th>
-                        <th class="min-w-100px text-center">{{ app()->getLocale() == 'en' ? 'Display Order' : 'Urutan' }}</th>
-                        <th class="min-w-200px">{{ app()->getLocale() == 'en' ? 'Remarks' : 'Keterangan' }}</th>
-                        <th class="min-w-100px text-center">{{ app()->getLocale() == 'en' ? 'Status' : 'Status' }}</th>
-                        <th class="min-w-125px text-end">{{ app()->getLocale() == 'en' ? 'Actions' : 'Aksi' }}</th>
+                        <th class="w-50px text-center">#</th>
+                        <th class="min-w-150px">{{ app()->getLocale() == 'en' ? 'Category' : 'Kategori' }}</th>
+                        <th class="min-w-100px">{{ app()->getLocale() == 'en' ? 'Option Code' : 'Kode Opsi' }}</th>
+                        <th class="min-w-150px">{{ app()->getLocale() == 'en' ? 'Option Label' : 'Nama Label Opsi' }}</th>
+                        <th class="min-w-70px text-center">{{ app()->getLocale() == 'en' ? 'Order' : 'Urutan' }}</th>
+                        <th class="min-w-150px">{{ app()->getLocale() == 'en' ? 'Remarks' : 'Keterangan' }}</th>
+                        <th class="min-w-80px text-center">{{ app()->getLocale() == 'en' ? 'Status' : 'Status' }}</th>
+                        <th class="min-w-100px text-end">{{ app()->getLocale() == 'en' ? 'Actions' : 'Aksi' }}</th>
                     </tr>
                 </thead>
                 <tbody class="fw-semibold text-gray-600">

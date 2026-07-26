@@ -1,5 +1,9 @@
 @extends('layouts.index')
 
+@section('styles')
+    <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+@endsection
+
 @section('toolbar')
     @component('layouts.partials._toolbar')
         @slot('li_1')
@@ -165,6 +169,7 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
     <script src="{{ asset('assets/js/custom/crud-helper.js') }}"></script>
     <script>
         // Form & Modal Helper Functions for Kategori
@@ -340,6 +345,38 @@
         }
 
         $(document).ready(function() {
+            // DataTables Initialization for Kategori Table
+            if ($('#kt_table_referensi_kategori').length > 0) {
+                var kategoriTable = $('#kt_table_referensi_kategori').DataTable({
+                    pageLength: 10,
+                    order: [],
+                    language: {
+                        search: "",
+                        searchPlaceholder: "{{ app()->getLocale() == 'en' ? 'Search category...' : 'Cari kategori...' }}"
+                    }
+                });
+
+                $('#kt_referensi_kategori_search').on('keyup', function() {
+                    kategoriTable.search(this.value).draw();
+                });
+            }
+
+            // DataTables Initialization for Item Table
+            if ($('#kt_table_referensi_item').length > 0) {
+                var itemTable = $('#kt_table_referensi_item').DataTable({
+                    pageLength: 10,
+                    order: [],
+                    language: {
+                        search: "",
+                        searchPlaceholder: "{{ app()->getLocale() == 'en' ? 'Search item...' : 'Cari item...' }}"
+                    }
+                });
+
+                $('#kt_referensi_item_search').on('keyup', function() {
+                    itemTable.search(this.value).draw();
+                });
+            }
+
             // Form Submit Kategori AJAX
             $('#kt_form_referensi_kategori').on('submit', function(e) {
                 e.preventDefault();

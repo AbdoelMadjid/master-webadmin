@@ -10,18 +10,9 @@
                     <span class="path1"></span>
                     <span class="path2"></span>
                 </i>
-                <form action="{{ route('appsupport.referensi') }}" method="GET" class="d-flex align-items-center">
-                    <input type="hidden" name="tab" value="kategori" />
-                    <input type="text" name="q" value="{{ $activeTab === 'kategori' ? $searchQuery : '' }}"
-                        class="form-control form-control-solid w-250px ps-12"
-                        placeholder="{{ app()->getLocale() == 'en' ? 'Search category code or name...' : 'Cari kode atau nama kategori...' }}" />
-                    @if ($searchQuery && $activeTab === 'kategori')
-                        <a href="{{ route('appsupport.referensi', ['tab' => 'kategori']) }}" class="btn btn-icon btn-sm btn-light ms-2"
-                            data-bs-toggle="tooltip" title="{{ app()->getLocale() == 'en' ? 'Reset Search' : 'Reset Pencarian' }}">
-                            <i class="ki-duotone ki-cross fs-3"><span class="path1"></span><span class="path2"></span></i>
-                        </a>
-                    @endif
-                </form>
+                <input type="text" id="kt_referensi_kategori_search" value="{{ $activeTab === 'kategori' ? $searchQuery : '' }}"
+                    class="form-control form-control-solid w-250px ps-12"
+                    placeholder="{{ app()->getLocale() == 'en' ? 'Search category code or name...' : 'Cari kode atau nama kategori...' }}" />
             </div>
             <!--end::Search-->
         </div>
@@ -44,17 +35,17 @@
     <div class="card-body pt-0">
         <!--begin::Table responsive-->
         <div class="table-responsive">
-            <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_referensi_kategori">
+            <table class="table align-middle table-row-dashed fs-6 gy-5 w-100" id="kt_table_referensi_kategori">
                 <thead>
                     <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
-                        <th class="min-w-50px text-center">#</th>
-                        <th class="min-w-150px">{{ app()->getLocale() == 'en' ? 'Category Code' : 'Kode Kategori' }}</th>
-                        <th class="min-w-200px">{{ app()->getLocale() == 'en' ? 'Category Name' : 'Nama Kategori' }}</th>
-                        <th class="min-w-200px">{{ app()->getLocale() == 'en' ? 'Description' : 'Deskripsi' }}</th>
+                        <th class="w-50px text-center">#</th>
+                        <th class="min-w-120px">{{ app()->getLocale() == 'en' ? 'Category Code' : 'Kode Kategori' }}</th>
+                        <th class="min-w-150px">{{ app()->getLocale() == 'en' ? 'Category Name' : 'Nama Kategori' }}</th>
+                        <th class="min-w-180px">{{ app()->getLocale() == 'en' ? 'Description' : 'Deskripsi' }}</th>
                         <th class="min-w-100px text-center">{{ app()->getLocale() == 'en' ? 'Items Count' : 'Jumlah Item' }}</th>
-                        <th class="min-w-100px text-center">{{ app()->getLocale() == 'en' ? 'Type' : 'Tipe' }}</th>
-                        <th class="min-w-100px text-center">{{ app()->getLocale() == 'en' ? 'Status' : 'Status' }}</th>
-                        <th class="min-w-125px text-end">{{ app()->getLocale() == 'en' ? 'Actions' : 'Aksi' }}</th>
+                        <th class="min-w-90px text-center">{{ app()->getLocale() == 'en' ? 'Type' : 'Tipe' }}</th>
+                        <th class="min-w-80px text-center">{{ app()->getLocale() == 'en' ? 'Status' : 'Status' }}</th>
+                        <th class="min-w-100px text-end">{{ app()->getLocale() == 'en' ? 'Actions' : 'Aksi' }}</th>
                     </tr>
                 </thead>
                 <tbody class="fw-semibold text-gray-600">
