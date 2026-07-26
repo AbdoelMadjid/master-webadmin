@@ -65,7 +65,7 @@ class AuthenticatedSessionController extends Controller
         }
 
         if ($reason === 'idle') {
-            return redirect()->route('login')->with('status', 'Sesi Anda telah berakhir dan terkeluar otomatis karena tidak ada aktivitas selama 15 menit. Silakan login kembali.');
+            return redirect()->route('login')->with('status', 'Sesi Anda telah berakhir dan keluar otomatis karena tidak ada aktivitas selama 15 menit. Silakan login kembali.');
         }
 
         return redirect()->route('login');
