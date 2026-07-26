@@ -93,7 +93,7 @@
                                 Gambaran Umum & Fungsi Modul
                             </h4>
                             <p class="fs-6 text-gray-700 m-0">
-                                <strong>Modul Pengelolaan Data Referensi</strong> merupakan mesin acuan data terpusat. Dibandingkan melakukan *hardcode* pilihan seperti <em>Jenis Kelamin</em>, <em>Agama</em>, <em>Status Perkawinan</em>, atau <em>Tingkat Pendidikan</em> di dalam kodingan/database, Administrator dapat mengelola seluruh kategori acuan dan opsi pilihannya secara dinamis melalui halaman ini.
+                                <strong>Modul Pengelolaan Data Referensi</strong> merupakan mesin acuan data terpusat. Dibandingkan melakukan <em>hardcode</em> pilihan seperti <em>Jenis Kelamin</em>, <em>Agama</em>, <em>Status Perkawinan</em>, atau <em>Tingkat Pendidikan</em> di dalam kodingan/database, Administrator dapat mengelola seluruh kategori acuan dan opsi pilihannya secara dinamis melalui halaman ini.
                             </p>
                         </div>
 
@@ -106,7 +106,7 @@
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
                                 <li class="mb-2"><strong>Kategori Referensi (Top-Level Grouping):</strong> Kelompok acuan utama yang diidentifikasi dengan kode kapital unik (contoh: <code>JENKEL</code>, <code>AGAMA</code>, <code>PENDIDIKAN</code>).</li>
                                 <li class="mb-2"><strong>Item Referensi (Choice Options):</strong> Pilihan opsi yang dapat dipilih user di bawah kategori tertentu, memiliki kode, label nama, dan urutan tampil (contoh: <code>L</code> - Laki-Laki, <code>P</code> - Perempuan).</li>
-                                <li><strong>Demo Kontrol Form (Tab Preview):</strong> Tab demonstrasi interaktif yang menampilkan bagaimana kontrol pilihan (*select dropdown*) mengambil data acuan langsung secara *real-time* dari database.</li>
+                                <li><strong>Demo Kontrol Form (Tab Preview):</strong> Tab demonstrasi interaktif yang menampilkan bagaimana kontrol pilihan (<em>select dropdown</em>) mengambil data acuan langsung secara <em>real-time</em> dari database.</li>
                             </ul>
                         </div>
 
