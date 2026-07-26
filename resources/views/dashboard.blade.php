@@ -150,6 +150,15 @@
                                 <span title="Milestone 10.000 Poin" class="{{ $pts >= 10000 ? 'text-warning fw-bold' : '' }}">🥇 10K</span>
                                 <span title="Milestone 25.000 Poin" class="{{ $pts >= 25000 ? 'text-danger fw-bold' : '' }}">🏆 25K</span>
                             </div>
+                            <div class="d-flex align-items-center justify-content-between pt-3 mt-3 border-top border-gray-200 fs-7">
+                                <span class="text-gray-700 fw-bold d-flex align-items-center">
+                                    <i class="ki-duotone ki-entrance-left fs-5 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                    {{ app()->getLocale() == 'en' ? 'Total Overall System Logins' : 'Total Keseluruhan Login User' }}
+                                </span>
+                                <span class="badge badge-light-primary fw-bolder px-3 py-1.5 fs-7" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Total login frequency by all users (including repeat logins without points)' : 'Jumlah seluruh frekuensi login yang dilakukan semua user (baik yang dapat poin maupun login ulang tanpa poin)' }}">
+                                    {{ number_format($totalOverallLogins ?? 0) }}
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -254,7 +263,7 @@
                                 <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                     <th class="w-80px text-center">Peringkat</th>
                                     <th class="min-w-200px">Pengguna</th>
-                                    <th class="min-w-125px text-center">Total Login</th>
+                                    <th class="min-w-175px text-center">Total Login</th>
                                     <th class="min-w-150px text-center">Perolehan Poin</th>
                                     <th class="text-end min-w-100px pe-4">Aksi</th>
                                 </tr>
@@ -298,9 +307,24 @@
                                             </div>
                                         </td>
                                         <td class="text-center">
-                                            <span class="badge badge-light-info fw-bold px-3 py-2">
-                                                <i class="ki-duotone ki-entrance-left fs-6 text-info me-1"><span class="path1"></span><span class="path2"></span></i>
-                                                {{ number_format($user->data_logins_count ?? 0) }}x Login
+                                            @php
+                                                $pointDays = (int) ($user->data_logins_count ?? 0);
+                                                $totalFrequency = (int) ($user->total_login_frequency ?? $pointDays);
+                                                $noPointLogins = max(0, $totalFrequency - $pointDays);
+                                                $isEn = app()->getLocale() == 'en';
+                                                $tooltipHtml = $isEn
+                                                    ? "<div class='text-start p-1'><strong class='text-white'>" . e($user->name) . "</strong><br/><span class='text-success-light'>✓ " . number_format($pointDays) . " Days Earned Points (+1/day)</span><br/><span class='text-warning-light'>↺ " . number_format($noPointLogins) . "x Repeated Logins (No Points)</span><br/><hr class='my-1 border-white opacity-25'/><span class='fw-bold'>∑ " . number_format($totalFrequency) . "x Total Login Attempts</span></div>"
+                                                    : "<div class='text-start p-1'><strong class='text-white'>" . e($user->name) . "</strong><br/><span class='text-success-light'>✓ " . number_format($pointDays) . " Hari Dapat Poin (+1/hari)</span><br/><span class='text-warning-light'>↺ " . number_format($noPointLogins) . "x Login Ulang (Tanpa Poin)</span><br/><hr class='my-1 border-white opacity-25'/><span class='fw-bold'>∑ " . number_format($totalFrequency) . "x Total Frekuensi Login</span></div>";
+                                            @endphp
+                                            <span data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" title="{!! e($tooltipHtml) !!}">
+                                                <span class="badge badge-light-info fw-bold px-3 py-2 fs-7 me-1">
+                                                    <i class="ki-duotone ki-calendar-tick fs-6 text-info me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></i>
+                                                    {{ number_format($pointDays) }} {{ $isEn ? 'Days' : 'Hari' }}
+                                                </span>
+                                                <span class="badge badge-light-primary fw-bold px-3 py-2 fs-7">
+                                                    <i class="ki-duotone ki-entrance-left fs-6 text-primary me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                    ({{ number_format($totalFrequency) }})
+                                                </span>
                                             </span>
                                         </td>
                                         <td class="text-center">

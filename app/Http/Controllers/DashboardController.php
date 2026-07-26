@@ -14,6 +14,7 @@ class DashboardController extends Controller
     {
         $totalUsers = User::count();
         $totalPoints = User::sum('points') ?? 0;
+        $totalOverallLogins = \App\Models\AppSupport\DataLogin::sum('login_count') ?? 0;
 
         $fifteenMinutesAgo = now()->subMinutes(15);
         $onlineUsersQuery = User::with(['roles', 'dataLogins' => function ($q) {
@@ -27,6 +28,7 @@ class DashboardController extends Controller
         $onlineUsers = (clone $onlineUsersQuery)->take(16)->get();
 
         $topUsers = User::withCount('dataLogins')
+            ->withSum('dataLogins as total_login_frequency', 'login_count')
             ->orderBy('points', 'desc')
             ->orderBy('data_logins_count', 'desc')
             ->take(5)
@@ -66,6 +68,7 @@ class DashboardController extends Controller
         return view('dashboard', compact(
             'totalUsers',
             'totalPoints',
+            'totalOverallLogins',
             'onlineUsersCount',
             'onlineUsers',
             'topUsers',
