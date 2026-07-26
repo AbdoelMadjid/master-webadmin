@@ -18,6 +18,13 @@ class UpdateUserLastActivity
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check()) {
+            // Switch User (Impersonation) Safeguard:
+            // Do NOT record activity or update last_activity_at for target user or impersonator while in switch mode.
+            // This preserves the admin's original last activity timestamp and prevents target user activity logs.
+            if (session()->has('impersonator_id') || session()->has('is_leaving_impersonation')) {
+                return $next($request);
+            }
+
             /** @var \App\Models\User $user */
             $user = Auth::user();
 

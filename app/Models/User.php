@@ -25,6 +25,8 @@ class User extends Authenticatable
         'avatar',
         'points',
         'last_activity_at',
+        'last_login_at',
+        'last_logout_at',
         'status',
         'is_read',
     ];
@@ -48,8 +50,10 @@ class User extends Authenticatable
     {
         return [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-            'last_activity_at' => 'datetime',
+            'password'          => 'hashed',
+            'last_activity_at'  => 'datetime',
+            'last_login_at'     => 'datetime',
+            'last_logout_at'    => 'datetime',
         ];
     }
 
@@ -78,6 +82,14 @@ class User extends Authenticatable
     public function dataLogins(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(\App\Models\AppSupport\DataLogin::class, 'user_id');
+    }
+
+    /**
+     * Catatan data login paling akhir milik user
+     */
+    public function latestDataLogin(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(\App\Models\AppSupport\DataLogin::class, 'user_id')->latestOfMany('login_at');
     }
 
     /**

@@ -146,8 +146,26 @@
                                             <span class="badge badge-light-warning fw-bold">{{ $user->points ?? 0 }} Poin</span>
                                         </td>
                                         <td>
-                                            @if($user->last_activity_at)
-                                                <span class="badge badge-light-success">{{ $user->last_activity_at->diffForHumans() }}</span>
+                                            @if($user->last_logout_at && (!$user->last_login_at || $user->last_logout_at->greaterThanOrEqualTo($user->last_login_at)))
+                                                <span class="badge badge-light-danger fs-8 fw-semibold" data-bs-toggle="tooltip" data-bs-placement="top" title="Waktu Logout Terakhir">
+                                                    <i class="ki-duotone ki-exit-right text-danger me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                    Logout: {{ $user->last_logout_at->format('d M Y H:i') }}
+                                                </span>
+                                            @elseif($user->last_login_at)
+                                                <span class="badge badge-light-success fs-8 fw-semibold" data-bs-toggle="tooltip" data-bs-placement="top" title="Waktu Login Terakhir">
+                                                    <i class="ki-duotone ki-entrance-left text-success me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                    Login: {{ $user->last_login_at->format('d M Y H:i') }}
+                                                </span>
+                                            @elseif($user->last_activity_at)
+                                                <span class="badge badge-light-success fs-8 fw-semibold" data-bs-toggle="tooltip" data-bs-placement="top" title="Waktu Login Terakhir">
+                                                    <i class="ki-duotone ki-entrance-left text-success me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                    Login: {{ $user->last_activity_at->format('d M Y H:i') }}
+                                                </span>
+                                            @elseif($user->latestDataLogin)
+                                                <span class="badge badge-light-success fs-8 fw-semibold" data-bs-toggle="tooltip" data-bs-placement="top" title="Waktu Login Terakhir">
+                                                    <i class="ki-duotone ki-entrance-left text-success me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                    Login: {{ $user->latestDataLogin->login_at->format('d M Y H:i') }}
+                                                </span>
                                             @else
                                                 <span class="text-muted fs-7">Belum ada aktivitas</span>
                                             @endif

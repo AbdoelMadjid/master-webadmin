@@ -51,7 +51,12 @@ class AuthenticatedSessionController extends Controller
 
         $user = Auth::user();
         if ($user) {
-            $user->update(['last_activity_at' => null]);
+            if (!session()->has('impersonator_id') && !session()->has('is_leaving_impersonation')) {
+                $user->update([
+                    'last_activity_at' => null,
+                    'last_logout_at'   => \Illuminate\Support\Carbon::now(),
+                ]);
+            }
         }
 
         Auth::guard('web')->logout();

@@ -85,7 +85,10 @@ class LogUserLogin
             ]);
         }
 
-        // Update user last_activity_at marker for current online session
-        $user->update(['last_activity_at' => $now]);
+        // Update user last_login_at and last_activity_at markers for current session
+        $user->update([
+            'last_login_at'    => $now,
+            'last_activity_at' => $now,
+        ]);
     }
 }

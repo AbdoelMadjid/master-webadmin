@@ -20,7 +20,7 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        $users = User::with('roles')->orderBy('name', 'asc')->get();
+        $users = User::with(['roles', 'latestDataLogin'])->orderBy('name', 'asc')->get();
         $roles = Role::all();
 
         if ($request->wantsJson() || $request->ajax()) {
