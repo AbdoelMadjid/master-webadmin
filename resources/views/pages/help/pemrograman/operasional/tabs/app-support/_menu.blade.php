@@ -5,7 +5,7 @@
     <!--====================================================-->
     <div class="schema-col-12">
         <div class="ps-4 my-2">
-            <h3 class="fw-bold text-gray-900 mb-1">1. Dynamic Menu Management (Sidebar Menu Management)</h3>
+            <h3 class="fw-bold text-gray-900 mb-1">Dynamic Menu Management (Sidebar Menu Management)</h3>
             <span class="text-muted fs-7">Operational guide and architecture for centralized sidebar menu structure management.</span>
         </div>
     </div>
@@ -49,7 +49,7 @@
     <!--====================================================-->
     <div class="schema-col-12">
         <div class="ps-4 my-2">
-            <h3 class="fw-bold text-gray-900 mb-1">1. Pengelolaan Menu Dinamis (Sidebar Menu Management)</h3>
+            <h3 class="fw-bold text-gray-900 mb-1">Pengelolaan Menu Dinamis (Sidebar Menu Management)</h3>
             <span class="text-muted fs-7">Panduan operasional dan arsitektur pengolahan struktur menu sidebar secara terpusat.</span>
         </div>
     </div>

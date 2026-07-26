@@ -5,7 +5,7 @@
     <!--====================================================-->
     <div class="schema-col-12">
         <div class="ps-4 my-2">
-            <h3 class="fw-bold text-gray-900 mb-1">1. Application Profile & Identity (App Profile & Branding)</h3>
+            <h3 class="fw-bold text-gray-900 mb-1">Application Profile & Identity (App Profile & Branding)</h3>
             <span class="text-muted fs-7">Operational guide and architecture for system identity, logos, favicons, and global footer text management.</span>
         </div>
     </div>
@@ -49,7 +49,7 @@
     <!--====================================================-->
     <div class="schema-col-12">
         <div class="ps-4 my-2">
-            <h3 class="fw-bold text-gray-900 mb-1">1. Profil & Identitas Aplikasi (App Profil & Branding)</h3>
+            <h3 class="fw-bold text-gray-900 mb-1">Profil & Identitas Aplikasi (App Profil & Branding)</h3>
             <span class="text-muted fs-7">Panduan operasional dan arsitektur pengolahan identitas sistem, logo, favicon, dan teks footer global.</span>
         </div>
     </div>

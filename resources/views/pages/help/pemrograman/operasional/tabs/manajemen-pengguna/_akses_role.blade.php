@@ -5,7 +5,7 @@
     <!--====================================================-->
     <div class="schema-col-12">
         <div class="ps-4 my-2">
-            <h3 class="fw-bold text-gray-900 mb-1">1. Role Access Rights Matrix (Role-Permissions Matrix)</h3>
+            <h3 class="fw-bold text-gray-900 mb-1">Role Access Rights Matrix (Role-Permissions Matrix)</h3>
             <span class="text-muted fs-7">Operational guide for centralized management of feature permissions matrix per user role.</span>
         </div>
     </div>
@@ -46,7 +46,7 @@
     <!--====================================================-->
     <div class="schema-col-12">
         <div class="ps-4 my-2">
-            <h3 class="fw-bold text-gray-900 mb-1">1. Matriks Hak Akses Role (Role-Permissions Matrix)</h3>
+            <h3 class="fw-bold text-gray-900 mb-1">Matriks Hak Akses Role (Role-Permissions Matrix)</h3>
             <span class="text-muted fs-7">Panduan operasional pengelolaan matriks izin fitur untuk setiap role pengguna secara terpusat.</span>
         </div>
     </div>

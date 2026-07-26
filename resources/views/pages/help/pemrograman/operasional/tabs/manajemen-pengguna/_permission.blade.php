@@ -5,7 +5,7 @@
     <!--====================================================-->
     <div class="schema-col-12">
         <div class="ps-4 my-2">
-            <h3 class="fw-bold text-gray-900 mb-1">1. Permission Programming Architecture (1 Module 1 Row)</h3>
+            <h3 class="fw-bold text-gray-900 mb-1">Permission Programming Architecture (1 Module 1 Row)</h3>
             <span class="text-muted fs-7">Operation for table module grouping, 1-click 4 CRUD generator, and batch editor.</span>
         </div>
     </div>
@@ -75,7 +75,7 @@
     <!--====================================================-->
     <div class="schema-col-12">
         <div class="ps-4 my-2">
-            <h3 class="fw-bold text-gray-900 mb-1">1. Arsitektur Pemrograman Permission (1 Modul 1 Baris)</h3>
+            <h3 class="fw-bold text-gray-900 mb-1">Arsitektur Pemrograman Permission (1 Modul 1 Baris)</h3>
             <span class="text-muted fs-7">Operasional pengelompokan tabel per modul, generator 4 CRUD 1-klik, dan batch editor.</span>
         </div>
     </div>

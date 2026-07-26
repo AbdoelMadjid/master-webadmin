@@ -5,7 +5,7 @@
     <!--====================================================-->
     <div class="schema-col-12">
         <div class="ps-4 my-2">
-            <h3 class="fw-bold text-gray-900 mb-1">1. User Avatar Management & Uploads</h3>
+            <h3 class="fw-bold text-gray-900 mb-1">User Avatar Management & Uploads</h3>
             <span class="text-muted fs-7">Profile picture upload workflow, URL encapsulation, and automatic initial fallbacks.</span>
         </div>
     </div>
@@ -314,7 +314,7 @@
     <!--====================================================-->
     <div class="schema-col-12">
         <div class="ps-4 my-2">
-            <h3 class="fw-bold text-gray-900 mb-1">1. Penambahan & Pengelolaan Avatar Pengguna</h3>
+            <h3 class="fw-bold text-gray-900 mb-1">Penambahan & Pengelolaan Avatar Pengguna</h3>
             <span class="text-muted fs-7">Alur pengunggahan gambar profil, enkapsulasi URL, dan fallback avatar otomatis.</span>
         </div>
     </div>
