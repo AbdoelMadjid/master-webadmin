@@ -13,7 +13,7 @@
             {{ __('help.skema_pemrograman') }}
         @endslot
         @slot('li_3')
-            Operasional > Manajemen Pengguna
+            {{ __('help.operasional') }} > {{ __('help.manajemen_pengguna') }}
         @endslot
     @endcomponent
 @endsection

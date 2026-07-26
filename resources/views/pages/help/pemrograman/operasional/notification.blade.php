@@ -13,7 +13,7 @@
             {{ __('help.skema_pemrograman') }}
         @endslot
         @slot('li_3')
-            Operasional Notifikasi System (Topbar Bell & Popup)
+            {{ __('help.operasional') }} > {{ __('help.notifikasi_system') }}
         @endslot
     @endcomponent
 @endsection

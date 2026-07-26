@@ -13,7 +13,7 @@
             {{ __('help.skema_pemrograman') }}
         @endslot
         @slot('li_3')
-            Skema > App Support
+            {{ __('help.skema') }} > {{ __('help.app_support') }}
         @endslot
     @endcomponent
 @endsection

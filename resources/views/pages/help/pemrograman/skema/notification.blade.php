@@ -13,7 +13,7 @@
             {{ __('help.skema_pemrograman') }}
         @endslot
         @slot('li_3')
-            Skema Notifikasi System (Topbar Icon & Popup)
+            {{ __('help.skema') }} > {{ __('help.notifikasi_system') }}
         @endslot
     @endcomponent
 @endsection

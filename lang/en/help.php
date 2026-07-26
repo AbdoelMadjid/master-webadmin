@@ -965,6 +965,7 @@ return [
     'panduan_pergantian_versi_metronic' => 'Metronic Version Switching Guide',
     'panduan_tambah_halaman' => 'Add Page Guide',
     'panduan_tambah_menu' => 'Add Menu Guide',
+    'overview' => 'Overview',
     'playbook_incident_response' => 'Incident Response Playbook',
     'skema' => 'Scheme',
     'skema_auth_dan_middleware' => 'Auth and Middleware Schema',

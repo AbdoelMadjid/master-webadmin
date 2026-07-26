@@ -13,7 +13,7 @@
             {{ __('help.skema_pemrograman') }}
         @endslot
         @slot('li_3')
-            SweetAlert2 (SwalHelper)
+            {{ __('help.skema_sweetalert2') }}
         @endslot
     @endcomponent
 @endsection
