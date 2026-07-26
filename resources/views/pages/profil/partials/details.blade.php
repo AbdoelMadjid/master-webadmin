@@ -1,18 +1,70 @@
 @php
     $authUser = auth()->user();
+    if ($authUser && !$authUser->relationLoaded('userDetail')) {
+        $authUser->load('userDetail');
+    }
+    $detail = $authUser?->userDetail;
+
     $avatarUrl = getUserAvatarUrl($authUser);
     $userName = $authUser?->name ?? 'User Profile';
     $userEmail = $authUser?->email ?? '';
-    $userRoles = '';
+    $rolesArray = [];
     if ($authUser) {
         if (method_exists($authUser, 'getRoleNames')) {
-            $userRoles = $authUser->getRoleNames()
+            $rolesArray = $authUser->getRoleNames()
                 ->map(fn($role) => function_exists('roleDisplayName') ? (roleDisplayName((string) $role) ?? (string) $role) : (string) $role)
-                ->implode(', ');
+                ->filter()
+                ->values()
+                ->toArray();
         }
     }
-    if (empty($userRoles)) {
-        $userRoles = 'Developer';
+    if (empty($rolesArray)) {
+        $rolesArray = ['User'];
+    }
+
+    // Kalkulasi Persentase Kelengkapan Profil
+    $profileFields = [
+        'avatar'            => !empty($authUser?->avatar),
+        'nama_lengkap'      => !empty($detail?->nama_lengkap ?? $authUser?->name),
+        'email'             => !empty($authUser?->email),
+        'nik'               => !empty($detail?->nik),
+        'tempat_lahir'      => !empty($detail?->tempat_lahir),
+        'tanggal_lahir'     => !empty($detail?->tanggal_lahir),
+        'jenis_kelamin'     => !empty($detail?->jenis_kelamin),
+        'golongan_darah'    => !empty($detail?->golongan_darah),
+        'agama'             => !empty($detail?->agama),
+        'status_perkawinan' => !empty($detail?->status_perkawinan),
+        'pekerjaan'         => !empty($detail?->pekerjaan),
+        'kewarganegaraan'    => !empty($detail?->kewarganegaraan),
+        'no_hp'             => !empty($detail?->no_hp),
+        'alamat_jalan'      => !empty($detail?->alamat_jalan),
+        'kabupaten_kota'    => !empty($detail?->kabupaten_kota),
+        'provinsi'          => !empty($detail?->provinsi),
+    ];
+
+    $filledCount = count(array_filter($profileFields));
+    $totalFields = count($profileFields);
+    $profileCompletionPercentage = (int) round(($filledCount / $totalFields) * 100);
+
+    $progressBarColorClass = match(true) {
+        $profileCompletionPercentage >= 80 => 'bg-success',
+        $profileCompletionPercentage >= 50 => 'bg-primary',
+        $profileCompletionPercentage >= 25 => 'bg-warning',
+        default => 'bg-danger',
+    };
+
+    // Kalkulasi Total Frekuensi Login User (akumulasi dataLogins)
+    $totalLoginCount = 0;
+    if ($authUser) {
+        if (!$authUser->relationLoaded('dataLogins')) {
+            $authUser->load('dataLogins');
+        }
+        $sumLogin = (int) $authUser->dataLogins->sum('login_count');
+        $countLogin = (int) $authUser->dataLogins->count();
+        $totalLoginCount = max($sumLogin, $countLogin);
+    }
+    if ($totalLoginCount <= 0) {
+        $totalLoginCount = 1; // Default minimal 1 karena akun aktif/sedang login
     }
 @endphp
 
@@ -61,18 +113,60 @@
                 </div>
                 <!--end::Name-->
                 <!--begin::Info-->
+                <!--begin::Roles Badges-->
+                <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                    @php
+                        $badgeClasses = [
+                            'badge-light-primary text-primary border border-primary-subtle',
+                            'badge-light-success text-success border border-success-subtle',
+                            'badge-light-info text-info border border-info-subtle',
+                            'badge-light-warning text-warning border border-warning-subtle',
+                            'badge-light-danger text-danger border border-danger-subtle',
+                            'badge-light-dark text-dark border border-gray-300',
+                        ];
+                    @endphp
+                    @foreach(array_slice($rolesArray, 0, 3) as $idx => $roleName)
+                        <span class="badge {{ $badgeClasses[$idx % count($badgeClasses)] }} fs-7 fw-bold d-inline-flex align-items-center px-3 py-2 shadow-xs"
+                              data-bs-toggle="tooltip" data-bs-placement="top" title="Peran Akses: {{ $roleName }}">
+                            <i class="ki-duotone ki-shield-tick fs-5 me-1">
+                                <span class="path1"></span><span class="path2"></span>
+                            </i>
+                            {{ $roleName }}
+                        </span>
+                    @endforeach
+
+                    @if(count($rolesArray) > 3)
+                        @php
+                            $extraRoles = array_slice($rolesArray, 3);
+                            $extraRolesText = implode(', ', $extraRoles);
+                        @endphp
+                        <span class="badge badge-light-dark text-gray-700 fs-7 fw-bold px-3 py-2 cursor-pointer border border-gray-300" 
+                              data-bs-toggle="tooltip" 
+                              data-bs-placement="top" 
+                              title="Peran Lainnya: {{ $extraRolesText }}">
+                            +{{ count($extraRoles) }} Peran Lain
+                        </span>
+                    @endif
+                </div>
+                <!--end::Roles Badges-->
+
+                <!--begin::Info (Location & Email)-->
                 <div class="d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2">
-                    <a href="javascript:void(0)"
-                        class="d-flex align-items-center text-gray-500 text-hover-primary me-5 mb-2">
-                        <i class="ki-duotone ki-profile-circle fs-4 me-1">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                            <span class="path3"></span> </i>{{ $userRoles }}</a>
+                    @php
+                        $userLokasi = [];
+                        if (!empty($detail?->kabupaten_kota)) {
+                            $userLokasi[] = $detail->kabupaten_kota;
+                        }
+                        if (!empty($detail?->provinsi)) {
+                            $userLokasi[] = $detail->provinsi;
+                        }
+                        $userLokasiText = !empty($userLokasi) ? implode(', ', $userLokasi) : 'Indonesia';
+                    @endphp
                     <a href="javascript:void(0)"
                         class="d-flex align-items-center text-gray-500 text-hover-primary me-5 mb-2">
                         <i class="ki-duotone ki-geolocation fs-4 me-1">
                             <span class="path1"></span>
-                            <span class="path2"></span> </i>SF, Bay Area</a>
+                            <span class="path2"></span> </i>{{ $userLokasiText }}</a>
                     @if ($userEmail !== '')
                     <a href="javascript:void(0)"
                         class="d-flex align-items-center text-gray-500 text-hover-primary mb-2">
@@ -231,46 +325,48 @@
                         <!--end::Label-->
                     </div>
                     <!--end::Stat-->
-                    <!--begin::Stat-->
+                    <!--begin::Stat: Total Login-->
                     <div
-                        class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                        class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3"
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="Total frekuensi akumulasi login pengguna ke sistem">
                         <!--begin::Number-->
                         <div class="d-flex align-items-center">
-                            <i class="ki-duotone ki-arrow-down fs-3 text-danger me-2">
+                            <i class="ki-duotone ki-key fs-3 text-primary me-2">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>
                             <div class="fs-2 fw-bold" data-kt-countup="true"
-                                data-kt-countup-value="80">
+                                data-kt-countup-value="{{ $totalLoginCount }}">
                                 0
                             </div>
                         </div>
                         <!--end::Number-->
                         <!--begin::Label-->
                         <div class="fw-semibold fs-6 text-gray-500">
-                            Projects
+                            Total Login
                         </div>
                         <!--end::Label-->
                     </div>
                     <!--end::Stat-->
-                    <!--begin::Stat-->
+                    <!--begin::Stat: Kelengkapan Data-->
                     <div
-                        class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                        class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3"
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="Persentase kelengkapan isi identitas profil">
                         <!--begin::Number-->
                         <div class="d-flex align-items-center">
-                            <i class="ki-duotone ki-arrow-up fs-3 text-success me-2">
+                            <i class="ki-duotone ki-shield-check fs-3 text-success me-2">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>
                             <div class="fs-2 fw-bold" data-kt-countup="true"
-                                data-kt-countup-value="60" data-kt-countup-prefix="%">
+                                data-kt-countup-value="{{ $profileCompletionPercentage }}" data-kt-countup-suffix="%">
                                 0
                             </div>
                         </div>
                         <!--end::Number-->
                         <!--begin::Label-->
                         <div class="fw-semibold fs-6 text-gray-500">
-                            Success Rate
+                            Kelengkapan Data
                         </div>
                         <!--end::Label-->
                     </div>
@@ -282,12 +378,12 @@
             <!--begin::Progress-->
             <div class="d-flex align-items-center w-200px w-sm-300px flex-column mt-3">
                 <div class="d-flex justify-content-between w-100 mt-auto mb-2">
-                    <span class="fw-semibold fs-6 text-gray-500">Profile Compleation</span>
-                    <span class="fw-bold fs-6">50%</span>
+                    <span class="fw-semibold fs-6 text-gray-500">Profile Completion</span>
+                    <span class="fw-bold fs-6">{{ $profileCompletionPercentage }}%</span>
                 </div>
                 <div class="h-5px mx-3 w-100 bg-light mb-3">
-                    <div class="bg-success rounded h-5px" role="progressbar" style="width: 50%"
-                        aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="{{ $progressBarColorClass }} rounded h-5px" role="progressbar" style="width: {{ $profileCompletionPercentage }}%"
+                        aria-valuenow="{{ $profileCompletionPercentage }}" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
             </div>
             <!--end::Progress-->
