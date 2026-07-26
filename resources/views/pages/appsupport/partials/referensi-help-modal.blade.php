@@ -46,7 +46,7 @@
                         <!--Section 2: Architecture-->
                         <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
                             <h4 class="fw-bold text-gray-900 mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-layers fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-element-11 fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 Data Hierarchy & Structure
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
@@ -100,7 +100,7 @@
                         <!--Section 2: Architecture-->
                         <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
                             <h4 class="fw-bold text-gray-900 mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-layers fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-element-11 fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 Struktur & Hirarki Data
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">

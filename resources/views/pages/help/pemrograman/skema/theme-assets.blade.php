@@ -33,7 +33,7 @@
                         {{ __('help.pages.skema.theme-assets.hero_lead') }}
                     </p>
                     <div class="schema-meta mt-3">
-                        <span class="schema-chip"><i class="ki-duotone ki-layers fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> {{ __('help.pages.skema.theme-assets.chip_1') }}</span>
+                        <span class="schema-chip"><i class="ki-duotone ki-element-11 fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> {{ __('help.pages.skema.theme-assets.chip_1') }}</span>
                         <span class="schema-chip"><i class="ki-duotone ki-code fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.skema.theme-assets.chip_2') }}</span>
                         <span class="schema-chip"><i class="ki-duotone ki-shield-check fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ __('help.pages.skema.theme-assets.chip_3') }}</span>
                     </div>

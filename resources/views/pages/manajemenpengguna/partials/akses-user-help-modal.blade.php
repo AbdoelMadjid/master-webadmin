@@ -24,7 +24,7 @@
                         {{ app()->getLocale() == 'en' ? 'Operational Guide: User Direct Access Rights' : 'Petunjuk Operasional: Hak Akses Spesifik Pengguna' }}
                     </h1>
                     <div class="text-muted fw-semibold fs-5">
-                        {{ app()->getLocale() == 'en' ? 'Operational guide for assigning direct individual permissions to specific user accounts' : 'Panduan operasional penugasan perizinan khusus langsung kepada individu pengguna' }}
+                        {{ app()->getLocale() == 'en' ? 'Operational guide for assigning direct individual permissions and inspecting user rights via side drawer' : 'Panduan operasional penugasan perizinan khusus langsung dan peninjauan hak akses via panel samping' }}
                     </div>
                 </div>
 
@@ -42,16 +42,17 @@
                             </p>
                         </div>
 
-                        <!--Section 2: Architecture-->
+                        <!--Section 2: Architecture & Side Drawer-->
                         <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
                             <h4 class="fw-bold text-gray-900 mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-layers fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-                                Direct Permission Principles
+                                <i class="ki-duotone ki-element-11 fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                Direct Permission Principles & Side Drawer
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
                                 <li class="mb-2"><strong>Role Inherited Permissions:</strong> Permissions inherited from assigned roles are automatically active without duplicate direct assignment.</li>
                                 <li class="mb-2"><strong>Direct Permission Override:</strong> Specific exceptions can be granted directly to individual accounts.</li>
-                                <li><strong>Audit Badge Indicators:</strong> Users without direct permissions display a clean <code>Inherited from Role</code> badge.</li>
+                                <li class="mb-2"><strong>Audit Badge Indicators:</strong> Users without direct permissions display a clean <span class="badge badge-light-secondary text-gray-600">Mengikuti Role</span> badge. Users with custom direct permissions display a <span class="badge badge-light-warning">🔑 Direct Access</span> summary badge.</li>
+                                <li><strong>Interactive Side Drawer Viewer:</strong> Clicking direct permission badges opens a right offcanvas side drawer displaying grouped module cards, color-coded action badges, and a real-time search filter.</li>
                             </ul>
                         </div>
 
@@ -63,8 +64,9 @@
                             </h4>
                             <ol class="fs-6 text-gray-700 m-0 ps-5">
                                 <li class="mb-2"><strong>Locate Target User:</strong> Search or filter the user account list to find the target user.</li>
-                                <li class="mb-2"><strong>Open Access Modal:</strong> Click <span class="badge badge-light-primary text-primary">Manage Access</span> on the target user row.</li>
-                                <li class="mb-2"><strong>Assign Direct Permissions:</strong> Check the direct permissions to grant specifically to this user.</li>
+                                <li class="mb-2"><strong>Inspect via Side Drawer:</strong> Click <span class="badge badge-light-warning text-warning">🔑 Direct Access</span> or <span class="badge badge-light-info text-info">+N More Modules</span> to review permissions categorized by module in the right side panel.</li>
+                                <li class="mb-2"><strong>Open Access Modal:</strong> Click <span class="badge badge-light-primary text-primary">Manage Access</span> or the <strong>Edit</strong> button inside the side drawer.</li>
+                                <li class="mb-2"><strong>Assign Direct Permissions:</strong> Check or uncheck direct permissions within the CRUD matrix.</li>
                                 <li><strong>Save Updates:</strong> Click <span class="badge badge-primary">Save Changes</span> to persist user direct access settings.</li>
                             </ol>
                         </div>
@@ -96,16 +98,17 @@
                             </p>
                         </div>
 
-                        <!--Section 2: Architecture-->
+                        <!--Section 2: Architecture & Side Drawer-->
                         <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
                             <h4 class="fw-bold text-gray-900 mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-layers fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-                                Prinsip Hak Akses Langsung
+                                <i class="ki-duotone ki-element-11 fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                Prinsip Hak Akses Langsung & Side Drawer
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
                                 <li class="mb-2"><strong>Warisan Permission Role:</strong> Izin yang diwarisi dari Role otomatis aktif tanpa perlu dicentang ulang secara langsung.</li>
                                 <li class="mb-2"><strong>Pengecualian Khusus:</strong> Hak akses khusus dapat ditugaskan langsung ke akun individu.</li>
-                                <li><strong>Indikator Badge Audit:</strong> Pengguna tanpa izin khusus menampilkan badge <code>Diwarisi dari Role</code>.</li>
+                                <li class="mb-2"><strong>Indikator Badge Audit:</strong> Pengguna tanpa izin khusus menampilkan badge <span class="badge badge-light-secondary text-gray-600">Mengikuti Role</span>. Pengguna dengan izin khusus menampilkan badge ringkasan <span class="badge badge-light-warning">🔑 Akses Langsung</span>.</li>
+                                <li><strong>Penampil Side Drawer Interaktif:</strong> Mengklik badge hak akses langsung akan membuka panel samping kanan (*Offcanvas Side Drawer*) yang menampilkan pengelompokan modul, badge aksi berwarna, dan filter pencarian real-time.</li>
                             </ul>
                         </div>
 
@@ -117,8 +120,9 @@
                             </h4>
                             <ol class="fs-6 text-gray-700 m-0 ps-5">
                                 <li class="mb-2"><strong>Cari Pengguna Target:</strong> Gunakan kotak pencarian atau daftar tabel untuk menemukan akun pengguna target.</li>
-                                <li class="mb-2"><strong>Buka Modal Hak Akses:</strong> Klik tombol <span class="badge badge-light-primary text-primary">Kelola Hak Akses</span> pada baris pengguna target.</li>
-                                <li class="mb-2"><strong>Penugasan Izin Langsung:</strong> Centang hak akses khusus yang ingin diberikan secara langsung kepada pengguna.</li>
+                                <li class="mb-2"><strong>Tinjau via Side Drawer:</strong> Klik <span class="badge badge-light-warning text-warning">🔑 Akses Langsung</span> atau <span class="badge badge-light-info text-info">+N Modul Lainnya</span> untuk melihat rincian hak akses per modul di panel samping kanan.</li>
+                                <li class="mb-2"><strong>Buka Modal Hak Akses:</strong> Klik <span class="badge badge-light-primary text-primary">Kelola Akses</span> atau tombol <strong>Edit</strong> dari dalam Side Drawer.</li>
+                                <li class="mb-2"><strong>Penugasan Izin Langsung:</strong> Centang hak akses khusus yang ingin diberikan secara langsung kepada pengguna pada matriks CRUD.</li>
                                 <li><strong>Simpan Perubahan:</strong> Klik <span class="badge badge-primary">Simpan Perubahan</span> untuk menyimpan pembaruan ke basis data.</li>
                             </ol>
                         </div>
