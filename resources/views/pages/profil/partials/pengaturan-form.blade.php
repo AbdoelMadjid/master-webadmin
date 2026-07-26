@@ -50,17 +50,29 @@
                         <label class="form-label fw-semibold fs-6">Jenis Kelamin</label>
                         <select name="jenis_kelamin" class="form-select form-select-solid form-select-lg fw-semibold" data-control="select2" data-placeholder="Pilih Jenis Kelamin">
                             <option value="">-- Pilih Jenis Kelamin --</option>
-                            <option value="L" {{ old('jenis_kelamin', $detail?->jenis_kelamin) == 'L' ? 'selected' : '' }}>Laki-laki</option>
-                            <option value="P" {{ old('jenis_kelamin', $detail?->jenis_kelamin) == 'P' ? 'selected' : '' }}>Perempuan</option>
+                            @if (isset($referensis['JENKEL']) && $referensis['JENKEL']->activeItems->count() > 0)
+                                @foreach ($referensis['JENKEL']->activeItems as $item)
+                                    <option value="{{ $item->kode }}" {{ old('jenis_kelamin', $detail?->jenis_kelamin) == $item->kode ? 'selected' : '' }}>{{ $item->nama }}</option>
+                                @endforeach
+                            @else
+                                <option value="L" {{ old('jenis_kelamin', $detail?->jenis_kelamin) == 'L' ? 'selected' : '' }}>Laki-laki</option>
+                                <option value="P" {{ old('jenis_kelamin', $detail?->jenis_kelamin) == 'P' ? 'selected' : '' }}>Perempuan</option>
+                            @endif
                         </select>
                     </div>
                     <div class="col-lg-6 fv-row">
                         <label class="form-label fw-semibold fs-6">Golongan Darah</label>
                         <select name="golongan_darah" class="form-select form-select-solid form-select-lg fw-semibold" data-control="select2" data-placeholder="Pilih Golongan Darah">
                             <option value="">-- Pilih Golongan Darah --</option>
-                            @foreach(['A', 'B', 'AB', 'O'] as $gol)
-                                <option value="{{ $gol }}" {{ old('golongan_darah', $detail?->golongan_darah) == $gol ? 'selected' : '' }}>Golongan {{ $gol }}</option>
-                            @endforeach
+                            @if (isset($referensis['GOLONGAN_DARAH']) && $referensis['GOLONGAN_DARAH']->activeItems->count() > 0)
+                                @foreach ($referensis['GOLONGAN_DARAH']->activeItems as $item)
+                                    <option value="{{ $item->kode }}" {{ old('golongan_darah', $detail?->golongan_darah) == $item->kode ? 'selected' : '' }}>{{ $item->nama }}</option>
+                                @endforeach
+                            @else
+                                @foreach(['A', 'B', 'AB', 'O'] as $gol)
+                                    <option value="{{ $gol }}" {{ old('golongan_darah', $detail?->golongan_darah) == $gol ? 'selected' : '' }}>Golongan {{ $gol }}</option>
+                                @endforeach
+                            @endif
                         </select>
                     </div>
                 </div>
@@ -71,18 +83,30 @@
                         <label class="form-label fw-semibold fs-6">Agama</label>
                         <select name="agama" class="form-select form-select-solid form-select-lg fw-semibold" data-control="select2" data-placeholder="Pilih Agama">
                             <option value="">-- Pilih Agama --</option>
-                            @foreach(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Khonghucu', 'Lainnya'] as $agm)
-                                <option value="{{ $agm }}" {{ old('agama', $detail?->agama) == $agm ? 'selected' : '' }}>{{ $agm }}</option>
-                            @endforeach
+                            @if (isset($referensis['AGAMA']) && $referensis['AGAMA']->activeItems->count() > 0)
+                                @foreach ($referensis['AGAMA']->activeItems as $item)
+                                    <option value="{{ $item->nama }}" {{ (old('agama', $detail?->agama) == $item->nama || old('agama', $detail?->agama) == $item->kode) ? 'selected' : '' }}>{{ $item->nama }}</option>
+                                @endforeach
+                            @else
+                                @foreach(['Islam', 'Kristen', 'Katolik', 'Hindu', 'Buddha', 'Khonghucu', 'Lainnya'] as $agm)
+                                    <option value="{{ $agm }}" {{ old('agama', $detail?->agama) == $agm ? 'selected' : '' }}>{{ $agm }}</option>
+                                @endforeach
+                            @endif
                         </select>
                     </div>
                     <div class="col-lg-6 fv-row">
                         <label class="form-label fw-semibold fs-6">Status Perkawinan</label>
                         <select name="status_perkawinan" class="form-select form-select-solid form-select-lg fw-semibold" data-control="select2" data-placeholder="Pilih Status Perkawinan">
                             <option value="">-- Pilih Status Perkawinan --</option>
-                            @foreach(['Belum Kawin', 'Kawin', 'Cerai Hidup', 'Cerai Mati'] as $status)
-                                <option value="{{ $status }}" {{ old('status_perkawinan', $detail?->status_perkawinan) == $status ? 'selected' : '' }}>{{ $status }}</option>
-                            @endforeach
+                            @if (isset($referensis['STATUS_PERKAWINAN']) && $referensis['STATUS_PERKAWINAN']->activeItems->count() > 0)
+                                @foreach ($referensis['STATUS_PERKAWINAN']->activeItems as $item)
+                                    <option value="{{ $item->nama }}" {{ (old('status_perkawinan', $detail?->status_perkawinan) == $item->nama || old('status_perkawinan', $detail?->status_perkawinan) == $item->kode) ? 'selected' : '' }}>{{ $item->nama }}</option>
+                                @endforeach
+                            @else
+                                @foreach(['Belum Kawin', 'Kawin', 'Cerai Hidup', 'Cerai Mati'] as $status)
+                                    <option value="{{ $status }}" {{ old('status_perkawinan', $detail?->status_perkawinan) == $status ? 'selected' : '' }}>{{ $status }}</option>
+                                @endforeach
+                            @endif
                         </select>
                     </div>
                 </div>

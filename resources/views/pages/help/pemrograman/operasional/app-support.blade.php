@@ -21,7 +21,7 @@
 @section('content')
     @php
         $activeTab = request()->get('tab', 'menu');
-        $validTabs = ['menu', 'app-profil', 'app-fitur', 'backup-db', 'data-login'];
+        $validTabs = ['menu', 'app-profil', 'app-fitur', 'backup-db', 'data-login', 'referensi'];
         if (!in_array($activeTab, $validTabs)) {
             $activeTab = 'menu';
         }
@@ -68,6 +68,11 @@
                             <li class="nav-item">
                                 <a class="nav-link text-active-primary py-3 me-4 {{ $activeTab == 'data-login' ? 'active' : '' }}" href="{{ $currentUrl }}?tab=data-login">
                                      <i class="ki-duotone ki-chart-line fs-3 me-2"><span class="path1"></span><span class="path2"></span></i> {{ __('menu.data_login') }}
+                                 </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary py-3 me-4 {{ $activeTab == 'referensi' ? 'active' : '' }}" href="{{ $currentUrl }}?tab=referensi">
+                                     <i class="ki-duotone ki-element-11 fs-3 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> {{ __('menu.referensi') }}
                                  </a>
                             </li>
                         </ul>

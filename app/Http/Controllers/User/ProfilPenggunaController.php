@@ -7,6 +7,7 @@ use App\Http\Requests\User\ProfilPenggunaAvatarRequest;
 use App\Http\Requests\User\ProfilPenggunaKeamananDeactivateRequest;
 use App\Http\Requests\User\ProfilPenggunaKeamananPasswordRequest;
 use App\Http\Requests\User\ProfilPenggunaPengaturanRequest;
+use App\Models\AppSupport\ReferensiKategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -25,7 +26,13 @@ class ProfilPenggunaController extends Controller
             $user->load('userDetail');
         }
 
-        return view('pages.profil-pengguna', compact('user'));
+        // Fetch active reference categories & items for form dropdowns
+        $referensis = ReferensiKategori::with('activeItems')
+            ->where('is_active', true)
+            ->get()
+            ->keyBy('kode');
+
+        return view('pages.profil-pengguna', compact('user', 'referensis'));
     }
 
     /**

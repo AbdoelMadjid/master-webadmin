@@ -34,6 +34,7 @@ use App\Http\Controllers\AppSupport\AppProfilController;
 use App\Http\Controllers\AppSupport\BackupDbController;
 use App\Http\Controllers\AppSupport\DataLoginController;
 use App\Http\Controllers\AppSupport\MenuController;
+use App\Http\Controllers\AppSupport\ReferensiController;
 use App\Http\Controllers\ManajemenPengguna\AksesRoleController;
 use App\Http\Controllers\ManajemenPengguna\AksesUserController;
 use App\Http\Controllers\ManajemenPengguna\PasswordResetRequestController;
@@ -121,6 +122,19 @@ Route::middleware('auth')->group(function () {
     Route::get('appsupport/data-login', [DataLoginController::class, 'index'])->name('appsupport.data-login');
     Route::delete('appsupport/data-login/clear-all', [DataLoginController::class, 'clearAll'])->name('appsupport.data-login.clear-all');
     Route::delete('appsupport/data-login/{id}', [DataLoginController::class, 'destroy'])->name('appsupport.data-login.destroy');
+
+    // Referensi Routes
+    Route::get('appsupport/referensi', [ReferensiController::class, 'index'])->name('appsupport.referensi');
+    Route::post('appsupport/referensi/kategori', [ReferensiController::class, 'storeKategori'])->name('appsupport.referensi.kategori.store');
+    Route::put('appsupport/referensi/kategori/{id}', [ReferensiController::class, 'updateKategori'])->name('appsupport.referensi.kategori.update');
+    Route::delete('appsupport/referensi/kategori/{id}', [ReferensiController::class, 'destroyKategori'])->name('appsupport.referensi.kategori.destroy');
+    Route::post('appsupport/referensi/kategori/{id}/toggle-status', [ReferensiController::class, 'toggleKategoriStatus'])->name('appsupport.referensi.kategori.toggle-status');
+
+    Route::post('appsupport/referensi/item', [ReferensiController::class, 'storeItem'])->name('appsupport.referensi.item.store');
+    Route::put('appsupport/referensi/item/{id}', [ReferensiController::class, 'updateItem'])->name('appsupport.referensi.item.update');
+    Route::delete('appsupport/referensi/item/{id}', [ReferensiController::class, 'destroyItem'])->name('appsupport.referensi.item.destroy');
+    Route::post('appsupport/referensi/item/{id}/toggle-status', [ReferensiController::class, 'toggleItemStatus'])->name('appsupport.referensi.item.toggle-status');
+    Route::get('appsupport/referensi/items-by-kategori/{id}', [ReferensiController::class, 'getItemsByKategori'])->name('appsupport.referensi.items-by-kategori');
 });
 
 require __DIR__ . '/auth.php';

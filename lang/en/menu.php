@@ -429,7 +429,7 @@ return array (
   'rating' => 'Rating',
   'recaptcha' => 'Recaptcha',
   'references' => 'References',
-  'referensi' => 'Referensi',
+  'referensi' => 'References',
   'referrals' => 'Referrals',
   'refleksi_mks' => 'Refleksi Mks',
   'reports' => 'Reports',
