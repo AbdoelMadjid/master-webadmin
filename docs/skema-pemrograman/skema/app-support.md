@@ -30,10 +30,14 @@ Fitur **Skema App Support** berjalan di atas rute tunggal `/help/pemrograman/ske
 - **Arsitektur**: Sistem Feature Toggle (Feature Flags) global aplikasi.
 - **Fitur Utama**: Sakelar toggle status fitur untuk mengaktifkan atau mematikan modul secara instant, serta pengujian status aktif melalui helper global `isFeatureActive('nama-fitur')`.
 
-### 4. Backup DB (`?tab=backup-db`)
+### 4. Data Referensi (`?tab=referensi`)
+- **Arsitektur**: Engine Master Data Referensi acuan standar (Kategori & Item pilihan) untuk aplikasi.
+- **Fitur Utama**: Pengelolaan kategori referensi acuan (*JENKEL*, *AGAMA*, *STATUS_PERKAWINAN*, *PENDIDIKAN*, *GOLONGAN_DARAH*, *STATUS_KEPEGAWAIAN*), penyuplai pilihan dropdown dinamis pada form profil pengguna (`/profil-pengguna?tab=pengaturan`), integrasi DataTables instant search, dan live demo selector preview.
+
+### 5. Backup DB (`?tab=backup-db`)
 - **Arsitektur**: Mekanisme pemeliharaan dan cadangan database MySQL.
 - **Fitur Utama**: Ekspor dump SQL otomatis, penyimpanan pada lokasi direktori terproteksi, pengunduhan file backup, serta prosedur restore dan pembersihan cadangan database.
 
-### 5. Data Login (`?tab=data-login`)
+### 6. Data Login (`?tab=data-login`)
 - **Arsitektur**: Audit log dan pelacakan riwayat aktivitas sesi login pengguna.
 - **Fitur Utama**: Pencatatan alamat IP & user agent browser, statistik frekuensi login harian (`login_count`), akumulasi reward poin harian, dan widget pemantauan pengguna aktif dalam 15 menit terakhir.

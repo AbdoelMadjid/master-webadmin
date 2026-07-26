@@ -29,6 +29,7 @@ Versi ringkas per submenu dari menu **Skema Pemrograman**.
   - **Menu**: Arsitektur manajemen menu dinamis, pengurutan hirarki drag & drop, dan sync permission.
   - **App Profil**: Arsitektur identitas aplikasi, manajemen logo (Utama, Kotak, Favicon), & Form Request Validation.
   - **App Fitur**: Arsitektur Feature Toggle (Feature Flags), status sakelar fitur, & helper global `isFeatureActive()`.
+  - **Data Referensi**: Arsitektur Engine Master Data Referensi acuan standar (Kategori & Item pilihan), penyuplai dropdown dinamis ke form profil user, & live demo selector.
   - **Backup DB**: Ekspor dump SQL, lokasi direktori terproteksi, restore & hapus cadangan database.
   - **Data Login**: Riwayat login, frekuensi login (`login_count`), reward poin, & widget user aktif 15 menit.
 - [Skema Notifikasi System](./skema/notification.md)
@@ -48,6 +49,7 @@ Versi ringkas per submenu dari menu **Skema Pemrograman**.
   - **Menu Dinamis** (`?tab=menu`): Pengurutan hirarki menu via drag & drop dan toggle status menu.
   - **App Profil** (`?tab=app-profil`): Pembaruan identitas aplikasi (nama, deskripsi, copyright) dan upload logo/favicon.
   - **App Fitur** (`?tab=app-fitur`): Feature Toggle untuk mengaktifkan/nonaktifkan modul global aplikasi.
+  - **Data Referensi** (`?tab=referensi`): Kelola kelompok kategori acuan (JENKEL, AGAMA, STATUS_PERKAWINAN, PENDIDIKAN, GOLONGAN_DARAH, STATUS_KEPEGAWAIAN), opsi item, live search DataTables, dan integrasi form profil.
   - **Backup DB** (`?tab=backup-db`): Ekspor dump SQL, pengunduhan file backup, restore DB, dan pembersihan cadangan.
   - **Data Login** (`?tab=data-login`): Pemantauan riwayat login pengguna (IP & browser agent) dan pembersihan log login.
 - [Notifikasi System](./operasional/notification.md)
