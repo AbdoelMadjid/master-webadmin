@@ -21,6 +21,7 @@ Sistem Dashboard Administrasi Enterprise tingkat tinggi berbasis **Laravel 12.0*
 - [🛠️ Panduan Instalasi Cepat](#panduan-instalasi)
 - [🔑 Akun Login Bawaan](#akun-login)
 - [⏰ Perintah Artisan Khusus & Scheduler](#perintah-artisan)
+- [📝 Catatan Rilis & Riwayat Versi (Changelog)](#catatan-rilis)
 - [🏷️ Panduan Rilis GitHub (GitHub Release Step-by-Step)](#panduan-rilis)
 - [🏷️ Pengaturan Topics / Tags Repositori GitHub](#topics-repositori)
 - [📚 Dokumentasi Skema & Operasional Pemrograman](#dokumentasi-skema)
@@ -251,6 +252,52 @@ php artisan schedule:run
 ```cron
 * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
 ```
+
+<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
+
+---
+
+<a id="catatan-rilis"></a>
+## 📝 Catatan Rilis & Riwayat Versi (Changelog)
+
+### 📌 Versi v1.0.1 (2026-07-27) - *Enhancement & Security Patch*
+- **[Fitur Baru] Interactive Lock Screen Overlay**:
+  - Penambahan tombol **Kunci Layar (Lock Screen)** pada dropdown avatar akun pengguna (`_user-account-menu.blade.php`).
+  - Overlay Modal Fullscreen beraksen *Glassmorphic Blur* (`_lock-screen-modal.blade.php`).
+  - Verifikasi password terproteksi via AJAX request (`POST /lock-screen/unlock`) dengan indikator *loading spinner* Metronic 8 yang presisi.
+  - Integrasi otomatis dengan `_idle-timer.blade.php` (penguncian layar otomatis setelah 15 menit inaktivitas).
+- **[Dokumentasi] Pembaruan README & Navigasi**:
+  - Penambahan diagram alur request MVC berbasis **Mermaid (`mermaid`)** beserta penjelasan 9-step alur request sistem.
+  - Penambahan struktur pohon ASCII **Hierarki Folder Views (`resources/views/`)** beserta rincian fungsinya.
+  - Perbaikan navigasi jangkar eksplisit `<a id="..."></a>` pada Table of Contents.
+  - Penambahan tombol **`⬆ Kembali ke Table of Contents`** di setiap akhir seksi.
+
+---
+
+### 📌 Versi v1.0.0 (2026-07-27) - *Initial Official Production Release*
+- **[Arsitektur Inti] Structure Mirroring (4-Layer MVC)**:
+  - Keselarasan 1:1 antara Route, Controller (`App\Http\Controllers`), Form Request (`App\Http\Requests`), Model (`App\Models`), dan View (`resources/views/pages`).
+- **[Otentikasi & RBAC Granular]**:
+  - Integrasi **Spatie Laravel-Permission 6.x** untuk pengelolaan Role & Permission.
+  - Matriks Hak Akses Granular (Peran vs User Direct Access).
+  - Modul User Management (CRUD, Approval Workflow Pendaftaran, Log Penolakan, Deaktivasi Akun).
+  - Fitur **Impersonasi Sesi Aman** (`impersonate` & `leave-impersonate`).
+  - Fitur Import/Export Massal Excel via PhpSpreadsheet.
+- **[App Support Suite]**:
+  - **AppFitur**: Dynamic Feature Toggle untuk kontrol aktif/nonaktif modul secara instant.
+  - **AppProfil**: Pengaturan identitas aplikasi terpusat (Logo, Favicon, Copyright).
+  - **Menu Builder**: Manajemen hirarki menu sidebar & header.
+  - **Data Referensi**: Master lookup table acuan pilihan dropdown form.
+  - **DataLogin**: Audit log sesi login user & geolokasi IP.
+- **[Keamanan & Keandalan Sistem]**:
+  - **Automated Scheduled Backup**: Engine backup SQL (`php artisan backup:db`) & Laravel Scheduler (Harian 01:00 AM).
+  - **Audit Trail Mutation Logging**: Integrasi `spatie/laravel-activitylog` & `LogsActivityTrait` untuk perekaman otomatis perubahan data model (Create, Update, Delete) beserta inspeksi diff.
+  - **Rate Limiting**: Proteksi middleware `throttle` pada endpoint sensitif (login, reset password, backup, & restore).
+  - **Session Idle Timeout**: Deteksi inaktivitas otomatis.
+- **[Usability & DX]**:
+  - Dukungan **100% Bilingual (`en`/`id`)** tanpa teks bercampur.
+  - **Modal Petunjuk Operasional** kontekstual di setiap modul aplikasi.
+  - Modul dokumentasi pemrograman internal terintegrasi (`/help/pemrograman/...`).
 
 <div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
 
