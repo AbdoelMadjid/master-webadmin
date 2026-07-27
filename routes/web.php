@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
     Route::prefix('manajemenpengguna')->name('manajemenpengguna.')->group(function () {
         Route::get('reset-password', [PasswordResetRequestController::class, 'index'])->name('reset-password');
         Route::get('reset-password/{id}/mark-read', [PasswordResetRequestController::class, 'markAsRead'])->name('reset-password.mark-read');
-        Route::post('reset-password/{id}/reset', [PasswordResetRequestController::class, 'processReset'])->name('reset-password.reset');
+        Route::post('reset-password/{id}/reset', [PasswordResetRequestController::class, 'processReset'])->middleware('throttle:5,1')->name('reset-password.reset');
         Route::post('reset-password/{id}/reject', [PasswordResetRequestController::class, 'reject'])->name('reset-password.reject');
 
         Route::get('users/template', [UserMgmtController::class, 'downloadTemplate'])->name('users.template');
@@ -114,15 +114,15 @@ Route::middleware('auth')->group(function () {
     ]);
 
     Route::get('appsupport/backup-db', [BackupDbController::class, 'index'])->name('appsupport.backup-db');
-    Route::post('appsupport/backup-db', [BackupDbController::class, 'store'])->name('appsupport.backup-db.store');
+    Route::post('appsupport/backup-db', [BackupDbController::class, 'store'])->middleware('throttle:3,1')->name('appsupport.backup-db.store');
     Route::get('appsupport/backup-db/download/{filename}', [BackupDbController::class, 'download'])->name('appsupport.backup-db.download');
-    Route::post('appsupport/backup-db/restore/{filename}', [BackupDbController::class, 'restore'])->name('appsupport.backup-db.restore');
-    Route::delete('appsupport/backup-db/{filename}', [BackupDbController::class, 'destroy'])->name('appsupport.backup-db.destroy');
+    Route::post('appsupport/backup-db/restore/{filename}', [BackupDbController::class, 'restore'])->middleware('throttle:3,1')->name('appsupport.backup-db.restore');
+    Route::delete('appsupport/backup-db/{filename}', [BackupDbController::class, 'destroy'])->middleware('throttle:10,1')->name('appsupport.backup-db.destroy');
 
     Route::get('appsupport/data-login', [DataLoginController::class, 'index'])->name('appsupport.data-login');
-    Route::delete('appsupport/data-login/clear-all', [DataLoginController::class, 'clearAll'])->name('appsupport.data-login.clear-all');
+    Route::delete('appsupport/data-login/clear-all', [DataLoginController::class, 'clearAll'])->middleware('throttle:3,1')->name('appsupport.data-login.clear-all');
     Route::delete('appsupport/data-login/{id}', [DataLoginController::class, 'destroy'])->name('appsupport.data-login.destroy');
-    Route::delete('appsupport/activity-log/clear-all', [DataLoginController::class, 'clearAllActivities'])->name('appsupport.activity-log.clear-all');
+    Route::delete('appsupport/activity-log/clear-all', [DataLoginController::class, 'clearAllActivities'])->middleware('throttle:3,1')->name('appsupport.activity-log.clear-all');
     Route::delete('appsupport/activity-log/{id}', [DataLoginController::class, 'destroyActivity'])->name('appsupport.activity-log.destroy');
 
     // Referensi Routes

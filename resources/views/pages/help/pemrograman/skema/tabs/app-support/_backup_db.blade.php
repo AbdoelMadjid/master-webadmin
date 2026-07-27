@@ -93,6 +93,7 @@ backup-database-2026-07-23-113000.sql</code></pre>
             <ul class="schema-list">
                 <li><strong>Pre-Migration Backup:</strong> Recommended to trigger DB Backup prior to executing major database migrations or system updates.</li>
                 <li><strong>Access Restrictions:</strong> Only authorized Admin users can view, download, restore, or delete database backup files.</li>
+                <li><strong>Rate Limiting Protection:</strong> Protected by <code>middleware('throttle:3,1')</code> on backup creation and restore endpoints to prevent brute-force database restoration attacks and memory exhaustion.</li>
                 <li><strong>SweetAlert2 Notifications:</strong> All operations (Backup, Restore, Delete) are equipped with confirmation dialogs and SweetAlert2 feedback.</li>
             </ul>
         </div>
@@ -207,6 +208,7 @@ backup-database-2026-07-23-113000.sql</code></pre>
             <ul class="schema-list">
                 <li><strong>Pre-Migration Backup:</strong> Disarankan untuk memicu Backup DB sebelum melakukan perubahan skema database besar atau pembaruan sistem.</li>
                 <li><strong>Restriksi Akses:</strong> Hanya user berotoritas Admin yang dapat melihat, mengunduh, memulihkan, atau menghapus berkas cadangan database.</li>
+                <li><strong>Proteksi Rate Limiting:</strong> Dilindungi oleh <code>middleware('throttle:3,1')</code> pada endpoint pemuatan backup dan pemulihan database untuk mencegah serangan brute-force pemulihan data dan eksploitasi memori server.</li>
                 <li><strong>Notifikasi SweetAlert2:</strong> Seluruh eksekusi (Backup, Restore, Delete) dilengkapi dengan konfirmasi dialog dan feedback SweetAlert2.</li>
             </ul>
         </div>

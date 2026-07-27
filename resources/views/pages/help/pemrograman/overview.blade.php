@@ -511,9 +511,7 @@
                                         <ol class="text-gray-700 fs-7 lh-lg mb-0 ps-4">
                                             <li><strong>Automated Scheduled Backup:</strong> <span class="badge badge-light-success fw-bold me-1">Telah Diimplementasikan</span> Menambahkan Laravel Scheduler di <code>routes/console.php</code> & Artisan Command <code>php artisan backup:db</code> agar modul BackupDb berjalan otomatis secara harian (pkl 01:00 AM).</li>
                                             <li><strong>Audit Trail Mutation Logging:</strong> <span class="badge badge-light-success fw-bold me-1">Telah Diimplementasikan</span> Memperluas pencatatan DataLogin menjadi Audit Trail & Activity Log multi-tab menggunakan paket <code>spatie/laravel-activitylog</code> untuk merekam perubahan data model (Create, Update, Delete) beserta inspeksi diff.</li>
-                                            <li><strong>Rate Limiting Endpoint Sensitif:</strong> Menambahkan middleware
-                                                <code>throttle</code> pada endpoint sensitif (misal: login attempts, reset
-                                                password requests, database backups).</li>
+                                            <li><strong>Rate Limiting Endpoint Sensitif:</strong> <span class="badge badge-light-success fw-bold me-1">Telah Diimplementasikan</span> Menambahkan middleware <code>throttle</code> pada endpoint sensitif (misal: login attempts, reset password requests, database backups & restore).</li>
                                         </ol>
                                     </div>
 
@@ -577,9 +575,7 @@
                                         <ol class="text-gray-700 fs-7 lh-lg mb-0 ps-4">
                                             <li><strong>Automated Scheduled Backup:</strong> <span class="badge badge-light-success fw-bold me-1">Telah Diimplementasikan</span> Menambahkan Laravel Scheduler di <code>routes/console.php</code> & Artisan Command <code>php artisan backup:db</code> agar modul BackupDb berjalan otomatis secara harian (pkl 01:00 AM).</li>
                                             <li><strong>Audit Trail Mutation Logging:</strong> <span class="badge badge-light-success fw-bold me-1">Telah Diimplementasikan</span> Memperluas pencatatan DataLogin menjadi Audit Trail & Activity Log multi-tab menggunakan paket <code>spatie/laravel-activitylog</code> untuk merekam perubahan data model (Create, Update, Delete) beserta inspeksi diff.</li>
-                                            <li><strong>Rate Limiting Endpoint Sensitif:</strong> Menambahkan middleware
-                                                <code>throttle</code> pada endpoint pengajuan reset password dan pemulihan
-                                                database untuk mencegah serangan brute force.</li>
+                                            <li><strong>Rate Limiting Endpoint Sensitif:</strong> <span class="badge badge-light-success fw-bold me-1">Telah Diimplementasikan</span> Menambahkan middleware <code>throttle</code> pada endpoint pengajuan reset password, login attempts, dan pemulihan database untuk mencegah serangan brute force.</li>
                                         </ol>
                                     </div>
                                 </div>
