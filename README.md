@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production--Ready-brightgreen?style=for-the-badge)](https://github.com/AbdoelMadjid/master-webadmin)
 
-Sistem Dashboard Administrasi Enterprise tingkat tinggi berbasis **Laravel 12.0** dan Template Premium **Metronic 8.3.2** (Versi Rilis: **v1.0.1**). Dirancang menggunakan metodologi **Structure Mirroring** (keselarasan 4-layer MVC), arsitektur **RBAC Granular**, **Audit Trail Mutasi Data**, **Scheduled Database Backup**, **Proteksi Rate Limiting**, dan **Kunci Layar (Lock Screen)**.
+Sistem Dashboard Administrasi Enterprise tingkat tinggi berbasis **Laravel 12.0** dan Template Premium **Metronic 8.3.2**. Dirancang menggunakan metodologi **Structure Mirroring** (keselarasan 4-layer MVC), arsitektur **RBAC Granular**, **Audit Trail Mutasi Data**, **Scheduled Database Backup**, **Proteksi Rate Limiting**, dan **Kunci Layar (Lock Screen)**.
 
 ---
 
