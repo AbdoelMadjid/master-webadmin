@@ -1,6 +1,6 @@
 # 🚀 Master WebAdmin - Laravel 12 & Metronic 8.3.2
 
-[![Version](https://img.shields.io/badge/Version-v1.0.1-009688?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AbdoelMadjid/master-webadmin/releases)
+[![Version](https://img.shields.io/badge/Version-v1.0.1-009688?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AbdoelMadjid/master-webadmin/tags)
 [![Laravel](https://img.shields.io/badge/Laravel-12.0-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
 [![PHP](https://img.shields.io/badge/PHP-^8.2-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
 [![Metronic](https://img.shields.io/badge/Metronic-8.3.2-009EF7?style=for-the-badge&logo=bootstrap&logoColor=white)](https://keenthemes.com/metronic)
