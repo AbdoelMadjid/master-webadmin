@@ -97,24 +97,31 @@
                                             @endif
                                         </td>
                                         <td>
-                                            @if($user->permissions->isNotEmpty())
+                                            @php
+                                                $allPerms = $user->getAllPermissions();
+                                                $directPerms = $user->permissions;
+                                                $directPermNames = $directPerms->pluck('name')->toArray();
+                                                $hasDirect = $directPerms->isNotEmpty();
+                                            @endphp
+                                            @if($allPerms->isNotEmpty())
                                                 @php
-                                                    $permCount = $user->permissions->count();
-                                                    $groupedPerms = $user->permissions->groupBy(function($perm) {
+                                                    $permCount = $allPerms->count();
+                                                    $groupedPerms = $allPerms->groupBy(function($perm) {
                                                         $parts = explode(' ', $perm->name, 2);
                                                         return count($parts) > 1 ? $parts[1] : $perm->name;
                                                     });
                                                     $moduleCount = $groupedPerms->count();
                                                     $previewModules = $groupedPerms->take(2);
 
-                                                    $permData = $groupedPerms->map(function($permsInModule, $moduleName) {
+                                                    $permData = $groupedPerms->map(function($permsInModule, $moduleName) use ($directPermNames) {
                                                         return [
                                                             'module' => $moduleName,
                                                             'count' => $permsInModule->count(),
-                                                            'actions' => $permsInModule->map(function($p) {
+                                                            'actions' => $permsInModule->map(function($p) use ($directPermNames) {
                                                                 return [
                                                                     'name' => $p->name,
-                                                                    'action' => explode(' ', $p->name)[0]
+                                                                    'action' => explode(' ', $p->name)[0],
+                                                                    'is_direct' => in_array($p->name, $directPermNames)
                                                                 ];
                                                             })->values()->all()
                                                         ];
@@ -122,18 +129,33 @@
                                                 @endphp
                                                 <div class="d-flex flex-column gap-1">
                                                     <div class="d-flex align-items-center gap-1 flex-wrap">
-                                                        <span class="badge badge-light-warning fw-bold fs-8 cursor-pointer btn-show-user-permissions-drawer"
-                                                              data-id="{{ $user->id }}"
-                                                              data-name="{{ $user->name }}"
-                                                              data-email="{{ $user->email }}"
-                                                              data-avatar="{{ $user->avatar_url }}"
-                                                              data-perms="{{ json_encode($permData) }}"
-                                                              data-bs-toggle="tooltip"
-                                                              data-bs-placement="top"
-                                                              title="Klik untuk membuka rincian {{ $permCount }} hak akses di panel samping (Side Drawer)">
-                                                            <i class="ki-duotone ki-key fs-7 text-warning me-1"><span class="path1"></span><span class="path2"></span></i>
-                                                            {{ $permCount }} Akses Langsung ({{ $moduleCount }} Modul)
-                                                        </span>
+                                                        @if($hasDirect)
+                                                            <span class="badge badge-light-warning fw-bold fs-8 cursor-pointer btn-show-user-permissions-drawer"
+                                                                  data-id="{{ $user->id }}"
+                                                                  data-name="{{ $user->name }}"
+                                                                  data-email="{{ $user->email }}"
+                                                                  data-avatar="{{ $user->avatar_url }}"
+                                                                  data-perms="{{ json_encode($permData) }}"
+                                                                  data-bs-toggle="tooltip"
+                                                                  data-bs-placement="top"
+                                                                  title="Klik untuk membuka rincian {{ $permCount }} hak akses di panel samping (Side Drawer)">
+                                                                <i class="ki-duotone ki-key fs-7 text-warning me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                                {{ $directPerms->count() }} Akses Langsung ({{ $permCount }} Total Izin)
+                                                            </span>
+                                                        @else
+                                                            <span class="badge badge-light-success fw-bold fs-8 cursor-pointer btn-show-user-permissions-drawer"
+                                                                  data-id="{{ $user->id }}"
+                                                                  data-name="{{ $user->name }}"
+                                                                  data-email="{{ $user->email }}"
+                                                                  data-avatar="{{ $user->avatar_url }}"
+                                                                  data-perms="{{ json_encode($permData) }}"
+                                                                  data-bs-toggle="tooltip"
+                                                                  data-bs-placement="top"
+                                                                  title="Klik untuk membuka rincian {{ $permCount }} hak akses di panel samping (Side Drawer)">
+                                                                <i class="ki-duotone ki-shield-tick fs-7 text-success me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                                {{ $permCount }} Izin (Mengikuti Role)
+                                                            </span>
+                                                        @endif
                                                     </div>
                                                     <div class="d-flex flex-wrap gap-1 align-items-center">
                                                         @foreach($previewModules as $modName => $modPerms)
@@ -166,9 +188,9 @@
                                                     </div>
                                                 </div>
                                             @else
-                                                <span class="badge badge-light-secondary text-gray-600" data-bs-toggle="tooltip" data-bs-placement="top" title="Seluruh hak akses pengguna diwarisi dari Role yang ditugaskan">
-                                                    <i class="ki-duotone ki-shield-tick fs-6 text-gray-500 me-1"><span class="path1"></span><span class="path2"></span></i>
-                                                    Mengikuti Role ({{ $user->getAllPermissions()->count() }} Izin)
+                                                <span class="badge badge-light-secondary text-gray-600" data-bs-toggle="tooltip" data-bs-placement="top" title="Pengguna tidak memiliki hak akses atau role">
+                                                    <i class="ki-duotone ki-cross-circle fs-6 text-gray-500 me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                    Tanpa Hak Akses
                                                 </span>
                                             @endif
                                         </td>
@@ -249,6 +271,9 @@
 @section('scripts')
     <script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
     <script>
+        var rolePermissionsMap = @json($rolePermissionsMap ?? []);
+        var currentUserDirectPerms = [];
+
         $(document).ready(function() {
             var aksesUserTable = $('#kt_akses_user_table').DataTable({
                 pageLength: 10,
@@ -269,7 +294,7 @@
                 aksesUserTable.search(this.value).draw();
             });
 
-            // Handle Side Drawer for User Direct Permissions
+            // Handle Side Drawer for User Permissions
             $(document).on('click', '.btn-show-user-permissions-drawer', function(e) {
                 e.preventDefault();
                 var userId = $(this).data('id');
@@ -284,6 +309,7 @@
                 $('#btn_manage_from_drawer').data('id', userId);
 
                 var totalPerms = 0;
+                var directPermCount = 0;
                 var totalModules = permsData ? permsData.length : 0;
                 var html = '';
 
@@ -292,13 +318,21 @@
                         totalPerms += group.count;
                         var actionsHtml = '';
                         group.actions.forEach(function(act) {
-                            var badgeColor = 'badge-light-info text-info';
-                            if (act.action === 'create') badgeColor = 'badge-light-success text-success';
-                            else if (act.action === 'read') badgeColor = 'badge-light-primary text-primary';
-                            else if (act.action === 'update') badgeColor = 'badge-light-warning text-warning';
-                            else if (act.action === 'delete') badgeColor = 'badge-light-danger text-danger';
+                            var badgeColor = 'badge-light-primary text-primary';
+                            var badgeTitle = act.name + ' (Diwarisi dari Role)';
 
-                            actionsHtml += '<span class="badge ' + badgeColor + ' fs-8 fw-bold px-2.5 py-1 me-1 mb-1" title="' + act.name + '">' + act.action + '</span>';
+                            if (act.is_direct) {
+                                badgeColor = 'badge-light-warning text-warning fw-bold';
+                                badgeTitle = act.name + ' (Akses Langsung Khusus)';
+                                directPermCount++;
+                            } else {
+                                if (act.action === 'create') badgeColor = 'badge-light-success text-success';
+                                else if (act.action === 'read') badgeColor = 'badge-light-primary text-primary';
+                                else if (act.action === 'update') badgeColor = 'badge-light-info text-info';
+                                else if (act.action === 'delete') badgeColor = 'badge-light-danger text-danger';
+                            }
+
+                            actionsHtml += '<span class="badge ' + badgeColor + ' fs-8 px-2.5 py-1 me-1 mb-1" title="' + badgeTitle + '">' + act.action + (act.is_direct ? ' *' : '') + '</span>';
                         });
 
                         html += '<div class="card schema-card border border-gray-300 p-4 rounded module-perm-card" data-search="' + group.module.toLowerCase() + '">';
@@ -312,10 +346,15 @@
                         html += '  <div class="d-flex flex-wrap gap-1">' + actionsHtml + '</div>';
                         html += '</div>';
                     });
-                    $('#drawer_perm_summary').text(totalPerms + ' Akses Langsung di ' + totalModules + ' Modul');
+
+                    if (directPermCount > 0) {
+                        $('#drawer_perm_summary').text(directPermCount + ' Akses Langsung & ' + totalPerms + ' Total Izin di ' + totalModules + ' Modul');
+                    } else {
+                        $('#drawer_perm_summary').text(totalPerms + ' Total Izin (Seluruhnya Diwarisi dari Role)');
+                    }
                 } else {
-                    html = '<div class="text-center py-8 text-muted"><i class="ki-duotone ki-information-2 fs-2x mb-2 text-muted"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i><div>Tidak ada hak akses langsung.</div></div>';
-                    $('#drawer_perm_summary').text('Diwarisi dari Role dasar');
+                    html = '<div class="text-center py-8 text-muted"><i class="ki-duotone ki-information-2 fs-2x mb-2 text-muted"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i><div>Tidak ada hak akses.</div></div>';
+                    $('#drawer_perm_summary').text('Tanpa Hak Akses');
                 }
 
                 $('#drawer_perm_content').html(html);
@@ -350,8 +389,46 @@
                 $('.btn-manage-user-access[data-id="' + userId + '"]').first().trigger('click');
             });
 
-            $('#kt_akses_user_search').on('keyup', function() {
-                aksesUserTable.search(this.value).draw();
+            // Function to update modal permissions checkboxes (Role vs Direct)
+            function updateModalPermissionsState() {
+                var checkedRoles = [];
+                $('.akses-user-role-checkbox:checked').each(function() {
+                    checkedRoles.push($(this).val());
+                });
+
+                var rolePerms = new Set();
+                checkedRoles.forEach(function(roleName) {
+                    if (rolePermissionsMap[roleName]) {
+                        rolePermissionsMap[roleName].forEach(function(p) {
+                            rolePerms.add(p);
+                        });
+                    }
+                });
+
+                var directPerms = currentUserDirectPerms || [];
+
+                $('.akses-user-perm-checkbox').each(function() {
+                    var permVal = $(this).val();
+                    var $parent = $(this).parent();
+
+                    if (rolePerms.has(permVal)) {
+                        $(this).prop('checked', true);
+                        $(this).prop('disabled', true);
+                        $parent.attr('title', 'Diwarisi dari Role yang ditugaskan');
+                    } else if (directPerms.includes(permVal)) {
+                        $(this).prop('checked', true);
+                        $(this).prop('disabled', false);
+                        $parent.attr('title', 'Akses Langsung Khusus');
+                    } else {
+                        $(this).prop('checked', false);
+                        $(this).prop('disabled', false);
+                        $parent.removeAttr('title');
+                    }
+                });
+            }
+
+            $(document).on('change', '.akses-user-role-checkbox', function() {
+                updateModalPermissionsState();
             });
 
             $(document).on('click', '.btn-manage-user-access', function() {
@@ -362,6 +439,11 @@
                         $('#akses_user_name_display').text(res.data.name);
                         $('#akses_user_email_display').text(res.data.email);
 
+                        currentUserDirectPerms = res.direct_permissions || [];
+                        if (res.role_permissions_map) {
+                            rolePermissionsMap = res.role_permissions_map;
+                        }
+
                         $('.akses-user-role-checkbox').prop('checked', false);
                         if(res.assigned_roles && res.assigned_roles.length > 0) {
                             $('.akses-user-role-checkbox').each(function() {
@@ -371,16 +453,7 @@
                             });
                         }
 
-                        $('.akses-user-perm-checkbox').prop('checked', false);
-                        var activePerms = res.all_permissions || res.direct_permissions || [];
-                        if(activePerms && activePerms.length > 0) {
-                            $('.akses-user-perm-checkbox').each(function() {
-                                if(activePerms.includes($(this).val())) {
-                                    $(this).prop('checked', true);
-                                }
-                            });
-                        }
-
+                        updateModalPermissionsState();
                         $('#kt_modal_akses_user').modal('show');
                     }
                 });
@@ -396,6 +469,9 @@
                         if(res.success) {
                             $('#kt_modal_akses_user').modal('hide');
                             SwalHelper.success(res.message);
+                            setTimeout(function() {
+                                location.reload();
+                            }, 1000);
                         }
                     },
                     error: function(xhr) {

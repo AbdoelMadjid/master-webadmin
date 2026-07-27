@@ -14,8 +14,13 @@ class AksesUserController extends Controller
     public function index(Request $request)
     {
         $users = User::with(['roles', 'permissions'])->orderBy('name')->get();
-        $roles = Role::all();
+        $roles = Role::with('permissions')->get();
         $permissions = Permission::all();
+
+        $rolePermissionsMap = [];
+        foreach ($roles as $role) {
+            $rolePermissionsMap[$role->name] = $role->permissions->pluck('name')->toArray();
+        }
 
         // Group permissions by module for CRUD Matrix
         $matrixPermissions = [];
@@ -59,7 +64,7 @@ class AksesUserController extends Controller
             ]);
         }
 
-        return view('pages.manajemenpengguna.akses-user', compact('users', 'roles', 'permissions', 'matrixPermissions'));
+        return view('pages.manajemenpengguna.akses-user', compact('users', 'roles', 'permissions', 'matrixPermissions', 'rolePermissionsMap'));
     }
 
     public function show($id)
@@ -67,16 +72,25 @@ class AksesUserController extends Controller
         $user = User::with(['roles', 'permissions'])->findOrFail($id);
 
         $directPermissions = $user->getDirectPermissions()->pluck('name')->toArray();
-        $allPermissions = $user->getAllPermissions()->pluck('name')->toArray();
+        $rolePermissions   = $user->getPermissionsViaRoles()->pluck('name')->unique()->toArray();
+        $allPermissions    = $user->getAllPermissions()->pluck('name')->toArray();
+
+        $roles = Role::with('permissions')->get();
+        $rolePermissionsMap = [];
+        foreach ($roles as $role) {
+            $rolePermissionsMap[$role->name] = $role->permissions->pluck('name')->toArray();
+        }
 
         return response()->json([
-            'success'            => true,
-            'data'               => array_merge($user->toArray(), [
+            'success'              => true,
+            'data'                 => array_merge($user->toArray(), [
                 'avatar_url' => $user->avatar_url,
             ]),
-            'assigned_roles'     => $user->roles->pluck('name'),
-            'direct_permissions' => $directPermissions,
-            'all_permissions'    => $allPermissions,
+            'assigned_roles'       => $user->roles->pluck('name'),
+            'direct_permissions'   => $directPermissions,
+            'role_permissions'     => $rolePermissions,
+            'all_permissions'      => $allPermissions,
+            'role_permissions_map' => $rolePermissionsMap,
         ]);
     }
 

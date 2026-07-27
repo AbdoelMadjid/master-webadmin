@@ -41,16 +41,17 @@
                             </p>
                         </div>
 
-                        <!--Section 2: Architecture-->
+                        <!--Section 2: Architecture & Side Drawer-->
                         <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
                             <h4 class="fw-bold text-gray-900 mb-3 d-flex align-items-center">
                                 <i class="ki-duotone ki-element-11 fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-                                Core System Roles vs Custom Roles
+                                Core System Roles vs Custom Roles & Side Drawer
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
                                 <li class="mb-2"><strong>Core System Roles:</strong> Protected system anchors (<code>Master</code> & <code>Admin</code>) protected against deletion.</li>
                                 <li class="mb-2"><strong>Custom Roles:</strong> Dynamic user-created roles (e.g., <code>Editor</code>, <code>Operator</code>, <code>Auditor</code>).</li>
-                                <li><strong>Permission Grouping:</strong> Modules and permissions mapped directly to each role.</li>
+                                <li class="mb-2"><strong>Permission Grouping:</strong> Modules and permissions mapped directly to each role.</li>
+                                <li><strong>Interactive Side Drawer Inspector:</strong> Clicking any permission summary badge or module badge in the table opens a right-side offcanvas drawer displaying all permissions grouped by module with a live search filter and quick Edit action.</li>
                             </ul>
                         </div>
 
@@ -62,8 +63,9 @@
                             </h4>
                             <ol class="fs-6 text-gray-700 m-0 ps-5">
                                 <li class="mb-2"><strong>Create New Role:</strong> Click <span class="badge badge-primary">+ Add Role</span>, enter the role name, check permissions, and click <strong>Save</strong>.</li>
-                                <li class="mb-2"><strong>Edit Role Permissions:</strong> Click <span class="badge badge-light-primary text-primary">Edit</span> to adjust role permissions in the modal.</li>
-                                <li class="mb-2"><strong>Open Access Matrix:</strong> Click <span class="badge badge-light-primary text-primary">Matrix</span> to open the interactive Role Access Matrix.</li>
+                                <li class="mb-2"><strong>Inspect via Side Drawer:</strong> Click the permission summary badge or module badges in the Datatable to open the Side Drawer and review all assigned permissions categorized by module.</li>
+                                <li class="mb-2"><strong>Edit Role Permissions:</strong> Click <span class="badge badge-light-primary text-primary">Edit</span> (or click <strong>Edit</strong> inside the Side Drawer) to adjust role permissions in the matrix modal.</li>
+                                <li class="mb-2"><strong>Open Access Matrix:</strong> Click <span class="badge badge-light-primary text-primary">Matrix</span> to open the full Role Access Matrix page.</li>
                                 <li><strong>Delete Custom Role:</strong> Click <span class="badge badge-light-danger text-danger">Delete</span> to remove a custom role.</li>
                             </ol>
                         </div>
@@ -95,16 +97,17 @@
                             </p>
                         </div>
 
-                        <!--Section 2: Architecture-->
+                        <!--Section 2: Architecture & Side Drawer-->
                         <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
                             <h4 class="fw-bold text-gray-900 mb-3 d-flex align-items-center">
                                 <i class="ki-duotone ki-element-11 fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-                                Role Inti Sistem vs Role Kustom
+                                Role Inti Sistem vs Role Kustom & Side Drawer
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
                                 <li class="mb-2"><strong>Role Inti Sistem:</strong> Role fondasi utama (<code>Master</code> & <code>Admin</code>) yang dilindungi agar tidak dapat dihapus.</li>
                                 <li class="mb-2"><strong>Role Kustom:</strong> Role dinamis yang dibuat pengguna (contoh: <code>Editor</code>, <code>Operator</code>, <code>Auditor</code>).</li>
-                                <li><strong>Pengelompokan Permission:</strong> Modul dan perizinan yang dipetakan langsung ke setiap role.</li>
+                                <li class="mb-2"><strong>Pengelompokan Permission:</strong> Modul dan perizinan yang dipetakan langsung ke setiap role.</li>
+                                <li><strong>Panel Samping (Side Drawer) Interaktif:</strong> Mengklik badge ringkasan perizinan atau badge modul pada tabel akan membuka panel samping kanan (*Offcanvas Side Drawer*) yang menampilkan seluruh hak akses terkelompok per modul lengkap dengan filter pencarian real-time dan tombol Edit cepat.</li>
                             </ul>
                         </div>
 
@@ -116,7 +119,8 @@
                             </h4>
                             <ol class="fs-6 text-gray-700 m-0 ps-5">
                                 <li class="mb-2"><strong>Menambah Role Baru:</strong> Klik tombol <span class="badge badge-primary">+ Tambah Role</span>, isikan nama role, centang perizinan, lalu klik <strong>Simpan</strong>.</li>
-                                <li class="mb-2"><strong>Mengubah Role & Perizinan:</strong> Klik <span class="badge badge-light-primary text-primary">Edit</span> untuk memperbarui perizinan role di form modal.</li>
+                                <li class="mb-2"><strong>Meninjau Hak Akses via Side Drawer:</strong> Klik badge ringkasan perizinan atau badge modul pada tabel untuk membuka Side Drawer dan meninjau rincian perizinan per modul.</li>
+                                <li class="mb-2"><strong>Mengubah Role & Perizinan:</strong> Klik <span class="badge badge-light-primary text-primary">Edit</span> (atau tombol <strong>Edit</strong> di dalam Side Drawer) untuk memperbarui perizinan role di form modal.</li>
                                 <li class="mb-2"><strong>Matriks Hak Akses:</strong> Klik <span class="badge badge-light-primary text-primary">Matrix</span> untuk membuka halaman penuh Matriks Hak Akses Role.</li>
                                 <li><strong>Menghapus Role Kustom:</strong> Klik <span class="badge badge-light-danger text-danger">Hapus</span> untuk menghapus role kustom.</li>
                             </ol>
