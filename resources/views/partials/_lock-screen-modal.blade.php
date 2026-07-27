@@ -57,12 +57,12 @@
                         </div>
                     </div>
 
-                    <button type="submit" id="lock_screen_submit_btn" class="btn btn-warning w-100 fw-bold fs-6 py-3 shadow-xs">
-                        <span class="indicator-label d-flex align-items-center justify-content-center gap-2">
-                            <i class="ki-duotone ki-key fs-3"><span class="path1"></span><span class="path2"></span></i>
+                    <button type="submit" id="lock_screen_submit_btn" class="btn btn-warning w-100 fw-bold fs-6 py-3 min-h-45px shadow-xs">
+                        <span class="indicator-label">
+                            <i class="ki-duotone ki-key fs-3 me-2"><span class="path1"></span><span class="path2"></span></i>
                             {{ app()->getLocale() == 'en' ? 'Unlock Screen' : 'Buka Kunci Layar' }}
                         </span>
-                        <span class="indicator-progress d-none">
+                        <span class="indicator-progress">
                             {{ app()->getLocale() == 'en' ? 'Verifying...' : 'Memverifikasi...' }}
                             <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
                         </span>
@@ -96,12 +96,17 @@
                 var overlay = document.getElementById('kt_lock_screen_overlay');
                 var passwordInput = document.getElementById('lock_screen_password');
                 var alertBox = document.getElementById('lock_screen_alert');
+                var submitBtn = document.getElementById('lock_screen_submit_btn');
 
                 if (overlay) {
                     overlay.classList.remove('d-none');
                     overlay.classList.add('d-flex');
                     window.isScreenLocked = true;
 
+                    if (submitBtn) {
+                        submitBtn.removeAttribute('data-kt-indicator');
+                        submitBtn.disabled = false;
+                    }
                     if (alertBox) alertBox.classList.add('d-none');
                     if (passwordInput) {
                         passwordInput.value = '';
@@ -136,13 +141,10 @@
 
                 if (!passwordInput || !passwordInput.value.trim()) return;
 
-                // Show spinner
+                // Turn on Metronic button indicator
                 if (submitBtn) {
+                    submitBtn.setAttribute('data-kt-indicator', 'on');
                     submitBtn.disabled = true;
-                    var label = submitBtn.querySelector('.indicator-label');
-                    var progress = submitBtn.querySelector('.indicator-progress');
-                    if (label) label.classList.add('d-none');
-                    if (progress) progress.classList.remove('d-none');
                 }
 
                 if (alertBox) alertBox.classList.add('d-none');
@@ -165,11 +167,8 @@
                 })
                 .then(function(result) {
                     if (submitBtn) {
+                        submitBtn.removeAttribute('data-kt-indicator');
                         submitBtn.disabled = false;
-                        var label = submitBtn.querySelector('.indicator-label');
-                        var progress = submitBtn.querySelector('.indicator-progress');
-                        if (label) label.classList.remove('d-none');
-                        if (progress) progress.classList.add('d-none');
                     }
 
                     if (result.status === 200 && result.body.success) {
@@ -202,11 +201,8 @@
                 })
                 .catch(function(err) {
                     if (submitBtn) {
+                        submitBtn.removeAttribute('data-kt-indicator');
                         submitBtn.disabled = false;
-                        var label = submitBtn.querySelector('.indicator-label');
-                        var progress = submitBtn.querySelector('.indicator-progress');
-                        if (label) label.classList.remove('d-none');
-                        if (progress) progress.classList.add('d-none');
                     }
                     var errStr = "{{ app()->getLocale() == 'en' ? 'Connection error. Please try again.' : 'Terjadi kesalahan koneksi. Silakan coba lagi.' }}";
                     if (alertBox && alertText) {
