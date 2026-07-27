@@ -35,8 +35,7 @@
                     <div class="d-flex flex-column gap-6">
                         <!--Section 1: System Overview & Purpose-->
                         <div class="card schema-card bg-light-primary border border-primary p-6 rounded">
-                            <h4 class="d-flex align-items-center text-primary fw-bold mb-3">
-                                <i class="ki-duotone ki-abstract-26 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                            <h4 class="text-primary fw-bold mb-3">
                                 1. System Overview & Versioning Purpose
                             </h4>
                             <p class="fs-7 text-gray-700 mb-0">
@@ -46,8 +45,7 @@
 
                         <!--Section 2: Architecture & Semantic Versioning Rules-->
                         <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
-                            <h4 class="d-flex align-items-center text-dark fw-bold mb-3">
-                                <i class="ki-duotone ki-layers fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                            <h4 class="text-dark fw-bold mb-3">
                                 2. Semantic Versioning (SemVer) Standard Rules
                             </h4>
                             <ul class="fs-7 text-gray-700 mb-0 ps-5">
@@ -59,8 +57,7 @@
 
                         <!--Section 3: Step-by-Step Release Workflow-->
                         <div class="card schema-card bg-light-info border border-info p-6 rounded">
-                            <h4 class="d-flex align-items-center text-info fw-bold mb-3">
-                                <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
+                            <h4 class="text-info fw-bold mb-3">
                                 3. Step-by-Step Execution Workflow
                             </h4>
                             <ol class="fs-7 text-gray-700 mb-0 ps-5">
@@ -74,8 +71,7 @@
 
                         <!--Section 4: Safeguards & Force Update Protocol-->
                         <div class="card schema-card bg-light-warning border border-warning p-6 rounded">
-                            <h4 class="d-flex align-items-center text-warning fw-bold mb-3">
-                                <i class="ki-duotone ki-shield-cross fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                            <h4 class="text-warning fw-bold mb-3">
                                 4. Safeguards & Existing Tag Update Protocol
                             </h4>
                             <p class="fs-7 text-gray-700 mb-2">
@@ -93,8 +89,7 @@
                     <div class="d-flex flex-column gap-6">
                         <!--Section 1: System Overview & Purpose-->
                         <div class="card schema-card bg-light-primary border border-primary p-6 rounded">
-                            <h4 class="d-flex align-items-center text-primary fw-bold mb-3">
-                                <i class="ki-duotone ki-abstract-26 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                            <h4 class="text-primary fw-bold mb-3">
                                 1. Gambaran Umum & Tujuan Rilis Versi
                             </h4>
                             <p class="fs-7 text-gray-700 mb-0">
@@ -104,8 +99,7 @@
 
                         <!--Section 2: Architecture & Semantic Versioning Rules-->
                         <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
-                            <h4 class="d-flex align-items-center text-dark fw-bold mb-3">
-                                <i class="ki-duotone ki-layers fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                            <h4 class="text-dark fw-bold mb-3">
                                 2. Aturan Standar Semantic Versioning (SemVer)
                             </h4>
                             <ul class="fs-7 text-gray-700 mb-0 ps-5">
@@ -117,8 +111,7 @@
 
                         <!--Section 3: Step-by-Step Release Workflow-->
                         <div class="card schema-card bg-light-info border border-info p-6 rounded">
-                            <h4 class="d-flex align-items-center text-info fw-bold mb-3">
-                                <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
+                            <h4 class="text-info fw-bold mb-3">
                                 3. Alur Langkah-Langkah Pelaksanaan Rilis
                             </h4>
                             <ol class="fs-7 text-gray-700 mb-0 ps-5">
@@ -132,8 +125,7 @@
 
                         <!--Section 4: Safeguards & Force Update Protocol-->
                         <div class="card schema-card bg-light-warning border border-warning p-6 rounded">
-                            <h4 class="d-flex align-items-center text-warning fw-bold mb-3">
-                                <i class="ki-duotone ki-shield-cross fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                            <h4 class="text-warning fw-bold mb-3">
                                 4. Aturan Keamanan & Protokol Force Update Tag
                             </h4>
                             <p class="fs-7 text-gray-700 mb-2">

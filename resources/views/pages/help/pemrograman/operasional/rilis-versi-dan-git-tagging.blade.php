@@ -74,8 +74,7 @@
                         <!--====================================================-->
                         <div class="schema-col-6">
                             <div class="schema-card h-100">
-                                <h4>
-                                    <i class="ki-duotone ki-layers fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <h4 class="fw-bold text-gray-900 mb-3">
                                     1. Semantic Versioning (SemVer) Naming Standard
                                 </h4>
                                 <p class="fs-7 text-gray-700 mb-3">
@@ -100,8 +99,7 @@
                         <!--====================================================-->
                         <div class="schema-col-6">
                             <div class="schema-card h-100">
-                                <h4>
-                                    <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <h4 class="fw-bold text-gray-900 mb-3">
                                     2. Step-by-Step New Release CLI Commands
                                 </h4>
                                 <p class="fs-7 text-gray-700 mb-2">
@@ -128,8 +126,7 @@
                         <!--====================================================-->
                         <div class="schema-col-6">
                             <div class="schema-card h-100">
-                                <h4>
-                                    <i class="ki-duotone ki-arrows-loop fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <h4 class="fw-bold text-gray-900 mb-3">
                                     3. Force Updating Existing Git Tags (Source ZIP Update)
                                 </h4>
                                 <p class="fs-7 text-gray-700 mb-2">
@@ -152,8 +149,7 @@
                         <!--====================================================-->
                         <div class="schema-col-6">
                             <div class="schema-card h-100">
-                                <h4>
-                                    <i class="ki-duotone ki-global fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <h4 class="fw-bold text-gray-900 mb-3">
                                     4. Publishing Release on GitHub Web Interface
                                 </h4>
                                 <ol class="fs-7 text-gray-700 mb-3 ps-5">
@@ -178,8 +174,7 @@
                         <!--====================================================-->
                         <div class="schema-col-6">
                             <div class="schema-card h-100">
-                                <h4>
-                                    <i class="ki-duotone ki-layers fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <h4 class="fw-bold text-gray-900 mb-3">
                                     1. Standar Penamaan Semantic Versioning (SemVer)
                                 </h4>
                                 <p class="fs-7 text-gray-700 mb-3">
@@ -204,8 +199,7 @@
                         <!--====================================================-->
                         <div class="schema-col-6">
                             <div class="schema-card h-100">
-                                <h4>
-                                    <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <h4 class="fw-bold text-gray-900 mb-3">
                                     2. Perintah CLI Eksekusi Rilis Versi Baru (Step-by-Step)
                                 </h4>
                                 <p class="fs-7 text-gray-700 mb-2">
@@ -232,8 +226,7 @@
                         <!--====================================================-->
                         <div class="schema-col-6">
                             <div class="schema-card h-100">
-                                <h4>
-                                    <i class="ki-duotone ki-arrows-loop fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <h4 class="fw-bold text-gray-900 mb-3">
                                     3. Cara Memperbarui Tag yang Sudah Ada (Source ZIP Update)
                                 </h4>
                                 <p class="fs-7 text-gray-700 mb-2">
@@ -256,8 +249,7 @@
                         <!--====================================================-->
                         <div class="schema-col-6">
                             <div class="schema-card h-100">
-                                <h4>
-                                    <i class="ki-duotone ki-global fs-2 text-success me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <h4 class="fw-bold text-gray-900 mb-3">
                                     4. Publikasi Rilis di Antarmuka Web GitHub
                                 </h4>
                                 <ol class="fs-7 text-gray-700 mb-3 ps-5">
