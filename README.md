@@ -21,8 +21,6 @@ Sistem Dashboard Administrasi Enterprise tingkat tinggi berbasis **Laravel 12.0*
 - [🛠️ Panduan Instalasi Cepat](#panduan-instalasi)
 - [🔑 Akun Login Bawaan](#akun-login)
 - [⏰ Perintah Artisan Khusus & Scheduler](#perintah-artisan)
-- [🏷️ Panduan Rilis GitHub (GitHub Release Step-by-Step)](#panduan-rilis)
-- [🏷️ Pengaturan Topics / Tags Repositori GitHub](#topics-repositori)
 - [📚 Dokumentasi Skema & Operasional Pemrograman](#dokumentasi-skema)
 - [📝 Catatan Rilis & Riwayat Versi (Changelog)](#catatan-rilis)
 - [📄 Lisensi](#lisensi)
@@ -252,55 +250,6 @@ php artisan schedule:run
 ```cron
 * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
 ```
-
-<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
-
----
-
-<a id="panduan-rilis"></a>
-## 🏷️ Panduan Rilis GitHub (GitHub Release Step-by-Step)
-
-Untuk mempublikasikan rilis **v1.0.0** secara resmi di GitHub:
-
-### Langkah 1: Buat Tag Git di Terminal (Opsional) atau via Web
-```bash
-git tag -a v1.0.0 -m "Release v1.0.0 - Master WebAdmin Suite Production Ready"
-git push origin v1.0.0
-```
-
-### Langkah 2: Buat Release di Website GitHub
-1. Buka repositori Anda di browser: [https://github.com/AbdoelMadjid/master-webadmin](https://github.com/AbdoelMadjid/master-webadmin).
-2. Di sebelah kanan halaman, klik tombol **Releases** &rarr; **Create a new release** (atau **Draft a new release**).
-3. **Choose a tag**: Pilih/ketik `v1.0.0`.
-4. **Target**: Pilih branch `main`.
-5. **Release title**: `v1.0.0 - Master WebAdmin Suite Production Ready`.
-6. **Description**: Tempelkan catatan rilis ringkas berikut:
-   ```markdown
-   ## 🚀 Master WebAdmin v1.0.0 - Official Release
-
-   Kami dengan bangga mengumumkan rilis resmi **v1.0.0** dari Master WebAdmin Enterprise Suite!
-
-   ### 🌟 Key Highlights:
-   - **Framework**: Laravel 12.0 & Metronic 8.3.2 Integration.
-   - **Architecture**: 100% Structure Mirroring 4-Layer MVC.
-   - **Security**: Rate Limiting (Throttle Middleware), CSRF, XSS, & Session Idle Timeout.
-   - **Audit Trail**: Multi-Tab Audit Trail & Activity Log (`spatie/laravel-activitylog`).
-   - **Automated Backup**: Scheduled Database Backup Engine (`php artisan backup:db`).
-   - **RBAC**: Spatie Permission, Fine-Grained Matrices, & Impersonation.
-   - **Usability**: 100% Bilingual (`en`/`id`) & Contextual Operational Guide Modals.
-   ```
-7. Klik tombol hijau **Publish release**.
-
-<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
-
----
-
-<a id="topics-repositori"></a>
-## 🏷️ Pengaturan Topics / Tags Repositori GitHub
-
-Agar repositori Anda mudah ditemukan dan terlihat profesional di GitHub, tambahkan **Topics** berikut di bagian kanan atas halaman utama repositori GitHub (tombol ⚙️ samping *About*):
-
-`laravel12` `metronic8` `admin-panel` `rbac` `spatie-permissions` `activity-log` `audit-trail` `scheduled-backup` `rate-limiting` `bootstrap5` `dashboard-template` `bilingual`
 
 <div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
 
