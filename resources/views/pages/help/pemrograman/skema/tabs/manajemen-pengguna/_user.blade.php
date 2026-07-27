@@ -122,9 +122,9 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-time fs-3 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>Inactivity Listener Script</h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-time fs-3 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>Inactivity Listener & Lock Screen Overlay</h5>
                         <p class="fs-7 text-gray-600 mb-0">
-                            Partial <code>_idle-timer.blade.php</code> is mounted globally on layout to track user events (mousemove, keydown, scroll). If 15 minutes pass without activity, it automatically submits <code>POST /logout</code> with parameter <code>reason=idle</code>.
+                            Partials <code>_idle-timer.blade.php</code> & <code>_lock-screen-modal.blade.php</code> are mounted globally to track user activity. If 15 minutes pass without activity or if user triggers <em>Lock Screen</em> from the avatar dropdown menu, the screen locks instantly with an interactive password verification overlay (<code>POST /lock-screen/unlock</code>).
                         </p>
                     </div>
                 </div>
@@ -475,9 +475,9 @@ public function getAvatarUrlAttribute()
             <div class="row g-4 mt-1">
                 <div class="col-md-6">
                     <div class="p-3 bg-light rounded">
-                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-time fs-3 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>Skrip Listener Inaktivitas</h5>
+                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-time fs-3 text-danger me-2"><span class="path1"></span><span class="path2"></span></i>Skrip Listener Inaktivitas & Overlay Kunci Layar</h5>
                         <p class="fs-7 text-gray-600 mb-0">
-                            Partial <code>_idle-timer.blade.php</code> dipasang secara global pada layout untuk memantau interaksi (mousemove, keydown, scroll). Jika 15 menit tanpa aktivitas, otomatis mengirim <code>POST /logout</code> dengan parameter <code>reason=idle</code>.
+                            Partial <code>_idle-timer.blade.php</code> & <code>_lock-screen-modal.blade.php</code> dipasang secara global pada layout untuk memantau interaksi. Jika 15 menit tanpa aktivitas atau pengguna memicu <em>Kunci Layar</em> dari menu dropdown avatar, layar terkunci seketika dengan modal overlay verifikasi password interaktif (<code>POST /lock-screen/unlock</code>).
                         </p>
                     </div>
                 </div>

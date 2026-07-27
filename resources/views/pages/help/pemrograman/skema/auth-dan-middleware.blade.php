@@ -157,9 +157,9 @@ $middleware->web(append: [
                                 </div>
                                 <div class="col-md-4">
                                     <div class="p-3 bg-light rounded border border-gray-300">
-                                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-lock-2 fs-5 text-danger me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> 2. 15-Min Idle Timeout</h5>
+                                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-lock-2 fs-5 text-danger me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> 2. 15-Min Idle & Lock Screen</h5>
                                         <p class="fs-7 text-gray-600 mb-0">
-                                            <code>_idle-timer.blade.php</code> monitors 15 minutes of user inactivity, automatically executing <code>POST /logout</code> (with <code>reason=idle</code>) and redirecting to <code>/login</code>.
+                                            <code>_idle-timer.blade.php</code> & <code>_lock-screen-modal.blade.php</code> monitor 15 minutes of inactivity or manual Lock Screen triggers from user avatar dropdown, presenting a fullscreen glassmorphic Lock Screen modal with AJAX password verification (<code>POST /lock-screen/unlock</code>).
                                         </p>
                                     </div>
                                 </div>
@@ -383,9 +383,9 @@ $middleware->web(append: [
                                 </div>
                                 <div class="col-md-4">
                                     <div class="p-3 bg-light rounded border border-gray-300">
-                                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-lock-2 fs-5 text-danger me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> 2. Idle Timeout 15 Menit</h5>
+                                        <h5 class="fw-bold fs-6 text-gray-800"><i class="ki-duotone ki-lock-2 fs-5 text-danger me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i> 2. Idle 15 Mins & Kunci Layar (Lock Screen)</h5>
                                         <p class="fs-7 text-gray-600 mb-0">
-                                            <code>_idle-timer.blade.php</code> memantau inaktivitas 15 menit, lalu mengeksekusi <code>POST /logout</code> (dengan <code>reason=idle</code>) dan mengarahkan ke <code>/login</code>.
+                                            <code>_idle-timer.blade.php</code> & <code>_lock-screen-modal.blade.php</code> memantau inaktivitas 15 menit atau pemicuan Kunci Layar mandiri dari dropdown avatar akun, menampilkan modal overlay Lock Screen fullscreen beraksen glassmorphism dengan verifikasi password AJAX (<code>POST /lock-screen/unlock</code>).
                                         </p>
                                     </div>
                                 </div>

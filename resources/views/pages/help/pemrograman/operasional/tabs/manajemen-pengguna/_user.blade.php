@@ -101,16 +101,16 @@
             <h4><i class="ki-duotone ki-timer fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i> Idle Timeout Code Flow (15 Mins)</h4>
             <div class="schema-flow">
                 <div class="schema-step">
-                    <strong>Client-Side Listener:</strong> Partial <code>resources/views/partials/_idle-timer.blade.php</code> mounted globally on layout. Monitors user events (<code>mousemove</code>, <code>keydown</code>, <code>scroll</code>, <code>click</code>).
+                    <strong>Client-Side Listener & Trigger:</strong> Partials <code>_idle-timer.blade.php</code> & <code>_lock-screen-modal.blade.php</code> mounted globally. Monitors user events (<code>mousemove</code>, <code>keydown</code>, <code>scroll</code>, <code>click</code>) or manual trigger via user avatar dropdown (<code>window.triggerLockScreen()</code>).
                 </div>
                 <div class="schema-step">
                     <strong>Timeout Limit (15 Mins):</strong> Sets inactivity timer to <strong>15 minutes (900,000 ms)</strong>. Any user activity resets timer back to zero.
                 </div>
                 <div class="schema-step">
-                    <strong>Auto-Logout Execution:</strong> If 15 minutes expire without activity, script automatically submits <code>POST /logout</code> with hidden parameter <code>reason=idle</code>.
+                    <strong>Lock Screen Overlay Execution:</strong> If 15 minutes expire without activity or manual trigger occurs, script presents a glassmorphic fullscreen Lock Screen modal.
                 </div>
                 <div class="schema-step">
-                    <strong>Redirection & Alert:</strong> <code>AuthenticatedSessionController@destroy</code> catches parameter <code>reason=idle</code>, clears session, and redirects to <code>login</code> with status warning.
+                    <strong>AJAX Password Unlock:</strong> Submits password to <code>POST /lock-screen/unlock</code> (processed by <code>LockScreenController@unlock</code> & <code>LockScreenRequest</code> with rate limiting). Valid password unlocks screen cleanly without losing session state.
                 </div>
             </div>
         </div>
@@ -410,16 +410,16 @@
             <h4><i class="ki-duotone ki-timer fs-2 text-danger me-2"><span class="path1"></span><span class="path2"></span></i> Alur Pemrograman Idle Timeout (15 Menit)</h4>
             <div class="schema-flow">
                 <div class="schema-step">
-                    <strong>Client-Side Listener:</strong> Partial <code>resources/views/partials/_idle-timer.blade.php</code> dipasang secara global pada layout. Listener memantau interaksi user (<code>mousemove</code>, <code>keydown</code>, <code>scroll</code>, <code>click</code>).
+                    <strong>Client-Side Listener & Trigger:</strong> Partial <code>resources/views/partials/_idle-timer.blade.php</code> & <code>_lock-screen-modal.blade.php</code> dipasang secara global pada layout. Listener memantau interaksi user (<code>mousemove</code>, <code>keydown</code>, <code>scroll</code>, <code>click</code>) atau pemicuan mandiri via dropdown avatar (<code>window.triggerLockScreen()</code>).
                 </div>
                 <div class="schema-step">
                     <strong>Batas Waktu (15 Mins):</strong> Pemantau menyetel timer inaktivitas selama <strong>15 menit (900.000 ms)</strong>. Setiap ada aktivitas user, timer di-reset kembali dari awal.
                 </div>
                 <div class="schema-step">
-                    <strong>Eksekusi Auto-Logout:</strong> Jika timer 15 menit habis tanpa aktivitas, skrip otomatis mengirimkan request <code>POST /logout</code> dengan parameter hidden <code>reason=idle</code>.
+                    <strong>Eksekusi Overlay Kunci Layar:</strong> Jika timer 15 menit habis tanpa aktivitas atau tombol Kunci Layar diklik, skrip menampilkan modal overlay Lock Screen fullscreen beraksen glassmorphism.
                 </div>
                 <div class="schema-step">
-                    <strong>Redirection & Alert:</strong> <code>AuthenticatedSessionController@destroy</code> menangkap parameter <code>reason=idle</code>, menghapus sesi, lalu melakukan <code>redirect()->route('login')->with('status', '...')</code>.
+                    <strong>Buka Kunci Password AJAX:</strong> Mengirimkan password ke endpoint <code>POST /lock-screen/unlock</code> (diproses oleh <code>LockScreenController@unlock</code> & <code>LockScreenRequest</code> dilindungi rate-limiting). Password yang benar akan membuka kembali layar tanpa kehilangan state sesi.
                 </div>
             </div>
         </div>
