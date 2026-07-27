@@ -1,12 +1,13 @@
 # 🚀 Master WebAdmin - Laravel 12 & Metronic 8.3.2
 
+[![Version](https://img.shields.io/badge/Version-v1.0.1-009688?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AbdoelMadjid/master-webadmin/releases)
 [![Laravel](https://img.shields.io/badge/Laravel-12.0-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
 [![PHP](https://img.shields.io/badge/PHP-^8.2-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
 [![Metronic](https://img.shields.io/badge/Metronic-8.3.2-009EF7?style=for-the-badge&logo=bootstrap&logoColor=white)](https://keenthemes.com/metronic)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Production--Ready-brightgreen?style=for-the-badge)](https://github.com/AbdoelMadjid/master-webadmin)
 
-Sistem Dashboard Administrasi Enterprise tingkat tinggi berbasis **Laravel 12.0** dan Template Premium **Metronic 8.3.2**. Dirancang menggunakan metodologi **Structure Mirroring** (keselarasan 4-layer MVC), arsitektur **RBAC Granular**, **Audit Trail Mutasi Data**, **Scheduled Database Backup**, dan **Proteksi Rate Limiting**.
+Sistem Dashboard Administrasi Enterprise tingkat tinggi berbasis **Laravel 12.0** dan Template Premium **Metronic 8.3.2** (Versi Rilis: **v1.0.1**). Dirancang menggunakan metodologi **Structure Mirroring** (keselarasan 4-layer MVC), arsitektur **RBAC Granular**, **Audit Trail Mutasi Data**, **Scheduled Database Backup**, **Proteksi Rate Limiting**, dan **Kunci Layar (Lock Screen)**.
 
 ---
 
