@@ -10,6 +10,7 @@ Sistem Dashboard Administrasi Enterprise tingkat tinggi berbasis **Laravel 12.0*
 
 ---
 
+<a id="table-of-contents"></a>
 ## 📋 Table of Contents
 
 - [⚙️ Persyaratan Sistem](#persyaratan-sistem)
@@ -31,6 +32,8 @@ Sistem Dashboard Administrasi Enterprise tingkat tinggi berbasis **Laravel 12.0*
 - **Composer**: `>= 2.x`
 - **Node.js**: `>= 18.x` & **NPM**
 - **Database**: MySQL `>= 8.0` / MariaDB `>= 10.4`
+
+<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
 
 ---
 
@@ -76,6 +79,8 @@ Berikut adalah rekam jejak pengembangan sistem dari awal hingga tahap **Finalisa
   - [x] **Modal Petunjuk Operasional** kontekstual (4-Card Box Sectioning) pada setiap halaman modul.
   - [x] Modul Dokumentasi Skema & Operasional Pemrograman internal (`/help/pemrograman/...`).
 
+<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
+
 ---
 
 <a id="fitur-utama"></a>
@@ -87,6 +92,8 @@ Berikut adalah rekam jejak pengembangan sistem dari awal hingga tahap **Finalisa
 4. **Rate Limiting Protection**: Mencegah serangan brute-force dan eksploitasi memori pada endpoint sensitif.
 5. **100% Bilingual Support**: Pengalihan bahasa instan (Inggris & Indonesia) tanpa teks tercampur.
 6. **Petunjuk Operasional Modal**: Panduan penggunaan terintegrasi di setiap halaman modul aplikasi.
+
+<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
 
 ---
 
@@ -125,6 +132,8 @@ npm run dev
 php artisan serve
 ```
 
+<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
+
 ---
 
 <a id="akun-login"></a>
@@ -135,6 +144,8 @@ php artisan serve
 | **Super Admin / Master** | `master@admin.com` | `password` | Akses Penuh Seluruh Modul & Sistem |
 | **Admin** | `admin@admin.com` | `password` | Akses Modul Manajerial & Fitur Utama |
 | **User** | `user@admin.com` | `password` | Akses Modul Pengguna Biasa & Profil |
+
+<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
 
 ---
 
@@ -154,6 +165,8 @@ php artisan schedule:run
 ```cron
 * * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
 ```
+
+<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
 
 ---
 
@@ -191,6 +204,8 @@ git push origin v1.0.0
    ```
 7. Klik tombol hijau **Publish release**.
 
+<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
+
 ---
 
 <a id="topics-repositori"></a>
@@ -200,9 +215,13 @@ Agar repositori Anda mudah ditemukan dan terlihat profesional di GitHub, tambahk
 
 `laravel12` `metronic8` `admin-panel` `rbac` `spatie-permissions` `activity-log` `audit-trail` `scheduled-backup` `rate-limiting` `bootstrap5` `dashboard-template` `bilingual`
 
+<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
+
 ---
 
 <a id="lisensi"></a>
 ## 📄 Lisensi
 
 Proyek ini dilindungi di bawah lisensi [MIT License](LICENSE).
+
+<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
