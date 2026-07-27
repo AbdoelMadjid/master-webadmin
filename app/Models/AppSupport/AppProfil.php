@@ -5,10 +5,11 @@ namespace App\Models\AppSupport;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use App\Traits\LogsActivityTrait;
 
 class AppProfil extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivityTrait;
 
     protected $table = 'app_profils';
     protected $guarded = ['id'];

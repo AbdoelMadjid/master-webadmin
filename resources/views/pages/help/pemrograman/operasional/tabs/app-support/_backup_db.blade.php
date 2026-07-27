@@ -44,6 +44,28 @@
             </ul>
         </div>
     </div>
+
+    <div class="schema-col-12 mt-4">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-time fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Automated Scheduled Backup CLI & Server Setup</h4>
+            <div class="row g-4 mt-1">
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <h5 class="fw-bold fs-6 text-gray-800">CLI Execution</h5>
+                        <p class="fs-7 text-gray-600 mb-2">Run manually via terminal or deployment scripts:</p>
+                        <code class="d-block p-2 bg-dark text-white rounded fs-7">php artisan backup:db</code>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <h5 class="fw-bold fs-6 text-gray-800">Server Cron Setup</h5>
+                        <p class="fs-7 text-gray-600 mb-2">Add to server crontab to enable automated daily execution at 01:00 AM:</p>
+                        <code class="d-block p-2 bg-dark text-white rounded fs-7">* * * * * cd /path-to-project && php artisan schedule:run >> /dev/null 2>&1</code>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @else
 <div class="schema-grid">
@@ -89,6 +111,28 @@
                 <li><strong>Prosedur Restorasi Aman:</strong> Melakukan pemulihan data dari file SQL pilihan saat terjadi kesalahan atau bencana kehilangan data (Disaster Recovery).</li>
                 <li><strong>Pembersihan Rutin:</strong> Menghapus berkas cadangan kadaluarsa secara teratur untuk menghemat kapasitas ruang penyimpanan server.</li>
             </ul>
+        </div>
+    </div>
+
+    <div class="schema-col-12 mt-4">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-time fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Eksekusi Otomatis Scheduled Backup CLI & Server Setup</h4>
+            <div class="row g-4 mt-1">
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <h5 class="fw-bold fs-6 text-gray-800">Eksekusi CLI</h5>
+                        <p class="fs-7 text-gray-600 mb-2">Jalankan secara manual via terminal atau skrip otomatisasi:</p>
+                        <code class="d-block p-2 bg-dark text-white rounded fs-7">php artisan backup:db</code>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <h5 class="fw-bold fs-6 text-gray-800">Pengaturan Server Cron</h5>
+                        <p class="fs-7 text-gray-600 mb-2">Tambahkan ke crontab server untuk menjalankan eksekusi otomatis harian pkl 01:00 AM:</p>
+                        <code class="d-block p-2 bg-dark text-white rounded fs-7">* * * * * cd /path-to-project && php artisan schedule:run >> /dev/null 2>&1</code>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

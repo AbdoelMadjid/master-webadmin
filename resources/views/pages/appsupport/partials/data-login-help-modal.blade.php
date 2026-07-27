@@ -1,4 +1,4 @@
-<!--begin::Modal - Petunjuk Operasional Audit Trail Data Login-->
+<!--begin::Modal - Petunjuk Operasional Audit Trail Data Login & Mutation Activity Log-->
 <div class="modal fade" id="kt_modal_data_login_help" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered mw-850px">
         <div class="modal-content rounded">
@@ -14,16 +14,17 @@
             <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
                 <div class="mb-10 text-center">
                     <div class="symbol symbol-60px symbol-circle bg-light-danger mb-4 p-3">
-                        <i class="ki-duotone ki-entrance-left fs-3x text-danger">
+                        <i class="ki-duotone ki-shield-search fs-3x text-danger">
                             <span class="path1"></span>
                             <span class="path2"></span>
+                            <span class="path3"></span>
                         </i>
                     </div>
                     <h1 class="mb-3 text-gray-900 fw-bold">
-                        {{ app()->getLocale() == 'en' ? 'Operational Guide: User Login Audit Trail' : 'Petunjuk Operasional: Audit Trail Data Login' }}
+                        {{ app()->getLocale() == 'en' ? 'Operational Guide: System Audit Trail & Activity Log' : 'Petunjuk Operasional: Audit Trail & Activity Log System' }}
                     </h1>
                     <div class="text-muted fw-semibold fs-5">
-                        {{ app()->getLocale() == 'en' ? 'User login session auditing, IP security compliance, and geolocation mapping' : 'Panduan operasional audit sesi login user, keamanan IP, dan pemetaan geolokasi GPS' }}
+                        {{ app()->getLocale() == 'en' ? 'User login session auditing, IP security compliance, data mutation tracking, and change inspect diff' : 'Panduan operasional audit sesi login user, kepatuhan keamanan IP, pelacakan mutasi data, dan inspeksi perubahan' }}
                     </div>
                 </div>
 
@@ -34,23 +35,23 @@
                         <div class="card schema-card bg-light-primary border border-primary p-6 rounded">
                             <h4 class="fw-bold text-primary mb-3 d-flex align-items-center">
                                 <i class="ki-duotone ki-abstract-26 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
-                                System Overview & Security Audit
+                                System Overview & Audit Architecture
                             </h4>
                             <p class="fs-6 text-gray-700 m-0">
-                                The <strong>User Login Audit Trail Module</strong> records every user login session in real-time. It captures user account identity, timestamps, IP address, device browser user agent, login reward points, and GPS geolocation coordinates for security compliance.
+                                The <strong>System Audit Trail & Activity Log Module</strong> provides comprehensive 360-degree security monitoring. It tracks both user login authentication sessions (IP, geolocation, device agent) and database model data mutations (Create, Update, Delete) with detailed attribute change diffs.
                             </p>
                         </div>
 
                         <!--Section 2: Architecture-->
                         <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
                             <h4 class="fw-bold text-gray-900 mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-element-11 fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-                                Recorded Session Data Metrics
+                                <i class="ki-duotone ki-layers fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                Multi-Tab Modules & Data Metrics
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
-                                <li class="mb-2"><strong>User Account & Role:</strong> Identifies which account authenticated and its assigned role permissions.</li>
-                                <li class="mb-2"><strong>IP Address & Device Agent:</strong> Captures client network IP address and browser user-agent string.</li>
-                                <li><strong>Geolocation Coordinates:</strong> Captures latitude/longitude coordinates to render interactive Google Maps locations.</li>
+                                <li class="mb-2"><strong>User Login Sessions Tab:</strong> Records real-time user authentications, IP addresses, device user-agents, login counts, and Google Maps geolocation coordinates.</li>
+                                <li class="mb-2"><strong>Data Mutation Activity Log Tab:</strong> Records model data changes (created, updated, deleted) executed by users across the application.</li>
+                                <li><strong>Property Inspect Diff Modal:</strong> Provides side-by-side comparison of <code>Old Values</code> vs <code>New Values</code> for every record mutation.</li>
                             </ul>
                         </div>
 
@@ -61,10 +62,10 @@
                                 Step-by-Step Operational Workflow
                             </h4>
                             <ol class="fs-6 text-gray-700 m-0 ps-5">
-                                <li class="mb-2"><strong>Audit Login Activities:</strong> Review login logs, timestamps, user account roles, and login statistics.</li>
-                                <li class="mb-2"><strong>View Geolocation Map:</strong> Click <span class="badge badge-light-info text-info">Maps</span> on any row to view captured GPS coordinates on Google Maps.</li>
-                                <li class="mb-2"><strong>Delete Single Log:</strong> Click <span class="badge badge-light-danger text-danger">Delete</span> to remove a specific audit trail record.</li>
-                                <li><strong>Purge All Logs:</strong> Click <span class="badge badge-danger">Clear All Logs</span> to purge historical audit records from database.</li>
+                                <li class="mb-2"><strong>Switch Audit Tabs:</strong> Navigate between <span class="badge badge-light-primary text-primary">Login Sessions</span> and <span class="badge badge-light-info text-info">Data Mutation Activity</span>.</li>
+                                <li class="mb-2"><strong>Inspect Data Mutations:</strong> Click <span class="badge badge-light-primary text-primary">View Changes</span> on any activity row to inspect modified database attributes.</li>
+                                <li class="mb-2"><strong>Filter Activity Logs:</strong> Filter logs by Action event (Created, Updated, Deleted) or search by Model name/Causer user.</li>
+                                <li><strong>Purge Audit Trail:</strong> Click <span class="badge badge-danger">Clear All Logs</span> to purge historical audit records when required by maintenance policy.</li>
                             </ol>
                         </div>
 
@@ -72,12 +73,12 @@
                         <div class="card schema-card bg-light-warning border border-warning p-6 rounded">
                             <h4 class="fw-bold text-warning mb-3 d-flex align-items-center">
                                 <i class="ki-duotone ki-shield-cross fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-                                System Safeguards & Rules
+                                System Safeguards & Security Rules
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
-                                <li class="mb-2"><strong>Security IP Monitoring:</strong> Monitor suspicious IP addresses or user agents to detect unauthorized login attempts.</li>
-                                <li class="mb-2"><strong>Irreversible Purge:</strong> Clearing all logs permanently deletes audit records and cannot be undone.</li>
-                                <li><strong>Historical User Retention:</strong> Deleted user accounts retain historical audit records marked as <code>Deleted User</code> for compliance tracing.</li>
+                                <li class="mb-2"><strong>Automatic Model Tracking:</strong> Key models (`User`, `AppProfil`, `AppFitur`, `Referensi`, `BackupDb`) automatically record mutation events via `LogsActivityTrait`.</li>
+                                <li class="mb-2"><strong>Security IP & Metadata Capture:</strong> Client IP, browser User-Agent, and full request URL are attached to every mutation record.</li>
+                                <li><strong>Irreversible Log Purge:</strong> Clearing audit logs permanently deletes audit records and cannot be undone.</li>
                             </ul>
                         </div>
                     </div>
@@ -88,23 +89,23 @@
                         <div class="card schema-card bg-light-primary border border-primary p-6 rounded">
                             <h4 class="fw-bold text-primary mb-3 d-flex align-items-center">
                                 <i class="ki-duotone ki-abstract-26 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
-                                Gambaran Umum & Audit Keamanan
+                                Gambaran Umum & Arsitektur Audit System
                             </h4>
                             <p class="fs-6 text-gray-700 m-0">
-                                <strong>Modul Audit Trail Data Login</strong> mencatat setiap sesi login pengguna secara real-time. Informasi yang direkam mencakup identitas user, stempel waktu, alamat IP, user agent perangkat/browser, perolehan poin login, serta koordinat geolokasi GPS untuk memenuhi audit keamanan sistem.
+                                <strong>Modul Audit Trail System & Activity Log</strong> menyediakan pengawasan keamanan 360 derajat. Modul ini mencatat sesi autentikasi login user (IP, geolokasi, user agent) serta mutasi perubahan data basis data (Create, Update, Delete) lengkap dengan perbandingan selisih atribut (*diff old vs new values*).
                             </p>
                         </div>
 
                         <!--Section 2: Architecture-->
                         <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
                             <h4 class="fw-bold text-gray-900 mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-element-11 fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-                                Metrik Data Sesi Login
+                                <i class="ki-duotone ki-layers fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                Modul Multi-Tab & Metrik Data
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
-                                <li class="mb-2"><strong>Akun & Role User:</strong> Mengidentifikasi akun yang melakukan autentikasi dan role hak aksesnya.</li>
-                                <li class="mb-2"><strong>Alamat IP & Device Agent:</strong> Mencatat alamat IP jaringan client dan string user-agent browser.</li>
-                                <li><strong>Koordinat Geolokasi:</strong> Merekam koordinat garis lintang/bujur untuk ditampilkan pada peta Google Maps.</li>
+                                <li class="mb-2"><strong>Tab Riwayat Sesi Login:</strong> Merekam login user real-time, alamat IP, user agent perangkat, frekuensi login, dan koordinat peta Google Maps.</li>
+                                <li class="mb-2"><strong>Tab Audit Mutasi Data:</strong> Merekam perubahan data model (dibuat, diperbarui, dihapus) yang dilakukan oleh pengguna di seluruh sistem.</li>
+                                <li><strong>Modal Penilik Perubahan (Diff):</strong> Menyediakan perbandingan berdampingan nilai lama (<code>Old Values</code>) vs nilai baru (<code>New Values</code>) per mutasi data.</li>
                             </ul>
                         </div>
 
@@ -115,10 +116,10 @@
                                 Alur Operasional Pengelolaan Audit
                             </h4>
                             <ol class="fs-6 text-gray-700 m-0 ps-5">
-                                <li class="mb-2"><strong>Audit Riwayat Login:</strong> Periksa aktivitas login terbaru, stempel waktu, role akun user, dan statistik login.</li>
-                                <li class="mb-2"><strong>Buka Peta Geolokasi:</strong> Klik tombol <span class="badge badge-light-info text-info">Maps</span> pada baris catatan untuk membuka lokasi koordinat GPS di Google Maps.</li>
-                                <li class="mb-2"><strong>Hapus Log Tunggal:</strong> Klik tombol <span class="badge badge-light-danger text-danger">Hapus</span> untuk menghapus satu baris riwayat audit.</li>
-                                <li><strong>Kosongkan Semua Log:</strong> Klik tombol <span class="badge badge-danger">Hapus Semua Log</span> untuk menghapus seluruh riwayat audit dari basis data.</li>
+                                <li class="mb-2"><strong>Pindah Tab Audit:</strong> Navigasi antara tab <span class="badge badge-light-primary text-primary">Sesi Login</span> dan <span class="badge badge-light-info text-info">Mutasi Data</span>.</li>
+                                <li class="mb-2"><strong>Inspeksi Perubahan Data:</strong> Klik tombol <span class="badge badge-light-primary text-primary">Lihat Perubahan</span> pada baris aktivitas untuk memeriksa detail atribut basis data yang diubah.</li>
+                                <li class="mb-2"><strong>Filter Activity Log:</strong> Saring log berdasarkan aksi event (Created, Updated, Deleted) atau cari berdasarkan nama Model/User pelaksana.</li>
+                                <li><strong>Pembersihan Audit Trail:</strong> Klik <span class="badge badge-danger">Hapus Semua Log</span> untuk mengosongkan riwayat audit saat pemeliharaan sistem.</li>
                             </ol>
                         </div>
 
@@ -126,12 +127,12 @@
                         <div class="card schema-card bg-light-warning border border-warning p-6 rounded">
                             <h4 class="fw-bold text-warning mb-3 d-flex align-items-center">
                                 <i class="ki-duotone ki-shield-cross fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-                                Aturan & Proteksi Sistem
+                                Aturan & Proteksi Keamanan Sistem
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
-                                <li class="mb-2"><strong>Audit Keamanan IP:</strong> Pantau alamat IP atau browser mencurigakan untuk mendeteksi upaya login tanpa wewenang.</li>
-                                <li class="mb-2"><strong>Pembersihan Permanen:</strong> Mengosongkan seluruh log akan menghapus catatan audit secara permanen.</li>
-                                <li><strong>Retensi Data User Terhapus:</strong> Akun user yang telah dihapus tetap menyimpan riwayat audit dengan penanda <code>Pengguna Terhapus</code>.</li>
+                                <li class="mb-2"><strong>Pelacakan Otomatis Model:</strong> Model utama (`User`, `AppProfil`, `AppFitur`, `Referensi`, `BackupDb`) secara otomatis merekam event mutasi via `LogsActivityTrait`.</li>
+                                <li class="mb-2"><strong>Penangkapan IP & Metadata:</strong> Alamat IP client, browser User-Agent, dan URL request dilampirkan pada setiap catatan mutasi.</li>
+                                <li><strong>Pembersihan Permanen:</strong> Mengosongkan log akan menghapus catatan audit secara permanen dari basis data.</li>
                             </ul>
                         </div>
                     </div>
@@ -147,4 +148,4 @@
         </div>
     </div>
 </div>
-<!--end::Modal - Petunjuk Operasional Audit Trail Data Login-->
+<!--end::Modal - Petunjuk Operasional Audit Trail Data Login & Mutation Activity Log-->

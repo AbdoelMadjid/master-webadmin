@@ -97,6 +97,20 @@ backup-database-2026-07-23-113000.sql</code></pre>
             </ul>
         </div>
     </div>
+
+    <!--====================================================-->
+    <!-- 5. AUTOMATED SCHEDULED BACKUP -->
+    <!--====================================================-->
+    <div class="schema-col-12 mt-4">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-time fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Automated Scheduled Backup CLI</h4>
+            <ul class="schema-list">
+                <li><strong>Artisan CLI Command:</strong> <code>php artisan backup:db {--name=scheduled_backup} {--type=full}</code></li>
+                <li><strong>Laravel Scheduler:</strong> Registered in <code>routes/console.php</code> to run daily at 01:00 AM (<code>Schedule::command('backup:db')->dailyAt('01:00')</code>).</li>
+                <li><strong>Log Storage:</strong> Logs output to <code>storage/logs/backup-schedule.log</code> and application logs.</li>
+            </ul>
+        </div>
+    </div>
 </div>
 @else
 <div class="schema-grid">
@@ -194,6 +208,20 @@ backup-database-2026-07-23-113000.sql</code></pre>
                 <li><strong>Pre-Migration Backup:</strong> Disarankan untuk memicu Backup DB sebelum melakukan perubahan skema database besar atau pembaruan sistem.</li>
                 <li><strong>Restriksi Akses:</strong> Hanya user berotoritas Admin yang dapat melihat, mengunduh, memulihkan, atau menghapus berkas cadangan database.</li>
                 <li><strong>Notifikasi SweetAlert2:</strong> Seluruh eksekusi (Backup, Restore, Delete) dilengkapi dengan konfirmasi dialog dan feedback SweetAlert2.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!--====================================================-->
+    <!-- 5. AUTOMATED SCHEDULED BACKUP -->
+    <!--====================================================-->
+    <div class="schema-col-12 mt-4">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-time fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i> Automated Scheduled Backup CLI</h4>
+            <ul class="schema-list">
+                <li><strong>Artisan CLI Command:</strong> <code>php artisan backup:db {--name=scheduled_backup} {--type=full}</code></li>
+                <li><strong>Laravel Scheduler:</strong> Terdaftar di <code>routes/console.php</code> untuk berjalan otomatis secara harian pkl 01:00 AM (<code>Schedule::command('backup:db')->dailyAt('01:00')</code>).</li>
+                <li><strong>Log Penyimpanan:</strong> Output pencatatan dikirim ke <code>storage/logs/backup-schedule.log</code> serta Laravel Application Log.</li>
             </ul>
         </div>
     </div>

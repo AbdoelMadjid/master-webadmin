@@ -90,6 +90,26 @@ public function user() {
             </div>
         </div>
     </div>
+
+    <!--====================================================-->
+    <!-- 4. DATA MUTATION AUDIT TRAIL (SPATIE ACTIVITYLOG) -->
+    <!--====================================================-->
+    <div class="schema-col-12 mt-4">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-layers fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Data Mutation Audit Trail & Model Logs</h4>
+            <div class="schema-flow">
+                <div class="schema-step">
+                    <strong>Package & Trait:</strong> <code>spatie/laravel-activitylog</code> via <code>App\Traits\LogsActivityTrait</code> attached to models (`User`, `AppProfil`, `AppFitur`, `Referensi`, `BackupDb`).
+                </div>
+                <div class="schema-step">
+                    <strong>Logged Attributes & Metadata:</strong> Tracks `created`, `updated`, and `deleted` events along with causer user ID, IP address, user-agent, and full request URL.
+                </div>
+                <div class="schema-step">
+                    <strong>Inspect Diff Modal:</strong> Provides side-by-side comparison of <code>Old Values</code> vs <code>New Values</code> via interactive JSON inspector modal.
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @else
 <div class="schema-grid">
@@ -180,6 +200,26 @@ public function user() {
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+
+    <!--====================================================-->
+    <!-- 4. DATA MUTATION AUDIT TRAIL (SPATIE ACTIVITYLOG) -->
+    <!--====================================================-->
+    <div class="schema-col-12 mt-4">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-layers fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Audit Mutasi Data & Model Activity Log</h4>
+            <div class="schema-flow">
+                <div class="schema-step">
+                    <strong>Paket & Trait:</strong> <code>spatie/laravel-activitylog</code> melalui <code>App\Traits\LogsActivityTrait</code> yang terpasang pada model (`User`, `AppProfil`, `AppFitur`, `Referensi`, `BackupDb`).
+                </div>
+                <div class="schema-step">
+                    <strong>Atribut Mutasi & Metadata:</strong> Merekam event `created`, `updated`, dan `deleted` lengkap dengan user causer, alamat IP, user-agent, serta URL request.
+                </div>
+                <div class="schema-step">
+                    <strong>Modal Penilik Perubahan (Diff):</strong> Menampilkan perbandingan <code>Old Values</code> vs <code>New Values</code> melalui modal penilik JSON interaktif.
+                </div>
             </div>
         </div>
     </div>

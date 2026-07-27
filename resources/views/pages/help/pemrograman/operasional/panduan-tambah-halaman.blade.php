@@ -222,6 +222,36 @@ php artisan route:clear</code></pre>
                             </div>
                         </div>
                     </div>
+
+                    <!--====================================================-->
+                    <!-- 10. AUTOMATIC AUDIT TRAIL & ACTIVITY LOG INTEGRATION -->
+                    <!--====================================================-->
+                    <div class="schema-col-12 mt-4">
+                        <div class="schema-card">
+                            <h4 class="d-flex align-items-center mb-3">
+                                <i class="ki-duotone ki-shield-search fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                Automatic Audit Trail & Activity Logging Integration
+                            </h4>
+                            <p class="fs-7 text-gray-700 mb-3">
+                                When creating a new page or database feature model, attach <code>App\Traits\LogsActivityTrait</code> to enable automatic mutation tracking (Create, Update, Delete with attribute diffs) in the Audit Trail.
+                            </p>
+                            <pre class="schema-code"><code>// Model: App\Models\SubFolder\NewFeature.php
+namespace App\Models\SubFolder;
+
+use Illuminate\Database\Eloquent\Model;
+use App\Traits\LogsActivityTrait; // 1. Import Trait
+
+class NewFeature extends Model
+{
+    use LogsActivityTrait; // 2. Attach Trait
+
+    protected $fillable = ['name', 'status'];
+}</code></pre>
+                            <div class="schema-note mt-3">
+                                Once attached, all <code>Create</code>, <code>Update</code> (with old vs new values diff), and <code>Delete</code> actions will automatically be captured and displayed in the <strong>Audit Trail & Activity Log</strong> module (<code>/appsupport/data-login?tab=activity-log</code>).
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 @else
                 <!--====================================================-->
@@ -404,6 +434,36 @@ php artisan route:clear</code></pre>
                                 <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_7') !!}</div>
                                 <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_8') !!}</div>
                                 <div class="schema-step">{!! __('help.pages.operasional.panduan-tambah-halaman.step_9') !!}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--====================================================-->
+                    <!-- 10. INTEGRASI OTOMATIS AUDIT TRAIL & ACTIVITY LOG -->
+                    <!--====================================================-->
+                    <div class="schema-col-12 mt-4">
+                        <div class="schema-card">
+                            <h4 class="d-flex align-items-center mb-3">
+                                <i class="ki-duotone ki-shield-search fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                Integrasi Otomatis Audit Trail & Activity Log
+                            </h4>
+                            <p class="fs-7 text-gray-700 mb-3">
+                                Saat membuat halaman atau model fitur basis data baru, pasang <code>App\Traits\LogsActivityTrait</code> untuk mengaktifkan perekaman mutasi otomatis (Tambah, Edit, Hapus beserta perbandingan selisih atribut) pada Audit Trail.
+                            </p>
+                            <pre class="schema-code"><code>// Model: App\Models\SubFolder\FiturBaru.php
+namespace App\Models\SubFolder;
+
+use Illuminate\Database\Eloquent\Model;
+use App\Traits\LogsActivityTrait; // 1. Import Trait
+
+class FiturBaru extends Model
+{
+    use LogsActivityTrait; // 2. Pasang Trait
+
+    protected $fillable = ['nama', 'status'];
+}</code></pre>
+                            <div class="schema-note mt-3">
+                                Setelah dipasang, seluruh aksi <code>Tambah</code>, <code>Edit</code> (beserta perbandingan nilai lama vs baru), dan <code>Hapus</code> akan otomatis terekam dan muncul di modul <strong>Audit Trail & Activity Log</strong> (<code>/appsupport/data-login?tab=activity-log</code>).
                             </div>
                         </div>
                     </div>

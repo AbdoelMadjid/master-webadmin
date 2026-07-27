@@ -122,6 +122,8 @@ Route::middleware('auth')->group(function () {
     Route::get('appsupport/data-login', [DataLoginController::class, 'index'])->name('appsupport.data-login');
     Route::delete('appsupport/data-login/clear-all', [DataLoginController::class, 'clearAll'])->name('appsupport.data-login.clear-all');
     Route::delete('appsupport/data-login/{id}', [DataLoginController::class, 'destroy'])->name('appsupport.data-login.destroy');
+    Route::delete('appsupport/activity-log/clear-all', [DataLoginController::class, 'clearAllActivities'])->name('appsupport.activity-log.clear-all');
+    Route::delete('appsupport/activity-log/{id}', [DataLoginController::class, 'destroyActivity'])->name('appsupport.activity-log.destroy');
 
     // Referensi Routes
     Route::get('appsupport/referensi', [ReferensiController::class, 'index'])->name('appsupport.referensi');

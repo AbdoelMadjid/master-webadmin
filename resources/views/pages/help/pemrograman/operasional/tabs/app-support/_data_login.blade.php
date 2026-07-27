@@ -41,6 +41,30 @@
             </ul>
         </div>
     </div>
+
+    <div class="schema-col-12 mt-4">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-layers fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Data Mutation Activity Log Operations</h4>
+            <div class="row g-4 mt-1">
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <h5 class="fw-bold fs-6 text-gray-800">Multi-Tab Audit Navigation</h5>
+                        <p class="fs-7 text-gray-600 mb-2">Switch tabs via query params:</p>
+                        <ul class="schema-list fs-7 mb-0">
+                            <li><code>GET /appsupport/data-login?tab=login-log</code> (Session Logs)</li>
+                            <li><code>GET /appsupport/data-login?tab=activity-log</code> (Mutation Logs)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <h5 class="fw-bold fs-6 text-gray-800">Inspect Mutation Properties</h5>
+                        <p class="fs-7 text-gray-600 mb-2">Click <strong>View Changes</strong> icon on any activity log row to view side-by-side attributes diff.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @else
 <div class="schema-grid">
@@ -83,6 +107,30 @@
                 <li><strong>Widget Statistik Keaktifan:</strong> Menyajikan card ringkasan total login hari ini, total riwayat login sistem, dan user aktif.</li>
                 <li><strong>Pembersihan Log Pemeliharaan:</strong> Tombol *Hapus Semua Log* untuk membersihkan log audit secara berkala demi efisiensi database.</li>
             </ul>
+        </div>
+    </div>
+
+    <div class="schema-col-12 mt-4">
+        <div class="schema-card">
+            <h4><i class="ki-duotone ki-layers fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Operasional Audit Mutasi Data (Activity Log)</h4>
+            <div class="row g-4 mt-1">
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <h5 class="fw-bold fs-6 text-gray-800">Navigasi Multi-Tab Audit</h5>
+                        <p class="fs-7 text-gray-600 mb-2">Berpindah antar tab via parameter query:</p>
+                        <ul class="schema-list fs-7 mb-0">
+                            <li><code>GET /appsupport/data-login?tab=login-log</code> (Sesi Login)</li>
+                            <li><code>GET /appsupport/data-login?tab=activity-log</code> (Mutasi Data)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3 bg-light rounded">
+                        <h5 class="fw-bold fs-6 text-gray-800">Inspeksi Perubahan Atribut</h5>
+                        <p class="fs-7 text-gray-600 mb-2">Klik ikon <strong>Lihat Perubahan</strong> pada baris aktivitas untuk membuka modal penilik diff nilai lama vs baru.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

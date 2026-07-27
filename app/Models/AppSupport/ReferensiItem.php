@@ -4,10 +4,11 @@ namespace App\Models\AppSupport;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\LogsActivityTrait;
 
 class ReferensiItem extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivityTrait;
 
     protected $table = 'referensi_item';
 

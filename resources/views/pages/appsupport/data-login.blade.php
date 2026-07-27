@@ -12,7 +12,7 @@
             App Support
         @endslot
         @slot('li_2')
-            Data Login
+            Data Login & Activity Audit Log
         @endslot
     @endcomponent
 @endsection
@@ -26,14 +26,14 @@
             <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
                 <div class="d-flex align-items-center gap-3">
                     <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
-                        <i class="ki-duotone ki-entrance-left text-primary fs-2x"><span class="path1"></span><span class="path2"></span></i>
+                        <i class="ki-duotone ki-shield-search text-primary fs-2x"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                     </div>
                     <div>
                         <h2 class="text-gray-900 fw-bold fs-3 m-0">
-                            {{ app()->getLocale() == 'en' ? 'User Login Audit Trail & Session Logs' : 'Audit Trail & Riwayat Sesi Login User' }}
+                            {{ app()->getLocale() == 'en' ? 'System Audit Trail & Activity Log' : 'Audit Trail System & Activity Log Mutasi Data' }}
                         </h2>
                         <span class="text-muted fs-7">
-                            {{ app()->getLocale() == 'en' ? 'Audit real-time user login activity, IP addresses, browser user agents, and geolocation maps.' : 'Audit aktivitas login user real-time, alamat IP, user agent browser, dan peta geolokasi.' }}
+                            {{ app()->getLocale() == 'en' ? 'Audit real-time user login session logs, IP geolocation compliance, and model data mutation logs.' : 'Audit aktivitas login user real-time, lokasi IP, serta pelacakan mutasi data basis data.' }}
                         </span>
                     </div>
                 </div>
@@ -47,300 +47,37 @@
             </div>
             <!--end::Page Header & Guide Action-->
 
-            <!--begin::Summary Stat Cards-->
-            <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
-                <!--begin::Col - Total Login-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="card card-flush h-md-100">
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <div class="symbol symbol-50px me-5">
-                                    <span class="symbol-label bg-light-primary">
-                                        <i class="ki-duotone ki-entrance-left fs-2x text-primary">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                    </span>
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1" id="stat_total_logins">{{ number_format($totalLogins) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-6 mt-1">Total Sesi Login</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end::Col-->
+            <!--begin::Tab Navigation-->
+            <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-5 fw-bold mb-6 gap-2">
+                <li class="nav-item">
+                    <a class="nav-link text-active-primary pb-4 {{ $activeTab == 'login-log' ? 'active' : '' }}"
+                       href="{{ route('appsupport.data-login', ['tab' => 'login-log']) }}">
+                        <i class="ki-duotone ki-entrance-left fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+                        {{ app()->getLocale() == 'en' ? 'User Login Sessions' : 'Riwayat Sesi Login User' }}
+                        <span class="badge badge-light-primary ms-2">{{ number_format($totalLogins) }}</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-active-primary pb-4 {{ $activeTab == 'activity-log' ? 'active' : '' }}"
+                       href="{{ route('appsupport.data-login', ['tab' => 'activity-log']) }}">
+                        <i class="ki-duotone ki-shield-search fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        {{ app()->getLocale() == 'en' ? 'Data Mutation Activity Log' : 'Audit Mutasi Data (Activity Log)' }}
+                        <span class="badge badge-light-info ms-2">{{ number_format($totalMutations) }}</span>
+                    </a>
+                </li>
+            </ul>
+            <!--end::Tab Navigation-->
 
-                <!--begin::Col - Today Login-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="card card-flush h-md-100">
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <div class="symbol symbol-50px me-5">
-                                    <span class="symbol-label bg-light-info">
-                                        <i class="ki-duotone ki-calendar-tick fs-2x text-info">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                            <span class="path4"></span>
-                                            <span class="path5"></span>
-                                            <span class="path6"></span>
-                                        </i>
-                                    </span>
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1" id="stat_today_logins">{{ number_format($todayLogins) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-6 mt-1">Login Hari Ini</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end::Col-->
-
-                <!--begin::Col - Active Users 24h-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="card card-flush h-md-100">
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <div class="symbol symbol-50px me-5">
-                                    <span class="symbol-label bg-light-success">
-                                        <i class="ki-duotone ki-user-tick fs-2x text-success">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                        </i>
-                                    </span>
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1" id="stat_active_users">{{ number_format($activeUsers24h) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-6 mt-1">User Aktif (15 Mins)</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end::Col-->
-
-                <!--begin::Col - Total Points-->
-                <div class="col-md-3 col-sm-6">
-                    <div class="card card-flush h-md-100">
-                        <div class="card-body d-flex flex-column justify-content-between">
-                            <div class="d-flex align-items-center">
-                                <div class="symbol symbol-50px me-5">
-                                    <span class="symbol-label bg-light-warning">
-                                        <i class="ki-duotone ki-award fs-2x text-warning">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                        </i>
-                                    </span>
-                                </div>
-                                <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1" id="stat_total_points">{{ number_format($totalPoints) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-6 mt-1">Total Poin Login User</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end::Col-->
+            <!--begin::Tab Content Container-->
+            <div class="tab-content" id="kt_data_login_tab_content">
+                @include('pages.appsupport.tabs.data-login._' . str_replace('-', '_', $activeTab))
             </div>
-            <!--end::Summary Stat Cards-->
-
-            <!--begin::Card Table-->
-            <div class="card card-flush">
-                <!--begin::Card header-->
-                <div class="card-header align-items-center py-5 gap-2 gap-md-5">
-                    <!--begin::Card title-->
-                    <div class="card-title">
-                        <h3 class="card-title align-items-start flex-column">
-                            <span class="card-label fw-bold fs-3 mb-1">Riwayat Data Login</span>
-                            <span class="text-muted fw-semibold fs-7">Catatan keaktifan sesi login user</span>
-                        </h3>
-                    </div>
-                    <!--end::Card title-->
-
-                    <!--begin::Card toolbar-->
-                    <div class="card-toolbar flex-row-fluid justify-content-end gap-3">
-                        <!--begin::Search-->
-                        <div class="d-flex align-items-center position-relative my-1">
-                            <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>
-                            <input type="text" id="kt_data_login_search" class="form-control form-control-solid w-200px w-md-250px ps-12"
-                                placeholder="Cari nama, email, IP..." />
-                        </div>
-                        <!--end::Search-->
-
-                        <!--begin::Filter Role-->
-                        <div class="d-flex align-items-center my-1">
-                            <select id="kt_data_login_role_filter" class="form-select form-select-solid w-150px" data-control="select2" data-hide-search="true" data-placeholder="Semua Role">
-                                <option value="">Semua Role</option>
-                                <option value="master">Master</option>
-                                <option value="admin">Admin</option>
-                                <option value="user">User</option>
-                            </select>
-                        </div>
-                        <!--end::Filter Role-->
-
-                        <!--begin::Filter Tanggal-->
-                        <div class="d-flex align-items-center my-1">
-                            <input type="date" id="kt_data_login_date_filter" class="form-control form-control-solid w-175px"
-                                value="{{ date('Y-m-d') }}"
-                                data-bs-toggle="tooltip" title="Filter Tanggal Login" />
-                        </div>
-                        <!--end::Filter Tanggal-->
-
-                        <!--begin::Reset Filter Button-->
-                        <button type="button" id="kt_data_login_reset_filter" class="btn btn-sm btn-light-secondary my-1 d-none" onclick="resetDataLoginFilters()">
-                            <i class="ki-duotone ki-cross fs-3"><span class="path1"></span><span class="path2"></span></i> Reset
-                        </button>
-                    </div>
-                    <!--end::Card toolbar-->
-                </div>
-                <!--end::Card header-->
-
-                <!--begin::Card body-->
-                <div class="card-body pt-0">
-                    <!--begin::Table responsive-->
-                    <div class="table-responsive">
-                        <table class="table align-middle table-row-dashed fs-6 gy-4 w-100" id="kt_table_data_login">
-                            <thead>
-                                <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="w-50px text-center">No</th>
-                                    <th class="min-w-150px">User / Pengguna</th>
-                                    <th class="min-w-90px">Role</th>
-                                    <th class="min-w-130px">Waktu Login</th>
-                                    <th class="min-w-90px text-center">Jumlah Login</th>
-                                    <th class="min-w-90px text-center">Jumlah Poin</th>
-                                    <th class="min-w-200px">Perangkat, IP & Lokasi</th>
-                                    <th class="text-end min-w-70px pe-4">Aksi</th>
-                                </tr>
-                            </thead>
-                            <tbody class="fw-semibold text-gray-600">
-                                @forelse ($logins as $index => $item)
-                                    @php
-                                        $firstRole = $item->user?->roles->first()?->name ?? '';
-                                        $roleName = '-';
-                                        $roleBadgeClass = 'badge-light-secondary';
-                                        if ($firstRole !== '') {
-                                            $roleName = function_exists('roleDisplayName') ? roleDisplayName($firstRole) : ucfirst($firstRole);
-                                            if ($firstRole === 'master') {
-                                                $roleBadgeClass = 'badge-light-danger';
-                                            } elseif ($firstRole === 'admin') {
-                                                $roleBadgeClass = 'badge-light-primary';
-                                            } elseif ($firstRole === 'user') {
-                                                $roleBadgeClass = 'badge-light-info';
-                                            } else {
-                                                $roleBadgeClass = 'badge-light-success';
-                                            }
-                                        }
-                                    @endphp
-                                    <tr>
-                                        <td class="text-center">{{ $index + 1 }}</td>
-                                        <td>
-                                            <div class="d-flex align-items-center">
-                                                <div class="symbol symbol-circle symbol-35px me-3">
-                                                    <img src="{{ $item->user ? $item->user->avatar_url : asset('assets/media/svg/avatars/default-avatar.svg') }}" alt="{{ $item->user ? $item->user->name : 'User' }}" style="width: 35px; height: 35px; object-fit: cover;" onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
-                                                </div>
-                                                <div class="d-flex flex-column">
-                                                    <span class="text-gray-800 fw-bold">
-                                                        {{ $item->user ? $item->user->name : 'Pengguna Terhapus' }}
-                                                    </span>
-                                                    <span class="text-muted fs-7">
-                                                        {{ $item->user ? $item->user->email : '-' }}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td data-role="{{ strtolower($firstRole) }}">
-                                            <span class="badge {{ $roleBadgeClass }} fw-bold fs-7">
-                                                {{ $roleName }}
-                                            </span>
-                                        </td>
-                                        <td data-date="{{ $item->login_at ? $item->login_at->format('Y-m-d') : '' }}">
-                                            <div class="d-flex flex-column">
-                                                <span class="text-gray-800 fw-bold">
-                                                    {{ $item->login_at ? $item->login_at->format('d M Y, H:i:s') : '-' }}
-                                                </span>
-                                                <span class="text-muted fs-7">
-                                                    {{ $item->login_at ? $item->login_at->diffForHumans() : '' }}
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td class="text-center">
-                                            <span class="badge badge-light-info fw-bold fs-7" data-bs-toggle="tooltip" data-bs-placement="top" title="Total frekuensi login harian">
-                                                <i class="ki-duotone ki-entrance-left fs-5 me-1 text-info"><span class="path1"></span><span class="path2"></span></i>
-                                                {{ $item->login_count ?? 1 }}x Login
-                                            </span>
-                                        </td>
-                                        <td class="text-center" data-point="{{ $item->user?->points ?? 0 }}">
-                                            <span class="badge badge-light-success fw-bold fs-7" data-bs-toggle="tooltip" data-bs-placement="top" title="Total poin reward keaktifan user saat ini">
-                                                <i class="ki-duotone ki-award fs-5 me-1 text-success">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                    <span class="path3"></span>
-                                                </i> {{ number_format($item->user?->points ?? 0) }} Poin
-                                            </span>
-                                        </td>
-                                        <td>
-                                            <div class="d-flex flex-column gap-1">
-                                                <div class="d-flex align-items-center gap-2">
-                                                    <span class="badge badge-light-primary fw-bold font-monospace fs-7">
-                                                        <i class="ki-duotone ki-network fs-7 me-1 text-primary"><span class="path1"></span><span class="path2"></span></i>
-                                                        {{ $item->ip_address ?? '127.0.0.1' }}
-                                                    </span>
-                                                    @if ($item->latitude && $item->longitude)
-                                                        <a href="https://maps.google.com/?q={{ $item->latitude }},{{ $item->longitude }}"
-                                                            target="_blank" class="btn btn-icon btn-xs btn-light-info w-25px h-25px"
-                                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Buka Maps ({{ number_format($item->latitude, 4) }}, {{ number_format($item->longitude, 4) }})">
-                                                            <i class="ki-duotone ki-geolocation fs-6"><span class="path1"></span><span class="path2"></span></i>
-                                                        </a>
-                                                    @endif
-                                                </div>
-                                                <div class="text-muted fs-8 text-truncate d-inline-block mw-200px" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $item->user_agent }}">
-                                                    <i class="ki-duotone ki-laptop fs-7 me-1 text-gray-500"><span class="path1"></span><span class="path2"></span></i>
-                                                    {{ $item->user_agent ? Str::limit($item->user_agent, 35) : '-' }}
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="text-end pe-4">
-                                            <button type="button"
-                                                class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm"
-                                                onclick="deleteDataLogin({{ $item->id }})"
-                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Catatan Login">
-                                                <i class="ki-duotone ki-trash fs-2">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                    <span class="path3"></span>
-                                                    <span class="path4"></span>
-                                                    <span class="path5"></span>
-                                                </i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="8" class="text-center text-muted py-10">
-                                            Belum ada riwayat login user tercatat.
-                                        </td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
-                        </table>
-                    </div>
-                    <!--end::Table responsive-->
-                </div>
-                <!--end::Card body-->
-            </div>
-            <!--end::Card Table-->
+            <!--end::Tab Content Container-->
 
         </div>
         <!--end::Content container-->
     </div>
+
     @include('pages.appsupport.partials.data-login-help-modal')
 @endsection
 
@@ -352,9 +89,20 @@
 
     <script>
         var dataLoginTable;
+        var activityLogTable;
         var defaultTodayDate = "{{ date('Y-m-d') }}";
+        var activeTab = "{{ $activeTab }}";
 
         $(document).ready(function() {
+            if (activeTab === 'login-log') {
+                initLoginLogDatatable();
+            } else if (activeTab === 'activity-log') {
+                initActivityLogDatatable();
+            }
+        });
+
+        // Initialize Login Session Datatable
+        function initLoginLogDatatable() {
             $.fn.dataTable.ext.search.push(
                 function(settings, data, dataIndex) {
                     if (!settings.nTable || settings.nTable.id !== 'kt_table_data_login') {
@@ -400,35 +148,92 @@
                 });
 
                 $('#kt_data_login_search').on('keyup input', function() {
-                    toggleResetButton();
+                    toggleLoginResetButton();
                     dataLoginTable.search(this.value).draw();
                 });
 
                 $('#kt_data_login_date_filter, #kt_data_login_role_filter').on('change', function() {
-                    toggleResetButton();
+                    toggleLoginResetButton();
                     dataLoginTable.draw();
                 });
 
-                toggleResetButton();
+                toggleLoginResetButton();
             }
-        });
+        }
+
+        // Initialize Data Mutation Activity Log Datatable
+        function initActivityLogDatatable() {
+            $.fn.dataTable.ext.search.push(
+                function(settings, data, dataIndex) {
+                    if (!settings.nTable || settings.nTable.id !== 'kt_table_activity_log') {
+                        return true;
+                    }
+
+                    var rowNode = settings.aoData[dataIndex] ? settings.aoData[dataIndex].nTr : null;
+                    if (!rowNode) return true;
+
+                    var eventFilter = $('#kt_activity_event_filter').val();
+                    if (eventFilter !== '' && eventFilter !== null && eventFilter !== undefined) {
+                        var eventCell = $(rowNode).find('td').eq(3);
+                        var eventValue = eventCell.attr('data-event') || eventCell.text().trim().toLowerCase();
+                        if (eventValue && eventValue.toLowerCase() !== String(eventFilter).toLowerCase()) {
+                            return false;
+                        }
+                    }
+
+                    var causerFilter = $('#kt_activity_causer_filter').val();
+                    if (causerFilter !== '' && causerFilter !== null && causerFilter !== undefined) {
+                        var causerCell = $(rowNode).find('td').eq(2);
+                        var causerValue = causerCell.attr('data-causer');
+                        if (causerValue && causerValue.toLowerCase() !== String(causerFilter).toLowerCase()) {
+                            return false;
+                        }
+                    }
+
+                    return true;
+                }
+            );
+
+            if ($('#kt_table_activity_log tbody tr td').length > 1) {
+                activityLogTable = $('#kt_table_activity_log').DataTable({
+                    info: true,
+                    order: [],
+                    pageLength: 10,
+                    lengthChange: true,
+                    columnDefs: [
+                        { orderable: false, targets: 6 }
+                    ]
+                });
+
+                $('#kt_activity_log_search').on('keyup input', function() {
+                    toggleActivityResetButton();
+                    activityLogTable.search(this.value).draw();
+                });
+
+                $('#kt_activity_event_filter, #kt_activity_causer_filter').on('change', function() {
+                    toggleActivityResetButton();
+                    activityLogTable.draw();
+                });
+
+                toggleActivityResetButton();
+            }
+        }
 
         function resetDataLoginFilters() {
             $('#kt_data_login_search').val('');
             $('#kt_data_login_date_filter').val(defaultTodayDate);
             $('#kt_data_login_role_filter').val('').trigger('change');
-            toggleResetButton();
+            toggleLoginResetButton();
             if (dataLoginTable) {
                 dataLoginTable.search('').draw();
             }
         }
 
-        function toggleResetButton() {
+        function toggleLoginResetButton() {
             var searchVal = $('#kt_data_login_search').val() ? $('#kt_data_login_search').val().trim() : '';
             var dateVal = $('#kt_data_login_date_filter').val() ? $('#kt_data_login_date_filter').val().trim() : '';
             var roleVal = $('#kt_data_login_role_filter').val() ? $('#kt_data_login_role_filter').val().trim() : '';
 
-            // Reset button appears if any filter is modified from default state (default: search="", role="", date=today)
             if (searchVal !== '' || roleVal !== '' || dateVal !== defaultTodayDate) {
                 $('#kt_data_login_reset_filter').removeClass('d-none');
             } else {
@@ -436,7 +241,29 @@
             }
         }
 
-        // Function Hapus 1 Record Login
+        function resetActivityLogFilters() {
+            $('#kt_activity_log_search').val('');
+            $('#kt_activity_event_filter').val('').trigger('change');
+            $('#kt_activity_causer_filter').val('').trigger('change');
+            toggleActivityResetButton();
+            if (activityLogTable) {
+                activityLogTable.search('').draw();
+            }
+        }
+
+        function toggleActivityResetButton() {
+            var searchVal = $('#kt_activity_log_search').val() ? $('#kt_activity_log_search').val().trim() : '';
+            var eventVal = $('#kt_activity_event_filter').val() ? $('#kt_activity_event_filter').val().trim() : '';
+            var causerVal = $('#kt_activity_causer_filter').val() ? $('#kt_activity_causer_filter').val().trim() : '';
+
+            if (searchVal !== '' || eventVal !== '' || causerVal !== '') {
+                $('#kt_activity_log_reset_filter').removeClass('d-none');
+            } else {
+                $('#kt_activity_log_reset_filter').addClass('d-none');
+            }
+        }
+
+        // Hapus 1 Record Login
         function deleteDataLogin(id) {
             SwalHelper.confirmDelete('catatan login ini', function() {
                 var deleteUrl = "{{ route('appsupport.data-login.destroy', ':id') }}".replace(':id', id);
@@ -457,6 +284,103 @@
                     },
                     error: function(xhr) {
                         var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal menghapus catatan login.';
+                        SwalHelper.error(msg);
+                    }
+                });
+            });
+        }
+
+        // Kosongkan Semua Record Login
+        function clearAllDataLogins() {
+            SwalHelper.confirmDelete('seluruh riwayat login user', function() {
+                $.ajax({
+                    url: "{{ route('appsupport.data-login.clear-all') }}",
+                    type: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            SwalHelper.success(response.message, function() {
+                                location.reload();
+                            });
+                        } else {
+                            SwalHelper.error(response.message);
+                        }
+                    },
+                    error: function(xhr) {
+                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal mengosongkan riwayat login.';
+                        SwalHelper.error(msg);
+                    }
+                });
+            });
+        }
+
+        // Inspector Diff Modal for Activity Properties
+        function showActivityDiff(id, description, subjectType, subjectId, causer, timestamp, event) {
+            $('#diff_causer').text(causer);
+            $('#diff_timestamp').text(timestamp);
+            $('#diff_subject').html(subjectType + ' <span class="badge badge-light-secondary text-dark">#' + (subjectId || '-') + '</span>');
+            $('#diff_event_badge').text(event);
+
+            var rawJson = $('#activity_payload_' + id).val() || '{}';
+            try {
+                var parsed = JSON.parse(rawJson);
+                $('#diff_json_content').text(JSON.stringify(parsed, null, 4));
+            } catch (e) {
+                $('#diff_json_content').text(rawJson);
+            }
+
+            $('#kt_modal_activity_diff').modal('show');
+        }
+
+        // Hapus 1 Record Activity Log
+        function deleteActivityLog(id) {
+            SwalHelper.confirmDelete('catatan audit activity log ini', function() {
+                var deleteUrl = "{{ route('appsupport.activity-log.destroy', ':id') }}".replace(':id', id);
+                $.ajax({
+                    url: deleteUrl,
+                    type: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            SwalHelper.success(response.message, function() {
+                                location.reload();
+                            });
+                        } else {
+                            SwalHelper.error(response.message);
+                        }
+                    },
+                    error: function(xhr) {
+                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal menghapus activity log.';
+                        SwalHelper.error(msg);
+                    }
+                });
+            });
+        }
+
+        // Kosongkan Semua Activity Logs
+        function clearAllActivityLogs() {
+            SwalHelper.confirmDelete('seluruh riwayat mutasi data (Activity Log)', function() {
+                $.ajax({
+                    url: "{{ route('appsupport.activity-log.clear-all') }}",
+                    type: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            SwalHelper.success(response.message, function() {
+                                location.reload();
+                            });
+                        } else {
+                            SwalHelper.error(response.message);
+                        }
+                    },
+                    error: function(xhr) {
+                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal mengosongkan activity log.';
                         SwalHelper.error(msg);
                     }
                 });

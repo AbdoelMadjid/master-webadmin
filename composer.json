@@ -14,6 +14,7 @@
         "laravel/tinker": "^2.10.1",
         "mavinoo/laravel-batch": "dev-master",
         "phpoffice/phpspreadsheet": "^5.9",
+        "spatie/laravel-activitylog": "^5.0",
         "spatie/laravel-permission": "^6.24",
         "yajra/laravel-datatables-oracle": "12.0"
     },
