@@ -16,6 +16,7 @@ Sistem Dashboard Administrasi Enterprise tingkat tinggi berbasis **Laravel 12.0*
 - [⚙️ Persyaratan Sistem](#persyaratan-sistem)
 - [🚀 Tahapan & Ceklis Pengembangan Project (Development Roadmap)](#development-roadmap)
 - [🌟 Fitur Utama Aplikasi](#fitur-utama)
+- [🏗️ Arsitektur MVC & Struktur Folder Views](#arsitektur-mvc)
 - [🛠️ Panduan Instalasi Cepat](#panduan-instalasi)
 - [🔑 Akun Login Bawaan](#akun-login)
 - [⏰ Perintah Artisan Khusus & Scheduler](#perintah-artisan)
@@ -93,6 +94,33 @@ Berikut adalah rekam jejak pengembangan sistem dari awal hingga tahap **Finalisa
 4. **Rate Limiting Protection**: Mencegah serangan brute-force dan eksploitasi memori pada endpoint sensitif.
 5. **100% Bilingual Support**: Pengalihan bahasa instan (Inggris & Indonesia) tanpa teks tercampur.
 6. **Petunjuk Operasional Modal**: Panduan penggunaan terintegrasi di setiap halaman modul aplikasi.
+
+<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
+
+---
+
+<a id="arsitektur-mvc"></a>
+## 🏗️ Arsitektur MVC & Struktur Folder Views
+
+Aplikasi ini mengadopsi metodologi **Structure Mirroring** untuk menjamin keselarasan folder 100% antara Controller, Form Request, Model, dan Blade View.
+
+### 1. Metodologi Structure Mirroring (Alur 4-Layer MVC)
+Setiap fitur aplikasi dibangun dengan struktur 4-layer yang saling bercermin:
+```text
+[Route] /appsupport/app-fitur
+   │
+   ├── [Controller]   App\Http\Controllers\AppSupport\AppFiturController.php
+   ├── [Form Request] App\Http\Requests\AppSupport\AppProfilRequest.php
+   ├── [Model]        App\Models\AppSupport\AppFitur.php
+   └── [Blade View]   resources/views/pages/appsupport/app-fitur.blade.php
+```
+
+### 2. Hierarki Folder Views (`resources/views/`)
+- `resources/views/layouts/` : Base layout Metronic 8 (`index.blade.php`, `_default.blade.php`).
+- `resources/views/layout/partials/` : Komponen partial layout (`_header.blade.php`, `_sidebar.blade.php`, `_footer.blade.php`, `_idle-timer.blade.php`).
+- `resources/views/pages/` : View halaman utama yang dipetakan langsung dari URL Route.
+- `resources/views/pages/<subfolder>/tabs/<feature>/` : Partial sub-tab untuk halaman multi-tab (`_login_log.blade.php`, `_activity_log.blade.php`).
+- `resources/views/pages/<subfolder>/partials/` : Partial modal form CRUD & modal petunjuk operasional (`<feature>-help-modal.blade.php`).
 
 <div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
 
