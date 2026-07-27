@@ -155,6 +155,8 @@
                                             <li><strong>Core Role Protection:</strong> Built-in roles like
                                                 <code>master</code> and <code>admin</code> as well as currently active user
                                                 accounts are protected against self-deletion.</li>
+                                            <li><strong>Rate Limiting & Throttle Protection:</strong> Sensitive endpoints (login attempts, reset password requests, database backups & restoration) are protected by built-in <code>throttle</code> middleware to prevent brute-force attacks.</li>
+                                            <li><strong>Automated Audit Trail & Activity Logging:</strong> Integrated <code>spatie/laravel-activitylog</code> via <code>LogsActivityTrait</code> to automatically record model data changes (Create, Update, Delete with attribute diffs), client IP address, and User-Agent metadata.</li>
                                         </ol>
                                     </div>
                                 </div>
@@ -218,23 +220,9 @@
                                         </ol>
                                     </div>
 
-                                    <!-- Widget 6: Recommendations -->
+                                    <!-- Box 7: Conclusion -->
                                     <div class="card schema-card bg-light-warning border border-warning p-6 rounded">
-                                        <h4 class="fw-bold text-gray-900 mb-4">6. STRATEGIC RECOMMENDATIONS (Optional
-                                            Enhancements)</h4>
-                                        <ol class="text-gray-700 fs-7 lh-lg mb-0 ps-4">
-                                            <li><strong>Automated Scheduled Backup:</strong> <span class="badge badge-light-success fw-bold me-1">Implemented</span> Added Laravel Scheduler in <code>routes/console.php</code> & Artisan Command <code>php artisan backup:db</code> to automate periodic database SQL dumps (daily at 01:00 AM).</li>
-                                            <li><strong>Audit Trail Mutation Logging:</strong> <span class="badge badge-light-success fw-bold me-1">Implemented</span> Expanded DataLogin into multi-tab Audit Trail & Activity Logging using <code>spatie/laravel-activitylog</code> to track database model data changes (Create, Update, Delete) with diff inspection.</li>
-                                            <li><strong>Sensitive Endpoint Rate Limiting:</strong> Add <code>throttle</code>
-                                                middleware on sensitive endpoints (e.g. login attempts, reset password
-                                                requests, database backups).</li>
-                                        </ol>
-                                    </div>
-
-                                    <!-- Box 7: Conclusion & Strategic Recommendations -->
-                                    <div class="card schema-card bg-light-warning border border-warning p-6 rounded">
-                                        <h4 class="fw-bold text-gray-900 mb-4">🏆 CONCLUSION & STRATEGIC RECOMMENDATIONS
-                                        </h4>
+                                        <h4 class="fw-bold text-gray-900 mb-4">🏆 CONCLUSION</h4>
 
                                         <div class="fw-bold text-gray-900 mb-2 fs-6">Assessment Summary</div>
                                         <div class="table-responsive mb-6">
@@ -264,10 +252,9 @@
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Security</strong></td>
-                                                        <td><span class="text-warning">⭐⭐⭐⭐⭐</span> <strong>(4.9/5)</strong>
+                                                        <td><span class="text-warning">⭐⭐⭐⭐⭐</span> <strong>(5/5)</strong>
                                                         </td>
-                                                        <td>Robust protection across CSRF, XSS, Path Traversal, Form
-                                                            Requests, and Session Invalidation.</td>
+                                                        <td>Robust protection across CSRF, XSS, Path Traversal, Form Requests, Rate Limiting, Audit Trail, and Session Invalidation.</td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Visuals (UI/UX)</strong></td>
@@ -287,15 +274,7 @@
                                             </table>
                                         </div>
 
-                                        <div class="fw-bold text-gray-900 mb-2 fs-6">💡 Strategic Recommendations (Optional
-                                            Enhancements)</div>
-                                        <ol class="text-gray-700 fs-7 lh-lg mb-0 ps-4">
-                                            <li><strong>Automated Scheduled Backup:</strong> <span class="badge badge-light-success fw-bold me-1">Implemented</span> Added Laravel Scheduler in <code>routes/console.php</code> & Artisan Command <code>php artisan backup:db</code> to automate periodic database SQL dumps (daily at 01:00 AM).</li>
-                                            <li><strong>Audit Trail Mutation Logging:</strong> <span class="badge badge-light-success fw-bold me-1">Implemented</span> Expanded DataLogin into multi-tab Audit Trail & Activity Logging using <code>spatie/laravel-activitylog</code> to track database model data changes (Create, Update, Delete) with diff inspection.</li>
-                                            <li><strong>Sensitive Endpoint Rate Limiting:</strong> Adding
-                                                <code>throttle</code> middleware on password reset requests and database
-                                                restoration endpoints to prevent brute force attacks.</li>
-                                        </ol>
+
                                     </div>
                                 </div>
                             </div>
@@ -440,6 +419,8 @@
                                             <li><strong>Perlindungi Proteksi Role Inti:</strong> Role bawaan seperti
                                                 <code>master</code> dan <code>admin</code> serta akun pengguna aktif saat
                                                 ini dicegah dari aksi penghapusan mandiri (self-deletion protection).</li>
+                                            <li><strong>Proteksi Rate Limiting & Anti-Brute-Force:</strong> Endpoint sensitif (login attempts, reset password requests, pembuatan & pemulihan database backup) dilindungi middleware <code>throttle</code> terukur untuk mencegah serangan brute force.</li>
+                                            <li><strong>Audit Trail & Activity Log Otomatis:</strong> Terintegrasi dengan <code>spatie/laravel-activitylog</code> melalui trait <code>LogsActivityTrait</code> untuk merekam mutasi data model (Create, Update, Delete beserta selisih atribut), IP address, dan User-Agent client.</li>
                                         </ol>
                                     </div>
                                 </div>
@@ -504,20 +485,9 @@
                                         </ol>
                                     </div>
 
-                                    <!-- Widget 6: Rekomendasi -->
+                                    <!-- Box 7: Kesimpulan -->
                                     <div class="card schema-card bg-light-warning border border-warning p-6 rounded">
-                                        <h4 class="fw-bold text-gray-900 mb-4">6. REKOMENDASI PENGEMBANGAN LANJUTAN
-                                            (Optional Enhancements)</h4>
-                                        <ol class="text-gray-700 fs-7 lh-lg mb-0 ps-4">
-                                            <li><strong>Automated Scheduled Backup:</strong> <span class="badge badge-light-success fw-bold me-1">Telah Diimplementasikan</span> Menambahkan Laravel Scheduler di <code>routes/console.php</code> & Artisan Command <code>php artisan backup:db</code> agar modul BackupDb berjalan otomatis secara harian (pkl 01:00 AM).</li>
-                                            <li><strong>Audit Trail Mutation Logging:</strong> <span class="badge badge-light-success fw-bold me-1">Telah Diimplementasikan</span> Memperluas pencatatan DataLogin menjadi Audit Trail & Activity Log multi-tab menggunakan paket <code>spatie/laravel-activitylog</code> untuk merekam perubahan data model (Create, Update, Delete) beserta inspeksi diff.</li>
-                                            <li><strong>Rate Limiting Endpoint Sensitif:</strong> <span class="badge badge-light-success fw-bold me-1">Telah Diimplementasikan</span> Menambahkan middleware <code>throttle</code> pada endpoint sensitif (misal: login attempts, reset password requests, database backups & restore).</li>
-                                        </ol>
-                                    </div>
-
-                                    <!-- Box 7: Kesimpulan & Rekomendasi Pengembangan -->
-                                    <div class="card schema-card bg-light-warning border border-warning p-6 rounded">
-                                        <h4 class="fw-bold text-gray-900 mb-4">KESIMPULAN & REKOMENDASI PENGEMBANGAN</h4>
+                                        <h4 class="fw-bold text-gray-900 mb-4">KESIMPULAN PENGEMBANGAN</h4>
 
                                         <div class="fw-bold text-gray-900 mb-2 fs-6">Ringkasan Penilaian</div>
                                         <div class="table-responsive mb-6">
@@ -548,9 +518,8 @@
                                                     <tr>
                                                         <td><strong>Keamanan</strong></td>
                                                         <td><span class="text-warning">⭐⭐⭐⭐⭐</span>
-                                                            <strong>(4.9/5)</strong></td>
-                                                        <td>Penanganan CSRF, XSS, Path Traversal, Form Request, dan Session
-                                                            Invalidation sangat aman.</td>
+                                                            <strong>(5/5)</strong></td>
+                                                        <td>Penanganan CSRF, XSS, Path Traversal, Form Request, Rate Limiting, Audit Trail, dan Session Invalidation sangat aman.</td>
                                                     </tr>
                                                     <tr>
                                                         <td><strong>Visual (UI/UX)</strong></td>
@@ -570,13 +539,7 @@
                                             </table>
                                         </div>
 
-                                        <div class="fw-bold text-gray-900 mb-2 fs-6">Rekomendasi Pengembangan Lanjutan
-                                            (Optional Enhancements)</div>
-                                        <ol class="text-gray-700 fs-7 lh-lg mb-0 ps-4">
-                                            <li><strong>Automated Scheduled Backup:</strong> <span class="badge badge-light-success fw-bold me-1">Telah Diimplementasikan</span> Menambahkan Laravel Scheduler di <code>routes/console.php</code> & Artisan Command <code>php artisan backup:db</code> agar modul BackupDb berjalan otomatis secara harian (pkl 01:00 AM).</li>
-                                            <li><strong>Audit Trail Mutation Logging:</strong> <span class="badge badge-light-success fw-bold me-1">Telah Diimplementasikan</span> Memperluas pencatatan DataLogin menjadi Audit Trail & Activity Log multi-tab menggunakan paket <code>spatie/laravel-activitylog</code> untuk merekam perubahan data model (Create, Update, Delete) beserta inspeksi diff.</li>
-                                            <li><strong>Rate Limiting Endpoint Sensitif:</strong> <span class="badge badge-light-success fw-bold me-1">Telah Diimplementasikan</span> Menambahkan middleware <code>throttle</code> pada endpoint pengajuan reset password, login attempts, dan pemulihan database untuk mencegah serangan brute force.</li>
-                                        </ol>
+
                                     </div>
                                 </div>
                             </div>
