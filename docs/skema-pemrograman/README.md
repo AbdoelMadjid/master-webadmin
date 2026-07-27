@@ -65,3 +65,4 @@ Versi dokumentasi terlengkap per modul & submenu dari aplikasi **Master WebAdmin
 - [Workflow Developer Harian](./operasional/workflow-developer-harian.md): Workflow harian pengembangan fitur & verifikasi code.
 - [Checklist QA Smoke Test](./operasional/checklist-qa-smoke-test.md): Checklist pengujian QA sebelum rilis.
 - [Playbook Incident Response](./operasional/playbook-incident-response.md): Prosedur penanganan insiden & pemulihan darurat.
+- [Rilis Versi & Git Tagging](./operasional/rilis-versi-dan-git-tagging.md) (`/help/pemrograman/operasional/rilis-versi-dan-git-tagging`): Standar Semantic Versioning (SemVer), alur perintah CLI Git Tag, force update tag (`git tag -f`), dan panduan publikasi Rilis GitHub.

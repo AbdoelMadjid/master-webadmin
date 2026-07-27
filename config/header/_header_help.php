@@ -47,6 +47,7 @@ return [
                         ['title' => 'Manajemen Pengguna', 'route' => 'help.pemrograman.operasional.manajemen-pengguna'],
                         ['title' => 'App Support', 'route' => 'help.pemrograman.operasional.app-support'],
                         ['title' => 'Notifikasi System', 'route' => 'help.pemrograman.operasional.notification'],
+                        ['title' => 'Rilis Versi & Git Tagging', 'route' => 'help.pemrograman.operasional.rilis-versi-dan-git-tagging'],
                     ],
                 ],
             ],

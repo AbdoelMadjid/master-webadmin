@@ -6,6 +6,7 @@ return array (
   'account' => 'Account',
   'account_deactivation' => 'Account Deactivation',
   'account_settings' => 'Account Settings',
+  'rilis_versi_dan_git_tagging' => 'Release & Git Tagging',
   'accounting' => 'Accounting',
   'activity' => 'Activity',
   'add_category' => 'Add Category',

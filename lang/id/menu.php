@@ -6,6 +6,7 @@ return array (
   'account' => 'Akun',
   'account_deactivation' => 'Deaktivasi Akun',
   'account_settings' => 'Pengaturan Akun',
+  'rilis_versi_dan_git_tagging' => 'Rilis Versi & Git Tagging',
   'accounting' => 'Akuntansi',
   'activity' => 'Aktivitas',
   'add_category' => 'Tambah Kategori',

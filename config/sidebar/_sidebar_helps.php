@@ -125,6 +125,10 @@ return [
                             'title' => 'Notifikasi System',
                             'route' => 'help.pemrograman.operasional.notification',
                         ],
+                        [
+                            'title' => 'Rilis Versi & Git Tagging',
+                            'route' => 'help.pemrograman.operasional.rilis-versi-dan-git-tagging',
+                        ],
                     ],
                 ],
             ],
