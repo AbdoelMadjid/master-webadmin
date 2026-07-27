@@ -109,12 +109,12 @@ Aplikasi ini mengadopsi metodologi **Structure Mirroring** untuk menjamin kesela
 ```mermaid
 graph TD
     A["User / Browser"] -->|1. Request URL| B["routes/web.php & auth.php"]
-    B -->|2. Proteksi Middleware (auth, verified, throttle)| C["Form Request Validation (App\\Http\\Requests\\...)"]
-    C -->|3. Validated Data| D["Controller (App\\Http\\Controllers\\...)"]
-    D -->|4. Query & Mutasi Data| E["Model & LogsActivityTrait (App\\Models\\...)"]
+    B -->|2. Proteksi Middleware auth, verified, throttle| C["Form Request Validation"]
+    C -->|3. Validated Data| D["Controller Layer"]
+    D -->|4. Query & Mutasi Data| E["Model & LogsActivityTrait"]
     E -->|5. Eksekusi DB & Record Audit Log| F[("Database MySQL")]
-    D -->|6. Pass Data & Active Tab| G["Main Blade View (resources/views/pages/...)"]
-    G -->|7. Dynamic Include| H["Tab Partials (tabs/...) & Modals (partials/...)"]
+    D -->|6. Pass Data & Active Tab| G["Main Blade View"]
+    G -->|7. Dynamic Include| H["Tab Partials & Help Modals"]
     H -->|8. Metronic 8 Theme Layout & SwalHelper| I["HTML Response"]
     I -->|9. Render Tampilan| A
 ```
