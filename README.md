@@ -74,7 +74,7 @@ Berikut adalah rekam jejak pengembangan sistem dari awal hingga tahap **Finalisa
   - [x] **Automated Scheduled Backup**: Engine backup database SQL, Artisan Command (`php artisan backup:db`), & Laravel Scheduler (Harian pkl 01:00 AM).
   - [x] **Audit Trail Mutation Logging**: Integrasi `spatie/laravel-activitylog` & `LogsActivityTrait` untuk merekam mutasi data model (Create, Update, Delete) beserta inspeksi diff nilai lama vs baru.
   - [x] **Rate Limiting Endpoint Sensitif**: Proteksi middleware `throttle` terukur pada Login, Reset Password, & Backup/Restore Database.
-  - [x] **Session Idle Timeout**: Deteksi inaktivitas otomatis (`_idle-timer.blade.php`).
+  - [x] **Session Idle Timeout & Manual Lock Screen**: Deteksi inaktivitas otomatis (`_idle-timer.blade.php`) dan fitur Kunci Layar (*Lock Screen*) mandiri pada dropdown avatar akun.
 
 - [x] **Fase 6: Dokumentasi Internal & Usability (Finalisasi)**
   - [x] Dukungan **100% Bilingual (`en`/`id`)** di seluruh navigasi & konten aplikasi.
@@ -92,8 +92,9 @@ Berikut adalah rekam jejak pengembangan sistem dari awal hingga tahap **Finalisa
 2. **Audit Trail & Activity Log**: Perekaman aktivitas mutasi data secara otomatis dengan penilik selisih nilai atribut (*Inspector Diff Modal*).
 3. **Automated Scheduled Backup**: Fitur unduh, buat, dan pulihkan cadangan database SQL otomatis via scheduler.
 4. **Rate Limiting Protection**: Mencegah serangan brute-force dan eksploitasi memori pada endpoint sensitif.
-5. **100% Bilingual Support**: Pengalihan bahasa instan (Inggris & Indonesia) tanpa teks tercampur.
-6. **Petunjuk Operasional Modal**: Panduan penggunaan terintegrasi di setiap halaman modul aplikasi.
+5. **Session Timeout & Lock Screen**: Penguncian layar otomatis saat inaktif dan pintasan Kunci Layar mandiri pada avatar pengguna.
+6. **100% Bilingual Support**: Pengalihan bahasa instan (Inggris & Indonesia) tanpa teks tercampur.
+7. **Petunjuk Operasional Modal**: Panduan penggunaan terintegrasi di setiap halaman modul aplikasi.
 
 <div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
 

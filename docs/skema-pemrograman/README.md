@@ -12,7 +12,7 @@ Versi dokumentasi terlengkap per modul & submenu dari aplikasi **Master WebAdmin
 - [Skema Layout](./skema/layout.md) (`/help/pemrograman/skema/layout`): Base Metronic 8 layout, Dark/Light mode switcher, & komponen partial UI.
 - [Skema Komponen Blade dan Partial](./skema/komponen-blade-partial.md): Reusable Blade view partials (`_toolbar`, `_header`, `_sidebar`, `_footer`).
 - [Skema Theme Assets](./skema/theme-assets.md): Manajemen pustaka CSS/JS Metronic 8 & Keenicons duotone icons.
-- [Skema Auth dan Middleware](./skema/auth-dan-middleware.md): Otentikasi Laravel Breeze, Session Idle Timeout (`_idle-timer.blade.php`), & Proteksi **Rate Limiting (`throttle`)** pada endpoint sensitif (login, reset password, backup & restore database).
+- [Skema Auth dan Middleware](./skema/auth-dan-middleware.md): Otentikasi Laravel Breeze, Session Idle Timeout (`_idle-timer.blade.php`), Fitur **Kunci Layar (Lock Screen)** pada dropdown avatar, & Proteksi **Rate Limiting (`throttle`)** pada endpoint sensitif (login, reset password, backup & restore database).
 - [Skema Struktur Config Menu](./skema/struktur-config-menu.md): Konfigurasi terpusat menu sidebar & header.
 - [Skema Sidebar Menu](./skema/sidebar-menu.md): Hirarki menu navigasi samping, badge dinamis, & active highlight state.
 - [Skema Header Menu](./skema/header-menu.md): Hirarki menu navigasi atas & switcher pemilihan bahasa.

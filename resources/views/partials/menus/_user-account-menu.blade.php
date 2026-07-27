@@ -83,7 +83,15 @@
             {{ $isAltMenu ? 'Account Settings' : __('menu.account_settings') }}
         </a>
     </div>
+    <!--begin::Menu item-->
+    <div class="menu-item px-5 my-1">
+        <a href="javascript:void(0)" class="menu-link px-5 text-warning" onclick="if(window.triggerLockScreen){ window.triggerLockScreen(); } else { var f=document.getElementById('global_idle_logout_form'); if(f) f.submit(); else window.location.href='{{ route('login') }}?reason=idle'; }">
+            <i class="ki-duotone ki-lock fs-5 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+            {{ app()->getLocale() == 'en' ? 'Lock Screen' : 'Kunci Layar' }}
+        </a>
+    </div>
     <!--end::Menu item-->
+
     <!--begin::Menu item-->
     <div class="menu-item px-5">
         <form method="POST" action="{{ route('logout') }}">

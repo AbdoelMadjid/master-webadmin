@@ -35,6 +35,11 @@
                 window.addEventListener(eventName, resetIdleTimer, { passive: true });
             });
 
+            // Expose fungsi triggerLockScreen secara global
+            window.triggerLockScreen = function() {
+                triggerIdleLogout();
+            };
+
             // Inisialisasi timer awal saat halaman siap
             resetIdleTimer();
         })();
