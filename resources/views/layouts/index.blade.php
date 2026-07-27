@@ -177,6 +177,7 @@
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
     @include('partials._idle-timer')
+    @include('partials._lock-screen-modal')
 </body>
 <!--end::Body-->
 

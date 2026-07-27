@@ -136,7 +136,8 @@ Route::middleware('auth')->group(function () {
     Route::put('appsupport/referensi/item/{id}', [ReferensiController::class, 'updateItem'])->name('appsupport.referensi.item.update');
     Route::delete('appsupport/referensi/item/{id}', [ReferensiController::class, 'destroyItem'])->name('appsupport.referensi.item.destroy');
     Route::post('appsupport/referensi/item/{id}/toggle-status', [ReferensiController::class, 'toggleItemStatus'])->name('appsupport.referensi.item.toggle-status');
-    Route::get('appsupport/referensi/items-by-kategori/{id}', [ReferensiController::class, 'getItemsByKategori'])->name('appsupport.referensi.items-by-kategori');
+    // Lock Screen Route
+    Route::post('/lock-screen/unlock', [\App\Http\Controllers\Auth\LockScreenController::class, 'unlock'])->middleware('throttle:5,1')->name('lock-screen.unlock');
 });
 
 require __DIR__ . '/auth.php';

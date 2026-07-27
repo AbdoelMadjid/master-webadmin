@@ -9,39 +9,37 @@
         (function() {
             var idleTimeoutDuration = 15 * 60 * 1000; // 15 menit (900.000 ms)
             var idleTimer;
-            var isLoggedOut = false;
 
             function triggerIdleLogout() {
-                if (isLoggedOut) return;
-                isLoggedOut = true;
-
-                var form = document.getElementById('global_idle_logout_form');
-                if (form) {
-                    form.submit();
+                if (window.isScreenLocked) return;
+                if (typeof window.triggerLockScreen === 'function') {
+                    window.triggerLockScreen();
                 } else {
-                    window.location.href = "{{ route('login') }}?reason=idle";
+                    var form = document.getElementById('global_idle_logout_form');
+                    if (form) {
+                        form.submit();
+                    } else {
+                        window.location.href = "{{ route('login') }}?reason=idle";
+                    }
                 }
             }
 
-            function resetIdleTimer() {
-                if (isLoggedOut) return;
+            window.resetIdleTimer = function() {
+                if (window.isScreenLocked) return;
                 clearTimeout(idleTimer);
                 idleTimer = setTimeout(triggerIdleLogout, idleTimeoutDuration);
-            }
+            };
 
             // Events yang dianggap sebagai aktivitas user
             var activityEvents = ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart', 'click'];
             activityEvents.forEach(function(eventName) {
-                window.addEventListener(eventName, resetIdleTimer, { passive: true });
+                window.addEventListener(eventName, function() {
+                    window.resetIdleTimer();
+                }, { passive: true });
             });
 
-            // Expose fungsi triggerLockScreen secara global
-            window.triggerLockScreen = function() {
-                triggerIdleLogout();
-            };
-
             // Inisialisasi timer awal saat halaman siap
-            resetIdleTimer();
+            window.resetIdleTimer();
         })();
     </script>
     <!--end::Global Idle Timeout Form & Script-->
