@@ -12,17 +12,19 @@ Sistem Dashboard Administrasi Enterprise tingkat tinggi berbasis **Laravel 12.0*
 
 ## 📋 Table of Contents
 
-- [Persyaratan Sistem](#persyaratan-sistem)
-- [Tahapan & Ceklis Pengembangan Project (Development Roadmap)](#-tahapan--ceklis-pengembangan-project-development-roadmap)
-- [Fitur Utama Aplikasi](#-fitur-utama-aplikasi)
-- [Panduan Instalasi Cepat](#-panduan-instalasi-cepat)
-- [Akun Login Bawaan](#-akun-login-bawaan)
-- [Perintah Artisan Khusus & Scheduler](#-perintah-artisan-khusus--scheduler)
-- [Panduan Rilis GitHub (GitHub Release Step-by-Step)](#-panduan-rilis-github-github-release-step-by-step)
-- [Lisensi](#lisensi)
+- [⚙️ Persyaratan Sistem](#persyaratan-sistem)
+- [🚀 Tahapan & Ceklis Pengembangan Project (Development Roadmap)](#development-roadmap)
+- [🌟 Fitur Utama Aplikasi](#fitur-utama)
+- [🛠️ Panduan Instalasi Cepat](#panduan-instalasi)
+- [🔑 Akun Login Bawaan](#akun-login)
+- [⏰ Perintah Artisan Khusus & Scheduler](#perintah-artisan)
+- [🏷️ Panduan Rilis GitHub (GitHub Release Step-by-Step)](#panduan-rilis)
+- [🏷️ Pengaturan Topics / Tags Repositori GitHub](#topics-repositori)
+- [📄 Lisensi](#lisensi)
 
 ---
 
+<a id="persyaratan-sistem"></a>
 ## ⚙️ Persyaratan Sistem
 
 - **PHP**: `>= 8.2` (dengan ekstensi `pdo`, `mbstring`, `openssl`, `xml`, `gd`, `zip`)
@@ -32,6 +34,7 @@ Sistem Dashboard Administrasi Enterprise tingkat tinggi berbasis **Laravel 12.0*
 
 ---
 
+<a id="development-roadmap"></a>
 ## 🚀 Tahapan & Ceklis Pengembangan Project (Development Roadmap)
 
 Berikut adalah rekam jejak pengembangan sistem dari awal hingga tahap **Finalisasi (Production-Ready)**:
@@ -75,6 +78,7 @@ Berikut adalah rekam jejak pengembangan sistem dari awal hingga tahap **Finalisa
 
 ---
 
+<a id="fitur-utama"></a>
 ## 🌟 Fitur Utama Aplikasi
 
 1. **Role-Based Access Control (RBAC)**: Pengaturan peran dan hak akses dinamis dengan visualisasi matriks izin.
@@ -86,6 +90,7 @@ Berikut adalah rekam jejak pengembangan sistem dari awal hingga tahap **Finalisa
 
 ---
 
+<a id="panduan-instalasi"></a>
 ## 🛠️ Panduan Instalasi Cepat
 
 ### 1. Clone Repositori
@@ -122,6 +127,7 @@ php artisan serve
 
 ---
 
+<a id="akun-login"></a>
 ## 🔑 Akun Login Bawaan
 
 | Peran (Role) | Email Login | Password | Akses Utama |
@@ -132,6 +138,7 @@ php artisan serve
 
 ---
 
+<a id="perintah-artisan"></a>
 ## ⏰ Perintah Artisan Khusus & Scheduler
 
 ### Perintah Backup Database Manual:
@@ -150,6 +157,7 @@ php artisan schedule:run
 
 ---
 
+<a id="panduan-rilis"></a>
 ## 🏷️ Panduan Rilis GitHub (GitHub Release Step-by-Step)
 
 Untuk mempublikasikan rilis **v1.0.0** secara resmi di GitHub:
@@ -185,6 +193,7 @@ git push origin v1.0.0
 
 ---
 
+<a id="topics-repositori"></a>
 ## 🏷️ Pengaturan Topics / Tags Repositori GitHub
 
 Agar repositori Anda mudah ditemukan dan terlihat profesional di GitHub, tambahkan **Topics** berikut di bagian kanan atas halaman utama repositori GitHub (tombol ⚙️ samping *About*):
@@ -193,6 +202,7 @@ Agar repositori Anda mudah ditemukan dan terlihat profesional di GitHub, tambahk
 
 ---
 
+<a id="lisensi"></a>
 ## 📄 Lisensi
 
 Proyek ini dilindungi di bawah lisensi [MIT License](LICENSE).
