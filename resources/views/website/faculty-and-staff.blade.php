@@ -1,5 +1,5 @@
-@extends('education.partials.web-master')
-@section('title', __('education.meta_title_faculty_and_staff'))
+@extends('website.partials.web-master')
+@section('title', __('website.meta_title_faculty_and_staff'))
 @section('css')
     <link rel="stylesheet" href="assets/vendor/icon-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/vendor/icon-line-pro/style.css">
@@ -20,8 +20,8 @@
                 <div class="w-100 g-pos-abs g-bottom-0 g-left-0 g-z-index-1">
                     <div class="g-bg-white g-pos-rel g-px-30 g-pt-30 g-pt-0--md g-pb-15">
                         <h1><a class="h1 u-link-v5 g-color-main g-color-primary--hover g-font-size-45--md"
-                                href="#">{{ __('education.faculty_fall_convocation_2017') }}</a></h1>
-                        <p>{{ __('education.faculty_fall_convocation_desc') }}</p>
+                                href="#">{{ __('website.faculty_fall_convocation_2017') }}</a></h1>
+                        <p>{{ __('website.faculty_fall_convocation_desc') }}</p>
 
                         <!-- SVG Top Background Shape -->
                         <svg class="w-100 g-hidden-sm-down g-pos-abs g-top-minus-80x g-left-0 g-z-index-minus-1"
@@ -43,8 +43,8 @@
     <div class="container g-pt-100 g-pb-70">
         <!-- Heading -->
         <div class="g-max-width-645 text-center mx-auto g-mb-60">
-            <h2 class="h1 mb-3">{{ __('education.faculty_tools') }}</h2>
-            <p>{{ __('education.faculty_tools_desc') }}</p>
+            <h2 class="h1 mb-3">{{ __('website.faculty_tools') }}</h2>
+            <p>{{ __('website.faculty_tools_desc') }}</p>
         </div>
         <!-- End Heading -->
 
@@ -56,7 +56,7 @@
                         class="u-icon-v2 g-z-index-minus-1 u-icon-size--lg u-shadow-v35 g-brd-5 g-brd-white g-color-text-light-v1 g-color-white--hover g-bg-secondary g-bg-main--hover rounded-circle mb-2">
                         <i class="icon-finance-067 u-line-icon-pro"></i>
                     </span>
-                    <h3 class="h4 g-color-primary--hover">{{ __('education.faculty_tool_my_page') }}</h3>
+                    <h3 class="h4 g-color-primary--hover">{{ __('website.faculty_tool_my_page') }}</h3>
                     <a class="u-link-v2" href="#"></a>
                 </div>
                 <!-- End Faculty Links -->
@@ -69,7 +69,7 @@
                         class="u-icon-v2 g-z-index-minus-1 u-icon-size--lg u-shadow-v35 g-brd-5 g-brd-white g-color-text-light-v1 g-color-white--hover g-bg-secondary g-bg-main--hover rounded-circle mb-2">
                         <i class="icon-finance-170 u-line-icon-pro"></i>
                     </span>
-                    <h3 class="h4 g-color-primary--hover">{{ __('education.faculty_tool_email') }}</h3>
+                    <h3 class="h4 g-color-primary--hover">{{ __('website.faculty_tool_email') }}</h3>
                     <a class="u-link-v2" href="#"></a>
                 </div>
                 <!-- End Faculty Links -->
@@ -82,7 +82,7 @@
                         class="u-icon-v2 g-z-index-minus-1 u-icon-size--lg u-shadow-v35 g-brd-5 g-brd-white g-color-text-light-v1 g-color-white--hover g-bg-secondary g-bg-main--hover rounded-circle mb-2">
                         <i class="icon-finance-020 u-line-icon-pro"></i>
                     </span>
-                    <h3 class="h4 g-color-primary--hover">{{ __('education.faculty_tool_banner') }}</h3>
+                    <h3 class="h4 g-color-primary--hover">{{ __('website.faculty_tool_banner') }}</h3>
                     <a class="u-link-v2" href="#"></a>
                 </div>
                 <!-- End Faculty Links -->
@@ -95,7 +95,7 @@
                         class="u-icon-v2 g-z-index-minus-1 u-icon-size--lg u-shadow-v35 g-brd-5 g-brd-white g-color-text-light-v1 g-color-white--hover g-bg-secondary g-bg-main--hover rounded-circle mb-2">
                         <i class="icon-finance-076 u-line-icon-pro"></i>
                     </span>
-                    <h3 class="h4 g-color-primary--hover">{{ __('education.faculty_tool_course_spaces') }}</h3>
+                    <h3 class="h4 g-color-primary--hover">{{ __('website.faculty_tool_course_spaces') }}</h3>
                     <a class="u-link-v2" href="#"></a>
                 </div>
                 <!-- End Faculty Links -->
@@ -108,7 +108,7 @@
                         class="u-icon-v2 g-z-index-minus-1 u-icon-size--lg u-shadow-v35 g-brd-5 g-brd-white g-color-text-light-v1 g-color-white--hover g-bg-secondary g-bg-main--hover rounded-circle mb-2">
                         <i class="icon-finance-257 u-line-icon-pro"></i>
                     </span>
-                    <h3 class="h4 g-color-primary--hover">{{ __('education.faculty_tool_fast') }}</h3>
+                    <h3 class="h4 g-color-primary--hover">{{ __('website.faculty_tool_fast') }}</h3>
                     <a class="u-link-v2" href="#"></a>
                 </div>
                 <!-- End Faculty Links -->
@@ -122,17 +122,17 @@
         <div class="container g-pt-100 g-py-70">
             <div class="row align-items-md-center">
                 <div class="col-md-3 g-mb-30">
-                    <h2 class="mb-0">{{ __('education.faculty_and_staff') }}</h2>
+                    <h2 class="mb-0">{{ __('website.faculty_and_staff') }}</h2>
                 </div>
 
                 <div class="col-md-6 g-mb-30">
-                    <p class="g-font-size-17 mb-0">{{ __('education.faculty_and_staff_desc') }}</p>
+                    <p class="g-font-size-17 mb-0">{{ __('website.faculty_and_staff_desc') }}</p>
                 </div>
 
                 <div class="col-md-3 g-mb-30">
                     <div class="text-right">
                         <a class="btn u-shadow-v39 g-brd-main g-brd-primary--hover g-color-main g-color-white--hover g-bg-primary--hover g-font-size-default g-rounded-30 g-px-35 g-py-10"
-                            href="#">{{ __('education.learn_more') }}</a>
+                            href="#">{{ __('website.learn_more') }}</a>
                     </div>
                 </div>
             </div>
@@ -149,11 +149,11 @@
 
             <div class="col-md-5 g-mb-50 g-mb-0--md">
                 <div class="mb-5">
-                    <h2 class="mb-3">{{ __('education.faculty_response_postering_title') }}</h2>
-                    <p>{{ __('education.faculty_response_postering_desc') }}</p>
+                    <h2 class="mb-3">{{ __('website.faculty_response_postering_title') }}</h2>
+                    <p>{{ __('website.faculty_response_postering_desc') }}</p>
                 </div>
                 <a class="btn u-shadow-v39 g-brd-main g-brd-primary--hover g-color-main g-color-white--hover g-bg-primary--hover g-font-size-default g-rounded-30 g-px-35 g-py-11"
-                    href="#">{{ __('education.learn_more') }}</a>
+                    href="#">{{ __('website.learn_more') }}</a>
             </div>
         </div>
     </div>
@@ -168,11 +168,11 @@
 
             <div class="col-md-5 order-md-1 g-mb-50 g-mb-0--md">
                 <div class="mb-5">
-                    <h2 class="mb-3">{{ __('education.faculty_competency_model_title') }}</h2>
-                    <p>{{ __('education.faculty_competency_model_desc') }}</p>
+                    <h2 class="mb-3">{{ __('website.faculty_competency_model_title') }}</h2>
+                    <p>{{ __('website.faculty_competency_model_desc') }}</p>
                 </div>
                 <a class="btn u-shadow-v39 g-brd-main g-brd-primary--hover g-color-main g-color-white--hover g-bg-primary--hover g-font-size-default g-rounded-30 g-px-35 g-py-11"
-                    href="#">{{ __('education.learn_more') }}</a>
+                    href="#">{{ __('website.learn_more') }}</a>
             </div>
         </div>
     </div>
@@ -182,8 +182,8 @@
     <div class="clearfix g-bg-secondary g-py-100">
         <!-- Heading -->
         <div class="g-max-width-645 text-center mx-auto g-mb-60">
-            <h2 class="h1 mb-3">{{ __('education.faculty_professors') }}</h2>
-            <p>{{ __('education.faculty_tools_desc') }}</p>
+            <h2 class="h1 mb-3">{{ __('website.faculty_professors') }}</h2>
+            <p>{{ __('website.faculty_tools_desc') }}</p>
         </div>
         <!-- End Heading -->
 
@@ -220,7 +220,7 @@
                 </div>
                 <div class="u-shadow-v32 g-bg-white g-pa-30">
                     <h3 class="h3 g-font-weight-500 mb-1">Alex Teseira</h3>
-                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('education.faculty_professor_role_1') }}</span>
+                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('website.faculty_professor_role_1') }}</span>
                 </div>
                 <a class="u-link-v2" href="#"></a>
             </div>
@@ -234,7 +234,7 @@
                 </div>
                 <div class="u-shadow-v32 g-bg-white g-pa-30">
                     <h3 class="h3 g-font-weight-500 mb-1">Marina Rubapa</h3>
-                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('education.faculty_professor_role_2') }}</span>
+                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('website.faculty_professor_role_2') }}</span>
                 </div>
                 <a class="u-link-v2" href="#"></a>
             </div>
@@ -248,7 +248,7 @@
                 </div>
                 <div class="u-shadow-v32 g-bg-white g-pa-30">
                     <h3 class="h3 g-font-weight-500 mb-1">John Smith</h3>
-                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('education.faculty_professor_role_3') }}</span>
+                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('website.faculty_professor_role_3') }}</span>
                 </div>
                 <a class="u-link-v2" href="#"></a>
             </div>
@@ -262,7 +262,7 @@
                 </div>
                 <div class="u-shadow-v32 g-bg-white g-pa-30">
                     <h3 class="h3 g-font-weight-500 mb-1">Samantha Fox</h3>
-                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('education.faculty_professor_role_4') }}</span>
+                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('website.faculty_professor_role_4') }}</span>
                 </div>
                 <a class="u-link-v2" href="#"></a>
             </div>
@@ -276,7 +276,7 @@
                 </div>
                 <div class="u-shadow-v32 g-bg-white g-pa-30">
                     <h3 class="h3 g-font-weight-500 mb-1">James Novel</h3>
-                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('education.faculty_professor_role_5') }}</span>
+                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('website.faculty_professor_role_5') }}</span>
                 </div>
                 <a class="u-link-v2" href="#"></a>
             </div>
@@ -290,7 +290,7 @@
                 </div>
                 <div class="u-shadow-v32 g-bg-white g-pa-30">
                     <h3 class="h3 g-font-weight-500 mb-1">George Freeman</h3>
-                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('education.faculty_professor_role_6') }}</span>
+                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('website.faculty_professor_role_6') }}</span>
                 </div>
                 <a class="u-link-v2" href="#"></a>
             </div>
@@ -304,7 +304,7 @@
                 </div>
                 <div class="u-shadow-v32 g-bg-white g-pa-30">
                     <h3 class="h3 g-font-weight-500 mb-1">Leyla Olsson</h3>
-                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('education.faculty_professor_role_7') }}</span>
+                    <span class="d-block g-color-text-light-v1 g-font-size-16">{{ __('website.faculty_professor_role_7') }}</span>
                 </div>
                 <a class="u-link-v2" href="#"></a>
             </div>
@@ -315,7 +315,7 @@
 
     <!-- Video Blocks -->
     <div class="container text-center g-pt-100">
-        <h3 class="h3 g-mb-40">{{ __('education.future_boost_career_title') }}</h3>
+        <h3 class="h3 g-mb-40">{{ __('website.future_boost_career_title') }}</h3>
 
         <!-- Video Blocks -->
         <div class="row g-mb-30">
@@ -386,20 +386,20 @@
         <div class="row">
             <div class="col-md-4 g-py-15 g-mb-30">
                 <div class="g-px-30--lg">
-                    <h3 class="h5">{{ __('education.campus_info_block_1_title') }}</h3>
-                    <p class="g-color-text-light-v1 mb-0">{{ __('education.campus_info_block_1_desc') }}</p>
+                    <h3 class="h5">{{ __('website.campus_info_block_1_title') }}</h3>
+                    <p class="g-color-text-light-v1 mb-0">{{ __('website.campus_info_block_1_desc') }}</p>
                 </div>
             </div>
             <div class="col-md-4 g-brd-x g-brd-secondary-light-v2 g-py-15 g-mb-30">
                 <div class="g-px-30--lg">
-                    <h3 class="h5">{{ __('education.campus_info_block_2_title') }}</h3>
-                    <p class="g-color-text-light-v1 mb-0">{{ __('education.campus_info_block_2_desc') }}</p>
+                    <h3 class="h5">{{ __('website.campus_info_block_2_title') }}</h3>
+                    <p class="g-color-text-light-v1 mb-0">{{ __('website.campus_info_block_2_desc') }}</p>
                 </div>
             </div>
             <div class="col-md-4 g-py-15 g-mb-30">
                 <div class="g-px-30--lg">
-                    <h3 class="h5">{{ __('education.campus_info_block_3_title') }}</h3>
-                    <p class="g-color-text-light-v1 mb-0">{{ __('education.campus_info_block_3_desc') }}</p>
+                    <h3 class="h5">{{ __('website.campus_info_block_3_title') }}</h3>
+                    <p class="g-color-text-light-v1 mb-0">{{ __('website.campus_info_block_3_desc') }}</p>
                 </div>
             </div>
         </div>
@@ -408,7 +408,7 @@
     <!-- End Video Blocks -->
 
     <!-- Call to Action -->
-    @include('education.content.call-to-action')
+    @include('website.content.call-to-action')
     <!-- End Call to Action -->
 @endsection
 @section('script')

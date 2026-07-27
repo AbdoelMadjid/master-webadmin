@@ -603,4 +603,8 @@ return array (
   'cache_and_deployment' => 'Cache & Penyebaran',
   'pemilihan_bahasa' => 'Pemilihan Bahasa',
   'i18n_lanjutan' => 'i18n Lanjutan',
+  'wd_websitedata' => 'WEBSITE DATA',
+  'wd_page_config' => 'Konfigurasi Halaman',
+  'wd_menu' => 'Menu',
+  'wd_website_profile' => 'Profil Website',
 );

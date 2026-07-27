@@ -1,5 +1,5 @@
-@extends('education.partials.web-master')
-@section('title', __('education.meta_title_future_students'))
+@extends('website.partials.web-master')
+@section('title', __('website.meta_title_future_students'))
 @section('css')
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="assets/vendor/icon-awesome/css/font-awesome.min.css">
@@ -21,29 +21,29 @@
                 <div class="container text-center g-pos-rel g-z-index-1 g-pt-100 g-pb-80">
                     <!-- Promo Block Info -->
                     <div class="g-mb-40">
-                        <h1 class="g-color-white g-font-size-60--lg">{{ __('education.future_hero_title') }}</h1>
-                        <p class="g-color-white-opacity-0_8 g-font-size-22">{{ __('education.future_hero_desc') }}</p>
+                        <h1 class="g-color-white g-font-size-60--lg">{{ __('website.future_hero_title') }}</h1>
+                        <p class="g-color-white-opacity-0_8 g-font-size-22">{{ __('website.future_hero_desc') }}</p>
                     </div>
                     <!-- End Promo Block Info -->
 
                     <!-- Form Group -->
                     <form class="g-max-width-645 mx-auto">
                         <input class="form-control h-100 g-brd-none g-font-size-16 g-rounded-30 g-px-30 g-py-14 g-mb-20"
-                            type="text" placeholder="{{ __('education.future_search_programs_by_major') }}">
+                            type="text" placeholder="{{ __('website.future_search_programs_by_major') }}">
 
                         <div class="row g-mx-minus-10">
                             <div class="col-sm-6 g-px-10 g-mb-20">
                                 <button
                                     class="btn btn-block g-color-white g-color-main--hover g-bg-main g-bg-white--hover g-rounded-30 g-py-13"
                                     type="submit">
-                                    {{ __('education.future_search_undergraduate_programs') }}
+                                    {{ __('website.future_search_undergraduate_programs') }}
                                 </button>
                             </div>
                             <div class="col-sm-6 g-px-10 g-mb-20">
                                 <button
                                     class="btn btn-block g-color-white g-color-main--hover g-bg-primary g-bg-white--hover g-rounded-30 g-py-13"
                                     type="submit">
-                                    {{ __('education.future_search_graduate_programs') }}
+                                    {{ __('website.future_search_graduate_programs') }}
                                 </button>
                             </div>
                         </div>
@@ -59,8 +59,8 @@
     <div class="container g-pt-100 g-pb-50">
         <!-- Heading -->
         <div class="g-max-width-645 text-center mx-auto g-mb-60">
-            <h2 class="h1 mb-3">{{ __('education.future_edge_title') }}</h2>
-            <p>{{ __('education.future_edge_desc') }}</p>
+            <h2 class="h1 mb-3">{{ __('website.future_edge_title') }}</h2>
+            <p>{{ __('website.future_edge_desc') }}</p>
         </div>
         <!-- End Heading -->
 
@@ -72,15 +72,15 @@
                 </div>
 
                 <div class="g-mb-35">
-                    <h3 class="mb-3">{{ __('education.future_undergraduate_title') }}</h3>
-                    <p class="g-font-size-15">{{ __('education.future_undergraduate_prefix') }} <a class="g-font-weight-500"
-                            href="{{ route('education.programs') }}">{{ __('education.future_undergraduate_link_1') }}</a>
-                        {{ __('education.future_undergraduate_mid') }} <a class="g-font-weight-500"
-                            href="{{ route('education.programs') }}">{{ __('education.future_undergraduate_link_2') }}</a>
-                        {{ __('education.future_undergraduate_suffix') }}</p>
+                    <h3 class="mb-3">{{ __('website.future_undergraduate_title') }}</h3>
+                    <p class="g-font-size-15">{{ __('website.future_undergraduate_prefix') }} <a class="g-font-weight-500"
+                            href="{{ route('website.programs') }}">{{ __('website.future_undergraduate_link_1') }}</a>
+                        {{ __('website.future_undergraduate_mid') }} <a class="g-font-weight-500"
+                            href="{{ route('website.programs') }}">{{ __('website.future_undergraduate_link_2') }}</a>
+                        {{ __('website.future_undergraduate_suffix') }}</p>
                 </div>
                 <a class="btn u-shadow-v39 g-color-white g-color-white--hover g-bg-main g-bg-primary--hover g-font-size-default g-rounded-30 g-px-35 g-py-8"
-                    href="{{ route('education.apply-all-intake') }}">{{ __('education.future_start_application') }}</a>
+                    href="{{ route('website.apply-all-intake') }}">{{ __('website.future_start_application') }}</a>
             </article>
             <!-- End Studies -->
 
@@ -91,13 +91,13 @@
                 </div>
 
                 <div class="g-mb-35">
-                    <h3 class="mb-3">{{ __('education.future_graduate_title') }}</h3>
-                    <p class="g-font-size-15">{{ __('education.future_graduate_prefix') }} <a class="g-font-weight-500"
-                            href="{{ route('education.programs') }}">{{ __('education.future_graduate_link') }}</a>,
-                        {{ __('education.future_graduate_suffix') }}</p>
+                    <h3 class="mb-3">{{ __('website.future_graduate_title') }}</h3>
+                    <p class="g-font-size-15">{{ __('website.future_graduate_prefix') }} <a class="g-font-weight-500"
+                            href="{{ route('website.programs') }}">{{ __('website.future_graduate_link') }}</a>,
+                        {{ __('website.future_graduate_suffix') }}</p>
                 </div>
                 <a class="btn u-shadow-v39 g-color-white g-color-white--hover g-bg-main g-bg-primary--hover g-font-size-default g-rounded-30 g-px-35 g-py-8"
-                    href="{{ route('education.apply-all-intake') }}">{{ __('education.future_start_application') }}</a>
+                    href="{{ route('website.apply-all-intake') }}">{{ __('website.future_start_application') }}</a>
             </article>
             <!-- End Studies -->
 
@@ -108,14 +108,14 @@
                 </div>
 
                 <div class="g-mb-35">
-                    <h3 class="mb-3">{{ __('education.future_continuing_title') }}</h3>
-                    <p class="g-font-size-15">{{ __('education.future_continuing_prefix') }} <a class="g-font-weight-500"
-                            href="#">{{ __('education.future_continuing_link') }}</a>
-                        {{ __('education.future_continuing_suffix') }}
+                    <h3 class="mb-3">{{ __('website.future_continuing_title') }}</h3>
+                    <p class="g-font-size-15">{{ __('website.future_continuing_prefix') }} <a class="g-font-weight-500"
+                            href="#">{{ __('website.future_continuing_link') }}</a>
+                        {{ __('website.future_continuing_suffix') }}
                     </p>
                 </div>
                 <a class="btn u-shadow-v39 g-color-white g-color-white--hover g-bg-main g-bg-primary--hover g-font-size-default g-rounded-30 g-px-35 g-py-8"
-                    href="{{ route('education.apply-all-intake') }}">{{ __('education.future_start_application') }}</a>
+                    href="{{ route('website.apply-all-intake') }}">{{ __('website.future_start_application') }}</a>
             </article>
             <!-- End Studies -->
         </div>
@@ -133,33 +133,33 @@
                     <div class="js-slide d-flex g-min-height-70vh g-flex-centered g-pa-70">
                         <div class="text-center">
                             <div class="mb-5">
-                                <h2 class="h1 mb-3">{{ __('education.future_slide_1_title') }}</h2>
-                                <p>{{ __('education.future_slide_1_desc') }}</p>
+                                <h2 class="h1 mb-3">{{ __('website.future_slide_1_title') }}</h2>
+                                <p>{{ __('website.future_slide_1_desc') }}</p>
                             </div>
                             <a class="btn g-brd-2 g-brd-main-opacity-0_1 g-brd-primary--hover g-color-main g-color-white--hover g-bg-primary--hover g-font-size-15 g-rounded-30 g-px-25 g-py-8"
-                                href="#">{{ __('education.learn_more') }}</a>
+                                href="#">{{ __('website.learn_more') }}</a>
                         </div>
                     </div>
 
                     <div class="js-slide d-flex g-min-height-70vh g-flex-centered g-pa-70">
                         <div class="text-center">
                             <div class="mb-5">
-                                <h2 class="h1 mb-3">{{ __('education.future_slide_2_title') }}</h2>
-                                <p>{{ __('education.future_slide_2_desc') }}</p>
+                                <h2 class="h1 mb-3">{{ __('website.future_slide_2_title') }}</h2>
+                                <p>{{ __('website.future_slide_2_desc') }}</p>
                             </div>
                             <a class="btn g-brd-2 g-brd-main-opacity-0_1 g-brd-primary--hover g-color-main g-color-white--hover g-bg-primary--hover g-font-size-15 g-rounded-30 g-px-25 g-py-8"
-                                href="#">{{ __('education.learn_more') }}</a>
+                                href="#">{{ __('website.learn_more') }}</a>
                         </div>
                     </div>
 
                     <div class="js-slide d-flex g-min-height-70vh g-flex-centered g-pa-70">
                         <div class="text-center">
                             <div class="mb-5">
-                                <h2 class="h1 mb-3">{{ __('education.future_slide_3_title') }}</h2>
-                                <p>{{ __('education.future_slide_3_desc') }}</p>
+                                <h2 class="h1 mb-3">{{ __('website.future_slide_3_title') }}</h2>
+                                <p>{{ __('website.future_slide_3_desc') }}</p>
                             </div>
                             <a class="btn g-brd-2 g-brd-main-opacity-0_1 g-brd-primary--hover g-color-main g-color-white--hover g-bg-primary--hover g-font-size-15 g-rounded-30 g-px-25 g-py-8"
-                                href="#">{{ __('education.learn_more') }}</a>
+                                href="#">{{ __('website.learn_more') }}</a>
                         </div>
                     </div>
                 </div>
@@ -187,7 +187,7 @@
 
     <!-- Video Blocks -->
     <div class="container text-center g-py-70">
-        <h3 class="h3 g-mb-40">{{ __('education.future_boost_career_title') }}</h3>
+        <h3 class="h3 g-mb-40">{{ __('website.future_boost_career_title') }}</h3>
 
         <!-- Video Blocks -->
         <div class="row g-mb-30">
@@ -258,20 +258,20 @@
         <div class="row">
             <div class="col-md-4 g-py-15 g-mb-30">
                 <div class="g-px-30--lg">
-                    <h3 class="h5">{{ __('education.campus_info_block_1_title') }}</h3>
-                    <p class="g-color-text-light-v1 mb-0">{{ __('education.campus_info_block_1_desc') }}</p>
+                    <h3 class="h5">{{ __('website.campus_info_block_1_title') }}</h3>
+                    <p class="g-color-text-light-v1 mb-0">{{ __('website.campus_info_block_1_desc') }}</p>
                 </div>
             </div>
             <div class="col-md-4 g-brd-x g-brd-secondary-light-v2 g-py-15 g-mb-30">
                 <div class="g-px-30--lg">
-                    <h3 class="h5">{{ __('education.campus_info_block_2_title') }}</h3>
-                    <p class="g-color-text-light-v1 mb-0">{{ __('education.campus_info_block_2_desc') }}</p>
+                    <h3 class="h5">{{ __('website.campus_info_block_2_title') }}</h3>
+                    <p class="g-color-text-light-v1 mb-0">{{ __('website.campus_info_block_2_desc') }}</p>
                 </div>
             </div>
             <div class="col-md-4 g-py-15 g-mb-30">
                 <div class="g-px-30--lg">
-                    <h3 class="h5">{{ __('education.campus_info_block_3_title') }}</h3>
-                    <p class="g-color-text-light-v1 mb-0">{{ __('education.campus_info_block_3_desc') }}</p>
+                    <h3 class="h5">{{ __('website.campus_info_block_3_title') }}</h3>
+                    <p class="g-color-text-light-v1 mb-0">{{ __('website.campus_info_block_3_desc') }}</p>
                 </div>
             </div>
         </div>
@@ -294,8 +294,8 @@
                         </div>
 
                         <div class="media-body">
-                            <h3 class="h2">{{ __('education.future_virtual_tour_title') }}</h3>
-                            <p>{{ __('education.future_virtual_tour_desc') }}</p>
+                            <h3 class="h2">{{ __('website.future_virtual_tour_title') }}</h3>
+                            <p>{{ __('website.future_virtual_tour_desc') }}</p>
                         </div>
                     </div>
                     <!-- End Media -->
@@ -304,7 +304,7 @@
                 <div class="col-5 col-md-3 col-lg-2 mx-auto g-mx-0--lg g-mb-30">
                     <button
                         class="btn btn-block u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-rounded-30 g-px-25 g-py-13"
-                        type="button">{{ __('education.future_start_now') }}</button>
+                        type="button">{{ __('website.future_start_now') }}</button>
                 </div>
             </div>
         </div>
@@ -327,7 +327,7 @@
                             </div>
                             <div class="media-body">
                                 <blockquote class="g-brd-left-none g-font-style-italic g-font-size-20 g-pl-0">
-                                    {{ __('education.future_testimonial_1_quote') }}
+                                    {{ __('website.future_testimonial_1_quote') }}
                                     <span
                                         class="align-self-end g-font-secondary g-font-size-40 g-opacity-0_3 g-line-height-0 align-bottom g-pos-rel g-top-minus-10">&#8221;</span>
                                 </blockquote>
@@ -336,7 +336,7 @@
 
                         <div class="g-pl-30">
                             <h3 class="h4 mb-0">Karolina Wellyan</h3>
-                            <span class="d-block g-font-size-18 g-pl-20">&#8212; {{ __('education.future_bachelor_student') }}</span>
+                            <span class="d-block g-font-size-18 g-pl-20">&#8212; {{ __('website.future_bachelor_student') }}</span>
                         </div>
                         <!-- End Testimonials - Content -->
                     </div>
@@ -350,7 +350,7 @@
                             </div>
                             <div class="media-body">
                                 <blockquote class="g-brd-left-none g-font-style-italic g-font-size-20 g-pl-0">
-                                    {{ __('education.future_testimonial_2_quote') }}
+                                    {{ __('website.future_testimonial_2_quote') }}
                                     <span
                                         class="align-self-end g-font-secondary g-font-size-40 g-opacity-0_3 g-line-height-0 align-bottom g-pos-rel g-top-minus-10">&#8221;</span>
                                 </blockquote>
@@ -359,7 +359,7 @@
 
                         <div class="g-pl-30">
                             <h3 class="h4 mb-0">Alex Watson</h3>
-                            <span class="d-block g-font-size-18 g-pl-20">&#8212; {{ __('education.future_grad_2015') }}</span>
+                            <span class="d-block g-font-size-18 g-pl-20">&#8212; {{ __('website.future_grad_2015') }}</span>
                         </div>
                         <!-- End Testimonials - Content -->
                     </div>
@@ -373,7 +373,7 @@
                             </div>
                             <div class="media-body">
                                 <blockquote class="g-brd-left-none g-font-style-italic g-font-size-20 g-pl-0">
-                                    {{ __('education.future_testimonial_3_quote') }}
+                                    {{ __('website.future_testimonial_3_quote') }}
                                     <span
                                         class="align-self-end g-font-secondary g-font-size-40 g-opacity-0_3 g-line-height-0 align-bottom g-pos-rel g-top-minus-10">&#8221;</span>
                                 </blockquote>
@@ -382,7 +382,7 @@
 
                         <div class="g-pl-30">
                             <h3 class="h4 mb-0">Maria Olsson</h3>
-                            <span class="d-block g-font-size-18 g-pl-20">&#8212; {{ __('education.future_grad_2017') }}</span>
+                            <span class="d-block g-font-size-18 g-pl-20">&#8212; {{ __('website.future_grad_2017') }}</span>
                         </div>
                         <!-- End Testimonials - Content -->
                     </div>
@@ -410,7 +410,7 @@
     <!-- End Testimonials -->
 
     <!-- Call to Action -->
-    @include('education.content.call-to-action')
+    @include('website.content.call-to-action')
     <!-- End Call to Action -->
 @endsection
 @section('script')

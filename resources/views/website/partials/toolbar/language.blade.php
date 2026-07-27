@@ -21,7 +21,7 @@
         aria-labelledby="language-dropdown-invoker">
         <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
             <a class="nav-link d-flex align-items-center g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default {{ $currentLocale === 'en' ? 'active' : '' }}"
-                href="{{ route('education.lang.switch', 'en') }}">
+                href="{{ route('website.lang.switch', 'en') }}">
                 <img class="g-width-20 g-height-20 rounded-circle mr-2" src="{{ asset('assets/media/flags/united-states.svg') }}"
                     alt="{{ __('auth.english') }}">
                 {{ __('auth.english') }}
@@ -29,7 +29,7 @@
         </li>
         <li class="dropdown-item g-px-0 g-py-2">
             <a class="nav-link d-flex align-items-center g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default {{ $currentLocale === 'id' ? 'active' : '' }}"
-                href="{{ route('education.lang.switch', 'id') }}">
+                href="{{ route('website.lang.switch', 'id') }}">
                 <img class="g-width-20 g-height-20 rounded-circle mr-2" src="{{ asset('assets/media/flags/indonesia.svg') }}"
                     alt="{{ __('auth.indonesian') }}">
                 {{ __('auth.indonesian') }}

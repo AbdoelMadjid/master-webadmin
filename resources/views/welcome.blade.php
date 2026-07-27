@@ -1,1 +1,1 @@
-@include('education.home-page')
+@include('website.home-page')

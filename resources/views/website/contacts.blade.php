@@ -1,5 +1,5 @@
-@extends('education.partials.web-master')
-@section('title', __('education.meta_title_contacts'))
+@extends('website.partials.web-master')
+@section('title', __('website.meta_title_contacts'))
 @section('css')
     <link rel="stylesheet" href="assets/vendor/icon-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/vendor/icon-line-pro/style.css">
@@ -15,8 +15,8 @@
         <div class="container g-pt-100 g-pb-20">
             <!-- Heading -->
             <div class="g-max-width-645 text-center mx-auto g-mb-40">
-                <h1 class="g-font-size-40--md mb-4">{{ __('education.contact_us') }}</h1>
-                <p>{{ __('education.contacts_intro') }}</p>
+                <h1 class="g-font-size-40--md mb-4">{{ __('website.contact_us') }}</h1>
+                <p>{{ __('website.contacts_intro') }}</p>
             </div>
             <!-- End Heading -->
 
@@ -27,12 +27,12 @@
                         <!-- Name Input -->
                         <div class="row align-items-center mb-4">
                             <div class="col-lg-4">
-                                <label class="g-font-weight-500 g-font-size-16">{{ __('education.your_full_name') }}</label>
+                                <label class="g-font-weight-500 g-font-size-16">{{ __('website.your_full_name') }}</label>
                             </div>
                             <div class="col-lg-8">
                                 <input
                                     class="form-control h-100 g-brd-none g-bg-secondary g-bg-secondary-dark-v1--focus rounded g-px-20 g-py-12"
-                                    type="text" placeholder="{{ __('education.placeholder_full_name') }}">
+                                    type="text" placeholder="{{ __('website.placeholder_full_name') }}">
                             </div>
                         </div>
                         <!-- End Name Input -->
@@ -40,12 +40,12 @@
                         <!-- Name Input -->
                         <div class="row align-items-center mb-4">
                             <div class="col-lg-4">
-                                <label class="g-font-weight-500 g-font-size-16">{{ __('education.your_email_address') }}</label>
+                                <label class="g-font-weight-500 g-font-size-16">{{ __('website.your_email_address') }}</label>
                             </div>
                             <div class="col-lg-8">
                                 <input
                                     class="form-control h-100 g-brd-none g-bg-secondary g-bg-secondary-dark-v1--focus rounded g-px-20 g-py-12"
-                                    type="email" placeholder="{{ __('education.placeholder_email') }}">
+                                    type="email" placeholder="{{ __('website.placeholder_email') }}">
                             </div>
                         </div>
                         <!-- End Name Input -->
@@ -53,18 +53,18 @@
                         <!-- Name Input -->
                         <div class="row mb-4">
                             <div class="col-lg-4">
-                                <label class="g-font-weight-500 g-font-size-16">{{ __('education.your_question') }}</label>
+                                <label class="g-font-weight-500 g-font-size-16">{{ __('website.your_question') }}</label>
                             </div>
                             <div class="col-lg-8">
                                 <textarea class="form-control g-brd-none g-bg-secondary g-bg-secondary-dark-v1--focus rounded g-px-20 g-py-12"
-                                    rows="5" placeholder="{{ __('education.placeholder_question') }}"></textarea>
+                                    rows="5" placeholder="{{ __('website.placeholder_question') }}"></textarea>
                             </div>
                         </div>
                         <!-- End Name Input -->
 
                         <div class="text-right">
                             <button type="submit"
-                                class="btn u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-rounded-30 g-px-35 g-py-10">{{ __('education.submit') }}</button>
+                                class="btn u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-rounded-30 g-px-35 g-py-10">{{ __('website.submit') }}</button>
                         </div>
                     </form>
                     <!-- End Contact Form -->
@@ -72,7 +72,7 @@
 
                 <div class="col-md-4 col-lg-3 g-mb-50">
                     <div class="g-pl-15--lg">
-                        <h2 class="h3 mb-4">{{ __('education.address_details') }}</h2>
+                        <h2 class="h3 mb-4">{{ __('website.address_details') }}</h2>
 
                         <!-- Contact Info -->
                         <div class="media align-items-center mb-4">
@@ -134,8 +134,8 @@
                         </span>
                     </div>
                     <div class="media-body">
-                        <h3 class="h4">{{ __('education.general_communication') }}</h3>
-                        <p class="g-color-text-light-v1">{{ __('education.general_communication_desc') }}
+                        <h3 class="h4">{{ __('website.general_communication') }}</h3>
+                        <p class="g-color-text-light-v1">{{ __('website.general_communication_desc') }}
                             <a href="#">info@unify.com</a>.</p>
                     </div>
                 </div>
@@ -151,9 +151,9 @@
                         </span>
                     </div>
                     <div class="media-body">
-                        <h3 class="h4">{{ __('education.technical_or_account_support') }}</h3>
-                        <p class="g-color-text-light-v1">{{ __('education.technical_or_account_support_desc') }} <a
-                                href="#">{{ __('education.contact_support') }}</a></p>
+                        <h3 class="h4">{{ __('website.technical_or_account_support') }}</h3>
+                        <p class="g-color-text-light-v1">{{ __('website.technical_or_account_support_desc') }} <a
+                                href="#">{{ __('website.contact_support') }}</a></p>
                     </div>
                 </div>
                 <!-- End Additional Contact Info -->
@@ -163,7 +163,7 @@
     <!-- End Contacts Info -->
 
     <!-- Call to Action -->
-    @include('education.content.call-to-action')
+    @include('website.content.call-to-action')
     <!-- End Call to Action -->
 @endsection
 @section('script')

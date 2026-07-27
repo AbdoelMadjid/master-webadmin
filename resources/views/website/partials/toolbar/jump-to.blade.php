@@ -5,7 +5,7 @@
         data-dropdown-event="hover" data-dropdown-target="#jump-to-dropdown" data-dropdown-type="css-animation"
         data-dropdown-duration="0" data-dropdown-hide-on-scroll="true" data-dropdown-animation-in="fadeIn"
         data-dropdown-animation-out="fadeOut">
-        {{ __('education.jump_to') }}
+        {{ __('website.jump_to') }}
         <i class="g-ml-3 fa fa-angle-down"></i>
     </a>
     <ul id="jump-to-dropdown"
@@ -13,27 +13,27 @@
         aria-labelledby="jump-to-dropdown-invoker">
         <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
             <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
-                href="{{ route('education.apply-all-intake') }}">{{ __('education.apply_now') }}</a>
+                href="{{ route('website.apply-all-intake') }}">{{ __('website.apply_now') }}</a>
         </li>
         <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
             <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
-                href="{{ route('education.campus-life') }}">{{ __('education.campus_life') }}</a>
+                href="{{ route('website.campus-life') }}">{{ __('website.campus_life') }}</a>
         </li>
         <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
             <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
-                href="{{ route('education.research') }}">{{ __('education.research') }}</a>
+                href="{{ route('website.research') }}">{{ __('website.research') }}</a>
         </li>
         <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
             <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
-                href="{{ route('education.help') }}">{{ __('education.help') }}</a>
+                href="{{ route('website.help') }}">{{ __('website.help') }}</a>
         </li>
         <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
             <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
-                href="{{ route('education.contacts') }}">{{ __('education.contacts') }}</a>
+                href="{{ route('website.contacts') }}">{{ __('website.contacts') }}</a>
         </li>
         {{-- <li class="dropdown-item g-px-0 g-py-2">
             <a class="nav-link g-color-white g-bg-primary g-bg-primary-light-v1--hover g-font-size-default"
-                href="{{ route('education.signin') }}">Sign in</a>
+                href="{{ route('website.signin') }}">Sign in</a>
         </li> --}}
 
         @if (Route::has('login'))
@@ -41,12 +41,12 @@
                 @auth
                     <a href="{{ route('homepage') }}"
                         class="nav-link g-color-white g-bg-primary g-bg-primary-light-v1--hover g-font-size-default">
-                        {{ __('education.dashboard') }}
+                        {{ __('website.dashboard') }}
                     </a>
                 @else
                     <a href="{{ route('login') }}"
                         class="nav-link g-color-white g-bg-primary g-bg-primary-light-v1--hover g-font-size-default">
-                        {{ __('education.sign_in') }}
+                        {{ __('website.sign_in') }}
                     </a>
                 @endauth
             </li>

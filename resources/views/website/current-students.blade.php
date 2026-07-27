@@ -1,5 +1,5 @@
-@extends('education.partials.web-master')
-@section('title', __('education.meta_title_current_students'))
+@extends('website.partials.web-master')
+@section('title', __('website.meta_title_current_students'))
 @section('css')
     <link rel="stylesheet" href="assets/vendor/icon-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/vendor/icon-line-pro/style.css">
@@ -17,12 +17,12 @@
             <div class="row justify-content-lg-between">
                 <div class="col-lg-4 g-pt-50--lg">
                     <div class="mb-5">
-                        <h1 class="g-font-size-45 mb-4">{{ __('education.current_welcome_back') }}</h1>
-                        <p>{{ __('education.current_hero_desc') }}</p>
+                        <h1 class="g-font-size-45 mb-4">{{ __('website.current_welcome_back') }}</h1>
+                        <p>{{ __('website.current_hero_desc') }}</p>
                     </div>
 
                     <a class="js-go-to btn u-shadow-v33 g-hidden-md-down g-color-white g-bg-primary g-bg-main--hover g-rounded-30 g-px-35 g-py-10"
-                        href="#" data-target="#content">{{ __('education.current_explore_now') }}</a>
+                        href="#" data-target="#content">{{ __('website.current_explore_now') }}</a>
                 </div>
 
                 <div class="col-lg-8 align-self-end">
@@ -49,23 +49,23 @@
         <div class="row">
             <div class="col-lg-9 order-lg-2">
                 <div class="g-pl-15--lg">
-                    <h2>{{ __('education.current_students') }}</h2>
-                    <p>{{ __('education.current_intro_desc_1') }}</p>
-                    <p>{{ __('education.current_intro_desc_2') }}</p>
+                    <h2>{{ __('website.current_students') }}</h2>
+                    <p>{{ __('website.current_intro_desc_1') }}</p>
+                    <p>{{ __('website.current_intro_desc_2') }}</p>
 
                     <ul class="mb-4">
-                        <li><a class="u-link-v5 g-color-main--hover" href="#">{{ __('education.current_question_1') }}</a></li>
-                        <li><a class="u-link-v5 g-color-main--hover" href="#">{{ __('education.current_question_2') }}</a></li>
+                        <li><a class="u-link-v5 g-color-main--hover" href="#">{{ __('website.current_question_1') }}</a></li>
+                        <li><a class="u-link-v5 g-color-main--hover" href="#">{{ __('website.current_question_2') }}</a></li>
                     </ul>
 
                     <!-- Search -->
                     <form class="input-group u-shadow-v19 g-brd-primary--focus g-rounded-30">
                         <input class="form-control h-100 g-brd-secondary-light-v2 g-rounded-left-30 g-px-30 g-py-12"
-                            type="text" placeholder="{{ __('education.current_search_placeholder') }}">
+                            type="text" placeholder="{{ __('website.current_search_placeholder') }}">
                         <button
                             class="btn input-group-addon d-flex align-items-center u-shadow-v33 g-brd-none g-color-white g-bg-primary g-bg-main--hover g-rounded-right-30 g-transition-0_2 g-px-30"
                             type="button">
-                            {{ __('education.current_ask_unify') }}
+                            {{ __('website.current_ask_unify') }}
                         </button>
                     </form>
                     <!-- End Search -->
@@ -74,7 +74,7 @@
 
                     <div class="row">
                         <div class="col-md-6 g-mb-30">
-                            <h3 class="h4 mb-3">{{ __('education.current_show_all_system_logins') }}</h3>
+                            <h3 class="h4 mb-3">{{ __('website.current_show_all_system_logins') }}</h3>
 
                             <div class="g-overflow-hidden">
                                 <a class="u-block-hover g-text-underline--none--hover" href="#">
@@ -85,45 +85,45 @@
                         </div>
 
                         <div class="col-md-6 g-mb-30">
-                            <h3 class="h4 mb-3">{{ __('education.current_system_logins') }}</h3>
+                            <h3 class="h4 mb-3">{{ __('website.current_system_logins') }}</h3>
 
                             <!-- Links -->
                             <ul class="list-unstyled">
                                 <li class="py-1">
                                     <a class="d-flex align-items-center u-link-v5 g-color-main--hover g-font-size-15"
                                         href="#">
-                                        {{ __('education.current_login_email') }} <i class="g-font-size-13 ml-auto material-icons">arrow_forward</i>
+                                        {{ __('website.current_login_email') }} <i class="g-font-size-13 ml-auto material-icons">arrow_forward</i>
                                     </a>
                                 </li>
                                 <li class="py-1">
                                     <a class="d-flex align-items-center u-link-v5 g-color-main--hover g-font-size-15"
                                         href="#">
-                                        {{ __('education.current_login_blackboard') }} <i class="g-font-size-13 ml-auto material-icons">arrow_forward</i>
+                                        {{ __('website.current_login_blackboard') }} <i class="g-font-size-13 ml-auto material-icons">arrow_forward</i>
                                     </a>
                                 </li>
                                 <li class="py-1">
                                     <a class="d-flex align-items-center u-link-v5 g-color-main--hover g-font-size-15"
                                         href="#">
-                                        {{ __('education.current_login_canvas') }} <i class="g-font-size-13 ml-auto material-icons">arrow_forward</i>
+                                        {{ __('website.current_login_canvas') }} <i class="g-font-size-13 ml-auto material-icons">arrow_forward</i>
                                     </a>
                                 </li>
                                 <li class="py-1">
                                     <a class="d-flex align-items-center u-link-v5 g-color-main--hover g-font-size-15"
                                         href="#">
-                                        {{ __('education.current_login_myuni') }} <i class="g-font-size-13 ml-auto material-icons">arrow_forward</i>
+                                        {{ __('website.current_login_myuni') }} <i class="g-font-size-13 ml-auto material-icons">arrow_forward</i>
                                     </a>
                                 </li>
                                 <li class="py-1">
                                     <a class="d-flex align-items-center u-link-v5 g-color-main--hover g-font-size-15"
                                         href="#">
-                                        {{ __('education.current_login_semester_2_exam_timetables') }} <i
+                                        {{ __('website.current_login_semester_2_exam_timetables') }} <i
                                             class="g-font-size-13 ml-auto material-icons">arrow_forward</i>
                                     </a>
                                 </li>
                                 <li class="py-1">
                                     <a class="d-flex align-items-center u-link-v5 g-color-main--hover g-font-size-15"
                                         href="#">
-                                        {{ __('education.current_login_graduation') }} <i class="g-font-size-13 ml-auto material-icons">arrow_forward</i>
+                                        {{ __('website.current_login_graduation') }} <i class="g-font-size-13 ml-auto material-icons">arrow_forward</i>
                                     </a>
                                 </li>
                             </ul>
@@ -140,77 +140,77 @@
                         <a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7"
                             href="#">
                             <i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
-                            {{ __('education.programs_related_1') }}
+                            {{ __('website.programs_related_1') }}
                         </a>
                     </li>
                     <li class="mb-1">
                         <a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7"
                             href="#">
                             <i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
-                            {{ __('education.programs_related_2') }}
+                            {{ __('website.programs_related_2') }}
                         </a>
                     </li>
                     <li class="mb-1">
                         <a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7"
                             href="#">
                             <i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
-                            {{ __('education.programs_related_3') }}
+                            {{ __('website.programs_related_3') }}
                         </a>
                     </li>
                     <li class="mb-1">
                         <a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7"
                             href="#">
                             <i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
-                            {{ __('education.programs_related_4') }}
+                            {{ __('website.programs_related_4') }}
                         </a>
                     </li>
                     <li class="mb-1">
                         <a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7"
                             href="#">
                             <i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
-                            {{ __('education.programs_related_5') }}
+                            {{ __('website.programs_related_5') }}
                         </a>
                     </li>
                     <li class="mb-1">
                         <a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7"
                             href="#">
                             <i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
-                            {{ __('education.programs_related_6') }}
+                            {{ __('website.programs_related_6') }}
                         </a>
                     </li>
                     <li class="mb-1">
                         <a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7"
                             href="#">
                             <i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
-                            {{ __('education.programs_related_7') }}
+                            {{ __('website.programs_related_7') }}
                         </a>
                     </li>
                     <li class="mb-1">
                         <a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7"
                             href="#">
                             <i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
-                            {{ __('education.programs_related_8') }}
+                            {{ __('website.programs_related_8') }}
                         </a>
                     </li>
                     <li class="mb-1">
                         <a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7"
                             href="#">
                             <i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
-                            {{ __('education.programs_related_9') }}
+                            {{ __('website.programs_related_9') }}
                         </a>
                     </li>
                     <li class="mb-1">
                         <a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7"
                             href="#">
                             <i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
-                            {{ __('education.programs_related_10') }}
+                            {{ __('website.programs_related_10') }}
                         </a>
                     </li>
                     <li class="mb-1">
                         <a class="d-block u-link-v5 g-color-text g-color-white--hover g-bg-secondary g-bg-main--hover g-font-size-default rounded g-pl-30--hover g-px-20 g-py-7"
                             href="#">
                             <i class="g-font-size-13 g-pos-rel g-top-2 mr-2 material-icons">arrow_forward</i>
-                            {{ __('education.programs_related_11') }}
+                            {{ __('website.programs_related_11') }}
                         </a>
                     </li>
                 </ul>
@@ -225,7 +225,7 @@
         <div class="container g-py-100">
             <!-- Heading -->
             <div class="g-max-width-645 text-center mx-auto g-mb-60">
-                <h2 class="h1">{{ __('education.current_service_for_students') }}</h2>
+                <h2 class="h1">{{ __('website.current_service_for_students') }}</h2>
             </div>
             <!-- End Heading -->
 
@@ -236,9 +236,9 @@
                         <span class="u-icon-v3 u-shadow-v31 g-color-main g-bg-secondary-dark-v2 rounded-circle mb-4">
                             <i class="icon-finance-245 u-line-icon-pro"></i>
                         </span>
-                        <h3 class="h4">{{ __('education.current_money') }}</h3>
-                        <p class="g-color-text-light-v1">{{ __('education.current_money_desc') }}</p>
-                        <a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">{{ __('education.learn_more') }}<i
+                        <h3 class="h4">{{ __('website.current_money') }}</h3>
+                        <p class="g-color-text-light-v1">{{ __('website.current_money_desc') }}</p>
+                        <a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">{{ __('website.learn_more') }}<i
                                 class="g-font-size-13 ml-2 material-icons">arrow_forward</i></a>
                     </div>
                     <!-- End Links -->
@@ -250,9 +250,9 @@
                         <span class="u-icon-v3 u-shadow-v31 g-color-main g-bg-secondary-dark-v2 rounded-circle mb-4">
                             <i class="icon-education-039 u-line-icon-pro"></i>
                         </span>
-                        <h3 class="h4">{{ __('education.current_your_studies') }}</h3>
-                        <p class="g-color-text-light-v1">{{ __('education.current_your_studies_desc') }}</p>
-                        <a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">{{ __('education.learn_more') }}<i
+                        <h3 class="h4">{{ __('website.current_your_studies') }}</h3>
+                        <p class="g-color-text-light-v1">{{ __('website.current_your_studies_desc') }}</p>
+                        <a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">{{ __('website.learn_more') }}<i
                                 class="g-font-size-13 ml-2 material-icons">arrow_forward</i></a>
                     </div>
                     <!-- End Links -->
@@ -264,9 +264,9 @@
                         <span class="u-icon-v3 u-shadow-v31 g-color-main g-bg-secondary-dark-v2 rounded-circle mb-4">
                             <i class="icon-education-055 u-line-icon-pro"></i>
                         </span>
-                        <h3 class="h4">{{ __('education.current_new_students') }}</h3>
-                        <p class="g-color-text-light-v1">{{ __('education.current_new_students_desc') }}</p>
-                        <a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">{{ __('education.learn_more') }}<i
+                        <h3 class="h4">{{ __('website.current_new_students') }}</h3>
+                        <p class="g-color-text-light-v1">{{ __('website.current_new_students_desc') }}</p>
+                        <a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">{{ __('website.learn_more') }}<i
                                 class="g-font-size-13 ml-2 material-icons">arrow_forward</i></a>
                     </div>
                     <!-- End Links -->
@@ -280,9 +280,9 @@
                         <span class="u-icon-v3 u-shadow-v31 g-color-main g-bg-secondary-dark-v2 rounded-circle mb-4">
                             <i class="icon-communication-058 u-line-icon-pro"></i>
                         </span>
-                        <h3 class="h4">{{ __('education.current_support') }}</h3>
-                        <p class="g-color-text-light-v1">{{ __('education.current_support_desc') }}</p>
-                        <a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">{{ __('education.learn_more') }}<i
+                        <h3 class="h4">{{ __('website.current_support') }}</h3>
+                        <p class="g-color-text-light-v1">{{ __('website.current_support_desc') }}</p>
+                        <a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">{{ __('website.learn_more') }}<i
                                 class="g-font-size-13 ml-2 material-icons">arrow_forward</i></a>
                     </div>
                     <!-- End Links -->
@@ -294,9 +294,9 @@
                         <span class="u-icon-v3 u-shadow-v31 g-color-main g-bg-secondary-dark-v2 rounded-circle mb-4">
                             <i class="icon-education-103 u-line-icon-pro-v3"></i>
                         </span>
-                        <h3 class="h4">{{ __('education.current_student_it_online_learning') }}</h3>
-                        <p class="g-color-text-light-v1">{{ __('education.current_student_it_online_learning_desc') }}</p>
-                        <a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">{{ __('education.learn_more') }}<i
+                        <h3 class="h4">{{ __('website.current_student_it_online_learning') }}</h3>
+                        <p class="g-color-text-light-v1">{{ __('website.current_student_it_online_learning_desc') }}</p>
+                        <a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">{{ __('website.learn_more') }}<i
                                 class="g-font-size-13 ml-2 material-icons">arrow_forward</i></a>
                     </div>
                     <!-- End Links -->
@@ -308,9 +308,9 @@
                         <span class="u-icon-v3 u-shadow-v31 g-color-main g-bg-secondary-dark-v2 rounded-circle mb-4">
                             <i class="icon-communication-040 u-line-icon-pro"></i>
                         </span>
-                        <h3 class="h4">{{ __('education.current_administration') }}</h3>
-                        <p class="g-color-text-light-v1">{{ __('education.current_administration_desc') }}</p>
-                        <a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">{{ __('education.learn_more') }}<i
+                        <h3 class="h4">{{ __('website.current_administration') }}</h3>
+                        <p class="g-color-text-light-v1">{{ __('website.current_administration_desc') }}</p>
+                        <a class="u-link-v5 g-color-main--hover g-font-size-default" href="#">{{ __('website.learn_more') }}<i
                                 class="g-font-size-13 ml-2 material-icons">arrow_forward</i></a>
                     </div>
                     <!-- End Links -->
@@ -324,8 +324,8 @@
     <div class="container">
         <!-- Heading -->
         <div class="g-max-width-645 text-center mx-auto g-mb-60">
-            <h2 class="h1 mb-3">{{ __('education.current_notices') }}</h2>
-            <p>{{ __('education.current_notices_desc') }}</p>
+            <h2 class="h1 mb-3">{{ __('website.current_notices') }}</h2>
+            <p>{{ __('website.current_notices_desc') }}</p>
         </div>
         <!-- End Heading -->
     </div>
@@ -364,11 +364,11 @@
                                 alt="Image Description">
                         </div>
                         <div class="mb-5">
-                            <h3 class="mb-3">{{ __('education.current_notice_1_title') }}</h3>
-                            <p>{{ __('education.current_notice_1_desc') }}</p>
+                            <h3 class="mb-3">{{ __('website.current_notice_1_title') }}</h3>
+                            <p>{{ __('website.current_notice_1_desc') }}</p>
                         </div>
                         <a class="btn g-brd-secondary-light-v2 g-brd-primary--hover g-color-text-light-v1 g-color-white--hover g-bg-primary--hover g-font-size-15 g-rounded-30 g-px-25 g-py-10"
-                            href="#">{{ __('education.current_read_now') }}</a>
+                            href="#">{{ __('website.current_read_now') }}</a>
                     </div>
                 </div>
                 <!-- End Notice - Article -->
@@ -381,11 +381,11 @@
                                 alt="Image Description">
                         </div>
                         <div class="mb-5">
-                            <h3 class="mb-3">{{ __('education.current_notice_2_title') }}</h3>
-                            <p>{{ __('education.current_notice_2_desc') }}</p>
+                            <h3 class="mb-3">{{ __('website.current_notice_2_title') }}</h3>
+                            <p>{{ __('website.current_notice_2_desc') }}</p>
                         </div>
                         <a class="btn g-brd-secondary-light-v2 g-brd-primary--hover g-color-text-light-v1 g-color-white--hover g-bg-primary--hover g-font-size-15 g-rounded-30 g-px-25 g-py-10"
-                            href="#">{{ __('education.current_read_now') }}</a>
+                            href="#">{{ __('website.current_read_now') }}</a>
                     </div>
                 </div>
                 <!-- End Notice - Article -->
@@ -398,11 +398,11 @@
                                 alt="Image Description">
                         </div>
                         <div class="mb-5">
-                            <h3 class="mb-3">{{ __('education.current_notice_3_title') }}</h3>
-                            <p>{{ __('education.current_notice_3_desc') }}</p>
+                            <h3 class="mb-3">{{ __('website.current_notice_3_title') }}</h3>
+                            <p>{{ __('website.current_notice_3_desc') }}</p>
                         </div>
                         <a class="btn g-brd-secondary-light-v2 g-brd-primary--hover g-color-text-light-v1 g-color-white--hover g-bg-primary--hover g-font-size-15 g-rounded-30 g-px-25 g-py-10"
-                            href="#">{{ __('education.current_read_now') }}</a>
+                            href="#">{{ __('website.current_read_now') }}</a>
                     </div>
                 </div>
                 <!-- End Notice - Article -->
@@ -415,12 +415,12 @@
                                 alt="Image Description">
                         </div>
                         <div class="mb-5">
-                            <h3 class="mb-3">{{ __('education.current_notice_4_title') }}</h3>
-                            <p>{{ __('education.current_notice_4_desc_1') }}</p>
-                            <p>{{ __('education.current_notice_4_desc_2') }}</p>
+                            <h3 class="mb-3">{{ __('website.current_notice_4_title') }}</h3>
+                            <p>{{ __('website.current_notice_4_desc_1') }}</p>
+                            <p>{{ __('website.current_notice_4_desc_2') }}</p>
                         </div>
                         <a class="btn g-brd-secondary-light-v2 g-brd-primary--hover g-color-text-light-v1 g-color-white--hover g-bg-primary--hover g-font-size-15 g-rounded-30 g-px-25 g-py-10"
-                            href="#">{{ __('education.current_read_now') }}</a>
+                            href="#">{{ __('website.current_read_now') }}</a>
                     </div>
                 </div>
                 <!-- End Notice - Article -->
@@ -433,11 +433,11 @@
                                 alt="Image Description">
                         </div>
                         <div class="mb-5">
-                            <h3 class="mb-3">{{ __('education.current_notice_5_title') }}</h3>
-                            <p>{{ __('education.current_notice_5_desc') }}</p>
+                            <h3 class="mb-3">{{ __('website.current_notice_5_title') }}</h3>
+                            <p>{{ __('website.current_notice_5_desc') }}</p>
                         </div>
                         <a class="btn g-brd-secondary-light-v2 g-brd-primary--hover g-color-text-light-v1 g-color-white--hover g-bg-primary--hover g-font-size-15 g-rounded-30 g-px-25 g-py-10"
-                            href="#">{{ __('education.current_read_now') }}</a>
+                            href="#">{{ __('website.current_read_now') }}</a>
                     </div>
                 </div>
                 <!-- End Notice - Article -->
@@ -448,7 +448,7 @@
     <!-- End Notice -->
 
     <!-- Call to Action -->
-    @include('education.content.call-to-action')
+    @include('website.content.call-to-action')
     <!-- End Call to Action -->
 @endsection
 @section('script')

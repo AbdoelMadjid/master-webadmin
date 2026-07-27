@@ -6,15 +6,15 @@
                 <!-- Footer Links -->
                 <ul class="list-unstyled">
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.future_students') }}</a></li>
+                            href="#">{{ __('website.future_students') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.current_students') }}</a></li>
+                            href="#">{{ __('website.current_students') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.alumni') }}</a></li>
+                            href="#">{{ __('website.alumni') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.faculty_and_staff') }}</a></li>
+                            href="#">{{ __('website.faculty_and_staff') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.donors') }}</a></li>
+                            href="#">{{ __('website.donors') }}</a></li>
                 </ul>
                 <!-- End Footer Links -->
             </div>
@@ -23,15 +23,15 @@
                 <!-- Footer Links -->
                 <ul class="list-unstyled">
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.news_media') }}</a></li>
+                            href="#">{{ __('website.news_media') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.research_innovation') }}</a></li>
+                            href="#">{{ __('website.research_innovation') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.academics') }}</a></li>
+                            href="#">{{ __('website.academics') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.programs_of_study') }}</a></li>
+                            href="#">{{ __('website.programs_of_study') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.university_life') }}</a></li>
+                            href="#">{{ __('website.university_life') }}</a></li>
                 </ul>
                 <!-- End Footer Links -->
             </div>
@@ -40,15 +40,15 @@
                 <!-- Footer Links -->
                 <ul class="list-unstyled">
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.contacts') }}</a></li>
+                            href="#">{{ __('website.contacts') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.careers') }}</a></li>
+                            href="#">{{ __('website.careers') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.accessibility') }}</a></li>
+                            href="#">{{ __('website.accessibility') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.privacy') }}</a></li>
+                            href="#">{{ __('website.privacy') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.site_feedback') }}</a></li>
+                            href="#">{{ __('website.site_feedback') }}</a></li>
                 </ul>
                 <!-- End Footer Links -->
             </div>
@@ -57,15 +57,15 @@
                 <!-- Footer Links -->
                 <ul class="list-unstyled">
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.downtown_ontario_campus') }}</a></li>
+                            href="#">{{ __('website.downtown_ontario_campus') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.mississauga_campus') }}</a></li>
+                            href="#">{{ __('website.mississauga_campus') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.scarborough_campus') }}</a></li>
+                            href="#">{{ __('website.scarborough_campus') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.campus_maps') }}</a></li>
+                            href="#">{{ __('website.campus_maps') }}</a></li>
                     <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('education.campus_safety') }}</a></li>
+                            href="#">{{ __('website.campus_safety') }}</a></li>
                 </ul>
                 <!-- End Footer Links -->
             </div>
@@ -76,7 +76,7 @@
             <div class="col-sm-6 col-md-4 col-lg-3 order-md-3 g-mb-30">
                 <a class="u-link-v5 g-color-text g-color-primary--hover" href="#">
                     <i class="align-middle mr-2 icon-real-estate-027 u-line-icon-pro"></i>
-                    {{ __('education.kingston_ontario_canada') }}
+                    {{ __('website.kingston_ontario_canada') }}
                 </a>
             </div>
 
@@ -118,7 +118,7 @@
             </div>
 
             <div class="col-md-4 col-lg-3 order-md-1 g-mb-30">
-                <p class="g-color-text mb-0">{{ __('education.university_of_unify_since_1978') }}</p>
+                <p class="g-color-text mb-0">{{ __('website.university_of_unify_since_1978') }}</p>
             </div>
         </div>
         <!-- End Footer Copyright -->

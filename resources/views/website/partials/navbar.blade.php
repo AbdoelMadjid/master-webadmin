@@ -1,6 +1,6 @@
 <nav class="js-mega-menu navbar navbar-expand-lg g-px-0 g-py-5 g-py-0--lg">
     <!-- Logo -->
-    <a class="navbar-brand g-max-width-170 g-max-width-200--lg" href="{{ route('education.home') }}">
+    <a class="navbar-brand g-max-width-170 g-max-width-200--lg" href="{{ route('website.home') }}">
         <img class="img-fluid g-hidden-lg-down" src="assets/img/logo/logo.png" alt="Logo">
         <img class="img-fluid g-width-80 g-hidden-md-down g-hidden-xl-up" src="assets/img/logo/logo-mini.png"
             alt="Logo">
@@ -29,7 +29,7 @@
                 <a id="mega-menu-label-1"
                     class="nav-link g-color-primary--hover g-font-size-15 g-font-size-17--xl g-px-15--lg g-py-10 g-py-30--lg"
                     href="#" aria-haspopup="true" aria-expanded="false">
-                    {{ __('education.pages') }}
+                    {{ __('website.pages') }}
                     <i class="hs-icon hs-icon-arrow-bottom g-font-size-11 g-ml-7"></i>
                 </a>
 
@@ -37,7 +37,7 @@
                 <div class="w-100 hs-mega-menu u-shadow-v39 g-brd-around g-brd-7 g-brd-white g-bg-secondary g-text-transform-none g-pa-30 g-pa-50--lg g-my-20 g-my-0--lg"
                     aria-labelledby="mega-menu-label-1">
                     <span
-                        class="d-block h1 g-brd-bottom g-brd-2 g-brd-main pb-2 mb-5">{{ __('education.pages') }}</span>
+                        class="d-block h1 g-brd-bottom g-brd-2 g-brd-main pb-2 mb-5">{{ __('website.pages') }}</span>
 
                     <div class="row">
                         <div class="col-sm-6 col-lg-3">
@@ -45,55 +45,24 @@
                             <ul class="list-unstyled g-pr-30 mb-0">
                                 <li class="py-2">
                                     <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
-                                        href="{{ route('education.programs') }}">
-                                        {{ __('education.programs') }}
+                                        href="{{ route('website.programs') }}">
+                                        {{ __('website.programs') }}
                                         <i
                                             class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
                                     </a>
                                 </li>
                                 <li class="py-2">
                                     <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
-                                        href="{{ route('education.future-students') }}">
-                                        {{ __('education.future_students') }}
+                                        href="{{ route('website.future-students') }}">
+                                        {{ __('website.future_students') }}
                                         <i
                                             class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
                                     </a>
                                 </li>
                                 <li class="py-2">
                                     <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
-                                        href="{{ route('education.current-students') }}">
-                                        {{ __('education.current_students') }}
-                                        <i
-                                            class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- End Links -->
-                        </div>
-
-                        <div class="col-sm-6 col-lg-3">
-                            <!-- Links -->
-                            <ul class="list-unstyled g-pr-30 mb-0">
-                                <li class="py-2">
-                                    <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
-                                        href="{{ route('education.faculty-and-staff') }}">
-                                        {{ __('education.faculty_and_staff') }}
-                                        <i
-                                            class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
-                                    </a>
-                                </li>
-                                <li class="py-2">
-                                    <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
-                                        href="{{ route('education.events') }}">
-                                        {{ __('education.events') }}
-                                        <i
-                                            class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
-                                    </a>
-                                </li>
-                                <li class="py-2">
-                                    <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
-                                        href="{{ route('education.alumni') }}">
-                                        {{ __('education.alumni') }}
+                                        href="{{ route('website.current-students') }}">
+                                        {{ __('website.current_students') }}
                                         <i
                                             class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
                                     </a>
@@ -107,24 +76,24 @@
                             <ul class="list-unstyled g-pr-30 mb-0">
                                 <li class="py-2">
                                     <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
-                                        href="{{ route('education.campus-life') }}">
-                                        {{ __('education.campus_life') }}
+                                        href="{{ route('website.faculty-and-staff') }}">
+                                        {{ __('website.faculty_and_staff') }}
                                         <i
                                             class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
                                     </a>
                                 </li>
                                 <li class="py-2">
                                     <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
-                                        href="{{ route('education.research') }}">
-                                        {{ __('education.research') }}
+                                        href="{{ route('website.events') }}">
+                                        {{ __('website.events') }}
                                         <i
                                             class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
                                     </a>
                                 </li>
                                 <li class="py-2">
                                     <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
-                                        href="{{ route('education.apply-all-intake') }}">
-                                        {{ __('education.apply') }}
+                                        href="{{ route('website.alumni') }}">
+                                        {{ __('website.alumni') }}
                                         <i
                                             class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
                                     </a>
@@ -138,23 +107,54 @@
                             <ul class="list-unstyled g-pr-30 mb-0">
                                 <li class="py-2">
                                     <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
-                                        href="{{ route('education.contacts') }}">
-                                        {{ __('education.contacts') }}
+                                        href="{{ route('website.campus-life') }}">
+                                        {{ __('website.campus_life') }}
                                         <i
                                             class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
                                     </a>
                                 </li>
                                 <li class="py-2">
                                     <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
-                                        href="{{ route('education.help') }}">
-                                        {{ __('education.help') }}
+                                        href="{{ route('website.research') }}">
+                                        {{ __('website.research') }}
+                                        <i
+                                            class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
+                                    </a>
+                                </li>
+                                <li class="py-2">
+                                    <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
+                                        href="{{ route('website.apply-all-intake') }}">
+                                        {{ __('website.apply') }}
+                                        <i
+                                            class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
+                                    </a>
+                                </li>
+                            </ul>
+                            <!-- End Links -->
+                        </div>
+
+                        <div class="col-sm-6 col-lg-3">
+                            <!-- Links -->
+                            <ul class="list-unstyled g-pr-30 mb-0">
+                                <li class="py-2">
+                                    <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
+                                        href="{{ route('website.contacts') }}">
+                                        {{ __('website.contacts') }}
+                                        <i
+                                            class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
+                                    </a>
+                                </li>
+                                <li class="py-2">
+                                    <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
+                                        href="{{ route('website.help') }}">
+                                        {{ __('website.help') }}
                                         <i
                                             class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
                                     </a>
                                 </li>
                                 {{--  <li class="py-2">
                                     <a class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5"
-                                        href="{{ route('education.signin') }}">
+                                        href="{{ route('website.signin') }}">
                                         Signin
                                         <i
                                             class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
@@ -165,14 +165,14 @@
                                         @auth
                                             <a href="{{ route('homepage') }}"
                                                 class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5">
-                                                {{ __('education.dashboard') }}
+                                                {{ __('website.dashboard') }}
                                                 <i
                                                     class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
                                             </a>
                                         @else
                                             <a href="{{ route('login') }}"
                                                 class="d-flex g-color-main g-color-primary--hover g-text-underline--none--hover g-py-5">
-                                                {{ __('education.sign_in') }}
+                                                {{ __('website.sign_in') }}
                                                 <i
                                                     class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
                                             </a>
@@ -182,7 +182,7 @@
                                 <li class="py-2">
                                     <a class="d-flex g-brd-top g-brd-primary g-color-main g-color-primary--hover g-text-underline--none--hover g-pt-15 g-pb-5"
                                         href="{{ route('home') }}">
-                                        {{ __('education.main') }}
+                                        {{ __('website.main') }}
                                         <i
                                             class="g-color-primary g-font-size-15 g-pos-rel g-top-5 ml-auto material-icons">arrow_forward</i>
                                     </a>
@@ -198,38 +198,38 @@
 
             <li class="nav-item">
                 <a class="nav-link g-color-primary--hover g-font-size-15 g-font-size-17--xl g-px-15--lg g-py-10 g-py-30--lg"
-                    href="{{ route('education.programs') }}">
-                    {{ __('education.programs') }}
+                    href="{{ route('website.programs') }}">
+                    {{ __('website.programs') }}
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link g-color-primary--hover g-font-size-15 g-font-size-17--xl g-px-15--lg g-py-10 g-py-30--lg"
-                    href="{{ route('education.future-students') }}">
-                    {{ __('education.future_students') }}
+                    href="{{ route('website.future-students') }}">
+                    {{ __('website.future_students') }}
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link g-color-primary--hover g-font-size-15 g-font-size-17--xl g-px-15--lg g-py-10 g-py-30--lg"
-                    href="{{ route('education.current-students') }}">
-                    {{ __('education.current_students') }}
+                    href="{{ route('website.current-students') }}">
+                    {{ __('website.current_students') }}
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link g-color-primary--hover g-font-size-15 g-font-size-17--xl g-px-15--lg g-py-10 g-py-30--lg"
-                    href="{{ route('education.faculty-and-staff') }}">
-                    {{ __('education.faculty_and_staff') }}
+                    href="{{ route('website.faculty-and-staff') }}">
+                    {{ __('website.faculty_and_staff') }}
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link g-color-primary--hover g-font-size-15 g-font-size-17--xl g-px-15--lg g-py-10 g-py-30--lg"
-                    href="{{ route('education.events') }}">
-                    {{ __('education.events') }}
+                    href="{{ route('website.events') }}">
+                    {{ __('website.events') }}
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link g-color-primary--hover g-font-size-15 g-font-size-17--xl g-pl-15--lg g-pr-0--lg g-py-10 g-py-30--lg"
-                    href="{{ route('education.alumni') }}">
-                    {{ __('education.alumni') }}
+                    href="{{ route('website.alumni') }}">
+                    {{ __('website.alumni') }}
                 </a>
             </li>
         </ul>

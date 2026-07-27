@@ -1,8 +1,8 @@
 <div class="container g-pt-100 g-pb-50">
     <!-- Heading -->
     <div class="g-max-width-645 text-center mx-auto">
-        <h2 class="h1 mb-3">{{ __('education.learn_first_steps_title') }}</h2>
-        <p>{{ __('education.learn_first_steps_description') }}</p>
+        <h2 class="h1 mb-3">{{ __('website.learn_first_steps_title') }}</h2>
+        <p>{{ __('website.learn_first_steps_description') }}</p>
     </div>
     <!-- End Heading -->
 
@@ -23,11 +23,11 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3 class="h5 g-color-blue g-color-main--hover g-font-primary mb-1">{{ __('education.learn_item_1_title') }}
+                            <h3 class="h5 g-color-blue g-color-main--hover g-font-primary mb-1">{{ __('website.learn_item_1_title') }}
                             </h3>
-                            <p class="g-font-size-16 mb-0">{{ __('education.learn_item_1_text') }}</p>
+                            <p class="g-font-size-16 mb-0">{{ __('website.learn_item_1_text') }}</p>
                         </div>
-                        <a class="u-link-v2" href="{{ route('education.future-students') }}"></a>
+                        <a class="u-link-v2" href="{{ route('website.future-students') }}"></a>
                     </div>
                 </li>
                 <!-- End Links -->
@@ -43,10 +43,10 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3 class="h5 g-color-purple g-color-main--hover g-font-primary mb-1">{{ __('education.learn_item_2_title') }}</h3>
-                            <p class="g-font-size-16 mb-0">{{ __('education.learn_item_2_text') }}</p>
+                            <h3 class="h5 g-color-purple g-color-main--hover g-font-primary mb-1">{{ __('website.learn_item_2_title') }}</h3>
+                            <p class="g-font-size-16 mb-0">{{ __('website.learn_item_2_text') }}</p>
                         </div>
-                        <a class="u-link-v2" href="{{ route('education.programs') }}"></a>
+                        <a class="u-link-v2" href="{{ route('website.programs') }}"></a>
                     </div>
                 </li>
                 <!-- End Links -->
@@ -62,10 +62,10 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3 class="h5 g-color-teal g-color-main--hover g-font-primary mb-1">{{ __('education.learn_item_3_title') }}</h3>
-                            <p class="g-font-size-16 mb-0">{{ __('education.learn_item_3_text') }}</p>
+                            <h3 class="h5 g-color-teal g-color-main--hover g-font-primary mb-1">{{ __('website.learn_item_3_title') }}</h3>
+                            <p class="g-font-size-16 mb-0">{{ __('website.learn_item_3_text') }}</p>
                         </div>
-                        <a class="u-link-v2" href="{{ route('education.events') }}"></a>
+                        <a class="u-link-v2" href="{{ route('website.events') }}"></a>
                     </div>
                 </li>
                 <!-- End Links -->
@@ -81,11 +81,11 @@
                             </span>
                         </div>
                         <div class="media-body">
-                            <h3 class="h5 g-color-brown g-color-main--hover g-font-primary mb-1">{{ __('education.learn_item_4_title') }}
+                            <h3 class="h5 g-color-brown g-color-main--hover g-font-primary mb-1">{{ __('website.learn_item_4_title') }}
                             </h3>
-                            <p class="g-font-size-16 mb-0">{{ __('education.learn_item_4_text') }}</p>
+                            <p class="g-font-size-16 mb-0">{{ __('website.learn_item_4_text') }}</p>
                         </div>
-                        <a class="u-link-v2" href="{{ route('education.campus-life') }}"></a>
+                        <a class="u-link-v2" href="{{ route('website.campus-life') }}"></a>
                     </div>
                 </li>
                 <!-- End Links -->
@@ -102,8 +102,8 @@
             </div>
             <!-- End Youtube Iframe -->
 
-            <h4 class="h3 mb-0">{{ __('education.learn_explore_title') }}</h4>
-            <a class="g-pl-30" href="#">&#8212; {{ __('education.learn_explore_link') }}</a>
+            <h4 class="h3 mb-0">{{ __('website.learn_explore_title') }}</h4>
+            <a class="g-pl-30" href="#">&#8212; {{ __('website.learn_explore_link') }}</a>
         </div>
     </div>
 </div>

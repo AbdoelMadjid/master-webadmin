@@ -511,7 +511,7 @@ return [
     'home_latest_news_opinions' => 'Latest News & Opinions',
     'home_latest_news_desc' => "Our duty towards you is to share our experience we're reaching in our work path with you.",
     'home_news_1_title' => 'Repalogic University announces a new student award in honour of Fashion',
-    'home_news_2_quote' => '" Repalogic welcomes the downtown to uptown in advance of the IT Technology. At the welcome ceremony, Lenton announced a new award in the IT Technology in support of increased access to postsecondary education. "',
+    'home_news_2_quote' => '" Repalogic welcomes the downtown to uptown in advance of the IT Technology. At the welcome ceremony, Lenton announced a new award in the IT Technology in support of increased access to postsecondary website. "',
     'home_news_3_title' => 'The Fashion Gallery of Repalogic welcomes downtown to the future of Ontario.',
     'home_news_4_quote' => '" Augustana Long Range Development Plan Open House - Sept. 28. The University of Repalogic will be holding a public open house that will provide an update on the amendment of land use plans for the Augustana Campus. "',
     'home_news_5_title' => 'University of Repalogic joins new network to drive defence research',

@@ -27,7 +27,7 @@ class ReplaceUnifyHeaderBlock extends Command
 
         $replacement = <<<BLADE
 <!-- Header -->
-@include('education.partials.header')
+@include('website.partials.header')
 <!-- End Header -->
 BLADE;
 

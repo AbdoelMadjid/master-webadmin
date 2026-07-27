@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<!-- Mirrored from htmlstream.com/preview/unify-v2.6.3/multipage/education/home-page-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Feb 2026 13:16:54 GMT -->
+<!-- Mirrored from htmlstream.com/preview/unify-v2.6.3/multipage/website/home-page-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Feb 2026 13:16:54 GMT -->
 
 <head>
     <base href="{{ url('/') }}/">
     <!-- Title -->
-    <title>@yield('title', __('education.main')) - Unify</title>
+    <title>@yield('title', __('website.main')) - Unify</title>
 
     <!-- Required Meta Tags Always Come First -->
     <meta charset="utf-8">
@@ -34,11 +34,11 @@
 <body>
     <main>
 
-        @include('education.partials.header')
+        @include('website.partials.header')
 
         @yield('content')
 
-        @include('education.partials.footer')
+        @include('website.partials.footer')
 
     </main>
 

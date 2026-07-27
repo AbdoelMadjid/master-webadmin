@@ -19,6 +19,10 @@ return array (
     13 => 'md_reset_password',
     14 => 'md_role',
     15 => 'md_user',
+    16 => 'wd_menu',
+    17 => 'wd_page_config',
+    18 => 'wd_website_profile',
+    19 => 'wd_websitedata',
   ),
   'en' => 
   array (
@@ -38,5 +42,9 @@ return array (
     13 => 'md_reset_password',
     14 => 'md_role',
     15 => 'md_user',
+    16 => 'wd_menu',
+    17 => 'wd_page_config',
+    18 => 'wd_website_profile',
+    19 => 'wd_websitedata',
   ),
 );

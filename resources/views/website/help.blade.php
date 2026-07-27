@@ -1,5 +1,5 @@
-@extends('education.partials.web-master')
-@section('title', __('education.meta_title_help'))
+@extends('website.partials.web-master')
+@section('title', __('website.meta_title_help'))
 @section('css')
     <link rel="stylesheet" href="assets/vendor/icon-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/vendor/icon-line-pro/style.css">
@@ -16,18 +16,18 @@
             <div class="g-max-width-645 mx-auto">
                 <!-- Heading -->
                 <div class="g-max-width-645 text-center mx-auto g-mb-40">
-                    <h1 class="g-font-size-40--md mb-3">{{ __('education.help_hero_title') }}</h1>
-                    <p>{{ __('education.help_hero_desc') }}</p>
+                    <h1 class="g-font-size-40--md mb-3">{{ __('website.help_hero_title') }}</h1>
+                    <p>{{ __('website.help_hero_desc') }}</p>
                 </div>
                 <!-- End Heading -->
 
                 <!-- Help Form -->
                 <form class="input-group">
                     <input class="form-control u-shadow-v35 g-brd-secondary-light-v2 g-rounded-left-30 g-px-30 g-py-12"
-                        type="text" placeholder="{{ __('education.help_search_placeholder') }}">
+                        type="text" placeholder="{{ __('website.help_search_placeholder') }}">
                     <div class="input-group-btn">
                         <button type="submit"
-                            class="btn u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-rounded-right-30 g-px-25 g-py-10">{{ __('education.search') }}
+                            class="btn u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-rounded-right-30 g-px-25 g-py-10">{{ __('website.search') }}
                             <i class="ml-3 fa fa-search"></i></button>
                     </div>
                 </form>
@@ -48,7 +48,7 @@
                         <span class="u-icon-v1 u-icon-size--lg g-transition-0 mb-3">
                             <i class="icon-education-172 u-line-icon-pro"></i>
                         </span>
-                        <h2 class="h4">{{ __('education.help_topic_faq') }}</h2>
+                        <h2 class="h4">{{ __('website.help_topic_faq') }}</h2>
                         <a class="u-link-v2" href="#"></a>
                     </div>
                     <!-- End Help Promo Topics -->
@@ -61,7 +61,7 @@
                         <span class="u-icon-v1 u-icon-size--lg g-transition-0 mb-3">
                             <i class="icon-education-007 u-line-icon-pro"></i>
                         </span>
-                        <h2 class="h4">{{ __('education.help_topic_info_resources') }}</h2>
+                        <h2 class="h4">{{ __('website.help_topic_info_resources') }}</h2>
                         <a class="u-link-v2" href="#"></a>
                     </div>
                     <!-- End Help Promo Topics -->
@@ -74,7 +74,7 @@
                         <span class="u-icon-v1 u-icon-size--lg g-transition-0 mb-3">
                             <i class="icon-education-103 u-line-icon-pro"></i>
                         </span>
-                        <h2 class="h4">{{ __('education.help_topic_system_services') }}</h2>
+                        <h2 class="h4">{{ __('website.help_topic_system_services') }}</h2>
                         <a class="u-link-v2" href="#"></a>
                     </div>
                     <!-- End Help Promo Topics -->
@@ -97,8 +97,8 @@
                         </span>
                     </div>
                     <div class="col-md-9 g-pl-0--md">
-                        <h2 class="g-color-primary--hover h4">{{ __('education.help_content_1_title') }}</h2>
-                        <p class="g-color-text-light-v1">{{ __('education.help_content_1_desc') }}</p>
+                        <h2 class="g-color-primary--hover h4">{{ __('website.help_content_1_title') }}</h2>
+                        <p class="g-color-text-light-v1">{{ __('website.help_content_1_desc') }}</p>
                     </div>
                     <div class="col-md-1">
                         <i
@@ -119,8 +119,8 @@
                         </span>
                     </div>
                     <div class="col-md-9 g-pl-0--md">
-                        <h2 class="g-color-primary--hover h4">{{ __('education.help_content_2_title') }}</h2>
-                        <p class="g-color-text-light-v1">{{ __('education.help_content_2_desc') }}</p>
+                        <h2 class="g-color-primary--hover h4">{{ __('website.help_content_2_title') }}</h2>
+                        <p class="g-color-text-light-v1">{{ __('website.help_content_2_desc') }}</p>
                     </div>
                     <div class="col-md-1">
                         <i
@@ -141,8 +141,8 @@
                         </span>
                     </div>
                     <div class="col-md-9 g-pl-0--md">
-                        <h2 class="g-color-primary--hover h4">{{ __('education.help_content_3_title') }}</h2>
-                        <p class="g-color-text-light-v1">{{ __('education.help_content_3_desc') }}</p>
+                        <h2 class="g-color-primary--hover h4">{{ __('website.help_content_3_title') }}</h2>
+                        <p class="g-color-text-light-v1">{{ __('website.help_content_3_desc') }}</p>
                     </div>
                     <div class="col-md-1">
                         <i
@@ -157,7 +157,7 @@
     <!-- End Help Content Topics -->
 
     <!-- Call to Action -->
-    @include('education.content.call-to-action')
+    @include('website.content.call-to-action')
     <!-- End Call to Action -->
 @endsection
 @section('script')

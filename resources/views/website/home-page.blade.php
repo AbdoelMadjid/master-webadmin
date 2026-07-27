@@ -1,5 +1,5 @@
-@extends('education.partials.web-master')
-@section('title', __('education.meta_title_home_page'))
+@extends('website.partials.web-master')
+@section('title', __('website.meta_title_home_page'))
 @section('css')
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="assets/vendor/icon-awesome/css/font-awesome.min.css">
@@ -14,15 +14,15 @@
 @endsection
 @section('content')
     <!-- Carousel Slider -->
-    @include('education.content.carousel-slider')
+    @include('website.content.carousel-slider')
     <!-- End Carousel Slider -->
 
     <!-- Find a Course -->
-    @include('education.content.find-a-cource')
+    @include('website.content.find-a-cource')
     <!-- End Find a Course -->
 
     <!-- Learn First Steps -->
-    @include('education.content.learn-first-steps')
+    @include('website.content.learn-first-steps')
     <!-- End Learn First Steps -->
 
     <!-- Researches -->
@@ -30,7 +30,7 @@
         <div class="container g-pos-rel g-z-index-1 g-pt-100 g-pb-120">
             <!-- Heading -->
             <div class="g-max-width-645 text-center mx-auto g-mb-60">
-                <h2 class="h1 text-center g-color-white">{{ __('education.home_research_with_unify') }}</h2>
+                <h2 class="h1 text-center g-color-white">{{ __('website.home_research_with_unify') }}</h2>
             </div>
             <!-- End Heading -->
 
@@ -49,7 +49,7 @@
                                         class="u-icon-v3 g-width-30 g-height-30 g-color-white g-bg-primary g-bg-main--hover rounded-circle mr-3">
                                         <i class="g-font-size-13 g-ml-2 hs-icon hs-icon-play"></i>
                                     </span>
-                                    <span class="g-color-primary g-color-main--hover">{{ __('education.home_play_video') }}</span>
+                                    <span class="g-color-primary g-color-main--hover">{{ __('website.home_play_video') }}</span>
                                 </span>
                             </a>
                         </div>
@@ -60,8 +60,8 @@
                 <div class="col-lg-5 order-lg-1 g-mb-50">
                     <!-- Researches - Info -->
                     <div class="mb-5">
-                        <h2 class="h3 g-color-white mb-4">{{ __('education.research_article_1_title') }}</h2>
-                        <p class="g-color-white-opacity-0_7">{{ __('education.home_research_feature_desc') }}</p>
+                        <h2 class="h3 g-color-white mb-4">{{ __('website.research_article_1_title') }}</h2>
+                        <p class="g-color-white-opacity-0_7">{{ __('website.home_research_feature_desc') }}</p>
                     </div>
 
                     <div class="media g-max-width-300">
@@ -72,8 +72,8 @@
                             </div>
                         </div>
                         <div class="media-body">
-                            <span class="d-block g-color-white g-font-secondary g-font-size-16 mb-2">{{ __('education.home_research_quote') }}</span>
-                            <h5 class="h6 g-color-primary g-font-primary g-font-weight-700">{{ __('education.home_research_quote_author') }}</h5>
+                            <span class="d-block g-color-white g-font-secondary g-font-size-16 mb-2">{{ __('website.home_research_quote') }}</span>
+                            <h5 class="h6 g-color-primary g-font-primary g-font-weight-700">{{ __('website.home_research_quote_author') }}</h5>
                         </div>
                     </div>
                     <!-- End Researches - Info -->
@@ -115,8 +115,8 @@
 
                         <!-- Research - Info -->
                         <div class="text-center g-absolute-centered--y g-left-0 g-right-0 g-px-35">
-                            <h4 class="h2 g-font-primary">{{ __('education.home_top_25') }}</h4>
-                            <span class="d-block">{{ __('education.research_fact_top_25_desc') }}</span>
+                            <h4 class="h2 g-font-primary">{{ __('website.home_top_25') }}</h4>
+                            <span class="d-block">{{ __('website.research_fact_top_25_desc') }}</span>
                         </div>
                         <!-- Research - Info -->
                     </div>
@@ -143,7 +143,7 @@
                         <!-- Research - Info -->
                         <div class="text-center g-absolute-centered--y g-left-0 g-right-0 g-px-35">
                             <h4 class="h2 g-font-primary">100%</h4>
-                            <span class="d-block">{{ __('education.research_fact_100_desc') }}</span>
+                            <span class="d-block">{{ __('website.research_fact_100_desc') }}</span>
                         </div>
                         <!-- Research - Info -->
                     </div>
@@ -171,7 +171,7 @@
                         <!-- Research - Info -->
                         <div class="text-center g-absolute-centered--y g-left-0 g-right-0 g-px-35">
                             <h4 class="h2 g-font-primary">70+</h4>
-                            <span class="d-block">{{ __('education.research_fact_70_desc') }}</span>
+                            <span class="d-block">{{ __('website.research_fact_70_desc') }}</span>
                         </div>
                         <!-- Research - Info -->
                     </div>
@@ -199,8 +199,8 @@
 
                         <!-- Research - Info -->
                         <div class="text-center g-absolute-centered--y g-left-0 g-right-0 g-px-35">
-                            <h4 class="h2 g-font-primary">{{ __('education.home_tripling') }}</h4>
-                            <span class="d-block">{{ __('education.research_fact_tripling_desc') }}</span>
+                            <h4 class="h2 g-font-primary">{{ __('website.home_tripling') }}</h4>
+                            <span class="d-block">{{ __('website.research_fact_tripling_desc') }}</span>
                         </div>
                         <!-- Research - Info -->
                     </div>
@@ -276,7 +276,7 @@
         <!-- End SVG Shape (Small Devices) -->
 
         <div class="g-max-width-300 text-center mx-auto">
-            <p class="g-color-secondary-light-v1 mb-0">{{ __('education.home_facts_hall_desc') }}</p>
+            <p class="g-color-secondary-light-v1 mb-0">{{ __('website.home_facts_hall_desc') }}</p>
         </div>
     </div>
     <!-- End Research Statistics -->
@@ -303,7 +303,7 @@
                                 <div class="media-body">
                                     <blockquote
                                         class="g-brd-left-none g-color-white g-font-style-italic g-font-size-20 g-pl-0">
-                                        {{ __('education.future_testimonial_1_quote') }}
+                                        {{ __('website.future_testimonial_1_quote') }}
                                         <span
                                             class="align-self-end g-color-white-opacity-0_8 g-font-secondary g-font-size-40 g-opacity-0_3 g-line-height-0 align-bottom g-pos-rel g-top-minus-10">&#8221;</span>
                                     </blockquote>
@@ -313,7 +313,7 @@
                             <div class="g-pl-30">
                                 <h3 class="h4 g-color-white-opacity-0_9 mb-0">Karolina Wellyan</h3>
                                 <span class="d-block g-font-size-18 g-color-white-opacity-0_5 g-pl-20">&#8212;
-                                    {{ __('education.future_bachelor_student') }}</span>
+                                    {{ __('website.future_bachelor_student') }}</span>
                             </div>
                             <!-- End Testimonials - Content -->
                         </div>
@@ -339,7 +339,7 @@
                                 <div class="media-body">
                                     <blockquote
                                         class="g-brd-left-none g-color-white g-font-style-italic g-font-size-20 g-pl-0">
-                                        {{ __('education.future_testimonial_2_quote') }}
+                                        {{ __('website.future_testimonial_2_quote') }}
                                         <span
                                             class="align-self-end g-color-white-opacity-0_8 g-font-secondary g-font-size-40 g-opacity-0_3 g-line-height-0 align-bottom g-pos-rel g-top-minus-10">&#8221;</span>
                                     </blockquote>
@@ -348,7 +348,7 @@
 
                             <div class="g-pl-30">
                                 <h3 class="h4 g-color-white-opacity-0_9 mb-0">Alex Watson</h3>
-                                <span class="d-block g-font-size-18 g-color-white-opacity-0_5 g-pl-20">&#8212; {{ __('education.future_grad_2015') }}</span>
+                                <span class="d-block g-font-size-18 g-color-white-opacity-0_5 g-pl-20">&#8212; {{ __('website.future_grad_2015') }}</span>
                             </div>
                             <!-- End Testimonials - Content -->
                         </div>
@@ -374,7 +374,7 @@
                                 <div class="media-body">
                                     <blockquote
                                         class="g-brd-left-none g-color-white g-font-style-italic g-font-size-20 g-pl-0">
-                                        {{ __('education.future_testimonial_3_quote') }}
+                                        {{ __('website.future_testimonial_3_quote') }}
                                         <span
                                             class="align-self-end g-color-white-opacity-0_8 g-font-secondary g-font-size-40 g-opacity-0_3 g-line-height-0 align-bottom g-pos-rel g-top-minus-10">&#8221;</span>
                                     </blockquote>
@@ -383,7 +383,7 @@
 
                             <div class="g-pl-30">
                                 <h3 class="h4 g-color-white-opacity-0_9 mb-0">Maria Olsson</h3>
-                                <span class="d-block g-font-size-18 g-color-white-opacity-0_5 g-pl-20">&#8212; {{ __('education.future_grad_2017') }}</span>
+                                <span class="d-block g-font-size-18 g-color-white-opacity-0_5 g-pl-20">&#8212; {{ __('website.future_grad_2017') }}</span>
                             </div>
                             <!-- End Testimonials - Content -->
                         </div>
@@ -409,7 +409,7 @@
                                 <div class="media-body">
                                     <blockquote
                                         class="g-brd-left-none g-color-white g-font-style-italic g-font-size-20 g-pl-0">
-                                        {{ __('education.home_testimonial_4_quote') }}
+                                        {{ __('website.home_testimonial_4_quote') }}
                                         <span
                                             class="align-self-end g-color-white-opacity-0_8 g-font-secondary g-font-size-40 g-opacity-0_3 g-line-height-0 align-bottom g-pos-rel g-top-minus-10">&#8221;</span>
                                     </blockquote>
@@ -418,7 +418,7 @@
 
                             <div class="g-pl-30">
                                 <h3 class="h4 g-color-white-opacity-0_9 mb-0">Brown Draxler</h3>
-                                <span class="d-block g-font-size-18 g-color-white-opacity-0_5 g-pl-20">&#8212; {{ __('education.home_testimonial_4_role') }}</span>
+                                <span class="d-block g-font-size-18 g-color-white-opacity-0_5 g-pl-20">&#8212; {{ __('website.home_testimonial_4_role') }}</span>
                             </div>
                             <!-- End Testimonials - Content -->
                         </div>
@@ -435,8 +435,8 @@
         <div class="container g-py-100">
             <!-- Heading -->
             <div class="g-max-width-645 text-center g-mb-60 mx-auto">
-                <h2 class="h1 mb-3">{{ __('education.home_events_heading') }}</h2>
-                <p>{{ __('education.home_events_desc') }}</p>
+                <h2 class="h1 mb-3">{{ __('website.home_events_heading') }}</h2>
+                <p>{{ __('website.home_events_desc') }}</p>
             </div>
             <!-- End Heading -->
 
@@ -451,24 +451,24 @@
                                 <span
                                     class="g-color-primary g-font-weight-500 g-font-size-50 g-line-height-1 mr-3">12</span>
                                 <div class="g-color-text-light-v1 text-center g-line-height-1_4">
-                                    <span class="d-block">{{ __('education.home_month_nov') }}</span>
+                                    <span class="d-block">{{ __('website.home_month_nov') }}</span>
                                     <span class="d-block">2017</span>
                                 </div>
                             </div>
-                            <span class="d-block g-color-text-light-v1">{{ __('education.home_event_time') }}</span>
+                            <span class="d-block g-color-text-light-v1">{{ __('website.home_event_time') }}</span>
                         </div>
                         <div class="col-md-9 col-lg-8 g-mb-30 g-mb-0--lg">
-                            <h3 class="h5 g-font-primary g-font-weight-500 mb-1">{{ __('education.home_event_1_title') }}</h3>
-                            <p>{{ __('education.home_event_1_desc') }}</p>
+                            <h3 class="h5 g-font-primary g-font-weight-500 mb-1">{{ __('website.home_event_1_title') }}</h3>
+                            <p>{{ __('website.home_event_1_desc') }}</p>
                             <a class="d-inline-block u-link-v5 g-color-text-light-v1 g-color-primary--hover"
                                 href="#">
                                 <i class="align-middle g-color-primary mr-2 icon-real-estate-027 u-line-icon-pro"></i>
-                                {{ __('education.home_event_location_1') }}
+                                {{ __('website.home_event_location_1') }}
                             </a>
                         </div>
                         <div class="col-lg-2">
                             <a class="btn btn-block g-brd-2 g-brd-main-opacity-0_1 g-brd-primary--hover g-color-primary g-color-white--hover g-bg-primary--hover g-rounded-30 g-py-10"
-                                href="#">{{ __('education.home_register_now') }}</a>
+                                href="#">{{ __('website.home_register_now') }}</a>
                         </div>
                     </div>
                     <a class="u-link-v2" href="#"></a>
@@ -484,24 +484,24 @@
                                 <span
                                     class="g-color-primary g-font-weight-500 g-font-size-50 g-line-height-1 mr-3">05</span>
                                 <div class="g-color-text-light-v1 text-center g-line-height-1_4">
-                                    <span class="d-block">{{ __('education.home_month_dec') }}</span>
+                                    <span class="d-block">{{ __('website.home_month_dec') }}</span>
                                     <span class="d-block">2017</span>
                                 </div>
                             </div>
-                            <span class="d-block g-color-text-light-v1">{{ __('education.home_event_time') }}</span>
+                            <span class="d-block g-color-text-light-v1">{{ __('website.home_event_time') }}</span>
                         </div>
                         <div class="col-md-9 col-lg-8 g-mb-30 g-mb-0--lg">
-                            <h3 class="h5 g-font-primary g-font-weight-500 mb-1">{{ __('education.home_event_2_title') }}</h3>
-                            <p>{{ __('education.home_event_2_desc') }}</p>
+                            <h3 class="h5 g-font-primary g-font-weight-500 mb-1">{{ __('website.home_event_2_title') }}</h3>
+                            <p>{{ __('website.home_event_2_desc') }}</p>
                             <a class="d-inline-block u-link-v5 g-color-text-light-v1 g-color-primary--hover"
                                 href="#">
                                 <i class="align-middle g-color-primary mr-2 icon-real-estate-027 u-line-icon-pro"></i>
-                                {{ __('education.home_event_location_2') }}
+                                {{ __('website.home_event_location_2') }}
                             </a>
                         </div>
                         <div class="col-lg-2">
                             <a class="btn btn-block g-brd-2 g-brd-main-opacity-0_1 g-brd-primary--hover g-color-primary g-color-white--hover g-bg-primary--hover g-rounded-30 g-py-10"
-                                href="#">{{ __('education.home_register_now') }}</a>
+                                href="#">{{ __('website.home_register_now') }}</a>
                         </div>
                     </div>
                     <a class="u-link-v2" href="#"></a>
@@ -517,24 +517,24 @@
                                 <span
                                     class="g-color-primary g-font-weight-500 g-font-size-50 g-line-height-1 mr-3">23</span>
                                 <div class="g-color-text-light-v1 text-center g-line-height-1_4">
-                                    <span class="d-block">{{ __('education.home_month_dec') }}</span>
+                                    <span class="d-block">{{ __('website.home_month_dec') }}</span>
                                     <span class="d-block">2017</span>
                                 </div>
                             </div>
-                            <span class="d-block g-color-text-light-v1">{{ __('education.home_event_time') }}</span>
+                            <span class="d-block g-color-text-light-v1">{{ __('website.home_event_time') }}</span>
                         </div>
                         <div class="col-md-9 col-lg-8 g-mb-30 g-mb-0--lg">
-                            <h3 class="h5 g-font-primary g-font-weight-500 mb-1">{{ __('education.home_event_3_title') }}</h3>
-                            <p>{{ __('education.home_event_3_desc') }}</p>
+                            <h3 class="h5 g-font-primary g-font-weight-500 mb-1">{{ __('website.home_event_3_title') }}</h3>
+                            <p>{{ __('website.home_event_3_desc') }}</p>
                             <a class="d-inline-block u-link-v5 g-color-text-light-v1 g-color-primary--hover"
                                 href="#">
                                 <i class="align-middle g-color-primary mr-2 icon-real-estate-027 u-line-icon-pro"></i>
-                                {{ __('education.home_event_location_1') }}
+                                {{ __('website.home_event_location_1') }}
                             </a>
                         </div>
                         <div class="col-lg-2">
                             <a class="btn btn-block g-brd-2 g-brd-main-opacity-0_1 g-brd-primary--hover g-color-primary g-color-white--hover g-bg-primary--hover g-rounded-30 g-py-10"
-                                href="#">{{ __('education.home_register_now') }}</a>
+                                href="#">{{ __('website.home_register_now') }}</a>
                         </div>
                     </div>
                     <a class="u-link-v2" href="#"></a>
@@ -545,7 +545,7 @@
 
             <div class="text-center">
                 <a class="btn u-shadow-v33 g-color-white g-color-white--hover g-bg-primary g-bg-main--hover g-rounded-30 g-px-25 g-py-10"
-                    href="{{ route('education.events') }}">{{ __('education.home_view_all_events') }}</a>
+                    href="{{ route('website.events') }}">{{ __('website.home_view_all_events') }}</a>
             </div>
         </div>
     </div>
@@ -556,8 +556,8 @@
         <div class="g-px-30--lg">
             <!-- Heading -->
             <div class="g-max-width-645 text-center mx-auto g-mb-30">
-                <h2 class="h1 mb-3">{{ __('education.home_latest_news_opinions') }}</h2>
-                <p>{{ __('education.home_latest_news_desc') }}</p>
+                <h2 class="h1 mb-3">{{ __('website.home_latest_news_opinions') }}</h2>
+                <p>{{ __('website.home_latest_news_desc') }}</p>
             </div>
             <!-- End Heading -->
 
@@ -588,7 +588,7 @@
                 <div class="js-slide u-shadow-v38 g-bg-size-cover g-bg-pos-center rounded g-mx-15 g-my-30"
                     style="background-image: url(assets/img-temp/400x500/img1.jpg);">
                     <article class="align-self-end text-center g-pos-rel g-z-index-1 g-pa-40 mx-auto">
-                        <h3 class="g-color-white">{{ __('education.home_news_1_title') }}</h3>
+                        <h3 class="g-color-white">{{ __('website.home_news_1_title') }}</h3>
                         <div class="mt-4">
                             <span class="d-block g-color-white g-font-size-16 mb-2">Neyton Burchie</span>
                             <div class="d-inline-block g-width-40 g-height-40">
@@ -596,7 +596,7 @@
                                     src="assets/img-temp/100x100/img3.jpg" alt="Image Description">
                             </div>
                         </div>
-                        <a class="u-link-v2" href="{{ route('education.home') }}"></a>
+                        <a class="u-link-v2" href="{{ route('website.home') }}"></a>
                     </article>
                 </div>
                 <!-- End News -->
@@ -604,7 +604,7 @@
                 <!-- News -->
                 <div class="js-slide g-flex-centered u-shadow-v38 rounded g-mx-15 g-my-30">
                     <article class="g-pa-40">
-                        <blockquote class="g-brd-left-none g-color-main-dark-v3 g-font-size-18 g-pl-0 mb-5">{{ __('education.home_news_2_quote') }}</blockquote>
+                        <blockquote class="g-brd-left-none g-color-main-dark-v3 g-font-size-18 g-pl-0 mb-5">{{ __('website.home_news_2_quote') }}</blockquote>
                         <div class="text-center mb-3">
                             <span class="d-block g-color-text-light-v1 g-font-size-16 mb-2">Keith Margaret</span>
                             <div class="d-inline-block g-width-40 g-height-40">
@@ -613,7 +613,7 @@
                             </div>
                         </div>
                         <a class="btn btn-block g-color-primary g-color-white--hover g-bg-primary-opacity-0_1 g-bg-primary--hover g-rounded-20 g-py-10"
-                            href="{{ route('education.home') }}">{{ __('education.read_more') }}</a>
+                            href="{{ route('website.home') }}">{{ __('website.read_more') }}</a>
                     </article>
                 </div>
                 <!-- End News -->
@@ -622,7 +622,7 @@
                 <div class="js-slide u-shadow-v38 g-bg-size-cover g-bg-pos-center rounded g-mx-15 g-my-30"
                     style="background-image: url(assets/img-temp/400x500/img3.jpg);">
                     <article class="align-self-end text-center g-pos-rel g-z-index-1 g-pa-40 mx-auto">
-                        <h3 class="g-color-white">{{ __('education.home_news_3_title') }}</h3>
+                        <h3 class="g-color-white">{{ __('website.home_news_3_title') }}</h3>
                         <div class="mt-4">
                             <span class="d-block g-color-white g-font-size-16 mb-2">Tina Krueger</span>
                             <div class="d-inline-block g-width-40 g-height-40">
@@ -630,7 +630,7 @@
                                     src="assets/img-temp/100x100/img5.jpg" alt="Image Description">
                             </div>
                         </div>
-                        <a class="u-link-v2" href="{{ route('education.home') }}"></a>
+                        <a class="u-link-v2" href="{{ route('website.home') }}"></a>
                     </article>
                 </div>
                 <!-- End News -->
@@ -638,7 +638,7 @@
                 <!-- News -->
                 <div class="js-slide g-flex-centered u-shadow-v38 rounded g-mx-15 g-my-30">
                     <article class="g-pa-40">
-                        <blockquote class="g-brd-left-none g-color-main-dark-v3 g-font-size-18 g-pl-0 mb-5">{{ __('education.home_news_4_quote') }}</blockquote>
+                        <blockquote class="g-brd-left-none g-color-main-dark-v3 g-font-size-18 g-pl-0 mb-5">{{ __('website.home_news_4_quote') }}</blockquote>
                         <div class="text-center mb-3">
                             <span class="d-block g-color-text-light-v1 g-font-size-16 mb-2">Neyton Burchie</span>
                             <div class="d-inline-block g-width-40 g-height-40">
@@ -647,7 +647,7 @@
                             </div>
                         </div>
                         <a class="btn btn-block g-color-primary g-color-white--hover g-bg-primary-opacity-0_1 g-bg-primary--hover g-rounded-20 g-py-10"
-                            href="{{ route('education.home') }}">{{ __('education.read_more') }}</a>
+                            href="{{ route('website.home') }}">{{ __('website.read_more') }}</a>
                     </article>
                 </div>
                 <!-- End News -->
@@ -656,7 +656,7 @@
                 <div class="js-slide u-shadow-v38 g-bg-size-cover g-bg-pos-center rounded g-mx-15 g-my-30"
                     style="background-image: url(assets/img-temp/400x500/img2.jpg);">
                     <article class="align-self-end text-center g-pos-rel g-z-index-1 g-pa-40 mx-auto">
-                        <h3 class="g-color-white">{{ __('education.home_news_5_title') }}</h3>
+                        <h3 class="g-color-white">{{ __('website.home_news_5_title') }}</h3>
                         <div class="mt-4">
                             <span class="d-block g-color-white g-font-size-16 mb-2">Liza Nelson</span>
                             <div class="d-inline-block g-width-40 g-height-40">
@@ -664,7 +664,7 @@
                                     src="assets/img-temp/100x100/img4.jpg" alt="Image Description">
                             </div>
                         </div>
-                        <a class="u-link-v2" href="{{ route('education.home') }}"></a>
+                        <a class="u-link-v2" href="{{ route('website.home') }}"></a>
                     </article>
                 </div>
                 <!-- End News -->
@@ -675,7 +675,7 @@
     <!-- End News -->
 
     <!-- Call to Action -->
-    @include('education.content.call-to-action')
+    @include('website.content.call-to-action')
     <!-- End Call to Action -->
 @endsection
 @section('script')

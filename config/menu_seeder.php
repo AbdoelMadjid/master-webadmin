@@ -7,6 +7,7 @@ $categoryFiles = glob(__DIR__ . '/menu_seeder/*_seeder.php') ?: [];
 $seederFileOrder = [
     // 'identitaspengguna_seeder.php', // Dipakai sebagai leaf menu oleh masterdata_seeder.php
     'masterdata_seeder.php',
+    'websitedata_seeder.php',
     // 'perangkatsekolah_seeder.php',
 ];
 $seederFilePriority = array_flip($seederFileOrder);

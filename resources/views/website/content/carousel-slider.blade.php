@@ -9,12 +9,12 @@
             <div class="g-max-width-600 g-pos-rel g-z-index-1">
                 <a class="d-block g-text-underline--none--hover" href="#">
                     <span class="d-block g-color-white g-font-size-20--md mb-2">
-                        {{ __('education.carousel_slide1_title_prefix') }} <span
-                            class="g-brd-bottom--dashed g-brd-2 g-brd-primary g-color-primary g-font-weight-700 g-pb-2">{{ __('education.carousel_slide1_title_highlight') }}</span>
+                        {{ __('website.carousel_slide1_title_prefix') }} <span
+                            class="g-brd-bottom--dashed g-brd-2 g-brd-primary g-color-primary g-font-weight-700 g-pb-2">{{ __('website.carousel_slide1_title_highlight') }}</span>
                     </span>
                     <span
                         class="d-block g-color-white g-font-secondary g-font-size-25 g-font-size-45--md g-line-height-1_4">
-                        {{ __('education.carousel_slide1_description') }}
+                        {{ __('website.carousel_slide1_description') }}
                     </span>
                 </a>
             </div>
@@ -23,8 +23,8 @@
             <a class="js-go-to d-flex align-items-center g-color-white g-pos-abs g-bottom-0 g-z-index-1 g-text-underline--none--hover g-pb-60"
                 href="#" data-target="#content">
                 <span class="d-block u-go-to-v4 mr-3"></span>
-                <span class="g-brd-bottom--dashed g-brd-white-opacity-0_5 mr-1">{{ __('education.scroll_down') }}</span>
-                {{ __('education.to_find_out_more') }}
+                <span class="g-brd-bottom--dashed g-brd-white-opacity-0_5 mr-1">{{ __('website.scroll_down') }}</span>
+                {{ __('website.to_find_out_more') }}
             </a>
             <!-- End Go to Button -->
         </div>
@@ -38,12 +38,12 @@
             <div class="g-max-width-600 g-pos-rel g-z-index-1">
                 <a class="d-block g-text-underline--none--hover" href="#">
                     <span class="d-block g-color-white g-font-size-20--md mb-2">
-                        {{ __('education.carousel_slide2_title_prefix') }} <span
-                            class="g-brd-bottom--dashed g-brd-2 g-brd-primary g-color-primary g-font-weight-700 g-pb-2">{{ __('education.carousel_slide2_title_highlight') }}</span>
+                        {{ __('website.carousel_slide2_title_prefix') }} <span
+                            class="g-brd-bottom--dashed g-brd-2 g-brd-primary g-color-primary g-font-weight-700 g-pb-2">{{ __('website.carousel_slide2_title_highlight') }}</span>
                     </span>
                     <span
                         class="d-block g-color-white g-font-secondary g-font-size-25 g-font-size-45--md g-line-height-1_4">
-                        {{ __('education.carousel_slide2_description') }}
+                        {{ __('website.carousel_slide2_description') }}
                     </span>
                 </a>
             </div>
@@ -52,8 +52,8 @@
             <a class="js-go-to d-flex align-items-center g-color-white g-pos-abs g-bottom-0 g-z-index-1 g-text-underline--none--hover g-pb-60"
                 href="#" data-target="#content">
                 <span class="d-block u-go-to-v4 mr-3"></span>
-                <span class="g-brd-bottom--dashed g-brd-white-opacity-0_5 mr-1">{{ __('education.scroll_down') }}</span>
-                {{ __('education.to_find_out_more') }}
+                <span class="g-brd-bottom--dashed g-brd-white-opacity-0_5 mr-1">{{ __('website.scroll_down') }}</span>
+                {{ __('website.to_find_out_more') }}
             </a>
             <!-- End Go to Button -->
         </div>
@@ -67,12 +67,12 @@
             <div class="g-max-width-600 g-pos-rel g-z-index-1">
                 <a class="d-block g-text-underline--none--hover" href="#">
                     <span class="d-block g-color-white g-font-size-20--md mb-2">
-                        {{ __('education.carousel_slide3_title_prefix') }} <span
-                            class="g-brd-bottom--dashed g-brd-2 g-brd-primary g-color-primary g-font-weight-700 g-pb-2">{{ __('education.carousel_slide3_title_highlight') }}</span>
+                        {{ __('website.carousel_slide3_title_prefix') }} <span
+                            class="g-brd-bottom--dashed g-brd-2 g-brd-primary g-color-primary g-font-weight-700 g-pb-2">{{ __('website.carousel_slide3_title_highlight') }}</span>
                     </span>
                     <span
                         class="d-block g-color-white g-font-secondary g-font-size-25 g-font-size-45--md g-line-height-1_4">
-                        {{ __('education.carousel_slide3_description') }}
+                        {{ __('website.carousel_slide3_description') }}
                     </span>
                 </a>
             </div>
@@ -81,8 +81,8 @@
             <a class="js-go-to d-flex align-items-center g-color-white g-pos-abs g-bottom-0 g-z-index-1 g-text-underline--none--hover g-pb-60"
                 href="#" data-target="#content">
                 <span class="d-block u-go-to-v4 mr-3"></span>
-                <span class="g-brd-bottom--dashed g-brd-white-opacity-0_5 mr-1">{{ __('education.scroll_down') }}</span>
-                {{ __('education.to_find_out_more') }}
+                <span class="g-brd-bottom--dashed g-brd-white-opacity-0_5 mr-1">{{ __('website.scroll_down') }}</span>
+                {{ __('website.to_find_out_more') }}
             </a>
             <!-- End Go to Button -->
         </div>

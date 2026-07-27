@@ -1,4 +1,4 @@
-@extends('education.partials.web-master')
+@extends('website.partials.web-master')
 @section('title', __('auth.register_title'))
 @section('css')
     <link rel="stylesheet" href="assets/vendor/icon-awesome/css/font-awesome.min.css">
@@ -29,9 +29,9 @@
                                 </span>
                             </div>
                             <div class="media-body">
-                                <p class="mb-0">{{ __('education.signin_tip_1_prefix') }} <a
-                                        href="#">{{ __('education.signin_tip_1_link') }}</a>
-                                    {{ __('education.signin_tip_1_suffix') }}</p>
+                                <p class="mb-0">{{ __('website.signin_tip_1_prefix') }} <a
+                                        href="#">{{ __('website.signin_tip_1_link') }}</a>
+                                    {{ __('website.signin_tip_1_suffix') }}</p>
                             </div>
                         </div>
 
@@ -43,8 +43,8 @@
                                 </span>
                             </div>
                             <div class="media-body">
-                                <p class="mb-0"><a href="#">{{ __('education.signin_tip_2_link') }}</a>
-                                    {{ __('education.signin_tip_2_suffix') }}</p>
+                                <p class="mb-0"><a href="#">{{ __('website.signin_tip_2_link') }}</a>
+                                    {{ __('website.signin_tip_2_suffix') }}</p>
                             </div>
                         </div>
 
@@ -56,8 +56,8 @@
                                 </span>
                             </div>
                             <div class="media-body">
-                                <p class="mb-0">{{ __('education.signin_tip_3_prefix') }} <a
-                                        href="#">{{ __('education.signin_tip_3_link') }}</a>.</p>
+                                <p class="mb-0">{{ __('website.signin_tip_3_prefix') }} <a
+                                        href="#">{{ __('website.signin_tip_3_link') }}</a>.</p>
                             </div>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                                         class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12 @if ($nameHasError) is-invalid @endif"
                                         type="text" id="nameInput" name="name" autocomplete="name"
                                         value="{{ old('name') }}"
-                                        placeholder="{{ __('education.placeholder_full_name') }}">
+                                        placeholder="{{ __('website.placeholder_full_name') }}">
                                 </div>
                                 <div class="invalid-feedback @if ($nameHasError) d-block @endif">
                                     {{ $errors->first('name') }}
@@ -117,7 +117,7 @@
 
                             <div class="g-mb-20">
                                 <label
-                                    class="g-color-text-light-v1 g-font-weight-500">{{ __('education.email') }}</label>
+                                    class="g-color-text-light-v1 g-font-weight-500">{{ __('website.email') }}</label>
                                 <div class="input-group">
                                     <span
                                         class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
@@ -130,7 +130,7 @@
                                         class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12 @if ($emailHasError) is-invalid @endif"
                                         type="email" id="emailInput" name="email" autocomplete="username"
                                         value="{{ old('email') }}"
-                                        placeholder="{{ __('education.placeholder_email') }}">
+                                        placeholder="{{ __('website.placeholder_email') }}">
                                 </div>
                                 <div id="emailFieldError"
                                     class="invalid-feedback @if ($emailHasError) d-block @endif">
@@ -140,7 +140,7 @@
 
                             <div class="g-mb-20">
                                 <label
-                                    class="g-color-text-light-v1 g-font-weight-500">{{ __('education.signin_password') }}</label>
+                                    class="g-color-text-light-v1 g-font-weight-500">{{ __('website.signin_password') }}</label>
                                 <div class="input-group">
                                     <span
                                         class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
@@ -188,7 +188,7 @@
 
                             <div class="g-mb-20">
                                 <label
-                                    class="g-color-text-light-v1 g-font-weight-500">{{ __('education.signin_confirm_password') }}</label>
+                                    class="g-color-text-light-v1 g-font-weight-500">{{ __('website.signin_confirm_password') }}</label>
                                 <div class="input-group">
                                     <span
                                         class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">

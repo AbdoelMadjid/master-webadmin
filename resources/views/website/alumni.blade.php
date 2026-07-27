@@ -1,5 +1,5 @@
-@extends('education.partials.web-master')
-@section('title', __('education.meta_title_alumni'))
+@extends('website.partials.web-master')
+@section('title', __('website.meta_title_alumni'))
 @section('css')
     <link rel="stylesheet" href="assets/vendor/icon-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/vendor/icon-line-pro/style.css">
@@ -24,13 +24,13 @@
                     <div class="g-pr-15--lg">
                         <!-- Promo Block Info -->
                         <div class="mb-5">
-                            <h1 class="g-font-size-45 mb-3">{{ __('education.alumni_represent_graduates') }}</h1>
-                            <p>{{ __('education.alumni_represent_graduates_desc') }}</p>
+                            <h1 class="g-font-size-45 mb-3">{{ __('website.alumni_represent_graduates') }}</h1>
+                            <p>{{ __('website.alumni_represent_graduates_desc') }}</p>
                         </div>
                         <a class="btn u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-rounded-30 g-px-25 g-py-13 mr-2"
-                            href="#">{{ __('education.alumni_make_a_nomination') }}</a>
+                            href="#">{{ __('website.alumni_make_a_nomination') }}</a>
                         <a class="js-go-to btn u-shadow-v32 g-color-primary g-color-white--hover g-bg-white g-bg-main--hover g-rounded-30 g-px-25 g-py-13 ml-2"
-                            href="#" data-target="#content">{{ __('education.alumni_explore_more') }}</a>
+                            href="#" data-target="#content">{{ __('website.alumni_explore_more') }}</a>
                         <!-- End Promo Block Info -->
                     </div>
                 </div>
@@ -114,13 +114,13 @@
                                 <span class="u-icon-v3 u-icon-size--lg g-color-main g-bg-secondary rounded-circle mb-4">
                                     <i class="material-icons">verified_user</i>
                                 </span>
-                                <h2 class="mb-3">{{ __('education.alumni_benefits_awards_title') }}</h2>
-                                <p>{{ __('education.alumni_benefits_awards_desc_1') }}</p>
+                                <h2 class="mb-3">{{ __('website.alumni_benefits_awards_title') }}</h2>
+                                <p>{{ __('website.alumni_benefits_awards_desc_1') }}</p>
                             </div>
-                            <p>{{ __('education.alumni_benefits_awards_desc_2') }}</p>
+                            <p>{{ __('website.alumni_benefits_awards_desc_2') }}</p>
                         </div>
                         <a class="btn u-shadow-v39 g-brd-main g-brd-primary--hover g-color-main g-color-white--hover g-bg-primary--hover g-font-size-default g-rounded-30 g-px-35 g-py-11"
-                            href="#">{{ __('education.read_more') }}</a>
+                            href="#">{{ __('website.read_more') }}</a>
                     </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@
             <div class="text-center g-pos-rel g-z-index-1 g-px-50 g-py-170">
                 <a class="js-fancybox d-block" href="javascript:;"
                     data-src="//www.youtube.com/watch?v=FxiskmF16gU?autoplay=1" data-speed="350"
-                    data-caption="{{ __('education.alumni_play_caption') }}">
+                    data-caption="{{ __('website.alumni_play_caption') }}">
                     <span
                         class="u-icon-v3 u-icon-size--lg g-color-main g-color-white--hover g-bg-white g-bg-primary--hover g-font-size-20 g-rounded-50x g-cursor-pointer">
                         <i class="g-pos-rel g-left-2 hs-icon hs-icon-play"></i>
@@ -163,7 +163,7 @@
         <div class="container">
             <div class="row justify-content-lg-between">
                 <div class="col-md-4 col-lg-3 g-pt-100">
-                    <h3 class="mb-4">{{ __('education.related_links') }}</h3>
+                    <h3 class="mb-4">{{ __('website.related_links') }}</h3>
 
                     <!-- Links List -->
                     <ul class="list-unstyled mb-5">
@@ -171,55 +171,55 @@
                             <a class="d-block active u-link-v5 u-shadow-v35--active g-color-text-light-v1 g-color-main--hover g-color-primary--active g-bg-white--hover g-bg-white--active g-font-size-15 g-rounded-20 g-px-20 g-py-8"
                                 href="#">
                                 <i class="align-middle mr-3 icon-hotel-restaurant-088 u-line-icon-pro"></i>
-                                {{ __('education.alumni') }}
+                                {{ __('website.alumni') }}
                             </a>
                         </li>
                         <li class="py-1">
                             <a class="d-block u-link-v5 u-shadow-v35--active g-color-text-light-v1 g-color-main--hover g-color-primary--active g-bg-white--hover g-bg-white--active g-font-size-15 g-rounded-20 g-px-20 g-py-8"
                                 href="#">
                                 <i class="align-middle mr-3 icon-finance-258 u-line-icon-pro"></i>
-                                {{ __('education.alumni_benefits_awards_menu') }}
+                                {{ __('website.alumni_benefits_awards_menu') }}
                             </a>
                         </li>
                         <li class="py-1">
                             <a class="d-block u-link-v5 u-shadow-v35--active g-color-text-light-v1 g-color-main--hover g-color-primary--active g-bg-white--hover g-bg-white--active g-font-size-15 g-rounded-20 g-px-20 g-py-8"
                                 href="#">
                                 <i class="align-middle mr-3 icon-finance-075 u-line-icon-pro"></i>
-                                {{ __('education.alumni_volunteer') }}
+                                {{ __('website.alumni_volunteer') }}
                             </a>
                         </li>
                         <li class="py-1">
                             <a class="d-block u-link-v5 u-shadow-v35--active g-color-text-light-v1 g-color-main--hover g-color-primary--active g-bg-white--hover g-bg-white--active g-font-size-15 g-rounded-20 g-px-20 g-py-8"
                                 href="#">
                                 <i class="align-middle mr-3 icon-education-143 u-line-icon-pro"></i>
-                                {{ __('education.alumni_connect') }}
+                                {{ __('website.alumni_connect') }}
                             </a>
                         </li>
                         <li class="py-1">
                             <a class="d-block u-link-v5 u-shadow-v35--active g-color-text-light-v1 g-color-main--hover g-color-primary--active g-bg-white--hover g-bg-white--active g-font-size-15 g-rounded-20 g-px-20 g-py-8"
                                 href="#">
                                 <i class="align-middle mr-3 icon-finance-138 u-line-icon-pro"></i>
-                                {{ __('education.alumni_give_now') }}
+                                {{ __('website.alumni_give_now') }}
                             </a>
                         </li>
                     </ul>
                     <!-- End Links List -->
 
                     <!-- Twitter Feed -->
-                    <h3 class="mb-4">{{ __('education.twitter_feeds') }}</h3>
+                    <h3 class="mb-4">{{ __('website.twitter_feeds') }}</h3>
                     <ul class="list-unstyled mb-0">
                         <li class="g-brd-bottom g-brd-secondary-light-v2 g-pb-20">
-                            <h4 class="h6">{{ __('education.alumni_twitter_rt') }} <a class="g-font-weight-500" href="#">@UofA_Arts:</a>
-                                {{ __('education.alumni_twitter_dont_miss') }}</h4>
-                            <p class="g-color-text-light-v1 g-font-size-13 mb-0">{{ __('education.alumni_twitter_post_1_prefix') }}<a class="g-font-weight-500"
-                                    href="#">#TRC</a>{{ __('education.alumni_twitter_post_1_suffix') }} <a class="g-font-weight-500"
+                            <h4 class="h6">{{ __('website.alumni_twitter_rt') }} <a class="g-font-weight-500" href="#">@UofA_Arts:</a>
+                                {{ __('website.alumni_twitter_dont_miss') }}</h4>
+                            <p class="g-color-text-light-v1 g-font-size-13 mb-0">{{ __('website.alumni_twitter_post_1_prefix') }}<a class="g-font-weight-500"
+                                    href="#">#TRC</a>{{ __('website.alumni_twitter_post_1_suffix') }} <a class="g-font-weight-500"
                                     href="#">twitter.com/i/web/status/9…</a></p>
                         </li>
                         <li class="g-pt-20">
-                            <h4 class="h6">{{ __('education.alumni_twitter_rt') }} <a class="g-font-weight-500" href="#">@UofA_Arts:</a>
-                                {{ __('education.alumni_twitter_dont_miss') }}</h4>
-                            <p class="g-color-text-light-v1 g-font-size-13 mb-0">{{ __('education.alumni_twitter_post_2_prefix') }}<a class="g-font-weight-500"
-                                    href="#">#TRC</a>{{ __('education.alumni_twitter_post_2_suffix') }}</p>
+                            <h4 class="h6">{{ __('website.alumni_twitter_rt') }} <a class="g-font-weight-500" href="#">@UofA_Arts:</a>
+                                {{ __('website.alumni_twitter_dont_miss') }}</h4>
+                            <p class="g-color-text-light-v1 g-font-size-13 mb-0">{{ __('website.alumni_twitter_post_2_prefix') }}<a class="g-font-weight-500"
+                                    href="#">#TRC</a>{{ __('website.alumni_twitter_post_2_suffix') }}</p>
                         </li>
                     </ul>
                     <!-- End Twitter Feed -->
@@ -232,8 +232,8 @@
                             <article>
                                 <img class="img-fluid mb-4" src="assets/img-temp/600x350/img4.jpg"
                                     alt="Image Description">
-                                <h2 class="h5"><a href="#">{{ __('education.alumni_article_1_title') }}</a></h2>
-                                <p class="g-font-size-16">{{ __('education.alumni_article_1_desc') }}</p>
+                                <h2 class="h5"><a href="#">{{ __('website.alumni_article_1_title') }}</a></h2>
+                                <p class="g-font-size-16">{{ __('website.alumni_article_1_desc') }}</p>
                             </article>
                         </div>
                         <!-- End Alumni Article -->
@@ -243,8 +243,8 @@
                             <article>
                                 <img class="img-fluid mb-4" src="assets/img-temp/600x350/img5.jpg"
                                     alt="Image Description">
-                                <h2 class="h5"><a href="#">{{ __('education.alumni_article_2_title') }}</a></h2>
-                                <p class="g-font-size-16">{{ __('education.alumni_article_2_desc') }}</p>
+                                <h2 class="h5"><a href="#">{{ __('website.alumni_article_2_title') }}</a></h2>
+                                <p class="g-font-size-16">{{ __('website.alumni_article_2_desc') }}</p>
                             </article>
                         </div>
                         <!-- End Alumni Article -->
@@ -254,8 +254,8 @@
                             <article>
                                 <img class="img-fluid mb-4" src="assets/img-temp/600x350/img6.jpg"
                                     alt="Image Description">
-                                <h2 class="h5"><a href="#">{{ __('education.alumni_article_3_title') }}</a></h2>
-                                <p class="g-font-size-16">{{ __('education.alumni_article_3_desc') }}</p>
+                                <h2 class="h5"><a href="#">{{ __('website.alumni_article_3_title') }}</a></h2>
+                                <p class="g-font-size-16">{{ __('website.alumni_article_3_desc') }}</p>
                             </article>
                         </div>
                         <!-- End Alumni Article -->
@@ -265,8 +265,8 @@
                             <article>
                                 <img class="img-fluid mb-4" src="assets/img-temp/600x350/img21.jpg"
                                     alt="Image Description">
-                                <h2 class="h5"><a href="#">{{ __('education.alumni_article_4_title') }}</a></h2>
-                                <p class="g-font-size-16">{{ __('education.alumni_article_4_desc') }}</p>
+                                <h2 class="h5"><a href="#">{{ __('website.alumni_article_4_title') }}</a></h2>
+                                <p class="g-font-size-16">{{ __('website.alumni_article_4_desc') }}</p>
                             </article>
                         </div>
                         <!-- End Alumni Article -->
@@ -296,8 +296,8 @@
                         </div>
 
                         <div class="media-body">
-                            <h3 class="h2">{{ __('education.alumni_cta_title') }}</h3>
-                            <p>{{ __('education.alumni_cta_desc') }}</p>
+                            <h3 class="h2">{{ __('website.alumni_cta_title') }}</h3>
+                            <p>{{ __('website.alumni_cta_desc') }}</p>
                         </div>
                     </div>
                     <!-- End Media -->
@@ -305,7 +305,7 @@
 
                 <div class="col-5 col-md-3 col-lg-2 mx-auto g-mx-0--lg g-mb-30">
                     <a class="btn btn-block u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-rounded-30 g-px-25 g-py-13"
-                        href="{{ route('education.contacts') }}">{{ __('education.contact_us') }}</a>
+                        href="{{ route('website.contacts') }}">{{ __('website.contact_us') }}</a>
                 </div>
             </div>
         </div>
@@ -323,13 +323,13 @@
                                 <span class="u-icon-v3 u-icon-size--lg g-color-main g-bg-secondary rounded-circle mb-4">
                                     <i class="material-icons">done_all</i>
                                 </span>
-                                <h2 class="mb-3">{{ __('education.alumni_secrets_title') }}</h2>
-                                <p>{{ __('education.alumni_secrets_desc_1') }}</p>
+                                <h2 class="mb-3">{{ __('website.alumni_secrets_title') }}</h2>
+                                <p>{{ __('website.alumni_secrets_desc_1') }}</p>
                             </div>
-                            <p>{{ __('education.alumni_secrets_desc_2') }}</p>
+                            <p>{{ __('website.alumni_secrets_desc_2') }}</p>
                         </div>
                         <a class="btn u-shadow-v39 g-brd-main g-brd-primary--hover g-color-main g-color-white--hover g-bg-primary--hover g-font-size-default g-rounded-30 g-px-35 g-py-11"
-                            href="#">{{ __('education.read_more') }}</a>
+                            href="#">{{ __('website.read_more') }}</a>
                     </div>
                 </div>
             </div>
@@ -341,7 +341,7 @@
     <!-- End Secrets to Success -->
 
     <!-- Call to Action -->
-    @include('education.content.call-to-action')
+    @include('website.content.call-to-action')
     <!-- End Call to Action -->
 @endsection
 @section('script')

@@ -1,5 +1,5 @@
-@extends('education.partials.web-master')
-@section('title', __('education.meta_title_signin'))
+@extends('website.partials.web-master')
+@section('title', __('website.meta_title_signin'))
 @section('css')
 <link rel="stylesheet" href="assets/vendor/icon-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/vendor/icon-line-pro/style.css">
@@ -18,8 +18,8 @@
                         <div class="col-md-6">
                             <!-- Heading -->
                             <div class="g-mb-40">
-                                <h2 class="h1 mb-3">{{ __('education.signin_title') }}</h2>
-                                <p>{{ __('education.signin_intro_prefix') }} <a href="#">{{ __('education.signin_policies_guidelines') }}</a>.</p>
+                                <h2 class="h1 mb-3">{{ __('website.signin_title') }}</h2>
+                                <p>{{ __('website.signin_intro_prefix') }} <a href="#">{{ __('website.signin_policies_guidelines') }}</a>.</p>
                             </div>
                             <!-- End Heading -->
                         </div>
@@ -33,7 +33,7 @@
                                 <div id="signin">
                                     <div class="u-shadow-v35 g-bg-white rounded g-px-40 g-py-50">
                                         <div class="g-mb-20">
-                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('education.email') }}</label>
+                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('website.email') }}</label>
                                             <div class="input-group">
                                                 <span
                                                     class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
@@ -44,12 +44,12 @@
                                                 </span>
                                                 <input
                                                     class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12"
-                                                    type="email" placeholder="{{ __('education.placeholder_email') }}">
+                                                    type="email" placeholder="{{ __('website.placeholder_email') }}">
                                             </div>
                                         </div>
 
                                         <div class="g-mb-20">
-                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('education.signin_password') }}</label>
+                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('website.signin_password') }}</label>
                                             <div class="input-group">
                                                 <span
                                                     class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
@@ -66,15 +66,15 @@
 
                                         <div class="d-flex justify-content-between align-items-center">
                                             <a class="g-color-text-light-v1 g-font-size-default"
-                                                id="forgot-password-link" href="#">{{ __('education.signin_forgot_password') }}</a>
+                                                id="forgot-password-link" href="#">{{ __('website.signin_forgot_password') }}</a>
                                             <button type="submit"
-                                                class="btn u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-font-size-default rounded g-px-25 g-py-7">{{ __('education.signin_action') }}</button>
+                                                class="btn u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-font-size-default rounded g-px-25 g-py-7">{{ __('website.signin_action') }}</button>
                                         </div>
                                     </div>
 
                                     <div class="text-center g-pt-30">
-                                        <p class="g-color-text-light-v1 g-font-size-default mb-0">{{ __('education.signin_no_account') }} <a class="g-font-size-default" id="signup-link"
-                                                href="#">{{ __('education.signin_create_account') }}</a></p>
+                                        <p class="g-color-text-light-v1 g-font-size-default mb-0">{{ __('website.signin_no_account') }} <a class="g-font-size-default" id="signup-link"
+                                                href="#">{{ __('website.signin_create_account') }}</a></p>
                                     </div>
                                 </div>
                                 <!-- End Signin -->
@@ -83,7 +83,7 @@
                                 <div id="signup" style="display: none;">
                                     <div class="u-shadow-v35 g-bg-white rounded g-px-40 g-py-50">
                                         <div class="g-mb-20">
-                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('education.full_name') }}</label>
+                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('website.full_name') }}</label>
                                             <div class="input-group">
                                                 <span
                                                     class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-transparent g-rounded-right-0">
@@ -94,12 +94,12 @@
                                                 </span>
                                                 <input
                                                     class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12"
-                                                    type="text" placeholder="{{ __('education.placeholder_full_name') }}">
+                                                    type="text" placeholder="{{ __('website.placeholder_full_name') }}">
                                             </div>
                                         </div>
 
                                         <div class="g-mb-20">
-                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('education.email') }}</label>
+                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('website.email') }}</label>
                                             <div class="input-group">
                                                 <span
                                                     class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
@@ -110,12 +110,12 @@
                                                 </span>
                                                 <input
                                                     class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12"
-                                                    type="email" placeholder="{{ __('education.placeholder_email') }}">
+                                                    type="email" placeholder="{{ __('website.placeholder_email') }}">
                                             </div>
                                         </div>
 
                                         <div class="g-mb-20">
-                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('education.signin_password') }}</label>
+                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('website.signin_password') }}</label>
                                             <div class="input-group">
                                                 <span
                                                     class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
@@ -131,7 +131,7 @@
                                         </div>
 
                                         <div class="g-mb-20">
-                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('education.signin_confirm_password') }}</label>
+                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('website.signin_confirm_password') }}</label>
                                             <div class="input-group">
                                                 <span
                                                     class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
@@ -148,13 +148,13 @@
 
                                         <div class="d-flex">
                                             <button type="submit"
-                                                class="btn u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-font-size-default rounded g-px-25 g-py-7 ml-auto">{{ __('education.signin_signup_action') }}</button>
+                                                class="btn u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-font-size-default rounded g-px-25 g-py-7 ml-auto">{{ __('website.signin_signup_action') }}</button>
                                         </div>
                                     </div>
 
                                     <div class="text-center g-pt-30">
-                                        <p class="g-color-text-light-v1 g-font-size-default mb-0">{{ __('education.signin_already_have_account') }} <a class="g-font-size-default" id="signin-link"
-                                                href="#">{{ __('education.signin_action') }}</a></p>
+                                        <p class="g-color-text-light-v1 g-font-size-default mb-0">{{ __('website.signin_already_have_account') }} <a class="g-font-size-default" id="signin-link"
+                                                href="#">{{ __('website.signin_action') }}</a></p>
                                     </div>
                                 </div>
                                 <!-- End Signup -->
@@ -163,7 +163,7 @@
                                 <div id="forgot-password" style="display: none;">
                                     <div class="u-shadow-v35 g-bg-white rounded g-px-40 g-py-50">
                                         <div class="g-mb-20">
-                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('education.signin_enter_email') }}</label>
+                                            <label class="g-color-text-light-v1 g-font-weight-500">{{ __('website.signin_enter_email') }}</label>
                                             <div class="input-group">
                                                 <span
                                                     class="input-group-prepend g-width-50 g-brd-secondary-light-v2 g-bg-secondary g-rounded-right-0">
@@ -174,20 +174,20 @@
                                                 </span>
                                                 <input
                                                     class="form-control g-brd-secondary-light-v2 g-bg-secondary g-bg-secondary-dark-v1--focus g-rounded-left-0 g-px-20 g-py-12"
-                                                    type="email" placeholder="{{ __('education.placeholder_email') }}">
+                                                    type="email" placeholder="{{ __('website.placeholder_email') }}">
                                             </div>
                                         </div>
 
                                         <div class="d-flex">
                                             <button type="submit"
                                                 class="btn u-shadow-v33 g-color-white g-bg-primary g-bg-main--hover g-font-size-default rounded g-px-25 g-py-7 ml-auto">Recover
-                                                {{ __('education.signin_recover_password') }}</button>
+                                                {{ __('website.signin_recover_password') }}</button>
                                         </div>
                                     </div>
 
                                     <div class="text-center g-pt-30">
-                                        <p class="g-color-text-light-v1 g-font-size-default mb-0">{{ __('education.signin_remember_password') }} <a class="g-font-size-default" id="go-back-link"
-                                                href="#">{{ __('education.signin_action') }}</a></p>
+                                        <p class="g-color-text-light-v1 g-font-size-default mb-0">{{ __('website.signin_remember_password') }} <a class="g-font-size-default" id="go-back-link"
+                                                href="#">{{ __('website.signin_action') }}</a></p>
                                     </div>
                                 </div>
                                 <!-- End Forgot Password -->
@@ -208,7 +208,7 @@
                                         </span>
                                     </div>
                                     <div class="media-body">
-                                        <p class="mb-0">{{ __('education.signin_tip_1_prefix') }} <a href="#">{{ __('education.signin_tip_1_link') }}</a> {{ __('education.signin_tip_1_suffix') }}</p>
+                                        <p class="mb-0">{{ __('website.signin_tip_1_prefix') }} <a href="#">{{ __('website.signin_tip_1_link') }}</a> {{ __('website.signin_tip_1_suffix') }}</p>
                                     </div>
                                 </div>
                                 <!-- End Media -->
@@ -222,7 +222,7 @@
                                         </span>
                                     </div>
                                     <div class="media-body">
-                                        <p class="mb-0"><a href="#">{{ __('education.signin_tip_2_link') }}</a> {{ __('education.signin_tip_2_suffix') }}</p>
+                                        <p class="mb-0"><a href="#">{{ __('website.signin_tip_2_link') }}</a> {{ __('website.signin_tip_2_suffix') }}</p>
                                     </div>
                                 </div>
                                 <!-- End Media -->
@@ -236,7 +236,7 @@
                                         </span>
                                     </div>
                                     <div class="media-body">
-                                        <p class="mb-0">{{ __('education.signin_tip_3_prefix') }} <a href="#">{{ __('education.signin_tip_3_link') }}</a>.</p>
+                                        <p class="mb-0">{{ __('website.signin_tip_3_prefix') }} <a href="#">{{ __('website.signin_tip_3_link') }}</a>.</p>
                                     </div>
                                 </div>
                                 <!-- End Media -->
