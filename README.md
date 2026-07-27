@@ -142,11 +142,40 @@ Setiap fitur aplikasi dibangun dengan struktur 4-layer yang saling bercermin:
 ```
 
 ### 3. Hierarki Folder Views (`resources/views/`)
-- `resources/views/layouts/` : Base layout Metronic 8 (`index.blade.php`, `_default.blade.php`).
-- `resources/views/layout/partials/` : Komponen partial layout (`_header.blade.php`, `_sidebar.blade.php`, `_footer.blade.php`, `_idle-timer.blade.php`).
-- `resources/views/pages/` : View halaman utama yang dipetakan langsung dari URL Route.
-- `resources/views/pages/<subfolder>/tabs/<feature>/` : Partial sub-tab untuk halaman multi-tab (`_login_log.blade.php`, `_activity_log.blade.php`).
-- `resources/views/pages/<subfolder>/partials/` : Partial modal form CRUD & modal petunjuk operasional (`<feature>-help-modal.blade.php`).
+
+```text
+resources/views/
+├── auth/                  # Halaman autentikasi (login, register, reset password, verify email)
+├── components/            # Komponen Blade reusable (alert, modal, badge, button)
+├── layouts/               # Layout utama aplikasi (index.blade.php, _default.blade.php)
+│   ├── header/            # Struktur partial header layout
+│   └── partials/          # Partial layout utama (sidebar, header, footer, toolbar, _idle-timer, docs)
+├── pages/                 # Seluruh halaman modul fitur utama (Structure Mirroring)
+│   ├── apps/              # Halaman modul aplikasi (chat, e-commerce, dsb)
+│   ├── appsupport/        # Modul App Support (AppProfil, AppFitur, Menu Builder, Referensi, BackupDB, DataLogin & Audit Trail)
+│   │   ├── partials/      # Modal form CRUD & modal petunjuk operasional (<feature>-help-modal.blade.php)
+│   │   └── tabs/          # Sub-tab view partials (_login_log.blade.php, _activity_log.blade.php)
+│   ├── dashboards/        # Halaman dashboard utama aplikasi
+│   ├── docs/              # Halaman dokumentasi UI Metronic
+│   ├── help/              # Help & Bantuan Internal Pemrograman (/help/pemrograman/...)
+│   ├── layouts/           # Varian layout page-level
+│   ├── manajemenpengguna/ # Modul RBAC (Role, Permission, Akses Role, Akses User, User, Reset Password)
+│   └── pages/             # Group halaman umum / demo Metronic pages
+├── partials/              # Widget/partial global reusable lintas halaman (modals, search, theme-mode)
+└── profile/               # Halaman profil pengguna (edit avatar, ganti password, deactivate account)
+```
+
+#### Penjelasan Hirarki Folder Views:
+- **`auth/`**: Mengelola halaman gerbang masuk sistem seperti login (`login.blade.php`), registrasi (`register.blade.php`), dan pengajuan reset password.
+- **`layouts/` & `layouts/partials/`**: Berisi kerangka dasar aplikasi Metronic 8. Terdiri dari komponen partial terpisah seperti `_header.blade.php`, `_sidebar.blade.php`, `_footer.blade.php`, dan `_idle-timer.blade.php` (Session Inactivity Timer).
+- **`pages/` (Feature Folder)**: Merupakan folder utama seluruh fitur bisnis yang mengikuti metodologi **Structure Mirroring** (cermin 1:1 dari rute URL).
+  - **`pages/manajemenpengguna/`**: Mengelola modul otorisasi RBAC (Role, Permission, Matriks Akses Role & User, User Approval, & Reset Password Claim).
+  - **`pages/appsupport/`**: Mengelola modul pendukung sistem (AppProfil, AppFitur Toggle, Dynamic Menu Builder, Data Referensi Master, Backup Database SQL Engine, serta **DataLogin & Multi-Tab Audit Trail Activity Log**).
+  - **`pages/help/`**: Pusat dokumentasi pemrograman internal terintegrasi (`/help/pemrograman/...`) mencakup skema arsitektur dan panduan operasional.
+  - **Sub-folder `tabs/<feature>/`**: Menyimpan berkas sub-tab partial (diawali `_`) untuk halaman berbasis Multi-Tab Single Route (misal: `_activity_log.blade.php`).
+  - **Sub-folder `partials/`**: Menyimpan modal form CRUD dan **Modal Petunjuk Operasional** kontekstual (`<feature>-help-modal.blade.php`).
+- **`partials/`**: Menyimpan widget global lintas modul seperti modal pencarian global, switcher tema mode gelap/terang, dan elemen umum.
+- **`profile/`**: Mengelola tampilan mandiri profil pengguna (Self-Service User Profile).
 
 <div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
 
