@@ -119,6 +119,17 @@ graph TD
     I -->|9. Render Tampilan| A
 ```
 
+#### Penjelasan Alur Request Sistem:
+1. **User / Browser**: Pengguna melakukan interaksi atau navigasi ke URL tertentu (misal: `/appsupport/data-login?tab=activity-log`).
+2. **Routes & Middleware**: Permintaan ditangkap oleh `routes/web.php` atau `routes/auth.php` dan dikawal oleh middleware keamanan (`auth`, `verified`, dan **`throttle` rate limiting**).
+3. **Form Request Validation**: Input pengguna disaring dan divalidasi secara khusus melalui kelas `App\Http\Requests\<SubFolder>\<Feature>Request.php` untuk mencegah Mass Assignment & kerentanan XSS/SQLi.
+4. **Controller Layer**: Kelas `App\Http\Controllers\<SubFolder>\<Feature>Controller.php` menerima data ter-sanitize dan memproses logika bisnis.
+5. **Model & LogsActivityTrait**: Model Eloquent (`App\Models\...`) memproses query ke database. Jika terjadi mutasi data (Create, Update, Delete), trait `LogsActivityTrait` secara otomatis merekam log aktivitas ke tabel `activity_log` lengkap dengan selisih atribut (diff), IP address, dan User-Agent client.
+6. **Database MySQL**: Eksekusi perintah SQL dilakukan di basis data MySQL/MariaDB secara aman.
+7. **Main Blade View**: Controller meneruskan data dan indikator sub-tab aktif (`$activeTab`) ke tampilan utama `resources/views/pages/<subfolder>/<feature>.blade.php`.
+8. **Tab Partials & Help Modals**: Tampilan utama secara dinamis meng-include sub-tab partial (`resources/views/pages/<subfolder>/tabs/<feature>/_<tab>.blade.php`) dan modal petunjuk operasional (`partials/<feature>-help-modal.blade.php`).
+9. **Metronic 8 Layout & HTML Response**: Hasil akhir dirakit menggunakan tema Metronic 8, komponen duotone Keenicons, dan JS helper (`SwalHelper`), lalu dikembalikan dalam bentuk HTML response yang fluid dan responsif ke browser pengguna.
+
 ### 2. Metodologi Structure Mirroring (Alur 4-Layer MVC)
 Setiap fitur aplikasi dibangun dengan struktur 4-layer yang saling bercermin:
 ```text
