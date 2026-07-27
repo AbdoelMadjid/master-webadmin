@@ -21,6 +21,7 @@ Sistem Dashboard Administrasi Enterprise tingkat tinggi berbasis **Laravel 12.0*
 - [⏰ Perintah Artisan Khusus & Scheduler](#perintah-artisan)
 - [🏷️ Panduan Rilis GitHub (GitHub Release Step-by-Step)](#panduan-rilis)
 - [🏷️ Pengaturan Topics / Tags Repositori GitHub](#topics-repositori)
+- [📚 Dokumentasi Skema & Operasional Pemrograman](#dokumentasi-skema)
 - [📄 Lisensi](#lisensi)
 
 ---
@@ -214,6 +215,17 @@ git push origin v1.0.0
 Agar repositori Anda mudah ditemukan dan terlihat profesional di GitHub, tambahkan **Topics** berikut di bagian kanan atas halaman utama repositori GitHub (tombol ⚙️ samping *About*):
 
 `laravel12` `metronic8` `admin-panel` `rbac` `spatie-permissions` `activity-log` `audit-trail` `scheduled-backup` `rate-limiting` `bootstrap5` `dashboard-template` `bilingual`
+
+<div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
+
+---
+
+<a id="dokumentasi-skema"></a>
+## 📚 Dokumentasi Skema & Operasional Pemrograman Internal
+
+Untuk melihat panduan arsitektur lengkap, skema pemrograman, dan alur operasional internal bagi tim developer, silakan buka berkas dokumentasi internal di:
+
+👉 [**Dokumentasi Skema & Operasional Pemrograman (docs/skema-pemrograman/README.md)**](./docs/skema-pemrograman/README.md)
 
 <div align="right"><a href="#table-of-contents" title="Kembali ke Table of Contents">⬆ Kembali ke Table of Contents</a></div>
 
