@@ -104,7 +104,22 @@ Berikut adalah rekam jejak pengembangan sistem dari awal hingga tahap **Finalisa
 
 Aplikasi ini mengadopsi metodologi **Structure Mirroring** untuk menjamin keselarasan folder 100% antara Controller, Form Request, Model, dan Blade View.
 
-### 1. Metodologi Structure Mirroring (Alur 4-Layer MVC)
+### 1. Diagram Alur Request MVC (Mermaid Architecture Flow)
+
+```mermaid
+graph TD
+    A["User / Browser"] -->|1. Request URL| B["routes/web.php & auth.php"]
+    B -->|2. Proteksi Middleware (auth, verified, throttle)| C["Form Request Validation (App\\Http\\Requests\\...)"]
+    C -->|3. Validated Data| D["Controller (App\\Http\\Controllers\\...)"]
+    D -->|4. Query & Mutasi Data| E["Model & LogsActivityTrait (App\\Models\\...)"]
+    E -->|5. Eksekusi DB & Record Audit Log| F[("Database MySQL")]
+    D -->|6. Pass Data & Active Tab| G["Main Blade View (resources/views/pages/...)"]
+    G -->|7. Dynamic Include| H["Tab Partials (tabs/...) & Modals (partials/...)"]
+    H -->|8. Metronic 8 Theme Layout & SwalHelper| I["HTML Response"]
+    I -->|9. Render Tampilan| A
+```
+
+### 2. Metodologi Structure Mirroring (Alur 4-Layer MVC)
 Setiap fitur aplikasi dibangun dengan struktur 4-layer yang saling bercermin:
 ```text
 [Route] /appsupport/app-fitur
@@ -115,7 +130,7 @@ Setiap fitur aplikasi dibangun dengan struktur 4-layer yang saling bercermin:
    └── [Blade View]   resources/views/pages/appsupport/app-fitur.blade.php
 ```
 
-### 2. Hierarki Folder Views (`resources/views/`)
+### 3. Hierarki Folder Views (`resources/views/`)
 - `resources/views/layouts/` : Base layout Metronic 8 (`index.blade.php`, `_default.blade.php`).
 - `resources/views/layout/partials/` : Komponen partial layout (`_header.blade.php`, `_sidebar.blade.php`, `_footer.blade.php`, `_idle-timer.blade.php`).
 - `resources/views/pages/` : View halaman utama yang dipetakan langsung dari URL Route.
