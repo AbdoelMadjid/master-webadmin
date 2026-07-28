@@ -208,9 +208,18 @@
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
                                 @forelse ($allMenus as $menu)
-                                    <tr draggable="true" data-id="{{ $menu->id }}" data-parent-id="{{ $menu->main_menu_id ?? 0 }}" data-category="{{ $menu->category ?? '' }}" class="drag-row">
+                                    @php
+                                        $menuDepth = $menu->depth ?? 0;
+                                    @endphp
+                                    <tr draggable="true"
+                                        data-id="{{ $menu->id }}"
+                                        data-parent-id="{{ $menu->main_menu_id ?? 0 }}"
+                                        data-category="{{ $menu->category ?? '' }}"
+                                        data-level="{{ $menuDepth }}"
+                                        class="drag-row {{ $menuDepth == 1 ? 'bg-light-secondary' : ($menuDepth == 2 ? 'bg-light-warning' : '') }}"
+                                        style="{{ $menuDepth > 0 ? 'background-color: ' . ($menuDepth == 2 ? 'rgba(255,199,0,0.04)' : 'rgba(0,0,0,0.018)') . ' !important;' : '' }}">
                                         <td>
-                                            <div class="d-flex align-items-center">
+                                            <div class="d-flex align-items-center" style="padding-left: {{ $menuDepth * 20 }}px;">
                                                 <i class="ki-duotone ki-abstract-14 fs-3 text-gray-400 me-2 drag-handle" style="cursor: move;" title="Tahan dan geser untuk mengubah urutan">
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
@@ -219,11 +228,18 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="d-flex align-items-center">
+                                            <div class="d-flex align-items-center" style="padding-left: {{ $menuDepth * 24 }}px;">
+                                                {{-- Level indicators --}}
+                                                @if ($menuDepth == 1)
+                                                    <span class="text-gray-300 me-2 fs-7" style="white-space:nowrap;">└─</span>
+                                                @elseif ($menuDepth == 2)
+                                                    <span class="text-gray-300 me-2 fs-7" style="white-space:nowrap;">└──</span>
+                                                @endif
+
                                                 @if ($menu->icon)
                                                     <span class="symbol symbol-35px me-3 flex-shrink-0">
-                                                        <span class="symbol-label bg-light-primary">
-                                                            <i class="{{ $menu->icon }} text-primary fs-3">
+                                                        <span class="symbol-label {{ $menuDepth == 0 ? 'bg-light-primary' : ($menuDepth == 1 ? 'bg-light-info' : 'bg-light-warning') }}">
+                                                            <i class="{{ $menu->icon }} {{ $menuDepth == 0 ? 'text-primary' : ($menuDepth == 1 ? 'text-info' : 'text-warning') }} fs-3">
                                                                 @for ($i = 1; $i <= ($menu->paths ?? 0); $i++)
                                                                     <span class="path{{ $i }}"></span>
                                                                 @endfor
@@ -232,16 +248,25 @@
                                                     </span>
                                                 @endif
                                                 <div class="d-flex flex-column">
-                                                    <span class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">
+                                                    <span class="{{ $menuDepth == 0 ? 'text-gray-900 fw-bolder' : ($menuDepth == 1 ? 'text-gray-800 fw-bold' : 'text-gray-700 fw-semibold') }} text-hover-primary mb-1 fs-{{ $menuDepth == 0 ? '6' : ($menuDepth == 1 ? '6' : '7') }}">
                                                         {{ $menu->name }}
                                                     </span>
                                                     <div class="d-flex align-items-center gap-2">
-                                                        @if ($menu->parentMenu)
-                                                            <span class="badge badge-light-primary fs-8 py-1 px-2">
-                                                                Sub dari: {{ $menu->parentMenu->name }}
+                                                        @if ($menuDepth == 0)
+                                                            <span class="badge badge-light-dark fs-8 py-1 px-2">
+                                                                <i class="ki-duotone ki-home fs-9 me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                                Menu Utama
                                                             </span>
-                                                        @else
-                                                            <span class="badge badge-light-dark fs-8 py-1 px-2">Menu Utama</span>
+                                                        @elseif ($menuDepth == 1)
+                                                            <span class="badge badge-light-primary fs-8 py-1 px-2">
+                                                                <i class="ki-duotone ki-arrow-down fs-9 me-1"><span class="path1"></span></i>
+                                                                Sub: {{ $menu->parentMenu?->name ?? '-' }}
+                                                            </span>
+                                                        @elseif ($menuDepth == 2)
+                                                            <span class="badge badge-light-warning fs-8 py-1 px-2">
+                                                                <i class="ki-duotone ki-arrow-down fs-9 me-1"><span class="path1"></span></i>
+                                                                Sub-Sub: {{ $menu->parentMenu?->name ?? '-' }}
+                                                            </span>
                                                         @endif
 
                                                         @if (isset($menu->meta['title_key']))
@@ -410,13 +435,36 @@
             // Implementasi Drag & Drop HTML5
             var tbody = document.querySelector('#kt_table_menus tbody');
             var dragRow = null;
+            var dragRowGroup = []; // dragRow + semua baris anak / cucu
+
+            /**
+             * Kumpulkan sebuah baris beserta seluruh descendant-nya secara rekursif
+             * berdasarkan data-id / data-parent-id antar baris di tbody.
+             */
+            function collectRowGroup(row) {
+                var group = [row];
+                var rowId = row.getAttribute('data-id');
+                Array.from(tbody.querySelectorAll('tr.drag-row')).forEach(function(tr) {
+                    if (tr.getAttribute('data-parent-id') === rowId) {
+                        // Rekursif: ambil cucu juga
+                        var subGroup = collectRowGroup(tr);
+                        group = group.concat(subGroup);
+                    }
+                });
+                return group;
+            }
 
             if (tbody) {
                 tbody.addEventListener('dragstart', function(e) {
                     var tr = e.target.closest('tr');
                     if (tr && tr.classList.contains('drag-row')) {
                         dragRow = tr;
-                        tr.classList.add('bg-light-primary', 'opacity-50');
+                        dragRowGroup = collectRowGroup(tr);
+                        // Highlight seluruh grup
+                        dragRowGroup.forEach(function(r) {
+                            r.classList.add('opacity-50');
+                        });
+                        dragRow.classList.add('bg-light-primary');
                         e.dataTransfer.effectAllowed = 'move';
                         e.dataTransfer.setData('text/html', tr.innerHTML);
                     }
@@ -426,7 +474,8 @@
                     e.preventDefault();
                     e.dataTransfer.dropEffect = 'move';
                     var target = e.target.closest('tr');
-                    if (target && target !== dragRow && target.classList.contains('drag-row')) {
+                    // Target tidak boleh merupakan bagian dari grup yang sedang di-drag
+                    if (target && !dragRowGroup.includes(target) && target.classList.contains('drag-row')) {
                         var dragParent = dragRow.getAttribute('data-parent-id');
                         var targetParent = target.getAttribute('data-parent-id');
                         var dragCat = dragRow.getAttribute('data-category');
@@ -435,16 +484,25 @@
                         // Hanya izinkan pergeseran di dalam grup parent menu & kategori yang sama
                         if (dragParent === targetParent && dragCat === targetCat) {
                             var rect = target.getBoundingClientRect();
-                            var next = (e.clientY - rect.top) / (rect.bottom - rect.top) > 0.5;
-                            tbody.insertBefore(dragRow, next ? target.nextSibling : target);
+                            var insertAfter = (e.clientY - rect.top) / (rect.bottom - rect.top) > 0.5;
+                            // Anchor: jika setelah target → target.nextSibling, jika sebelum → target
+                            var anchor = insertAfter ? target.nextSibling : target;
+                            // Pindahkan seluruh grup (parent + anak) sekaligus sebagai blok
+                            dragRowGroup.forEach(function(r) {
+                                tbody.insertBefore(r, anchor);
+                            });
                         }
                     }
                 });
 
                 tbody.addEventListener('dragend', function(e) {
                     if (dragRow) {
-                        dragRow.classList.remove('bg-light-primary', 'opacity-50');
+                        dragRowGroup.forEach(function(r) {
+                            r.classList.remove('opacity-50');
+                        });
+                        dragRow.classList.remove('bg-light-primary');
                         dragRow = null;
+                        dragRowGroup = [];
                         updateMenuOrders();
                     }
                 });
@@ -488,9 +546,7 @@
                             // Update sidebar HTML secara real-time
                             if (response.sidebar_html && $('#kt_app_sidebar_menu_wrapper').length) {
                                 $('#kt_app_sidebar_menu_wrapper').replaceWith(response.sidebar_html);
-                                if (typeof KTMenu !== 'undefined') {
-                                    KTMenu.createInstances();
-                                }
+                                reinitSidebar();
                             }
 
                             if (typeof SwalHelper !== 'undefined') {
@@ -506,6 +562,24 @@
                 });
             }
         });
+
+        /**
+         * Reinisialisasi komponen Metronic sidebar setelah HTML diganti:
+         * - KTMenu   : accordion & active-state menu
+         * - KTScroll : custom scroll wrapper (#kt_app_sidebar_menu_scroll)
+         * - KTScrolltop : scroll-to-top button (opsional)
+         */
+        function reinitSidebar() {
+            if (typeof KTMenu !== 'undefined') {
+                KTMenu.createInstances();
+            }
+            if (typeof KTScroll !== 'undefined') {
+                KTScroll.createInstances();
+            }
+            if (typeof KTScrolltop !== 'undefined') {
+                KTScrolltop.createInstances();
+            }
+        }
 
         // Open Modal Tambah Permission
         function openAddPermissionModal(menuId, menuName) {
@@ -562,9 +636,7 @@
                         // Update sidebar HTML secara real-time jika menu disembunyikan / ditampilkan
                         if (response.sidebar_html && $('#kt_app_sidebar_menu_wrapper').length) {
                             $('#kt_app_sidebar_menu_wrapper').replaceWith(response.sidebar_html);
-                            if (typeof KTMenu !== 'undefined') {
-                                KTMenu.createInstances();
-                            }
+                            reinitSidebar();
                         }
 
                         if (typeof SwalHelper !== 'undefined') {

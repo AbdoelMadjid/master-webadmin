@@ -59,36 +59,35 @@ class Menu extends Model
 
         $result = collect();
 
+        // Helper function for recursive traversal with depth tracking
+        $addChildren = function ($menus, $all, &$result, $depth = 0) use (&$addChildren) {
+            foreach ($menus as $menu) {
+                $menu->depth = $depth;
+                $result->push($menu);
+                $children = $all->where('main_menu_id', $menu->id)->sortBy('orders');
+                if ($children->isNotEmpty()) {
+                    $addChildren($children, $all, $result, $depth + 1);
+                }
+            }
+        };
+
         foreach ($categories as $category) {
             $catMenus = $all->where('category', $category);
 
             // Main menus under this category
-            $mainMenus = $catMenus->whereNull('main_menu_id')->sortBy('orders')->values();
-
-            foreach ($mainMenus as $main) {
-                $result->push($main);
-
-                // Sub menus of this main menu
-                $subMenus = $catMenus->where('main_menu_id', $main->id)->sortBy('orders')->values();
-                foreach ($subMenus as $sub) {
-                    $result->push($sub);
-                }
-            }
+            $mainMenus = $catMenus->whereNull('main_menu_id')->sortBy('orders');
+            $addChildren($mainMenus, $catMenus, $result);
 
             // Orphan submenus under this category
             $processedIds = $result->pluck('id')->all();
-            $orphans = $catMenus->whereNotIn('id', $processedIds)->sortBy('orders')->values();
-            foreach ($orphans as $orphan) {
-                $result->push($orphan);
-            }
+            $orphans = $catMenus->whereNotIn('id', $processedIds)->sortBy('orders');
+            $addChildren($orphans, $catMenus, $result);
         }
 
         // Remaining uncategorized menus
         $processedIds = $result->pluck('id')->all();
-        $remaining = $all->whereNotIn('id', $processedIds)->sortBy('orders')->values();
-        foreach ($remaining as $rem) {
-            $result->push($rem);
-        }
+        $remaining = $all->whereNotIn('id', $processedIds)->sortBy('orders');
+        $addChildren($remaining, $all, $result);
 
         return $result;
     }

@@ -170,9 +170,7 @@
                         // Update sidebar HTML secara real-time
                         if (response.sidebar_html && $('#kt_app_sidebar_menu_wrapper').length) {
                             $('#kt_app_sidebar_menu_wrapper').replaceWith(response.sidebar_html);
-                            if (typeof KTMenu !== 'undefined') {
-                                KTMenu.createInstances();
-                            }
+                            reinitSidebar();
                         }
 
                         if (typeof SwalHelper !== 'undefined') {
@@ -196,6 +194,24 @@
                     }
                 }
             });
+        }
+
+        /**
+         * Reinisialisasi komponen Metronic sidebar setelah HTML diganti:
+         * - KTMenu   : accordion & active-state menu
+         * - KTScroll : custom scroll wrapper (#kt_app_sidebar_menu_scroll)
+         * - KTScrolltop : scroll-to-top button (opsional)
+         */
+        function reinitSidebar() {
+            if (typeof KTMenu !== 'undefined') {
+                KTMenu.createInstances();
+            }
+            if (typeof KTScroll !== 'undefined') {
+                KTScroll.createInstances();
+            }
+            if (typeof KTScrolltop !== 'undefined') {
+                KTScrolltop.createInstances();
+            }
         }
 
         function bulkToggleCategory(categoryName, activeStatus) {
@@ -229,9 +245,7 @@
                             if (response.success) {
                                 if (response.sidebar_html && $('#kt_app_sidebar_menu_wrapper').length) {
                                     $('#kt_app_sidebar_menu_wrapper').replaceWith(response.sidebar_html);
-                                    if (typeof KTMenu !== 'undefined') {
-                                        KTMenu.createInstances();
-                                    }
+                                    reinitSidebar();
                                 }
 
                                 if (typeof SwalHelper !== 'undefined') {
