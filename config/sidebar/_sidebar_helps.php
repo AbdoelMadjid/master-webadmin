@@ -77,6 +77,10 @@ return [
                             'route' => 'help.pemrograman.skema.app-support',
                         ],
                         [
+                            'title' => 'Multi-Template Website',
+                            'route' => 'help.pemrograman.skema.multi-template-website',
+                        ],
+                        [
                             'title' => 'Notifikasi System',
                             'route' => 'help.pemrograman.skema.notification',
                         ],
@@ -120,6 +124,10 @@ return [
                         [
                             'title' => 'App Support',
                             'route' => 'help.pemrograman.operasional.app-support',
+                        ],
+                        [
+                            'title' => 'Multi-Template Website',
+                            'route' => 'help.pemrograman.operasional.multi-template-website',
                         ],
                         [
                             'title' => 'Notifikasi System',

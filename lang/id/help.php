@@ -5,6 +5,8 @@ return [
     'kategori' => 'Kategori',
     'konvensi_penamaan' => 'Konvensi Penamaan',
     'operasional' => 'Operasional',
+    'skema_multi_template_website' => 'Skema Multi-Template Website',
+    'operasional_multi_template_website' => 'Operasional Multi-Template Website',
     'pages.operasional.checklist-qa-smoke-test.heading_1' => 'A. Routing dan Akses',
     'pages.operasional.checklist-qa-smoke-test.heading_2' => 'B. Sidebar/Header Menu',
     'pages.operasional.checklist-qa-smoke-test.heading_3' => 'C. Locale dan Translasi',

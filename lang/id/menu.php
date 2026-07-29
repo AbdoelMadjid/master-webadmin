@@ -343,6 +343,7 @@ return array (
   'more_dashboards' => 'Dashboard Lainnya',
   'multi-steps_sign-up' => 'Pendaftaran Multi Langkah',
   'multi_demo' => 'Multi Demo',
+  'multi_template_website' => 'Multi-Template Website',
   'multiple_containers' => 'Banyak Wadah',
   'multiselectsplitter' => 'Pemisah Multi Piliih',
   'my_profile' => 'Profil Saya',

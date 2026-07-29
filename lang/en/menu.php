@@ -343,6 +343,7 @@ return array (
   'more_dashboards' => 'More Dashboards',
   'multi-steps_sign-up' => 'Multi-steps Sign-up',
   'multi_demo' => 'Multi Demo',
+  'multi_template_website' => 'Multi-Template Website',
   'multiple_containers' => 'Multiple Containers',
   'multiselectsplitter' => 'Multiselectsplitter',
   'my_profile' => 'My Profile',

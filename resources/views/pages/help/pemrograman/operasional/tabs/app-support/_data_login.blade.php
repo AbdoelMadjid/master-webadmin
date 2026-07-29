@@ -37,7 +37,7 @@
                 <li><strong>Session Security Monitoring:</strong> Track IP addresses and browser devices used by users accessing the system.</li>
                 <li><strong>Avatar & Brief Profile:</strong> Renders profile avatar photos and user name/email details on each log row.</li>
                 <li><strong>Activity Statistical Widgets:</strong> Summary cards presenting today's total logins, system login history, and active users.</li>
-                <li><strong>Maintenance Log Cleanup:</strong> *Clear All Logs* button to purge audit logs periodically for database efficiency.</li>
+                <li><strong>Maintenance Log Cleanup:</strong> <strong>Clear All Logs</strong> button to purge audit logs periodically for database efficiency.</li>
             </ul>
         </div>
     </div>
@@ -105,7 +105,7 @@
                 <li><strong>Monitoring Keamanan Sesi:</strong> Memantau alamat IP dan perangkat yang digunakan oleh pengguna saat mengakses sistem.</li>
                 <li><strong>Avatar & Profil Ringkas:</strong> Menampilkan foto avatar profil dan detail nama/email pengguna pada setiap baris log.</li>
                 <li><strong>Widget Statistik Keaktifan:</strong> Menyajikan card ringkasan total login hari ini, total riwayat login sistem, dan user aktif.</li>
-                <li><strong>Pembersihan Log Pemeliharaan:</strong> Tombol *Hapus Semua Log* untuk membersihkan log audit secara berkala demi efisiensi database.</li>
+                <li><strong>Pembersihan Log Pemeliharaan:</strong> <strong>Hapus Semua Log</strong> untuk membersihkan log audit secara berkala demi efisiensi database.</li>
             </ul>
         </div>
     </div>
