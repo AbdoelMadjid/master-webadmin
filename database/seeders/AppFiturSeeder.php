@@ -42,7 +42,7 @@ class AppFiturSeeder extends Seeder
                 'feature_name' => 'Grup Menu HELP',
                 'category' => 'Sidebar Group',
                 'description' => 'Grup menu HELP di sidebar.',
-                'active' => true,
+                'active' => false,
             ],
 
             // 2. Topbar Header Menu Groups (_menu.blade.php)
