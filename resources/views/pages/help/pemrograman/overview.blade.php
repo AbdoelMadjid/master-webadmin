@@ -820,6 +820,21 @@
                                 </div>
                             </a>
                         </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <a href="{{ route('help.pemrograman.skema.multi-template-website') }}"
+                                class="card card-flush h-100 bg-light-info">
+                                <div class="card-body d-flex align-items-start gap-3 py-4">
+                                    <i class="ki-duotone ki-layers fs-2hx text-info flex-shrink-0 mt-1"><span
+                                            class="path1"></span><span class="path2"></span><span
+                                            class="path3"></span></i>
+                                    <div>
+                                        <h3 class="mb-1 fs-4">{{ __('menu.multi_template_website') }}</h3>
+                                        <p class="text-gray-700 fs-7 mb-0">{{ app()->getLocale() == 'en' ? 'Template resolver engine, data binding contract, and isolated asset management.' : 'Skema arsitektur pemutus template dinamis, kontrak data universal, dan pengelolaan asset terisolasi.' }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
 
                     <!--====================================================-->
@@ -979,6 +994,21 @@
                                     <div>
                                         <h3 class="mb-1 fs-4">{{ app()->getLocale() == 'en' ? 'Release & Git Tagging' : 'Rilis Versi & Git Tagging' }}</h3>
                                         <p class="text-gray-700 fs-7 mb-0">{{ app()->getLocale() == 'en' ? 'Step-by-step release workflow, git tag CLI, and GitHub Release publishing.' : 'Panduan rilis versi, penandaan Git Tag, force update tag, dan publikasi Rilis GitHub.' }}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <a href="{{ route('help.pemrograman.operasional.multi-template-website') }}"
+                                class="card card-flush h-100 bg-light-primary">
+                                <div class="card-body d-flex align-items-start gap-3 py-4">
+                                    <i class="ki-duotone ki-element-11 fs-2hx text-primary flex-shrink-0 mt-1"><span
+                                            class="path1"></span><span class="path2"></span><span
+                                            class="path3"></span><span class="path4"></span></i>
+                                    <div>
+                                        <h3 class="mb-1 fs-4">{{ __('menu.multi_template_website') }}</h3>
+                                        <p class="text-gray-700 fs-7 mb-0">{{ app()->getLocale() == 'en' ? 'Step-by-step admin template selection and developer workflow for creating new templates.' : 'Panduan operasional pemilihan template di admin dan alur kerja pengembang untuk membuat template baru.' }}</p>
                                     </div>
                                 </div>
                             </a>
