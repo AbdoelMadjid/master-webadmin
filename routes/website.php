@@ -37,32 +37,39 @@ Route::prefix('website')->name('website.')->group(function () use ($websiteViews
 use App\Http\Controllers\PageConfig\MenuWebsite\MainNavigationController;
 use App\Http\Controllers\PageConfig\MenuWebsite\TopNavigationController;
 use App\Http\Controllers\PageConfig\MenuWebsite\FooterNavigationController;
+use App\Http\Controllers\PageConfig\WebsiteProfileController;
 
 Route::middleware(['auth'])->group(function () {
-    Route::prefix('pageconfig/menuwebsite')->name('pageconfig.menuwebsite.')->group(function () {
-        // Main Navigation
-        Route::get('main-navigation', [MainNavigationController::class, 'index'])->name('main-navigation');
-        Route::post('main-navigation', [MainNavigationController::class, 'store'])->name('main-navigation.store');
-        Route::put('main-navigation/{id}', [MainNavigationController::class, 'update'])->name('main-navigation.update');
-        Route::delete('main-navigation/{id}', [MainNavigationController::class, 'destroy'])->name('main-navigation.destroy');
-        Route::post('main-navigation/{id}/toggle-status', [MainNavigationController::class, 'toggleStatus'])->name('main-navigation.toggle-status');
-        Route::post('main-navigation/reorder', [MainNavigationController::class, 'reorder'])->name('main-navigation.reorder');
+    Route::prefix('pageconfig')->name('pageconfig.')->group(function () {
+        // Website Profile
+        Route::get('website-profile', [WebsiteProfileController::class, 'index'])->name('website-profile');
+        Route::post('website-profile', [WebsiteProfileController::class, 'update'])->name('website-profile.update');
 
-        // Top Navigation
-        Route::get('top-navigation', [TopNavigationController::class, 'index'])->name('top-navigation');
-        Route::post('top-navigation', [TopNavigationController::class, 'store'])->name('top-navigation.store');
-        Route::put('top-navigation/{id}', [TopNavigationController::class, 'update'])->name('top-navigation.update');
-        Route::delete('top-navigation/{id}', [TopNavigationController::class, 'destroy'])->name('top-navigation.destroy');
-        Route::post('top-navigation/{id}/toggle-status', [TopNavigationController::class, 'toggleStatus'])->name('top-navigation.toggle-status');
-        Route::post('top-navigation/reorder', [TopNavigationController::class, 'reorder'])->name('top-navigation.reorder');
+        Route::prefix('menuwebsite')->name('menuwebsite.')->group(function () {
+            // Main Navigation
+            Route::get('main-navigation', [MainNavigationController::class, 'index'])->name('main-navigation');
+            Route::post('main-navigation', [MainNavigationController::class, 'store'])->name('main-navigation.store');
+            Route::put('main-navigation/{id}', [MainNavigationController::class, 'update'])->name('main-navigation.update');
+            Route::delete('main-navigation/{id}', [MainNavigationController::class, 'destroy'])->name('main-navigation.destroy');
+            Route::post('main-navigation/{id}/toggle-status', [MainNavigationController::class, 'toggleStatus'])->name('main-navigation.toggle-status');
+            Route::post('main-navigation/reorder', [MainNavigationController::class, 'reorder'])->name('main-navigation.reorder');
 
-        // Footer Navigation
-        Route::get('footer-navigation', [FooterNavigationController::class, 'index'])->name('footer-navigation');
-        Route::post('footer-navigation', [FooterNavigationController::class, 'store'])->name('footer-navigation.store');
-        Route::put('footer-navigation/{id}', [FooterNavigationController::class, 'update'])->name('footer-navigation.update');
-        Route::delete('footer-navigation/{id}', [FooterNavigationController::class, 'destroy'])->name('footer-navigation.destroy');
-        Route::post('footer-navigation/{id}/toggle-status', [FooterNavigationController::class, 'toggleStatus'])->name('footer-navigation.toggle-status');
-        Route::post('footer-navigation/reorder', [FooterNavigationController::class, 'reorder'])->name('footer-navigation.reorder');
+            // Top Navigation
+            Route::get('top-navigation', [TopNavigationController::class, 'index'])->name('top-navigation');
+            Route::post('top-navigation', [TopNavigationController::class, 'store'])->name('top-navigation.store');
+            Route::put('top-navigation/{id}', [TopNavigationController::class, 'update'])->name('top-navigation.update');
+            Route::delete('top-navigation/{id}', [TopNavigationController::class, 'destroy'])->name('top-navigation.destroy');
+            Route::post('top-navigation/{id}/toggle-status', [TopNavigationController::class, 'toggleStatus'])->name('top-navigation.toggle-status');
+            Route::post('top-navigation/reorder', [TopNavigationController::class, 'reorder'])->name('top-navigation.reorder');
+
+            // Footer Navigation
+            Route::get('footer-navigation', [FooterNavigationController::class, 'index'])->name('footer-navigation');
+            Route::post('footer-navigation', [FooterNavigationController::class, 'store'])->name('footer-navigation.store');
+            Route::put('footer-navigation/{id}', [FooterNavigationController::class, 'update'])->name('footer-navigation.update');
+            Route::delete('footer-navigation/{id}', [FooterNavigationController::class, 'destroy'])->name('footer-navigation.destroy');
+            Route::post('footer-navigation/{id}/toggle-status', [FooterNavigationController::class, 'toggleStatus'])->name('footer-navigation.toggle-status');
+            Route::post('footer-navigation/reorder', [FooterNavigationController::class, 'reorder'])->name('footer-navigation.reorder');
+        });
     });
 });
 

@@ -31,14 +31,28 @@
 
     $pagesMegaMenu = $dbNavigations->firstWhere('type', 'mega_menu');
     $topLevelNavs = $dbNavigations->where('type', '!=', 'mega_menu');
+
+    try {
+        $webProfile = \App\Models\PageConfig\WebsiteProfile::getActiveProfile();
+    } catch (\Throwable $e) {
+        $webProfile = (object) [
+            'name' => 'Universitas Unify',
+            'logo' => 'assets/img/logo/logo.png',
+            'logo_mini' => 'assets/img/logo/logo-mini.png',
+        ];
+    }
+
+    $logoSrc = asset($webProfile->logo ?? 'assets/img/logo/logo.png');
+    $logoMiniSrc = asset($webProfile->logo_mini ?? 'assets/img/logo/logo-mini.png');
+    $siteName = app()->getLocale() == 'en' && !empty($webProfile->name_en ?? null) ? $webProfile->name_en : ($webProfile->name ?? 'Logo');
 @endphp
 
 <nav class="js-mega-menu navbar navbar-expand-lg g-px-0 g-py-5 g-py-0--lg">
     <!-- Logo -->
     <a class="navbar-brand g-max-width-170 g-max-width-200--lg" href="{{ route('website.home') }}">
-        <img class="img-fluid g-hidden-lg-down" src="{{ asset('assets/img/logo/logo.png') }}" alt="Logo">
-        <img class="img-fluid g-width-80 g-hidden-md-down g-hidden-xl-up" src="{{ asset('assets/img/logo/logo-mini.png') }}" alt="Logo">
-        <img class="img-fluid g-hidden-lg-up" src="{{ asset('assets/img/logo/logo.png') }}" alt="Logo">
+        <img class="img-fluid g-hidden-lg-down" src="{{ $logoSrc }}" alt="{{ $siteName }}">
+        <img class="img-fluid g-width-80 g-hidden-md-down g-hidden-xl-up" src="{{ $logoMiniSrc }}" alt="{{ $siteName }}">
+        <img class="img-fluid g-hidden-lg-up" src="{{ $logoSrc }}" alt="{{ $siteName }}">
     </a>
     <!-- End Logo -->
 
