@@ -4,10 +4,12 @@ namespace App\Http\Controllers\ManajemenPengguna;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ManajemenPengguna\AksesUserRequest;
+use App\Models\Menu;
 use App\Models\User;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AksesUserController extends Controller
 {
@@ -16,6 +18,7 @@ class AksesUserController extends Controller
         $users = User::with(['roles', 'permissions'])->orderBy('name')->get();
         $roles = Role::with('permissions')->get();
         $permissions = Permission::all();
+        $allMenus = Menu::getOrderedTree();
 
         $rolePermissionsMap = [];
         foreach ($roles as $role) {
@@ -23,7 +26,7 @@ class AksesUserController extends Controller
         }
 
         // Group permissions by module for CRUD Matrix
-        $matrixPermissions = [];
+        $rawPermissionsByModule = [];
         foreach ($permissions as $perm) {
             $parts = explode(' ', $perm->name, 2);
             if (count($parts) === 2) {
@@ -34,8 +37,8 @@ class AksesUserController extends Controller
                 $module = $perm->name;
             }
 
-            if (!isset($matrixPermissions[$module])) {
-                $matrixPermissions[$module] = [
+            if (!isset($rawPermissionsByModule[$module])) {
+                $rawPermissionsByModule[$module] = [
                     'create' => null,
                     'read'   => null,
                     'update' => null,
@@ -45,17 +48,67 @@ class AksesUserController extends Controller
             }
 
             if (in_array($action, ['create', 'read', 'update', 'delete'])) {
-                $matrixPermissions[$module][$action] = $perm->name;
+                $rawPermissionsByModule[$module][$action] = $perm->name;
             } else {
-                $matrixPermissions[$module]['custom'][] = [
+                $rawPermissionsByModule[$module]['custom'][] = [
                     'action' => $action,
                     'name'   => $perm->name,
                 ];
             }
         }
 
-        // Sort matrix keys alphabetically by module name
-        ksort($matrixPermissions);
+        $matrixPermissions = [];
+        $processedModules = [];
+
+        // 1. Map ordered menu tree first to maintain exact menu hierarchy
+        foreach ($allMenus as $menu) {
+            $moduleKey = $menu->url;
+            if (!$moduleKey) {
+                continue;
+            }
+
+            $actions = $rawPermissionsByModule[$moduleKey] ?? [
+                'create' => null,
+                'read'   => null,
+                'update' => null,
+                'delete' => null,
+                'custom' => [],
+            ];
+
+            $matrixPermissions[$moduleKey] = array_merge($actions, [
+                'module'      => $moduleKey,
+                'menu_name'   => $menu->name,
+                'depth'       => $menu->depth ?? 0,
+                'icon'        => $menu->icon,
+                'paths'       => $menu->paths ?? 0,
+                'parent_name' => $menu->parentMenu?->name,
+                'category'    => $menu->category,
+            ]);
+            $processedModules[$moduleKey] = true;
+        }
+
+        // 2. Append orphan permission modules not directly tied to a menu item
+        foreach ($rawPermissionsByModule as $moduleKey => $actions) {
+            if (!isset($processedModules[$moduleKey])) {
+                $slashCount = substr_count($moduleKey, '/');
+                $depth = min($slashCount, 2);
+
+                $nameParts = explode('/', $moduleKey);
+                $displayName = Str::title(str_replace(['-', '_'], ' ', end($nameParts)));
+                $parentName = count($nameParts) > 1 ? Str::title(str_replace(['-', '_'], ' ', $nameParts[count($nameParts) - 2])) : null;
+
+                $matrixPermissions[$moduleKey] = array_merge($actions, [
+                    'module'      => $moduleKey,
+                    'menu_name'   => $displayName,
+                    'depth'       => $depth,
+                    'icon'        => null,
+                    'paths'       => 0,
+                    'parent_name' => $parentName,
+                    'category'    => null,
+                ]);
+                $processedModules[$moduleKey] = true;
+            }
+        }
 
         if ($request->wantsJson() || $request->ajax()) {
             return response()->json([

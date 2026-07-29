@@ -451,8 +451,9 @@
             $('#role_modal_perm_search').on('keyup', function() {
                 var query = $(this).val().toLowerCase();
                 $('.role-modal-matrix-row').each(function() {
-                    var moduleName = $(this).data('module');
-                    if (moduleName.indexOf(query) !== -1) {
+                    var moduleName = $(this).data('module') || '';
+                    var menuName = $(this).data('menu-name') || '';
+                    if (moduleName.indexOf(query) !== -1 || menuName.indexOf(query) !== -1) {
                         $(this).show();
                     } else {
                         $(this).hide();

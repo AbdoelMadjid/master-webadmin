@@ -431,6 +431,20 @@
                 updateModalPermissionsState();
             });
 
+            // Modal Live Search Filter for Direct Permissions Matrix
+            $(document).on('keyup', '#akses_user_modal_perm_search', function() {
+                var query = $(this).val().toLowerCase();
+                $('.akses-user-modal-matrix-row').each(function() {
+                    var moduleName = $(this).data('module') || '';
+                    var menuName = $(this).data('menu-name') || '';
+                    if (moduleName.indexOf(query) !== -1 || menuName.indexOf(query) !== -1) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+
             $(document).on('click', '.btn-manage-user-access', function() {
                 var userId = $(this).data('id');
                 $.get("{{ url('manajemenpengguna/akses-user') }}/" + userId, function(res) {
@@ -438,6 +452,8 @@
                         $('#akses_user_id').val(res.data.id);
                         $('#akses_user_name_display').text(res.data.name);
                         $('#akses_user_email_display').text(res.data.email);
+                        $('#akses_user_modal_perm_search').val('');
+                        $('.akses-user-modal-matrix-row').show();
 
                         currentUserDirectPerms = res.direct_permissions || [];
                         if (res.role_permissions_map) {

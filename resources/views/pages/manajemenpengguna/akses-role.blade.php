@@ -107,7 +107,7 @@
                                                 <table class="table table-row-bordered table-row-gray-300 align-middle gs-4 gy-3 mb-0 role-matrix-table">
                                                     <thead class="table-light text-gray-700 fw-bold fs-7 text-uppercase sticky-top">
                                                         <tr>
-                                                            <th class="min-w-175px">Modul / Fitur</th>
+                                                            <th class="min-w-250px">Modul / Fitur</th>
                                                             <th class="text-center min-w-70px">Create</th>
                                                             <th class="text-center min-w-70px">Read</th>
                                                             <th class="text-center min-w-70px">Update</th>
@@ -118,9 +118,76 @@
                                                     </thead>
                                                     <tbody class="text-gray-600 fw-semibold fs-7">
                                                         @foreach($matrixPermissions as $module => $actions)
-                                                            <tr class="matrix-row" data-module="{{ strtolower($module) }}">
-                                                                <td class="fw-bold text-gray-800">
-                                                                    <code>{{ $module }}</code>
+                                                            @php
+                                                                $menuDepth = $actions['depth'] ?? 0;
+                                                                $menuName = $actions['menu_name'] ?? $module;
+                                                                $parentName = $actions['parent_name'] ?? null;
+                                                                $icon = $actions['icon'] ?? null;
+                                                                $paths = $actions['paths'] ?? 0;
+                                                            @endphp
+                                                            <tr class="matrix-row {{ $menuDepth == 1 ? 'bg-light-secondary' : ($menuDepth >= 2 ? 'bg-light-warning' : '') }}"
+                                                                data-module="{{ strtolower($module) }}"
+                                                                data-menu-name="{{ strtolower($menuName) }}"
+                                                                style="{{ $menuDepth > 0 ? 'background-color: ' . ($menuDepth >= 2 ? 'rgba(255,199,0,0.04)' : 'rgba(0,0,0,0.018)') . ' !important;' : '' }}">
+                                                                <td class="align-middle">
+                                                                    <div class="d-flex align-items-center" style="padding-left: {{ $menuDepth * 24 }}px;">
+                                                                        {{-- Level indicators --}}
+                                                                        @if ($menuDepth == 1)
+                                                                            <span class="text-gray-300 me-2 fs-7" style="white-space:nowrap;">└─</span>
+                                                                        @elseif ($menuDepth >= 2)
+                                                                            <span class="text-gray-300 me-2 fs-7" style="white-space:nowrap;">└──</span>
+                                                                        @endif
+
+                                                                        @if ($icon)
+                                                                            <span class="symbol symbol-35px me-3 flex-shrink-0">
+                                                                                <span class="symbol-label {{ $menuDepth == 0 ? 'bg-light-primary' : ($menuDepth == 1 ? 'bg-light-info' : 'bg-light-warning') }}">
+                                                                                    <i class="{{ $icon }} {{ $menuDepth == 0 ? 'text-primary' : ($menuDepth == 1 ? 'text-info' : 'text-warning') }} fs-3">
+                                                                                        @for ($i = 1; $i <= $paths; $i++)
+                                                                                            <span class="path{{ $i }}"></span>
+                                                                                        @endfor
+                                                                                    </i>
+                                                                                </span>
+                                                                            </span>
+                                                                        @else
+                                                                            <span class="symbol symbol-35px me-3 flex-shrink-0">
+                                                                                <span class="symbol-label {{ $menuDepth == 0 ? 'bg-light-primary' : ($menuDepth == 1 ? 'bg-light-info' : 'bg-light-warning') }}">
+                                                                                    <i class="ki-duotone ki-element-11 {{ $menuDepth == 0 ? 'text-primary' : ($menuDepth == 1 ? 'text-info' : 'text-warning') }} fs-3">
+                                                                                        <span class="path1"></span>
+                                                                                        <span class="path2"></span>
+                                                                                        <span class="path3"></span>
+                                                                                        <span class="path4"></span>
+                                                                                    </i>
+                                                                                </span>
+                                                                            </span>
+                                                                        @endif
+
+                                                                        <div class="d-flex flex-column">
+                                                                            <div class="d-flex align-items-center gap-2 mb-1 flex-wrap">
+                                                                                <span class="{{ $menuDepth == 0 ? 'text-gray-900 fw-bolder' : ($menuDepth == 1 ? 'text-gray-800 fw-bold' : 'text-gray-700 fw-semibold') }} fs-{{ $menuDepth == 0 ? '6' : ($menuDepth == 1 ? '6' : '7') }}">
+                                                                                    {{ $menuName }}
+                                                                                </span>
+                                                                                <code class="text-dark bg-light px-2 py-0-5 rounded fs-8">{{ $module }}</code>
+                                                                            </div>
+                                                                            <div class="d-flex align-items-center gap-2">
+                                                                                @if ($menuDepth == 0)
+                                                                                    <span class="badge badge-light-dark fs-8 py-1 px-2">
+                                                                                        <i class="ki-duotone ki-home fs-9 me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                                                        Menu Utama
+                                                                                    </span>
+                                                                                @elseif ($menuDepth == 1)
+                                                                                    <span class="badge badge-light-primary fs-8 py-1 px-2">
+                                                                                        <i class="ki-duotone ki-arrow-down fs-9 me-1"><span class="path1"></span></i>
+                                                                                        Sub: {{ $parentName ?? '-' }}
+                                                                                    </span>
+                                                                                @elseif ($menuDepth >= 2)
+                                                                                    <span class="badge badge-light-warning fs-8 py-1 px-2">
+                                                                                        <i class="ki-duotone ki-arrow-down fs-9 me-1"><span class="path1"></span></i>
+                                                                                        Sub-Sub: {{ $parentName ?? '-' }}
+                                                                                    </span>
+                                                                                @endif
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </td>
                                                                 
                                                                 {{-- Create --}}
@@ -228,8 +295,9 @@
                 var $activeTab = $('.tab-pane.show.active');
 
                 $activeTab.find('.matrix-row').each(function() {
-                    var moduleName = $(this).data('module');
-                    if (moduleName.indexOf(query) !== -1) {
+                    var moduleName = $(this).data('module') || '';
+                    var menuName = $(this).data('menu-name') || '';
+                    if (moduleName.indexOf(query) !== -1 || menuName.indexOf(query) !== -1) {
                         $(this).show();
                     } else {
                         $(this).hide();
