@@ -33,12 +33,13 @@ Route::prefix('website')->name('website.')->group(function () use ($websiteViews
     }
 });
 
-// Admin Web Navigation Management Routes
 use App\Http\Controllers\PageConfig\MenuWebsite\MainNavigationController;
 use App\Http\Controllers\PageConfig\MenuWebsite\TopNavigationController;
 use App\Http\Controllers\PageConfig\MenuWebsite\FooterNavigationController;
 use App\Http\Controllers\PageConfig\WebsiteProfileController;
 use App\Http\Controllers\PageConfig\WebsiteFeatureController;
+use App\Http\Controllers\PageContent\SlideBannerController;
+use App\Http\Controllers\PageContent\CallToActionController;
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('pageconfig')->name('pageconfig.')->group(function () {
@@ -77,6 +78,23 @@ Route::middleware(['auth'])->group(function () {
             Route::post('footer-navigation/{id}/toggle-status', [FooterNavigationController::class, 'toggleStatus'])->name('footer-navigation.toggle-status');
             Route::post('footer-navigation/reorder', [FooterNavigationController::class, 'reorder'])->name('footer-navigation.reorder');
         });
+    });
+
+    // PageContent Routes
+    Route::prefix('pagecontent')->name('pagecontent.')->group(function () {
+        // Slide Banner Beranda
+        Route::get('slide-banner', [SlideBannerController::class, 'index'])->name('slide-banner');
+        Route::post('slide-banner', [SlideBannerController::class, 'store'])->name('slide-banner.store');
+        Route::put('slide-banner/{id}', [SlideBannerController::class, 'update'])->name('slide-banner.update');
+        Route::delete('slide-banner/{id}', [SlideBannerController::class, 'destroy'])->name('slide-banner.destroy');
+        Route::post('slide-banner/{id}/toggle-status', [SlideBannerController::class, 'toggleStatus'])->name('slide-banner.toggle-status');
+
+        // Call to Action (CTA)
+        Route::get('call-to-action', [CallToActionController::class, 'index'])->name('call-to-action');
+        Route::post('call-to-action', [CallToActionController::class, 'store'])->name('call-to-action.store');
+        Route::put('call-to-action/{id}', [CallToActionController::class, 'update'])->name('call-to-action.update');
+        Route::delete('call-to-action/{id}', [CallToActionController::class, 'destroy'])->name('call-to-action.destroy');
+        Route::post('call-to-action/{id}/toggle-status', [CallToActionController::class, 'toggleStatus'])->name('call-to-action.toggle-status');
     });
 });
 
