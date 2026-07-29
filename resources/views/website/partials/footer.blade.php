@@ -1,74 +1,55 @@
 <!-- Footer -->
 <footer class="g-bg-secondary g-pt-100 g-pb-50">
     <div class="container">
+@php
+    use App\Models\PageConfig\MenuWebsite\FooterNavigation;
+    use Illuminate\Support\Str;
+    use Illuminate\Support\Facades\Route;
+
+    $footerNavItems = FooterNavigation::active()->ordered()->get();
+
+    $getFooterUrl = function ($item) {
+        if (empty($item->url) || $item->url === '#') {
+            return '#';
+        }
+        if ($item->is_external || Str::startsWith($item->url, ['http://', 'https://', '/'])) {
+            return $item->url;
+        }
+        if (Route::has($item->url)) {
+            return route($item->url);
+        }
+        return url($item->url);
+    };
+
+    $getFooterTitle = function ($item) {
+        $locale = app()->getLocale();
+        if ($locale === 'en' && !empty($item->title_en)) {
+            return $item->title_en;
+        }
+        return $item->title;
+    };
+@endphp
+
         <div class="row g-mb-40">
-            <div class="col-6 col-md-3 g-mb-20">
-                <!-- Footer Links -->
-                <ul class="list-unstyled">
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.future_students') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.current_students') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.alumni') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.faculty_and_staff') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.donors') }}</a></li>
-                </ul>
-                <!-- End Footer Links -->
-            </div>
-
-            <div class="col-6 col-md-3 g-mb-20">
-                <!-- Footer Links -->
-                <ul class="list-unstyled">
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.news_media') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.research_innovation') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.academics') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.programs_of_study') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.university_life') }}</a></li>
-                </ul>
-                <!-- End Footer Links -->
-            </div>
-
-            <div class="col-6 col-md-3 g-mb-20">
-                <!-- Footer Links -->
-                <ul class="list-unstyled">
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.contacts') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.careers') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.accessibility') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.privacy') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.site_feedback') }}</a></li>
-                </ul>
-                <!-- End Footer Links -->
-            </div>
-
-            <div class="col-6 col-md-3 g-mb-20">
-                <!-- Footer Links -->
-                <ul class="list-unstyled">
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.downtown_ontario_campus') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.mississauga_campus') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.scarborough_campus') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.campus_maps') }}</a></li>
-                    <li class="g-py-5"><a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
-                            href="#">{{ __('website.campus_safety') }}</a></li>
-                </ul>
-                <!-- End Footer Links -->
-            </div>
+            @for($col = 1; $col <= 4; $col++)
+                @php
+                    $columnNavs = $footerNavItems->where('column', $col);
+                @endphp
+                <div class="col-6 col-md-3 g-mb-20">
+                    <!-- Footer Links Column {{ $col }} -->
+                    <ul class="list-unstyled">
+                        @foreach($columnNavs as $nav)
+                            <li class="g-py-5">
+                                <a class="u-link-v5 g-color-footer-links g-color-primary--hover g-font-size-16"
+                                    href="{{ $getFooterUrl($nav) }}" target="{{ $nav->target ?? '_self' }}">
+                                    {{ $getFooterTitle($nav) }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                    <!-- End Footer Links Column {{ $col }} -->
+                </div>
+            @endfor
         </div>
 
         <!-- Footer Copyright -->

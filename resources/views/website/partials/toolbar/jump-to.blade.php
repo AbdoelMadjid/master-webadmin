@@ -1,3 +1,36 @@
+@php
+    use App\Models\PageConfig\MenuWebsite\TopNavigation;
+    use Illuminate\Support\Str;
+    use Illuminate\Support\Facades\Route;
+
+    $topNavItems = TopNavigation::active()
+        ->with(['children' => fn($q) => $q->active()->orderBy('order', 'asc')])
+        ->parentOnly()
+        ->ordered()
+        ->get();
+
+    $getTopNavUrl = function ($item) {
+        if (empty($item->url) || $item->url === '#') {
+            return '#';
+        }
+        if ($item->is_external || Str::startsWith($item->url, ['http://', 'https://', '/'])) {
+            return $item->url;
+        }
+        if (Route::has($item->url)) {
+            return route($item->url);
+        }
+        return url($item->url);
+    };
+
+    $getTopNavTitle = function ($item) {
+        $locale = app()->getLocale();
+        if ($locale === 'en' && !empty($item->title_en)) {
+            return $item->title_en;
+        }
+        return $item->title;
+    };
+@endphp
+
 <li class="list-inline-item g-pos-rel">
     <a id="jump-to-dropdown-invoker"
         class="d-block d-lg-none u-link-v5 g-color-white-opacity-0_7 g-color-white--hover g-font-size-12 text-uppercase g-py-7"
@@ -15,26 +48,23 @@
             <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
                 href="{{ route('website.apply-all-intake') }}">{{ __('website.apply_now') }}</a>
         </li>
-        <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
-            <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
-                href="{{ route('website.campus-life') }}">{{ __('website.campus_life') }}</a>
-        </li>
-        <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
-            <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
-                href="{{ route('website.research') }}">{{ __('website.research') }}</a>
-        </li>
-        <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
-            <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
-                href="{{ route('website.help') }}">{{ __('website.help') }}</a>
-        </li>
-        <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
-            <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
-                href="{{ route('website.contacts') }}">{{ __('website.contacts') }}</a>
-        </li>
-        {{-- <li class="dropdown-item g-px-0 g-py-2">
-            <a class="nav-link g-color-white g-bg-primary g-bg-primary-light-v1--hover g-font-size-default"
-                href="{{ route('website.signin') }}">Sign in</a>
-        </li> --}}
+
+        @foreach($topNavItems as $nav)
+            <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
+                <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
+                    href="{{ $getTopNavUrl($nav) }}" target="{{ $nav->target ?? '_self' }}">
+                    {{ $getTopNavTitle($nav) }}
+                </a>
+            </li>
+            @foreach($nav->children->where('is_active', true) as $child)
+                <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2 g-pl-15">
+                    <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
+                        href="{{ $getTopNavUrl($child) }}" target="{{ $child->target ?? '_self' }}">
+                        ↳ {{ $getTopNavTitle($child) }}
+                    </a>
+                </li>
+            @endforeach
+        @endforeach
 
         @if (Route::has('login'))
             <li class="dropdown-item g-px-0 g-py-2">

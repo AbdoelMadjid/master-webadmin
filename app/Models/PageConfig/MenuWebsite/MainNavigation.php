@@ -1,0 +1,86 @@
+<?php
+
+namespace App\Models\PageConfig\MenuWebsite;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class MainNavigation extends Model
+{
+    use HasFactory;
+
+    protected $table = 'web_main_navigations';
+
+    protected $fillable = [
+        'parent_id',
+        'title',
+        'title_en',
+        'url',
+        'type',
+        'mega_menu_column',
+        'target',
+        'icon',
+        'badge',
+        'badge_color',
+        'order',
+        'is_active',
+        'is_external',
+    ];
+
+    protected $casts = [
+        'mega_menu_column' => 'integer',
+        'order' => 'integer',
+        'is_active' => 'boolean',
+        'is_external' => 'boolean',
+    ];
+
+    /**
+     * Parent navigation item
+     */
+    public function parent(): BelongsTo
+    {
+        return $this->belongsTo(MainNavigation::class, 'parent_id');
+    }
+
+    /**
+     * Child navigation items
+     */
+    public function children(): HasMany
+    {
+        return $this->hasMany(MainNavigation::class, 'parent_id')->orderBy('order', 'asc');
+    }
+
+    /**
+     * Scope active items
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
+    /**
+     * Scope parent top level items
+     */
+    public function scopeParentOnly($query)
+    {
+        return $query->whereNull('parent_id');
+    }
+
+    /**
+     * Scope ordered
+     */
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('order', 'asc');
+    }
+
+    /**
+     * Scope mega menu parents
+     */
+    public function scopeMegaMenu($query)
+    {
+        return $query->where('type', 'mega_menu');
+    }
+}

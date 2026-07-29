@@ -6,7 +6,7 @@
 
 <li class="list-inline-item g-pos-rel ml-lg-auto">
     <a id="language-dropdown-invoker"
-        class="d-none d-sm-flex align-items-center u-link-v5 g-color-white-opacity-0_7 g-color-white--hover g-font-size-12 text-uppercase g-pl-0 g-pl-10--lg g-pr-10 g-py-15"
+        class="d-none d-sm-flex align-items-center u-link-v5 g-color-white-opacity-0_7 g-color-white--hover g-font-size-12 text-uppercase text-nowrap g-pl-0 g-pl-10--lg g-pr-10 g-py-15"
         href="#" aria-controls="language-dropdown" aria-haspopup="true" aria-expanded="false"
         data-dropdown-event="hover" data-dropdown-target="#language-dropdown" data-dropdown-type="css-animation"
         data-dropdown-duration="100" data-dropdown-hide-on-scroll="true" data-dropdown-animation-in="fadeIn"

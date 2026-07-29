@@ -10,7 +10,7 @@ window.SwalHelper = {
      * @param {number} timer Durasi waktu tayang dalam milidetik (Default: 6000ms / 6 detik)
      */
     success: function(message = 'Data berhasil disimpan.', callback = null, timer = 6000) {
-        Swal.fire({
+        return Swal.fire({
             icon: 'success',
             title: 'Berhasil!',
             text: message,
@@ -29,6 +29,7 @@ window.SwalHelper = {
             } else if (callback === null) {
                 location.reload();
             }
+            return result;
         });
     },
 
@@ -38,7 +39,7 @@ window.SwalHelper = {
      * @param {string} title Judul notifikasi (Default: 'Gagal!')
      */
     error: function(message = 'Terjadi kesalahan sistem.', title = 'Gagal!') {
-        Swal.fire({
+        return Swal.fire({
             icon: 'error',
             title: title,
             html: message,
@@ -62,9 +63,15 @@ window.SwalHelper = {
             }).join('<br>');
         } else if (xhr && xhr.responseJSON && xhr.responseJSON.message) {
             errorMsg = xhr.responseJSON.message;
+        } else if (xhr && xhr.errors) {
+            errorMsg = Object.values(xhr.errors).map(function(arr) {
+                return Array.isArray(arr) ? arr.join('<br>') : arr;
+            }).join('<br>');
+        } else if (xhr && xhr.message) {
+            errorMsg = xhr.message;
         }
 
-        Swal.fire({
+        return Swal.fire({
             icon: 'error',
             title: 'Validasi Gagal',
             html: errorMsg,
@@ -81,7 +88,7 @@ window.SwalHelper = {
      * @param {function} onConfirm Callback yang dieksekusi saat tombol 'Ya, Hapus!' diklik
      */
     confirmDelete: function(itemName = 'data ini', onConfirm = null) {
-        Swal.fire({
+        return Swal.fire({
             title: 'Apakah Anda Yakin?',
             text: 'Data "' + itemName + '" akan dihapus permanen dari sistem!',
             icon: 'warning',
@@ -97,6 +104,7 @@ window.SwalHelper = {
             if (result.isConfirmed && typeof onConfirm === 'function') {
                 onConfirm();
             }
+            return result;
         });
     }
 };
