@@ -32,6 +32,7 @@ class WebsiteProfileRequest extends FormRequest
             'email' => 'nullable|email|max:100',
             'copyright_text' => 'nullable|string|max:255',
             'copyright_text_en' => 'nullable|string|max:255',
+            'social_links' => 'nullable|array',
         ];
     }
 

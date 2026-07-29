@@ -71,7 +71,7 @@
     @endif
 @endforeach
 
-@if (Route::has('login'))
+@if (Route::has('login') && \App\Models\PageConfig\WebFeature::isFeatureActive('login_button'))
     <li class="list-inline-item d-none d-lg-inline-block">
         @auth
             <a href="{{ route('homepage') }}"

@@ -44,10 +44,12 @@
     <ul id="jump-to-dropdown"
         class="list-unstyled u-shadow-v39 g-brd-around g-brd-4 g-brd-white g-bg-secondary g-pos-abs g-left-0 g-z-index-99 g-mt-13"
         aria-labelledby="jump-to-dropdown-invoker">
-        <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
-            <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
-                href="{{ route('website.apply-all-intake') }}">{{ __('website.apply_now') }}</a>
-        </li>
+        @if(\App\Models\PageConfig\WebFeature::isFeatureActive('intake_button'))
+            <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
+                <a class="nav-link g-color-main g-color-primary--hover g-bg-secondary-dark-v2--hover g-font-size-default"
+                    href="{{ route('website.apply-all-intake') }}">{{ __('website.apply_now') }}</a>
+            </li>
+        @endif
 
         @foreach($topNavItems as $nav)
             <li class="dropdown-item g-brd-bottom g-brd-2 g-brd-white g-px-0 g-py-2">
@@ -66,7 +68,7 @@
             @endforeach
         @endforeach
 
-        @if (Route::has('login'))
+        @if (Route::has('login') && \App\Models\PageConfig\WebFeature::isFeatureActive('login_button'))
             <li class="dropdown-item g-px-0 g-py-2">
                 @auth
                     <a href="{{ route('homepage') }}"

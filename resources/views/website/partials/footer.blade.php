@@ -4,6 +4,7 @@
 @php
     use App\Models\PageConfig\MenuWebsite\FooterNavigation;
     use App\Models\PageConfig\WebsiteProfile;
+    use App\Models\PageConfig\WebFeature;
     use Illuminate\Support\Str;
     use Illuminate\Support\Facades\Route;
 
@@ -77,40 +78,36 @@
             </div>
 
             <div class="col-sm-6 col-md-4 col-lg-3 order-md-2 g-mb-30">
-                <!-- Social Icons -->
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item g-mx-2">
-                        <a class="u-icon-v1 u-icon-size--sm u-shadow-v32 g-color-primary g-color-white--hover g-bg-white g-bg-primary--hover rounded-circle"
-                            href="#">
-                            <i class="g-font-size-default fa fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item g-mx-2">
-                        <a class="u-icon-v1 u-icon-size--sm u-shadow-v32 g-color-primary g-color-white--hover g-bg-white g-bg-primary--hover rounded-circle"
-                            href="#">
-                            <i class="g-font-size-default fa fa-facebook"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item g-mx-2">
-                        <a class="u-icon-v1 u-icon-size--sm u-shadow-v32 g-color-primary g-color-white--hover g-bg-white g-bg-primary--hover rounded-circle"
-                            href="#">
-                            <i class="g-font-size-default fa fa-instagram"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item g-mx-2">
-                        <a class="u-icon-v1 u-icon-size--sm u-shadow-v32 g-color-primary g-color-white--hover g-bg-white g-bg-primary--hover rounded-circle"
-                            href="#">
-                            <i class="g-font-size-default fa fa-youtube"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item g-mx-2">
-                        <a class="u-icon-v1 u-icon-size--sm u-shadow-v32 g-color-primary g-color-white--hover g-bg-white g-bg-primary--hover rounded-circle"
-                            href="#">
-                            <i class="g-font-size-default fa fa-linkedin"></i>
-                        </a>
-                    </li>
-                </ul>
-                <!-- End Social Icons -->
+                @if(\App\Models\PageConfig\WebFeature::isFeatureActive('social_media'))
+                    @php
+                        $socialLinks = $webProfile->social_links ?? \App\Models\PageConfig\WebsiteProfile::getDefaultSocialLinks();
+                        $activeSocials = collect($socialLinks)->filter(fn($item) => !empty($item['is_active']) && !empty($item['url']));
+                        $fa4Map = [
+                            'twitter' => 'fa fa-twitter',
+                            'facebook' => 'fa fa-facebook',
+                            'instagram' => 'fa fa-instagram',
+                            'youtube' => 'fa fa-youtube',
+                            'linkedin' => 'fa fa-linkedin',
+                        ];
+                    @endphp
+                    @if($activeSocials->count() > 0)
+                        <!-- Social Icons -->
+                        <ul class="list-inline mb-0">
+                            @foreach($activeSocials as $sKey => $sItem)
+                                @php
+                                    $fa4Class = $fa4Map[$sKey] ?? (str_contains($sItem['icon'] ?? '', 'fab') ? str_replace(['fab fa-facebook-f', 'fab fa-linkedin-in', 'fab '], ['fa fa-facebook', 'fa fa-linkedin', 'fa '], $sItem['icon']) : ($sItem['icon'] ?? 'fa fa-link'));
+                                @endphp
+                                <li class="list-inline-item g-mx-2">
+                                    <a class="u-icon-v1 u-icon-size--sm u-shadow-v32 g-color-primary g-color-white--hover g-bg-white g-bg-primary--hover rounded-circle"
+                                        href="{{ $sItem['url'] ?? '#' }}" target="_blank" title="{{ $sItem['name'] ?? $sKey }}">
+                                        <i class="g-font-size-default {{ $fa4Class }}"></i>
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                        <!-- End Social Icons -->
+                    @endif
+                @endif
             </div>
 
             <div class="col-md-4 col-lg-3 order-md-1 g-mb-30">

@@ -38,12 +38,19 @@ use App\Http\Controllers\PageConfig\MenuWebsite\MainNavigationController;
 use App\Http\Controllers\PageConfig\MenuWebsite\TopNavigationController;
 use App\Http\Controllers\PageConfig\MenuWebsite\FooterNavigationController;
 use App\Http\Controllers\PageConfig\WebsiteProfileController;
+use App\Http\Controllers\PageConfig\WebsiteFeatureController;
 
 Route::middleware(['auth'])->group(function () {
     Route::prefix('pageconfig')->name('pageconfig.')->group(function () {
         // Website Profile
         Route::get('website-profile', [WebsiteProfileController::class, 'index'])->name('website-profile');
         Route::post('website-profile', [WebsiteProfileController::class, 'update'])->name('website-profile.update');
+        Route::post('website-profile/toggle-social-status/{key}', [WebsiteProfileController::class, 'toggleSocialStatus'])->name('website-profile.toggle-social-status');
+
+        // Website Features
+        Route::get('website-features', [WebsiteFeatureController::class, 'index'])->name('website-features');
+        Route::post('website-features/bulk-toggle', [WebsiteFeatureController::class, 'bulkToggle'])->name('website-features.bulk-toggle');
+        Route::post('website-features/{id}/toggle-status', [WebsiteFeatureController::class, 'toggleStatus'])->name('website-features.toggle-status');
 
         Route::prefix('menuwebsite')->name('menuwebsite.')->group(function () {
             // Main Navigation

@@ -4,7 +4,7 @@
     $currentLabel = $currentLocale === 'id' ? __('auth.indonesian') : __('auth.english');
 @endphp
 
-<li class="list-inline-item g-pos-rel ml-lg-auto">
+<li class="list-inline-item g-pos-rel">
     <a id="language-dropdown-invoker"
         class="d-none d-sm-flex align-items-center u-link-v5 g-color-white-opacity-0_7 g-color-white--hover g-font-size-12 text-uppercase text-nowrap g-pl-0 g-pl-10--lg g-pr-10 g-py-15"
         href="#" aria-controls="language-dropdown" aria-haspopup="true" aria-expanded="false"

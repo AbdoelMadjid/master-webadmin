@@ -51,10 +51,23 @@
                         </p>
                     </div>
 
-                    <!-- Middle: Social Links Dummy -->
+                    <!-- Middle: Dynamic Active Social Links -->
                     <div class="col-md-4 mb-3 mb-md-0 text-center">
-                        <span class="badge badge-light-dark fs-8 me-1">Social Links</span>
-                        <span class="text-muted fs-7">Twitter • Facebook • Instagram • YouTube • LinkedIn</span>
+                        @php
+                            $socialLinks = $profile->social_links ?? \App\Models\PageConfig\WebsiteProfile::getDefaultSocialLinks();
+                            $activeSocials = collect($socialLinks)->filter(fn($item) => !empty($item['is_active']) && !empty($item['url']));
+                        @endphp
+                        @if($activeSocials->count() > 0)
+                            <div class="d-flex justify-content-center align-items-center gap-2">
+                                @foreach($activeSocials as $sKey => $sItem)
+                                    <span class="btn btn-icon btn-sm btn-white rounded-circle shadow-xs p-2" title="{{ $sItem['name'] ?? $sKey }}">
+                                        <i class="{{ $sItem['icon'] ?? 'fab fa-twitter' }} text-primary fs-5"></i>
+                                    </span>
+                                @endforeach
+                            </div>
+                        @else
+                            <span class="text-muted fs-8"><em>[Semua Tautan Sosial Media Nonaktif]</em></span>
+                        @endif
                     </div>
 
                     <!-- Right: Location Address -->

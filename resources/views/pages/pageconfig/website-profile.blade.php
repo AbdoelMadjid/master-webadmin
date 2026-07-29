@@ -135,6 +135,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'social-media' ? 'active' : '' }}" href="{{ route('pageconfig.website-profile', ['tab' => 'social-media']) }}">
+                        <i class="ki-duotone ki-share fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></i>
+                        {{ app()->getLocale() == 'en' ? 'Social Media Links' : 'Sosial Media Website' }}
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'preview' ? 'active' : '' }}" href="{{ route('pageconfig.website-profile', ['tab' => 'preview']) }}">
                         <i class="ki-duotone ki-eye fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                         {{ app()->getLocale() == 'en' ? 'Live Brand Preview' : 'Preview Live Tampilan Logo & Footer' }}
@@ -154,4 +160,50 @@
     <!--begin::Help Modal Inclusion-->
     @include('pages.pageconfig.partials.website-profile-help-modal')
     <!--end::Help Modal Inclusion-->
+@endsection
+
+@section('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Quick Toggle Social Media Visibility via AJAX
+            document.querySelectorAll('.js-social-toggle').forEach(function (chk) {
+                chk.addEventListener('change', function () {
+                    var key = this.getAttribute('data-key');
+                    var url = "{{ route('pageconfig.website-profile', '') }}/toggle-social-status/" + key;
+                    var label = document.querySelector('.js-social-toggle-label-' + key);
+                    var checkbox = this;
+
+                    fetch(url, {
+                        method: 'POST',
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        }
+                    })
+                    .then(r => r.json())
+                    .then(data => {
+                        if (data.success) {
+                            SwalHelper.success(data.message);
+                            if (label) {
+                                if (data.is_active) {
+                                    label.textContent = "{{ app()->getLocale() == 'en' ? 'Active' : 'Aktif' }}";
+                                    label.className = "fw-bold fs-7 js-social-toggle-label-" + key + " text-success";
+                                } else {
+                                    label.textContent = "{{ app()->getLocale() == 'en' ? 'Disabled' : 'Nonaktif' }}";
+                                    label.className = "fw-bold fs-7 js-social-toggle-label-" + key + " text-gray-500";
+                                }
+                            }
+                        } else {
+                            checkbox.checked = !checkbox.checked;
+                            SwalHelper.error(data.message || 'Failed to toggle status');
+                        }
+                    })
+                    .catch(err => {
+                        checkbox.checked = !checkbox.checked;
+                        SwalHelper.error(err.message);
+                    });
+                });
+            });
+        });
+    </script>
 @endsection
