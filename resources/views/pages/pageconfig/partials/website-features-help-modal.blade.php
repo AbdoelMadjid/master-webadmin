@@ -19,7 +19,7 @@
                         {{ app()->getLocale() == 'en' ? 'Operational Guide: Website Features' : 'Petunjuk Operasional: Fitur Website' }}
                     </h1>
                     <div class="text-muted fw-semibold fs-5">
-                        {{ app()->getLocale() == 'en' ? 'System guidelines for toggling public website features (Intake, Language, Login, Search & Social Media)' : 'Panduan sistem & pengoperasional sakelar visibilitas fitur publik website (Intake, Bahasa, Login, Pencarian & Sosial Media)' }}
+                        {{ app()->getLocale() == 'en' ? 'System guidelines for toggling public website features (Intake, Language, Login, Search & Social Media) and bulk management controls' : 'Panduan sistem & pengoperasion sakelar visibilitas fitur publik website (Intake, Bahasa, Login, Pencarian & Sosial Media) serta tombol aksi masal' }}
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@
                                 1. System Overview & Purpose
                             </h4>
                             <p class="text-gray-700 fs-6 mb-0">
-                                The <strong>Website Features Toggle Engine</strong> provides instant control over the visibility of 5 public website components. Administrators can toggle features ON or OFF without changing code templates.
+                                The <strong>Website Features Toggle Engine</strong> provides instant control over the visibility of 5 public website components. Administrators can toggle individual features ON or OFF, or use bulk action buttons in the toolbar to enable or disable all features simultaneously.
                             </p>
                         </div>
 
@@ -70,7 +70,10 @@
                             </h4>
                             <ol class="text-gray-700 fs-6 mb-0 ps-5">
                                 <li class="mb-2">
-                                    <strong>Toggling Feature Visibility:</strong> Flip the switch in the status column next to any feature to instantly enable or hide it.
+                                    <strong>Toggling Individual Feature Visibility:</strong> Flip the switch in the status column next to any feature to instantly enable or hide it via AJAX.
+                                </li>
+                                <li class="mb-2">
+                                    <strong>Bulk Action Toolbar Controls (Enable/Disable All):</strong> Use the toolbar action buttons <span class="badge badge-success">Enable All Features</span> or <span class="badge badge-danger">Disable All Features</span> in the table header to update status for all 5 public components at once with a single confirmation modal.
                                 </li>
                                 <li class="mb-2">
                                     <strong>Simulating Status:</strong> Switch to the <span class="badge badge-primary">Live Interface Preview</span> tab to inspect the simulated rendering status of topbar and footer components.
@@ -92,6 +95,9 @@
                                     <strong>Table Naming Rule:</strong> Feature toggle records reside strictly in the <code>web_features</code> database table.
                                 </li>
                                 <li class="mb-2">
+                                    <strong>Bulk Confirmation Safeguard:</strong> Mass status changes require explicit administrator confirmation via SweetAlert modal to prevent accidental disabling of all public elements.
+                                </li>
+                                <li class="mb-2">
                                     <strong>Cache Optimization:</strong> Feature states are cached for performance and automatically invalidated upon toggling.
                                 </li>
                                 <li>
@@ -110,7 +116,7 @@
                                 1. Ringkasan & Tujuan Sistem
                             </h4>
                             <p class="text-gray-700 fs-6 mb-0">
-                                <strong>Engine Sakelar Fitur Website</strong> menyediakan kontrol langsung atas status tampil/sembunyi 5 komponen publik website tanpa perlu mengubah kode template.
+                                <strong>Engine Sakelar Fitur Website</strong> menyediakan kontrol langsung atas status tampil/sembunyi 5 komponen publik website. Administrator dapat mengubah sakelar fitur secara individu atau menggunakan tombol aksi masal pada toolbar untuk mengaktifkan maupun menonaktifkan seluruh fitur sekaligus.
                             </p>
                         </div>
 
@@ -147,7 +153,10 @@
                             </h4>
                             <ol class="text-gray-700 fs-6 mb-0 ps-5">
                                 <li class="mb-2">
-                                    <strong>Mengubah Status Fitur:</strong> Geser sakelar switch pada kolom visibilitas untuk mengaktifkan atau menyembunyikan fitur secara instan.
+                                    <strong>Mengubah Status Fitur Per-Komponen:</strong> Geser sakelar switch pada kolom visibilitas untuk mengaktifkan atau menyembunyikan fitur secara instan via AJAX.
+                                </li>
+                                <li class="mb-2">
+                                    <strong>Tombol Kontrol Aksi Masal Toolbar (Aktifkan/Nonaktifkan Semua Fitur):</strong> Klik tombol aksi cepat <span class="badge badge-success">Aktifkan Semua Fitur</span> atau <span class="badge badge-danger">Nonaktifkan Semua Fitur</span> pada header tabel untuk mengubah status visibilitas 5 komponen publik sekaligus setelah konfirmasi pop-up dialog.
                                 </li>
                                 <li class="mb-2">
                                     <strong>Memeriksa Simulasi:</strong> Buka tab <span class="badge badge-primary">Preview Live Tampilan Fitur</span> untuk melihat status visual komponen topbar dan footer.
@@ -167,6 +176,9 @@
                             <ul class="text-gray-700 fs-6 mb-0 ps-5">
                                 <li class="mb-2">
                                     <strong>Penamaan Tabel:</strong> Data sakelar fitur tersimpan pada tabel database <code>web_features</code>.
+                                </li>
+                                <li class="mb-2">
+                                    <strong>Proteksi Konfirmasi Aksi Masal:</strong> Perubahan status masal membutuhkan konfirmasi eksplisit admin via modal SweetAlert untuk mencegah ketidaksengajaan penonaktifan seluruh fitur publik.
                                 </li>
                                 <li class="mb-2">
                                     <strong>Optimasi Cache:</strong> Status fitur disimpan pada cache untuk performa maksimal dan otomatis di-refresh saat sakelar diubah.

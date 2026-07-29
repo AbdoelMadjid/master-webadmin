@@ -19,7 +19,7 @@
                         {{ app()->getLocale() == 'en' ? 'Operational Guide: Website Profile' : 'Petunjuk Operasional: Profil Website' }}
                     </h1>
                     <div class="text-muted fw-semibold fs-5">
-                        {{ app()->getLocale() == 'en' ? 'System guidelines for managing website logo, app name, established year & footer address' : 'Panduan sistem & pengoperasian identitas logo website, nama aplikasi, tahun berdiri, dan alamat footer' }}
+                        {{ app()->getLocale() == 'en' ? 'System guidelines for managing website logo, app name, established year, footer address & social media links' : 'Panduan sistem & pengoperasian identitas logo website, nama aplikasi, tahun berdiri, alamat footer, dan tautan sosial media' }}
                     </div>
                 </div>
 
@@ -33,7 +33,7 @@
                                 1. System Overview & Purpose
                             </h4>
                             <p class="text-gray-700 fs-6 mb-0">
-                                The <strong>Website Profile Module</strong> provides centralized administration for global website branding assets. Changes made here instantly update the header logo next to Main Navigation, the application/university name, established year, and the footer location address.
+                                The <strong>Website Profile Module</strong> provides centralized administration for global website branding assets. Changes made here instantly update the header logo next to Main Navigation, the application/university name, established year, footer location address, and official social media tags/links displayed in the public footer.
                             </p>
                         </div>
 
@@ -50,8 +50,11 @@
                                 <li class="mb-2">
                                     <strong>Footer Address & Copyright:</strong> Configure location address (ID & EN), copyright statement text, official contact phone & email.
                                 </li>
+                                <li class="mb-2">
+                                    <strong>Social Media Links & Visibility Toggles:</strong> Configure official target URLs for Twitter/X, Facebook, Instagram, YouTube, LinkedIn, and toggle individual platform visibility switches ON or OFF for footer display.
+                                </li>
                                 <li>
-                                    <strong>Live Brand Preview:</strong> Real-time visual simulation of the header navbar logo and footer bottom bar.
+                                    <strong>Live Brand Preview:</strong> Real-time visual simulation of the header navbar logo, footer address, and social media icon badges.
                                 </li>
                             </ul>
                         </div>
@@ -68,6 +71,9 @@
                                 </li>
                                 <li class="mb-2">
                                     <strong>Updating Address & Copyright:</strong> Open <span class="badge badge-info">Footer Address & Copyright</span> tab, update the address and copyright text in both Indonesian and English.
+                                </li>
+                                <li class="mb-2">
+                                    <strong>Managing Social Media Tags & Links:</strong> Open <span class="badge badge-warning">Social Media Links</span> tab, input target URLs for official accounts (Twitter/X, Facebook, Instagram, YouTube, LinkedIn), toggle individual platform switches ON or OFF via AJAX, and click <span class="badge badge-primary">Save Social Media Settings</span>.
                                 </li>
                                 <li>
                                     <strong>Saving & Verifying:</strong> Click <span class="badge badge-success">Save</span> and check the <span class="badge badge-secondary">Live Brand Preview</span> tab or refresh the public website.
@@ -86,12 +92,15 @@
                                     <strong>Table Naming Rule:</strong> Profile data is stored in the <code>web_profiles</code> database table.
                                 </li>
                                 <li class="mb-2">
+                                    <strong>Social Media Data Integrity:</strong> Platform links and visibility states reside in the structured <code>social_links</code> JSON column with instant AJAX status toggles.
+                                </li>
+                                <li class="mb-2">
                                     <strong>Image Upload Safeguards:</strong> Supported image formats include PNG, JPG, SVG, WEBP up to 2MB.
                                 </li>
                                 <li>
                                     <strong>Fallback Integrity:</strong> If no custom logo is uploaded, system automatically falls back to default assets.
                                 </li>
-                            </ul>
+                                </ul>
                         </div>
                     </div>
                 @else
@@ -104,7 +113,7 @@
                                 1. Ringkasan & Tujuan Sistem
                             </h4>
                             <p class="text-gray-700 fs-6 mb-0">
-                                <strong>Modul Profil Website</strong> menyediakan pengelolaan terpusat untuk identitas branding website. Perubahan di sini secara otomatis memperbarui logo di samping Navigasi Utama, nama kampus/aplikasi, tahun berdiri, dan alamat di bagian footer website.
+                                <strong>Modul Profil Website</strong> menyediakan pengelolaan terpusat untuk identitas branding website. Perubahan di sini secara otomatis memperbarui logo di samping Navigasi Utama, nama kampus/aplikasi, tahun berdiri, alamat footer, dan tautan/tag sosial media resmi di footer website.
                             </p>
                         </div>
 
@@ -121,8 +130,11 @@
                                 <li class="mb-2">
                                     <strong>Alamat, Kontak & Copyright Footer:</strong> Mengatur alamat lokasi (ID & EN), teks hak cipta, nomor telepon & email resmi.
                                 </li>
+                                <li class="mb-2">
+                                    <strong>Tautan & Sakelar Sosial Media Website:</strong> Mengatur URL target akun resmi (Twitter/X, Facebook, Instagram, YouTube, LinkedIn) serta sakelar visibilitas (tampil/sembunyi) per platform sosial media di footer.
+                                </li>
                                 <li>
-                                    <strong>Preview Live Tampilan Logo & Footer:</strong> Simulasi visual tampilan logo di navbar atas dan baris bawah footer.
+                                    <strong>Preview Live Tampilan Logo & Footer:</strong> Simulasi visual tampilan logo di navbar atas, alamat footer, dan badge ikon sosial media.
                                 </li>
                             </ul>
                         </div>
@@ -140,6 +152,9 @@
                                 <li class="mb-2">
                                     <strong>Mengubah Alamat & Copyright:</strong> Buka tab <span class="badge badge-info">Alamat, Kontak & Copyright Footer</span>, perbarui alamat dan teks copyright versi Indonesia dan Inggris.
                                 </li>
+                                <li class="mb-2">
+                                    <strong>Mengatur Tautan & Tag Sosial Media:</strong> Buka tab <span class="badge badge-warning">Sosial Media Website</span>, masukkan URL akun resmi (Twitter/X, Facebook, Instagram, YouTube, LinkedIn), atur sakelar visibilitas (Aktif/Nonaktif) via AJAX, lalu klik <span class="badge badge-primary">Simpan Pengaturan Sosial Media</span>.
+                                </li>
                                 <li>
                                     <strong>Menyimpan & Memeriksa:</strong> Klik tombol <span class="badge badge-success">Simpan</span> dan periksa tab <span class="badge badge-secondary">Preview Live</span> atau refresh website publik.
                                 </li>
@@ -155,6 +170,9 @@
                             <ul class="text-gray-700 fs-6 mb-0 ps-5">
                                 <li class="mb-2">
                                     <strong>Penamaan Tabel:</strong> Data profil website tersimpan pada tabel database <code>web_profiles</code>.
+                                </li>
+                                <li class="mb-2">
+                                    <strong>Integritas Data Sosial Media:</strong> Tautan platform dan status visibilitas tersimpan terstruktur dalam kolom JSON <code>social_links</code> dengan pengubahan sakelar instan via AJAX.
                                 </li>
                                 <li class="mb-2">
                                     <strong>Proteksi Upload File:</strong> Format gambar yang didukung adalah PNG, JPG, SVG, WEBP hingga maksimal 2MB.

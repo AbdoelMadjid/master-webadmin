@@ -103,10 +103,22 @@
 
             <div class="bg-secondary p-6 rounded border border-gray-300 shadow-2xs">
                 <div class="row align-items-center text-center text-md-start">
+                    @php
+                        $profile = \App\Models\PageConfig\WebsiteProfile::getActiveProfile();
+                        $socialLinks = $profile->social_links ?? \App\Models\PageConfig\WebsiteProfile::getDefaultSocialLinks();
+                        $defaultPlatforms = [
+                            'twitter' => ['name' => 'Twitter / X', 'icon' => 'fab fa-twitter text-info'],
+                            'facebook' => ['name' => 'Facebook', 'icon' => 'fab fa-facebook-f text-primary'],
+                            'instagram' => ['name' => 'Instagram', 'icon' => 'fab fa-instagram text-danger'],
+                            'youtube' => ['name' => 'YouTube', 'icon' => 'fab fa-youtube text-danger'],
+                            'linkedin' => ['name' => 'LinkedIn', 'icon' => 'fab fa-linkedin-in text-primary'],
+                        ];
+                    @endphp
+
                     <!-- Left: Copyright Text -->
                     <div class="col-md-4 mb-3 mb-md-0">
                         <p class="text-gray-700 fw-semibold mb-0 fs-7">
-                            Universitas Unify - Sejak 1978
+                            {{ app()->getLocale() == 'en' && !empty($profile->copyright_text_en) ? $profile->copyright_text_en : ($profile->copyright_text ?? 'Universitas Unify - Sejak 1978') }}
                         </p>
                     </div>
 
@@ -117,11 +129,17 @@
                         @endphp
                         @if($socialFeat && $socialFeat->is_active)
                             <div class="d-flex justify-content-center align-items-center gap-2">
-                                <span class="btn btn-icon btn-sm btn-white rounded-circle shadow-xs"><i class="fa fa-twitter text-primary"></i></span>
-                                <span class="btn btn-icon btn-sm btn-white rounded-circle shadow-xs"><i class="fa fa-facebook text-primary"></i></span>
-                                <span class="btn btn-icon btn-sm btn-white rounded-circle shadow-xs"><i class="fa fa-instagram text-primary"></i></span>
-                                <span class="btn btn-icon btn-sm btn-white rounded-circle shadow-xs"><i class="fa fa-youtube text-primary"></i></span>
-                                <span class="btn btn-icon btn-sm btn-white rounded-circle shadow-xs"><i class="fa fa-linkedin text-primary"></i></span>
+                                @foreach($defaultPlatforms as $sKey => $pMeta)
+                                    @php
+                                        $itemData = $socialLinks[$sKey] ?? ['is_active' => true];
+                                        $itemActive = is_array($itemData) ? (!empty($itemData['is_active'])) : true;
+                                    @endphp
+                                    @if($itemActive)
+                                        <span class="btn btn-icon btn-sm btn-white rounded-circle shadow-xs p-2" title="{{ $pMeta['name'] }}">
+                                            <i class="{{ $pMeta['icon'] }} fs-5"></i>
+                                        </span>
+                                    @endif
+                                @endforeach
                                 <span class="badge badge-light-success fs-9 ms-1">Active</span>
                             </div>
                         @else
@@ -135,7 +153,7 @@
                     <!-- Right: Location Address -->
                     <div class="col-md-4 text-md-end">
                         <span class="text-gray-700 fw-semibold fs-7">
-                            Kingston, Ontario, Kanada
+                            {{ app()->getLocale() == 'en' && !empty($profile->address_en) ? $profile->address_en : ($profile->address ?? 'Kingston, Ontario, Kanada') }}
                         </span>
                     </div>
                 </div>
