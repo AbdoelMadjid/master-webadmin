@@ -55,13 +55,20 @@
                     <div class="col-md-4 mb-3 mb-md-0 text-center">
                         @php
                             $socialLinks = $profile->social_links ?? \App\Models\PageConfig\WebsiteProfile::getDefaultSocialLinks();
+                            $defaultMeta = \App\Models\PageConfig\WebsiteProfile::getDefaultSocialLinks();
                             $activeSocials = collect($socialLinks)->filter(fn($item) => !empty($item['is_active']) && !empty($item['url']));
                         @endphp
                         @if($activeSocials->count() > 0)
                             <div class="d-flex justify-content-center align-items-center gap-2">
                                 @foreach($activeSocials as $sKey => $sItem)
-                                    <span class="btn btn-icon btn-sm btn-white rounded-circle shadow-xs p-2" title="{{ $sItem['name'] ?? $sKey }}">
-                                        <i class="{{ $sItem['icon'] ?? 'fab fa-twitter' }} text-primary fs-5"></i>
+                                    @php
+                                        $iconClass = $sItem['icon'] ?? ($defaultMeta[$sKey]['icon'] ?? 'fab fa-twitter');
+                                        if (str_starts_with($iconClass, 'fa fa-')) {
+                                            $iconClass = str_replace('fa fa-', 'fab fa-', $iconClass);
+                                        }
+                                    @endphp
+                                    <span class="btn btn-icon btn-sm btn-white rounded-circle shadow-xs p-2" title="{{ $sItem['name'] ?? $sKey }}" data-bs-toggle="tooltip" data-bs-placement="top">
+                                        <i class="{{ $iconClass }} text-primary fs-5"></i>
                                     </span>
                                 @endforeach
                             </div>

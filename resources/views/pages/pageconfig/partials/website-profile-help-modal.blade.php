@@ -53,6 +53,9 @@
                                 <li class="mb-2">
                                     <strong>Social Media Links & Visibility Toggles:</strong> Configure official target URLs for Twitter/X, Facebook, Instagram, YouTube, LinkedIn, and toggle individual platform visibility switches ON or OFF for footer display.
                                 </li>
+                                <li class="mb-2">
+                                    <strong>Website Template Selection:</strong> Select and switch the active layout template (default standard: <em>Unify Education</em>). Future templates automatically bind to site data.
+                                </li>
                                 <li>
                                     <strong>Live Brand Preview:</strong> Real-time visual simulation of the header navbar logo, footer address, and social media icon badges.
                                 </li>
@@ -132,6 +135,9 @@
                                 </li>
                                 <li class="mb-2">
                                     <strong>Tautan & Sakelar Sosial Media Website:</strong> Mengatur URL target akun resmi (Twitter/X, Facebook, Instagram, YouTube, LinkedIn) serta sakelar visibilitas (tampil/sembunyi) per platform sosial media di footer.
+                                </li>
+                                <li class="mb-2">
+                                    <strong>Pilihan Template Website:</strong> Memilih dan mengatur template tampilan aktif (standar terpilih bawaan: <em>Unify Education</em>). Template baru di masa depan akan otomatis terhubung dengan data website.
                                 </li>
                                 <li>
                                     <strong>Preview Live Tampilan Logo & Footer:</strong> Simulasi visual tampilan logo di navbar atas, alamat footer, dan badge ikon sosial media.

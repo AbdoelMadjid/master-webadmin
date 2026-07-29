@@ -1,4 +1,4 @@
-@extends('website.partials.web-master')
+@extends('website.templates.unify-education.partials.web-master')
 @section('title', __('website.meta_title_help'))
 @section('css')
     <link rel="stylesheet" href="assets/vendor/icon-awesome/css/font-awesome.min.css">
@@ -157,7 +157,7 @@
     <!-- End Help Content Topics -->
 
     <!-- Call to Action -->
-    @include('website.content.call-to-action')
+    @include('website.templates.unify-education.content.call-to-action')
     <!-- End Call to Action -->
 @endsection
 @section('script')

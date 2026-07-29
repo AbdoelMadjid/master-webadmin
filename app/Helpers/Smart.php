@@ -439,3 +439,10 @@ if (!function_exists('formatShortName')) {
         return "{$firstWord} {$secondWord} {$thirdInitial}.";
     }
 }
+
+if (!function_exists('template_asset')) {
+    function template_asset(string $path, ?string $templateSlug = null): string
+    {
+        return \App\Services\PageConfig\WebsiteTemplateService::asset($path, $templateSlug);
+    }
+}

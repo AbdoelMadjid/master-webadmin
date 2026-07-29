@@ -1,4 +1,4 @@
-@extends('website.partials.web-master')
+@extends('website.templates.unify-education.partials.web-master')
 @section('title', __('website.meta_title_signin'))
 @section('css')
 <link rel="stylesheet" href="assets/vendor/icon-awesome/css/font-awesome.min.css">

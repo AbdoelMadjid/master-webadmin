@@ -14,8 +14,9 @@ class WebsiteProfileController extends Controller
     {
         $activeTab = $request->get('tab', 'identity');
         $profile = WebsiteProfile::getActiveProfile();
+        $templates = \App\Services\PageConfig\WebsiteTemplateService::getAvailableTemplates();
 
-        return view('pages.pageconfig.website-profile', compact('activeTab', 'profile'));
+        return view('pages.pageconfig.website-profile', compact('activeTab', 'profile', 'templates'));
     }
 
     public function update(WebsiteProfileRequest $request)

@@ -20,19 +20,20 @@ class WebsiteProfileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:150',
+            'name' => 'sometimes|required|string|max:150',
             'name_en' => 'nullable|string|max:150',
-            'established_year' => 'required|string|max:10',
+            'established_year' => 'sometimes|required|string|max:10',
             'logo' => 'nullable|image|mimes:png,jpg,jpeg,svg,webp|max:2048',
             'logo_mini' => 'nullable|image|mimes:png,jpg,jpeg,svg,webp|max:2048',
             'favicon' => 'nullable|image|mimes:png,jpg,jpeg,ico,svg,webp|max:1024',
-            'address' => 'required|string|max:255',
+            'address' => 'sometimes|required|string|max:255',
             'address_en' => 'nullable|string|max:255',
             'phone' => 'nullable|string|max:50',
             'email' => 'nullable|email|max:100',
             'copyright_text' => 'nullable|string|max:255',
             'copyright_text_en' => 'nullable|string|max:255',
             'social_links' => 'nullable|array',
+            'template_slug' => 'nullable|string|max:100',
         ];
     }
 

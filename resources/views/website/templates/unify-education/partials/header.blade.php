@@ -18,21 +18,21 @@
                     <ul class="list-inline d-flex align-items-center g-mb-0 ml-auto">
                         <!-- Language -->
                         @if(\App\Models\PageConfig\WebFeature::isFeatureActive('language_switcher'))
-                            @include('website.partials.toolbar.language')
+                            @include('website.templates.unify-education.partials.toolbar.language')
                         @endif
                         <!-- End Language -->
 
                         <!-- Jump To -->
-                        @include('website.partials.toolbar.jump-to')
+                        @include('website.templates.unify-education.partials.toolbar.jump-to')
                         <!-- End Jump To -->
 
                         <!-- Links -->
-                        @include('website.partials.toolbar.links')
+                        @include('website.templates.unify-education.partials.toolbar.links')
                         <!-- End Links -->
 
                         <!-- Search -->
                         @if(\App\Models\PageConfig\WebFeature::isFeatureActive('search_bar'))
-                            @include('website.partials.toolbar.search')
+                            @include('website.templates.unify-education.partials.toolbar.search')
                         @endif
                         <!-- End Search -->
                     </ul>
@@ -43,7 +43,7 @@
 
         <div class="container">
             <!-- Nav -->
-            @include('website.partials.navbar')
+            @include('website.templates.unify-education.partials.navbar')
             <!-- End Nav -->
         </div>
     </div>

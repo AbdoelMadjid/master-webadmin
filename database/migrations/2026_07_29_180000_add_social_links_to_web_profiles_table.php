@@ -22,31 +22,31 @@ return new class extends Migration
         $defaultSocialLinks = json_encode([
             'twitter' => [
                 'name' => 'Twitter / X',
-                'icon' => 'fa fa-twitter',
+                'icon' => 'fab fa-twitter',
                 'url' => 'https://twitter.com',
                 'is_active' => true,
             ],
             'facebook' => [
                 'name' => 'Facebook',
-                'icon' => 'fa fa-facebook',
+                'icon' => 'fab fa-facebook-f',
                 'url' => 'https://facebook.com',
                 'is_active' => true,
             ],
             'instagram' => [
                 'name' => 'Instagram',
-                'icon' => 'fa fa-instagram',
+                'icon' => 'fab fa-instagram',
                 'url' => 'https://instagram.com',
                 'is_active' => true,
             ],
             'youtube' => [
                 'name' => 'YouTube',
-                'icon' => 'fa fa-youtube',
+                'icon' => 'fab fa-youtube',
                 'url' => 'https://youtube.com',
                 'is_active' => true,
             ],
             'linkedin' => [
                 'name' => 'LinkedIn',
-                'icon' => 'fa fa-linkedin',
+                'icon' => 'fab fa-linkedin-in',
                 'url' => 'https://linkedin.com',
                 'is_active' => true,
             ],

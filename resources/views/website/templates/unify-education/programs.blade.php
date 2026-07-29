@@ -1,4 +1,4 @@
-@extends('website.partials.web-master')
+@extends('website.templates.unify-education.partials.web-master')
 @section('title', __('website.meta_title_programs'))
 @section('css')
     <!-- CSS Implementing Plugins -->

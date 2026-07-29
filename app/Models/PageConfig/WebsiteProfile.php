@@ -27,6 +27,7 @@ class WebsiteProfile extends Model
         'copyright_text',
         'copyright_text_en',
         'social_links',
+        'template_slug',
         'is_active',
     ];
 
@@ -110,11 +111,24 @@ class WebsiteProfile extends Model
                     'copyright_text' => 'Universitas Unify - Sejak 1978',
                     'copyright_text_en' => 'University of Unify since 1978',
                     'social_links' => static::getDefaultSocialLinks(),
+                    'template_slug' => 'unify-education',
                 ]);
             }
 
             if (empty($profile->social_links)) {
                 $profile->social_links = static::getDefaultSocialLinks();
+            } else {
+                $defaultMeta = static::getDefaultSocialLinks();
+                $links = $profile->social_links;
+                foreach ($defaultMeta as $key => $meta) {
+                    if (!isset($links[$key])) {
+                        $links[$key] = $meta;
+                    } else {
+                        $links[$key]['name'] = $meta['name'];
+                        $links[$key]['icon'] = $meta['icon'];
+                    }
+                }
+                $profile->social_links = $links;
             }
 
             return $profile;

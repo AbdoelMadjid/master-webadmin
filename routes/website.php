@@ -1,16 +1,10 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Str;
+use App\Services\PageConfig\WebsiteTemplateService;
 
-$websiteViews = collect(File::files(resource_path('views/website')))
-    ->map(fn ($file) => Str::before($file->getFilename(), '.blade.php'))
-    ->sort()
-    ->values();
-
-Route::prefix('website')->name('website.')->group(function () use ($websiteViews) {
+Route::prefix('website')->name('website.')->group(function () {
     Route::get('lang/{locale}', function (Request $request, string $locale) {
         if (in_array($locale, ['en', 'id'], true)) {
             $request->session()->put('locale', $locale);
@@ -19,17 +13,32 @@ Route::prefix('website')->name('website.')->group(function () use ($websiteViews
         return redirect()->back();
     })->name('lang.switch');
 
-    if ($websiteViews->contains('home-page')) {
-        Route::view('/', 'website.home-page')->name('home');
-    }
+    Route::get('/', function () {
+        $viewPath = WebsiteTemplateService::resolveView('home-page');
+        return view($viewPath);
+    })->name('home');
 
-    foreach ($websiteViews as $view) {
-        if ($view === 'home-page') {
-            continue;
-        }
+    $websitePages = [
+        'alumni',
+        'apply-for-all-intake',
+        'campus-life',
+        'contacts',
+        'current-students',
+        'events',
+        'faculty-and-staff',
+        'future-students',
+        'help',
+        'programs',
+        'research',
+        'signin',
+    ];
 
-        $routeName = $view === 'apply-for-all-intake' ? 'apply-all-intake' : $view;
-        Route::view($view, "website.{$view}")->name($routeName);
+    foreach ($websitePages as $page) {
+        $routeName = $page === 'apply-for-all-intake' ? 'apply-all-intake' : $page;
+        Route::get($page, function () use ($page) {
+            $viewPath = WebsiteTemplateService::resolveView($page);
+            return view($viewPath);
+        })->name($routeName);
     }
 });
 

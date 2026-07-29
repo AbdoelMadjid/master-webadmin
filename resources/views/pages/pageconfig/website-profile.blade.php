@@ -121,29 +121,35 @@
             <!--end::Summary Stat Cards-->
 
             <!--begin::Sub-Tab Navigation-->
-            <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-5 fw-bold mb-6" id="kt_website_profile_tabs">
+            <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-6 fw-bold mb-6 flex-nowrap overflow-auto pb-2" id="kt_website_profile_tabs">
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'identity' ? 'active' : '' }}" href="{{ route('pageconfig.website-profile', ['tab' => 'identity']) }}">
+                    <a class="nav-link text-active-primary text-nowrap pb-4 {{ $activeTab === 'identity' ? 'active' : '' }}" href="{{ route('pageconfig.website-profile', ['tab' => 'identity']) }}">
                         <i class="ki-duotone ki-element-11 fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-                        {{ app()->getLocale() == 'en' ? 'Website Identity & Logo' : 'Identitas & Logo Website' }}
+                        {{ app()->getLocale() == 'en' ? 'Identity & Logo' : 'Identitas & Logo' }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'contact-location' ? 'active' : '' }}" href="{{ route('pageconfig.website-profile', ['tab' => 'contact-location']) }}">
+                    <a class="nav-link text-active-primary text-nowrap pb-4 {{ $activeTab === 'contact-location' ? 'active' : '' }}" href="{{ route('pageconfig.website-profile', ['tab' => 'contact-location']) }}">
                         <i class="ki-duotone ki-geolocation fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
-                        {{ app()->getLocale() == 'en' ? 'Footer Address & Copyright' : 'Alamat, Kontak & Copyright Footer' }}
+                        {{ app()->getLocale() == 'en' ? 'Address & Contact' : 'Alamat & Kontak' }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'social-media' ? 'active' : '' }}" href="{{ route('pageconfig.website-profile', ['tab' => 'social-media']) }}">
+                    <a class="nav-link text-active-primary text-nowrap pb-4 {{ $activeTab === 'social-media' ? 'active' : '' }}" href="{{ route('pageconfig.website-profile', ['tab' => 'social-media']) }}">
                         <i class="ki-duotone ki-share fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></i>
-                        {{ app()->getLocale() == 'en' ? 'Social Media Links' : 'Sosial Media Website' }}
+                        {{ app()->getLocale() == 'en' ? 'Social Media' : 'Sosial Media' }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'preview' ? 'active' : '' }}" href="{{ route('pageconfig.website-profile', ['tab' => 'preview']) }}">
+                    <a class="nav-link text-active-primary text-nowrap pb-4 {{ $activeTab === 'template' ? 'active' : '' }}" href="{{ route('pageconfig.website-profile', ['tab' => 'template']) }}">
+                        <i class="ki-duotone ki-element-11 fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                        {{ app()->getLocale() == 'en' ? 'Website Template' : 'Template Website' }}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-active-primary text-nowrap pb-4 {{ $activeTab === 'preview' ? 'active' : '' }}" href="{{ route('pageconfig.website-profile', ['tab' => 'preview']) }}">
                         <i class="ki-duotone ki-eye fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-                        {{ app()->getLocale() == 'en' ? 'Live Brand Preview' : 'Preview Live Tampilan Logo & Footer' }}
+                        {{ app()->getLocale() == 'en' ? 'Live Preview' : 'Preview Live' }}
                     </a>
                 </li>
             </ul>

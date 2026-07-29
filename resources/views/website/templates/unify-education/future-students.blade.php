@@ -1,4 +1,4 @@
-@extends('website.partials.web-master')
+@extends('website.templates.unify-education.partials.web-master')
 @section('title', __('website.meta_title_future_students'))
 @section('css')
     <!-- CSS Implementing Plugins -->
@@ -410,7 +410,7 @@
     <!-- End Testimonials -->
 
     <!-- Call to Action -->
-    @include('website.content.call-to-action')
+    @include('website.templates.unify-education.content.call-to-action')
     <!-- End Call to Action -->
 @endsection
 @section('script')
