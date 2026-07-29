@@ -7,8 +7,11 @@
     use App\Models\PageConfig\WebFeature;
     use Illuminate\Support\Str;
     use Illuminate\Support\Facades\Route;
+    use Illuminate\Support\Facades\Cache;
 
-    $footerNavItems = FooterNavigation::active()->ordered()->get();
+    $footerNavItems = Cache::remember('web_footer_navigations', 86400, function () {
+        return FooterNavigation::active()->ordered()->get();
+    });
 
     try {
         $webProfile = WebsiteProfile::getActiveProfile();

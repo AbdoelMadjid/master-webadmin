@@ -2,12 +2,14 @@
 
 namespace App\Models\PageContent;
 
+use App\Traits\LogsActivityTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class SlideBanner extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivityTrait;
 
     protected $table = 'web_slide_banners';
 
@@ -39,5 +41,21 @@ class SlideBanner extends Model
     public function scopeOrdered($query)
     {
         return $query->orderBy('order', 'asc')->orderBy('id', 'asc');
+    }
+
+    public static function clearBannerCache(): void
+    {
+        Cache::forget('web_slide_banners');
+    }
+
+    protected static function booted()
+    {
+        static::saved(function ($banner) {
+            static::clearBannerCache();
+        });
+
+        static::deleted(function ($banner) {
+            static::clearBannerCache();
+        });
     }
 }

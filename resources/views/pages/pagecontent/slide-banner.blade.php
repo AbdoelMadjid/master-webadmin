@@ -229,6 +229,7 @@
     function openAddBannerModal() {
         $('#banner_id').val('');
         $('#kt_modal_slide_banner_form')[0].reset();
+        $('#banner_image_file').val('');
         $('#banner_is_active').prop('checked', true);
         updateImagePreview('');
         $('#bannerModalTitle').text('{{ app()->getLocale() == "en" ? "Add Slide Banner" : "Tambah Slide Banner" }}');
@@ -237,6 +238,7 @@
 
     function editBannerModal(data) {
         $('#banner_id').val(data.id);
+        $('#banner_image_file').val('');
         $('#banner_title_prefix').val(data.title_prefix);
         $('#banner_title_prefix_en').val(data.title_prefix_en);
         $('#banner_title_highlight').val(data.title_highlight);
@@ -257,39 +259,46 @@
     }
 
     $(document).ready(function() {
-        $('#banner_image_url').on('input change', function() {
-            updateImagePreview($(this).val());
+        $('#banner_image_file').on('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#banner_image_preview').attr('src', e.target.result);
+                    $('#banner_image_preview_wrapper').show();
+                };
+                reader.readAsDataURL(file);
+            }
         });
+
+        $('#banner_image_url').on('input change', function() {
+            if (!$('#banner_image_file').val()) {
+                updateImagePreview($(this).val());
+            }
+        });
+
         $('#kt_modal_slide_banner_form').on('submit', function(e) {
             e.preventDefault();
             const id = $('#banner_id').val();
             const url = id ? `{{ url('pagecontent/slide-banner') }}/${id}` : `{{ route('pagecontent.slide-banner.store') }}`;
 
-            let postData = {
-                _token: '{{ csrf_token() }}',
-                title_prefix: $('#banner_title_prefix').val(),
-                title_prefix_en: $('#banner_title_prefix_en').val(),
-                title_highlight: $('#banner_title_highlight').val(),
-                title_highlight_en: $('#banner_title_highlight_en').val(),
-                description: $('#banner_description').val(),
-                description_en: $('#banner_description_en').val(),
-                image_url: $('#banner_image_url').val(),
-                button_text: $('#banner_button_text').val(),
-                button_text_en: $('#banner_button_text_en').val(),
-                button_url: $('#banner_button_url').val(),
-                order: $('#banner_order').val(),
-                is_active: $('#banner_is_active').is(':checked') ? 1 : 0
-            };
-
+            let formData = new FormData(this);
             if (id) {
-                postData['_method'] = 'PUT';
+                formData.append('_method', 'PUT');
             }
+            formData.set('is_active', $('#banner_is_active').is(':checked') ? '1' : '0');
+
+            const submitBtn = $('#kt_modal_slide_banner_submit');
+            submitBtn.prop('disabled', true);
 
             $.ajax({
                 url: url,
                 type: 'POST',
-                data: postData,
+                data: formData,
+                processData: false,
+                contentType: false,
                 success: function(response) {
+                    submitBtn.prop('disabled', false);
                     if (response.success) {
                         $('#kt_modal_slide_banner').modal('hide');
                         SwalHelper.success(response.message).then(() => {
@@ -298,6 +307,7 @@
                     }
                 },
                 error: function(xhr) {
+                    submitBtn.prop('disabled', false);
                     SwalHelper.validationError(xhr);
                 }
             });

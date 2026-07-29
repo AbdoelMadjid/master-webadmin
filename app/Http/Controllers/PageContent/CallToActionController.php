@@ -11,6 +11,10 @@ class CallToActionController extends Controller
 {
     public function index()
     {
+        if (!auth()->user()->can('read pagecontent/call-to-action') && !auth()->user()->hasRole('Super Admin')) {
+            abort(403, app()->getLocale() == 'en' ? 'Unauthorized action.' : 'Anda tidak memiliki hak akses untuk halaman ini.');
+        }
+
         $cta = CallToAction::first();
 
         if (!$cta) {
@@ -34,6 +38,13 @@ class CallToActionController extends Controller
 
     public function update(CallToActionRequest $request, $id = null)
     {
+        if (!auth()->user()->can('update pagecontent/call-to-action') && !auth()->user()->hasRole('Super Admin')) {
+            return response()->json([
+                'success' => false,
+                'message' => app()->getLocale() == 'en' ? 'Unauthorized action.' : 'Anda tidak memiliki hak akses untuk memperbarui data.',
+            ], 403);
+        }
+
         $cta = CallToAction::first();
         if (!$cta) {
             $cta = new CallToAction();
@@ -56,6 +67,13 @@ class CallToActionController extends Controller
 
     public function toggleStatus(Request $request, $id = null)
     {
+        if (!auth()->user()->can('update pagecontent/call-to-action') && !auth()->user()->hasRole('Super Admin')) {
+            return response()->json([
+                'success' => false,
+                'message' => app()->getLocale() == 'en' ? 'Unauthorized action.' : 'Anda tidak memiliki hak akses untuk mengubah status.',
+            ], 403);
+        }
+
         $cta = CallToAction::first();
         if ($cta) {
             $cta->is_active = !$cta->is_active;

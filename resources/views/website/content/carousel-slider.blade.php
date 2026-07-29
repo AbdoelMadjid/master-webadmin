@@ -1,5 +1,7 @@
 @php
-    $activeBanners = \App\Models\PageContent\SlideBanner::active()->ordered()->get();
+    $activeBanners = \Illuminate\Support\Facades\Cache::remember('web_slide_banners', 86400, function () {
+        return \App\Models\PageContent\SlideBanner::active()->ordered()->get();
+    });
     $currentLang = app()->getLocale();
 @endphp
 

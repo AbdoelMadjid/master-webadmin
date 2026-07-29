@@ -6,11 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\PageContent\SlideBannerRequest;
 use App\Models\PageContent\SlideBanner;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SlideBannerController extends Controller
 {
     public function index()
     {
+        if (!auth()->user()->can('read pagecontent/slide-banner') && !auth()->user()->hasRole('Super Admin')) {
+            abort(403, app()->getLocale() == 'en' ? 'Unauthorized action.' : 'Anda tidak memiliki hak akses untuk halaman ini.');
+        }
+
         $banners = SlideBanner::ordered()->get();
         $totalBanners = $banners->count();
         $activeBanners = $banners->where('is_active', true)->count();
@@ -26,7 +31,20 @@ class SlideBannerController extends Controller
 
     public function store(SlideBannerRequest $request)
     {
+        if (!auth()->user()->can('create pagecontent/slide-banner') && !auth()->user()->hasRole('Super Admin')) {
+            return response()->json([
+                'success' => false,
+                'message' => app()->getLocale() == 'en' ? 'Unauthorized action.' : 'Anda tidak memiliki hak akses untuk menambahkan data.',
+            ], 403);
+        }
+
         $validated = $request->validated();
+
+        // Handle File Upload
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('pagecontent/slide-banner', 'public');
+            $validated['image_url'] = 'storage/' . $path;
+        }
 
         if (!isset($validated['order']) || $validated['order'] === null) {
             $maxOrder = SlideBanner::max('order') ?? 0;
@@ -48,8 +66,26 @@ class SlideBannerController extends Controller
 
     public function update(SlideBannerRequest $request, $id)
     {
+        if (!auth()->user()->can('update pagecontent/slide-banner') && !auth()->user()->hasRole('Super Admin')) {
+            return response()->json([
+                'success' => false,
+                'message' => app()->getLocale() == 'en' ? 'Unauthorized action.' : 'Anda tidak memiliki hak akses untuk memperbarui data.',
+            ], 403);
+        }
+
         $banner = SlideBanner::findOrFail($id);
         $validated = $request->validated();
+
+        // Handle File Upload & Old File Cleanup
+        if ($request->hasFile('image')) {
+            if ($banner->image_url && str_starts_with($banner->image_url, 'storage/')) {
+                $oldPath = str_replace('storage/', '', $banner->image_url);
+                Storage::disk('public')->delete($oldPath);
+            }
+            $path = $request->file('image')->store('pagecontent/slide-banner', 'public');
+            $validated['image_url'] = 'storage/' . $path;
+        }
+
         $validated['is_active'] = $request->has('is_active') ? (bool) $request->is_active : $banner->is_active;
 
         $banner->update($validated);
@@ -65,8 +101,21 @@ class SlideBannerController extends Controller
 
     public function destroy($id)
     {
+        if (!auth()->user()->can('delete pagecontent/slide-banner') && !auth()->user()->hasRole('Super Admin')) {
+            return response()->json([
+                'success' => false,
+                'message' => app()->getLocale() == 'en' ? 'Unauthorized action.' : 'Anda tidak memiliki hak akses untuk menghapus data.',
+            ], 403);
+        }
+
         $banner = SlideBanner::findOrFail($id);
         $title = $banner->title_highlight;
+
+        // Clean up uploaded image file from storage
+        if ($banner->image_url && str_starts_with($banner->image_url, 'storage/')) {
+            $oldPath = str_replace('storage/', '', $banner->image_url);
+            Storage::disk('public')->delete($oldPath);
+        }
 
         $banner->delete();
 
@@ -80,6 +129,13 @@ class SlideBannerController extends Controller
 
     public function toggleStatus($id)
     {
+        if (!auth()->user()->can('update pagecontent/slide-banner') && !auth()->user()->hasRole('Super Admin')) {
+            return response()->json([
+                'success' => false,
+                'message' => app()->getLocale() == 'en' ? 'Unauthorized action.' : 'Anda tidak memiliki hak akses untuk mengubah status.',
+            ], 403);
+        }
+
         $banner = SlideBanner::findOrFail($id);
         $banner->is_active = !$banner->is_active;
         $banner->save();

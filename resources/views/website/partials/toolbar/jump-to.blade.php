@@ -2,12 +2,15 @@
     use App\Models\PageConfig\MenuWebsite\TopNavigation;
     use Illuminate\Support\Str;
     use Illuminate\Support\Facades\Route;
+    use Illuminate\Support\Facades\Cache;
 
-    $topNavItems = TopNavigation::active()
-        ->with(['children' => fn($q) => $q->active()->orderBy('order', 'asc')])
-        ->parentOnly()
-        ->ordered()
-        ->get();
+    $topNavItems = Cache::remember('web_top_navigations', 86400, function () {
+        return TopNavigation::active()
+            ->with(['children' => fn($q) => $q->active()->orderBy('order', 'asc')])
+            ->parentOnly()
+            ->ordered()
+            ->get();
+    });
 
     $getTopNavUrl = function ($item) {
         if (empty($item->url) || $item->url === '#') {

@@ -2,12 +2,14 @@
 
 namespace App\Models\PageConfig;
 
+use App\Traits\LogsActivityTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class WebsiteProfile extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivityTrait;
 
     protected $table = 'web_profiles';
 
@@ -32,6 +34,22 @@ class WebsiteProfile extends Model
         'is_active' => 'boolean',
         'social_links' => 'array',
     ];
+
+    public static function clearProfileCache(): void
+    {
+        Cache::forget('web_active_profile');
+    }
+
+    protected static function booted()
+    {
+        static::saved(function ($profile) {
+            static::clearProfileCache();
+        });
+
+        static::deleted(function ($profile) {
+            static::clearProfileCache();
+        });
+    }
 
     /**
      * Get default social links configuration
@@ -73,31 +91,33 @@ class WebsiteProfile extends Model
     }
 
     /**
-     * Get active profile instance or fallback
+     * Get active profile instance or fallback with caching
      */
     public static function getActiveProfile()
     {
-        $profile = static::where('is_active', true)->first();
+        return Cache::remember('web_active_profile', 86400, function () {
+            $profile = static::where('is_active', true)->first();
 
-        if (!$profile) {
-            return new static([
-                'name' => 'Universitas Unify',
-                'name_en' => 'University of Unify',
-                'established_year' => '1978',
-                'logo' => 'assets/img/logo/logo.png',
-                'logo_mini' => 'assets/img/logo/logo-mini.png',
-                'address' => 'Kingston, Ontario, Kanada',
-                'address_en' => 'Kingston, Ontario, Canada',
-                'copyright_text' => 'Universitas Unify - Sejak 1978',
-                'copyright_text_en' => 'University of Unify since 1978',
-                'social_links' => static::getDefaultSocialLinks(),
-            ]);
-        }
+            if (!$profile) {
+                return new static([
+                    'name' => 'Universitas Unify',
+                    'name_en' => 'University of Unify',
+                    'established_year' => '1978',
+                    'logo' => 'assets/img/logo/logo.png',
+                    'logo_mini' => 'assets/img/logo/logo-mini.png',
+                    'address' => 'Kingston, Ontario, Kanada',
+                    'address_en' => 'Kingston, Ontario, Canada',
+                    'copyright_text' => 'Universitas Unify - Sejak 1978',
+                    'copyright_text_en' => 'University of Unify since 1978',
+                    'social_links' => static::getDefaultSocialLinks(),
+                ]);
+            }
 
-        if (empty($profile->social_links)) {
-            $profile->social_links = static::getDefaultSocialLinks();
-        }
+            if (empty($profile->social_links)) {
+                $profile->social_links = static::getDefaultSocialLinks();
+            }
 
-        return $profile;
+            return $profile;
+        });
     }
 }

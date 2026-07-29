@@ -2,14 +2,16 @@
 
 namespace App\Models\PageConfig\MenuWebsite;
 
+use App\Traits\LogsActivityTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Cache;
 
 class MainNavigation extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivityTrait;
 
     protected $table = 'web_main_navigations';
 
@@ -35,6 +37,22 @@ class MainNavigation extends Model
         'is_active' => 'boolean',
         'is_external' => 'boolean',
     ];
+
+    public static function clearMainNavigationCache(): void
+    {
+        Cache::forget('web_main_navigations');
+    }
+
+    protected static function booted()
+    {
+        static::saved(function ($nav) {
+            static::clearMainNavigationCache();
+        });
+
+        static::deleted(function ($nav) {
+            static::clearMainNavigationCache();
+        });
+    }
 
     /**
      * Parent navigation item

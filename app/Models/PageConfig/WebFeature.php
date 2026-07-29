@@ -2,13 +2,14 @@
 
 namespace App\Models\PageConfig;
 
+use App\Traits\LogsActivityTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 
 class WebFeature extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivityTrait;
 
     protected $table = 'web_features';
 

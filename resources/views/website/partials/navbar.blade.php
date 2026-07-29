@@ -1,10 +1,12 @@
 @php
     try {
-        $dbNavigations = \App\Models\PageConfig\MenuWebsite\MainNavigation::active()
-            ->with(['children' => fn($q) => $q->active()->orderBy('order', 'asc')])
-            ->parentOnly()
-            ->ordered()
-            ->get();
+        $dbNavigations = \Illuminate\Support\Facades\Cache::remember('web_main_navigations', 86400, function () {
+            return \App\Models\PageConfig\MenuWebsite\MainNavigation::active()
+                ->with(['children' => fn($q) => $q->active()->orderBy('order', 'asc')])
+                ->parentOnly()
+                ->ordered()
+                ->get();
+        });
     } catch (\Throwable $e) {
         $dbNavigations = collect();
     }

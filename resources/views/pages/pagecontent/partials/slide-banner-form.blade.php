@@ -9,7 +9,7 @@
             </div>
 
             <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
-                <form id="kt_modal_slide_banner_form" class="form" action="#">
+                <form id="kt_modal_slide_banner_form" class="form" action="#" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" id="banner_id" name="id">
 
@@ -70,13 +70,18 @@
                         </div>
                     </div>
 
-                    <!-- Background Image URL -->
+                    <!-- Background Image File Upload & Path -->
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                            <span>{{ app()->getLocale() == 'en' ? 'Background Image URL / Path' : 'URL Gambar Background Banner' }}</span>
+                            <span>{{ app()->getLocale() == 'en' ? 'Upload Image File (Local PC)' : 'Unggah Berkas Gambar (Komputer Lokal)' }}</span>
+                        </label>
+                        <input type="file" class="form-control form-control-solid mb-3" name="image" id="banner_image_file" accept="image/png, image/jpeg, image/jpg, image/webp, image/svg+xml" />
+
+                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                            <span>{{ app()->getLocale() == 'en' ? 'OR Image URL / Path' : 'ATAU URL / Path Gambar' }}</span>
                         </label>
                         <input type="text" class="form-control form-control-solid" name="image_url" id="banner_image_url" placeholder="assets/img-temp/1920x1080/img5.jpg" />
-                        <span class="fs-8 text-muted mt-1">{{ app()->getLocale() == 'en' ? 'Leave empty to use theme default background image.' : 'Biarkan kosong untuk menggunakan gambar background default tema.' }}</span>
+                        <span class="fs-8 text-muted mt-1">{{ app()->getLocale() == 'en' ? 'Pilih berkas dari komputer ATAU isi path URL gambar. Biarkan kosong untuk gambar default.' : 'Pilih berkas dari komputer ATAU isi path URL gambar. Biarkan kosong untuk gambar default.' }}</span>
 
                         <!-- Live Image Preview -->
                         <div class="mt-3 text-center" id="banner_image_preview_wrapper" style="display: none;">

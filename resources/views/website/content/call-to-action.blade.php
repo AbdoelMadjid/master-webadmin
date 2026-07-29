@@ -1,6 +1,10 @@
 @php
-    $hasCtaRecords = \App\Models\PageContent\CallToAction::count() > 0;
-    $activeCta = \App\Models\PageContent\CallToAction::active()->first();
+    $hasCtaRecords = \Illuminate\Support\Facades\Cache::remember('web_has_cta_records', 86400, function () {
+        return \App\Models\PageContent\CallToAction::count() > 0;
+    });
+    $activeCta = \Illuminate\Support\Facades\Cache::remember('web_active_cta', 86400, function () {
+        return \App\Models\PageContent\CallToAction::active()->first();
+    });
     $currentLang = app()->getLocale();
 @endphp
 

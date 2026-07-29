@@ -2,12 +2,14 @@
 
 namespace App\Models\PageContent;
 
+use App\Traits\LogsActivityTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class CallToAction extends Model
 {
-    use HasFactory;
+    use HasFactory, LogsActivityTrait;
 
     protected $table = 'web_call_to_actions';
 
@@ -32,5 +34,22 @@ class CallToAction extends Model
     public function scopeActive($query)
     {
         return $query->where('is_active', true);
+    }
+
+    public static function clearCtaCache(): void
+    {
+        Cache::forget('web_has_cta_records');
+        Cache::forget('web_active_cta');
+    }
+
+    protected static function booted()
+    {
+        static::saved(function ($cta) {
+            static::clearCtaCache();
+        });
+
+        static::deleted(function ($cta) {
+            static::clearCtaCache();
+        });
     }
 }
