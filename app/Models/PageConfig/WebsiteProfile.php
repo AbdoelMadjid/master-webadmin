@@ -44,7 +44,7 @@ class WebsiteProfile extends Model
             'logo_mini' => 'assets/img/logo/logo-mini.png',
             'address' => 'Kingston, Ontario, Kanada',
             'address_en' => 'Kingston, Ontario, Canada',
-            'copyright_text' => 'Sakola Repalogic - Sejak 1978',
+            'copyright_text' => 'Universitas Unify - Sejak 1978',
             'copyright_text_en' => 'University of Unify since 1978',
         ]);
     }

@@ -42,7 +42,7 @@ return new class extends Migration
             'address_en' => 'Kingston, Ontario, Canada',
             'phone' => '+1 (613) 533-2000',
             'email' => 'info@unify.edu',
-            'copyright_text' => 'Sakola Repalogic - Sejak 1978',
+            'copyright_text' => 'Universitas Unify - Sejak 1978',
             'copyright_text_en' => 'University of Unify since 1978',
             'is_active' => true,
             'created_at' => now(),
