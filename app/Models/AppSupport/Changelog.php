@@ -22,16 +22,17 @@ class Changelog extends Model
                 'type' => 'minor',
                 'badge' => 'badge-light-primary',
                 'author' => 'Developer Team',
-                'description' => 'Implemented dedicated App Support Changelog module, live Git commit log parser, version release timeline, multi-tab navigation, and bilingual operational guide.',
-                'description_id' => 'Implementasi modul Catatan Perubahan pada Dukungan Aplikasi, pelacakan riwayat commit Git real-time, linimasa rilis versi, tata letak multi-tab, dan petunjuk operasional bilingual.',
+                'description' => 'Implemented dedicated App Support Changelog module, real-time Git commit log parser with timestamps, version release timeline, multi-tab navigation, and bilingual operational guide.',
+                'description_id' => 'Implementasi modul Catatan Perubahan pada Dukungan Aplikasi, pelacakan riwayat commit Git real-time berstempel waktu, linimasa rilis versi, tata letak multi-tab, dan petunjuk operasional bilingual.',
                 'highlights' => [
-                    ['type' => 'feat', 'label' => 'Changelog Module', 'desc' => 'Added new route appsupport/changelog with controller, model, and view structure'],
-                    ['type' => 'feat', 'label' => 'Live Git Log', 'desc' => 'Real-time Git push commit history parser & DataTables integration'],
-                    ['type' => 'feat', 'label' => 'Release Timeline', 'desc' => 'Visual release timeline with version badges and commit breakdowns'],
-                    ['type' => 'docs', 'label' => 'Help Modal', 'desc' => 'Dedicated bilingual operational guide modal for changelog module'],
+                    ['type' => 'feat', 'label' => 'Changelog Module', 'desc' => 'Added route appsupport/changelog with Controller, Model, and Blade views'],
+                    ['type' => 'feat', 'label' => 'Real-Time Git Log', 'desc' => 'Dynamic Git push commit history parser with date & time format (%Y-%m-%d %H:%M)'],
+                    ['type' => 'ui', 'label' => 'Timeline Refinements', 'desc' => 'Enhanced release timeline using Metronic 8 native timeline line & Keenicons'],
+                    ['type' => 'docs', 'label' => 'Help Modal', 'desc' => 'Dedicated 100% bilingual operational guide modal with 4-card sectioning'],
                 ],
                 'commits' => [
-                    ['hash' => 'head', 'date' => '2026-08-02', 'msg' => 'feat(appsupport): add changelog module & release history timeline (v1.2.0)'],
+                    ['hash' => 'ed9d06f', 'date' => '2026-08-02 20:37', 'msg' => 'Tambahan Menu Changelog'],
+                    ['hash' => '756daf6', 'date' => '2026-08-02 20:56', 'msg' => 'Merapihkan tampilan halaman changelog'],
                 ]
             ],
             [
