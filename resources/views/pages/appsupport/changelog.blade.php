@@ -134,7 +134,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'git-log' ? 'active' : '' }}" href="{{ route('appsupport.changelog', ['tab' => 'git-log']) }}">
-                        <i class="ki-duotone ki-git fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        <i class="ki-duotone ki-route fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                         {{ app()->getLocale() == 'en' ? 'Git Commit Log' : 'Riwayat Commit Git' }}
                     </a>
                 </li>

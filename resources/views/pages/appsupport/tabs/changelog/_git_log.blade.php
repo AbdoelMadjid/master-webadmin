@@ -2,7 +2,7 @@
     <div class="card-header align-items-center py-5">
         <h3 class="card-title align-items-start flex-column">
             <span class="card-label fw-bold text-gray-900 fs-4">
-                <i class="ki-duotone ki-git fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                 {{ app()->getLocale() == 'en' ? 'Live Git Commit Log' : 'Daftar Log Commit Repository Git' }}
             </span>
             <span class="text-muted mt-1 fw-semibold fs-7">
@@ -22,7 +22,7 @@
                 <thead>
                     <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                         <th class="w-80px text-center">Hash</th>
-                        <th class="min-w-120px text-center">{{ app()->getLocale() == 'en' ? 'Date' : 'Tanggal' }}</th>
+                        <th class="min-w-150px text-center">{{ app()->getLocale() == 'en' ? 'Date & Time' : 'Tanggal & Waktu' }}</th>
                         <th class="min-w-120px text-center">{{ app()->getLocale() == 'en' ? 'Type' : 'Kategori' }}</th>
                         <th class="min-w-300px">{{ app()->getLocale() == 'en' ? 'Commit Message' : 'Pesan Commit' }}</th>
                         <th class="min-w-150px text-center">{{ app()->getLocale() == 'en' ? 'Author' : 'Pengembang' }}</th>

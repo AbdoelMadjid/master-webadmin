@@ -15,6 +15,26 @@ class Changelog extends Model
     {
         return [
             [
+                'version' => 'v1.2.0',
+                'title' => 'Application Changelog & Release History Module',
+                'title_id' => 'Modul Catatan Perubahan & Riwayat Rilis Versi',
+                'date' => '2026-08-02',
+                'type' => 'minor',
+                'badge' => 'badge-light-primary',
+                'author' => 'Developer Team',
+                'description' => 'Implemented dedicated App Support Changelog module, live Git commit log parser, version release timeline, multi-tab navigation, and bilingual operational guide.',
+                'description_id' => 'Implementasi modul Catatan Perubahan pada Dukungan Aplikasi, pelacakan riwayat commit Git real-time, linimasa rilis versi, tata letak multi-tab, dan petunjuk operasional bilingual.',
+                'highlights' => [
+                    ['type' => 'feat', 'label' => 'Changelog Module', 'desc' => 'Added new route appsupport/changelog with controller, model, and view structure'],
+                    ['type' => 'feat', 'label' => 'Live Git Log', 'desc' => 'Real-time Git push commit history parser & DataTables integration'],
+                    ['type' => 'feat', 'label' => 'Release Timeline', 'desc' => 'Visual release timeline with version badges and commit breakdowns'],
+                    ['type' => 'docs', 'label' => 'Help Modal', 'desc' => 'Dedicated bilingual operational guide modal for changelog module'],
+                ],
+                'commits' => [
+                    ['hash' => 'head', 'date' => '2026-08-02', 'msg' => 'feat(appsupport): add changelog module & release history timeline (v1.2.0)'],
+                ]
+            ],
+            [
                 'version' => 'v1.1.3',
                 'title' => 'Website Features Action Buttons Refinement',
                 'title_id' => 'Penyempurnaan Tombol Aksi Fitur Website',
@@ -208,7 +228,7 @@ class Changelog extends Model
         try {
             if (function_exists('exec')) {
                 $output = [];
-                @exec('git log -n 50 --pretty=format:"%h|%ad|%an|%s" --date=short 2>&1', $output);
+                @exec('git log -n 100 --pretty=format:"%h|%ad|%an|%s" --date=format:"%Y-%m-%d %H:%M" 2>&1', $output);
                 if (!empty($output) && is_array($output)) {
                     foreach ($output as $line) {
                         $parts = explode('|', $line, 4);
