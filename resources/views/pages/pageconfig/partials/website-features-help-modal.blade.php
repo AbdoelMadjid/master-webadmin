@@ -156,7 +156,7 @@
                                     <strong>Mengubah Status Fitur Per-Komponen:</strong> Geser sakelar switch pada kolom visibilitas untuk mengaktifkan atau menyembunyikan fitur secara instan via AJAX.
                                 </li>
                                 <li class="mb-2">
-                                    <strong>Tombol Kontrol Aksi Masal Toolbar (Aktifkan/Nonaktifkan Semua Fitur):</strong> Klik tombol aksi cepat <span class="badge badge-success">Aktifkan Semua Fitur</span> atau <span class="badge badge-danger">Nonaktifkan Semua Fitur</span> pada header tabel untuk mengubah status visibilitas 5 komponen publik sekaligus setelah konfirmasi pop-up dialog.
+                                    <strong>Tombol Kontrol Aksi Masal Toolbar (Aktifkan/Nonaktifkan Fitur):</strong> Klik tombol aksi cepat <span class="badge badge-success">Aktifkan</span> atau <span class="badge badge-danger">Nonaktifkan</span> pada header tabel untuk mengubah status visibilitas 5 komponen publik sekaligus setelah konfirmasi pop-up dialog.
                                 </li>
                                 <li class="mb-2">
                                     <strong>Memeriksa Simulasi:</strong> Buka tab <span class="badge badge-primary">Preview Live Tampilan Fitur</span> untuk melihat status visual komponen topbar dan footer.

@@ -7,11 +7,11 @@
         <div class="card-toolbar d-flex align-items-center gap-2">
             <button type="button" class="btn btn-sm btn-light-success shadow-2xs js-bulk-toggle-features" data-status="1">
                 <i class="ki-duotone ki-check-circle fs-3 me-1"><span class="path1"></span><span class="path2"></span></i>
-                {{ app()->getLocale() == 'en' ? 'Enable All Features' : 'Aktifkan Semua Fitur' }}
+                {{ app()->getLocale() == 'en' ? 'Enable All Features' : 'Aktifkan' }}
             </button>
             <button type="button" class="btn btn-sm btn-light-danger shadow-2xs js-bulk-toggle-features" data-status="0">
                 <i class="ki-duotone ki-cross-circle fs-3 me-1"><span class="path1"></span><span class="path2"></span></i>
-                {{ app()->getLocale() == 'en' ? 'Disable All Features' : 'Nonaktifkan Semua Fitur' }}
+                {{ app()->getLocale() == 'en' ? 'Disable All Features' : 'Nonaktifkan' }}
             </button>
         </div>
     </div>
