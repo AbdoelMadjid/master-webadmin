@@ -282,16 +282,20 @@
 
 <!--begin::Modal Inspector Activity Log Properties Diff-->
 <div class="modal fade" id="kt_modal_activity_diff" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered mw-750px">
-        <div class="modal-content rounded">
+    <div class="modal-dialog modal-dialog-centered mw-850px">
+        <div class="modal-content rounded shadow-sm">
             <div class="modal-header pb-0 border-0 justify-content-between">
                 <div class="d-flex align-items-center gap-3">
-                    <div class="symbol symbol-40px symbol-circle bg-light-primary p-2">
-                        <i class="ki-duotone ki-shield-search text-primary fs-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    <div class="symbol symbol-45px symbol-circle bg-light-primary p-3">
+                        <i class="ki-duotone ki-shield-search text-primary fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                     </div>
                     <div>
-                        <h3 class="modal-title fw-bold text-gray-900 fs-4" id="diff_modal_title">Inspect Activity Properties</h3>
-                        <span class="text-muted fs-7" id="diff_modal_subtitle">Compare side-by-side attributes mutation diff</span>
+                        <h3 class="modal-title fw-bold text-gray-900 fs-3" id="diff_modal_title">
+                            {{ app()->getLocale() == 'en' ? 'Activity Mutation Inspector' : 'Inspektur Perubahan Mutasi Data' }}
+                        </h3>
+                        <span class="text-muted fs-7" id="diff_modal_subtitle">
+                            {{ app()->getLocale() == 'en' ? 'Side-by-side attribute difference and metadata details' : 'Rincian perbandingan perubahan atribut data dan metadata eksekusi' }}
+                        </span>
                     </div>
                 </div>
                 <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
@@ -299,32 +303,118 @@
                 </div>
             </div>
             <div class="modal-body scroll-y px-8 pt-4 pb-8">
-                <div class="p-4 bg-light rounded mb-5 border border-gray-200">
+                <!-- Executed Metadata Card -->
+                <div class="card schema-card bg-light-primary border border-primary p-4 rounded mb-6">
                     <div class="row g-3 fs-7">
-                        <div class="col-sm-6">
-                            <span class="text-muted d-block fs-8 uppercase">EXECUTED BY:</span>
+                        <div class="col-sm-6 col-md-3">
+                            <span class="text-muted d-block fs-8 uppercase fw-semibold">
+                                <i class="ki-duotone ki-user fs-8 me-1 text-primary"><span class="path1"></span><span class="path2"></span></i>
+                                {{ app()->getLocale() == 'en' ? 'EXECUTED BY' : 'DIEKSEKUSI OLEH' }}
+                            </span>
                             <span class="fw-bold text-gray-800" id="diff_causer">-</span>
                         </div>
-                        <div class="col-sm-6">
-                            <span class="text-muted d-block fs-8 uppercase">TIMESTAMP:</span>
+                        <div class="col-sm-6 col-md-3">
+                            <span class="text-muted d-block fs-8 uppercase fw-semibold">
+                                <i class="ki-duotone ki-time fs-8 me-1 text-primary"><span class="path1"></span><span class="path2"></span></i>
+                                {{ app()->getLocale() == 'en' ? 'TIMESTAMP' : 'WAKTU EKSEKUSI' }}
+                            </span>
                             <span class="fw-bold text-gray-800" id="diff_timestamp">-</span>
                         </div>
-                        <div class="col-sm-6">
-                            <span class="text-muted d-block fs-8 uppercase">TARGET SUBJECT:</span>
+                        <div class="col-sm-6 col-md-3">
+                            <span class="text-muted d-block fs-8 uppercase fw-semibold">
+                                <i class="ki-duotone ki-element-11 fs-8 me-1 text-primary"><span class="path1"></span><span class="path2"></span></i>
+                                {{ app()->getLocale() == 'en' ? 'TARGET MODEL' : 'SUBJEK MODEL' }}
+                            </span>
                             <span class="fw-bold text-gray-800" id="diff_subject">-</span>
                         </div>
-                        <div class="col-sm-6">
-                            <span class="text-muted d-block fs-8 uppercase">EVENT ACTION:</span>
+                        <div class="col-sm-6 col-md-3">
+                            <span class="text-muted d-block fs-8 uppercase fw-semibold">
+                                <i class="ki-duotone ki-notification-status fs-8 me-1 text-primary"><span class="path1"></span><span class="path2"></span></i>
+                                {{ app()->getLocale() == 'en' ? 'EVENT ACTION' : 'EVENT AKSI' }}
+                            </span>
                             <span id="diff_event_badge" class="badge badge-light-primary fw-bold">-</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="fw-bold text-gray-900 mb-2 fs-6">JSON Properties & Attributes Payload</div>
-                <pre class="bg-dark text-success p-4 rounded fs-7 font-monospace style-scroll overflow-auto mw-100" style="max-height: 350px;" id="diff_json_content">{}</pre>
+                <!-- Attributes Mutation Diff Table -->
+                <div class="mb-6">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h4 class="fw-bold text-gray-900 fs-6 m-0">
+                            <i class="ki-duotone ki-code fs-4 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                            {{ app()->getLocale() == 'en' ? 'Attributes Mutation Comparison' : 'Perbandingan Perubahan Atribut Data' }}
+                        </h4>
+                        <span class="badge badge-light-info text-info fw-bold fs-8" id="diff_changes_count">
+                            0 Changes
+                        </span>
+                    </div>
+
+                    <div class="table-responsive rounded border border-gray-300">
+                        <table class="table table-row-bordered align-middle gs-4 gy-3 mb-0" id="diff_table">
+                            <thead class="bg-light fs-8 text-gray-700 fw-bold text-uppercase">
+                                <tr>
+                                    <th class="min-w-150px">{{ app()->getLocale() == 'en' ? 'Attribute / Field' : 'Atribut / Kolom' }}</th>
+                                    <th class="min-w-200px text-danger bg-light-danger bg-opacity-25">{{ app()->getLocale() == 'en' ? 'Old Value (Sebelum)' : 'Nilai Sebelum (Old)' }}</th>
+                                    <th class="min-w-200px text-success bg-light-success bg-opacity-25">{{ app()->getLocale() == 'en' ? 'New Value (Sesudah)' : 'Nilai Sesudah (New)' }}</th>
+                                </tr>
+                            </thead>
+                            <tbody class="fs-7 font-monospace" id="diff_table_body">
+                                <tr>
+                                    <td colspan="3" class="text-center text-muted py-5">No attribute changes detected.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Request Environment Metadata Card -->
+                <div class="card schema-card bg-light-secondary border border-gray-300 p-4 rounded mb-6">
+                    <div class="row g-3 fs-8 text-gray-700">
+                        <div class="col-md-4">
+                            <strong class="d-block text-gray-800 mb-1">
+                                <i class="ki-duotone ki-network fs-7 text-primary me-1"><span class="path1"></span><span class="path2"></span></i>
+                                {{ app()->getLocale() == 'en' ? 'IP Address' : 'Alamat IP Client' }}:
+                            </strong>
+                            <span id="diff_ip_address" class="font-monospace badge badge-light-primary fs-8">127.0.0.1</span>
+                        </div>
+                        <div class="col-md-8">
+                            <strong class="d-block text-gray-800 mb-1">
+                                <i class="ki-duotone ki-compass fs-7 text-primary me-1"><span class="path1"></span><span class="path2"></span></i>
+                                {{ app()->getLocale() == 'en' ? 'Request URL' : 'URL Permintaan (Endpoint)' }}:
+                            </strong>
+                            <span id="diff_url_endpoint" class="font-monospace text-truncate d-block text-gray-700">-</span>
+                        </div>
+                        <div class="col-12">
+                            <strong class="d-block text-gray-800 mb-1">
+                                <i class="ki-duotone ki-laptop fs-7 text-primary me-1"><span class="path1"></span><span class="path2"></span></i>
+                                User-Agent Browser:
+                            </strong>
+                            <span id="diff_user_agent" class="font-monospace text-muted fs-8 text-wrap text-break">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion for Raw JSON Payload -->
+                <div class="accordion" id="kt_activity_json_accordion">
+                    <div class="accordion-item border rounded">
+                        <h2 class="accordion-header" id="kt_activity_json_header">
+                            <button class="accordion-button fs-7 fw-bold text-gray-700 collapsed py-3" type="button" data-bs-toggle="collapse" data-bs-target="#kt_activity_json_collapse" aria-expanded="false" aria-controls="kt_activity_json_collapse">
+                                <i class="ki-duotone ki-file-sheet fs-5 text-gray-500 me-2"><span class="path1"></span><span class="path2"></span></i>
+                                {{ app()->getLocale() == 'en' ? 'View Raw JSON Payload' : 'Lihat Data Mentah JSON Payload' }}
+                            </button>
+                        </h2>
+                        <div id="kt_activity_json_collapse" class="accordion-collapse collapse" aria-labelledby="kt_activity_json_header" data-bs-parent="#kt_activity_json_accordion">
+                            <div class="accordion-body p-4 bg-dark rounded-bottom">
+                                <pre class="text-success fs-7 font-monospace style-scroll overflow-auto mw-100 mb-0" style="max-height: 250px;" id="diff_json_content">{}</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="text-center mt-6">
-                    <button type="button" class="btn btn-light-primary min-w-125px" data-bs-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-primary min-w-150px" data-bs-dismiss="modal">
+                        {{ app()->getLocale() == 'en' ? 'Close' : 'Tutup' }}
+                    </button>
                 </div>
             </div>
         </div>

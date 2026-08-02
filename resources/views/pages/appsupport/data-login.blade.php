@@ -318,18 +318,128 @@
 
         // Inspector Diff Modal for Activity Properties
         function showActivityDiff(id, description, subjectType, subjectId, causer, timestamp, event) {
-            $('#diff_causer').text(causer);
-            $('#diff_timestamp').text(timestamp);
+            $('#diff_causer').text(causer || 'System / Console');
+            $('#diff_timestamp').text(timestamp || '-');
             $('#diff_subject').html(subjectType + ' <span class="badge badge-light-secondary text-dark">#' + (subjectId || '-') + '</span>');
-            $('#diff_event_badge').text(event);
+
+            var eventUpper = (event || 'MUTATED').toUpperCase();
+            var eventBadgeClass = 'badge-light-primary text-primary';
+            if (eventUpper === 'CREATED') eventBadgeClass = 'badge-light-success text-success';
+            if (eventUpper === 'UPDATED') eventBadgeClass = 'badge-light-warning text-warning';
+            if (eventUpper === 'DELETED') eventBadgeClass = 'badge-light-danger text-danger';
+            $('#diff_event_badge').attr('class', 'badge fw-bold ' + eventBadgeClass).text(eventUpper);
 
             var rawJson = $('#activity_payload_' + id).val() || '{}';
+            var parsed = {};
             try {
-                var parsed = JSON.parse(rawJson);
+                parsed = JSON.parse(rawJson);
                 $('#diff_json_content').text(JSON.stringify(parsed, null, 4));
             } catch (e) {
                 $('#diff_json_content').text(rawJson);
             }
+
+            // Extract metadata properties
+            var ipAddress = parsed.ip_address || '127.0.0.1';
+            var urlEndpoint = parsed.url || '-';
+            var userAgent = parsed.user_agent || 'CLI / Console';
+
+            $('#diff_ip_address').text(ipAddress);
+            $('#diff_url_endpoint').text(urlEndpoint);
+            $('#diff_user_agent').text(userAgent);
+
+            // Extract attributes & old values
+            var attributes = parsed.attributes || {};
+            var oldValues = parsed.old || {};
+
+            var allKeys = new Set([...Object.keys(oldValues), ...Object.keys(attributes)]);
+            var metaKeys = ['ip_address', 'user_agent', 'url', 'created_at', 'updated_at'];
+            
+            var diffRowsHtml = '';
+            var countChanges = 0;
+
+            function formatFieldValue(val) {
+                if (val === null || val === undefined) {
+                    return '<span class="text-muted fst-italic px-2 py-1 bg-light rounded">(Null / Empty)</span>';
+                }
+                if (typeof val === 'boolean') {
+                    return val 
+                        ? '<span class="badge badge-light-success text-success fw-bold"><i class="ki-duotone ki-check fs-8 me-1 text-success"><span class="path1"></span><span class="path2"></span></i>Aktif (true)</span>'
+                        : '<span class="badge badge-light-danger text-danger fw-bold"><i class="ki-duotone ki-cross fs-8 me-1 text-danger"><span class="path1"></span><span class="path2"></span></i>Non-Aktif (false)</span>';
+                }
+                if (typeof val === 'number') {
+                    if (val === 1) {
+                        return '<span class="badge badge-light-success text-success fw-bold">1 (Aktif / True)</span>';
+                    } else if (val === 0) {
+                        return '<span class="badge badge-light-danger text-danger fw-bold">0 (Non-Aktif / False)</span>';
+                    }
+                    return '<span class="fw-bold text-gray-800">' + val + '</span>';
+                }
+                if (typeof val === 'object') {
+                    return '<code class="fs-8 text-dark bg-light p-1 rounded">' + escapeHtml(JSON.stringify(val)) + '</code>';
+                }
+                var strVal = String(val);
+                if (strVal.trim() === '') {
+                    return '<span class="text-muted fst-italic px-2 py-1 bg-light rounded">(Kosong)</span>';
+                }
+                return '<span class="fw-bold text-gray-800 text-break">' + escapeHtml(strVal) + '</span>';
+            }
+
+            function escapeHtml(text) {
+                return String(text)
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+
+            function formatKeyLabel(key) {
+                return key.replace(/_/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+            }
+
+            allKeys.forEach(function(key) {
+                if (metaKeys.includes(key)) return;
+
+                var oldVal = oldValues[key];
+                var newVal = attributes[key];
+
+                var isChanged = (key in oldValues && key in attributes) ? (JSON.stringify(oldVal) !== JSON.stringify(newVal)) : true;
+                if (isChanged || eventUpper === 'CREATED' || eventUpper === 'DELETED') {
+                    countChanges++;
+                    var oldHtml = (key in oldValues) ? formatFieldValue(oldVal) : '<span class="text-muted fst-italic">(Tidak Ada)</span>';
+                    var newHtml = (key in attributes) ? formatFieldValue(newVal) : '<span class="text-muted fst-italic">(Dihapus)</span>';
+
+                    var rowBg = isChanged ? 'bg-light-warning bg-opacity-10' : '';
+                    
+                    diffRowsHtml += '<tr class="' + rowBg + '">';
+                    diffRowsHtml += '<td><strong class="text-gray-800 font-monospace fs-7">' + escapeHtml(key) + '</strong><div class="text-muted fs-8 fw-semibold">' + formatKeyLabel(key) + '</div></td>';
+                    diffRowsHtml += '<td class="bg-light-danger bg-opacity-10">' + oldHtml + '</td>';
+                    diffRowsHtml += '<td class="bg-light-success bg-opacity-10">' + newHtml + '</td>';
+                    diffRowsHtml += '</tr>';
+                }
+            });
+
+            if (countChanges === 0) {
+                var attrKeys = Object.keys(attributes);
+                if (attrKeys.length > 0) {
+                    attrKeys.forEach(function(key) {
+                        if (metaKeys.includes(key)) return;
+                        countChanges++;
+                        diffRowsHtml += '<tr>';
+                        diffRowsHtml += '<td><strong class="text-gray-800 font-monospace fs-7">' + escapeHtml(key) + '</strong><div class="text-muted fs-8 fw-semibold">' + formatKeyLabel(key) + '</div></td>';
+                        diffRowsHtml += '<td class="bg-light-danger bg-opacity-10"><span class="text-muted fst-italic">(Tidak Ada)</span></td>';
+                        diffRowsHtml += '<td class="bg-light-success bg-opacity-10">' + formatFieldValue(attributes[key]) + '</td>';
+                        diffRowsHtml += '</tr>';
+                    });
+                }
+            }
+
+            if (countChanges === 0) {
+                diffRowsHtml = '<tr><td colspan="3" class="text-center text-muted py-6"><i class="ki-duotone ki-information fs-2 text-muted me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Tidak ada rincian perubahan atribut spesifik yang terdeteksi.</td></tr>';
+            }
+
+            $('#diff_changes_count').text(countChanges + ' Perubahan');
+            $('#diff_table_body').html(diffRowsHtml);
 
             $('#kt_modal_activity_diff').modal('show');
         }
