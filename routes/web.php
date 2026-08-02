@@ -35,6 +35,7 @@ use App\Http\Controllers\AppSupport\BackupDbController;
 use App\Http\Controllers\AppSupport\DataLoginController;
 use App\Http\Controllers\AppSupport\MenuController;
 use App\Http\Controllers\AppSupport\ReferensiController;
+use App\Http\Controllers\AppSupport\ChangelogController;
 use App\Http\Controllers\ManajemenPengguna\AksesRoleController;
 use App\Http\Controllers\ManajemenPengguna\AksesUserController;
 use App\Http\Controllers\ManajemenPengguna\PasswordResetRequestController;
@@ -136,6 +137,9 @@ Route::middleware('auth')->group(function () {
     Route::put('appsupport/referensi/item/{id}', [ReferensiController::class, 'updateItem'])->name('appsupport.referensi.item.update');
     Route::delete('appsupport/referensi/item/{id}', [ReferensiController::class, 'destroyItem'])->name('appsupport.referensi.item.destroy');
     Route::post('appsupport/referensi/item/{id}/toggle-status', [ReferensiController::class, 'toggleItemStatus'])->name('appsupport.referensi.item.toggle-status');
+
+    // Changelog Route
+    Route::get('appsupport/changelog', [ChangelogController::class, 'index'])->name('appsupport.changelog');
     // Lock Screen Route
     Route::post('/lock-screen/unlock', [\App\Http\Controllers\Auth\LockScreenController::class, 'unlock'])->middleware('throttle:5,1')->name('lock-screen.unlock');
 });

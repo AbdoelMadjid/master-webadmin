@@ -58,5 +58,13 @@ return [
             'permissions' => ['create', 'read', 'update', 'delete'],
             'roles' => ['admin'],
         ],
+        [
+            'title' => 'Catatan Perubahan',
+            'title_en' => 'Changelog',
+            'title_key' => 'md_changelog',
+            'route' => 'appsupport/changelog',
+            'permissions' => ['read'],
+            'roles' => ['admin'],
+        ],
     ],
 ];

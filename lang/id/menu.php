@@ -615,4 +615,5 @@ return array (
   'wd_website_menu' => 'Menu Website',
   'wd_slide_banner' => 'Slide Banner Beranda',
   'wd_call_to_action' => 'Ajakan Bertindak (CTA)',
+  'md_changelog' => 'Catatan Perubahan',
 );

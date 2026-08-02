@@ -615,4 +615,5 @@ return array (
   'wd_website_menu' => 'Website Menu',
   'wd_slide_banner' => 'Homepage Slide Banner',
   'wd_call_to_action' => 'Call to Action (CTA)',
+  'md_changelog' => 'Changelog',
 );
