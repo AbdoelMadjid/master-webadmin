@@ -15,19 +15,41 @@ class Changelog extends Model
     {
         return [
             [
+                'version' => 'v1.3.1',
+                'title' => 'Responsive Header Action Buttons & App Profile Branding Fixes',
+                'title_id' => 'Responsif Tombol Aksi Header & Perbaikan Branding Profil Aplikasi',
+                'date' => '2026-08-03',
+                'type' => 'patch',
+                'badge' => 'badge-light-success',
+                'author' => 'Developer Team',
+                'description' => 'Standardized page header action buttons with mobile icon-only view, top tooltips, matching 35px height, far-right alignment, fixed app profile logo and favicon image asset URLs using dynamic asset() accessor, and enhanced sidebar header logo scaling.',
+                'description_id' => 'Standarisasi tombol aksi header halaman dengan tampilan ikon mobile, tooltip teratas, tinggi sejajar 35px, perataan kanan ms-auto, perbaikan URL asset logo & favicon profil aplikasi dengan accessor asset() dinamis, serta optimasi ukuran logo sidebar.',
+                'highlights' => [
+                    ['type' => 'ui', 'label' => 'Responsive Action Buttons', 'desc' => 'Standardized action buttons across modules with mobile text hiding, top tooltips, and uniform 35px height'],
+                    ['type' => 'fix', 'label' => 'App Profile Branding', 'desc' => 'Fixed logo, small icon, and favicon image URL resolution across storage & layouts using asset() helper'],
+                    ['type' => 'ui', 'label' => 'Sidebar Logo Sizing', 'desc' => 'Enhanced sidebar header logo height scaling (h-35px / h-30px) with proportional auto-width'],
+                    ['type' => 'docs', 'label' => 'Operational Rules', 'desc' => 'Updated AGENTS.md rule specification for responsive page header action buttons'],
+                ],
+                'commits' => [
+                    ['hash' => 'fe73129', 'date' => '2026-08-03 12:28', 'msg' => 'Update Changelog'],
+                    ['hash' => '08cffdb', 'date' => '2026-08-03 14:10', 'msg' => 'Update help skema pemograman operasional tambah menu via route'],
+                    ['hash' => '58d2dd7', 'date' => '2026-08-03 14:42', 'msg' => 'Perbaikan Profil Aplikasi'],
+                    ['hash' => '0da5ede', 'date' => '2026-08-03 14:46', 'msg' => 'Perbaikan Ukuran Logo Sidebar'],
+                    ['hash' => 'a423e8d', 'date' => '2026-08-03 15:25', 'msg' => 'Perbaikan tombol di setiap halaman agar dinamis di layar mobile'],
+                ]
+            ],
+            [
                 'version' => 'v1.3.0',
-                'title' => 'Single & Batch Menu Creator, App Branding Asset Fixes & Sidebar Logo Refinements',
-                'title_id' => 'Fitur Tambah Menu Single & Batch, Perbaikan Asset Branding App Profil & Logo Sidebar',
+                'title' => 'Single & Batch Menu Creator & Route Schema Documentation',
+                'title_id' => 'Fitur Tambah Menu Single & Batch serta Dokumentasi Skema Route',
                 'date' => '2026-08-03',
                 'type' => 'minor',
                 'badge' => 'badge-light-primary',
                 'author' => 'Developer Team',
-                'description' => 'Added single and batch menu creation buttons on appsupport/menu, fixed logo and favicon image asset URLs using dynamic asset() accessor in AppProfil model, enhanced sidebar logo height scaling, and updated bilingual help documentation.',
-                'description_id' => 'Penambahan tombol tambah menu tunggal dan masal pada halaman appsupport/menu, perbaikan URL asset logo & favicon menggunakan accessor asset() dinamis pada model AppProfil, optimasi ukuran tinggi logo sidebar, serta pembaruan dokumentasi petunjuk operasional bilingual.',
+                'description' => 'Added single and batch menu creation buttons on appsupport/menu page with form validation, auto-fill URL functionality, and bilingual operational guide.',
+                'description_id' => 'Penambahan tombol tambah menu tunggal dan masal pada halaman appsupport/menu dengan validasi form, fungsionalitas pengisian URL otomatis, dan petunjuk operasional bilingual.',
                 'highlights' => [
                     ['type' => 'feat', 'label' => 'Menu Creator', 'desc' => 'Added single & batch menu creation buttons with auto-fill URL on appsupport/menu'],
-                    ['type' => 'fix', 'label' => 'App Profile Assets', 'desc' => 'Fixed logo, small icon, and favicon image URL resolution using dynamic asset() helper'],
-                    ['type' => 'ui', 'label' => 'Sidebar Branding', 'desc' => 'Enhanced sidebar header logo height (h-35px / h-30px) with proportional auto-width'],
                     ['type' => 'docs', 'label' => 'Help & Schema Guides', 'desc' => 'Added 100% bilingual operational guide and schema documentation for menu management'],
                     ['type' => 'fix', 'label' => 'Activity Log', 'desc' => 'Refined activity log model event tracking and audit logs'],
                 ],
@@ -35,10 +57,6 @@ class Changelog extends Model
                     ['hash' => '2023a0d', 'date' => '2026-08-02 21:57', 'msg' => 'Perbaikan activity log'],
                     ['hash' => '6264072', 'date' => '2026-08-03 09:12', 'msg' => 'Menambahkan tombol tambah pada menu'],
                     ['hash' => 'b133204', 'date' => '2026-08-03 12:06', 'msg' => 'Penambahan Skema dan Operasional penambahan menu di route appsupport/menu'],
-                    ['hash' => 'fe73129', 'date' => '2026-08-03 12:28', 'msg' => 'Update Changelog'],
-                    ['hash' => '08cffdb', 'date' => '2026-08-03 14:10', 'msg' => 'Update help skema pemograman operasional tambah menu via route'],
-                    ['hash' => '58d2dd7', 'date' => '2026-08-03 14:42', 'msg' => 'Perbaikan Profil Aplikasi'],
-                    ['hash' => '0da5ede', 'date' => '2026-08-03 14:46', 'msg' => 'Perbaikan Ukuran Logo Sidebar'],
                 ]
             ],
             [
