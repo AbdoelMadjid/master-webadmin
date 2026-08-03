@@ -31,6 +31,7 @@ class Changelog extends Model
                 ],
                 'commits' => [
                     ['hash' => 'a9062e5', 'date' => '2026-08-03 15:45', 'msg' => 'Update perintah Git Manager'],
+                    ['hash' => '8836350', 'date' => '2026-08-03 15:54', 'msg' => 'Update Console Command Git Manager'],
                 ]
             ],
             [
