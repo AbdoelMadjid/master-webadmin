@@ -304,6 +304,23 @@
         });
     }
 
+    // Confirm Reset Database & Fresh Seed
+    function confirmMigrateFreshSeed() {
+        Swal.fire({
+            title: "{{ app()->getLocale() == 'en' ? 'Reset Database & Seed Data?' : 'Reset Database & Fresh Seed?' }}",
+            text: "{{ app()->getLocale() == 'en' ? 'WARNING: All database tables will be dropped and re-seeded from scratch! (php artisan migrate:fresh --seed)' : 'PERINGATAN: Seluruh tabel database akan dihapus dan diisi ulang dari awal! (php artisan migrate:fresh --seed)' }}",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#f1416c',
+            confirmButtonText: "{{ app()->getLocale() == 'en' ? 'Yes, Reset Database' : 'Ya, Reset Database' }}",
+            cancelButtonText: "{{ app()->getLocale() == 'en' ? 'Cancel' : 'Batal' }}"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                triggerMaintenance('migrate_fresh_seed');
+            }
+        });
+    }
+
     // Trigger Maintenance Action
     function triggerMaintenance(action) {
         Swal.fire({

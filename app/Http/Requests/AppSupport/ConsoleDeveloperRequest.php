@@ -32,7 +32,7 @@ class ConsoleDeveloperRequest extends FormRequest
 
         if ($actionType === 'maintenance') {
             return [
-                'action' => 'required|string|in:clear_cache,optimize,storage_link,post_clone_init,migrate',
+                'action' => 'required|string|in:clear_cache,optimize,storage_link,post_clone_init,migrate,seed_menu,migrate_fresh_seed',
             ];
         }
 

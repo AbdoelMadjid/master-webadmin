@@ -72,28 +72,28 @@
 
     <div class="card-body pt-2">
         <div class="row g-4">
-            {{-- 1-Click Post Clone Initialization --}}
+            {{-- 1. Reseed Dynamic Menu & Permissions --}}
             <div class="col-md-6">
                 <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
                     <div>
                         <div class="d-flex align-items-center mb-2">
-                            <span class="badge badge-light-primary fw-bold me-2">1-CLICK INIT</span>
-                            <h5 class="fw-bold text-gray-900 mb-0">Post-Clone Project Initialization</h5>
+                            <span class="badge badge-light-primary fw-bold me-2">MENU SEEDER</span>
+                            <h5 class="fw-bold text-gray-900 mb-0">Sinkronkan Menu & Permission (MenuSeeder)</h5>
                         </div>
                         <p class="text-muted fs-7 mb-4">
                             {{ app()->getLocale() == 'en'
-                                ? 'Runs composer install, npm install, npm run build, key generation, database migrations, and cache clearing in sequence.'
-                                : 'Menjalankan composer install, npm install, npm run build, key generate, migrasi database, dan pembersihan cache secara berurutan.' }}
+                                ? 'Executes php artisan db:seed MenuSeeder to refresh active menu hierarchy, routes, and role permissions from config.'
+                                : 'Menjalankan php artisan db:seed MenuSeeder untuk menyegarkan hirarki menu, route, dan izin akses role dari file konfigurasi.' }}
                         </p>
                     </div>
-                    <button type="button" class="btn btn-primary shadow-xs w-100" onclick="triggerMaintenance('post_clone_init')">
-                        <i class="ki-duotone ki-rocket fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
-                        Jalankan Inisialisasi Project (Post-Clone)
+                    <button type="button" class="btn btn-primary shadow-xs w-100" onclick="triggerMaintenance('seed_menu')">
+                        <i class="ki-duotone ki-arrows-loop fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+                        Jalankan MenuSeeder Now
                     </button>
                 </div>
             </div>
 
-            {{-- Application Cache Clear --}}
+            {{-- 2. Application Cache Clear --}}
             <div class="col-md-6">
                 <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
                     <div>
@@ -114,7 +114,7 @@
                 </div>
             </div>
 
-            {{-- Database Migration --}}
+            {{-- 3. Database Migration --}}
             <div class="col-md-6">
                 <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
                     <div>
@@ -135,23 +135,23 @@
                 </div>
             </div>
 
-            {{-- Storage Link --}}
+            {{-- 4. Reset Database & Seed Data --}}
             <div class="col-md-6">
                 <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
                     <div>
                         <div class="d-flex align-items-center mb-2">
-                            <span class="badge badge-light-dark fw-bold me-2">STORAGE</span>
-                            <h5 class="fw-bold text-gray-900 mb-0">Storage Link (storage:link)</h5>
+                            <span class="badge badge-light-danger fw-bold me-2">RESET DB</span>
+                            <h5 class="fw-bold text-gray-900 mb-0">Reset Database & Seeder (migrate:fresh --seed)</h5>
                         </div>
                         <p class="text-muted fs-7 mb-4">
                             {{ app()->getLocale() == 'en'
-                                ? 'Creates a symbolic link from public/storage to storage/app/public for uploaded files.'
-                                : 'Membuat symbolic link dari public/storage ke storage/app/public agar berkas publik yang diunggah dapat diakses.' }}
+                                ? 'Wipes all database tables clean and repopulates initial database seeders from scratch.'
+                                : 'Menghapus seluruh tabel database dan mengisinya kembali dari awal dengan data seeder bawaan.' }}
                         </p>
                     </div>
-                    <button type="button" class="btn btn-dark shadow-xs w-100" onclick="triggerMaintenance('storage_link')">
-                        <i class="ki-duotone ki-link fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
-                        Buat Storage Symbolic Link
+                    <button type="button" class="btn btn-danger shadow-xs w-100" onclick="confirmMigrateFreshSeed()">
+                        <i class="ki-duotone ki-arrows-circle fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+                        Reset Database & Seed Data
                     </button>
                 </div>
             </div>
