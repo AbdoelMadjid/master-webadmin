@@ -27,10 +27,13 @@ class Changelog extends Model
                 'highlights' => [
                     ['type' => 'feat', 'label' => 'Matrix Toggle & Bulk Actions', 'desc' => 'Added Bulk Select All / Deselect All and row-level toggle (Semua) to permission matrices'],
                     ['type' => 'feat', 'label' => 'Auto-Sync Parent Menu', 'desc' => 'Implemented automatic 2-way sync checking/unchecking parent READ permission based on child states'],
+                    ['type' => 'ui', 'label' => 'Hierarchical Module View & 50-Row Page Length', 'desc' => 'Ordered permission modules by menu tree hierarchy with indented sub-levels (└─), 2 flush-left lines, and 50 rows per page'],
+                    ['type' => 'feat', 'label' => 'Granular CRUD Module Management', 'desc' => 'Refined module permission editing to auto-prune unchecked CRUD actions and removed raw table row delete buttons'],
                     ['type' => 'fix', 'label' => 'User Direct Access Editing', 'desc' => 'Unlocked permission checkboxes in Kelola Akses User modal to allow full customization by Master/Admin'],
                     ['type' => 'ui', 'label' => 'Role Tab Matrix Calculation', 'desc' => 'Fixed row toggle calculation across all role tabs on page load and tab switch in Akses Role'],
                 ],
                 'commits' => [
+                    ['hash' => 'c4b8e91', 'date' => '2026-08-03 23:15', 'msg' => 'refactor(manajemen-pengguna): tata letak hirarki modul permission, kelola CRUD teratur, & default 50 baris'],
                     ['hash' => 'e30c66b', 'date' => '2026-08-03 21:30', 'msg' => 'refactor(manajemen-pengguna): tingkatkan matriks permission & auto-sync parent-child pada role, akses-role, dan akses-user'],
                 ]
             ],
