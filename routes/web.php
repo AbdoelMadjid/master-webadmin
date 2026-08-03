@@ -107,7 +107,11 @@ Route::middleware('auth')->group(function () {
     Route::post('appsupport/menu/{id}/permissions', [MenuController::class, 'addPermission'])->name('appsupport.menu.permissions.add');
     Route::delete('appsupport/menu/{id}/permissions/{permissionId}', [MenuController::class, 'removePermission'])->name('appsupport.menu.permissions.remove');
     Route::resource('appsupport/menu', MenuController::class)->names([
-        'index' => 'appsupport.menu',
+        'index'   => 'appsupport.menu',
+        'store'   => 'appsupport.menu.store',
+        'show'    => 'appsupport.menu.show',
+        'update'  => 'appsupport.menu.update',
+        'destroy' => 'appsupport.menu.destroy',
     ]);
 
     Route::resource('appsupport/app-profil', AppProfilController::class)->names([

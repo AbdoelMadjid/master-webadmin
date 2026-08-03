@@ -63,6 +63,8 @@
                                 Step-by-Step Operational Workflow
                             </h4>
                             <ol class="fs-6 text-gray-700 m-0 ps-5">
+                                <li class="mb-2"><strong>Add New Menu:</strong> Click the <span class="badge badge-light-primary text-primary">+ Add Menu</span> button, fill in the menu details (Name, Route/URL, Category, Parent, Icon), and save to instantly update database and sidebar.</li>
+                                <li class="mb-2"><strong>Edit & Delete Menu:</strong> Use the action buttons (<i class="ki-duotone ki-pencil fs-6 text-primary"><span class="path1"></span><span class="path2"></span></i> or <i class="ki-duotone ki-trash fs-6 text-danger"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>) on each row to modify attributes or remove menu items.</li>
                                 <li class="mb-2"><strong>Drag-and-Drop Reordering:</strong> Click and drag the drag-handle icon on any menu row to reorder display position in real-time.</li>
                                 <li class="mb-2"><strong>Toggle Status:</strong> Use the active switch to immediately enable or hide a menu item without deleting its record.</li>
                                 <li class="mb-2"><strong>Manage Permissions:</strong> Click <span class="badge badge-light-primary text-primary">+ Permission</span> to map Spatie role permissions to menu items.</li>
@@ -117,6 +119,8 @@
                                 Alur Operasional Pengelolaan Menu
                             </h4>
                             <ol class="fs-6 text-gray-700 m-0 ps-5">
+                                <li class="mb-2"><strong>Tambah Menu Baru:</strong> Klik tombol <span class="badge badge-light-primary text-primary">+ Tambah Menu</span>, lengkapi atribut menu (Nama, Route/URL, Kategori, Induk, Ikon), dan simpan untuk memperbarui basis data dan sidebar secara otomatis.</li>
+                                <li class="mb-2"><strong>Edit & Hapus Menu:</strong> Gunakan tombol aksi (<i class="ki-duotone ki-pencil fs-6 text-primary"><span class="path1"></span><span class="path2"></span></i> atau <i class="ki-duotone ki-trash fs-6 text-danger"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>) pada setiap baris tabel untuk mengubah atribut atau menghapus menu.</li>
                                 <li class="mb-2"><strong>Pengurutan Drag-and-Drop:</strong> Klik dan geser ikon drag-handle pada baris menu untuk mengubah urutan posisi secara real-time.</li>
                                 <li class="mb-2"><strong>Sakelar Status:</strong> Gunakan switch toggle untuk mengaktifkan atau menyembunyikan item menu dari sidebar.</li>
                                 <li class="mb-2"><strong>Kelola Perizinan:</strong> Klik tombol <span class="badge badge-light-primary text-primary">+ Permission</span> untuk memetakan syarat hak akses role.</li>

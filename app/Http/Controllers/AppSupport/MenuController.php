@@ -39,10 +39,13 @@ class MenuController extends Controller
 
         $menu = Menu::create($data);
 
+        $sidebarHtml = view('layouts.partials.sidebar._menu')->render();
+
         return response()->json([
-            'success' => true,
-            'message' => 'Menu berhasil ditambahkan.',
-            'data'    => $menu,
+            'success'      => true,
+            'message'      => 'Menu berhasil ditambahkan.',
+            'data'         => $menu,
+            'sidebar_html' => $sidebarHtml,
         ]);
     }
 
@@ -71,10 +74,13 @@ class MenuController extends Controller
 
         $menu->update($data);
 
+        $sidebarHtml = view('layouts.partials.sidebar._menu')->render();
+
         return response()->json([
-            'success' => true,
-            'message' => 'Menu berhasil diperbarui.',
-            'data'    => $menu,
+            'success'      => true,
+            'message'      => 'Menu berhasil diperbarui.',
+            'data'         => $menu,
+            'sidebar_html' => $sidebarHtml,
         ]);
     }
 
@@ -178,9 +184,12 @@ class MenuController extends Controller
         $menu = Menu::findOrFail($id);
         $menu->delete();
 
+        $sidebarHtml = view('layouts.partials.sidebar._menu')->render();
+
         return response()->json([
-            'success' => true,
-            'message' => 'Menu berhasil dihapus.',
+            'success'      => true,
+            'message'      => 'Menu berhasil dihapus.',
+            'sidebar_html' => $sidebarHtml,
         ]);
     }
 }

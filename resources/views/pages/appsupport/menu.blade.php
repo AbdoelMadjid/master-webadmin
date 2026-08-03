@@ -48,6 +48,12 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-2">
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Add New Menu' : 'Tambah Menu Baru' }}">
+                        <button type="button" class="btn btn-primary shadow-xs" onclick="openAddMenuModal()">
+                            <i class="ki-duotone ki-plus fs-2"><span class="path1"></span><span class="path2"></span></i>
+                            {{ app()->getLocale() == 'en' ? 'Add Menu' : 'Tambah Menu' }}
+                        </button>
+                    </span>
                     <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
                         <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_menu_help">
                             <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
@@ -204,6 +210,7 @@
                                     <th class="min-w-125px">Kategori</th>
                                     <th class="min-w-175px">Permissions</th>
                                     <th class="min-w-100px text-center">Status</th>
+                                    <th class="min-w-100px text-end">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
@@ -329,10 +336,33 @@
                                                     data-bs-toggle="tooltip" title="Klik untuk mengaktifkan / menonaktifkan menu" />
                                             </div>
                                         </td>
+                                        <td class="text-end">
+                                            <span data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Menu">
+                                                <button type="button" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
+                                                    onclick="openEditMenuModal({{ $menu->id }})">
+                                                    <i class="ki-duotone ki-pencil fs-4">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                </button>
+                                            </span>
+                                            <span data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Menu">
+                                                <button type="button" class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm"
+                                                    onclick="deleteMenu({{ $menu->id }}, '{{ addslashes($menu->name) }}')">
+                                                    <i class="ki-duotone ki-trash fs-4">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
+                                                    </i>
+                                                </button>
+                                            </span>
+                                        </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="6" class="text-center text-muted py-8">
+                                        <td colspan="7" class="text-center text-muted py-8">
                                             Belum ada data menu di tabel <code>menus</code>. Jalankan <code>php artisan db:seed --class=MenuSeeder</code>.
                                         </td>
                                     </tr>
@@ -347,6 +377,7 @@
             <!--end::Card Table-->
 
             <!--begin::Form Partial Modal-->
+            @include('pages.appsupport.partials.menu-form')
             @include('pages.appsupport.partials.menu-permission-form')
             @include('pages.appsupport.partials.menu-help-modal')
             <!--end::Form Partial Modal-->
@@ -656,6 +687,133 @@
                         SwalHelper.error(msg);
                     }
                 }
+            });
+        }
+
+        // Buka Modal Tambah Menu Baru
+        function openAddMenuModal() {
+            $('#kt_form_menu')[0].reset();
+            $('#menu_id').val('');
+            $('#menu_form_method').val('POST');
+            $('#kt_form_menu').attr('action', "{{ route('appsupport.menu.store') }}");
+            $('#modal_menu_title').text("{{ app()->getLocale() == 'en' ? 'Add New Menu' : 'Tambah Menu Baru' }}");
+            $('#menu_active').prop('checked', true);
+            $('#menu_main_menu_id option').prop('disabled', false);
+            $('#kt_modal_menu').modal('show');
+        }
+
+        // Buka Modal Edit Menu
+        function openEditMenuModal(menuId) {
+            var showUrl = "{{ route('appsupport.menu.show', ':id') }}".replace(':id', menuId);
+            var updateUrl = "{{ route('appsupport.menu.update', ':id') }}".replace(':id', menuId);
+
+            $.ajax({
+                url: showUrl,
+                type: 'GET',
+                success: function(response) {
+                    if (response.success && response.data) {
+                        var menu = response.data;
+                        $('#menu_id').val(menu.id);
+                        $('#menu_form_method').val('PUT');
+                        $('#kt_form_menu').attr('action', updateUrl);
+                        $('#modal_menu_title').text("{{ app()->getLocale() == 'en' ? 'Edit Menu' : 'Edit Menu' }} - " + menu.name);
+                        
+                        $('#menu_name').val(menu.name);
+                        $('#menu_url').val(menu.url);
+                        $('#menu_category').val(menu.category || '');
+
+                        // Enable all parent options then disable current menu option to prevent self-referencing cycle
+                        $('#menu_main_menu_id option').prop('disabled', false);
+                        $('#menu_main_menu_id option[value="' + menu.id + '"]').prop('disabled', true);
+                        $('#menu_main_menu_id').val(menu.main_menu_id || '');
+
+                        $('#menu_icon').val(menu.icon || '');
+                        $('#menu_paths').val(menu.paths || 0);
+                        $('#menu_orders').val(menu.orders || 0);
+                        $('#menu_active').prop('checked', menu.active == 1);
+
+                        $('#kt_modal_menu').modal('show');
+                    } else {
+                        SwalHelper.error('Gagal mengambil data menu.');
+                    }
+                },
+                error: function(xhr) {
+                    SwalHelper.error('Gagal mengambil data menu.');
+                }
+            });
+        }
+
+        // Submit Form Add / Edit Menu
+        $('#kt_form_menu').on('submit', function(e) {
+            e.preventDefault();
+            var form = $(this);
+            var submitBtn = $('#btn_submit_menu');
+
+            submitBtn.attr('data-kt-indicator', 'on').prop('disabled', true);
+
+            $.ajax({
+                url: form.attr('action'),
+                method: 'POST',
+                data: form.serialize(),
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    submitBtn.removeAttr('data-kt-indicator').prop('disabled', false);
+                    $('#kt_modal_menu').modal('hide');
+                    if (response.success) {
+                        if (response.sidebar_html && $('#kt_app_sidebar_menu_wrapper').length) {
+                            $('#kt_app_sidebar_menu_wrapper').replaceWith(response.sidebar_html);
+                            reinitSidebar();
+                        }
+                        SwalHelper.success(response.message, function() {
+                            location.reload();
+                        });
+                    } else {
+                        SwalHelper.error(response.message);
+                    }
+                },
+                error: function(xhr) {
+                    submitBtn.removeAttr('data-kt-indicator').prop('disabled', false);
+                    if (xhr.status === 422) {
+                        SwalHelper.validationError(xhr);
+                    } else {
+                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Terjadi kesalahan sistem.';
+                        SwalHelper.error(msg);
+                    }
+                }
+            });
+        });
+
+        // Hapus Menu dari Database
+        function deleteMenu(menuId, menuName) {
+            SwalHelper.confirmDelete('menu "' + menuName + '"', function() {
+                var deleteUrl = "{{ route('appsupport.menu.destroy', ':id') }}".replace(':id', menuId);
+
+                $.ajax({
+                    url: deleteUrl,
+                    type: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            if (response.sidebar_html && $('#kt_app_sidebar_menu_wrapper').length) {
+                                $('#kt_app_sidebar_menu_wrapper').replaceWith(response.sidebar_html);
+                                reinitSidebar();
+                            }
+                            SwalHelper.success(response.message, function() {
+                                location.reload();
+                            });
+                        } else {
+                            SwalHelper.error(response.message);
+                        }
+                    },
+                    error: function(xhr) {
+                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal menghapus menu.';
+                        SwalHelper.error(msg);
+                    }
+                });
             });
         }
     </script>
