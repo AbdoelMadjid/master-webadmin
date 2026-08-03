@@ -252,7 +252,9 @@ class ConsoleDeveloper extends Model
                 return ['success' => false, 'output' => 'Perintah Git tidak dikenal.', 'action' => $action];
         }
 
-        $output = trim((string) shell_exec($command));
+        if (!isset($output) || $output === '') {
+            $output = trim((string) shell_exec($command . ' 2>&1'));
+        }
 
         return [
             'success' => true,
@@ -286,8 +288,16 @@ class ConsoleDeveloper extends Model
                 break;
 
             case 'post_clone_init':
-                $cmd = 'composer install --no-interaction && npm install && npm run build && php artisan key:generate --no-interaction && php artisan migrate --force && php artisan optimize:clear 2>&1';
-                $output = (string) shell_exec($cmd);
+                $o1 = (string) shell_exec('composer install --no-interaction 2>&1');
+                $o2 = (string) shell_exec('npm install 2>&1');
+                $o3 = (string) shell_exec('npm run build 2>&1');
+                Artisan::call('key:generate', ['--no-interaction' => true]);
+                $o4 = Artisan::output();
+                Artisan::call('migrate', ['--force' => true]);
+                $o5 = Artisan::output();
+                Artisan::call('optimize:clear');
+                $o6 = Artisan::output();
+                $output = "--- COMPOSER INSTALL ---\n" . ($o1 ?: 'OK') . "\n\n--- NPM INSTALL ---\n" . ($o2 ?: 'OK') . "\n\n--- NPM RUN BUILD ---\n" . ($o3 ?: 'OK') . "\n\n--- KEY GENERATE ---\n" . ($o4 ?: 'OK') . "\n\n--- MIGRATE ---\n" . ($o5 ?: 'OK') . "\n\n--- OPTIMIZE CLEAR ---\n" . ($o6 ?: 'OK');
                 break;
 
             case 'migrate':
