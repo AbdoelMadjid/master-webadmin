@@ -139,76 +139,113 @@ class ConsoleDeveloper extends Model
 
         switch ($action) {
             case 'status':
-                $command = 'git status 2>&1';
+                $command = 'git status';
+                $output = trim((string) shell_exec('git status 2>&1'));
                 $message = 'Git Status';
                 break;
             case 'pull':
-                $command = 'git pull 2>&1';
+                $command = 'git pull';
+                $output = trim((string) shell_exec('git pull 2>&1'));
                 $message = 'Git Pull';
                 break;
             case 'push':
-                $command = 'git push 2>&1';
+                $command = 'git push';
+                $output = trim((string) shell_exec('git push 2>&1'));
                 $message = 'Git Push';
                 break;
             case 'commit_push':
                 $commitMsg = escapeshellarg($params['commit_message'] ?? 'Update');
-                $command = "git add . && git commit -m {$commitMsg} && git push 2>&1";
+                $o1 = shell_exec('git add . 2>&1');
+                $o2 = shell_exec("git commit -m {$commitMsg} 2>&1");
+                $o3 = shell_exec('git push 2>&1');
+                $command = "git add . \ngit commit -m {$commitMsg} \ngit push";
+                $output = "--- GIT ADD ---\n" . ($o1 ?: 'OK') . "\n\n--- GIT COMMIT ---\n" . ($o2 ?: 'OK') . "\n\n--- GIT PUSH ---\n" . ($o3 ?: 'OK');
                 $message = 'Git Commit & Push';
                 break;
             case 'create_tag':
                 $tag = escapeshellarg($params['tag_name'] ?? '');
-                $command = "git tag {$tag} && git push origin {$tag} 2>&1";
+                $o1 = shell_exec("git tag {$tag} 2>&1");
+                $o2 = shell_exec("git push origin {$tag} 2>&1");
+                $command = "git tag {$tag} \ngit push origin {$tag}";
+                $output = "--- CREATE TAG ---\n" . ($o1 ?: 'OK') . "\n\n--- PUSH TAG ---\n" . ($o2 ?: 'OK');
                 $message = "Release Baru Tag {$params['tag_name']}";
                 break;
             case 'force_tag':
                 $tag = escapeshellarg($params['tag_name'] ?? '');
-                $command = "git tag -f {$tag} && git push --force origin {$tag} 2>&1";
+                $o1 = shell_exec("git tag -f {$tag} 2>&1");
+                $o2 = shell_exec("git push --force origin {$tag} 2>&1");
+                $command = "git tag -f {$tag} \ngit push --force origin {$tag}";
+                $output = "--- FORCE TAG ---\n" . ($o1 ?: 'OK') . "\n\n--- PUSH FORCE TAG ---\n" . ($o2 ?: 'OK');
                 $message = "Update Release Tag (Force Tag) {$params['tag_name']}";
                 break;
             case 'view_tags':
-                $command = 'git fetch --tags && git tag 2>&1';
+                $command = 'git fetch --tags & git tag';
+                $o1 = shell_exec('git fetch --tags 2>&1');
+                $o2 = shell_exec('git tag 2>&1');
+                $output = "--- TAGS LIST ---\n" . ($o2 ?: $o1);
                 $message = 'Daftar Tag Release';
                 break;
             case 'delete_tag':
                 $tag = escapeshellarg($params['tag_name'] ?? '');
-                $command = "git tag -d {$tag} && git push origin :refs/tags/{$tag} 2>&1";
+                $o1 = shell_exec("git tag -d {$tag} 2>&1");
+                $o2 = shell_exec("git push origin :refs/tags/{$tag} 2>&1");
+                $command = "git tag -d {$tag} \ngit push origin :refs/tags/{$tag}";
+                $output = "--- DELETE TAG ---\n" . ($o1 ?: 'OK') . "\n\n--- PUSH DELETE REMOTE TAG ---\n" . ($o2 ?: 'OK');
                 $message = "Hapus Tag Release {$params['tag_name']}";
                 break;
             case 'reset_local':
-                $command = 'git reset --hard && git clean -fd 2>&1';
+                $o1 = shell_exec('git reset --hard 2>&1');
+                $o2 = shell_exec('git clean -fd 2>&1');
+                $command = "git reset --hard \ngit clean -fd";
+                $output = "--- GIT RESET ---\n" . ($o1 ?: 'OK') . "\n\n--- GIT CLEAN ---\n" . ($o2 ?: 'OK');
                 $message = 'Reset Perubahan Lokal';
                 break;
             case 'sync_origin':
                 $branch = self::getCurrentBranch();
-                $command = "git fetch origin && git reset --hard origin/{$branch} && git clean -fd 2>&1";
+                $o1 = shell_exec('git fetch origin 2>&1');
+                $o2 = shell_exec("git reset --hard origin/{$branch} 2>&1");
+                $o3 = shell_exec('git clean -fd 2>&1');
+                $command = "git fetch origin \ngit reset --hard origin/{$branch} \ngit clean -fd";
+                $output = "--- FETCH ORIGIN ---\n" . ($o1 ?: 'OK') . "\n\n--- RESET ORIGIN ---\n" . ($o2 ?: 'OK') . "\n\n--- CLEAN ---\n" . ($o3 ?: 'OK');
                 $message = "Sync Ulang dari origin/{$branch}";
                 break;
             case 'switch_branch':
                 $targetBranch = escapeshellarg($params['branch_name'] ?? 'main');
-                $command = "git checkout {$targetBranch} 2>&1";
+                $command = "git checkout {$targetBranch}";
+                $output = trim((string) shell_exec("git checkout {$targetBranch} 2>&1"));
                 $message = "Ganti Branch ke {$params['branch_name']}";
                 break;
             case 'list_branches':
-                $command = 'git branch -a 2>&1';
+                $command = 'git branch -a';
+                $output = trim((string) shell_exec('git branch -a 2>&1'));
                 $message = 'Daftar Branch Lokal & Remote';
                 break;
             case 'log':
-                $command = 'git log --oneline -10 2>&1';
+                $command = 'git log --oneline -10';
+                $output = trim((string) shell_exec('git log --oneline -10 2>&1'));
                 $message = 'Git Log 10 Commit Terakhir';
                 break;
             case 'auto_release':
                 $branch = self::getCurrentBranch();
                 $commitMsg = escapeshellarg($params['commit_message'] ?? "Auto release {$branch}");
                 $tag = escapeshellarg($params['tag_name'] ?? '');
-                $command = "git add . && git commit -m {$commitMsg} && git push origin {$branch} && git tag {$tag} && git push origin {$tag} 2>&1";
+                $o1 = shell_exec('git add . 2>&1');
+                $o2 = shell_exec("git commit -m {$commitMsg} 2>&1");
+                $o3 = shell_exec("git push origin {$branch} 2>&1");
+                $o4 = shell_exec("git tag {$tag} 2>&1");
+                $o5 = shell_exec("git push origin {$tag} 2>&1");
+                $command = "git add . \ngit commit -m {$commitMsg} \ngit push origin {$branch} \ngit tag {$tag} \ngit push origin {$tag}";
+                $output = "--- GIT ADD ---\n" . ($o1 ?: 'OK') . "\n\n--- GIT COMMIT ---\n" . ($o2 ?: 'OK') . "\n\n--- GIT PUSH ---\n" . ($o3 ?: 'OK') . "\n\n--- TAG ---\n" . ($o4 ?: 'OK') . "\n\n--- PUSH TAG ---\n" . ($o5 ?: 'OK');
                 $message = "Auto Release Versi {$params['tag_name']}";
                 break;
             case 'fetch_all':
-                $command = 'git fetch --all --prune 2>&1';
+                $command = 'git fetch --all --prune';
+                $output = trim((string) shell_exec('git fetch --all --prune 2>&1'));
                 $message = 'Git Fetch Remote All';
                 break;
             case 'git_diff':
-                $command = 'git diff --stat 2>&1';
+                $command = 'git diff --stat';
+                $output = trim((string) shell_exec('git diff --stat 2>&1'));
                 $message = 'Git Diff Summary';
                 break;
             default:
