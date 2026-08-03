@@ -23,13 +23,19 @@ class MenuRequest extends FormRequest
     {
         return [
             'name'         => 'required|string|max:255',
+            'title_en'     => 'nullable|string|max:255',
             'url'          => 'required|string|max:255',
             'category'     => 'nullable|string|max:100',
+            'title_key'    => 'nullable|string|max:100',
             'icon'         => 'nullable|string|max:100',
             'paths'        => 'nullable|integer',
             'orders'       => 'nullable|integer',
             'main_menu_id' => 'nullable|exists:menus,id',
             'active'       => 'nullable|boolean',
+            'permissions'  => 'nullable|array',
+            'permissions.*'=> 'string|max:50',
+            'roles'        => 'nullable|array',
+            'roles.*'      => 'string|max:100',
         ];
     }
 

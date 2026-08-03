@@ -26,12 +26,23 @@
                         </div>
                     </div>
 
-                    <!--begin::Input group - Nama Menu-->
-                    <div class="d-flex flex-column mb-6 fv-row">
-                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2 required">
-                            <span>{{ app()->getLocale() == 'en' ? 'Menu Name' : 'Nama Menu' }}</span>
-                        </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Contoh: Manajemen User, Data Referensi" name="name" id="menu_name" required />
+                    <!--begin::Input group - Nama Menu ID & EN-->
+                    <div class="row g-6 mb-6">
+                        <div class="col-md-6 fv-row">
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2 required">
+                                <span>{{ app()->getLocale() == 'en' ? 'Menu Name (ID)' : 'Nama Menu (ID)' }}</span>
+                            </label>
+                            <input type="text" class="form-control form-control-solid" placeholder="Contoh: Manajemen User, Data Referensi" name="name" id="menu_name" required />
+                        </div>
+                        <div class="col-md-6 fv-row">
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                                <span>{{ app()->getLocale() == 'en' ? 'Menu Name (EN)' : 'Nama Menu (EN)' }}</span>
+                                <span class="ms-1" data-bs-toggle="tooltip" title="{{ app()->getLocale() == 'en' ? 'English menu title translation' : 'Translasi judul menu bahasa Inggris' }}">
+                                    <i class="ki-duotone ki-information-5 text-gray-500 fs-6"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                </span>
+                            </label>
+                            <input type="text" class="form-control form-control-solid" placeholder="Contoh: User Management, Reference Data" name="title_en" id="menu_title_en" />
+                        </div>
                     </div>
 
                     <!--begin::Input group - Route / URL-->
@@ -43,6 +54,17 @@
                             </span>
                         </label>
                         <input type="text" class="form-control form-control-solid" placeholder="Contoh: appsupport/menu, dashboard, # (jika hanya parent)" name="url" id="menu_url" required />
+                    </div>
+
+                    <!--begin::Input group - Key Translasi (meta.title_key)-->
+                    <div class="d-flex flex-column mb-6 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                            <span>{{ app()->getLocale() == 'en' ? 'Translation Key (title_key)' : 'Key Translasi (title_key)' }}</span>
+                            <span class="ms-1" data-bs-toggle="tooltip" title="{{ app()->getLocale() == 'en' ? 'Unique key for multi-language dictionary (e.g. md_tahun_ajaran). Auto-generated if left empty.' : 'Key unik untuk translasi multi-bahasa (contoh: md_tahun_ajaran). Otomatis dibuat jika dikosongkan.' }}">
+                                <i class="ki-duotone ki-information-5 text-gray-500 fs-6"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                            </span>
+                        </label>
+                        <input type="text" class="form-control form-control-solid" placeholder="Contoh: md_tahun_ajaran (opsional, otomatis jika kosong)" name="title_key" id="menu_title_key" />
                     </div>
 
                     <div class="row g-6 mb-6">
@@ -63,27 +85,22 @@
                         </div>
                         <!--end::Col-->
 
-                        <!--begin::Col - Parent Menu-->
+                        <!--begin::Col - Menu Induk (Parent)-->
                         <div class="col-md-6 fv-row">
                             <label class="fs-6 fw-semibold mb-2">
                                 <span>{{ app()->getLocale() == 'en' ? 'Parent Menu' : 'Menu Induk (Parent)' }}</span>
                             </label>
                             <select class="form-select form-select-solid" name="main_menu_id" id="menu_main_menu_id">
-                                <option value="">{{ app()->getLocale() == 'en' ? '-- Top Level (No Parent) --' : '-- Menu Utama (Tanpa Parent) --' }}</option>
+                                <option value="">-- {{ app()->getLocale() == 'en' ? 'Top Level Menu (No Parent)' : 'Menu Utama (Tanpa Induk)' }} --</option>
                                 @if(isset($allMenus))
-                                    @foreach ($allMenus as $parent)
-                                        @php
-                                            $depth = $parent->depth ?? 0;
-                                            $prefix = '';
-                                            if ($depth == 1) {
-                                                $prefix = '└─ ';
-                                            } elseif ($depth >= 2) {
-                                                $prefix = '└── ';
-                                            }
-                                        @endphp
-                                        <option value="{{ $parent->id }}" data-depth="{{ $depth }}">
-                                            {{ $prefix }}{{ $parent->name }} ({{ $parent->category ?? 'Tanpa Kategori' }})
-                                        </option>
+                                    @foreach ($allMenus as $m0)
+                                        <option value="{{ $m0->id }}" class="fw-bold">{{ $m0->name }}</option>
+                                        @foreach ($m0->subMenus as $m1)
+                                            <option value="{{ $m1->id }}">└─ {{ $m1->name }}</option>
+                                            @foreach ($m1->subMenus as $m2)
+                                                <option value="{{ $m2->id }}">└── {{ $m2->name }}</option>
+                                            @endforeach
+                                        @endforeach
                                     @endforeach
                                 @endif
                             </select>
@@ -92,10 +109,10 @@
                     </div>
 
                     <div class="row g-6 mb-6">
-                        <!--begin::Col - Icon Class-->
+                        <!--begin::Col - Class Icon-->
                         <div class="col-md-6 fv-row">
                             <label class="fs-6 fw-semibold mb-2">
-                                <span>{{ app()->getLocale() == 'en' ? 'Keenicon Class' : 'Class Ikon Keenicon' }}</span>
+                                <span>{{ app()->getLocale() == 'en' ? 'Icon Class' : 'Class Ikon (Keenicons)' }}</span>
                             </label>
                             <input type="text" class="form-control form-control-solid" placeholder="Contoh: ki-duotone ki-element-11" name="icon" id="menu_icon" />
                             <span class="text-muted fs-8 mt-1">{{ app()->getLocale() == 'en' ? 'e.g. ki-duotone ki-setting-2' : 'Contoh: ki-duotone ki-setting-2' }}</span>
@@ -120,6 +137,56 @@
                             </div>
                         </div>
                         <!--end::Col-->
+                    </div>
+
+                    <!--begin::Input group - Permissions & Roles Auto Setup-->
+                    <div class="row g-6 mb-6">
+                        <div class="col-md-6 fv-row">
+                            <label class="fs-6 fw-semibold mb-2 d-block">
+                                <span>{{ app()->getLocale() == 'en' ? 'Permissions Setup' : 'Otomatisasi Perizinan (Permissions)' }}</span>
+                            </label>
+                            <div class="d-flex flex-wrap gap-3">
+                                <label class="form-check form-check-custom form-check-solid form-check-sm">
+                                    <input class="form-check-input" type="checkbox" name="permissions[]" value="read" id="perm_read" checked />
+                                    <span class="form-check-label badge badge-light-primary fs-7 fw-bold py-1 px-3 ms-2">read</span>
+                                </label>
+                                <label class="form-check form-check-custom form-check-solid form-check-sm">
+                                    <input class="form-check-input" type="checkbox" name="permissions[]" value="create" id="perm_create" />
+                                    <span class="form-check-label badge badge-light-success fs-7 fw-bold py-1 px-3 ms-2">create</span>
+                                </label>
+                                <label class="form-check form-check-custom form-check-solid form-check-sm">
+                                    <input class="form-check-input" type="checkbox" name="permissions[]" value="update" id="perm_update" />
+                                    <span class="form-check-label badge badge-light-warning fs-7 fw-bold py-1 px-3 ms-2">update</span>
+                                </label>
+                                <label class="form-check form-check-custom form-check-solid form-check-sm">
+                                    <input class="form-check-input" type="checkbox" name="permissions[]" value="delete" id="perm_delete" />
+                                    <span class="form-check-label badge badge-light-danger fs-7 fw-bold py-1 px-3 ms-2">delete</span>
+                                </label>
+                            </div>
+                            <span class="text-muted fs-8 mt-1 d-block">{{ app()->getLocale() == 'en' ? 'Spatie permissions created & assigned to menu' : 'Spatie permission dibuat & dihubungkan ke menu' }}</span>
+                        </div>
+
+                        <div class="col-md-6 fv-row">
+                            <label class="fs-6 fw-semibold mb-2 d-block">
+                                <span>{{ app()->getLocale() == 'en' ? 'Assign to Roles' : 'Terapkan Hak Akses (Roles)' }}</span>
+                            </label>
+                            <div class="d-flex flex-wrap gap-3">
+                                @if(isset($allRoles) && count($allRoles) > 0)
+                                    @foreach($allRoles as $role)
+                                        <label class="form-check form-check-custom form-check-solid form-check-sm">
+                                            <input class="form-check-input menu-role-checkbox" type="checkbox" name="roles[]" value="{{ $role->name }}" id="role_{{ $role->id }}" {{ $role->name == 'admin' ? 'checked' : '' }} />
+                                            <span class="form-check-label text-gray-800 fw-semibold">{{ $role->name }}</span>
+                                        </label>
+                                    @endforeach
+                                @else
+                                    <label class="form-check form-check-custom form-check-solid form-check-sm">
+                                        <input class="form-check-input" type="checkbox" name="roles[]" value="admin" id="role_admin" checked />
+                                        <span class="form-check-label text-gray-800 fw-semibold">admin</span>
+                                    </label>
+                                @endif
+                            </div>
+                            <span class="text-muted fs-8 mt-1 d-block">{{ app()->getLocale() == 'en' ? 'Grant permission to selected Spatie roles' : 'Berikan hak akses ke role Spatie terpilih' }}</span>
+                        </div>
                     </div>
 
                     <!--begin::Input group - Status Keaktifan-->

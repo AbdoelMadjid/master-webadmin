@@ -19,12 +19,12 @@
 
 @section('content')
     @php
-        $allMenus = $allMenus ?? \App\Models\Menu::getOrderedTree();
-
+        $allMenus = $allMenus ?? \App\Models\AppSupport\Menu::getOrderedTree();
+        $mainMenus = $mainMenus ?? $allMenus->whereNull('main_menu_id')->values();
         $categories = $allMenus->pluck('category')->filter()->unique()->values();
         $totalMenus = $allMenus->count();
         $activeMenus = $allMenus->where('active', 1)->count();
-        $mainMenusCount = $allMenus->whereNull('main_menu_id')->count();
+        $mainMenusCount = $mainMenus->count();
         $subMenusCount = $allMenus->whereNotNull('main_menu_id')->count();
     @endphp
 
@@ -47,16 +47,28 @@
                         </span>
                     </div>
                 </div>
-                <div class="d-flex align-items-center gap-2">
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Add New Menu' : 'Tambah Menu Baru' }}">
-                        <button type="button" class="btn btn-primary shadow-xs" onclick="openAddMenuModal()">
-                            <i class="ki-duotone ki-plus fs-2"><span class="path1"></span><span class="path2"></span></i>
-                            {{ app()->getLocale() == 'en' ? 'Add Menu' : 'Tambah Menu' }}
+                <!--Right-aligned Action Buttons Container (ms-auto ensures right alignment even when wrapped on mobile)-->
+                <div class="d-flex align-items-center gap-2 ms-auto">
+                    <!--1. Single Menu Add Button-->
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Add New Single Menu' : 'Tambah Menu Tunggal' }}">
+                        <button type="button" class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px h-sm-auto px-0 px-sm-4" onclick="openAddMenuModal()">
+                            <i class="ki-duotone ki-plus fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
+                            <span class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Add Menu' : 'Tambah Menu' }}</span>
                         </button>
                     </span>
+
+                    <!--2. Batch Menu Add Button-->
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Create Main Menu with multiple Sub-Menus & Sub-Sub-Menus at once' : 'Tambah Struktur Menu Induk & Sub Menu Sekaligus (Batch)' }}">
+                        <button type="button" class="btn btn-success shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px h-sm-auto px-0 px-sm-4" onclick="openAddMenuBatchModal()">
+                            <i class="ki-duotone ki-element-plus fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                            <span class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Batch Menu' : 'Tambah Partai Menu' }}</span>
+                        </button>
+                    </span>
+
+                    <!--3. Operational Guide Button-->
                     <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_menu_help">
-                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        <button type="button" class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0" data-bs-toggle="modal" data-bs-target="#kt_modal_menu_help">
+                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                         </button>
                     </span>
                 </div>
@@ -243,11 +255,16 @@
                                                     <span class="text-gray-300 me-2 fs-7" style="white-space:nowrap;">└──</span>
                                                 @endif
 
-                                                @if ($menu->icon)
+                                                @php
+                                                    $hasIcon = !empty($menu->icon) && trim($menu->icon) !== '' && trim($menu->icon) !== 'none' && trim($menu->icon) !== '-';
+                                                    $pathsCount = (int)($menu->paths ?? 0);
+                                                @endphp
+
+                                                @if ($hasIcon && $pathsCount > 0)
                                                     <span class="symbol symbol-35px me-3 flex-shrink-0">
                                                         <span class="symbol-label {{ $menuDepth == 0 ? 'bg-light-primary' : ($menuDepth == 1 ? 'bg-light-info' : 'bg-light-warning') }}">
                                                             <i class="{{ $menu->icon }} {{ $menuDepth == 0 ? 'text-primary' : ($menuDepth == 1 ? 'text-info' : 'text-warning') }} fs-3">
-                                                                @for ($i = 1; $i <= ($menu->paths ?? 0); $i++)
+                                                                @for ($i = 1; $i <= $pathsCount; $i++)
                                                                     <span class="path{{ $i }}"></span>
                                                                 @endfor
                                                             </i>
@@ -294,37 +311,89 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <div class="d-flex flex-wrap align-items-center gap-1">
-                                                @forelse ($menu->permissions as $perm)
-                                                    @php
-                                                        $action = explode(' ', $perm->name)[0] ?? $perm->name;
-                                                        $badgeColor = match ($action) {
-                                                            'read' => 'badge-light-primary',
-                                                            'create' => 'badge-light-success',
-                                                            'update' => 'badge-light-warning',
-                                                            'delete' => 'badge-light-danger',
-                                                            'sort' => 'badge-light-info',
-                                                            default => 'badge-light-dark',
-                                                        };
-                                                    @endphp
-                                                    <span class="badge {{ $badgeColor }} fs-8 py-1 px-2 d-inline-flex align-items-center gap-1">
-                                                        {{ $action }}
-                                                        <i class="ki-duotone ki-cross fs-9 cursor-pointer text-hover-danger ms-1"
-                                                            onclick="removePermission({{ $menu->id }}, {{ $perm->id }}, '{{ $action }}', '{{ addslashes($menu->name) }}')"
-                                                            title="Hapus permission {{ $action }}">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                        </i>
-                                                    </span>
-                                                @empty
-                                                    <span class="text-muted fs-8 me-1">-</span>
-                                                @endforelse
+                                            @php
+                                                $menuPerms = [];
+                                                foreach ($menu->permissions as $p) {
+                                                    $act = explode(' ', $p->name)[0] ?? $p->name;
+                                                    $menuPerms[$act] = $p;
+                                                }
+                                                $createPerm = $menuPerms['create'] ?? null;
+                                                $readPerm = $menuPerms['read'] ?? null;
+                                                $updatePerm = $menuPerms['update'] ?? null;
+                                                $deletePerm = $menuPerms['delete'] ?? null;
+                                                $otherPerms = array_diff_key($menuPerms, array_flip(['create', 'read', 'update', 'delete']));
+                                            @endphp
+                                            <div class="d-flex align-items-start gap-2">
+                                                <!--Col 1: Create & Read-->
+                                                <div class="d-flex flex-column justify-content-start gap-1" style="min-width: 62px;">
+                                                    @if ($createPerm)
+                                                        <span class="badge badge-light-success fs-8 py-1 px-2 d-inline-flex align-items-center justify-content-between">
+                                                            create
+                                                            <i class="ki-duotone ki-cross fs-9 cursor-pointer text-hover-danger ms-1"
+                                                                onclick="removePermission({{ $menu->id }}, {{ $createPerm->id }}, 'create', '{{ addslashes($menu->name) }}')"
+                                                                title="Hapus permission create">
+                                                                <span class="path1"></span><span class="path2"></span>
+                                                            </i>
+                                                        </span>
+                                                    @endif
 
-                                                <button type="button" class="btn btn-icon btn-xs btn-light-primary ms-1"
-                                                    onclick="openAddPermissionModal({{ $menu->id }}, '{{ addslashes($menu->name) }}')"
-                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Tambah Permission untuk {{ $menu->name }}">
-                                                    <i class="ki-duotone ki-plus fs-7"></i>
-                                                </button>
+                                                    @if ($readPerm)
+                                                        <span class="badge badge-light-primary fs-8 py-1 px-2 d-inline-flex align-items-center justify-content-between">
+                                                            read
+                                                            <i class="ki-duotone ki-cross fs-9 cursor-pointer text-hover-danger ms-1"
+                                                                onclick="removePermission({{ $menu->id }}, {{ $readPerm->id }}, 'read', '{{ addslashes($menu->name) }}')"
+                                                                title="Hapus permission read">
+                                                                <span class="path1"></span><span class="path2"></span>
+                                                            </i>
+                                                        </span>
+                                                    @endif
+                                                </div>
+
+                                                <!--Col 2: Update & Delete-->
+                                                <div class="d-flex flex-column justify-content-start gap-1" style="min-width: 64px;">
+                                                    @if ($updatePerm)
+                                                        <span class="badge badge-light-warning fs-8 py-1 px-2 d-inline-flex align-items-center justify-content-between">
+                                                            update
+                                                            <i class="ki-duotone ki-cross fs-9 cursor-pointer text-hover-danger ms-1"
+                                                                onclick="removePermission({{ $menu->id }}, {{ $updatePerm->id }}, 'update', '{{ addslashes($menu->name) }}')"
+                                                                title="Hapus permission update">
+                                                                <span class="path1"></span><span class="path2"></span>
+                                                            </i>
+                                                        </span>
+                                                    @endif
+
+                                                    @if ($deletePerm)
+                                                        <span class="badge badge-light-danger fs-8 py-1 px-2 d-inline-flex align-items-center justify-content-between">
+                                                            delete
+                                                            <i class="ki-duotone ki-cross fs-9 cursor-pointer text-hover-danger ms-1"
+                                                                onclick="removePermission({{ $menu->id }}, {{ $deletePerm->id }}, 'delete', '{{ addslashes($menu->name) }}')"
+                                                                title="Hapus permission delete">
+                                                                <span class="path1"></span><span class="path2"></span>
+                                                            </i>
+                                                        </span>
+                                                    @endif
+
+                                                    @foreach ($otherPerms as $act => $oPerm)
+                                                        <span class="badge badge-light-info fs-8 py-1 px-2 d-inline-flex align-items-center justify-content-between">
+                                                            {{ $act }}
+                                                            <i class="ki-duotone ki-cross fs-9 cursor-pointer text-hover-danger ms-1"
+                                                                onclick="removePermission({{ $menu->id }}, {{ $oPerm->id }}, '{{ $act }}', '{{ addslashes($menu->name) }}')"
+                                                                title="Hapus permission {{ $act }}">
+                                                                <span class="path1"></span><span class="path2"></span>
+                                                            </i>
+                                                        </span>
+                                                    @endforeach
+                                                </div>
+
+                                                <!--Col 3: Add Permission Button-->
+                                                <div class="d-flex align-items-start ms-1">
+                                                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="Tambah Permission untuk {{ $menu->name }}">
+                                                        <button type="button" class="btn btn-icon btn-xs btn-light-primary"
+                                                            onclick="openAddPermissionModal({{ $menu->id }}, '{{ addslashes($menu->name) }}')">
+                                                            <i class="ki-duotone ki-plus fs-7"></i>
+                                                        </button>
+                                                    </span>
+                                                </div>
                                             </div>
                                         </td>
                                         <td class="text-center">
@@ -378,6 +447,7 @@
 
             <!--begin::Form Partial Modal-->
             @include('pages.appsupport.partials.menu-form')
+            @include('pages.appsupport.partials.menu-batch-form')
             @include('pages.appsupport.partials.menu-permission-form')
             @include('pages.appsupport.partials.menu-help-modal')
             <!--end::Form Partial Modal-->
@@ -623,7 +693,7 @@
 
         // Hapus Permission dari Menu
         function removePermission(menuId, permissionId, actionName, menuName) {
-            SwalHelper.confirmDelete('permission "' + actionName + '" pada menu ' + menuName, function() {
+            SwalHelper.confirmDelete('Permission ' + actionName + ' pada menu ' + menuName, function() {
                 var removeUrl = "{{ route('appsupport.menu.permissions.remove', [':menuId', ':permId']) }}"
                     .replace(':menuId', menuId)
                     .replace(':permId', permissionId);
@@ -699,6 +769,18 @@
             $('#modal_menu_title').text("{{ app()->getLocale() == 'en' ? 'Add New Menu' : 'Tambah Menu Baru' }}");
             $('#menu_active').prop('checked', true);
             $('#menu_main_menu_id option').prop('disabled', false);
+            $('#menu_title_key').val('');
+            $('#menu_title_en').val('');
+            $('#menu_url, #menu_title_key').data('manual', false);
+            
+            // Reset permission checkboxes
+            $('#perm_read').prop('checked', true);
+            $('#perm_create, #perm_update, #perm_delete').prop('checked', false);
+
+            // Reset role checkboxes
+            $('.menu-role-checkbox').prop('checked', false);
+            $('#role_admin').prop('checked', true);
+
             $('#kt_modal_menu').modal('show');
         }
 
@@ -719,8 +801,10 @@
                         $('#modal_menu_title').text("{{ app()->getLocale() == 'en' ? 'Edit Menu' : 'Edit Menu' }} - " + menu.name);
                         
                         $('#menu_name').val(menu.name);
+                        $('#menu_title_en').val((menu.meta && menu.meta.title_en) ? menu.meta.title_en : '');
                         $('#menu_url').val(menu.url);
                         $('#menu_category').val(menu.category || '');
+                        $('#menu_title_key').val((menu.meta && menu.meta.title_key) ? menu.meta.title_key : '');
 
                         // Enable all parent options then disable current menu option to prevent self-referencing cycle
                         $('#menu_main_menu_id option').prop('disabled', false);
@@ -731,6 +815,25 @@
                         $('#menu_paths').val(menu.paths || 0);
                         $('#menu_orders').val(menu.orders || 0);
                         $('#menu_active').prop('checked', menu.active == 1);
+
+                        // Populate permissions & roles
+                        $('#perm_read, #perm_create, #perm_update, #perm_delete').prop('checked', false);
+                        $('.menu-role-checkbox').prop('checked', false);
+
+                        if (menu.permissions && menu.permissions.length > 0) {
+                            menu.permissions.forEach(function(perm) {
+                                var parts = perm.name.split(' ');
+                                var action = parts[0];
+                                if (['read', 'create', 'update', 'delete'].indexOf(action) !== -1) {
+                                    $('#perm_' + action).prop('checked', true);
+                                }
+                                if (perm.roles && perm.roles.length > 0) {
+                                    perm.roles.forEach(function(role) {
+                                        $('.menu-role-checkbox[value="' + role.name + '"]').prop('checked', true);
+                                    });
+                                }
+                            });
+                        }
 
                         $('#kt_modal_menu').modal('show');
                     } else {
@@ -787,7 +890,7 @@
 
         // Hapus Menu dari Database
         function deleteMenu(menuId, menuName) {
-            SwalHelper.confirmDelete('menu "' + menuName + '"', function() {
+            SwalHelper.confirmDelete('Menu ' + menuName, function() {
                 var deleteUrl = "{{ route('appsupport.menu.destroy', ':id') }}".replace(':id', menuId);
 
                 $.ajax({
@@ -816,5 +919,417 @@
                 });
             });
         }
+
+    var subMenuCounter = 0;
+
+    // Buka Modal Tambah Partai Menu
+    function openAddMenuBatchModal() {
+        $('#kt_form_menu_batch')[0].reset();
+        $('#batch_sub_menu_container').empty();
+        $('#batch_main_url, #batch_main_key').data('manual', false);
+        $('#batch_mode_new').prop('checked', true).trigger('change');
+        subMenuCounter = 0;
+
+        // Pre-add 2 default sub-menu cards for convenience
+        addSubMenuCard();
+        addSubMenuCard();
+
+        $('#kt_modal_menu_batch').modal('show');
+    }
+
+    // Helpers untuk slugging & auto-fill real-time
+    // Slug tanpa tanda strip / dash untuk parent/category container: "Data Keahlian" -> "datakeahlian"
+    function slugifyParentSegment(text) {
+        if (!text) return '';
+        return text.toString().toLowerCase().trim()
+            .replace(/[^a-z0-9]/g, '');
+    }
+
+    // Slug dengan tanda strip / dash untuk leaf target page: "Tahun Ajaran" -> "tahun-ajaran"
+    function slugifyLeafSegment(text) {
+        if (!text) return '';
+        return text.toString().toLowerCase().trim()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/[\s_]+/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^-+|-+$/g, '');
+    }
+
+    function slugifyTitleKey(text, isParent) {
+        if (!text) return '';
+        var slug = isParent ? slugifyParentSegment(text) : slugifyLeafSegment(text);
+        return slug ? ('wd_' + slug) : '';
+    }
+
+    // Auto-recalculate Sub-Menu URLs & Keys when Main Menu URL changes or children are added/removed
+    function syncBatchSubMenuUrls() {
+        var mainUrl = $('#batch_main_url').val() || '';
+        var baseMainUrl = (mainUrl && mainUrl !== '#') ? mainUrl.replace(/\/+$/, '') : '';
+
+        $('#batch_sub_menu_container .sub-menu-card').each(function() {
+            var subIdx = $(this).attr('id').replace('sub_menu_card_', '');
+            var subNameInput = $('#sub_name_' + subIdx);
+            var subUrlInput = $('#sub_url_' + subIdx);
+            var subKeyInput = $('#sub_key_' + subIdx);
+            var subName = subNameInput.val() || '';
+
+            var hasChildren = $('#sub_sub_container_' + subIdx).children('.sub-sub-menu-row').length > 0;
+
+            if (subName) {
+                var subSlug = hasChildren ? slugifyParentSegment(subName) : slugifyLeafSegment(subName);
+                if (!subUrlInput.data('manual')) {
+                    var newSubUrl = baseMainUrl ? (baseMainUrl + '/' + subSlug) : subSlug;
+                    subUrlInput.val(newSubUrl);
+                }
+                if (!subKeyInput.data('manual')) {
+                    subKeyInput.val(slugifyTitleKey(subName, hasChildren));
+                }
+            }
+
+            syncBatchSubSubMenuUrls(subIdx);
+        });
+    }
+
+    // Auto-recalculate Sub-Sub-Menu URLs when Sub-Menu URL changes
+    function syncBatchSubSubMenuUrls(subIdx) {
+        var parentSubUrl = $('#sub_url_' + subIdx).val() || '';
+        var baseSubUrl = (parentSubUrl && parentSubUrl !== '#') ? parentSubUrl.replace(/\/+$/, '') : '';
+
+        $('#sub_sub_container_' + subIdx + ' .sub-sub-menu-row').each(function() {
+            var subSubNameInput = $(this).find('.sub-sub-name-input');
+            var subSubUrlInput = $(this).find('.sub-sub-url-input');
+            var subSubKeyInput = $(this).find('.sub-sub-key-input');
+            var subSubName = subSubNameInput.val() || '';
+
+            if (subSubName) {
+                var subSubSlug = slugifyLeafSegment(subSubName);
+                if (!subSubUrlInput.data('manual')) {
+                    var newSubSubUrl = baseSubUrl ? (baseSubUrl + '/' + subSubSlug) : subSubSlug;
+                    subSubUrlInput.val(newSubSubUrl);
+                }
+                if (!subSubKeyInput.data('manual')) {
+                    subSubKeyInput.val(slugifyTitleKey(subSubName, false));
+                }
+            }
+        });
+    }
+
+    // Debounced Auto-Translator (ID -> EN)
+    var autoTranslateTimer = null;
+    function triggerAutoTranslate(text, $targetEnInput) {
+        if (!text || $targetEnInput.data('manual')) return;
+
+        clearTimeout(autoTranslateTimer);
+        autoTranslateTimer = setTimeout(function() {
+            $.ajax({
+                url: "{{ route('appsupport.menu.auto-translate') }}",
+                type: 'POST',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    text: text
+                },
+                success: function(res) {
+                    if (res.success && res.translated && !$targetEnInput.data('manual')) {
+                        $targetEnInput.val(res.translated);
+                    }
+                }
+            });
+        }, 400);
+    }
+
+    $(document).on('input', '#menu_title_en, #batch_main_title_en, input[name*="[title_en]"]', function() {
+        $(this).data('manual', $(this).val().trim() !== '');
+    });
+
+    // Toggle Mode Batch Creator (Buat Baru vs Pilih Menu Utama yang Ada)
+    $(document).on('change', 'input[name="batch_mode"]', function() {
+        var mode = $(this).val();
+        if (mode === 'existing') {
+            $('#batch_new_main_wrapper').addClass('d-none');
+            $('#batch_existing_main_wrapper').removeClass('d-none');
+            $('#batch_main_name, #batch_main_url').prop('required', false);
+            $('#batch_existing_main_menu_id').prop('required', true);
+
+            $('#batch_existing_main_menu_id').trigger('change');
+        } else {
+            $('#batch_existing_main_wrapper').addClass('d-none');
+            $('#batch_new_main_wrapper').removeClass('d-none');
+            $('#batch_main_name, #batch_main_url').prop('required', true);
+            $('#batch_existing_main_menu_id').prop('required', false);
+
+            $('#batch_main_name').trigger('input');
+        }
+    });
+
+    $(document).on('change', '#batch_existing_main_menu_id', function() {
+        var $opt = $(this).find('option:selected');
+        var url = $opt.data('url') || '#';
+
+        $('#batch_main_url').val(url).data('manual', true);
+        syncBatchSubMenuUrls();
+    });
+
+    // Listener Real-Time Auto-Slug Batch Creator
+    $(document).on('input', '#batch_main_name', function() {
+        var name = $(this).val();
+        var mainUrl = slugifyParentSegment(name);
+        var mainKey = mainUrl ? ('wd_' + mainUrl) : '';
+
+        var urlInput = $('#batch_main_url');
+        var keyInput = $('#batch_main_key');
+
+        if (!urlInput.data('manual')) {
+            urlInput.val(mainUrl || '#');
+        }
+        if (!keyInput.data('manual')) {
+            keyInput.val(mainKey);
+        }
+
+        triggerAutoTranslate(name, $('#batch_main_title_en'));
+        syncBatchSubMenuUrls();
+    });
+
+    $(document).on('input', '#batch_main_url', function() {
+        $(this).data('manual', $(this).val().trim() !== '');
+        syncBatchSubMenuUrls();
+    });
+
+    $(document).on('input', '#batch_main_key', function() {
+        $(this).data('manual', $(this).val().trim() !== '');
+    });
+
+    $(document).on('input', '.sub-name-input', function() {
+        var subIdx = $(this).data('sub-idx');
+        var subName = $(this).val();
+        var mainUrl = $('#batch_main_url').val() || '';
+        var baseMainUrl = (mainUrl && mainUrl !== '#') ? mainUrl.replace(/\/+$/, '') : '';
+
+        var subUrlInput = $('#sub_url_' + subIdx);
+        var subKeyInput = $('#sub_key_' + subIdx);
+        var subEnInput = $(this).closest('.sub-menu-card').find('input[name$="[title_en]"]');
+
+        var hasChildren = $('#sub_sub_container_' + subIdx).children('.sub-sub-menu-row').length > 0;
+
+        if (!subUrlInput.data('manual')) {
+            var subSlug = hasChildren ? slugifyParentSegment(subName) : slugifyLeafSegment(subName);
+            var subUrl = baseMainUrl ? (baseMainUrl + '/' + subSlug) : subSlug;
+            subUrlInput.val(subUrl);
+        }
+
+        if (!subKeyInput.data('manual')) {
+            subKeyInput.val(slugifyTitleKey(subName, hasChildren));
+        }
+
+        triggerAutoTranslate(subName, subEnInput);
+        syncBatchSubSubMenuUrls(subIdx);
+    });
+
+    $(document).on('input', '.sub-url-input', function() {
+        var subIdx = $(this).data('sub-idx');
+        $(this).data('manual', $(this).val().trim() !== '');
+        syncBatchSubSubMenuUrls(subIdx);
+    });
+
+    $(document).on('input', '.sub-key-input', function() {
+        $(this).data('manual', $(this).val().trim() !== '');
+    });
+
+    $(document).on('input', '.sub-sub-name-input', function() {
+        var subIdx = $(this).data('sub-idx');
+        var subSubIdx = $(this).data('sub-sub-idx');
+        var subSubName = $(this).val();
+        var parentSubUrl = $('#sub_url_' + subIdx).val() || '';
+        var baseSubUrl = (parentSubUrl && parentSubUrl !== '#') ? parentSubUrl.replace(/\/+$/, '') : '';
+
+        var subSubUrlInput = $('#sub_sub_url_' + subIdx + '_' + subSubIdx);
+        var subSubKeyInput = $('#sub_sub_key_' + subIdx + '_' + subSubIdx);
+        var subSubEnInput = $(this).closest('.sub-sub-menu-row').find('input[name$="[title_en]"]');
+
+        if (!subSubUrlInput.data('manual')) {
+            var subSubSlug = slugifyLeafSegment(subSubName);
+            var subSubUrl = baseSubUrl ? (baseSubUrl + '/' + subSubSlug) : subSubSlug;
+            subSubUrlInput.val(subSubUrl);
+        }
+
+        if (!subSubKeyInput.data('manual')) {
+            subSubKeyInput.val(slugifyTitleKey(subSubName, false));
+        }
+
+        triggerAutoTranslate(subSubName, subSubEnInput);
+    });
+
+    $(document).on('input', '.sub-sub-url-input', function() {
+        $(this).data('manual', $(this).val().trim() !== '');
+    });
+
+    $(document).on('input', '.sub-sub-key-input', function() {
+        $(this).data('manual', $(this).val().trim() !== '');
+    });
+
+    // Auto-slug Single Menu Form Modal
+    $(document).on('input', '#menu_name', function() {
+        var name = $(this).val();
+        var parentId = $('#menu_main_menu_id').val();
+        var parentUrl = '';
+
+        if (parentId) {
+            var parentOption = $('#menu_main_menu_id option:selected');
+            parentUrl = parentOption.data('url') || '';
+        }
+
+        var baseParentUrl = (parentUrl && parentUrl !== '#') ? parentUrl.replace(/\/+$/, '') : '';
+        var urlInput = $('#menu_url');
+        var keyInput = $('#menu_title_key');
+
+        if (!urlInput.data('manual')) {
+            var slug = parentId ? slugifyLeafSegment(name) : slugifyParentSegment(name);
+            var url = baseParentUrl ? (baseParentUrl + '/' + slug) : (slug || '#');
+            urlInput.val(url);
+        }
+
+        if (!keyInput.data('manual')) {
+            keyInput.val(slugifyTitleKey(name, !parentId));
+        }
+
+        triggerAutoTranslate(name, $('#menu_title_en'));
+    });
+
+    $(document).on('change', '#menu_main_menu_id', function() {
+        if ($('#menu_name').val()) {
+            $('#menu_name').trigger('input');
+        }
+    });
+
+    // Tambah Card Sub-Menu (Level 1)
+    function addSubMenuCard() {
+        var subIdx = subMenuCounter++;
+        var html = `
+            <div class="card schema-card bg-light-secondary border border-gray-300 p-5 rounded sub-menu-card" id="sub_menu_card_${subIdx}">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge badge-primary fw-bold">Sub-Menu #${subIdx + 1}</span>
+                        <span class="text-muted fs-8">(Level 1 Child)</span>
+                    </div>
+                    <button type="button" class="btn btn-icon btn-xs btn-light-danger" onclick="removeSubMenuCard(${subIdx})" title="Hapus Sub-Menu">
+                        <i class="ki-duotone ki-trash fs-6"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                    </button>
+                </div>
+
+                <div class="row g-3 mb-2">
+                    <div class="col-md-6 fv-row">
+                        <label class="fs-8 fw-semibold mb-1 required">Nama Sub-Menu (ID)</label>
+                        <input type="text" class="form-control form-control-solid form-control-sm sub-name-input" data-sub-idx="${subIdx}" id="sub_name_${subIdx}" placeholder="Contoh: Tahun Ajaran, Data Keahlian" name="sub_menus[${subIdx}][name]" required />
+                    </div>
+                    <div class="col-md-6 fv-row">
+                        <label class="fs-8 fw-semibold mb-1">Nama Sub-Menu (EN)</label>
+                        <input type="text" class="form-control form-control-solid form-control-sm" placeholder="Contoh: School Year, Skills Data" name="sub_menus[${subIdx}][title_en]" />
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-5 fv-row">
+                        <label class="fs-8 fw-semibold mb-1 required">Route / URL</label>
+                        <input type="text" class="form-control form-control-solid form-control-sm sub-url-input" id="sub_url_${subIdx}" data-sub-idx="${subIdx}" placeholder="Contoh: manajemensekolah/tahun-ajaran" name="sub_menus[${subIdx}][url]" value="#" required />
+                    </div>
+                    <div class="col-md-4 fv-row">
+                        <label class="fs-8 fw-semibold mb-1">Key (title_key)</label>
+                        <input type="text" class="form-control form-control-solid form-control-sm sub-key-input" id="sub_key_${subIdx}" data-sub-idx="${subIdx}" placeholder="Contoh: wd_tahun-ajaran" name="sub_menus[${subIdx}][title_key]" />
+                    </div>
+                    <div class="col-md-3 fv-row">
+                        <label class="fs-8 fw-semibold mb-1">Class Ikon</label>
+                        <input type="text" class="form-control form-control-solid form-control-sm" placeholder="Class Ikon (opsional)" name="sub_menus[${subIdx}][icon]" value="" />
+                    </div>
+                </div>
+
+                <!-- Sub-Sub-Menu Container -->
+                <div class="ms-4 border-start border-primary border-2 ps-3 pt-2">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="fs-8 fw-bold text-gray-700">Sub-Sub-Menu (Level 2 Children)</span>
+                        <button type="button" class="btn btn-xs btn-light-warning fw-bold" onclick="addSubSubMenuCard(${subIdx})">
+                            <i class="ki-duotone ki-plus fs-8"></i> {{ app()->getLocale() == 'en' ? 'Add Sub-Sub Menu' : 'Tambah Sub-Sub Menu' }}
+                        </button>
+                    </div>
+                    <div id="sub_sub_container_${subIdx}" class="d-flex flex-column gap-2">
+                        <!-- Sub-sub menu items injected here -->
+                    </div>
+                </div>
+            </div>
+        `;
+        $('#batch_sub_menu_container').append(html);
+
+        // Auto trigger calculation if Main Menu URL is available
+        var mainUrl = $('#batch_main_url').val() || '';
+        if (mainUrl && mainUrl !== '#') {
+            $('#sub_url_' + subIdx).val(mainUrl.replace(/\/+$/, ''));
+        }
+    }
+
+    // Hapus Card Sub-Menu
+    function removeSubMenuCard(subIdx) {
+        $('#sub_menu_card_' + subIdx).remove();
+    }
+
+    // Tambah Sub-Sub Menu Item (Level 2)
+    function addSubSubMenuCard(subIdx) {
+        var container = $('#sub_sub_container_' + subIdx);
+        var subSubIdx = container.children('.sub-sub-menu-row').length;
+        var html = `
+            <div class="d-flex align-items-center gap-2 bg-white p-3 rounded border border-warning shadow-2xs sub-sub-menu-row">
+                <span class="badge badge-light-warning fs-9 fw-bold flex-shrink-0">Level 2</span>
+                <input type="text" class="form-control form-control-solid form-control-sm w-180px sub-sub-name-input" data-sub-idx="${subIdx}" data-sub-sub-idx="${subSubIdx}" id="sub_sub_name_${subIdx}_${subSubIdx}" placeholder="Nama Menu (ID)" name="sub_menus[${subIdx}][sub_sub_menus][${subSubIdx}][name]" required />
+                <input type="text" class="form-control form-control-solid form-control-sm w-160px" placeholder="Nama Menu (EN)" name="sub_menus[${subIdx}][sub_sub_menus][${subSubIdx}][title_en]" />
+                <input type="text" class="form-control form-control-solid form-control-sm flex-grow-1 min-w-260px sub-sub-url-input" data-sub-idx="${subIdx}" data-sub-sub-idx="${subSubIdx}" id="sub_sub_url_${subIdx}_${subSubIdx}" placeholder="Route / URL" name="sub_menus[${subIdx}][sub_sub_menus][${subSubIdx}][url]" required />
+                <input type="text" class="form-control form-control-solid form-control-sm w-170px sub-sub-key-input" data-sub-idx="${subIdx}" data-sub-sub-idx="${subSubIdx}" id="sub_sub_key_${subIdx}_${subSubIdx}" placeholder="Key (title_key)" name="sub_menus[${subIdx}][sub_sub_menus][${subSubIdx}][title_key]" />
+                <input type="text" class="form-control form-control-solid form-control-sm w-110px" placeholder="Class Ikon" name="sub_menus[${subIdx}][sub_sub_menus][${subSubIdx}][icon]" />
+                <button type="button" class="btn btn-icon btn-xs btn-light-danger flex-shrink-0" onclick="$(this).closest('.sub-sub-menu-row').remove(); syncBatchSubMenuUrls();" title="Hapus Sub-Sub Menu">
+                    <i class="ki-duotone ki-cross fs-7"><span class="path1"></span><span class="path2"></span></i>
+                </button>
+            </div>
+        `;
+        container.append(html);
+        syncBatchSubMenuUrls();
+    }
+
+    // Submit Form Partai Menu (Batch)
+    $('#kt_form_menu_batch').on('submit', function(e) {
+        e.preventDefault();
+        var form = $(this);
+        var submitBtn = $('#btn_submit_menu_batch');
+
+        submitBtn.attr('data-kt-indicator', 'on').prop('disabled', true);
+
+        $.ajax({
+            url: form.attr('action'),
+            method: 'POST',
+            data: form.serialize(),
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(response) {
+                submitBtn.removeAttr('data-kt-indicator').prop('disabled', false);
+                $('#kt_modal_menu_batch').modal('hide');
+                if (response.success) {
+                    if (response.sidebar_html && $('#kt_app_sidebar_menu_wrapper').length) {
+                        $('#kt_app_sidebar_menu_wrapper').replaceWith(response.sidebar_html);
+                        reinitSidebar();
+                    }
+                    SwalHelper.success(response.message, function() {
+                        location.reload();
+                    });
+                } else {
+                    SwalHelper.error(response.message);
+                }
+            },
+            error: function(xhr) {
+                submitBtn.removeAttr('data-kt-indicator').prop('disabled', false);
+                if (xhr.status === 422) {
+                    SwalHelper.validationError(xhr);
+                } else {
+                    var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Terjadi kesalahan sistem.';
+                    SwalHelper.error(msg);
+                }
+            }
+        });
+    });
     </script>
 @endsection

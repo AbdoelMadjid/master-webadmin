@@ -88,9 +88,15 @@ window.SwalHelper = {
      * @param {function} onConfirm Callback yang dieksekusi saat tombol 'Ya, Hapus!' diklik
      */
     confirmDelete: function(itemName = 'data ini', onConfirm = null) {
+        var cleanItemName = String(itemName)
+            .replace(/^menu\s+["'](.+)["']$/i, 'Menu $1')
+            .replace(/^permission\s+["'](.+)["']\s+pada\s+menu\s+(.+)$/i, 'Permission $1 pada menu $2')
+            .replace(/^["']+|["']$/g, '')
+            .trim();
+
         return Swal.fire({
             title: 'Apakah Anda Yakin?',
-            text: 'Data "' + itemName + '" akan dihapus permanen dari sistem!',
+            html: 'Data <strong>' + cleanItemName + '</strong> akan dihapus permanen dari sistem!',
             icon: 'warning',
             showCancelButton: true,
             buttonsStyling: false,

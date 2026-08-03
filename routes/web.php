@@ -103,9 +103,11 @@ Route::middleware('auth')->group(function () {
     Route::post('appsupport/app-fiturs/{id}/toggle-status', [AppFiturController::class, 'toggleStatus'])->name('appsupport.app-fiturs.toggle-status');
 
     Route::post('appsupport/menu/sort', [MenuController::class, 'sort'])->name('appsupport.menu.sort');
+    Route::post('appsupport/menu/auto-translate', [MenuController::class, 'autoTranslate'])->name('appsupport.menu.auto-translate');
     Route::post('appsupport/menu/{id}/toggle-status', [MenuController::class, 'toggleStatus'])->name('appsupport.menu.toggle-status');
     Route::post('appsupport/menu/{id}/permissions', [MenuController::class, 'addPermission'])->name('appsupport.menu.permissions.add');
     Route::delete('appsupport/menu/{id}/permissions/{permissionId}', [MenuController::class, 'removePermission'])->name('appsupport.menu.permissions.remove');
+    Route::post('appsupport/menu/batch', [MenuController::class, 'storeBatch'])->name('appsupport.menu.store-batch');
     Route::resource('appsupport/menu', MenuController::class)->names([
         'index'   => 'appsupport.menu',
         'store'   => 'appsupport.menu.store',
