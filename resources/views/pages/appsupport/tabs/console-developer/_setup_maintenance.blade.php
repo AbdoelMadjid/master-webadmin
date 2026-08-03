@@ -93,8 +93,29 @@
                 </div>
             </div>
 
-            {{-- 2. Application Cache Clear --}}
+            {{-- 2. Storage Link --}}
             <div class="col-md-6">
+                <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="badge badge-light-dark fw-bold me-2">STORAGE</span>
+                            <h5 class="fw-bold text-gray-900 mb-0">Storage Link (storage:link)</h5>
+                        </div>
+                        <p class="text-muted fs-7 mb-4">
+                            {{ app()->getLocale() == 'en'
+                                ? 'Creates a symbolic link from public/storage to storage/app/public for uploaded media files.'
+                                : 'Membuat symbolic link dari public/storage ke storage/app/public agar berkas publik yang diunggah dapat diakses.' }}
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-dark shadow-xs w-100" onclick="triggerMaintenance('storage_link')">
+                        <i class="ki-duotone ki-link fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+                        Buat Storage Symbolic Link
+                    </button>
+                </div>
+            </div>
+
+            {{-- 3. Application Cache Clear --}}
+            <div class="col-md-4">
                 <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
                     <div>
                         <div class="d-flex align-items-center mb-2">
@@ -114,8 +135,8 @@
                 </div>
             </div>
 
-            {{-- 3. Database Migration --}}
-            <div class="col-md-6">
+            {{-- 4. Database Migration --}}
+            <div class="col-md-4">
                 <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
                     <div>
                         <div class="d-flex align-items-center mb-2">
@@ -135,8 +156,8 @@
                 </div>
             </div>
 
-            {{-- 4. Reset Database & Seed Data --}}
-            <div class="col-md-6">
+            {{-- 5. Reset Database & Seed Data --}}
+            <div class="col-md-4">
                 <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
                     <div>
                         <div class="d-flex align-items-center mb-2">
