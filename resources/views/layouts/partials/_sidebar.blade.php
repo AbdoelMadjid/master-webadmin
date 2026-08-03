@@ -7,8 +7,7 @@
     <!--layout-partial:layout/partials/sidebar/_menu.html-->
     @include('layouts.partials.sidebar._menu')
     <!--layout-partial:layout/partials/sidebar/_footer.html-->
-    @hasanyrole('master|admin')
-        @include('layouts.partials.sidebar._footer')
-    @endhasanyrole
+    @include('layouts.partials.sidebar._footer')
 </div>
+
 <!--end::Sidebar-->
