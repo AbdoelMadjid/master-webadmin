@@ -52,6 +52,18 @@
                                     <span class="badge badge-light-info fs-7 fw-bold uppercase">
                                         {{ strtoupper($ver['type']) }}
                                     </span>
+                                    @if(!empty($ver['id']))
+                                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Versi Rilis">
+                                            <button type="button" class="btn btn-icon btn-sm btn-light-warning shadow-xs h-25px w-25px" onclick='openEditChangelogModal(@json($ver))'>
+                                                <i class="ki-duotone ki-pencil fs-6 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
+                                            </button>
+                                        </span>
+                                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Versi Rilis">
+                                            <button type="button" class="btn btn-icon btn-sm btn-light-danger shadow-xs h-25px w-25px" onclick="deleteChangelog({{ $ver['id'] }}, '{{ $ver['version'] }}')">
+                                                <i class="ki-duotone ki-trash fs-6 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                                            </button>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
 

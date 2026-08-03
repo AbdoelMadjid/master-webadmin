@@ -34,10 +34,17 @@
                         </span>
                     </div>
                 </div>
-                <div class="d-flex align-items-center gap-2">
+                <div class="d-flex align-items-center gap-2 ms-auto">
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Add New Release Version' : 'Tambah Versi Rilis Baru' }}">
+                        <button type="button" class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4" onclick="openAddChangelogModal()">
+                            <i class="ki-duotone ki-plus fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
+                            <span class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Add Version' : 'Tambah Versi' }}</span>
+                        </button>
+                    </span>
+
                     <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_changelog_help">
-                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        <button type="button" class="btn btn-icon btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0" data-bs-toggle="modal" data-bs-target="#kt_modal_changelog_help">
+                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                         </button>
                     </span>
                 </div>
@@ -155,13 +162,21 @@
         <!--end::Content container-->
     </div>
 
-    <!--begin::Help Modal Inclusion-->
+    <!--begin::Help & Form Modals-->
     @include('pages.appsupport.partials.changelog-help-modal')
-    <!--end::Help Modal Inclusion-->
+    @include('pages.appsupport.partials.changelog-form-modal')
+    <!--end::Help & Form Modals-->
 @endsection
 
 @section('scripts')
     <script>
+        // AJAX CSRF Token
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
         document.addEventListener('DOMContentLoaded', function () {
             // Initialize DataTable if present on git log tab
             var tableEl = document.getElementById('kt_changelog_git_table');
@@ -183,5 +198,84 @@
                 });
             }
         });
+
+        // Open Add Modal
+        function openAddChangelogModal() {
+            $('#changelog_id').val('');
+            $('#changelog_modal_title').text("{{ app()->getLocale() == 'en' ? 'Add New Release Version' : 'Tambah Versi Rilis Baru' }}");
+            $('#kt_modal_changelog_form_element')[0].reset();
+            $('#changelog_date').val(new Date().toISOString().split('T')[0]);
+            $('#changelog_author').val('Developer Team');
+            $('#kt_modal_changelog_form').modal('show');
+        }
+
+        // Open Edit Modal
+        function openEditChangelogModal(data) {
+            $('#changelog_id').val(data.id || '');
+            $('#changelog_modal_title').text("{{ app()->getLocale() == 'en' ? 'Edit Release Version' : 'Edit Versi Rilis' }} (" + data.version + ")");
+            $('#changelog_version').val(data.version || '');
+            $('#changelog_date').val(data.date || '');
+            $('#changelog_title_id').val(data.title_id || data.title || '');
+            $('#changelog_title').val(data.title || '');
+            $('#changelog_type').val(data.type || 'minor');
+            $('#changelog_badge').val(data.badge || 'badge-light-primary');
+            $('#changelog_author').val(data.author || 'Developer Team');
+            $('#changelog_description_id').val(data.description_id || data.description || '');
+            $('#changelog_description').val(data.description || '');
+            $('#kt_modal_changelog_form').modal('show');
+        }
+
+        // Submit Save / Update Form
+        function saveChangelog(e) {
+            e.preventDefault();
+            var id = $('#changelog_id').val();
+            var url = id ? "{{ url('appsupport/changelog') }}/" + id : "{{ route('appsupport.changelog.store') }}";
+            var type = id ? "PUT" : "POST";
+
+            var formData = $('#kt_modal_changelog_form_element').serialize();
+
+            Swal.fire({
+                title: "{{ app()->getLocale() == 'en' ? 'Saving Changelog...' : 'Menyimpan Catatan Versi...' }}",
+                allowOutsideClick: false,
+                didOpen: () => { Swal.showLoading(); }
+            });
+
+            $.ajax({
+                url: url,
+                type: type,
+                data: formData,
+                success: function (res) {
+                    Swal.close();
+                    $('#kt_modal_changelog_form').modal('hide');
+                    if (res.success) {
+                        SwalHelper.success(res.message);
+                        setTimeout(function() { window.location.reload(); }, 1200);
+                    }
+                },
+                error: function (xhr) {
+                    Swal.close();
+                    SwalHelper.validationError(xhr);
+                }
+            });
+        }
+
+        // Delete Version Record
+        function deleteChangelog(id, version) {
+            SwalHelper.confirmDelete("Versi " + version, function () {
+                $.ajax({
+                    url: "{{ url('appsupport/changelog') }}/" + id,
+                    type: "DELETE",
+                    success: function (res) {
+                        if (res.success) {
+                            SwalHelper.success(res.message);
+                            setTimeout(function() { window.location.reload(); }, 1200);
+                        }
+                    },
+                    error: function (xhr) {
+                        SwalHelper.error("Gagal menghapus catatan versi");
+                    }
+                });
+            });
+        }
     </script>
 @endsection

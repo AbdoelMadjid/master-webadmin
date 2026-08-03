@@ -145,8 +145,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('appsupport/referensi/item/{id}', [ReferensiController::class, 'destroyItem'])->name('appsupport.referensi.item.destroy');
     Route::post('appsupport/referensi/item/{id}/toggle-status', [ReferensiController::class, 'toggleItemStatus'])->name('appsupport.referensi.item.toggle-status');
 
-    // Changelog Route
+    // Changelog Routes
     Route::get('appsupport/changelog', [ChangelogController::class, 'index'])->name('appsupport.changelog');
+    Route::post('appsupport/changelog', [ChangelogController::class, 'store'])->name('appsupport.changelog.store');
+    Route::put('appsupport/changelog/{id}', [ChangelogController::class, 'update'])->name('appsupport.changelog.update');
+    Route::delete('appsupport/changelog/{id}', [ChangelogController::class, 'destroy'])->name('appsupport.changelog.destroy');
 
     // Console Developer Routes
     Route::get('appsupport/console-developer', [ConsoleDeveloperController::class, 'index'])->name('appsupport.console-developer');
