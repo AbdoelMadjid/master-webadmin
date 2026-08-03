@@ -23,8 +23,8 @@ class AppProfil extends Model
      */
     public function getLogoUrlAttribute(): ?string
     {
-        if ($this->logo && Storage::disk('public')->exists($this->logo)) {
-            return Storage::disk('public')->url($this->logo);
+        if ($this->logo && (Storage::disk('public')->exists($this->logo) || file_exists(public_path('storage/' . ltrim($this->logo, '/'))))) {
+            return asset('storage/' . ltrim($this->logo, '/'));
         }
 
         return null;
@@ -35,8 +35,8 @@ class AppProfil extends Model
      */
     public function getLogoSmallUrlAttribute(): ?string
     {
-        if ($this->logo_small && Storage::disk('public')->exists($this->logo_small)) {
-            return Storage::disk('public')->url($this->logo_small);
+        if ($this->logo_small && (Storage::disk('public')->exists($this->logo_small) || file_exists(public_path('storage/' . ltrim($this->logo_small, '/'))))) {
+            return asset('storage/' . ltrim($this->logo_small, '/'));
         }
 
         return null;
@@ -47,8 +47,8 @@ class AppProfil extends Model
      */
     public function getFaviconUrlAttribute(): ?string
     {
-        if ($this->favicon && Storage::disk('public')->exists($this->favicon)) {
-            return Storage::disk('public')->url($this->favicon);
+        if ($this->favicon && (Storage::disk('public')->exists($this->favicon) || file_exists(public_path('storage/' . ltrim($this->favicon, '/'))))) {
+            return asset('storage/' . ltrim($this->favicon, '/'));
         }
 
         return null;
