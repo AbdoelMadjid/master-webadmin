@@ -31,7 +31,9 @@ class Changelog extends Model
                     ['type' => 'feat', 'label' => '1-Click Code Generator', 'desc' => 'Integrated AGENTS.md compliant model, controller, form request, blade view, and help modal generator'],
                 ],
                 'commits' => [
-                    ['hash' => 'HEAD', 'date' => date('Y-m-d H:i'), 'msg' => 'feat(appsupport): tambahkan modul menu Console Developer & Git Manager Web GUI'],
+                    ['hash' => 'e75a3cd', 'date' => '2026-08-04 00:08', 'msg' => 'fix(appsupport): cegah overwrite output git action & pastikan post_clone_init berjalan bertahap di Windows'],
+                    ['hash' => 'fe24cdb', 'date' => '2026-08-04 00:04', 'msg' => 'fix(appsupport): perbaiki eksekusi perintah git bertahap pada Windows PHP shell_exec'],
+                    ['hash' => '5a5ba42', 'date' => '2026-08-03 23:59', 'msg' => 'feat(appsupport): tambahkan modul menu Console Developer & Git Manager Web GUI v1.4.0'],
                 ]
             ],
             [
