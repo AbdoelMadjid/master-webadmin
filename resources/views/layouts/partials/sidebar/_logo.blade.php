@@ -9,21 +9,21 @@
     <a href="{{ route('homepage') }}">
         @if ($customLogoUrl || $customLogoSmallUrl)
             <!--Logo Utama (Expanded / Horizontal)-->
-            <img alt="Logo" src="{{ $customLogoUrl ?: $customLogoSmallUrl }}" class="h-25px app-sidebar-logo-default" />
+            <img alt="Logo" src="{{ $customLogoUrl ?: $customLogoSmallUrl }}" class="h-35px w-auto app-sidebar-logo-default" />
             <!--Logo Ringkas (Minimized / Square Icon)-->
-            <img alt="Logo" src="{{ $customLogoSmallUrl ?: $customLogoUrl }}" class="h-20px app-sidebar-logo-minimize" />
+            <img alt="Logo" src="{{ $customLogoSmallUrl ?: $customLogoUrl }}" class="h-30px w-auto app-sidebar-logo-minimize" />
         @else
             @if (!empty($LightSidebar) && $LightSidebar === true)
                 {{-- Light-sidebar --}}
                 <img alt="Logo" src="{{ asset('assets/media/logos/default.svg') }}"
-                    class="h-25px app-sidebar-logo-default theme-light-show" />
+                    class="h-35px w-auto app-sidebar-logo-default theme-light-show" />
                 <img alt="Logo" src="{{ asset('assets/media/logos/default-dark.svg') }}"
-                    class="h-25px app-sidebar-logo-default theme-dark-show" />
-                <img alt="Logo" src="{{ asset('assets/media/logos/default-small.svg') }}" class="h-20px app-sidebar-logo-minimize" />
+                    class="h-35px w-auto app-sidebar-logo-default theme-dark-show" />
+                <img alt="Logo" src="{{ asset('assets/media/logos/default-small.svg') }}" class="h-30px w-auto app-sidebar-logo-minimize" />
             @else
                 {{-- Default: dark-sidebar --}}
-                <img alt="Logo" src="{{ asset('assets/media/logos/default-dark.svg') }}" class="h-25px app-sidebar-logo-default" />
-                <img alt="Logo" src="{{ asset('assets/media/logos/default-small.svg') }}" class="h-20px app-sidebar-logo-minimize" />
+                <img alt="Logo" src="{{ asset('assets/media/logos/default-dark.svg') }}" class="h-35px w-auto app-sidebar-logo-default" />
+                <img alt="Logo" src="{{ asset('assets/media/logos/default-small.svg') }}" class="h-30px w-auto app-sidebar-logo-minimize" />
             @endif
         @endif
     </a>
