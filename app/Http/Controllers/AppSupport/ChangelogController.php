@@ -55,9 +55,7 @@ class ChangelogController extends Controller
     public function store(ChangelogRequest $request): JsonResponse
     {
         $data = $request->validated();
-        $data['author'] = $data['author'] ?: 'Developer Team';
-        $data['title_id'] = $data['title_id'] ?: $data['title'];
-        $data['description_id'] = $data['description_id'] ?: $data['description'];
+        $this->parseRawArrays($data);
 
         $changelog = Changelog::create($data);
 
@@ -75,9 +73,7 @@ class ChangelogController extends Controller
     {
         $changelog = Changelog::findOrFail($id);
         $data = $request->validated();
-        $data['author'] = $data['author'] ?: 'Developer Team';
-        $data['title_id'] = $data['title_id'] ?: $data['title'];
-        $data['description_id'] = $data['description_id'] ?: $data['description'];
+        $this->parseRawArrays($data);
 
         $changelog->update($data);
 
@@ -86,6 +82,46 @@ class ChangelogController extends Controller
             'message' => 'Catatan versi rilis ' . $changelog->version . ' berhasil diperbarui!',
             'data'    => $changelog
         ]);
+    }
+
+    /**
+     * Parse raw text lines for highlights and commits.
+     */
+    private function parseRawArrays(array &$data): void
+    {
+        $data['author'] = $data['author'] ?: 'Developer Team';
+        $data['title_id'] = $data['title_id'] ?: $data['title'];
+        $data['description_id'] = $data['description_id'] ?: $data['description'];
+
+        if (!empty($data['highlights_raw'])) {
+            $lines = array_filter(explode("\n", str_replace("\r", "", $data['highlights_raw'])));
+            $highlights = [];
+            foreach ($lines as $line) {
+                $parts = array_map('trim', explode('|', $line, 2));
+                if (count($parts) === 2) {
+                    $highlights[] = ['type' => 'feat', 'label' => $parts[0], 'desc' => $parts[1]];
+                } else if (count($parts) === 1 && $parts[0] !== '') {
+                    $highlights[] = ['type' => 'feat', 'label' => 'Feature', 'desc' => $parts[0]];
+                }
+            }
+            $data['highlights'] = $highlights;
+        }
+
+        if (!empty($data['commits_raw'])) {
+            $lines = array_filter(explode("\n", str_replace("\r", "", $data['commits_raw'])));
+            $commits = [];
+            foreach ($lines as $line) {
+                $parts = array_map('trim', explode('|', $line, 3));
+                if (count($parts) === 3) {
+                    $commits[] = ['hash' => $parts[0], 'date' => $parts[1], 'msg' => $parts[2]];
+                } else if (count($parts) === 2) {
+                    $commits[] = ['hash' => $parts[0], 'date' => date('Y-m-d H:i'), 'msg' => $parts[1]];
+                } else if (count($parts) === 1 && $parts[0] !== '') {
+                    $commits[] = ['hash' => 'HEAD', 'date' => date('Y-m-d H:i'), 'msg' => $parts[0]];
+                }
+            }
+            $data['commits'] = $commits;
+        }
     }
 
     /**

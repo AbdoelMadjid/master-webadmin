@@ -206,6 +206,8 @@
             $('#kt_modal_changelog_form_element')[0].reset();
             $('#changelog_date').val(new Date().toISOString().split('T')[0]);
             $('#changelog_author').val('Developer Team');
+            $('#changelog_highlights_raw').val('');
+            $('#changelog_commits_raw').val('');
             $('#kt_modal_changelog_form').modal('show');
         }
 
@@ -222,6 +224,25 @@
             $('#changelog_author').val(data.author || 'Developer Team');
             $('#changelog_description_id').val(data.description_id || data.description || '');
             $('#changelog_description').val(data.description || '');
+
+            // Format highlights into raw lines: Label | Desc
+            var hlLines = [];
+            if (Array.isArray(data.highlights)) {
+                data.highlights.forEach(function(hl) {
+                    hlLines.push((hl.label || '') + ' | ' + (hl.desc || ''));
+                });
+            }
+            $('#changelog_highlights_raw').val(hlLines.join("\n"));
+
+            // Format commits into raw lines: Hash | Date | Msg
+            var cmLines = [];
+            if (Array.isArray(data.commits)) {
+                data.commits.forEach(function(cm) {
+                    cmLines.push((cm.hash || 'HEAD') + ' | ' + (cm.date || '') + ' | ' + (cm.msg || ''));
+                });
+            }
+            $('#changelog_commits_raw').val(cmLines.join("\n"));
+
             $('#kt_modal_changelog_form').modal('show');
         }
 

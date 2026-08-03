@@ -84,12 +84,28 @@
 
                     <div class="mb-8 fv-row">
                         <label class="fs-6 fw-semibold mb-2 required">Deskripsi Rilis (Bahasa Indonesia)</label>
-                        <textarea class="form-control form-control-solid" rows="3" name="description_id" id="changelog_description_id" placeholder="Penjelasan rincian pembaruan versi rilis..." required></textarea>
+                        <textarea class="form-control form-control-solid" rows="2" name="description_id" id="changelog_description_id" placeholder="Penjelasan rincian pembaruan versi rilis..." required></textarea>
                     </div>
 
                     <div class="mb-8 fv-row">
                         <label class="fs-6 fw-semibold mb-2 required">Description (English)</label>
-                        <textarea class="form-control form-control-solid" rows="3" name="description" id="changelog_description" placeholder="Detailed summary of release changes..." required></textarea>
+                        <textarea class="form-control form-control-solid" rows="2" name="description" id="changelog_description" placeholder="Detailed summary of release changes..." required></textarea>
+                    </div>
+
+                    <div class="mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                            <span>Fitur Utama / Highlights</span>
+                            <span class="ms-2 fs-8 text-muted">(1 baris per poin: Label | Deskripsi Fitur)</span>
+                        </label>
+                        <textarea class="form-control form-control-solid font-monospace fs-7" rows="3" name="highlights_raw" id="changelog_highlights_raw" placeholder="Fitur Console | Menambahkan modul Web GUI Console Developer&#10;Matrix Permission | Peningkatan toggle per baris pada matriks"></textarea>
+                    </div>
+
+                    <div class="mb-8 fv-row">
+                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                            <span>Daftar Commit Git (Commits Log)</span>
+                            <span class="ms-2 fs-8 text-muted">(1 baris per commit: Hash | Waktu | Pesan Commit)</span>
+                        </label>
+                        <textarea class="form-control form-control-solid font-monospace fs-7" rows="4" name="commits_raw" id="changelog_commits_raw" placeholder="1e7518f | 2026-08-04 00:43 | feat(appsupport): tambahkan modal form CRUD versi rilis&#10;2b3f2dc | 2026-08-04 00:30 | feat(appsupport): otomatis reload halaman realtime"></textarea>
                     </div>
 
                     <div class="text-center pt-5">

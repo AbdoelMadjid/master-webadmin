@@ -31,6 +31,8 @@ class ChangelogRequest extends FormRequest
             'author'         => 'nullable|string|max:100',
             'description'    => 'required|string',
             'description_id' => 'nullable|string',
+            'highlights_raw' => 'nullable|string',
+            'commits_raw'    => 'nullable|string',
             'highlights'     => 'nullable|array',
             'commits'        => 'nullable|array',
         ];
