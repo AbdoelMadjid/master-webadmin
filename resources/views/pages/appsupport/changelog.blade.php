@@ -199,6 +199,51 @@
             }
         });
 
+        // Helper HTML Escape
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // Add Highlight Repeater Row
+        function addHighlightRow(label = '', desc = '') {
+            var html = `
+                <div class="d-flex align-items-center gap-2 highlight-row">
+                    <input type="text" class="form-control form-control-solid highlight-label" placeholder="Label Fitur (contoh: Console Dev)" value="${escapeHtml(label)}" style="width: 38%;" />
+                    <input type="text" class="form-control form-control-solid highlight-desc" placeholder="Deskripsi Ringkas Poin Fitur..." value="${escapeHtml(desc)}" style="width: 54%;" />
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Baris">
+                        <button type="button" class="btn btn-icon btn-sm btn-light-danger shadow-xs h-35px w-35px p-0 ms-auto" onclick="$(this).closest('.highlight-row').remove()">
+                            <i class="ki-duotone ki-trash fs-5 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                        </button>
+                    </span>
+                </div>
+            `;
+            $('#highlights_repeater_container').append(html);
+        }
+
+        // Add Commit Repeater Row
+        function addCommitRow(hash = '', date = '', msg = '') {
+            var defaultDate = date || new Date().toISOString().slice(0, 16).replace('T', ' ');
+            var html = `
+                <div class="d-flex align-items-center gap-2 commit-row">
+                    <input type="text" class="form-control form-control-solid commit-hash" placeholder="Hash (contoh: 1e7518f)" value="${escapeHtml(hash)}" style="width: 25%;" />
+                    <input type="text" class="form-control form-control-solid commit-date" placeholder="Waktu (contoh: 2026-08-04 00:43)" value="${escapeHtml(defaultDate)}" style="width: 30%;" />
+                    <input type="text" class="form-control form-control-solid commit-msg" placeholder="Pesan Commit..." value="${escapeHtml(msg)}" style="width: 37%;" />
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Baris">
+                        <button type="button" class="btn btn-icon btn-sm btn-light-danger shadow-xs h-35px w-35px p-0 ms-auto" onclick="$(this).closest('.commit-row').remove()">
+                            <i class="ki-duotone ki-trash fs-5 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                        </button>
+                    </span>
+                </div>
+            `;
+            $('#commits_repeater_container').append(html);
+        }
+
         // Open Add Modal
         function openAddChangelogModal() {
             $('#changelog_id').val('');
@@ -206,8 +251,10 @@
             $('#kt_modal_changelog_form_element')[0].reset();
             $('#changelog_date').val(new Date().toISOString().split('T')[0]);
             $('#changelog_author').val('Developer Team');
-            $('#changelog_highlights_raw').val('');
-            $('#changelog_commits_raw').val('');
+            $('#highlights_repeater_container').empty();
+            $('#commits_repeater_container').empty();
+            addHighlightRow();
+            addCommitRow();
             $('#kt_modal_changelog_form').modal('show');
         }
 
@@ -225,23 +272,25 @@
             $('#changelog_description_id').val(data.description_id || data.description || '');
             $('#changelog_description').val(data.description || '');
 
-            // Format highlights into raw lines: Label | Desc
-            var hlLines = [];
-            if (Array.isArray(data.highlights)) {
+            // Populate Highlights Repeater
+            $('#highlights_repeater_container').empty();
+            if (Array.isArray(data.highlights) && data.highlights.length > 0) {
                 data.highlights.forEach(function(hl) {
-                    hlLines.push((hl.label || '') + ' | ' + (hl.desc || ''));
+                    addHighlightRow(hl.label || '', hl.desc || '');
                 });
+            } else {
+                addHighlightRow();
             }
-            $('#changelog_highlights_raw').val(hlLines.join("\n"));
 
-            // Format commits into raw lines: Hash | Date | Msg
-            var cmLines = [];
-            if (Array.isArray(data.commits)) {
+            // Populate Commits Repeater
+            $('#commits_repeater_container').empty();
+            if (Array.isArray(data.commits) && data.commits.length > 0) {
                 data.commits.forEach(function(cm) {
-                    cmLines.push((cm.hash || 'HEAD') + ' | ' + (cm.date || '') + ' | ' + (cm.msg || ''));
+                    addCommitRow(cm.hash || '', cm.date || '', cm.msg || '');
                 });
+            } else {
+                addCommitRow();
             }
-            $('#changelog_commits_raw').val(cmLines.join("\n"));
 
             $('#kt_modal_changelog_form').modal('show');
         }
@@ -253,7 +302,40 @@
             var url = id ? "{{ url('appsupport/changelog') }}/" + id : "{{ route('appsupport.changelog.store') }}";
             var type = id ? "PUT" : "POST";
 
-            var formData = $('#kt_modal_changelog_form_element').serialize();
+            var highlights = [];
+            $('.highlight-row').each(function() {
+                var label = $(this).find('.highlight-label').val();
+                var desc = $(this).find('.highlight-desc').val();
+                if (label || desc) {
+                    highlights.push({ type: 'feat', label: label, desc: desc });
+                }
+            });
+
+            var commits = [];
+            $('.commit-row').each(function() {
+                var hash = $(this).find('.commit-hash').val();
+                var date = $(this).find('.commit-date').val();
+                var msg = $(this).find('.commit-msg').val();
+                if (hash || msg) {
+                    commits.push({ hash: hash || 'HEAD', date: date || new Date().toISOString().slice(0, 16).replace('T', ' '), msg: msg });
+                }
+            });
+
+            var payload = {
+                _token: $('meta[name="csrf-token"]').attr('content'),
+                id: id,
+                version: $('#changelog_version').val(),
+                date: $('#changelog_date').val(),
+                title_id: $('#changelog_title_id').val(),
+                title: $('#changelog_title').val(),
+                type: $('#changelog_type').val(),
+                badge: $('#changelog_badge').val(),
+                author: $('#changelog_author').val(),
+                description_id: $('#changelog_description_id').val(),
+                description: $('#changelog_description').val(),
+                highlights: highlights,
+                commits: commits
+            };
 
             Swal.fire({
                 title: "{{ app()->getLocale() == 'en' ? 'Saving Changelog...' : 'Menyimpan Catatan Versi...' }}",
@@ -264,7 +346,7 @@
             $.ajax({
                 url: url,
                 type: type,
-                data: formData,
+                data: payload,
                 success: function (res) {
                     Swal.close();
                     $('#kt_modal_changelog_form').modal('hide');
