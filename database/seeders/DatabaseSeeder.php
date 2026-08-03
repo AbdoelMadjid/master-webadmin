@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             AppProfilSeeder::class,
             AppFiturSeeder::class,
             PageContentSeeder::class,
+            ChangelogSeeder::class,
         ]);
     }
 }

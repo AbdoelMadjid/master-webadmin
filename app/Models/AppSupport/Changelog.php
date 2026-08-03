@@ -6,12 +6,69 @@ use Illuminate\Database\Eloquent\Model;
 
 class Changelog extends Model
 {
+    protected $table = 'changelogs';
+
+    protected $fillable = [
+        'version',
+        'title',
+        'title_id',
+        'date',
+        'type',
+        'badge',
+        'author',
+        'description',
+        'description_id',
+        'highlights',
+        'commits',
+    ];
+
+    protected $casts = [
+        'highlights' => 'array',
+        'commits'    => 'array',
+        'date'       => 'date:Y-m-d',
+    ];
+
     /**
-     * Get predefined release version dataset compiled from Git repository push history.
+     * Get release version dataset. Reads dynamically from database if populated, otherwise falls back to static dataset.
      *
      * @return array
      */
     public static function getVersions(): array
+    {
+        try {
+            if (Schema::hasTable('changelogs')) {
+                $dbLogs = static::query()->orderBy('date', 'desc')->orderBy('id', 'desc')->get();
+                if ($dbLogs->isNotEmpty()) {
+                    return $dbLogs->map(function ($item) {
+                        return [
+                            'version'        => $item->version,
+                            'title'          => $item->title,
+                            'title_id'       => $item->title_id ?: $item->title,
+                            'date'           => $item->date ? $item->date->format('Y-m-d') : date('Y-m-d'),
+                            'type'           => $item->type ?: 'minor',
+                            'badge'          => $item->badge ?: 'badge-light-primary',
+                            'author'         => $item->author ?: 'Developer Team',
+                            'description'    => $item->description,
+                            'description_id' => $item->description_id ?: $item->description,
+                            'highlights'     => is_array($item->highlights) ? $item->highlights : (json_decode($item->highlights ?? '[]', true) ?: []),
+                            'commits'        => is_array($item->commits) ? $item->commits : (json_decode($item->commits ?? '[]', true) ?: []),
+                        ];
+                    })->toArray();
+                }
+            }
+        } catch (\Throwable $e) {
+            // Database not accessible yet, fallback to static array
+        }
+
+        return static::getStaticVersions();
+    }
+
+    /**
+     * Fallback static release version dataset compiled from repository history.
+     *
+     * @return array
+     */
+    public static function getStaticVersions(): array
     {
         return [
             [
