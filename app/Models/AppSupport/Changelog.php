@@ -15,6 +15,25 @@ class Changelog extends Model
     {
         return [
             [
+                'version' => 'v1.3.2',
+                'title' => 'Unified Master Git & Developer CLI Tooling',
+                'title_id' => 'Perintah Master Git & Developer CLI Terpadu Dalam Satu File',
+                'date' => '2026-08-03',
+                'type' => 'patch',
+                'badge' => 'badge-light-success',
+                'author' => 'Developer Team',
+                'description' => 'Unified Git Manager, post-clone setup, app cache clear, file utilities (prefix addition/removal & html conversion), and AGENTS.md compliant CRUD feature generator into a single git:manager CLI tool.',
+                'description_id' => 'Penggabungan Git Manager, inisialisasi post-clone, pembersihan cache aplikasi, utilitas file (prefix & konversi html), dan generator fitur CRUD sesuai aturan AGENTS.md ke dalam satu perintah CLI git:manager.',
+                'highlights' => [
+                    ['type' => 'feat', 'label' => 'Git & Dev Manager', 'desc' => 'Integrated post-clone setup, cache clear, file utilities, and CRUD feature generator into single php artisan git:manager command'],
+                    ['type' => 'feat', 'label' => 'CRUD Generator', 'desc' => '1-Click generation of Model, Controller, Request, Main Blade, Form Partial, and Bilingual Operational Help Modal'],
+                    ['type' => 'refactor', 'label' => 'Single File Command', 'desc' => 'Consolidated all developer helper commands into GitManagerCommand.php for clean repository architecture'],
+                ],
+                'commits' => [
+                    ['hash' => 'a9062e5', 'date' => '2026-08-03 15:45', 'msg' => 'Update perintah Git Manager'],
+                ]
+            ],
+            [
                 'version' => 'v1.3.1',
                 'title' => 'Responsive Header Action Buttons & App Profile Branding Fixes',
                 'title_id' => 'Responsif Tombol Aksi Header & Perbaikan Branding Profil Aplikasi',
