@@ -16,22 +16,25 @@ class Changelog extends Model
         return [
             [
                 'version' => 'v1.3.2',
-                'title' => 'Unified Master Git & Developer CLI Tooling',
-                'title_id' => 'Perintah Master Git & Developer CLI Terpadu Dalam Satu File',
+                'title' => 'Unified Git CLI Tooling & About Application Modal Integration',
+                'title_id' => 'Perintah Git CLI Terpadu & Integrasi Modal About Aplikasi',
                 'date' => '2026-08-03',
                 'type' => 'patch',
                 'badge' => 'badge-light-success',
                 'author' => 'Developer Team',
-                'description' => 'Unified Git Manager, post-clone setup, app cache clear, file utilities (prefix addition/removal & html conversion), and AGENTS.md compliant CRUD feature generator into a single git:manager CLI tool.',
-                'description_id' => 'Penggabungan Git Manager, inisialisasi post-clone, pembersihan cache aplikasi, utilitas file (prefix & konversi html), dan generator fitur CRUD sesuai aturan AGENTS.md ke dalam satu perintah CLI git:manager.',
+                'description' => 'Unified Git Manager, post-clone setup, app cache clear, file utilities, and AGENTS.md compliant CRUD generator into git:manager CLI tool, along with responsive bilingual About Application modal on sidebar footer for all user roles.',
+                'description_id' => 'Penggabungan Git Manager, inisialisasi post-clone, pembersihan cache aplikasi, utilitas file, dan generator fitur CRUD ke dalam perintah CLI git:manager, serta integrasi modal About Aplikasi dwibahasa di footer sidebar yang responsif untuk seluruh peran pengguna.',
                 'highlights' => [
                     ['type' => 'feat', 'label' => 'Git & Dev Manager', 'desc' => 'Integrated post-clone setup, cache clear, file utilities, and CRUD feature generator into single php artisan git:manager command'],
-                    ['type' => 'feat', 'label' => 'CRUD Generator', 'desc' => '1-Click generation of Model, Controller, Request, Main Blade, Form Partial, and Bilingual Operational Help Modal'],
-                    ['type' => 'refactor', 'label' => 'Single File Command', 'desc' => 'Consolidated all developer helper commands into GitManagerCommand.php for clean repository architecture'],
+                    ['type' => 'feat', 'label' => 'About App Modal', 'desc' => 'Integrated 100% bilingual About Application modal with dynamic versioning from Changelog model'],
+                    ['type' => 'ui', 'label' => 'Sidebar Footer', 'desc' => 'Responsive sidebar footer button with icon-first ordering, hover expansion, and role access for all users'],
                 ],
                 'commits' => [
-                    ['hash' => 'a9062e5', 'date' => '2026-08-03 15:45', 'msg' => 'Update perintah Git Manager'],
+                    ['hash' => '7f9a319', 'date' => '2026-08-03 20:11', 'msg' => 'Update tombol di bagian bawah sidebar dengan About'],
+                    ['hash' => 'c59aa1c', 'date' => '2026-08-03 16:02', 'msg' => 'Update Chengelog v1.3.2'],
+                    ['hash' => '0957a96', 'date' => '2026-08-03 15:57', 'msg' => 'Update Changelog v1.3.2'],
                     ['hash' => '8836350', 'date' => '2026-08-03 15:54', 'msg' => 'Update Console Command Git Manager'],
+                    ['hash' => 'a9062e5', 'date' => '2026-08-03 15:48', 'msg' => 'Update perintah Git Manager'],
                 ]
             ],
             [
