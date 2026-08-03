@@ -15,6 +15,28 @@ class Changelog extends Model
     {
         return [
             [
+                'version' => 'v1.3.0',
+                'title' => 'Added buttons for adding single and batch menus in appsupport/menu.',
+                'title_id' => 'Penambahan tombol tambah menu single dan partai di appsupport/menu.',
+                'date' => '2026-08-03',
+                'type' => 'minor',
+                'badge' => 'badge-light-primary',
+                'author' => 'Developer Team',
+                'description' => 'Added single and batch menu addition buttons on appsupport/menu page with form validation and auto-fill URL functionality.',
+                'description_id' => 'Penambahan tombol tambah menu single dan partai pada halaman appsupport/menu dengan validasi form dan fungsionalitas pengisian URL otomatis.',
+                'highlights' => [
+                    ['type' => 'feat', 'label' => 'Changelog Module', 'desc' => 'Added route appsupport/changelog with Controller, Model, and Blade views'],
+                    ['type' => 'feat', 'label' => 'Real-Time Git Log', 'desc' => 'Dynamic Git push commit history parser with date & time format (%Y-%m-%d %H:%M)'],
+                    ['type' => 'ui', 'label' => 'Timeline Refinements', 'desc' => 'Enhanced release timeline using Metronic 8 native timeline line & Keenicons'],
+                    ['type' => 'docs', 'label' => 'Help Modal', 'desc' => 'Dedicated 100% bilingual operational guide modal with 4-card sectioning'],
+                ],
+                'commits' => [
+                    ['hash' => '6264072', 'date' => '2026-08-03 09:12', 'msg' => 'Menambahkan tombol tambah pada menu'],
+                    ['hash' => 'b133204', 'date' => '2026-08-03 12:06', 'msg' => 'Penambahan Skema dan Operasional penambahan menu di route appsupport/menu'],
+
+                ]
+            ],
+            [
                 'version' => 'v1.2.0',
                 'title' => 'Application Changelog & Release History Module',
                 'title_id' => 'Modul Catatan Perubahan & Riwayat Rilis Versi',
@@ -33,6 +55,7 @@ class Changelog extends Model
                 'commits' => [
                     ['hash' => 'ed9d06f', 'date' => '2026-08-02 20:37', 'msg' => 'Tambahan Menu Changelog'],
                     ['hash' => '756daf6', 'date' => '2026-08-02 20:56', 'msg' => 'Merapihkan tampilan halaman changelog'],
+                    ['hash' => '8147d87', 'date' => '2026-08-02 21:14', 'msg' => 'Perbaikan changelog di models'],
                 ]
             ],
             [
