@@ -15,37 +15,100 @@ class PermissionController extends Controller
         $allPermissions = Permission::with('roles')->get();
         $roles = Role::all();
 
-        $modules = $allPermissions->groupBy(function ($perm) {
+        // 1. Kelompokkan permission berdasarkan modul
+        $groupedPermissions = $allPermissions->groupBy(function ($perm) {
             $parts = explode(' ', $perm->name, 2);
             return count($parts) === 2 ? strtolower($parts[1]) : strtolower($perm->name);
-        })->map(function ($group, $moduleName) {
-            $actions = $group->map(function ($perm) {
-                $parts = explode(' ', $perm->name, 2);
-                return (object) [
-                    'id'          => $perm->id,
-                    'name'        => $perm->name,
-                    'action_type' => count($parts) === 2 ? strtolower($parts[0]) : 'other',
-                ];
-            })->sortBy(function ($act) {
-                return match($act->action_type) {
-                    'create' => 1,
-                    'read'   => 2,
-                    'update' => 3,
-                    'delete' => 4,
-                    default  => 5,
-                };
-            })->values();
+        });
 
-            $allRoles = $group->pluck('roles')->flatten()->pluck('name')->unique()->values();
+        // 2. Dapatkan hirarki pohon menu untuk pengurutan & kedalaman (depth)
+        $allMenus = \App\Models\Menu::getOrderedTree();
+        $orderedModules = collect();
+        $processedModules = [];
 
-            return (object) [
-                'module_name' => $moduleName,
-                'actions'     => $actions,
-                'roles'       => $allRoles,
-                'total_perms' => $group->count(),
-                'created_at'  => $group->max('created_at'),
-            ];
-        })->sortBy('module_name')->values();
+        // Petakan modul yang sesuai dengan pohon menu terlebih dahulu
+        foreach ($allMenus as $menu) {
+            $moduleKey = trim((string) ($menu->url ?? ''), '/');
+            if (empty($moduleKey) || $moduleKey === '#') {
+                continue;
+            }
+
+            if ($groupedPermissions->has($moduleKey) && !isset($processedModules[$moduleKey])) {
+                $group = $groupedPermissions->get($moduleKey);
+                $actions = $group->map(function ($perm) {
+                    $parts = explode(' ', $perm->name, 2);
+                    return (object) [
+                        'id'          => $perm->id,
+                        'name'        => $perm->name,
+                        'action_type' => count($parts) === 2 ? strtolower($parts[0]) : 'other',
+                    ];
+                })->sortBy(function ($act) {
+                    return match($act->action_type) {
+                        'create' => 1,
+                        'read'   => 2,
+                        'update' => 3,
+                        'delete' => 4,
+                        default  => 5,
+                    };
+                })->values();
+
+                $allRoles = $group->pluck('roles')->flatten()->pluck('name')->unique()->values();
+
+                $orderedModules->push((object) [
+                    'module_name'  => $moduleKey,
+                    'display_name' => $menu->name,
+                    'depth'        => $menu->depth ?? 0,
+                    'icon'         => $menu->icon,
+                    'actions'      => $actions,
+                    'roles'        => $allRoles,
+                    'total_perms'  => $group->count(),
+                    'created_at'   => $group->max('created_at'),
+                ]);
+
+                $processedModules[$moduleKey] = true;
+            }
+        }
+
+        // Petakan modul tersisa (orphan modules) yang tidak ada di menu
+        foreach ($groupedPermissions as $moduleKey => $group) {
+            if (!isset($processedModules[$moduleKey])) {
+                $actions = $group->map(function ($perm) {
+                    $parts = explode(' ', $perm->name, 2);
+                    return (object) [
+                        'id'          => $perm->id,
+                        'name'        => $perm->name,
+                        'action_type' => count($parts) === 2 ? strtolower($parts[0]) : 'other',
+                    ];
+                })->sortBy(function ($act) {
+                    return match($act->action_type) {
+                        'create' => 1,
+                        'read'   => 2,
+                        'update' => 3,
+                        'delete' => 4,
+                        default  => 5,
+                    };
+                })->values();
+
+                $allRoles = $group->pluck('roles')->flatten()->pluck('name')->unique()->values();
+                $slashCount = substr_count($moduleKey, '/');
+                $depth = min($slashCount, 2);
+
+                $orderedModules->push((object) [
+                    'module_name'  => $moduleKey,
+                    'display_name' => null,
+                    'depth'        => $depth,
+                    'icon'         => null,
+                    'actions'      => $actions,
+                    'roles'        => $allRoles,
+                    'total_perms'  => $group->count(),
+                    'created_at'   => $group->max('created_at'),
+                ]);
+
+                $processedModules[$moduleKey] = true;
+            }
+        }
+
+        $modules = $orderedModules;
 
         $totalPermissions = $allPermissions->count();
         $totalModules = $modules->count();
@@ -177,12 +240,28 @@ class PermissionController extends Controller
 
         $rawModule = strtolower(trim($request->input('module_name')));
         $moduleName = str_replace(' ', '-', $rawModule);
-        $actions = $request->input('actions', []);
+        $actions = array_map('strtolower', array_map('trim', $request->input('actions', [])));
         $roles = $request->input('roles', []);
 
+        // 1. Dapatkan seluruh permission yang saat ini terdaftar untuk modul ini
+        $existingPermissions = Permission::get()->filter(function ($perm) use ($moduleName) {
+            $parts = explode(' ', $perm->name, 2);
+            $mod = count($parts) === 2 ? $parts[1] : $perm->name;
+            return strtolower($mod) === strtolower($moduleName);
+        });
+
+        // 2. Hapus permission yang aksi CRUD-nya TIDAK dicentang oleh admin
+        foreach ($existingPermissions as $perm) {
+            $parts = explode(' ', $perm->name, 2);
+            $actType = count($parts) === 2 ? strtolower($parts[0]) : 'other';
+            if (in_array($actType, ['create', 'read', 'update', 'delete']) && !in_array($actType, $actions)) {
+                $perm->delete();
+            }
+        }
+
+        // 3. Buat / perbarui permission untuk aksi yang dicentang beserta penugasan role-nya
         foreach ($actions as $action) {
-            $actionClean = strtolower(trim($action));
-            $permName = "{$actionClean} {$moduleName}";
+            $permName = "{$action} {$moduleName}";
 
             $permission = Permission::firstOrCreate([
                 'name'       => $permName,
@@ -194,7 +273,7 @@ class PermissionController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => "Berhasil memperbarui seluruh hak akses CRUD untuk modul '{$moduleName}'.",
+            'message' => "Berhasil memperbarui hak akses CRUD dan penugasan role untuk modul '{$moduleName}'.",
         ]);
     }
 

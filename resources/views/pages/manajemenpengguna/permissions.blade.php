@@ -154,7 +154,24 @@
                                     @endphp
                                     <tr data-roles="{{ $assignedRoleNames }}">
                                         <td>
-                                            <code class="text-gray-900 fw-bold fs-6">{{ $module->module_name }}</code>
+                                            @php
+                                                $depth = $module->depth ?? 0;
+                                                $indentPadding = $depth * 28;
+                                            @endphp
+                                            <div class="d-flex align-items-start" style="{{ $indentPadding > 0 ? 'padding-left: ' . $indentPadding . 'px;' : '' }}">
+                                                @if($depth > 0)
+                                                    <span class="text-muted me-2 fs-7 fw-bold">└─</span>
+                                                @endif
+                                                @if(!empty($module->icon))
+                                                    <i class="{{ $module->icon }} fs-4 text-primary me-2 mt-1"></i>
+                                                @endif
+                                                <div class="d-flex flex-column align-items-start">
+                                                    <span class="text-gray-900 fw-bold fs-6">{{ $module->module_name }}</span>
+                                                    @if(!empty($module->display_name))
+                                                        <span class="text-muted fs-7 fw-semibold">{{ $module->display_name }}</span>
+                                                    @endif
+                                                </div>
+                                            </div>
                                         </td>
                                         <td>
                                             <div class="d-flex align-items-center gap-1.5 flex-wrap">
@@ -185,12 +202,11 @@
                                             <span class="badge badge-light-secondary text-gray-800 fw-bold fs-7">{{ $module->total_perms }} Akses</span>
                                         </td>
                                         <td class="text-end">
-                                            <button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px me-1 btn-edit-module" data-module="{{ $module->module_name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Akses Modul '{{ $module->module_name }}'">
-                                                <i class="ki-duotone ki-pencil fs-3"><span class="path1"></span><span class="path2"></span></i>
-                                            </button>
-                                            <button type="button" class="btn btn-icon btn-active-light-danger w-30px h-30px btn-delete-module" data-module="{{ $module->module_name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Modul '{{ $module->module_name }}'">
-                                                <i class="ki-duotone ki-trash fs-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
-                                            </button>
+                                            <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Manage Module Permissions & Roles' : 'Kelola Aksi CRUD & Role Modul' }}">
+                                                <button type="button" class="btn btn-icon btn-light-primary w-35px h-35px btn-edit-module" data-module="{{ $module->module_name }}">
+                                                    <i class="ki-duotone ki-pencil fs-2"><span class="path1"></span><span class="path2"></span></i>
+                                                </button>
+                                            </span>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -216,7 +232,8 @@
     <script>
         $(document).ready(function() {
             var permissionsTable = $('#kt_permissions_table').DataTable({
-                pageLength: 10,
+                pageLength: 50,
+                lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
                 order: [],
                 language: {
                     search: "",
@@ -395,31 +412,6 @@
                         btn.prop('disabled', false);
                         SwalHelper.validationError(xhr);
                     }
-                });
-            });
-
-            // Delete Module Handler
-            $(document).on('click', '.btn-delete-module', function(e) {
-                e.preventDefault();
-                var btn = $(this).closest('.btn-delete-module');
-                var moduleName = btn.data('module') || $(this).data('module');
-                if (!moduleName) return;
-
-                SwalHelper.confirmDelete("seluruh hak akses modul '" + moduleName + "'", function() {
-                    var encodedModule = btoa(moduleName);
-                    $.ajax({
-                        url: "{{ url('manajemenpengguna/permissions/module') }}/" + encodedModule,
-                        type: "DELETE",
-                        data: { _token: "{{ csrf_token() }}" },
-                        success: function(res) {
-                            if(res.success) {
-                                SwalHelper.success(res.message);
-                            }
-                        },
-                        error: function(xhr) {
-                            SwalHelper.error(xhr.responseJSON?.message || 'Gagal menghapus modul.');
-                        }
-                    });
                 });
             });
         });
