@@ -5,12 +5,14 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
+use RecursiveIteratorIterator;
+use RecursiveDirectoryIterator;
 
 class GitManagerCommand extends Command
 {
     protected $signature = 'git:manager';
 
-    protected $description = 'Master Git, Project Setup, Cache, & AGENTS.md CRUD Generator Manager';
+    protected $description = 'Master Git, Project Setup, Cache, File Utilities, & AGENTS.md CRUD Generator Manager';
 
     public function handle()
     {
@@ -48,12 +50,18 @@ class GitManagerCommand extends Command
             $this->line('21.  Generator Blade View Saja (Main / Form / Help Modal)');
 
             $this->newLine();
-            $this->info('--- SYSTEM ---');
-            $this->line('22.  Jalankan Development Server (php artisan serve)');
-            $this->line('23.  Keluar');
+            $this->info('--- UTILITAS FILE & TEMPLATE ---');
+            $this->line('22.  Add Filename Prefix Massal');
+            $this->line('23.  Remove Filename Prefix Massal');
+            $this->line('24.  Rename Semua File .html → .blade.php (Recursive)');
 
             $this->newLine();
-            $menu = $this->ask('Pilih Menu [1-23]');
+            $this->info('--- SYSTEM ---');
+            $this->line('25.  Jalankan Development Server (php artisan serve)');
+            $this->line('26.  Keluar');
+
+            $this->newLine();
+            $menu = $this->ask('Pilih Menu [1-26]');
 
             switch ($menu) {
                 // ==================================
@@ -294,17 +302,38 @@ class GitManagerCommand extends Command
                     break;
 
                 // ==================================
-                // 22. JALANKAN DEV SERVER
+                // 22. ADD FILENAME PREFIX MASSAL
                 // ==================================
                 case 22:
+                    $this->runAddFilenamePrefix();
+                    break;
+
+                // ==================================
+                // 23. REMOVE FILENAME PREFIX MASSAL
+                // ==================================
+                case 23:
+                    $this->runRemoveFilenamePrefix();
+                    break;
+
+                // ==================================
+                // 24. RENAME HTML TO BLADE
+                // ==================================
+                case 24:
+                    $this->runRenameHtmlToBlade();
+                    break;
+
+                // ==================================
+                // 25. JALANKAN DEV SERVER
+                // ==================================
+                case 25:
                     $this->info('Menjalankan php artisan serve... (Tekan Ctrl+C untuk berhenti)');
                     passthru('php artisan serve');
                     break;
 
                 // ==================================
-                // 23. EXIT
+                // 26. EXIT
                 // ==================================
-                case 23:
+                case 26:
                     $this->info('Keluar Git & Dev Manager. Sampai jumpa!');
                     return self::SUCCESS;
 
@@ -315,6 +344,133 @@ class GitManagerCommand extends Command
             $this->newLine();
             $this->pause();
         }
+    }
+
+    // =========================================================================
+    // HELPER: FILE UTILITIES
+    // =========================================================================
+    private function runAddFilenamePrefix(): void
+    {
+        $prefix = $this->ask('Masukkan prefix yang akan ditambahkan (contoh: promo-)');
+        if (!$prefix) {
+            $this->error('Prefix wajib diisi.');
+            return;
+        }
+
+        $targetPath = $this->ask('Path folder target relatif terhadap root project', 'resources/views');
+        $fullPath = base_path($targetPath);
+
+        if (!File::isDirectory($fullPath)) {
+            $this->error("Folder {$fullPath} tidak ditemukan.");
+            return;
+        }
+
+        $iterator = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($fullPath)
+        );
+
+        $count = 0;
+        foreach ($iterator as $file) {
+            if (!$file->isFile()) {
+                continue;
+            }
+
+            $filename = $file->getFilename();
+
+            if (str_starts_with($filename, $prefix)) {
+                continue;
+            }
+
+            $oldPath = $file->getPathname();
+            $newName = $prefix . $filename;
+            $newPath = $file->getPath() . DIRECTORY_SEPARATOR . $newName;
+
+            if (rename($oldPath, $newPath)) {
+                $this->info("✔ {$filename} → {$newName}");
+                $count++;
+            } else {
+                $this->error("✖ Gagal rename: {$filename}");
+            }
+        }
+
+        $this->info("✅ Prefix '{$prefix}' berhasil ditambahkan ke {$count} file.");
+    }
+
+    private function runRemoveFilenamePrefix(): void
+    {
+        $prefix = $this->ask('Masukkan teks prefix yang akan dihapus (contoh: promo-)');
+        if (!$prefix) {
+            $this->error('Prefix wajib diisi.');
+            return;
+        }
+
+        $targetPath = $this->ask('Path folder target relatif terhadap root project', 'resources/views');
+        $fullPath = base_path($targetPath);
+
+        if (!File::isDirectory($fullPath)) {
+            $this->error("Folder {$fullPath} tidak ditemukan.");
+            return;
+        }
+
+        $iterator = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($fullPath)
+        );
+
+        $count = 0;
+        foreach ($iterator as $file) {
+            if (!$file->isFile()) {
+                continue;
+            }
+
+            $filename = $file->getFilename();
+
+            if (str_starts_with($filename, $prefix)) {
+                $oldPath = $file->getPathname();
+                $newName = substr($filename, strlen($prefix));
+                $newPath = $file->getPath() . DIRECTORY_SEPARATOR . $newName;
+
+                if (rename($oldPath, $newPath)) {
+                    $this->info("✔ {$filename} → {$newName}");
+                    $count++;
+                } else {
+                    $this->error("✖ Gagal rename: {$filename}");
+                }
+            }
+        }
+
+        $this->info("✅ Prefix '{$prefix}' berhasil dihapus secara massal dari {$count} file.");
+    }
+
+    private function runRenameHtmlToBlade(): void
+    {
+        $targetPath = $this->ask('Path folder target relatif terhadap root project', 'resources/views');
+        $fullPath = base_path($targetPath);
+
+        if (!File::isDirectory($fullPath)) {
+            $this->error("Folder {$fullPath} tidak ditemukan.");
+            return;
+        }
+
+        $iterator = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($fullPath)
+        );
+
+        $count = 0;
+        foreach ($iterator as $file) {
+            if ($file->isFile() && $file->getExtension() === 'html') {
+                $oldName = $file->getPathname();
+                $newName = substr($oldName, 0, -5) . '.blade.php';
+
+                if (rename($oldName, $newName)) {
+                    $this->info("Renamed: {$oldName} → {$newName}");
+                    $count++;
+                } else {
+                    $this->error("Gagal rename: {$oldName}");
+                }
+            }
+        }
+
+        $this->info("✅ Total {$count} file .html telah diubah menjadi .blade.php (recursive).");
     }
 
     // =========================================================================
