@@ -323,6 +323,7 @@ return array (
   'md_app_support' => 'Dukungan Aplikasi',
   'md_backup_db' => 'Backup DB',
   'md_changelog' => 'Catatan Perubahan',
+  'md_console_developer' => 'Console Developer',
   'md_data_login' => 'Data Login',
   'md_manajemen_pengguna' => 'Manajemen Pengguna',
   'md_masterdata' => 'MASTER DATA',
@@ -623,4 +624,5 @@ return array (
   'wizard_modals' => 'Modal Wizard',
   'wizards' => 'Wizard',
   'workflow_developer_harian' => 'Alur Kerja Pengembang Harian',
+  'md_console_developer' => 'Console Developer',
 );

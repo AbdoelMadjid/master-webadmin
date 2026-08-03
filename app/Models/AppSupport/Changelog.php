@@ -15,6 +15,26 @@ class Changelog extends Model
     {
         return [
             [
+                'version' => 'v1.4.0',
+                'title' => 'Console Developer Web GUI & Full CLI Git Manager Integration',
+                'title_id' => 'Console Developer Web GUI & Integrasi Lengkap CLI Git Manager',
+                'date' => date('Y-m-d'),
+                'type' => 'minor',
+                'badge' => 'badge-light-primary',
+                'author' => 'Developer Team',
+                'description' => 'Added a dedicated Web GUI module under /appsupport/console-developer featuring interactive buttons for all 14 CLI git:manager commands, system & database diagnostic cards, 1-Click AGENTS.md CRUD generator, and batch file utilities.',
+                'description_id' => 'Penambahan modul Web GUI khusus pada /appsupport/console-developer dengan tombol interaktif untuk seluruh 14 perintah CLI git:manager, kartu diagnostik sistem & database, generator CRUD 1-Click standar AGENTS.md, dan utilitas berkas massal.',
+                'highlights' => [
+                    ['type' => 'feat', 'label' => 'Developer Console Module', 'desc' => 'Integrated complete Web GUI for git:manager CLI into /appsupport/console-developer'],
+                    ['type' => 'feat', 'label' => '14 CLI Git Commands GUI', 'desc' => 'Rendered 100% of CLI Git commands into a symmetrical 4x4 equal-width button grid'],
+                    ['type' => 'ui', 'label' => 'System & Database Diagnostics', 'desc' => 'Added real-time DB connection, engine version, and storage link diagnostic cards'],
+                    ['type' => 'feat', 'label' => '1-Click Code Generator', 'desc' => 'Integrated AGENTS.md compliant model, controller, form request, blade view, and help modal generator'],
+                ],
+                'commits' => [
+                    ['hash' => 'HEAD', 'date' => date('Y-m-d H:i'), 'msg' => 'feat(appsupport): tambahkan modul menu Console Developer & Git Manager Web GUI'],
+                ]
+            ],
+            [
                 'version' => 'v1.3.3',
                 'title' => 'Permission Matrix Enhancements & Automated Parent Menu Synchronization',
                 'title_id' => 'Peningkatan Matriks Hak Akses & Inisialisasi Otomatis Parent Menu',

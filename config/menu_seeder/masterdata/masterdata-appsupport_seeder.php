@@ -66,5 +66,13 @@ return [
             'permissions' => ['read'],
             'roles' => ['admin'],
         ],
+        [
+            'title' => 'Console Developer',
+            'title_en' => 'Developer Console',
+            'title_key' => 'md_console_developer',
+            'route' => 'appsupport/console-developer',
+            'permissions' => ['read'],
+            'roles' => ['admin'],
+        ],
     ],
 ];

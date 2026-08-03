@@ -36,6 +36,7 @@ use App\Http\Controllers\AppSupport\DataLoginController;
 use App\Http\Controllers\AppSupport\MenuController;
 use App\Http\Controllers\AppSupport\ReferensiController;
 use App\Http\Controllers\AppSupport\ChangelogController;
+use App\Http\Controllers\AppSupport\ConsoleDeveloperController;
 use App\Http\Controllers\ManajemenPengguna\AksesRoleController;
 use App\Http\Controllers\ManajemenPengguna\AksesUserController;
 use App\Http\Controllers\ManajemenPengguna\PasswordResetRequestController;
@@ -146,6 +147,13 @@ Route::middleware('auth')->group(function () {
 
     // Changelog Route
     Route::get('appsupport/changelog', [ChangelogController::class, 'index'])->name('appsupport.changelog');
+
+    // Console Developer Routes
+    Route::get('appsupport/console-developer', [ConsoleDeveloperController::class, 'index'])->name('appsupport.console-developer');
+    Route::post('appsupport/console-developer/git-action', [ConsoleDeveloperController::class, 'gitAction'])->name('appsupport.console-developer.git-action');
+    Route::post('appsupport/console-developer/maintenance', [ConsoleDeveloperController::class, 'maintenance'])->name('appsupport.console-developer.maintenance');
+    Route::post('appsupport/console-developer/generator', [ConsoleDeveloperController::class, 'generator'])->name('appsupport.console-developer.generator');
+    Route::post('appsupport/console-developer/file-utility', [ConsoleDeveloperController::class, 'fileUtility'])->name('appsupport.console-developer.file-utility');
     // Lock Screen Route
     Route::post('/lock-screen/unlock', [\App\Http\Controllers\Auth\LockScreenController::class, 'unlock'])->middleware('throttle:5,1')->name('lock-screen.unlock');
 });
