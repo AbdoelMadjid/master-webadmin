@@ -106,13 +106,29 @@
         }
     });
 
+    var pendingReloadOnOutputClose = false;
+    var pendingRedirectUrl = null;
+
     // Function to open execution output terminal modal
-    function showConsoleOutput(title, command, text) {
+    function showConsoleOutput(title, command, text, autoReload = false, redirectUrl = null) {
+        pendingReloadOnOutputClose = autoReload;
+        pendingRedirectUrl = redirectUrl;
         $('#kt_console_output_title').text(title);
         $('#kt_console_output_command').text(command || title);
         $('#kt_console_output_text').text(text || 'No output recorded.');
         $('#kt_modal_console_output').modal('show');
     }
+
+    // Auto reload or redirect when Output Modal is hidden
+    $(document).ready(function() {
+        $('#kt_modal_console_output').on('hidden.bs.modal', function () {
+            if (pendingRedirectUrl) {
+                window.location.href = pendingRedirectUrl;
+            } else if (pendingReloadOnOutputClose) {
+                window.location.reload();
+            }
+        });
+    });
 
     // Generic Git Action Trigger
     function triggerGitAction(action, params = {}) {
@@ -130,7 +146,9 @@
             success: function(res) {
                 Swal.close();
                 if (res.success) {
-                    showConsoleOutput(res.message, res.command, res.output);
+                    const reloadActions = ['pull', 'commit_push', 'reset_local', 'sync_origin', 'switch_branch', 'auto_release'];
+                    const shouldReload = reloadActions.includes(action);
+                    showConsoleOutput(res.message, res.command, res.output, shouldReload);
                 } else {
                     SwalHelper.error(res.message || "Gagal mengeksekusi aksi Git");
                 }
@@ -337,7 +355,13 @@
             success: function(res) {
                 Swal.close();
                 if (res.success) {
-                    showConsoleOutput('Maintenance Result', action, res.output);
+                    if (action === 'migrate_fresh_seed') {
+                        showConsoleOutput('Reset Database Success', action, res.output + "\n\n[SISTEM INFO] Database & Seeder telah di-reset dari awal. Saat Anda menutup jendela ini, Anda akan otomatis dialihkan ke halaman Login.", false, "{{ url('/login') }}");
+                    } else {
+                        const reloadMaintenance = ['seed_menu', 'clear_cache', 'migrate', 'storage_link'];
+                        const shouldReload = reloadMaintenance.includes(action);
+                        showConsoleOutput('Maintenance Result', action, res.output, shouldReload);
+                    }
                 } else {
                     SwalHelper.error(res.message);
                 }
