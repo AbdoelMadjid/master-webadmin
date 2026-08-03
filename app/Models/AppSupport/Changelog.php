@@ -15,6 +15,26 @@ class Changelog extends Model
     {
         return [
             [
+                'version' => 'v1.3.3',
+                'title' => 'Permission Matrix Enhancements & Automated Parent Menu Synchronization',
+                'title_id' => 'Peningkatan Matriks Hak Akses & Inisialisasi Otomatis Parent Menu',
+                'date' => '2026-08-03',
+                'type' => 'minor',
+                'badge' => 'badge-light-primary',
+                'author' => 'Developer Team',
+                'description' => 'Added bulk select/deselect and row-level toggle on CRUD permission matrices across Role, Akses Role, and Akses User modules, unlocked direct permission customization for all user roles, and implemented automatic two-way parent-child menu permission synchronization.',
+                'description_id' => 'Penambahan tombol Pilih Semua/Kosongkan serta toggle per baris pada matriks izin CRUD di modul Role, Akses Role, dan Akses User, pembukaan kuncian edit hak akses pengguna, serta implementasi sinkronisasi dua arah otomatis antara izin anak menu dan parent menu.',
+                'highlights' => [
+                    ['type' => 'feat', 'label' => 'Matrix Toggle & Bulk Actions', 'desc' => 'Added Bulk Select All / Deselect All and row-level toggle (Semua) to permission matrices'],
+                    ['type' => 'feat', 'label' => 'Auto-Sync Parent Menu', 'desc' => 'Implemented automatic 2-way sync checking/unchecking parent READ permission based on child states'],
+                    ['type' => 'fix', 'label' => 'User Direct Access Editing', 'desc' => 'Unlocked permission checkboxes in Kelola Akses User modal to allow full customization by Master/Admin'],
+                    ['type' => 'ui', 'label' => 'Role Tab Matrix Calculation', 'desc' => 'Fixed row toggle calculation across all role tabs on page load and tab switch in Akses Role'],
+                ],
+                'commits' => [
+                    ['hash' => 'e30c66b', 'date' => '2026-08-03 21:30', 'msg' => 'refactor(manajemen-pengguna): tingkatkan matriks permission & auto-sync parent-child pada role, akses-role, dan akses-user'],
+                ]
+            ],
+            [
                 'version' => 'v1.3.2',
                 'title' => 'Unified Git CLI Tooling & About Application Modal Integration',
                 'title_id' => 'Perintah Git CLI Terpadu & Integrasi Modal About Aplikasi',
@@ -30,6 +50,7 @@ class Changelog extends Model
                     ['type' => 'ui', 'label' => 'Sidebar Footer', 'desc' => 'Responsive sidebar footer button with icon-first ordering, hover expansion, and role access for all users'],
                 ],
                 'commits' => [
+                    ['hash' => '2171c2f', 'date' => '2026-08-03 20:15', 'msg' => 'Update Changelog v1.3.2'],
                     ['hash' => '7f9a319', 'date' => '2026-08-03 20:11', 'msg' => 'Update tombol di bagian bawah sidebar dengan About'],
                     ['hash' => 'c59aa1c', 'date' => '2026-08-03 16:02', 'msg' => 'Update Chengelog v1.3.2'],
                     ['hash' => '0957a96', 'date' => '2026-08-03 15:57', 'msg' => 'Update Changelog v1.3.2'],
