@@ -76,13 +76,14 @@ class AksesUserController extends Controller
             ];
 
             $matrixPermissions[$moduleKey] = array_merge($actions, [
-                'module'      => $moduleKey,
-                'menu_name'   => $menu->name,
-                'depth'       => $menu->depth ?? 0,
-                'icon'        => $menu->icon,
-                'paths'       => $menu->paths ?? 0,
-                'parent_name' => $menu->parentMenu?->name,
-                'category'    => $menu->category,
+                'module'        => $moduleKey,
+                'menu_name'     => $menu->name,
+                'depth'         => $menu->depth ?? 0,
+                'icon'          => $menu->icon,
+                'paths'         => $menu->paths ?? 0,
+                'parent_name'   => $menu->parentMenu?->name,
+                'parent_module' => $menu->parentMenu?->url,
+                'category'      => $menu->category,
             ]);
             $processedModules[$moduleKey] = true;
         }
@@ -96,15 +97,17 @@ class AksesUserController extends Controller
                 $nameParts = explode('/', $moduleKey);
                 $displayName = Str::title(str_replace(['-', '_'], ' ', end($nameParts)));
                 $parentName = count($nameParts) > 1 ? Str::title(str_replace(['-', '_'], ' ', $nameParts[count($nameParts) - 2])) : null;
+                $parentModule = count($nameParts) > 1 ? implode('/', array_slice($nameParts, 0, count($nameParts) - 1)) : null;
 
                 $matrixPermissions[$moduleKey] = array_merge($actions, [
-                    'module'      => $moduleKey,
-                    'menu_name'   => $displayName,
-                    'depth'       => $depth,
-                    'icon'        => null,
-                    'paths'       => 0,
-                    'parent_name' => $parentName,
-                    'category'    => null,
+                    'module'        => $moduleKey,
+                    'menu_name'     => $displayName,
+                    'depth'         => $depth,
+                    'icon'          => null,
+                    'paths'         => 0,
+                    'parent_name'   => $parentName,
+                    'parent_module' => $parentModule,
+                    'category'      => null,
                 ]);
                 $processedModules[$moduleKey] = true;
             }

@@ -389,6 +389,62 @@
                 $('.btn-manage-user-access[data-id="' + userId + '"]').first().trigger('click');
             });
 
+            function syncAksesUserParentMenuState($row) {
+                var parentModule = $row.attr('data-parent-module');
+                if (!parentModule) return;
+
+                var $table = $row.closest('table');
+                var $parentRow = $table.find('tr[data-module="' + parentModule + '"]');
+                if ($parentRow.length === 0) return;
+
+                var $childRows = $table.find('tr[data-parent-module="' + parentModule + '"]');
+                var hasAnyChildChecked = false;
+
+                $childRows.each(function() {
+                    if ($(this).find('.akses-user-perm-checkbox:checked').length > 0) {
+                        hasAnyChildChecked = true;
+                        return false;
+                    }
+                });
+
+                var $parentPerms = $parentRow.find('.akses-user-perm-checkbox');
+                var $readPerm = $parentPerms.filter(function() {
+                    var val = ($(this).val() || '').toLowerCase();
+                    return val.startsWith('read ');
+                });
+
+                if (hasAnyChildChecked) {
+                    if ($readPerm.length > 0 && !$readPerm.is(':checked')) {
+                        $readPerm.prop('checked', true);
+                        updateRowToggleState($parentRow);
+                        syncAksesUserParentMenuState($parentRow);
+                    }
+                } else {
+                    if ($readPerm.length > 0 && $readPerm.is(':checked')) {
+                        $readPerm.prop('checked', false);
+                        updateRowToggleState($parentRow);
+                        syncAksesUserParentMenuState($parentRow);
+                    }
+                }
+            }
+
+            // Function to update row-level toggle checkbox state based on individual checkboxes
+            function updateRowToggleState($row) {
+                var $rowPerms = $row.find('.akses-user-perm-checkbox');
+                if ($rowPerms.length > 0) {
+                    var allChecked = $rowPerms.length === $rowPerms.filter(':checked').length;
+                    $row.find('.akses-user-modal-row-toggle').prop('checked', allChecked);
+                } else {
+                    $row.find('.akses-user-modal-row-toggle').prop('checked', false);
+                }
+            }
+
+            function updateAllRowToggles() {
+                $('.akses-user-modal-matrix-row').each(function() {
+                    updateRowToggleState($(this));
+                });
+            }
+
             // Function to update modal permissions checkboxes (Role vs Direct)
             function updateModalPermissionsState() {
                 var checkedRoles = [];
@@ -411,24 +467,38 @@
                     var permVal = $(this).val();
                     var $parent = $(this).parent();
 
-                    if (rolePerms.has(permVal)) {
+                    $(this).prop('disabled', false);
+
+                    var isFromRole = rolePerms.has(permVal);
+                    var isDirect = directPerms.includes(permVal);
+
+                    if (isFromRole || isDirect) {
                         $(this).prop('checked', true);
-                        $(this).prop('disabled', true);
-                        $parent.attr('title', 'Diwarisi dari Role yang ditugaskan');
-                    } else if (directPerms.includes(permVal)) {
-                        $(this).prop('checked', true);
-                        $(this).prop('disabled', false);
-                        $parent.attr('title', 'Akses Langsung Khusus');
+                        if (isFromRole && isDirect) {
+                            $parent.attr('title', 'Izin dari Role & Akses Langsung Khusus');
+                        } else if (isFromRole) {
+                            $parent.attr('title', 'Diwarisi dari Role yang ditugaskan (dapat disesuaikan)');
+                        } else {
+                            $parent.attr('title', 'Akses Langsung Khusus');
+                        }
                     } else {
                         $(this).prop('checked', false);
-                        $(this).prop('disabled', false);
                         $parent.removeAttr('title');
                     }
                 });
+
+                updateAllRowToggles();
             }
 
             $(document).on('change', '.akses-user-role-checkbox', function() {
                 updateModalPermissionsState();
+            });
+
+            // Sync row toggle checkbox when individual permission checkbox is clicked
+            $(document).on('change', '.akses-user-perm-checkbox', function() {
+                var $row = $(this).closest('tr');
+                syncAksesUserParentMenuState($row);
+                updateRowToggleState($row);
             });
 
             // Modal Live Search Filter for Direct Permissions Matrix
@@ -445,6 +515,27 @@
                 });
             });
 
+            // Modal Row-level Select All Toggle
+            $(document).on('change', '.akses-user-modal-row-toggle', function() {
+                var isChecked = $(this).is(':checked');
+                var $row = $(this).closest('tr');
+                $row.find('.akses-user-perm-checkbox:not(:disabled)').prop('checked', isChecked);
+                syncAksesUserParentMenuState($row);
+                updateRowToggleState($row);
+            });
+
+            // Modal Bulk Select All
+            $('#btn_modal_akses_user_select_all').on('click', function() {
+                $('.akses-user-perm-checkbox:not(:disabled)').prop('checked', true);
+                updateAllRowToggles();
+            });
+
+            // Modal Bulk Deselect All
+            $('#btn_modal_akses_user_deselect_all').on('click', function() {
+                $('.akses-user-perm-checkbox:not(:disabled)').prop('checked', false);
+                updateAllRowToggles();
+            });
+
             $(document).on('click', '.btn-manage-user-access', function() {
                 var userId = $(this).data('id');
                 $.get("{{ url('manajemenpengguna/akses-user') }}/" + userId, function(res) {
@@ -454,6 +545,7 @@
                         $('#akses_user_email_display').text(res.data.email);
                         $('#akses_user_modal_perm_search').val('');
                         $('.akses-user-modal-matrix-row').show();
+                        $('.akses-user-modal-row-toggle').prop('checked', false);
 
                         currentUserDirectPerms = res.direct_permissions || [];
                         if (res.role_permissions_map) {

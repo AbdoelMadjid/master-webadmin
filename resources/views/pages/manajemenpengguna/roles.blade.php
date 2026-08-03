@@ -451,6 +451,68 @@
                 $('.role-modal-row-toggle').prop('checked', false);
             });
 
+            function syncRoleParentMenuState($row) {
+                var parentModule = $row.attr('data-parent-module');
+                if (!parentModule) return;
+
+                var $table = $row.closest('table');
+                var $parentRow = $table.find('tr[data-module="' + parentModule + '"]');
+                if ($parentRow.length === 0) return;
+
+                var $childRows = $table.find('tr[data-parent-module="' + parentModule + '"]');
+                var hasAnyChildChecked = false;
+
+                $childRows.each(function() {
+                    if ($(this).find('.role-perm-checkbox:checked').length > 0) {
+                        hasAnyChildChecked = true;
+                        return false;
+                    }
+                });
+
+                var $parentPerms = $parentRow.find('.role-perm-checkbox');
+                var $readPerm = $parentPerms.filter(function() {
+                    var val = ($(this).val() || '').toLowerCase();
+                    return val.startsWith('read ');
+                });
+
+                if (hasAnyChildChecked) {
+                    if ($readPerm.length > 0 && !$readPerm.is(':checked')) {
+                        $readPerm.prop('checked', true);
+                        updateRoleRowToggleState($parentRow);
+                        syncRoleParentMenuState($parentRow);
+                    }
+                } else {
+                    if ($readPerm.length > 0 && $readPerm.is(':checked')) {
+                        $readPerm.prop('checked', false);
+                        updateRoleRowToggleState($parentRow);
+                        syncRoleParentMenuState($parentRow);
+                    }
+                }
+            }
+
+            function updateRoleRowToggleState($row) {
+                var $rowPerms = $row.find('.role-perm-checkbox');
+                if ($rowPerms.length > 0) {
+                    var allChecked = $rowPerms.length === $rowPerms.filter(':checked').length;
+                    $row.find('.role-modal-row-toggle').prop('checked', allChecked);
+                } else {
+                    $row.find('.role-modal-row-toggle').prop('checked', false);
+                }
+            }
+
+            function updateAllRoleRowToggles() {
+                $('.role-modal-matrix-row').each(function() {
+                    updateRoleRowToggleState($(this));
+                });
+            }
+
+            // Sync row toggle checkbox when individual permission checkbox is clicked
+            $(document).on('change', '.role-perm-checkbox', function() {
+                var $row = $(this).closest('tr');
+                syncRoleParentMenuState($row);
+                updateRoleRowToggleState($row);
+            });
+
             // Modal Live Search Filter for Modules
             $('#role_modal_perm_search').on('keyup', function() {
                 var query = $(this).val().toLowerCase();
@@ -470,18 +532,20 @@
                 var isChecked = $(this).is(':checked');
                 var $row = $(this).closest('tr');
                 $row.find('.role-perm-checkbox').prop('checked', isChecked);
+                syncRoleParentMenuState($row);
+                updateRoleRowToggleState($row);
             });
 
             // Modal Bulk Select All
             $('#btn_modal_role_select_all').on('click', function() {
                 $('.role-perm-checkbox').prop('checked', true);
-                $('.role-modal-row-toggle').prop('checked', true);
+                updateAllRoleRowToggles();
             });
 
             // Modal Bulk Deselect All
             $('#btn_modal_role_deselect_all').on('click', function() {
                 $('.role-perm-checkbox').prop('checked', false);
-                $('.role-modal-row-toggle').prop('checked', false);
+                updateAllRoleRowToggles();
             });
 
             $(document).on('click', '.btn-edit-role', function(e) {
@@ -512,6 +576,7 @@
                                     }
                                 });
                             }
+                            updateAllRoleRowToggles();
                             $('#kt_modal_role').modal('show');
                         }
                     },

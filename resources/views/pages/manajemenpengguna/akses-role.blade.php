@@ -128,6 +128,7 @@
                                                             <tr class="matrix-row {{ $menuDepth == 1 ? 'bg-light-secondary' : ($menuDepth >= 2 ? 'bg-light-warning' : '') }}"
                                                                 data-module="{{ strtolower($module) }}"
                                                                 data-menu-name="{{ strtolower($menuName) }}"
+                                                                data-parent-module="{{ strtolower($actions['parent_module'] ?? '') }}"
                                                                 style="{{ $menuDepth > 0 ? 'background-color: ' . ($menuDepth >= 2 ? 'rgba(255,199,0,0.04)' : 'rgba(0,0,0,0.018)') . ' !important;' : '' }}">
                                                                 <td class="align-middle">
                                                                     <div class="d-flex align-items-center" style="padding-left: {{ $menuDepth * 24 }}px;">
@@ -279,6 +280,65 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
+            function syncAksesRoleParentMenuState($row) {
+                var parentModule = $row.attr('data-parent-module');
+                if (!parentModule) return;
+
+                var $table = $row.closest('table');
+                var $parentRow = $table.find('tr[data-module="' + parentModule + '"]');
+                if ($parentRow.length === 0) return;
+
+                var $childRows = $table.find('tr[data-parent-module="' + parentModule + '"]');
+                var hasAnyChildChecked = false;
+
+                $childRows.each(function() {
+                    if ($(this).find('.matrix-perm-checkbox:checked').length > 0) {
+                        hasAnyChildChecked = true;
+                        return false;
+                    }
+                });
+
+                var $parentPerms = $parentRow.find('.matrix-perm-checkbox');
+                var $readPerm = $parentPerms.filter(function() {
+                    var val = ($(this).val() || '').toLowerCase();
+                    return val.startsWith('read ');
+                });
+
+                if (hasAnyChildChecked) {
+                    if ($readPerm.length > 0 && !$readPerm.is(':checked')) {
+                        $readPerm.prop('checked', true);
+                        updateAksesRoleRowToggleState($parentRow);
+                        syncAksesRoleParentMenuState($parentRow);
+                    }
+                } else {
+                    if ($readPerm.length > 0 && $readPerm.is(':checked')) {
+                        $readPerm.prop('checked', false);
+                        updateAksesRoleRowToggleState($parentRow);
+                        syncAksesRoleParentMenuState($parentRow);
+                    }
+                }
+            }
+
+            function updateAksesRoleRowToggleState($row) {
+                var $rowPerms = $row.find('.matrix-perm-checkbox');
+                if ($rowPerms.length > 0) {
+                    var allChecked = $rowPerms.length === $rowPerms.filter(':checked').length;
+                    $row.find('.row-toggle-checkbox').prop('checked', allChecked);
+                } else {
+                    $row.find('.row-toggle-checkbox').prop('checked', false);
+                }
+            }
+
+            function updateAllAksesRoleRowToggles($container) {
+                var $target = ($container && $container.length) ? $container : $('.tab-pane');
+                $target.find('.matrix-row').each(function() {
+                    updateAksesRoleRowToggleState($(this));
+                });
+            }
+
+            // Sync all row toggles across all role tabs on initial page load
+            updateAllAksesRoleRowToggles();
+
             // Select Role Tab Handler
             $('.btn-select-role').on('click', function() {
                 var roleId = $(this).data('role-id');
@@ -287,6 +347,17 @@
                 $('#selected_role_title').text('Hak Akses Role: ' + roleName.charAt(0).toUpperCase() + roleName.slice(1));
                 $('#role_matrix_search').val('');
                 $('.matrix-row').show();
+
+                var $targetTab = $('#content_role_' + roleId);
+                updateAllAksesRoleRowToggles($targetTab);
+            });
+
+            // Bootstrap Tab switch event listener for absolute reliability
+            $(document).on('shown.bs.tab', '.btn-select-role', function(e) {
+                var targetId = $(e.target).data('bs-target') || $(e.target).attr('href');
+                if (targetId) {
+                    updateAllAksesRoleRowToggles($(targetId));
+                }
             });
 
             // Live Search Filter for Modules
@@ -305,25 +376,34 @@
                 });
             });
 
+            // Sync row toggle checkbox when individual permission checkbox is clicked
+            $(document).on('change', '.matrix-perm-checkbox', function() {
+                var $row = $(this).closest('tr');
+                syncAksesRoleParentMenuState($row);
+                updateAksesRoleRowToggleState($row);
+            });
+
             // Row-level Select All Toggle
             $(document).on('change', '.row-toggle-checkbox', function() {
                 var isChecked = $(this).is(':checked');
                 var $row = $(this).closest('tr');
                 $row.find('.matrix-perm-checkbox').prop('checked', isChecked);
+                syncAksesRoleParentMenuState($row);
+                updateAksesRoleRowToggleState($row);
             });
 
             // Bulk Select All for Active Role
             $('#btn_select_all_perms').on('click', function() {
                 var $activeTab = $('.tab-pane.show.active');
                 $activeTab.find('.matrix-perm-checkbox').prop('checked', true);
-                $activeTab.find('.row-toggle-checkbox').prop('checked', true);
+                updateAllAksesRoleRowToggles($activeTab);
             });
 
             // Bulk Deselect All for Active Role
             $('#btn_deselect_all_perms').on('click', function() {
                 var $activeTab = $('.tab-pane.show.active');
                 $activeTab.find('.matrix-perm-checkbox').prop('checked', false);
-                $activeTab.find('.row-toggle-checkbox').prop('checked', false);
+                updateAllAksesRoleRowToggles($activeTab);
             });
 
             // Form Submit Handler

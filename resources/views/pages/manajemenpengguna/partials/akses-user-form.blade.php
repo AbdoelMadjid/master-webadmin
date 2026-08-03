@@ -56,18 +56,25 @@
                                     <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-3"><span class="path1"></span><span class="path2"></span></i>
                                     <input type="text" id="akses_user_modal_perm_search" class="form-control form-control-solid form-control-sm w-150px ps-9" placeholder="Cari Modul..." />
                                 </div>
+                                <button type="button" class="btn btn-sm btn-light-primary" id="btn_modal_akses_user_select_all">
+                                    Pilih Semua
+                                </button>
+                                <button type="button" class="btn btn-sm btn-light-danger" id="btn_modal_akses_user_deselect_all">
+                                    Kosongkan
+                                </button>
                             </div>
                         </div>
                         <div class="border rounded max-h-350px scroll-y overflow-x-hidden">
                             <table class="table table-row-bordered table-row-gray-300 align-middle gs-3 gy-3 mb-0 w-100" style="table-layout: fixed;">
                                 <thead class="table-light text-gray-700 fw-bold fs-7 text-uppercase sticky-top">
                                     <tr>
-                                        <th style="width: 50%;">Modul / Fitur</th>
-                                        <th class="text-center" style="width: 10%;">Create</th>
-                                        <th class="text-center" style="width: 10%;">Read</th>
-                                        <th class="text-center" style="width: 10%;">Update</th>
-                                        <th class="text-center" style="width: 10%;">Delete</th>
-                                        <th class="text-center" style="width: 10%;">Lainnya</th>
+                                        <th style="width: 45%;">Modul / Fitur</th>
+                                        <th class="text-center" style="width: 8%;">Create</th>
+                                        <th class="text-center" style="width: 8%;">Read</th>
+                                        <th class="text-center" style="width: 8%;">Update</th>
+                                        <th class="text-center" style="width: 8%;">Delete</th>
+                                        <th class="text-center" style="width: 15%;">Lainnya</th>
+                                        <th class="text-center" style="width: 8%;">Semua</th>
                                     </tr>
                                 </thead>
                                 <tbody class="text-gray-600 fw-semibold fs-7">
@@ -82,6 +89,7 @@
                                         <tr class="akses-user-modal-matrix-row {{ $menuDepth == 1 ? 'bg-light-secondary' : ($menuDepth >= 2 ? 'bg-light-warning' : '') }}"
                                             data-module="{{ strtolower($module) }}"
                                             data-menu-name="{{ strtolower($menuName) }}"
+                                            data-parent-module="{{ strtolower($actions['parent_module'] ?? '') }}"
                                             style="{{ $menuDepth > 0 ? 'background-color: ' . ($menuDepth >= 2 ? 'rgba(255,199,0,0.04)' : 'rgba(0,0,0,0.018)') . ' !important;' : '' }}">
                                             <td class="align-middle pe-2">
                                                 <div class="d-flex align-items-center" style="padding-left: {{ $menuDepth * 18 }}px;">
@@ -198,6 +206,13 @@
                                                 @empty
                                                     <span class="text-gray-400 fs-8">-</span>
                                                 @endforelse
+                                            </td>
+
+                                            {{-- Row Select All --}}
+                                            <td class="text-center">
+                                                <label class="form-check form-check-custom form-check-solid justify-content-center">
+                                                    <input class="form-check-input akses-user-modal-row-toggle" type="checkbox" title="Pilih semua izin di baris modul ini" />
+                                                </label>
                                             </td>
                                         </tr>
                                     @endforeach

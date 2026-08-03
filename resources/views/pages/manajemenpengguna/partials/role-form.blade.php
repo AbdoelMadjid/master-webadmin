@@ -62,6 +62,7 @@
                                          <tr class="role-modal-matrix-row {{ $menuDepth == 1 ? 'bg-light-secondary' : ($menuDepth >= 2 ? 'bg-light-warning' : '') }}"
                                              data-module="{{ strtolower($module) }}"
                                              data-menu-name="{{ strtolower($menuName) }}"
+                                             data-parent-module="{{ strtolower($actions['parent_module'] ?? '') }}"
                                              style="{{ $menuDepth > 0 ? 'background-color: ' . ($menuDepth >= 2 ? 'rgba(255,199,0,0.04)' : 'rgba(0,0,0,0.018)') . ' !important;' : '' }}">
                                              <td class="align-middle pe-2">
                                                  <div class="d-flex align-items-center" style="padding-left: {{ $menuDepth * 18 }}px;">
