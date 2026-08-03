@@ -114,23 +114,23 @@
                 </div>
             </div>
 
-            {{-- Framework Optimization --}}
+            {{-- Database Migration --}}
             <div class="col-md-6">
                 <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
                     <div>
                         <div class="d-flex align-items-center mb-2">
-                            <span class="badge badge-light-info fw-bold me-2">OPTIMIZE</span>
-                            <h5 class="fw-bold text-gray-900 mb-0">Optimasi Cache Configuration (optimize)</h5>
+                            <span class="badge badge-light-info fw-bold me-2">MIGRATE</span>
+                            <h5 class="fw-bold text-gray-900 mb-0">Migrasi Database (migrate)</h5>
                         </div>
                         <p class="text-muted fs-7 mb-4">
                             {{ app()->getLocale() == 'en'
-                                ? 'Compiles configuration and route files into cached bootstrap files for high performance execution.'
-                                : 'Mengompilasi berkas konfigurasi dan route ke dalam cache bootstrap untuk kinerja aplikasi yang optimal.' }}
+                                ? 'Runs any pending database migration scripts safely without clearing or seeding data.'
+                                : 'Menjalankan skrip migrasi database aplikasi yang belum tereksekusi secara aman tanpa merusak data.' }}
                         </p>
                     </div>
-                    <button type="button" class="btn btn-info shadow-xs w-100" onclick="triggerMaintenance('optimize')">
-                        <i class="ki-duotone ki-check-circle fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
-                        Jalankan Optimasi Cache
+                    <button type="button" class="btn btn-info shadow-xs w-100" onclick="triggerMaintenance('migrate')">
+                        <i class="ki-duotone ki-database fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+                        Jalankan Migrasi Database
                     </button>
                 </div>
             </div>
