@@ -16,24 +16,29 @@ class Changelog extends Model
         return [
             [
                 'version' => 'v1.3.0',
-                'title' => 'Added buttons for adding single and batch menus in appsupport/menu.',
-                'title_id' => 'Penambahan tombol tambah menu single dan partai di appsupport/menu.',
+                'title' => 'Single & Batch Menu Creator, App Branding Asset Fixes & Sidebar Logo Refinements',
+                'title_id' => 'Fitur Tambah Menu Single & Batch, Perbaikan Asset Branding App Profil & Logo Sidebar',
                 'date' => '2026-08-03',
                 'type' => 'minor',
                 'badge' => 'badge-light-primary',
                 'author' => 'Developer Team',
-                'description' => 'Added single and batch menu addition buttons on appsupport/menu page with form validation and auto-fill URL functionality.',
-                'description_id' => 'Penambahan tombol tambah menu single dan partai pada halaman appsupport/menu dengan validasi form dan fungsionalitas pengisian URL otomatis.',
+                'description' => 'Added single and batch menu creation buttons on appsupport/menu, fixed logo and favicon image asset URLs using dynamic asset() accessor in AppProfil model, enhanced sidebar logo height scaling, and updated bilingual help documentation.',
+                'description_id' => 'Penambahan tombol tambah menu tunggal dan masal pada halaman appsupport/menu, perbaikan URL asset logo & favicon menggunakan accessor asset() dinamis pada model AppProfil, optimasi ukuran tinggi logo sidebar, serta pembaruan dokumentasi petunjuk operasional bilingual.',
                 'highlights' => [
-                    ['type' => 'feat', 'label' => 'Changelog Module', 'desc' => 'Added route appsupport/changelog with Controller, Model, and Blade views'],
-                    ['type' => 'feat', 'label' => 'Real-Time Git Log', 'desc' => 'Dynamic Git push commit history parser with date & time format (%Y-%m-%d %H:%M)'],
-                    ['type' => 'ui', 'label' => 'Timeline Refinements', 'desc' => 'Enhanced release timeline using Metronic 8 native timeline line & Keenicons'],
-                    ['type' => 'docs', 'label' => 'Help Modal', 'desc' => 'Dedicated 100% bilingual operational guide modal with 4-card sectioning'],
+                    ['type' => 'feat', 'label' => 'Menu Creator', 'desc' => 'Added single & batch menu creation buttons with auto-fill URL on appsupport/menu'],
+                    ['type' => 'fix', 'label' => 'App Profile Assets', 'desc' => 'Fixed logo, small icon, and favicon image URL resolution using dynamic asset() helper'],
+                    ['type' => 'ui', 'label' => 'Sidebar Branding', 'desc' => 'Enhanced sidebar header logo height (h-35px / h-30px) with proportional auto-width'],
+                    ['type' => 'docs', 'label' => 'Help & Schema Guides', 'desc' => 'Added 100% bilingual operational guide and schema documentation for menu management'],
+                    ['type' => 'fix', 'label' => 'Activity Log', 'desc' => 'Refined activity log model event tracking and audit logs'],
                 ],
                 'commits' => [
+                    ['hash' => '2023a0d', 'date' => '2026-08-02 21:57', 'msg' => 'Perbaikan activity log'],
                     ['hash' => '6264072', 'date' => '2026-08-03 09:12', 'msg' => 'Menambahkan tombol tambah pada menu'],
                     ['hash' => 'b133204', 'date' => '2026-08-03 12:06', 'msg' => 'Penambahan Skema dan Operasional penambahan menu di route appsupport/menu'],
-
+                    ['hash' => 'fe73129', 'date' => '2026-08-03 12:28', 'msg' => 'Update Changelog'],
+                    ['hash' => '08cffdb', 'date' => '2026-08-03 14:10', 'msg' => 'Update help skema pemograman operasional tambah menu via route'],
+                    ['hash' => '58d2dd7', 'date' => '2026-08-03 14:42', 'msg' => 'Perbaikan Profil Aplikasi'],
+                    ['hash' => '0da5ede', 'date' => '2026-08-03 14:46', 'msg' => 'Perbaikan Ukuran Logo Sidebar'],
                 ]
             ],
             [

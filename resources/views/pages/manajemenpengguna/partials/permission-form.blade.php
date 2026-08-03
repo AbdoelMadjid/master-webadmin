@@ -16,7 +16,7 @@
                 <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-6 fw-bold mb-5" id="permissionTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <a class="nav-link text-active-primary pb-3 active" id="tab_batch_btn" data-bs-toggle="tab" href="#tab_batch_content" role="tab">
-                            <i class="ki-duotone ki-flash fs-4 me-1 text-warning"><span class="path1"></span><span class="path2"></span></i> Modul CRUD Batch (Praktis)
+                            <i class="ki-duotone ki-flash-circle fs-4 me-1 text-warning"><span class="path1"></span><span class="path2"></span></i> Modul CRUD Batch (Praktis)
                         </a>
                     </li>
                     <li class="nav-item" role="presentation">
@@ -93,7 +93,7 @@
                             <div class="d-flex justify-content-end pt-3">
                                 <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal">Batal</button>
                                 <button type="submit" class="btn btn-primary" id="kt_modal_permission_batch_submit">
-                                    <i class="ki-duotone ki-flash fs-3 me-1"><span class="path1"></span><span class="path2"></span></i> Simpan 4 Akses CRUD
+                                    <i class="ki-duotone ki-flash-circle fs-3 me-1"><span class="path1"></span><span class="path2"></span></i> Simpan 4 Akses CRUD
                                 </button>
                             </div>
                         </form>

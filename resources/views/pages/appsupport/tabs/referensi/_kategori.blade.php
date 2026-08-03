@@ -19,11 +19,11 @@
         <!--end::Card title-->
 
         <!--begin::Card toolbar-->
-        <div class="card-toolbar d-flex align-items-center gap-2">
+        <div class="card-toolbar d-flex align-items-center gap-2 ms-auto">
             <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Add New Reference Category' : 'Tambah Kategori Referensi Baru' }}">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_referensi_kategori" onclick="resetKategoriForm()">
-                    <i class="ki-duotone ki-plus fs-2"><span class="path1"></span><span class="path2"></span></i>
-                    {{ app()->getLocale() == 'en' ? 'Add Category' : 'Tambah Kategori' }}
+                <button type="button" class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4" data-bs-toggle="modal" data-bs-target="#kt_modal_referensi_kategori" onclick="resetKategoriForm()">
+                    <i class="ki-duotone ki-plus fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
+                    <span class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Add Category' : 'Tambah Kategori' }}</span>
                 </button>
             </span>
         </div>

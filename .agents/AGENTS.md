@@ -160,21 +160,28 @@
 1. **Responsive Text Hiding & Square Icon Dimensions on Mobile**:
    - Every primary page header action button (e.g. Add, Import, Batch Creator) MUST be mobile-friendly.
    - On mobile screens (`< 576px`), hide the text label by wrapping it in `<span class="d-none d-sm-inline ms-2">...</span>` while displaying only the duotone Keenicon.
-   - Use responsive width, height, and padding classes (`w-35px w-sm-auto h-35px h-sm-auto px-0 px-sm-4 d-inline-flex align-items-center justify-content-center`) so that buttons render as perfect, uniform 35px x 35px square icon buttons on mobile devices.
+   - Use responsive width, height, and padding classes (`w-35px w-sm-auto h-35px px-0 px-sm-4 d-inline-flex align-items-center justify-content-center`) so that buttons render as perfect, uniform 35px x 35px square icon buttons on mobile devices and maintain an exact matching height (`h-35px`) with icon-only buttons on desktop.
 
 2. **Far-Right Alignment Preservation (`ms-auto`)**:
    - The action button container (`d-flex align-items-center gap-2 ms-auto`) MUST include `ms-auto` so that even when the page title wraps onto a new line on small mobile screens, all action buttons remain cleanly aligned to the **FAR RIGHT** of the header card.
 
 3. **Mandatory Top Tooltip Wrapper**:
    - Every responsive action button MUST be wrapped inside a `<span data-bs-toggle="tooltip" data-bs-placement="top" title="...">` element so mobile users tapping or hovering over icon-only buttons receive clear descriptive tooltips without Bootstrap 5 modal attribute collision.
+   - On mobile screens where text labels are hidden, top tooltips are mandatory to ensure action intent remains clear to the user.
 
 4. **Code Pattern Example**:
    ```html
    <div class="d-flex align-items-center gap-2 ms-auto">
        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Tambah Menu Tunggal">
-           <button type="button" class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px h-sm-auto px-0 px-sm-4" onclick="openAddModal()">
+           <button type="button" class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4" onclick="openAddModal()">
                <i class="ki-duotone ki-plus fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
                <span class="d-none d-sm-inline ms-2">Tambah Menu</span>
+           </button>
+       </span>
+
+       <span data-bs-toggle="tooltip" data-bs-placement="top" title="Petunjuk Operasional">
+           <button type="button" class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0" data-bs-toggle="modal" data-bs-target="#kt_modal_help">
+               <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
            </button>
        </span>
    </div>

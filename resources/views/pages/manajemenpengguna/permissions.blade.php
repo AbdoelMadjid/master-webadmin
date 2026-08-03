@@ -29,10 +29,27 @@
                         </span>
                     </div>
                 </div>
-                <div class="d-flex align-items-center gap-2">
+                <div class="d-flex align-items-center gap-2 ms-auto">
+                    <!--1. Modul CRUD (Praktis) Button-->
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Generate CRUD Permissions for Module' : 'Tambah Modul CRUD (Praktis)' }}">
+                        <button type="button" class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4" data-bs-toggle="modal" data-bs-target="#kt_modal_permission" id="btn_add_batch_permission">
+                            <i class="ki-duotone ki-flash-circle fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
+                            <span class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'CRUD Module' : 'Modul CRUD (Praktis)' }}</span>
+                        </button>
+                    </span>
+
+                    <!--2. Single Permission Button-->
+                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Add Single Permission' : 'Tambah Single Permission' }}">
+                        <button type="button" class="btn btn-light-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4" data-bs-toggle="modal" data-bs-target="#kt_modal_permission" id="btn_add_single_permission">
+                            <i class="ki-duotone ki-plus fs-2 p-0 m-0"></i>
+                            <span class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Single Permission' : 'Single Permission' }}</span>
+                        </button>
+                    </span>
+
+                    <!--3. Operational Guide Button (Far Right)-->
                     <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_permissions_help">
-                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        <button type="button" class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0" data-bs-toggle="modal" data-bs-target="#kt_modal_permissions_help">
+                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                         </button>
                     </span>
                 </div>
@@ -115,15 +132,6 @@
                                 <i class="ki-duotone ki-arrows-circle fs-4 me-1"><span class="path1"></span><span class="path2"></span></i> Reset Filter
                             </button>
                         </div>
-                        <!--end::Role Filter Dropdown & Reset-->
-                    </div>
-                    <div class="card-toolbar gap-2">
-                        <button type="button" class="btn btn-primary fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_permission" id="btn_add_batch_permission">
-                            <i class="ki-duotone ki-flash fs-2"><span class="path1"></span><span class="path2"></span></i> + Modul CRUD (Praktis)
-                        </button>
-                        <button type="button" class="btn btn-light-primary fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_permission" id="btn_add_single_permission">
-                            <i class="ki-duotone ki-plus fs-2"></i> Single Permission
-                        </button>
                     </div>
                 </div>
 
