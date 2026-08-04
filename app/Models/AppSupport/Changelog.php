@@ -95,6 +95,51 @@ class Changelog extends Model
     {
         return [
             [
+                'version' => 'v1.4.1',
+                'title' => 'Relational Changelog Database Architecture, Version-Scoped Git Log & Auto-Export Seeder',
+                'title_id' => 'Arsitektur Database Relasional Changelog, Git Log per Versi & Auto-Export Seeder',
+                'date' => '2026-08-04',
+                'type' => 'patch',
+                'badge' => 'badge-light-success',
+                'author' => 'Developer Team',
+                'description' => 'Migrated changelog highlights and commits to dedicated relational database tables with cascade foreign keys, implemented real-time version-scoped Git commit log synchronization, added Version column to Git log view, and built automated database-to-seeder export commands to preserve changelog data consistency across environments.',
+                'description_id' => 'Migrasi highlight dan commit changelog ke tabel relasional database dengan foreign key cascade, implementasi sinkronisasi log commit Git real-time terfilter per rilis versi, penambahan kolom Versi pada tampilan Git log, serta pembuatan perintah otomatis ekspor database ke seeder untuk menjaga konsistensi data antar komputer.',
+                'highlights' => [
+                    [
+                        'type' => 'feat',
+                        'label' => 'Relational DB Migration',
+                        'desc' => 'Migrated JSON columns to changelog_highlights and changelog_commits tables with cascade deletion.',
+                    ],
+                    [
+                        'type' => 'feat',
+                        'label' => 'Version-Scoped Git Sync',
+                        'desc' => 'Added real-time Git log sync per version release tag with automatic commit boundary delimitation.',
+                    ],
+                    [
+                        'type' => 'feat',
+                        'label' => 'Auto-Export to Seeder Code',
+                        'desc' => 'Built php artisan changelog:export & auto-triggers to export DB records to static seeder code for PC/Laptop sync.',
+                    ],
+                    [
+                        'type' => 'ui',
+                        'label' => 'Version Badge Column',
+                        'desc' => 'Added styled Version badge column to Live Git Commit Log table on /appsupport/changelog?tab=git-log.',
+                    ],
+                    [
+                        'type' => 'ui',
+                        'label' => 'Console Developer Integration',
+                        'desc' => 'Added Export Changelog control button to /appsupport/console-developer?tab=setup-maintenance.',
+                    ],
+                ],
+                'commits' => [
+                    [
+                        'hash' => '19c63e8',
+                        'date' => '2026-08-04 07:57',
+                        'msg' => 'feat(changelog): migrasi relasional DB, live git log per versi, & auto-export seeder v1.4.1',
+                    ],
+                ],
+            ],
+            [
                 'version' => 'v1.4.0',
                 'title' => 'Console Developer Web GUI & Full CLI Git Manager Integration',
                 'title_id' => 'Console Developer Web GUI & Integrasi Lengkap CLI Git Manager',

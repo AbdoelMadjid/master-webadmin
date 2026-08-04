@@ -112,7 +112,7 @@
                             <label class="fs-6 fw-semibold m-0 text-gray-900">Daftar Commit Git (Commits Log)</label>
                             <div class="d-flex align-items-center gap-2">
                                 <span data-bs-toggle="tooltip" data-bs-placement="top" title="Tarik log commit Git terbaru secara otomatis dari repositori sistem">
-                                    <button type="button" class="btn btn-sm btn-light-info shadow-xs" onclick="syncLiveGitCommits()">
+                                    <button type="button" class="btn btn-sm btn-light-info shadow-xs" onclick="syncLiveGitCommits(true)">
                                         <i class="ki-duotone ki-arrows-loop fs-3 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
                                         <span class="ms-1">Sync Log Git Realtime</span>
                                     </button>

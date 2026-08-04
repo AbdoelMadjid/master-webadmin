@@ -211,11 +211,19 @@
         }
 
         // Add Highlight Repeater Row
-        function addHighlightRow(label = '', desc = '') {
+        function addHighlightRow(type = 'feat', label = '', desc = '') {
+            var selectedType = type || 'feat';
             var html = `
                 <div class="d-flex align-items-center gap-2 highlight-row">
-                    <input type="text" class="form-control form-control-solid highlight-label" placeholder="Label Fitur (contoh: Console Dev)" value="${escapeHtml(label)}" style="width: 38%;" />
-                    <input type="text" class="form-control form-control-solid highlight-desc" placeholder="Deskripsi Ringkas Poin Fitur..." value="${escapeHtml(desc)}" style="width: 54%;" />
+                    <select class="form-select form-select-solid highlight-type" style="width: 22%;">
+                        <option value="feat" ${selectedType === 'feat' ? 'selected' : ''}>Feature (FEAT)</option>
+                        <option value="fix" ${selectedType === 'fix' ? 'selected' : ''}>Fix (FIX)</option>
+                        <option value="ui" ${selectedType === 'ui' ? 'selected' : ''}>UI / Layout</option>
+                        <option value="docs" ${selectedType === 'docs' ? 'selected' : ''}>Docs (DOCS)</option>
+                        <option value="refactor" ${selectedType === 'refactor' ? 'selected' : ''}>Refactor</option>
+                    </select>
+                    <input type="text" class="form-control form-control-solid highlight-label" placeholder="Label Fitur (contoh: Console Dev)" value="${escapeHtml(label)}" style="width: 30%;" />
+                    <input type="text" class="form-control form-control-solid highlight-desc" placeholder="Deskripsi Ringkas Poin Fitur..." value="${escapeHtml(desc)}" style="width: 42%;" />
                     <span data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Baris">
                         <button type="button" class="btn btn-icon btn-sm btn-light-danger shadow-xs h-35px w-35px p-0 ms-auto" onclick="$(this).closest('.highlight-row').remove()">
                             <i class="ki-duotone ki-trash fs-5 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
@@ -245,14 +253,17 @@
         }
 
         // Sync Live Git Commits into Modal Repeater & DB
-        function syncLiveGitCommits() {
+        function syncLiveGitCommits(isManual = false) {
             var changelogId = $('#changelog_id').val();
             var version = $('#changelog_version').val();
-            Swal.fire({
-                title: "{{ app()->getLocale() == 'en' ? 'Syncing Live Git Log to DB...' : 'Menyinkronkan Log Commit Git ke Database...' }}",
-                allowOutsideClick: false,
-                didOpen: () => { Swal.showLoading(); }
-            });
+
+            if (isManual) {
+                Swal.fire({
+                    title: "{{ app()->getLocale() == 'en' ? 'Syncing Live Git Log to DB...' : 'Menyinkronkan Log Commit Git ke Database...' }}",
+                    allowOutsideClick: false,
+                    didOpen: () => { Swal.showLoading(); }
+                });
+            }
 
             $.ajax({
                 url: "{{ route('appsupport.changelog.live-commits') }}",
@@ -262,21 +273,33 @@
                     version: version
                 },
                 success: function (res) {
-                    Swal.close();
+                    if (isManual) {
+                        Swal.close();
+                    }
                     if (res.success && Array.isArray(res.commits) && res.commits.length > 0) {
                         $('#commits_repeater_container').empty();
                         res.commits.forEach(function(cm) {
                             addCommitRow(cm.hash || '', cm.date || '', cm.message || cm.msg || '');
                         });
-                        var msg = res.message || ("{{ app()->getLocale() == 'en' ? 'Successfully synced ' : 'Berhasil menarik ' }}" + res.commits.length + "{{ app()->getLocale() == 'en' ? ' live Git commits!' : ' commit Git realtime!' }}");
-                        SwalHelper.success(msg);
+                        if (isManual) {
+                            var msg = res.message || ("{{ app()->getLocale() == 'en' ? 'Successfully synced ' : 'Berhasil menarik ' }}" + res.commits.length + "{{ app()->getLocale() == 'en' ? ' live Git commits!' : ' commit Git realtime!' }}");
+                            SwalHelper.success(msg);
+                        }
                     } else {
-                        SwalHelper.error("{{ app()->getLocale() == 'en' ? 'No live Git commits found.' : 'Tidak ada log commit Git ditemukan.' }}");
+                        if (isManual) {
+                            SwalHelper.error("{{ app()->getLocale() == 'en' ? 'No live Git commits found.' : 'Tidak ada log commit Git ditemukan.' }}");
+                        } else if ($('#commits_repeater_container .commit-row').length === 0) {
+                            addCommitRow();
+                        }
                     }
                 },
                 error: function (xhr) {
-                    Swal.close();
-                    SwalHelper.error("{{ app()->getLocale() == 'en' ? 'Failed to fetch live Git log.' : 'Gagal menarik log commit Git.' }}");
+                    if (isManual) {
+                        Swal.close();
+                        SwalHelper.error("{{ app()->getLocale() == 'en' ? 'Failed to fetch live Git log.' : 'Gagal menarik log commit Git.' }}");
+                    } else if ($('#commits_repeater_container .commit-row').length === 0) {
+                        addCommitRow();
+                    }
                 }
             });
         }
@@ -290,8 +313,8 @@
             $('#changelog_author').val('Developer Team');
             $('#highlights_repeater_container').empty();
             $('#commits_repeater_container').empty();
-            addHighlightRow();
-            syncLiveGitCommits();
+            addHighlightRow('feat');
+            addCommitRow();
             $('#kt_modal_changelog_form').modal('show');
         }
 
@@ -329,10 +352,10 @@
             }
             if (Array.isArray(hlArr) && hlArr.length > 0) {
                 hlArr.forEach(function(hl) {
-                    addHighlightRow(hl.label || '', hl.desc || '');
+                    addHighlightRow(hl.type || 'feat', hl.label || '', hl.desc || '');
                 });
             } else {
-                addHighlightRow();
+                addHighlightRow('feat');
             }
 
             // Populate Commits Repeater
@@ -360,10 +383,11 @@
 
             var highlights = [];
             $('.highlight-row').each(function() {
+                var type = $(this).find('.highlight-type').val() || 'feat';
                 var label = $.trim($(this).find('.highlight-label').val());
                 var desc = $.trim($(this).find('.highlight-desc').val());
                 if (label || desc) {
-                    highlights.push({ type: 'feat', label: label, desc: desc });
+                    highlights.push({ type: type, label: label, desc: desc });
                 }
             });
 
