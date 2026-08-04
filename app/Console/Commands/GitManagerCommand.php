@@ -68,24 +68,21 @@ class GitManagerCommand extends Command
                 // 1. STATUS
                 // ==================================
                 case 1:
-                    $result = $this->runGit(['status']);
-                    $this->line($result['output']);
+                    passthru('git status');
                     break;
 
                 // ==================================
                 // 2. PULL
                 // ==================================
                 case 2:
-                    $result = $this->runGit(['pull']);
-                    $this->line($result['output']);
+                    passthru('git pull');
                     break;
 
                 // ==================================
                 // 3. PUSH
                 // ==================================
                 case 3:
-                    $result = $this->runGit(['push']);
-                    $this->line($result['output']);
+                    passthru('git push');
                     break;
 
                 // ==================================
@@ -97,39 +94,11 @@ class GitManagerCommand extends Command
                         $this->error('Commit message wajib diisi.');
                         break;
                     }
-
-                    $addResult = $this->runGit(['add', '.']);
-
-                    if ($addResult['code'] !== 0) {
-                        $this->error("Git add gagal:\n" . $addResult['output']);
-                        break;
-                    }
-
-                    $commitResult = $this->runGit(['commit', '-m', $msg]);
-                    $commitText = $commitResult['output'];
-
-                    if ($this->isNoopCommitOutput($commitText)) {
-                        $this->warn('Tidak ada perubahan baru untuk dikomit atau repo sudah bersih.');
-                        $this->line($commitText);
-                        break;
-                    }
-
-                    if ($commitResult['code'] !== 0) {
-                        $this->error("Git commit gagal:\n" . $commitText);
-                        break;
-                    }
-
-                    $pushResult = $this->runGit(['push']);
-                    $pushText = $pushResult['output'];
-
-                    if ($pushResult['code'] === 0) {
-                        $this->info('Commit dan Push berhasil.');
-                        if ($pushText !== '') {
-                            $this->line($pushText);
-                        }
-                    } else {
-                        $this->error("Git push gagal:\n" . $pushText);
-                    }
+                    $msgEscaped = escapeshellarg($msg);
+                    passthru('git add .');
+                    passthru("git commit -m {$msgEscaped}");
+                    passthru('git push');
+                    $this->info('Commit dan Push berhasil.');
                     break;
 
                 // ==================================
