@@ -1,6 +1,8 @@
 <!--begin::Footer-->
 <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6" id="kt_app_sidebar_footer">
-    <button type="button" class="btn btn-flex align-items-center justify-content-center btn-danger px-4 h-40px w-100 app-sidebar-footer-btn" data-bs-toggle="modal" data-bs-target="#kt_modal_about_app">
+    <button type="button"
+        class="btn btn-flex align-items-center justify-content-center btn-danger px-4 h-40px w-100 app-sidebar-footer-btn"
+        data-bs-toggle="modal" data-bs-target="#kt_modal_about_app">
         <i class="ki-duotone ki-information-5 btn-icon fs-2 me-2 text-white app-sidebar-footer-icon">
             <span class="path1"></span>
             <span class="path2"></span>

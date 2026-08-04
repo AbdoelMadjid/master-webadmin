@@ -23,14 +23,14 @@
         @if (!empty($LightHeader) && $LightHeader === true)
             <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
                 <a href="{{ route('homepage') }}">
-                    <img alt="Logo" src="assets/media/logos/default.svg"
+                    <img alt="Logo" src="assets/media/logos/default.png"
                         class="h-20px h-lg-30px app-sidebar-logo-default theme-light-show" />
                 </a>
             </div>
         @elseif (!empty($DarkHeader) && $DarkHeader === true)
             <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0 me-lg-15">
                 <a href="{{ route('homepage') }}">
-                    <img alt="Logo" src="assets/media/logos/default-dark.svg"
+                    <img alt="Logo" src="assets/media/logos/default-dark.png"
                         class="h-20px h-lg-30px app-sidebar-logo-default" />
                 </a>
             </div>
@@ -46,7 +46,7 @@
             <!--begin::Mobile logo-->
             <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
                 <a href="?page=index" class="d-lg-none">
-                    <img alt="Logo" src="assets/media/logos/default-small.svg" class="h-30px" />
+                    <img alt="Logo" src="assets/media/logos/default-small.png" class="h-30px" />
                 </a>
             </div>
         @endif

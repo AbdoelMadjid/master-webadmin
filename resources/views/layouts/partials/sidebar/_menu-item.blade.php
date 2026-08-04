@@ -30,7 +30,11 @@
         }
 
         foreach (array_values(array_unique($candidates)) as $candidate) {
-            if (auth()->user()->can("read {$candidate}")) {
+            if (
+                auth()
+                    ->user()
+                    ->can("read {$candidate}")
+            ) {
                 return true;
             }
         }
@@ -180,7 +184,7 @@
             @endif
         </div>
     </div>
-{{-- Mode 2: dropdown flyout (meta.dropdown = true) --}}
+    {{-- Mode 2: dropdown flyout (meta.dropdown = true) --}}
 @elseif ($menuIsVisible && $hasChildren && ($menu['dropdown'] ?? false))
     <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="right-start"
         class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention {{ $isActiveParent ? 'here show' : '' }}">
@@ -219,7 +223,7 @@
             @endforeach
         </div>
     </div>
-{{-- Mode 3: leaf item (tanpa children) --}}
+    {{-- Mode 3: leaf item (tanpa children) --}}
 @elseif ($menuIsVisible)
     <div class="menu-item">
         <a class="menu-link {{ $isActiveSelf ? 'active' : '' }}"

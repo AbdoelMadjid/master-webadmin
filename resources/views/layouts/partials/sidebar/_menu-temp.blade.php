@@ -118,73 +118,73 @@
                 <!--end:Menu item-->
 
                 @if (isFeatureActive('group_pages'))
-                <!--begin:Menu item PAGES-->
-                <div class="menu-item pt-5"><!--begin:Menu content-->
-                    <div class="menu-content"><span
-                            class="menu-heading fw-bold text-uppercase fs-7">{{ __('menu.pages') }}</span>
-                    </div><!--end:Menu content-->
-                </div>
-                <!--end:Menu item-->
+                    <!--begin:Menu item PAGES-->
+                    <div class="menu-item pt-5"><!--begin:Menu content-->
+                        <div class="menu-content"><span
+                                class="menu-heading fw-bold text-uppercase fs-7">{{ __('menu.pages') }}</span>
+                        </div><!--end:Menu content-->
+                    </div>
+                    <!--end:Menu item-->
 
-                <!--begin:Menu item-->
-                @foreach (config('sidebar._sidebar_pages.pages_menus') as $menu)
-                    @include('layouts.partials.sidebar._menu-item', ['menu' => $menu])
-                @endforeach
-                <!--end:Menu item PAGES-->
+                    <!--begin:Menu item-->
+                    @foreach (config('sidebar._sidebar_pages.pages_menus') as $menu)
+                        @include('layouts.partials.sidebar._menu-item', ['menu' => $menu])
+                    @endforeach
+                    <!--end:Menu item PAGES-->
                 @endif
 
                 @if (isFeatureActive('group_apps'))
-                <!--begin:Menu item APPS-->
-                <div class="menu-item pt-5">
-                    <!--begin:Menu content-->
-                    <div class="menu-content"><span
-                            class="menu-heading fw-bold text-uppercase fs-7">{{ __('menu.apps') }}</span>
+                    <!--begin:Menu item APPS-->
+                    <div class="menu-item pt-5">
+                        <!--begin:Menu content-->
+                        <div class="menu-content"><span
+                                class="menu-heading fw-bold text-uppercase fs-7">{{ __('menu.apps') }}</span>
+                        </div>
+                        <!--end:Menu content-->
                     </div>
-                    <!--end:Menu content-->
-                </div>
-                <!--end:Menu item-->
+                    <!--end:Menu item-->
 
-                <!--begin:Menu item-->
-                @foreach (config('sidebar._sidebar_apps.apps_menus') as $menu)
-                    @include('layouts.partials.sidebar._menu-item', ['menu' => $menu])
-                @endforeach
-                <!--end:Menu item APPS-->
+                    <!--begin:Menu item-->
+                    @foreach (config('sidebar._sidebar_apps.apps_menus') as $menu)
+                        @include('layouts.partials.sidebar._menu-item', ['menu' => $menu])
+                    @endforeach
+                    <!--end:Menu item APPS-->
                 @endif
 
                 @if (isFeatureActive('group_layouts'))
-                <!--begin:Menu item LAYOUTS-->
-                <div class="menu-item pt-5">
-                    <!--begin:Menu content-->
-                    <div class="menu-content"><span
-                            class="menu-heading fw-bold text-uppercase fs-7">{{ __('menu.layouts') }}</span>
+                    <!--begin:Menu item LAYOUTS-->
+                    <div class="menu-item pt-5">
+                        <!--begin:Menu content-->
+                        <div class="menu-content"><span
+                                class="menu-heading fw-bold text-uppercase fs-7">{{ __('menu.layouts') }}</span>
+                        </div>
+                        <!--end:Menu content-->
                     </div>
-                    <!--end:Menu content-->
-                </div>
-                <!--end:Menu item-->
+                    <!--end:Menu item-->
 
-                <!--begin:Menu item-->
-                @foreach (config('sidebar._sidebar_layouts.layout_menus') as $menu)
-                    @include('layouts.partials.sidebar._menu-item', ['menu' => $menu])
-                @endforeach
-                <!--end:Menu item LAYOUTS-->
+                    <!--begin:Menu item-->
+                    @foreach (config('sidebar._sidebar_layouts.layout_menus') as $menu)
+                        @include('layouts.partials.sidebar._menu-item', ['menu' => $menu])
+                    @endforeach
+                    <!--end:Menu item LAYOUTS-->
                 @endif
 
                 @if (isFeatureActive('group_help'))
-                <!--begin:Menu item HELP-->
-                <div class="menu-item pt-5">
-                    <!--begin:Menu content-->
-                    <div class="menu-content"><span
-                            class="menu-heading fw-bold text-uppercase fs-7">{{ __('menu.help') }}</span>
+                    <!--begin:Menu item HELP-->
+                    <div class="menu-item pt-5">
+                        <!--begin:Menu content-->
+                        <div class="menu-content"><span
+                                class="menu-heading fw-bold text-uppercase fs-7">{{ __('menu.help') }}</span>
+                        </div>
+                        <!--end:Menu content-->
                     </div>
-                    <!--end:Menu content-->
-                </div>
-                <!--end:Menu item-->
+                    <!--end:Menu item-->
 
-                <!--begin:Menu item-->
-                @foreach (config('sidebar._sidebar_helps.help_menus') as $menu)
-                    @include('layouts.partials.sidebar._menu-item', ['menu' => $menu])
-                @endforeach
-                <!--end:Menu item HELP-->
+                    <!--begin:Menu item-->
+                    @foreach (config('sidebar._sidebar_helps.help_menus') as $menu)
+                        @include('layouts.partials.sidebar._menu-item', ['menu' => $menu])
+                    @endforeach
+                    <!--end:Menu item HELP-->
                 @endif
             </div>
             <!--end::Menu-->
