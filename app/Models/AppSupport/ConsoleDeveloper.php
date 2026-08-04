@@ -129,6 +129,28 @@ class ConsoleDeveloper extends Model
         return $logs;
     }
 
+    private static function getRepositoryRoot(?string $cwd = null): string
+    {
+        $candidate = $cwd;
+
+        if (!$candidate && function_exists('getcwd') && getcwd() !== false) {
+            $candidate = getcwd();
+        }
+
+        if (!$candidate) {
+            $candidate = dirname(__DIR__, 3);
+        }
+
+        if (is_string($candidate) && $candidate !== '') {
+            $gitRoot = trim((string) shell_exec('git -C ' . escapeshellarg($candidate) . ' rev-parse --show-toplevel 2>/dev/null'));
+            if ($gitRoot !== '') {
+                return $gitRoot;
+            }
+        }
+
+        return dirname(__DIR__, 3);
+    }
+
     private static function runProcess(array $command, ?string $cwd = null): array
     {
         $descriptors = [
@@ -137,7 +159,7 @@ class ConsoleDeveloper extends Model
             2 => ['pipe', 'w'],
         ];
 
-        $resolvedCwd = $cwd ?: (function_exists('getcwd') && getcwd() !== false ? getcwd() : dirname(__DIR__, 3));
+        $resolvedCwd = self::getRepositoryRoot($cwd);
         $process = proc_open($command, $descriptors, $pipes, $resolvedCwd);
 
         if (!is_resource($process)) {

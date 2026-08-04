@@ -97,9 +97,11 @@ class GitManagerCommand extends Command
 
                     $msgEscaped = escapeshellarg($msg);
 
+                    $repoRoot = base_path();
+
                     $addOutput = [];
                     $addCode = 0;
-                    exec('git add . 2>&1', $addOutput, $addCode);
+                    exec('git -C ' . escapeshellarg($repoRoot) . ' add . 2>&1', $addOutput, $addCode);
 
                     if ($addCode !== 0) {
                         $this->error("Git add gagal:\n" . implode(PHP_EOL, $addOutput));
@@ -108,7 +110,7 @@ class GitManagerCommand extends Command
 
                     $commitOutput = [];
                     $commitCode = 0;
-                    exec("git commit -m {$msgEscaped} 2>&1", $commitOutput, $commitCode);
+                    exec('git -C ' . escapeshellarg($repoRoot) . ' commit -m ' . $msgEscaped . ' 2>&1', $commitOutput, $commitCode);
                     $commitText = implode(PHP_EOL, $commitOutput);
 
                     if ($this->isNoopCommitOutput($commitText)) {
@@ -124,7 +126,7 @@ class GitManagerCommand extends Command
 
                     $pushOutput = [];
                     $pushCode = 0;
-                    exec('git push 2>&1', $pushOutput, $pushCode);
+                    exec('git -C ' . escapeshellarg($repoRoot) . ' push 2>&1', $pushOutput, $pushCode);
                     $pushText = implode(PHP_EOL, $pushOutput);
 
                     if ($pushCode === 0) {

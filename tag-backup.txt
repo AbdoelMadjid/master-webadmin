@@ -43,6 +43,7 @@ c59aa1c71689b7cd1bc3e1f3a44a472969708035        refs/tags/v1.3.2^{}
 d26d5920358a44c46858e30fcdb922224bf6490e        refs/tags/v1.4.1
 323a1f0acf9c15aa337b9e2931099dbfe7e3c7b8        refs/tags/v1.4.1^{}
 
+ini nyoba commit dan push
 
 git log --reverse v1.4.0..v1.4.1 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
 19c63e8 | 2026-08-04 07:57 | feat(changelog): migrasi relasional DB, live git log per versi, & auto-export seeder v1.4.1
