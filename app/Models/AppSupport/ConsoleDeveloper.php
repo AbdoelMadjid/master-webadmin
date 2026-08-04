@@ -203,9 +203,18 @@ class ConsoleDeveloper extends Model
                 }
 
                 $gitCommit = self::runGitProcess(['commit', '-m', $commitMessage]);
+                $commitOutput = $gitCommit['output'] ?: 'OK';
+
+                if (stripos($commitOutput, 'nothing to commit') !== false || stripos($commitOutput, 'working tree clean') !== false) {
+                    $output = "--- GIT ADD ---\n" . ($gitAdd['output'] ?: 'OK') . "\n\n--- GIT COMMIT ---\n" . $commitOutput . "\n\nTidak ada perubahan baru untuk dikomit atau repo sudah bersih.";
+                    $message = 'Git Commit & Push';
+                    $success = true;
+                    break;
+                }
+
                 $gitPush = self::runGitProcess(['push']);
                 $command = "git add . \ngit commit -m {$commitMessage} \ngit push";
-                $output = "--- GIT ADD ---\n" . ($gitAdd['output'] ?: 'OK') . "\n\n--- GIT COMMIT ---\n" . ($gitCommit['output'] ?: 'OK') . "\n\n--- GIT PUSH ---\n" . ($gitPush['output'] ?: 'OK');
+                $output = "--- GIT ADD ---\n" . ($gitAdd['output'] ?: 'OK') . "\n\n--- GIT COMMIT ---\n" . $commitOutput . "\n\n--- GIT PUSH ---\n" . ($gitPush['output'] ?: 'OK');
                 $message = 'Git Commit & Push';
                 $success = $gitAdd['success'] && $gitCommit['success'] && $gitPush['success'];
                 break;
