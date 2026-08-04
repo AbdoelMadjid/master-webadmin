@@ -26,12 +26,7 @@ class ChangelogController extends Controller
         $rawVersions = Changelog::getVersions();
         $commits = Changelog::getLiveGitLog();
 
-        usort($rawVersions, function ($a, $b) {
-            return version_compare(
-                ltrim($b['version'], 'v'),
-                ltrim($a['version'], 'v')
-            );
-        });
+        $rawVersions = Changelog::sortVersionsBySemver($rawVersions);
         // Fetch DB models if table exists so we have IDs for edit/delete
         $dbVersions = Changelog::query()->orderBy('date', 'desc')->orderBy('id', 'desc')->get()->keyBy('version');
 
