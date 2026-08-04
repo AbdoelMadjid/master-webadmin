@@ -56,7 +56,7 @@
                             </span>
                             @if(!empty($ver['id']))
                                 <span data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Versi Rilis">
-                                    <button type="button" class="btn btn-icon btn-sm btn-light-warning shadow-xs h-25px w-25px" onclick='openEditChangelogModal(@json($ver))'>
+                                    <button type="button" class="btn btn-icon btn-sm btn-light-warning shadow-xs h-25px w-25px" data-changelog="{{ json_encode($ver) }}" onclick="openEditChangelogFromBtn(this)">
                                         <i class="ki-duotone ki-pencil fs-6 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
                                     </button>
                                 </span>

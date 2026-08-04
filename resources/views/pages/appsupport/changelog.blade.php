@@ -244,6 +244,43 @@
             $('#commits_repeater_container').append(html);
         }
 
+        // Sync Live Git Commits into Modal Repeater & DB
+        function syncLiveGitCommits() {
+            var changelogId = $('#changelog_id').val();
+            var version = $('#changelog_version').val();
+            Swal.fire({
+                title: "{{ app()->getLocale() == 'en' ? 'Syncing Live Git Log to DB...' : 'Menyinkronkan Log Commit Git ke Database...' }}",
+                allowOutsideClick: false,
+                didOpen: () => { Swal.showLoading(); }
+            });
+
+            $.ajax({
+                url: "{{ route('appsupport.changelog.live-commits') }}",
+                type: 'GET',
+                data: {
+                    changelog_id: changelogId,
+                    version: version
+                },
+                success: function (res) {
+                    Swal.close();
+                    if (res.success && Array.isArray(res.commits) && res.commits.length > 0) {
+                        $('#commits_repeater_container').empty();
+                        res.commits.forEach(function(cm) {
+                            addCommitRow(cm.hash || '', cm.date || '', cm.message || cm.msg || '');
+                        });
+                        var msg = res.message || ("{{ app()->getLocale() == 'en' ? 'Successfully synced ' : 'Berhasil menarik ' }}" + res.commits.length + "{{ app()->getLocale() == 'en' ? ' live Git commits!' : ' commit Git realtime!' }}");
+                        SwalHelper.success(msg);
+                    } else {
+                        SwalHelper.error("{{ app()->getLocale() == 'en' ? 'No live Git commits found.' : 'Tidak ada log commit Git ditemukan.' }}");
+                    }
+                },
+                error: function (xhr) {
+                    Swal.close();
+                    SwalHelper.error("{{ app()->getLocale() == 'en' ? 'Failed to fetch live Git log.' : 'Gagal menarik log commit Git.' }}");
+                }
+            });
+        }
+
         // Open Add Modal
         function openAddChangelogModal() {
             $('#changelog_id').val('');
@@ -254,8 +291,20 @@
             $('#highlights_repeater_container').empty();
             $('#commits_repeater_container').empty();
             addHighlightRow();
-            addCommitRow();
+            syncLiveGitCommits();
             $('#kt_modal_changelog_form').modal('show');
+        }
+
+        // Open Edit Modal from Button attribute
+        function openEditChangelogFromBtn(btn) {
+            var raw = $(btn).attr('data-changelog');
+            if (!raw) return;
+            try {
+                var data = typeof raw === 'string' ? JSON.parse(raw) : raw;
+                openEditChangelogModal(data);
+            } catch (e) {
+                console.error("Failed to parse changelog data", e);
+            }
         }
 
         // Open Edit Modal
@@ -274,8 +323,12 @@
 
             // Populate Highlights Repeater
             $('#highlights_repeater_container').empty();
-            if (Array.isArray(data.highlights) && data.highlights.length > 0) {
-                data.highlights.forEach(function(hl) {
+            var hlArr = data.highlights;
+            if (typeof hlArr === 'string') {
+                try { hlArr = JSON.parse(hlArr); } catch(e) { hlArr = []; }
+            }
+            if (Array.isArray(hlArr) && hlArr.length > 0) {
+                hlArr.forEach(function(hl) {
                     addHighlightRow(hl.label || '', hl.desc || '');
                 });
             } else {
@@ -284,8 +337,12 @@
 
             // Populate Commits Repeater
             $('#commits_repeater_container').empty();
-            if (Array.isArray(data.commits) && data.commits.length > 0) {
-                data.commits.forEach(function(cm) {
+            var cmArr = data.commits;
+            if (typeof cmArr === 'string') {
+                try { cmArr = JSON.parse(cmArr); } catch(e) { cmArr = []; }
+            }
+            if (Array.isArray(cmArr) && cmArr.length > 0) {
+                cmArr.forEach(function(cm) {
                     addCommitRow(cm.hash || '', cm.date || '', cm.msg || '');
                 });
             } else {
@@ -300,12 +357,11 @@
             e.preventDefault();
             var id = $('#changelog_id').val();
             var url = id ? "{{ url('appsupport/changelog') }}/" + id : "{{ route('appsupport.changelog.store') }}";
-            var type = id ? "PUT" : "POST";
 
             var highlights = [];
             $('.highlight-row').each(function() {
-                var label = $(this).find('.highlight-label').val();
-                var desc = $(this).find('.highlight-desc').val();
+                var label = $.trim($(this).find('.highlight-label').val());
+                var desc = $.trim($(this).find('.highlight-desc').val());
                 if (label || desc) {
                     highlights.push({ type: 'feat', label: label, desc: desc });
                 }
@@ -313,16 +369,15 @@
 
             var commits = [];
             $('.commit-row').each(function() {
-                var hash = $(this).find('.commit-hash').val();
-                var date = $(this).find('.commit-date').val();
-                var msg = $(this).find('.commit-msg').val();
+                var hash = $.trim($(this).find('.commit-hash').val());
+                var date = $.trim($(this).find('.commit-date').val());
+                var msg = $.trim($(this).find('.commit-msg').val());
                 if (hash || msg) {
                     commits.push({ hash: hash || 'HEAD', date: date || new Date().toISOString().slice(0, 16).replace('T', ' '), msg: msg });
                 }
             });
 
             var payload = {
-                _token: $('meta[name="csrf-token"]').attr('content'),
                 id: id,
                 version: $('#changelog_version').val(),
                 date: $('#changelog_date').val(),
@@ -337,6 +392,10 @@
                 commits: commits
             };
 
+            if (id) {
+                payload._method = 'PUT';
+            }
+
             Swal.fire({
                 title: "{{ app()->getLocale() == 'en' ? 'Saving Changelog...' : 'Menyimpan Catatan Versi...' }}",
                 allowOutsideClick: false,
@@ -345,8 +404,13 @@
 
             $.ajax({
                 url: url,
-                type: type,
-                data: payload,
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                data: JSON.stringify(payload),
                 success: function (res) {
                     Swal.close();
                     $('#kt_modal_changelog_form').modal('hide');

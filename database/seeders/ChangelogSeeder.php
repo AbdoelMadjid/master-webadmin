@@ -14,8 +14,8 @@ class ChangelogSeeder extends Seeder
     {
         $versions = Changelog::getStaticVersions();
 
-        foreach ($versions as $v) {
-            Changelog::updateOrCreate(
+        foreach ($versions as $index => $v) {
+            $changelog = Changelog::updateOrCreate(
                 ['version' => $v['version']],
                 [
                     'title'          => $v['title'],
@@ -26,10 +26,32 @@ class ChangelogSeeder extends Seeder
                     'author'         => $v['author'] ?? 'Developer Team',
                     'description'    => $v['description'] ?? '',
                     'description_id' => $v['description_id'] ?? ($v['description'] ?? ''),
-                    'highlights'     => $v['highlights'] ?? [],
-                    'commits'        => $v['commits'] ?? [],
                 ]
             );
+
+            // Sync Highlights
+            $changelog->highlights()->delete();
+            if (!empty($v['highlights']) && is_array($v['highlights'])) {
+                foreach ($v['highlights'] as $hl) {
+                    $changelog->highlights()->create([
+                        'type'  => $hl['type'] ?? 'feat',
+                        'label' => $hl['label'] ?? 'Feature',
+                        'desc'  => $hl['desc'] ?? '',
+                    ]);
+                }
+            }
+
+            // Sync Commits
+            $changelog->commits()->delete();
+            if (!empty($v['commits']) && is_array($v['commits'])) {
+                foreach ($v['commits'] as $cm) {
+                    $changelog->commits()->create([
+                        'hash' => $cm['hash'] ?? 'HEAD',
+                        'date' => $cm['date'] ?? date('Y-m-d H:i'),
+                        'msg'  => $cm['msg'] ?? ($cm['message'] ?? ''),
+                    ]);
+                }
+            }
         }
     }
 }

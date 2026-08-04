@@ -73,12 +73,12 @@
     <div class="card-body pt-2">
         <div class="row g-4">
             {{-- 1. Reseed Dynamic Menu & Permissions --}}
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
                     <div>
                         <div class="d-flex align-items-center mb-2">
                             <span class="badge badge-light-primary fw-bold me-2">MENU SEEDER</span>
-                            <h5 class="fw-bold text-gray-900 mb-0">Sinkronkan Menu & Permission (MenuSeeder)</h5>
+                            <h5 class="fw-bold text-gray-900 mb-0">Sinkronkan Menu (MenuSeeder)</h5>
                         </div>
                         <p class="text-muted fs-7 mb-4">
                             {{ app()->getLocale() == 'en'
@@ -93,8 +93,29 @@
                 </div>
             </div>
 
-            {{-- 2. Storage Link --}}
-            <div class="col-md-6">
+            {{-- 2. Export Changelog Dataset to Seeder --}}
+            <div class="col-md-4">
+                <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="d-flex align-items-center mb-2">
+                            <span class="badge badge-light-success fw-bold me-2">CHANGELOG</span>
+                            <h5 class="fw-bold text-gray-900 mb-0">Ekspor Changelog (changelog:export)</h5>
+                        </div>
+                        <p class="text-muted fs-7 mb-4">
+                            {{ app()->getLocale() == 'en'
+                                ? 'Exports all active database changelogs, highlights, and git commits directly into Changelog model seeder array.'
+                                : 'Mengekspor seluruh riwayat rilis changelog, highlight, dan log commit Git di database langsung ke array seeder Changelog model.' }}
+                        </p>
+                    </div>
+                    <button type="button" class="btn btn-success shadow-xs w-100" onclick="triggerMaintenance('changelog_export')">
+                        <i class="ki-duotone ki-cloud-download fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+                        Ekspor Dataset Changelog
+                    </button>
+                </div>
+            </div>
+
+            {{-- 3. Storage Link --}}
+            <div class="col-md-4">
                 <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
                     <div>
                         <div class="d-flex align-items-center mb-2">
@@ -114,7 +135,7 @@
                 </div>
             </div>
 
-            {{-- 3. Application Cache Clear --}}
+            {{-- 4. Application Cache Clear --}}
             <div class="col-md-4">
                 <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
                     <div>
@@ -135,7 +156,7 @@
                 </div>
             </div>
 
-            {{-- 4. Database Migration --}}
+            {{-- 5. Database Migration --}}
             <div class="col-md-4">
                 <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
                     <div>
@@ -156,7 +177,7 @@
                 </div>
             </div>
 
-            {{-- 5. Reset Database & Seed Data --}}
+            {{-- 6. Reset Database & Seed Data --}}
             <div class="col-md-4">
                 <div class="border border-dashed border-gray-300 rounded p-5 bg-light-light h-100 d-flex flex-column justify-content-between">
                     <div>

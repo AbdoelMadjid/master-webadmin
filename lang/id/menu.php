@@ -624,5 +624,4 @@ return array (
   'wizard_modals' => 'Modal Wizard',
   'wizards' => 'Wizard',
   'workflow_developer_harian' => 'Alur Kerja Pengembang Harian',
-  'md_console_developer' => 'Console Developer',
 );

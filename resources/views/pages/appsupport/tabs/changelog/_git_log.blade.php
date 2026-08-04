@@ -22,6 +22,7 @@
                 <thead>
                     <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                         <th class="w-80px text-center">Hash</th>
+                        <th class="min-w-100px text-center">{{ app()->getLocale() == 'en' ? 'Version' : 'Versi' }}</th>
                         <th class="min-w-150px text-center">{{ app()->getLocale() == 'en' ? 'Date & Time' : 'Tanggal & Waktu' }}</th>
                         <th class="min-w-120px text-center">{{ app()->getLocale() == 'en' ? 'Type' : 'Kategori' }}</th>
                         <th class="min-w-300px">{{ app()->getLocale() == 'en' ? 'Commit Message' : 'Pesan Commit' }}</th>
@@ -33,6 +34,11 @@
                         <tr>
                             <td class="text-center">
                                 <code class="text-primary bg-light-primary px-2 py-1 rounded fs-7 fw-bold">{{ $commit['hash'] }}</code>
+                            </td>
+                            <td class="text-center">
+                                <span class="badge badge-light-primary fs-8 fw-bold px-3 py-1">
+                                    {{ $commit['version'] ?? 'v1.4.0' }}
+                                </span>
                             </td>
                             <td class="text-center text-muted fs-7">
                                 {{ $commit['date'] }}
@@ -62,7 +68,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="text-center py-10 text-muted">
+                            <td colspan="6" class="text-center py-10 text-muted">
                                 <i class="ki-duotone ki-folder-search fs-3x mb-3"><span class="path1"></span><span class="path2"></span></i>
                                 <div class="fs-6 fw-semibold">{{ app()->getLocale() == 'en' ? 'No commits found.' : 'Tidak ada log commit ditemukan.' }}</div>
                             </td>

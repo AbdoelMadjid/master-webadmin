@@ -7,6 +7,7 @@ use App\Models\AppSupport\Changelog;
 use App\Http\Requests\AppSupport\ChangelogRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
 
 class ChangelogController extends Controller
 {
@@ -57,12 +58,30 @@ class ChangelogController extends Controller
         $data = $request->validated();
         $this->parseRawArrays($data);
 
-        $changelog = Changelog::create($data);
+        $highlights = $data['highlights'] ?? [];
+        $commits = $data['commits'] ?? [];
+        unset($data['highlights'], $data['commits'], $data['highlights_raw'], $data['commits_raw']);
+
+        $changelog = DB::transaction(function () use ($data, $highlights, $commits) {
+            $changelog = Changelog::create($data);
+
+            if (!empty($highlights)) {
+                $changelog->highlights()->createMany($highlights);
+            }
+
+            if (!empty($commits)) {
+                $changelog->commits()->createMany($commits);
+            }
+
+            return $changelog;
+        });
+
+        Changelog::exportToStaticDataset();
 
         return response()->json([
             'success' => true,
             'message' => 'Catatan versi rilis ' . $changelog->version . ' berhasil ditambahkan!',
-            'data'    => $changelog
+            'data'    => $changelog->load(['highlights', 'commits'])
         ]);
     }
 
@@ -75,12 +94,30 @@ class ChangelogController extends Controller
         $data = $request->validated();
         $this->parseRawArrays($data);
 
-        $changelog->update($data);
+        $highlights = $data['highlights'] ?? [];
+        $commits = $data['commits'] ?? [];
+        unset($data['highlights'], $data['commits'], $data['highlights_raw'], $data['commits_raw']);
+
+        DB::transaction(function () use ($changelog, $data, $highlights, $commits) {
+            $changelog->update($data);
+
+            $changelog->highlights()->delete();
+            if (!empty($highlights)) {
+                $changelog->highlights()->createMany($highlights);
+            }
+
+            $changelog->commits()->delete();
+            if (!empty($commits)) {
+                $changelog->commits()->createMany($commits);
+            }
+        });
+
+        Changelog::exportToStaticDataset();
 
         return response()->json([
             'success' => true,
             'message' => 'Catatan versi rilis ' . $changelog->version . ' berhasil diperbarui!',
-            'data'    => $changelog
+            'data'    => $changelog->load(['highlights', 'commits'])
         ]);
     }
 
@@ -105,6 +142,20 @@ class ChangelogController extends Controller
                 }
             }
             $data['highlights'] = $highlights;
+        } elseif (isset($data['highlights']) && is_array($data['highlights'])) {
+            $cleanHl = [];
+            foreach ($data['highlights'] as $hl) {
+                if (is_array($hl) && (!empty($hl['label']) || !empty($hl['desc']))) {
+                    $cleanHl[] = [
+                        'type'  => $hl['type'] ?? 'feat',
+                        'label' => trim($hl['label'] ?? 'Feature'),
+                        'desc'  => trim($hl['desc'] ?? ''),
+                    ];
+                }
+            }
+            $data['highlights'] = $cleanHl;
+        } else {
+            $data['highlights'] = $data['highlights'] ?? [];
         }
 
         if (!empty($data['commits_raw'])) {
@@ -121,7 +172,65 @@ class ChangelogController extends Controller
                 }
             }
             $data['commits'] = $commits;
+        } elseif (isset($data['commits']) && is_array($data['commits'])) {
+            $cleanCm = [];
+            foreach ($data['commits'] as $cm) {
+                if (is_array($cm) && (!empty($cm['hash']) || !empty($cm['msg']))) {
+                    $cleanCm[] = [
+                        'hash' => trim($cm['hash'] ?? 'HEAD'),
+                        'date' => trim($cm['date'] ?? date('Y-m-d H:i')),
+                        'msg'  => trim($cm['msg'] ?? ''),
+                    ];
+                }
+            }
+            $data['commits'] = $cleanCm;
+        } else {
+            $data['commits'] = $data['commits'] ?? [];
         }
+    }
+
+    /**
+     * Fetch real-time Git commit log history and optional sync to database for active version.
+     */
+    public function liveCommits(Request $request): JsonResponse
+    {
+        $changelogId = $request->query('changelog_id') ?: $request->query('id');
+        $version = $request->query('version');
+
+        if ($changelogId && !$version) {
+            $changelog = Changelog::find($changelogId);
+            if ($changelog) {
+                $version = $changelog->version;
+            }
+        }
+
+        $commits = Changelog::getLiveGitLog($version);
+
+        if ($changelogId) {
+            $changelog = Changelog::find($changelogId);
+            if ($changelog) {
+                DB::transaction(function () use ($changelog, $commits) {
+                    $changelog->commits()->delete();
+                    foreach ($commits as $cm) {
+                        $changelog->commits()->create([
+                            'hash' => $cm['hash'] ?? 'HEAD',
+                            'date' => $cm['date'] ?? date('Y-m-d H:i'),
+                            'msg'  => $cm['message'] ?? ($cm['msg'] ?? ''),
+                        ]);
+                    }
+                });
+
+                Changelog::exportToStaticDataset();
+            }
+        }
+
+        $verLabel = $version ? " versi {$version}" : "";
+
+        return response()->json([
+            'success' => true,
+            'commits' => $commits,
+            'message' => $changelogId ? "Log commit Git{$verLabel} berhasil disinkronkan dan disimpan ke database!" : "Log commit Git{$verLabel} berhasil ditarik!"
+        ]);
     }
 
     /**
@@ -132,6 +241,8 @@ class ChangelogController extends Controller
         $changelog = Changelog::findOrFail($id);
         $ver = $changelog->version;
         $changelog->delete();
+
+        Changelog::exportToStaticDataset();
 
         return response()->json([
             'success' => true,

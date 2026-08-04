@@ -292,6 +292,11 @@ class ConsoleDeveloper extends Model
                 $output = Artisan::output() ?: "Perintah php artisan db:seed MenuSeeder berhasil dieksekusi.";
                 break;
 
+            case 'changelog_export':
+                Artisan::call('changelog:export');
+                $output = Artisan::output() ?: "Perintah php artisan changelog:export berhasil dieksekusi.";
+                break;
+
             case 'migrate_fresh_seed':
                 Artisan::call('migrate:fresh', ['--seed' => true, '--force' => true]);
                 $output = Artisan::output() ?: "Perintah php artisan migrate:fresh --seed berhasil dieksekusi.";

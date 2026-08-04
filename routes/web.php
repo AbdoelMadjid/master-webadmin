@@ -147,6 +147,7 @@ Route::middleware('auth')->group(function () {
 
     // Changelog Routes
     Route::get('appsupport/changelog', [ChangelogController::class, 'index'])->name('appsupport.changelog');
+    Route::get('appsupport/changelog/live-commits', [ChangelogController::class, 'liveCommits'])->name('appsupport.changelog.live-commits');
     Route::post('appsupport/changelog', [ChangelogController::class, 'store'])->name('appsupport.changelog.store');
     Route::put('appsupport/changelog/{id}', [ChangelogController::class, 'update'])->name('appsupport.changelog.update');
     Route::delete('appsupport/changelog/{id}', [ChangelogController::class, 'destroy'])->name('appsupport.changelog.destroy');

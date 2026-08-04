@@ -19,7 +19,7 @@ class ChangelogRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('id');
+        $id = $this->route('id') ?? $this->input('id');
 
         return [
             'version'        => 'required|string|max:50|unique:changelogs,version,' . $id,
@@ -31,10 +31,16 @@ class ChangelogRequest extends FormRequest
             'author'         => 'nullable|string|max:100',
             'description'    => 'required|string',
             'description_id' => 'nullable|string',
-            'highlights_raw' => 'nullable|string',
-            'commits_raw'    => 'nullable|string',
-            'highlights'     => 'nullable|array',
-            'commits'        => 'nullable|array',
+            'highlights_raw'     => 'nullable|string',
+            'commits_raw'        => 'nullable|string',
+            'highlights'         => 'nullable|array',
+            'highlights.*.type'  => 'nullable|string',
+            'highlights.*.label' => 'nullable|string',
+            'highlights.*.desc'  => 'nullable|string',
+            'commits'            => 'nullable|array',
+            'commits.*.hash'     => 'nullable|string',
+            'commits.*.date'     => 'nullable|string',
+            'commits.*.msg'      => 'nullable|string',
         ];
     }
 }
