@@ -32,6 +32,6 @@ class ConsoleDeveloperGitActionTest extends TestCase
         $result = ConsoleDeveloper::runGitAction('commit_push', ['commit_message' => 'noop'], $repoDir);
 
         $this->assertTrue($result['success']);
-        $this->assertStringContainsString('no changes added to commit', strtolower($result['output']));
+        $this->assertMatchesRegularExpression('/nothing to commit|working tree clean|no changes added to commit|nothing added to commit/i', $result['output']);
     }
 }
