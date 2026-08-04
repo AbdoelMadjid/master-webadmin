@@ -1,0 +1,269 @@
+v1.0.0 0672943527deaeb386821c1aaadfd65511105f3c
+v1.0.1 c0788d9255f67dbcbeb89622d61848424eb1812a
+v1.0.2 4addc99a58f1300c7d6ae1e5602731b7acb03775
+v1.1.0 e18378e19fba0ca79b76da5fe6778ec63c498fb5
+v1.1.1 6fce3798063695dd444174a4284f31d3fa486b07
+v1.1.2 67205ec9d3b24b2c0288e38b5f84ecaff5b4821c
+v1.1.3 ed9d06f1516c9c5430207f16a4d13f2083062dfc
+v1.2.0 8147d876518dcadae85238ffb890b3d198608ca6
+v1.3.0 0da5edef903b84b0d13b24753b640629827e5771
+v1.3.1 a423e8d854a57bb70934bbb091fa4e0a9f770dea
+v1.3.2 c59aa1c71689b7cd1bc3e1f3a44a472969708035
+v1.3.3 4a3e727876765fdd803604350092a2731d0b5f1b
+v1.4.0 488af1b2cbc58a1238b335007b904c03211a66a7
+v1.4.1 323a1f0acf9c15aa337b9e2931099dbfe7e3c7b8
+
+git ls-remote --tags origin
+2a7c5bf27d107822c55d7264543a06fe8dbe9742        refs/tags/v1.0.0
+0fdec635ed29a29d69a1225d859edcb0a7e26537        refs/tags/v1.0.0^{}
+c843f4d7662c48d55ad10195f7953f8e6e5a61e0        refs/tags/v1.0.1
+9bbb976230792773fdf8f107932dda7f647151e1        refs/tags/v1.0.1^{}
+c27941fdacfff65e1d1509d66c025b6522618065        refs/tags/v1.0.2
+4addc99a58f1300c7d6ae1e5602731b7acb03775        refs/tags/v1.0.2^{}
+026668fa2ddf95953c44ce5dd6ce7795a9fcfcb2        refs/tags/v1.1.0
+e18378e19fba0ca79b76da5fe6778ec63c498fb5        refs/tags/v1.1.0^{}
+658ebf0f94a195bc8cc13c69eadd006223568c71        refs/tags/v1.1.1
+6fce3798063695dd444174a4284f31d3fa486b07        refs/tags/v1.1.1^{}
+4164a91fd1948502318b55901d209555f4b68821        refs/tags/v1.1.2
+67205ec9d3b24b2c0288e38b5f84ecaff5b4821c        refs/tags/v1.1.2^{}
+01929d088ca5cb57a8b0fca792e19e95258b08f4        refs/tags/v1.1.3
+ed9d06f1516c9c5430207f16a4d13f2083062dfc        refs/tags/v1.1.3^{}
+4b32d877bcdce79734ade63b67f105031d3558a6        refs/tags/v1.2.0
+8147d876518dcadae85238ffb890b3d198608ca6        refs/tags/v1.2.0^{}
+794cc682a1618d132f74d3a712c7026026be8e24        refs/tags/v1.3.0
+0da5edef903b84b0d13b24753b640629827e5771        refs/tags/v1.3.0^{}
+fc7ec959334bfd8b298bb39ee1601288410922c3        refs/tags/v1.3.1
+a423e8d854a57bb70934bbb091fa4e0a9f770dea        refs/tags/v1.3.1^{}
+0c239f09e186238709324679899b148068577d57        refs/tags/v1.3.2
+c59aa1c71689b7cd1bc3e1f3a44a472969708035        refs/tags/v1.3.2^{}
+7ce7d8edcf0c475ef30eb7834afd423ac0df84cd        refs/tags/v1.3.3
+4a3e727876765fdd803604350092a2731d0b5f1b        refs/tags/v1.3.3^{}
+2f3d3cf113660d0c2ea45cecaea6ee119dc54cd5        refs/tags/v1.4.0
+488af1b2cbc58a1238b335007b904c03211a66a7        refs/tags/v1.4.0^{}
+d26d5920358a44c46858e30fcdb922224bf6490e        refs/tags/v1.4.1
+323a1f0acf9c15aa337b9e2931099dbfe7e3c7b8        refs/tags/v1.4.1^{}
+
+
+
+
+git log --reverse v1.4.0..v1.4.1 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+19c63e8 | 2026-08-04 07:57 | feat(changelog): migrasi relasional DB, live git log per versi, & auto-export seeder v1.4.1
+77ca9cf | 2026-08-04 08:18 | Perbaikan form modal changelog versi pengembangan
+dc5f3df | 2026-08-04 08:39 | Update Changelog v1.4.1
+6061217 | 2026-08-04 08:53 | Tambahan Keterangan di setiap tombol Console Developer
+d7ff6ae | 2026-08-04 09:12 | Perbaikan Urutan Changelog Version Release Time
+323a1f0 | 2026-08-04 09:28 | Update Changelog v1.4.1
+
+git log --reverse v1.3.3..v1.4.0 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+ffe1ef2 | 2026-08-03 23:21 | update changelog 1.3.3
+5a5ba42 | 2026-08-04 00:03 | feat(appsupport): tambahkan modul menu Console Developer & Git Manager Web GUI v1.4.0
+fe24cdb | 2026-08-04 00:04 | fix(appsupport): perbaiki eksekusi perintah git bertahap pada Windows PHP shell_exec
+e75a3cd | 2026-08-04 00:08 | fix(appsupport): cegah overwrite output git action & pastikan post_clone_init berjalan bertahap di Windows
+60901a1 | 2026-08-04 00:12 | docs(changelog): update commit hashes untuk versi v1.4.0
+6762977 | 2026-08-04 00:17 | refactor(appsupport): ganti tombol optimize yang mengunci route cache dengan migrasi database aman
+b2b2ceb | 2026-08-04 00:24 | feat(appsupport): ganti post-clone init dengan sinkronisasi MenuSeeder & migrate:fresh --seed
+b765361 | 2026-08-04 00:26 | feat(appsupport): kembalikan kartu Storage Link (storage:link) dalam tata letak 5 kartu maintenance
+2b3f2dc | 2026-08-04 00:30 | feat(appsupport): otomatis reload halaman realtime & alihkan ke login saat migrate:fresh --seed selesai
+42528ed | 2026-08-04 00:33 | docs(changelog): perbarui catatan rincian commit & perbaikan lengkap rilis versi v1.4.0
+d417ce0 | 2026-08-04 00:38 | feat(appsupport): migrasi dataset Changelog ke database tabel changelogs & seeder dinamis
+1e7518f | 2026-08-04 00:43 | feat(appsupport): tambahkan tombol & modal form CRUD versi rilis pada modul Changelog
+f65099c | 2026-08-04 00:46 | feat(appsupport): tambahkan bidang input pengeditan commit log & highlights pada modal form changelog
+488af1b | 2026-08-04 00:57 | feat(appsupport): tingkatkan UI modal changelog dengan input dinamis repeater & tombol Tambah Commit
+
+git log --reverse v1.3.2..v1.3.3 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+7f9a319 | 2026-08-03 20:11 | Update tombol di bagian bawah sidebar dengan About
+2171c2f | 2026-08-03 20:15 | Update Changelog v1.3.2
+e30c66b | 2026-08-03 21:30 | refactor(manajemen-pengguna): tingkatkan matriks permission & auto-sync parent-child pada role, akses-role, dan akses-user
+4531ec0 | 2026-08-03 22:05 | Update Changelog v1.3.3
+4a3e727 | 2026-08-03 23:15 | Update Permission di Manajemen Pengguna
+
+git log --reverse v1.3.1..v1.3.2 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+8360d8d | 2026-08-03 15:29 | update changelog
+a9062e5 | 2026-08-03 15:48 | Update perintah Git Manager
+8836350 | 2026-08-03 15:54 | Update Console Command Git Manager
+0957a96 | 2026-08-03 15:57 | Update Changelog v1.3.2
+c59aa1c | 2026-08-03 16:02 | Update Chengelog v1.3.2
+
+git log --reverse v1.3.0..v1.3.1 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+a423e8d | 2026-08-03 15:25 | Perbaikan tombol di setiap halaman agar dinamis di layar mobile
+
+git log --reverse v1.2.0..v1.3.0 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+82f5fb6 | 2026-08-02 21:29 | Update
+2023a0d | 2026-08-02 21:57 | Perbaikan activity log
+6264072 | 2026-08-03 09:12 | Menambahkan tombol tambah pada menu
+b133204 | 2026-08-03 12:06 | Penambahan Skema dan Operasional penambahan menu di route appsupport/menu
+fe73129 | 2026-08-03 12:28 | Update Changelog
+08cffdb | 2026-08-03 14:10 | Update help skema pemograman operasional tambah menu via route
+58d2dd7 | 2026-08-03 14:42 | Perbaikan Profil Aplikasi
+0da5ede | 2026-08-03 14:46 | Perbaikan Ukuran Logo Sidebar
+
+git log --reverse v1.1.3..v1.2.0 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+756daf6 | 2026-08-02 20:56 | Merpihkan tampilan halaman changelog
+8147d87 | 2026-08-02 21:14 | Perbaikan changelog di models
+
+git log --reverse v1.1.2..v1.1.3 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+d3ba3f3 | 2026-07-29 22:39 | Tambahan Multi template Website
+9ff612e | 2026-07-29 22:54 | Perbaikan/tambahan  kekurangan Multi Template
+44a39e1 | 2026-07-29 22:55 | Perbaikan/tambahan kekurangan Multi Template
+0115cdd | 2026-08-02 20:19 | Perbaikan tombol di website features
+ed9d06f | 2026-08-02 20:37 | Tambahan Menu Changelog
+
+git log --reverse v1.1.1..v1.1.2 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+cda188c | 2026-07-29 19:52 | Perbaikan Petunjuk Operasional Profil dan Fitur Website
+b2f0b98 | 2026-07-29 21:25 | Tambah halaman Page Content
+b9112af | 2026-07-29 21:54 | Perbaikan dan tambahan fitur di route public
+67205ec | 2026-07-29 21:58 | Perbaikan seeder
+
+git log --reverse v1.1.0..v1.1.1 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+29df1d1 | 2026-07-29 14:36 | Tambah halaman profil website
+590aa01 | 2026-07-29 14:48 | Implementasi nama aplikasi di title header html
+6fce379 | 2026-07-29 15:30 | Tambah halaman fitur web site dan tambah sosial media di profil websiter
+
+git log --reverse v1.0.2..v1.1.0 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+e18378e | 2026-07-29 14:01 | Menambahkan Halaman Menu untuk Web
+
+git log --reverse v1.0.1..v1.0.2 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+178e6fe | 2026-07-27 21:07 | feat: add website data menu seeder and refactor education module to website (v1.0.2)
+b0e23f2 | 2026-07-27 22:56 | tambah menu website data
+aed4fd2 | 2026-07-27 23:05 | tambah menu website data
+975daf3 | 2026-07-28 13:11 | perbaikan menu
+c512f0c | 2026-07-28 13:53 | Tambah Command Perintah Git
+c1f59d8 | 2026-07-28 20:06 | Perbikan GitManagerCommand
+4addc99 | 2026-07-29 12:52 | Perbaikan Tampilan Modul/Fitur Berurut Sesuai Tingkat Menu
+
+git log --reverse v1.0.0..v1.0.1 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+3d18a05 | 2026-07-27 11:35 | fix(docs): add explicit HTML anchors to README table of contents links
+787e922 | 2026-07-27 11:36 | docs: add Back to Table of Contents buttons at the end of each section in README
+21017d7 | 2026-07-27 11:39 | docs: add internal schema docs link to main README & review docs/skema-pemrograman/README.md
+45dd6aa | 2026-07-27 11:54 | docs: add MVC architecture & view folder structure section to main README
+5b9d822 | 2026-07-27 11:57 | docs: add Mermaid MVC architecture request flow diagram to README
+b2f8529 | 2026-07-27 11:59 | fix(docs): fix Mermaid syntax error by removing parentheses in edge labels
+26de9d8 | 2026-07-27 12:00 | docs: add detailed step-by-step explanation for Mermaid MVC request flow diagram
+1d7b43b | 2026-07-27 12:02 | docs: format Hierarki Folder Views ASCII tree and detailed explanations in README
+665ee77 | 2026-07-27 12:19 | feat(security): add Lock Screen option to avatar dropdown & update README docs
+c0255d0 | 2026-07-27 12:23 | feat(security): implement interactive Lock Screen overlay modal with AJAX password verification
+e423233 | 2026-07-27 12:26 | fix(ui): use native Metronic data-kt-indicator for smooth lock screen button loading animation
+92e7780 | 2026-07-27 12:28 | docs(help): update Skema & Operasional Pemrograman views with Lock Screen overlay architecture
+74b2ca3 | 2026-07-27 12:29 | docs: add Version v1.0.1 badge to main README header
+9eb1937 | 2026-07-27 12:31 | docs: update Version badge URL to point to GitHub tags page
+8640c0e | 2026-07-27 12:34 | docs: add detailed Changelog section for v1.0.0 and v1.0.1 in README
+ee3fc7a | 2026-07-27 12:38 | docs: move Changelog section right before Lisensi section in README
+cc5d9bb | 2026-07-27 12:40 | docs: remove GitHub Release guide and Topics setup sections from README
+8406c28 | 2026-07-27 12:47 | docs: remove hardcoded version string from README description paragraph
+bd4c6a2 | 2026-07-27 12:55 | feat(help): add Release & Git Tagging operational guide module and navigation configs
+9bbb976 | 2026-07-27 12:59 | style(help): remove icon tags from card headings in release guide & clean README badges
+
+
+git log --reverse v1.0.0 --pretty=format:"%h | %ad | %s" --date=format:"%Y-%m-%d %H:%M"
+7682a13 | 2026-07-22 17:13 | master-webadmin metronic laravel 12
+25326fc | 2026-07-22 17:20 | perbaikan readme.md
+5b85610 | 2026-07-22 17:22 | perbaikan .env
+b5ca297 | 2026-07-22 17:34 | perbaikan seeder
+6a80f9e | 2026-07-22 20:29 | tambah halaman profil pengguna
+0a1c51c | 2026-07-22 20:43 | perbaikan overlad tanda error dengan eyes
+0946493 | 2026-07-22 21:28 | setting halaman profil-pengguna
+30d7aed | 2026-07-22 21:56 | tambah content halaman menu
+46332fb | 2026-07-22 23:22 | tambah halaman app profil
+1d7755e | 2026-07-23 07:47 | menambah seeder app profil
+a7a4cf7 | 2026-07-23 08:03 | tambah halaman backup db
+2b9f9ec | 2026-07-23 08:23 | melengkapi fungsi-fungsi di menu
+360af1b | 2026-07-23 08:27 | merubah halaman  appsupport/app-profil
+a47aef6 | 2026-07-23 09:08 | melengkapi halaman fitur aplikasi
+b2e77dc | 2026-07-23 09:37 | update halaman users/pengguna
+f1534b2 | 2026-07-23 09:45 | update tampilan fitur
+e46a5e6 | 2026-07-23 10:24 | tambahan poin login user
+f9054eb | 2026-07-23 11:01 | tambahan point login user
+2874759 | 2026-07-23 11:13 | tambahan iddle dan logout otomatis
+4a7169a | 2026-07-23 11:37 | tambahan data login
+49528b5 | 2026-07-23 12:06 | tambahan skema pemograman
+3085d96 | 2026-07-23 12:56 | melengkapi halaman managemenpengguna
+03c2e0a | 2026-07-23 13:04 | tambah skema manajemen pengguna
+31986d6 | 2026-07-23 13:15 | tambah upload massal user
+322655f | 2026-07-23 13:17 | update perekaman waktu sesuai device
+f3ebf48 | 2026-07-23 13:45 | membuat switch user
+9f11763 | 2026-07-23 13:52 | perbaikan di manajemenpengguna/roles
+16f8e90 | 2026-07-23 14:33 | perbaikan di notifikasi log
+fa09331 | 2026-07-23 15:01 | tambahan reset password
+180c18f | 2026-07-23 15:27 | perbaikan skema
+e3e1d4c | 2026-07-23 15:36 | perbaikan drop down avatar di user bagian kanan atas
+b2f7ddb | 2026-07-23 15:54 | tambahan register
+608d0e4 | 2026-07-23 16:00 | tambahan help register
+0c2d56b | 2026-07-23 16:26 | perbaikan avatar, nama pengguna dan route menu
+b67bbb2 | 2026-07-23 20:12 | merapihkan operview
+f2a7c71 | 2026-07-23 20:42 | perbaikan app fitur dan reset password
+000f778 | 2026-07-23 20:55 | perbaikan seeder
+7f54328 | 2026-07-23 20:58 | perbaikan timer
+8131ee3 | 2026-07-23 21:03 | perbaikan seeder
+6b44b19 | 2026-07-23 21:07 | perbaikan readme.md
+e575794 | 2026-07-23 21:18 | memindahkan bilingual
+72727ad | 2026-07-23 21:39 | tambahan widget di dashboard
+7e0a1bc | 2026-07-23 21:51 | perbaikan manajemen  pengguna
+f68c797 | 2026-07-23 22:37 | perbaikan manajemen pengguna users
+1b84590 | 2026-07-23 22:49 | perbaikan manajemen pengguna users
+d37d814 | 2026-07-23 22:56 | tombol icon pakai tooltips
+a4130d1 | 2026-07-23 23:04 | perbaikan manajemen pengguna
+6fffa40 | 2026-07-23 23:50 | perbaikan tampilan
+41c8027 | 2026-07-24 00:11 | perbaikan tampilan
+cc9db39 | 2026-07-24 08:35 | perbaikan dashboard
+ad7938e | 2026-07-24 08:49 | perbaikan notifikasi
+18b8067 | 2026-07-24 09:10 | perbaikan permission
+ec68870 | 2026-07-24 09:42 | perbaikan help
+49ed946 | 2026-07-24 09:46 | perbaikan help
+23087c6 | 2026-07-24 09:53 | perbaikan help
+f245f2a | 2026-07-24 10:17 | perbaikan help bilingual
+a1b65ed | 2026-07-24 10:28 | perbaikan help bilingual
+2ca96b0 | 2026-07-24 10:32 | update readme.md
+5d4debf | 2026-07-24 10:36 | update readme.md
+bbaf0b0 | 2026-07-24 10:39 | update readme.md
+358b117 | 2026-07-24 16:34 | tambahan user detail dan pengamanan
+3d41a30 | 2026-07-24 16:42 | perbaikan notifikasi
+db2e544 | 2026-07-24 16:48 | perbaikan notifikasi reset password
+b043a51 | 2026-07-24 16:52 | perbaikan pengajuan akun baru
+7a63fec | 2026-07-24 22:46 | perbaikan dan update help
+702ca14 | 2026-07-24 23:13 | perbaikan dan update help
+b9cf876 | 2026-07-24 23:22 | perbaikan dan update help
+975b85f | 2026-07-25 17:05 | perbaikan tampilan help
+ecca40f | 2026-07-25 17:29 | perbaikan tata letak file blade
+c2f12c7 | 2026-07-25 17:38 | perbaikan tata letak file
+515c43a | 2026-07-25 17:53 | perbaikan simpan avatar
+1631e63 | 2026-07-25 17:56 | hapus avatar
+63c0a5e | 2026-07-25 18:06 | perbaikan readme.md
+cbbde53 | 2026-07-25 18:09 | perbaikan readme.md
+3f9affe | 2026-07-25 18:11 | perbaikan readme.md
+a127591 | 2026-07-25 18:17 | perbaikan readme.md
+b494eba | 2026-07-25 18:24 | update
+e6d625e | 2026-07-25 18:28 | update
+611d2e2 | 2026-07-26 14:20 | perbaikan nama menu help
+247e1ed | 2026-07-26 14:27 | perbaikan halaman operasional
+121afb6 | 2026-07-26 14:33 | perbaikan bilingual menu
+4e6290d | 2026-07-26 14:57 | tambahan petunjuk
+7a579e1 | 2026-07-26 15:10 | petunjuk di halaman app support
+4bb6e1a | 2026-07-26 15:17 | ganti bilingual di menu seeder
+3cd6aa7 | 2026-07-26 15:34 | tambah halaman referensi
+82f0839 | 2026-07-26 15:38 | tambah halaman referensi
+2de54b7 | 2026-07-26 15:43 | memperbaiki atmpilam help-modal
+3127322 | 2026-07-26 15:54 | perbaikan referensi
+721650c | 2026-07-26 15:56 | update
+b1f1229 | 2026-07-26 20:30 | perbaikan profil pengguna
+475789e | 2026-07-26 20:45 | perbaikan dashboard
+425b2ef | 2026-07-26 21:13 | perbaikan register
+6d40a31 | 2026-07-26 21:16 | perbaikan notifikasi keluar otomatis
+9c6fd38 | 2026-07-26 21:30 | perbaikan dashboard
+258be61 | 2026-07-26 22:09 | perbaikan akses user dan help
+61c08d5 | 2026-07-26 23:18 | perbaikan users
+315e2ee | 2026-07-27 07:32 | perbaikan akses-user dan role
+f6f1207 | 2026-07-27 09:32 | tambahan overviews help
+4accfae | 2026-07-27 11:12 | tambahan log activity
+8a06754 | 2026-07-27 11:21 | tambahan throttle
+30a6b46 | 2026-07-27 11:26 | update overview help
+0fdec63 | 2026-07-27 11:31 | docs: update README with development checklist roadmap & release guide
+
+
+git status
+git add .
+git commit -m "feat(appsupport): update changelog release v1.4.2"
+git log --oneline -5
+git tag -a v1.4.2 -m "Release v1.4.2"
+git show v1.4.2
+git push origin main
+git push origin v1.4.2
