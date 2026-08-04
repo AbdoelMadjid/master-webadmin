@@ -194,6 +194,14 @@ class ConsoleDeveloper extends Model
             case 'commit_push':
                 $commitMessage = trim((string) ($params['commit_message'] ?? 'Update'));
                 $gitAdd = self::runGitProcess(['add', '.']);
+
+                if (!$gitAdd['success']) {
+                    $output = "--- GIT ADD ---\n" . ($gitAdd['output'] ?: 'OK');
+                    $message = 'Git Commit & Push';
+                    $success = false;
+                    break;
+                }
+
                 $gitCommit = self::runGitProcess(['commit', '-m', $commitMessage]);
                 $gitPush = self::runGitProcess(['push']);
                 $command = "git add . \ngit commit -m {$commitMessage} \ngit push";
