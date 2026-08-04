@@ -68,11 +68,14 @@
                 </div>
             </div>
 
-            <div class="d-flex justify-content-end">
+            <div class="d-flex flex-column align-items-end">
                 <button type="submit" class="btn btn-primary shadow-xs" id="kt_btn_submit_gen">
                     <i class="ki-duotone ki-check fs-2 me-1"><span class="path1"></span><span class="path2"></span></i>
                     {{ app()->getLocale() == 'en' ? 'Generate Components Now' : 'Jalankan Generator Sekarang' }}
                 </button>
+                <div class="text-muted fs-8 mt-2">
+                    {{ app()->getLocale() == 'en' ? 'Generates files adhering to AGENTS.md architecture' : 'Membuat file komponen otomatis sesuai standar AGENTS.md' }}
+                </div>
             </div>
         </form>
     </div>

@@ -24,6 +24,9 @@
                         <i class="ki-duotone ki-arrows-loop fs-2 me-1"><span class="path1"></span><span class="path2"></span></i>
                         Jalankan Konversi HTML ke Blade
                     </button>
+                    <div class="text-muted fs-8 text-center mt-2">
+                        {{ app()->getLocale() == 'en' ? 'Recursively renames *.html files to *.blade.php in target folder' : 'Mengubah ekstensi *.html menjadi *.blade.php secara rekursif' }}
+                    </div>
                 </form>
             </div>
         </div>
@@ -67,6 +70,9 @@
                         <i class="ki-duotone ki-check fs-2 me-1"><span class="path1"></span><span class="path2"></span></i>
                         Eksekusi Perubahan Prefix Massal
                     </button>
+                    <div class="text-muted fs-8 text-center mt-2">
+                        {{ app()->getLocale() == 'en' ? 'Batch prepends or strips target prefix string on filenames' : 'Menambah atau menghapus prefix teks target pada nama file' }}
+                    </div>
                 </form>
             </div>
         </div>

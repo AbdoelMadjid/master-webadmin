@@ -86,10 +86,15 @@
                                 : 'Menjalankan php artisan db:seed MenuSeeder untuk menyegarkan hirarki menu, route, dan izin akses role dari file konfigurasi.' }}
                         </p>
                     </div>
-                    <button type="button" class="btn btn-primary shadow-xs w-100" onclick="triggerMaintenance('seed_menu')">
-                        <i class="ki-duotone ki-arrows-loop fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
-                        Jalankan MenuSeeder Now
-                    </button>
+                    <div>
+                        <button type="button" class="btn btn-primary shadow-xs w-100" onclick="triggerMaintenance('seed_menu')">
+                            <i class="ki-duotone ki-arrows-loop fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+                            Jalankan MenuSeeder Now
+                        </button>
+                        <div class="text-muted fs-8 text-center mt-2">
+                            <code>php artisan db:seed --class=MenuSeeder</code>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -107,10 +112,15 @@
                                 : 'Mengekspor seluruh riwayat rilis changelog, highlight, dan log commit Git di database langsung ke array seeder Changelog model.' }}
                         </p>
                     </div>
-                    <button type="button" class="btn btn-success shadow-xs w-100" onclick="triggerMaintenance('changelog_export')">
-                        <i class="ki-duotone ki-cloud-download fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
-                        Ekspor Dataset Changelog
-                    </button>
+                    <div>
+                        <button type="button" class="btn btn-success shadow-xs w-100" onclick="triggerMaintenance('changelog_export')">
+                            <i class="ki-duotone ki-cloud-download fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+                            Ekspor Dataset Changelog
+                        </button>
+                        <div class="text-muted fs-8 text-center mt-2">
+                            <code>php artisan changelog:export</code>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -128,10 +138,15 @@
                                 : 'Membuat symbolic link dari public/storage ke storage/app/public agar berkas publik yang diunggah dapat diakses.' }}
                         </p>
                     </div>
-                    <button type="button" class="btn btn-dark shadow-xs w-100" onclick="triggerMaintenance('storage_link')">
-                        <i class="ki-duotone ki-link fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
-                        Buat Storage Symbolic Link
-                    </button>
+                    <div>
+                        <button type="button" class="btn btn-dark shadow-xs w-100" onclick="triggerMaintenance('storage_link')">
+                            <i class="ki-duotone ki-link fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+                            Buat Storage Symbolic Link
+                        </button>
+                        <div class="text-muted fs-8 text-center mt-2">
+                            <code>php artisan storage:link</code>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -149,10 +164,15 @@
                                 : 'Menghapus seluruh cache framework termasuk route, konfigurasi, kompilasi view template, dan event listener.' }}
                         </p>
                     </div>
-                    <button type="button" class="btn btn-warning shadow-xs w-100" onclick="triggerMaintenance('clear_cache')">
-                        <i class="ki-duotone ki-trash fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
-                        Hapus Semua Cache Aplikasi
-                    </button>
+                    <div>
+                        <button type="button" class="btn btn-warning shadow-xs w-100" onclick="triggerMaintenance('clear_cache')">
+                            <i class="ki-duotone ki-trash fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                            Hapus Semua Cache Aplikasi
+                        </button>
+                        <div class="text-muted fs-8 text-center mt-2">
+                            <code>php artisan optimize:clear</code>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -170,10 +190,15 @@
                                 : 'Menjalankan skrip migrasi database aplikasi yang belum tereksekusi secara aman tanpa merusak data.' }}
                         </p>
                     </div>
-                    <button type="button" class="btn btn-info shadow-xs w-100" onclick="triggerMaintenance('migrate')">
-                        <i class="ki-duotone ki-database fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
-                        Jalankan Migrasi Database
-                    </button>
+                    <div>
+                        <button type="button" class="btn btn-info shadow-xs w-100" onclick="triggerMaintenance('migrate')">
+                            <i class="ki-duotone ki-database fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+                            Jalankan Migrasi Database
+                        </button>
+                        <div class="text-muted fs-8 text-center mt-2">
+                            <code>php artisan migrate</code>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -191,10 +216,15 @@
                                 : 'Menghapus seluruh tabel database dan mengisinya kembali dari awal dengan data seeder bawaan.' }}
                         </p>
                     </div>
-                    <button type="button" class="btn btn-danger shadow-xs w-100" onclick="confirmMigrateFreshSeed()">
-                        <i class="ki-duotone ki-arrows-circle fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
-                        Reset Database & Seed Data
-                    </button>
+                    <div>
+                        <button type="button" class="btn btn-danger shadow-xs w-100" onclick="confirmMigrateFreshSeed()">
+                            <i class="ki-duotone ki-arrows-circle fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+                            Reset Database & Seed Data
+                        </button>
+                        <div class="text-muted fs-8 text-center mt-2">
+                            <code>php artisan migrate:fresh --seed</code>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
