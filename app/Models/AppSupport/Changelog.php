@@ -133,6 +133,11 @@ class Changelog extends Model
                 ],
                 'commits' => [
                     [
+                        'hash' => '77ca9cf',
+                        'date' => '2026-08-04 08:18',
+                        'msg' => 'Perbaikan form modal changelog versi pengembangan',
+                    ],
+                    [
                         'hash' => '19c63e8',
                         'date' => '2026-08-04 07:57',
                         'msg' => 'feat(changelog): migrasi relasional DB, live git log per versi, & auto-export seeder v1.4.1',
