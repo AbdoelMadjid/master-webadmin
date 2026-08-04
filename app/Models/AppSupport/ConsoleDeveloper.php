@@ -162,15 +162,25 @@ class ConsoleDeveloper extends Model
         ];
     }
 
-    private static function runGitProcess(array $command): array
+    private static function runGitProcess(array $command, ?string $cwd = null): array
     {
-        return self::runProcess(array_merge(['git'], $command));
+        return self::runProcess(array_merge(['git'], $command), $cwd);
+    }
+
+    private static function isNoopCommitOutput(string $output): bool
+    {
+        $normalized = strtolower(trim($output));
+
+        return str_contains($normalized, 'nothing to commit')
+            || str_contains($normalized, 'working tree clean')
+            || str_contains($normalized, 'no changes added to commit')
+            || str_contains($normalized, 'nothing added to commit');
     }
 
     /**
      * Execute Git action safely and capture output.
      */
-    public static function runGitAction(string $action, array $params = []): array
+    public static function runGitAction(string $action, array $params = [], ?string $cwd = null): array
     {
         $command = '';
         $message = '';
@@ -193,7 +203,7 @@ class ConsoleDeveloper extends Model
                 break;
             case 'commit_push':
                 $commitMessage = trim((string) ($params['commit_message'] ?? 'Update'));
-                $gitAdd = self::runGitProcess(['add', '.']);
+                $gitAdd = self::runGitProcess(['add', '.'], $cwd);
 
                 if (!$gitAdd['success']) {
                     $output = "--- GIT ADD ---\n" . ($gitAdd['output'] ?: 'OK');
@@ -202,10 +212,10 @@ class ConsoleDeveloper extends Model
                     break;
                 }
 
-                $gitCommit = self::runGitProcess(['commit', '-m', $commitMessage]);
+                $gitCommit = self::runGitProcess(['commit', '-m', $commitMessage], $cwd);
                 $commitOutput = $gitCommit['output'] ?: 'OK';
 
-                if (stripos($commitOutput, 'nothing to commit') !== false || stripos($commitOutput, 'working tree clean') !== false) {
+                if (self::isNoopCommitOutput($commitOutput)) {
                     $output = "--- GIT ADD ---\n" . ($gitAdd['output'] ?: 'OK') . "\n\n--- GIT COMMIT ---\n" . $commitOutput . "\n\nTidak ada perubahan baru untuk dikomit atau repo sudah bersih.";
                     $message = 'Git Commit & Push';
                     $success = true;
@@ -219,7 +229,7 @@ class ConsoleDeveloper extends Model
                     break;
                 }
 
-                $gitPush = self::runGitProcess(['push']);
+                $gitPush = self::runGitProcess(['push'], $cwd);
                 $command = "git add . \ngit commit -m {$commitMessage} \ngit push";
                 $output = "--- GIT ADD ---\n" . ($gitAdd['output'] ?: 'OK') . "\n\n--- GIT COMMIT ---\n" . $commitOutput . "\n\n--- GIT PUSH ---\n" . ($gitPush['output'] ?: 'OK');
                 $message = 'Git Commit & Push';

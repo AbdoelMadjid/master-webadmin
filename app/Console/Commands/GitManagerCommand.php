@@ -94,11 +94,47 @@ class GitManagerCommand extends Command
                         $this->error('Commit message wajib diisi.');
                         break;
                     }
+
                     $msgEscaped = escapeshellarg($msg);
-                    passthru('git add .');
-                    passthru("git commit -m {$msgEscaped}");
-                    passthru('git push');
-                    $this->info('Commit dan Push berhasil.');
+
+                    $addOutput = [];
+                    $addCode = 0;
+                    exec('git add . 2>&1', $addOutput, $addCode);
+
+                    if ($addCode !== 0) {
+                        $this->error("Git add gagal:\n" . implode(PHP_EOL, $addOutput));
+                        break;
+                    }
+
+                    $commitOutput = [];
+                    $commitCode = 0;
+                    exec("git commit -m {$msgEscaped} 2>&1", $commitOutput, $commitCode);
+                    $commitText = implode(PHP_EOL, $commitOutput);
+
+                    if ($this->isNoopCommitOutput($commitText)) {
+                        $this->warn('Tidak ada perubahan baru untuk dikomit atau repo sudah bersih.');
+                        $this->line($commitText);
+                        break;
+                    }
+
+                    if ($commitCode !== 0) {
+                        $this->error("Git commit gagal:\n" . $commitText);
+                        break;
+                    }
+
+                    $pushOutput = [];
+                    $pushCode = 0;
+                    exec('git push 2>&1', $pushOutput, $pushCode);
+                    $pushText = implode(PHP_EOL, $pushOutput);
+
+                    if ($pushCode === 0) {
+                        $this->info('Commit dan Push berhasil.');
+                        if ($pushText !== '') {
+                            $this->line($pushText);
+                        }
+                    } else {
+                        $this->error("Git push gagal:\n" . $pushText);
+                    }
                     break;
 
                 // ==================================
@@ -779,12 +815,12 @@ PHP;
 <div class="d-flex flex-column flex-column-fluid">
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_content_container" class="app-container container-fluid">
-            
+
             {{-- Header Action Bar --}}
             <div class="card mb-5">
                 <div class="card-body d-flex align-items-center justify-content-between py-4">
                     <h3 class="fw-bold text-gray-900 m-0">{$title}</h3>
-                    
+
                     <div class="d-flex align-items-center gap-2 ms-auto">
                         <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Add New Data' : 'Tambah Data Baru' }}">
                             <button type="button" class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4" onclick="openAddModal()">
@@ -857,12 +893,12 @@ BLADE;
                     <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
                 </div>
             </div>
-            
+
             <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                 <form id="kt_modal_{$kebab}_form_element" class="form" action="#">
                     @csrf
                     <input type="hidden" name="id" id="{$kebab}_id">
-                    
+
                     <div class="text-center mb-13">
                         <h1 class="mb-3" id="modal_{$kebab}_title">{{ app()->getLocale() == 'en' ? 'Form {$title}' : 'Form {$title}' }}</h1>
                         <div class="text-muted fw-semibold fs-5">{{ app()->getLocale() == 'en' ? 'Fill in the required information' : 'Lengkapi data berikut dengan benar' }}</div>
@@ -1062,6 +1098,16 @@ BLADE;
         $this->line(" Branch Aktif : {$branch}");
         $this->line(" Environment  : " . app()->environment());
         $this->newLine();
+    }
+
+    private function isNoopCommitOutput(string $output): bool
+    {
+        $normalized = strtolower(trim($output));
+
+        return str_contains($normalized, 'nothing to commit')
+            || str_contains($normalized, 'working tree clean')
+            || str_contains($normalized, 'no changes added to commit')
+            || str_contains($normalized, 'nothing added to commit');
     }
 
     private function getCurrentBranch(): string
