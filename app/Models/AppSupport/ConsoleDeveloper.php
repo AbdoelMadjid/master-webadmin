@@ -212,11 +212,18 @@ class ConsoleDeveloper extends Model
                     break;
                 }
 
+                if (!$gitCommit['success']) {
+                    $output = "--- GIT ADD ---\n" . ($gitAdd['output'] ?: 'OK') . "\n\n--- GIT COMMIT ---\n" . $commitOutput;
+                    $message = 'Git Commit & Push';
+                    $success = false;
+                    break;
+                }
+
                 $gitPush = self::runGitProcess(['push']);
                 $command = "git add . \ngit commit -m {$commitMessage} \ngit push";
                 $output = "--- GIT ADD ---\n" . ($gitAdd['output'] ?: 'OK') . "\n\n--- GIT COMMIT ---\n" . $commitOutput . "\n\n--- GIT PUSH ---\n" . ($gitPush['output'] ?: 'OK');
                 $message = 'Git Commit & Push';
-                $success = $gitAdd['success'] && $gitCommit['success'] && $gitPush['success'];
+                $success = $gitPush['success'];
                 break;
             case 'create_tag':
                 $tag = escapeshellarg($params['tag_name'] ?? '');

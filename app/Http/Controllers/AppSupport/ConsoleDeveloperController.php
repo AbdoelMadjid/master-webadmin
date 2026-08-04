@@ -32,7 +32,7 @@ class ConsoleDeveloperController extends Controller
                 'active_tab'  => $activeTab,
                 'system_info' => $systemInfo,
                 'git_summary' => $gitSummary,
-                'git_branches'=> $gitBranches,
+                'git_branches' => $gitBranches,
                 'git_logs'    => $gitLogs,
             ]);
         }
@@ -62,7 +62,7 @@ class ConsoleDeveloperController extends Controller
                 'message' => $result['action'] ?? 'Aksi Git Selesai',
                 'command' => $result['command'] ?? '',
                 'output'  => $result['output'] ?? '',
-            ]);
+            ], $result['success'] ? 200 : 500);
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
