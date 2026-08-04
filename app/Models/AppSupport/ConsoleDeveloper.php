@@ -33,11 +33,11 @@ class ConsoleDeveloper extends Model
 
         return [
             'php_version'    => PHP_VERSION,
-            'laravel_version'=> app()->version(),
+            'laravel_version' => app()->version(),
             'environment'    => config('app.env'),
             'debug_mode'     => config('app.debug') ? 'ENABLED' : 'DISABLED',
             'os'             => PHP_OS_FAMILY . ' (' . php_uname('s') . ' ' . php_uname('r') . ')',
-            'server_software'=> $_SERVER['SERVER_SOFTWARE'] ?? 'PHP CLI / Dev Server',
+            'server_software' => $_SERVER['SERVER_SOFTWARE'] ?? 'PHP CLI / Dev Server',
             'timezone'       => config('app.timezone'),
             'memory_limit'   => ini_get('memory_limit'),
             'max_exec_time'  => ini_get('max_execution_time') . 's',
@@ -79,7 +79,7 @@ class ConsoleDeveloper extends Model
             'branch'             => $branch,
             'remote_url'         => $remoteUrl,
             'last_commit'        => $lastCommit,
-            'changed_files_count'=> $changedFilesCount,
+            'changed_files_count' => $changedFilesCount,
             'has_changes'        => $changedFilesCount > 0,
             'tags'               => $tags,
             'latest_tag'         => $tags[0] ?? 'N/A',
@@ -129,6 +129,44 @@ class ConsoleDeveloper extends Model
         return $logs;
     }
 
+    private static function runProcess(array $command, ?string $cwd = null): array
+    {
+        $descriptors = [
+            0 => ['pipe', 'r'],
+            1 => ['pipe', 'w'],
+            2 => ['pipe', 'w'],
+        ];
+
+        $resolvedCwd = $cwd ?: (function_exists('getcwd') && getcwd() !== false ? getcwd() : dirname(__DIR__, 3));
+        $process = proc_open($command, $descriptors, $pipes, $resolvedCwd);
+
+        if (!is_resource($process)) {
+            return [
+                'success' => false,
+                'output' => 'Gagal memulai proses command.',
+                'exitCode' => 1,
+            ];
+        }
+
+        fclose($pipes[0]);
+        $stdout = stream_get_contents($pipes[1]);
+        fclose($pipes[1]);
+        $stderr = stream_get_contents($pipes[2]);
+        fclose($pipes[2]);
+        $exitCode = proc_close($process);
+
+        return [
+            'success' => $exitCode === 0,
+            'output' => trim($stdout . ($stderr !== '' ? "\n" . $stderr : '')),
+            'exitCode' => $exitCode,
+        ];
+    }
+
+    private static function runGitProcess(array $command): array
+    {
+        return self::runProcess(array_merge(['git'], $command));
+    }
+
     /**
      * Execute Git action safely and capture output.
      */
@@ -154,13 +192,14 @@ class ConsoleDeveloper extends Model
                 $message = 'Git Push';
                 break;
             case 'commit_push':
-                $commitMsg = escapeshellarg($params['commit_message'] ?? 'Update');
-                $o1 = shell_exec('git add . 2>&1');
-                $o2 = shell_exec("git commit -m {$commitMsg} 2>&1");
-                $o3 = shell_exec('git push 2>&1');
-                $command = "git add . \ngit commit -m {$commitMsg} \ngit push";
-                $output = "--- GIT ADD ---\n" . ($o1 ?: 'OK') . "\n\n--- GIT COMMIT ---\n" . ($o2 ?: 'OK') . "\n\n--- GIT PUSH ---\n" . ($o3 ?: 'OK');
+                $commitMessage = trim((string) ($params['commit_message'] ?? 'Update'));
+                $gitAdd = self::runGitProcess(['add', '.']);
+                $gitCommit = self::runGitProcess(['commit', '-m', $commitMessage]);
+                $gitPush = self::runGitProcess(['push']);
+                $command = "git add . \ngit commit -m {$commitMessage} \ngit push";
+                $output = "--- GIT ADD ---\n" . ($gitAdd['output'] ?: 'OK') . "\n\n--- GIT COMMIT ---\n" . ($gitCommit['output'] ?: 'OK') . "\n\n--- GIT PUSH ---\n" . ($gitPush['output'] ?: 'OK');
                 $message = 'Git Commit & Push';
+                $success = $gitAdd['success'] && $gitCommit['success'] && $gitPush['success'];
                 break;
             case 'create_tag':
                 $tag = escapeshellarg($params['tag_name'] ?? '');
@@ -257,7 +296,7 @@ class ConsoleDeveloper extends Model
         }
 
         return [
-            'success' => true,
+            'success' => $success ?? true,
             'action'  => $message,
             'command' => $command,
             'output'  => $output ?: 'Perintah berhasil dieksekusi tanpa output.',

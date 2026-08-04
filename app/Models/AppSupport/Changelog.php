@@ -124,6 +124,17 @@ class Changelog extends Model
         return 'other';
     }
 
+    public static function normalizeHash(?string $hash): string
+    {
+        $value = trim((string) $hash);
+
+        if ($value === '') {
+            return 'HEAD';
+        }
+
+        return substr($value, 0, 7);
+    }
+
     private static function formatCommitFromGitLine(string $line, ?string $version = null): ?array
     {
         $parts = explode('|', $line, 4);
@@ -139,7 +150,7 @@ class Changelog extends Model
         }
 
         return [
-            'hash' => $hash,
+            'hash' => self::normalizeHash($hash),
             'version' => $version,
             'date' => trim($parts[1]),
             'author' => trim($parts[2]),
