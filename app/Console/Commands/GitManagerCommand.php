@@ -68,21 +68,24 @@ class GitManagerCommand extends Command
                 // 1. STATUS
                 // ==================================
                 case 1:
-                    passthru('git status');
+                    $result = $this->runGit(['status']);
+                    $this->line($result['output']);
                     break;
 
                 // ==================================
                 // 2. PULL
                 // ==================================
                 case 2:
-                    passthru('git pull');
+                    $result = $this->runGit(['pull']);
+                    $this->line($result['output']);
                     break;
 
                 // ==================================
                 // 3. PUSH
                 // ==================================
                 case 3:
-                    passthru('git push');
+                    $result = $this->runGit(['push']);
+                    $this->line($result['output']);
                     break;
 
                 // ==================================
@@ -95,23 +98,15 @@ class GitManagerCommand extends Command
                         break;
                     }
 
-                    $msgEscaped = escapeshellarg($msg);
+                    $addResult = $this->runGit(['add', '.']);
 
-                    $repoRoot = base_path();
-
-                    $addOutput = [];
-                    $addCode = 0;
-                    exec('git -C ' . escapeshellarg($repoRoot) . ' add . 2>&1', $addOutput, $addCode);
-
-                    if ($addCode !== 0) {
-                        $this->error("Git add gagal:\n" . implode(PHP_EOL, $addOutput));
+                    if ($addResult['code'] !== 0) {
+                        $this->error("Git add gagal:\n" . $addResult['output']);
                         break;
                     }
 
-                    $commitOutput = [];
-                    $commitCode = 0;
-                    exec('git -C ' . escapeshellarg($repoRoot) . ' commit -m ' . $msgEscaped . ' 2>&1', $commitOutput, $commitCode);
-                    $commitText = implode(PHP_EOL, $commitOutput);
+                    $commitResult = $this->runGit(['commit', '-m', $msg]);
+                    $commitText = $commitResult['output'];
 
                     if ($this->isNoopCommitOutput($commitText)) {
                         $this->warn('Tidak ada perubahan baru untuk dikomit atau repo sudah bersih.');
@@ -119,17 +114,15 @@ class GitManagerCommand extends Command
                         break;
                     }
 
-                    if ($commitCode !== 0) {
+                    if ($commitResult['code'] !== 0) {
                         $this->error("Git commit gagal:\n" . $commitText);
                         break;
                     }
 
-                    $pushOutput = [];
-                    $pushCode = 0;
-                    exec('git -C ' . escapeshellarg($repoRoot) . ' push 2>&1', $pushOutput, $pushCode);
-                    $pushText = implode(PHP_EOL, $pushOutput);
+                    $pushResult = $this->runGit(['push']);
+                    $pushText = $pushResult['output'];
 
-                    if ($pushCode === 0) {
+                    if ($pushResult['code'] === 0) {
                         $this->info('Commit dan Push berhasil.');
                         if ($pushText !== '') {
                             $this->line($pushText);
@@ -1110,6 +1103,25 @@ BLADE;
             || str_contains($normalized, 'working tree clean')
             || str_contains($normalized, 'no changes added to commit')
             || str_contains($normalized, 'nothing added to commit');
+    }
+
+    private function runGit(array $args): array
+    {
+        $repoRoot = base_path();
+        $parts = ['git', '-C', $repoRoot];
+        foreach ($args as $arg) {
+            $parts[] = $arg;
+        }
+
+        $command = implode(' ', array_map(static fn($part) => escapeshellarg((string) $part), $parts));
+        $output = [];
+        $code = 0;
+        exec($command . ' 2>&1', $output, $code);
+
+        return [
+            'output' => implode(PHP_EOL, $output),
+            'code' => $code,
+        ];
     }
 
     private function getCurrentBranch(): string
