@@ -23,10 +23,12 @@
         <div id="kt_app_content_container" class="app-container container-fluid">
 
             <!--begin::Page Header & Guide Action-->
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+            <div
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
                 <div class="d-flex align-items-center gap-3">
                     <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
-                        <i class="ki-duotone ki-disk text-primary fs-2x"><span class="path1"></span><span class="path2"></span></i>
+                        <i class="ki-duotone ki-disk text-primary fs-2x"><span class="path1"></span><span
+                                class="path2"></span></i>
                     </div>
                     <div>
                         <h2 class="text-gray-900 fw-bold fs-3 m-0">
@@ -39,17 +41,26 @@
                 </div>
                 <div class="d-flex align-items-center gap-2 ms-auto">
                     <!--1. Create Backup Button-->
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Create New Database Backup' : 'Buat Backup Database Baru' }}">
-                        <button type="button" class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4" onclick="openCreateBackupModal()">
-                            <i class="ki-duotone ki-plus fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
-                            <span class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Create Backup' : 'Buat Backup Baru' }}</span>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Create New Database Backup' : 'Buat Backup Database Baru' }}">
+                        <button type="button"
+                            class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4"
+                            onclick="openCreateBackupModal()">
+                            <i class="ki-duotone ki-plus fs-2 p-0 m-0"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                            <span
+                                class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Create Backup' : 'Buat Backup Baru' }}</span>
                         </button>
                     </span>
 
                     <!--2. Operational Guide Button (Far Right)-->
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                        <button type="button" class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0" data-bs-toggle="modal" data-bs-target="#kt_modal_backup_db_help">
-                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button"
+                            class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0"
+                            data-bs-toggle="modal" data-bs-target="#kt_modal_backup_db_help">
+                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span
+                                    class="path2"></span><span class="path3"></span></i>
                         </button>
                     </span>
                 </div>
@@ -72,7 +83,8 @@
                                     </span>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1" id="stat_total_backups">{{ $totalBackups }}</span>
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1"
+                                        id="stat_total_backups">{{ $totalBackups }}</span>
                                     <span class="text-gray-500 fw-semibold fs-6 mt-1">Total File Backup</span>
                                 </div>
                             </div>
@@ -95,7 +107,8 @@
                                     </span>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1" id="stat_total_size">{{ $totalSize }}</span>
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1"
+                                        id="stat_total_size">{{ $totalSize }}</span>
                                     <span class="text-gray-500 fw-semibold fs-6 mt-1">Total Ukuran Penyimpanan</span>
                                 </div>
                             </div>
@@ -141,7 +154,8 @@
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>
-                            <input type="text" id="kt_backup_search" class="form-control form-control-solid w-250px ps-12"
+                            <input type="text" id="kt_backup_search"
+                                class="form-control form-control-solid w-250px ps-12"
                                 placeholder="Cari nama file backup..." />
                         </div>
                         <!--end::Search-->
@@ -174,7 +188,8 @@
                                                     <span class="path2"></span>
                                                 </i>
                                                 <div class="d-flex flex-column">
-                                                    <span class="text-gray-800 text-hover-primary fw-bold">{{ $item['filename'] }}</span>
+                                                    <span
+                                                        class="text-gray-800 text-hover-primary fw-bold">{{ $item['filename'] }}</span>
                                                     <span class="text-muted fs-7">SQL Dump</span>
                                                 </div>
                                             </div>
@@ -215,7 +230,8 @@
                                 @empty
                                     <tr>
                                         <td colspan="5" class="text-center text-muted py-10">
-                                            Belum ada file backup database. Klik tombol <strong>Buat Backup Baru</strong> untuk memulai.
+                                            Belum ada file backup database. Klik tombol <strong>Buat Backup Baru</strong>
+                                            untuk memulai.
                                         </td>
                                     </tr>
                                 @endforelse
@@ -255,9 +271,10 @@
                     order: [],
                     pageLength: 10,
                     lengthChange: true,
-                    columnDefs: [
-                        { orderable: false, targets: 4 }
-                    ]
+                    columnDefs: [{
+                        orderable: false,
+                        targets: 4
+                    }]
                 });
 
                 // Custom search input handler
@@ -283,7 +300,8 @@
                     var tableName = $(this).data('table-name');
                     if (window.tableRelations && window.tableRelations[tableName]) {
                         window.tableRelations[tableName].forEach(function(relTable) {
-                            $('.table-checkbox[data-table-name="' + relTable + '"]').prop('checked', true);
+                            $('.table-checkbox[data-table-name="' + relTable + '"]').prop('checked',
+                                true);
                         });
                     }
                 }
@@ -330,7 +348,8 @@
                         if (xhr.status === 422) {
                             SwalHelper.validationError(xhr);
                         } else {
-                            var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Terjadi kesalahan sistem.';
+                            var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr
+                                .responseJSON.message : 'Terjadi kesalahan sistem.';
                             SwalHelper.error(msg);
                         }
                     }
@@ -350,7 +369,8 @@
         // Hapus file backup
         function deleteBackup(filename) {
             SwalHelper.confirmDelete(filename, function() {
-                var deleteUrl = "{{ route('appsupport.backup-db.destroy', ':filename') }}".replace(':filename', encodeURIComponent(filename));
+                var deleteUrl = "{{ route('appsupport.backup-db.destroy', ':filename') }}".replace(':filename',
+                    encodeURIComponent(filename));
                 $.ajax({
                     url: deleteUrl,
                     type: 'DELETE',
@@ -367,7 +387,8 @@
                         }
                     },
                     error: function(xhr) {
-                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal menghapus file backup.';
+                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON
+                            .message : 'Gagal menghapus file backup.';
                         SwalHelper.error(msg);
                     }
                 });
@@ -378,7 +399,8 @@
         function restoreBackup(filename) {
             Swal.fire({
                 title: 'Konfirmasi Restore Database',
-                html: 'Apakah Anda yakin ingin memulihkan database dari file <strong>' + filename + '</strong>?<br><span class="text-danger fs-7 mt-2 d-block">Peringatan: Data database saat ini akan ditimpa dengan isi file backup ini.</span>',
+                html: 'Apakah Anda yakin ingin memulihkan database dari file <strong>' + filename +
+                    '</strong>?<br><span class="text-danger fs-7 mt-2 d-block">Peringatan: Data database saat ini akan ditimpa dengan isi file backup ini.</span>',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#ffc700',
@@ -396,7 +418,8 @@
                         }
                     });
 
-                    var restoreUrl = "{{ route('appsupport.backup-db.restore', ':filename') }}".replace(':filename', encodeURIComponent(filename));
+                    var restoreUrl = "{{ route('appsupport.backup-db.restore', ':filename') }}".replace(
+                        ':filename', encodeURIComponent(filename));
                     $.ajax({
                         url: restoreUrl,
                         type: 'POST',
@@ -413,7 +436,8 @@
                             }
                         },
                         error: function(xhr) {
-                            var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal memulihkan database.';
+                            var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON
+                                .message : 'Gagal memulihkan database.';
                             SwalHelper.error(msg);
                         }
                     });

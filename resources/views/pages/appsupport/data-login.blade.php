@@ -23,10 +23,12 @@
         <div id="kt_app_content_container" class="app-container container-fluid">
 
             <!--begin::Page Header & Guide Action-->
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+            <div
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
                 <div class="d-flex align-items-center gap-3">
                     <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
-                        <i class="ki-duotone ki-shield-search text-primary fs-2x"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        <i class="ki-duotone ki-shield-search text-primary fs-2x"><span class="path1"></span><span
+                                class="path2"></span><span class="path3"></span></i>
                     </div>
                     <div>
                         <h2 class="text-gray-900 fw-bold fs-3 m-0">
@@ -38,9 +40,12 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-2">
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_data_login_help">
-                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal"
+                            data-bs-target="#kt_modal_data_login_help">
+                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span
+                                    class="path2"></span><span class="path3"></span></i>
                         </button>
                     </span>
                 </div>
@@ -51,16 +56,18 @@
             <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-5 fw-bold mb-6 gap-2">
                 <li class="nav-item">
                     <a class="nav-link text-active-primary pb-4 {{ $activeTab == 'login-log' ? 'active' : '' }}"
-                       href="{{ route('appsupport.data-login', ['tab' => 'login-log']) }}">
-                        <i class="ki-duotone ki-entrance-left fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+                        href="{{ route('appsupport.data-login', ['tab' => 'login-log']) }}">
+                        <i class="ki-duotone ki-entrance-left fs-2 me-2"><span class="path1"></span><span
+                                class="path2"></span></i>
                         {{ app()->getLocale() == 'en' ? 'User Login Sessions' : 'Riwayat Sesi Login User' }}
                         <span class="badge badge-light-primary ms-2">{{ number_format($totalLogins) }}</span>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-active-primary pb-4 {{ $activeTab == 'activity-log' ? 'active' : '' }}"
-                       href="{{ route('appsupport.data-login', ['tab' => 'activity-log']) }}">
-                        <i class="ki-duotone ki-shield-search fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        href="{{ route('appsupport.data-login', ['tab' => 'activity-log']) }}">
+                        <i class="ki-duotone ki-shield-search fs-2 me-2"><span class="path1"></span><span
+                                class="path2"></span><span class="path3"></span></i>
                         {{ app()->getLocale() == 'en' ? 'Data Mutation Activity Log' : 'Audit Mutasi Data (Activity Log)' }}
                         <span class="badge badge-light-info ms-2">{{ number_format($totalMutations) }}</span>
                     </a>
@@ -142,9 +149,10 @@
                     order: [],
                     pageLength: 10,
                     lengthChange: true,
-                    columnDefs: [
-                        { orderable: false, targets: 7 }
-                    ]
+                    columnDefs: [{
+                        orderable: false,
+                        targets: 7
+                    }]
                 });
 
                 $('#kt_data_login_search').on('keyup input', function() {
@@ -200,9 +208,10 @@
                     order: [],
                     pageLength: 10,
                     lengthChange: true,
-                    columnDefs: [
-                        { orderable: false, targets: 6 }
-                    ]
+                    columnDefs: [{
+                        orderable: false,
+                        targets: 6
+                    }]
                 });
 
                 $('#kt_activity_log_search').on('keyup input', function() {
@@ -283,7 +292,8 @@
                         }
                     },
                     error: function(xhr) {
-                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal menghapus catatan login.';
+                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON
+                            .message : 'Gagal menghapus catatan login.';
                         SwalHelper.error(msg);
                     }
                 });
@@ -309,7 +319,8 @@
                         }
                     },
                     error: function(xhr) {
-                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal mengosongkan riwayat login.';
+                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON
+                            .message : 'Gagal mengosongkan riwayat login.';
                         SwalHelper.error(msg);
                     }
                 });
@@ -320,7 +331,8 @@
         function showActivityDiff(id, description, subjectType, subjectId, causer, timestamp, event) {
             $('#diff_causer').text(causer || 'System / Console');
             $('#diff_timestamp').text(timestamp || '-');
-            $('#diff_subject').html(subjectType + ' <span class="badge badge-light-secondary text-dark">#' + (subjectId || '-') + '</span>');
+            $('#diff_subject').html(subjectType + ' <span class="badge badge-light-secondary text-dark">#' + (subjectId ||
+                '-') + '</span>');
 
             var eventUpper = (event || 'MUTATED').toUpperCase();
             var eventBadgeClass = 'badge-light-primary text-primary';
@@ -353,7 +365,7 @@
 
             var allKeys = new Set([...Object.keys(oldValues), ...Object.keys(attributes)]);
             var metaKeys = ['ip_address', 'user_agent', 'url', 'created_at', 'updated_at'];
-            
+
             var diffRowsHtml = '';
             var countChanges = 0;
 
@@ -362,9 +374,9 @@
                     return '<span class="text-muted fst-italic px-2 py-1 bg-light rounded">(Null / Empty)</span>';
                 }
                 if (typeof val === 'boolean') {
-                    return val 
-                        ? '<span class="badge badge-light-success text-success fw-bold"><i class="ki-duotone ki-check fs-8 me-1 text-success"><span class="path1"></span><span class="path2"></span></i>Aktif (true)</span>'
-                        : '<span class="badge badge-light-danger text-danger fw-bold"><i class="ki-duotone ki-cross fs-8 me-1 text-danger"><span class="path1"></span><span class="path2"></span></i>Non-Aktif (false)</span>';
+                    return val ?
+                        '<span class="badge badge-light-success text-success fw-bold"><i class="ki-duotone ki-check fs-8 me-1 text-success"><span class="path1"></span><span class="path2"></span></i>Aktif (true)</span>' :
+                        '<span class="badge badge-light-danger text-danger fw-bold"><i class="ki-duotone ki-cross fs-8 me-1 text-danger"><span class="path1"></span><span class="path2"></span></i>Non-Aktif (false)</span>';
                 }
                 if (typeof val === 'number') {
                     if (val === 1) {
@@ -375,7 +387,8 @@
                     return '<span class="fw-bold text-gray-800">' + val + '</span>';
                 }
                 if (typeof val === 'object') {
-                    return '<code class="fs-8 text-dark bg-light p-1 rounded">' + escapeHtml(JSON.stringify(val)) + '</code>';
+                    return '<code class="fs-8 text-dark bg-light p-1 rounded">' + escapeHtml(JSON.stringify(val)) +
+                        '</code>';
                 }
                 var strVal = String(val);
                 if (strVal.trim() === '') {
@@ -394,7 +407,9 @@
             }
 
             function formatKeyLabel(key) {
-                return key.replace(/_/g, ' ').replace(/\b\w/g, function(l) { return l.toUpperCase(); });
+                return key.replace(/_/g, ' ').replace(/\b\w/g, function(l) {
+                    return l.toUpperCase();
+                });
             }
 
             allKeys.forEach(function(key) {
@@ -403,16 +418,20 @@
                 var oldVal = oldValues[key];
                 var newVal = attributes[key];
 
-                var isChanged = (key in oldValues && key in attributes) ? (JSON.stringify(oldVal) !== JSON.stringify(newVal)) : true;
+                var isChanged = (key in oldValues && key in attributes) ? (JSON.stringify(oldVal) !== JSON
+                    .stringify(newVal)) : true;
                 if (isChanged || eventUpper === 'CREATED' || eventUpper === 'DELETED') {
                     countChanges++;
-                    var oldHtml = (key in oldValues) ? formatFieldValue(oldVal) : '<span class="text-muted fst-italic">(Tidak Ada)</span>';
-                    var newHtml = (key in attributes) ? formatFieldValue(newVal) : '<span class="text-muted fst-italic">(Dihapus)</span>';
+                    var oldHtml = (key in oldValues) ? formatFieldValue(oldVal) :
+                        '<span class="text-muted fst-italic">(Tidak Ada)</span>';
+                    var newHtml = (key in attributes) ? formatFieldValue(newVal) :
+                        '<span class="text-muted fst-italic">(Dihapus)</span>';
 
                     var rowBg = isChanged ? 'bg-light-warning bg-opacity-10' : '';
-                    
+
                     diffRowsHtml += '<tr class="' + rowBg + '">';
-                    diffRowsHtml += '<td><strong class="text-gray-800 font-monospace fs-7">' + escapeHtml(key) + '</strong><div class="text-muted fs-8 fw-semibold">' + formatKeyLabel(key) + '</div></td>';
+                    diffRowsHtml += '<td><strong class="text-gray-800 font-monospace fs-7">' + escapeHtml(key) +
+                        '</strong><div class="text-muted fs-8 fw-semibold">' + formatKeyLabel(key) + '</div></td>';
                     diffRowsHtml += '<td class="bg-light-danger bg-opacity-10">' + oldHtml + '</td>';
                     diffRowsHtml += '<td class="bg-light-success bg-opacity-10">' + newHtml + '</td>';
                     diffRowsHtml += '</tr>';
@@ -426,16 +445,21 @@
                         if (metaKeys.includes(key)) return;
                         countChanges++;
                         diffRowsHtml += '<tr>';
-                        diffRowsHtml += '<td><strong class="text-gray-800 font-monospace fs-7">' + escapeHtml(key) + '</strong><div class="text-muted fs-8 fw-semibold">' + formatKeyLabel(key) + '</div></td>';
-                        diffRowsHtml += '<td class="bg-light-danger bg-opacity-10"><span class="text-muted fst-italic">(Tidak Ada)</span></td>';
-                        diffRowsHtml += '<td class="bg-light-success bg-opacity-10">' + formatFieldValue(attributes[key]) + '</td>';
+                        diffRowsHtml += '<td><strong class="text-gray-800 font-monospace fs-7">' + escapeHtml(key) +
+                            '</strong><div class="text-muted fs-8 fw-semibold">' + formatKeyLabel(key) +
+                            '</div></td>';
+                        diffRowsHtml +=
+                            '<td class="bg-light-danger bg-opacity-10"><span class="text-muted fst-italic">(Tidak Ada)</span></td>';
+                        diffRowsHtml += '<td class="bg-light-success bg-opacity-10">' + formatFieldValue(attributes[
+                            key]) + '</td>';
                         diffRowsHtml += '</tr>';
                     });
                 }
             }
 
             if (countChanges === 0) {
-                diffRowsHtml = '<tr><td colspan="3" class="text-center text-muted py-6"><i class="ki-duotone ki-information fs-2 text-muted me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Tidak ada rincian perubahan atribut spesifik yang terdeteksi.</td></tr>';
+                diffRowsHtml =
+                    '<tr><td colspan="3" class="text-center text-muted py-6"><i class="ki-duotone ki-information fs-2 text-muted me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i> Tidak ada rincian perubahan atribut spesifik yang terdeteksi.</td></tr>';
             }
 
             $('#diff_changes_count').text(countChanges + ' Perubahan');
@@ -464,7 +488,8 @@
                         }
                     },
                     error: function(xhr) {
-                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal menghapus activity log.';
+                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON
+                            .message : 'Gagal menghapus activity log.';
                         SwalHelper.error(msg);
                     }
                 });
@@ -490,7 +515,8 @@
                         }
                     },
                     error: function(xhr) {
-                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal mengosongkan activity log.';
+                        var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON
+                            .message : 'Gagal mengosongkan activity log.';
                         SwalHelper.error(msg);
                     }
                 });

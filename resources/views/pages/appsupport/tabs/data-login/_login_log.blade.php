@@ -15,7 +15,8 @@
                     </div>
                     <div>
                         <span class="fs-2hx fw-bold text-gray-900 lh-1 d-block">{{ number_format($totalLogins) }}</span>
-                        <span class="text-muted fw-semibold fs-7">{{ app()->getLocale() == 'en' ? 'Total Login Records' : 'Total Sesi Login' }}</span>
+                        <span
+                            class="text-muted fw-semibold fs-7">{{ app()->getLocale() == 'en' ? 'Total Login Records' : 'Total Sesi Login' }}</span>
                     </div>
                 </div>
             </div>
@@ -38,7 +39,8 @@
                     </div>
                     <div>
                         <span class="fs-2hx fw-bold text-gray-900 lh-1 d-block">{{ number_format($todayLogins) }}</span>
-                        <span class="text-muted fw-semibold fs-7">{{ app()->getLocale() == 'en' ? 'Logins Today' : 'Sesi Login Hari Ini' }}</span>
+                        <span
+                            class="text-muted fw-semibold fs-7">{{ app()->getLocale() == 'en' ? 'Logins Today' : 'Sesi Login Hari Ini' }}</span>
                     </div>
                 </div>
             </div>
@@ -62,8 +64,10 @@
                         </span>
                     </div>
                     <div>
-                        <span class="fs-2hx fw-bold text-gray-900 lh-1 d-block">{{ number_format($activeUsers24h) }}</span>
-                        <span class="text-muted fw-semibold fs-7">{{ app()->getLocale() == 'en' ? 'Active Users (15m)' : 'User Aktif (15m)' }}</span>
+                        <span
+                            class="fs-2hx fw-bold text-gray-900 lh-1 d-block">{{ number_format($activeUsers24h) }}</span>
+                        <span
+                            class="text-muted fw-semibold fs-7">{{ app()->getLocale() == 'en' ? 'Active Users (15m)' : 'User Aktif (15m)' }}</span>
                     </div>
                 </div>
             </div>
@@ -87,7 +91,8 @@
                     </div>
                     <div>
                         <span class="fs-2hx fw-bold text-gray-900 lh-1 d-block">{{ number_format($totalPoints) }}</span>
-                        <span class="text-muted fw-semibold fs-7">{{ app()->getLocale() == 'en' ? 'Total User Points' : 'Total Poin Keaktifan' }}</span>
+                        <span
+                            class="text-muted fw-semibold fs-7">{{ app()->getLocale() == 'en' ? 'Total User Points' : 'Total Poin Keaktifan' }}</span>
                     </div>
                 </div>
             </div>
@@ -107,14 +112,15 @@
                     <span class="path1"></span>
                     <span class="path2"></span>
                 </i>
-                <input type="text" id="kt_data_login_search"
-                    class="form-control form-control-solid w-250px ps-12"
+                <input type="text" id="kt_data_login_search" class="form-control form-control-solid w-250px ps-12"
                     placeholder="{{ app()->getLocale() == 'en' ? 'Search user login...' : 'Cari user / IP / agent...' }}" />
             </div>
         </div>
         <div class="card-toolbar flex-row-fluid justify-content-end gap-3">
             <div class="w-150px">
-                <select id="kt_data_login_role_filter" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="{{ app()->getLocale() == 'en' ? 'All Roles' : 'Semua Role' }}">
+                <select id="kt_data_login_role_filter" class="form-select form-select-solid" data-control="select2"
+                    data-hide-search="true"
+                    data-placeholder="{{ app()->getLocale() == 'en' ? 'All Roles' : 'Semua Role' }}">
                     <option value="">{{ app()->getLocale() == 'en' ? 'All Roles' : 'Semua Role' }}</option>
                     @foreach (\Spatie\Permission\Models\Role::all() as $role)
                         <option value="{{ strtolower($role->name) }}">{{ ucfirst($role->name) }}</option>
@@ -122,13 +128,18 @@
                 </select>
             </div>
             <div class="w-175px">
-                <input type="date" id="kt_data_login_date_filter" class="form-control form-control-solid" value="{{ date('Y-m-d') }}" />
+                <input type="date" id="kt_data_login_date_filter" class="form-control form-control-solid"
+                    value="{{ date('Y-m-d') }}" />
             </div>
-            <button type="button" id="kt_data_login_reset_filter" class="btn btn-sm btn-light-secondary my-1 d-none" onclick="resetDataLoginFilters()">
-                <i class="ki-duotone ki-arrows-circle fs-4 me-1"><span class="path1"></span><span class="path2"></span></i>
+            <button type="button" id="kt_data_login_reset_filter" class="btn btn-sm btn-light-secondary my-1 d-none"
+                onclick="resetDataLoginFilters()">
+                <i class="ki-duotone ki-arrows-circle fs-4 me-1"><span class="path1"></span><span
+                        class="path2"></span></i>
                 Reset Filter
             </button>
-            <button type="button" class="btn btn-sm btn-light-danger" onclick="clearAllDataLogins()" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Purge all login session logs' : 'Kosongkan seluruh riwayat login' }}">
+            <button type="button" class="btn btn-sm btn-light-danger" onclick="clearAllDataLogins()"
+                data-bs-toggle="tooltip" data-bs-placement="top"
+                title="{{ app()->getLocale() == 'en' ? 'Purge all login session logs' : 'Kosongkan seluruh riwayat login' }}">
                 <i class="ki-duotone ki-trash fs-4 me-1">
                     <span class="path1"></span>
                     <span class="path2"></span>
@@ -150,9 +161,12 @@
                         <th class="w-10px pe-2">#</th>
                         <th class="min-w-175px">{{ app()->getLocale() == 'en' ? 'User' : 'Pengguna' }}</th>
                         <th class="min-w-125px">Role</th>
-                        <th class="min-w-150px">{{ app()->getLocale() == 'en' ? 'Login Timestamp' : 'Waktu Login' }}</th>
-                        <th class="min-w-125px text-center">{{ app()->getLocale() == 'en' ? 'Frequency' : 'Frekuensi' }}</th>
-                        <th class="min-w-125px text-center">{{ app()->getLocale() == 'en' ? 'Points' : 'Poin Keaktifan' }}</th>
+                        <th class="min-w-150px">{{ app()->getLocale() == 'en' ? 'Login Timestamp' : 'Waktu Login' }}
+                        </th>
+                        <th class="min-w-125px text-center">
+                            {{ app()->getLocale() == 'en' ? 'Frequency' : 'Frekuensi' }}</th>
+                        <th class="min-w-125px text-center">
+                            {{ app()->getLocale() == 'en' ? 'Points' : 'Poin Keaktifan' }}</th>
                         <th class="min-w-175px">IP & Device Agent</th>
                         <th class="text-end min-w-100px pe-4">Aksi</th>
                     </tr>
@@ -160,9 +174,12 @@
                 <tbody class="text-gray-600 fw-semibold">
                     @forelse($logins as $index => $item)
                         @php
-                            $roleName = $item->user && $item->user->roles->count() > 0 ? $item->user->roles->first()->name : 'User';
+                            $roleName =
+                                $item->user && $item->user->roles->count() > 0
+                                    ? $item->user->roles->first()->name
+                                    : 'User';
                             $firstRole = strtolower($roleName);
-                            $roleBadgeClass = match($firstRole) {
+                            $roleBadgeClass = match ($firstRole) {
                                 'admin' => 'badge-light-danger text-danger',
                                 'administrator' => 'badge-light-danger text-danger',
                                 'developer' => 'badge-light-primary text-primary',
@@ -176,7 +193,8 @@
                                 <div class="d-flex align-items-center">
                                     <div class="symbol symbol-circle symbol-35px me-3">
                                         @if ($item->user && $item->user->avatar_url)
-                                            <img src="{{ $item->user->avatar_url }}" alt="{{ $item->user->name }}" />
+                                            <img src="{{ $item->user->avatar_url }}"
+                                                alt="{{ $item->user->name }}" />
                                         @else
                                             <span class="symbol-label bg-light-primary text-primary fw-bold">
                                                 {{ strtoupper(substr($item->user ? $item->user->name : 'U', 0, 1)) }}
@@ -209,13 +227,16 @@
                                 </div>
                             </td>
                             <td class="text-center">
-                                <span class="badge badge-light-info fw-bold fs-7" data-bs-toggle="tooltip" data-bs-placement="top" title="Total frekuensi login harian">
-                                    <i class="ki-duotone ki-entrance-left fs-5 me-1 text-info"><span class="path1"></span><span class="path2"></span></i>
+                                <span class="badge badge-light-info fw-bold fs-7" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Total frekuensi login harian">
+                                    <i class="ki-duotone ki-entrance-left fs-5 me-1 text-info"><span
+                                            class="path1"></span><span class="path2"></span></i>
                                     {{ $item->login_count ?? 1 }}x Login
                                 </span>
                             </td>
                             <td class="text-center" data-point="{{ $item->user?->points ?? 0 }}">
-                                <span class="badge badge-light-success fw-bold fs-7" data-bs-toggle="tooltip" data-bs-placement="top" title="Total poin reward keaktifan user saat ini">
+                                <span class="badge badge-light-success fw-bold fs-7" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Total poin reward keaktifan user saat ini">
                                     <i class="ki-duotone ki-award fs-5 me-1 text-success">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -227,19 +248,26 @@
                                 <div class="d-flex flex-column gap-1">
                                     <div class="d-flex align-items-center gap-2">
                                         <span class="badge badge-light-primary fw-bold font-monospace fs-7">
-                                            <i class="ki-duotone ki-network fs-7 me-1 text-primary"><span class="path1"></span><span class="path2"></span></i>
+                                            <i class="ki-duotone ki-network fs-7 me-1 text-primary"><span
+                                                    class="path1"></span><span class="path2"></span></i>
                                             {{ $item->ip_address ?? '127.0.0.1' }}
                                         </span>
                                         @if ($item->latitude && $item->longitude)
                                             <a href="https://maps.google.com/?q={{ $item->latitude }},{{ $item->longitude }}"
-                                                target="_blank" class="btn btn-icon btn-xs btn-light-info w-25px h-25px"
-                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Buka Maps ({{ number_format($item->latitude, 4) }}, {{ number_format($item->longitude, 4) }})">
-                                                <i class="ki-duotone ki-geolocation fs-6"><span class="path1"></span><span class="path2"></span></i>
+                                                target="_blank"
+                                                class="btn btn-icon btn-xs btn-light-info w-25px h-25px"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                title="Buka Maps ({{ number_format($item->latitude, 4) }}, {{ number_format($item->longitude, 4) }})">
+                                                <i class="ki-duotone ki-geolocation fs-6"><span
+                                                        class="path1"></span><span class="path2"></span></i>
                                             </a>
                                         @endif
                                     </div>
-                                    <div class="text-muted fs-8 text-truncate d-inline-block mw-200px" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ $item->user_agent }}">
-                                        <i class="ki-duotone ki-laptop fs-7 me-1 text-gray-500"><span class="path1"></span><span class="path2"></span></i>
+                                    <div class="text-muted fs-8 text-truncate d-inline-block mw-200px"
+                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="{{ $item->user_agent }}">
+                                        <i class="ki-duotone ki-laptop fs-7 me-1 text-gray-500"><span
+                                                class="path1"></span><span class="path2"></span></i>
                                         {{ $item->user_agent ? Str::limit($item->user_agent, 35) : '-' }}
                                     </div>
                                 </div>
@@ -247,8 +275,8 @@
                             <td class="text-end pe-4">
                                 <button type="button"
                                     class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm"
-                                    onclick="deleteDataLogin({{ $item->id }})"
-                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus Catatan Login">
+                                    onclick="deleteDataLogin({{ $item->id }})" data-bs-toggle="tooltip"
+                                    data-bs-placement="top" title="Hapus Catatan Login">
                                     <i class="ki-duotone ki-trash fs-2">
                                         <span class="path1"></span>
                                         <span class="path2"></span>

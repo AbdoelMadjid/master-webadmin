@@ -37,9 +37,12 @@
                         </div>
                     </div>
                     <div class="card-toolbar">
-                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                            <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_app_profil_help">
-                                <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        <span data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                            <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal"
+                                data-bs-target="#kt_modal_app_profil_help">
+                                <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span></i>
                             </button>
                         </span>
                     </div>
@@ -120,7 +123,9 @@
                             if (xhr.status === 422) {
                                 SwalHelper.validationError(xhr);
                             } else {
-                                var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Terjadi kesalahan saat menyimpan data.';
+                                var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr
+                                    .responseJSON.message :
+                                    'Terjadi kesalahan saat menyimpan data.';
                                 SwalHelper.error(msg);
                             }
                         }

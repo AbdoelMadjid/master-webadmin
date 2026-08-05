@@ -15,10 +15,12 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_content_container" class="app-container container-fluid">
             <!--begin::Page Header & Guide Action-->
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+            <div
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
                 <div class="d-flex align-items-center gap-3">
                     <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
-                        <i class="ki-duotone ki-key text-primary fs-2x"><span class="path1"></span><span class="path2"></span></i>
+                        <i class="ki-duotone ki-key text-primary fs-2x"><span class="path1"></span><span
+                                class="path2"></span></i>
                     </div>
                     <div>
                         <h2 class="text-gray-900 fw-bold fs-3 m-0">
@@ -31,25 +33,38 @@
                 </div>
                 <div class="d-flex align-items-center gap-2 ms-auto">
                     <!--1. Modul CRUD (Praktis) Button-->
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Generate CRUD Permissions for Module' : 'Tambah Modul CRUD (Praktis)' }}">
-                        <button type="button" class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4" data-bs-toggle="modal" data-bs-target="#kt_modal_permission" id="btn_add_batch_permission">
-                            <i class="ki-duotone ki-flash-circle fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
-                            <span class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'CRUD Module' : 'Modul CRUD (Praktis)' }}</span>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Generate CRUD Permissions for Module' : 'Tambah Modul CRUD (Praktis)' }}">
+                        <button type="button"
+                            class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4"
+                            data-bs-toggle="modal" data-bs-target="#kt_modal_permission" id="btn_add_batch_permission">
+                            <i class="ki-duotone ki-flash-circle fs-2 p-0 m-0"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                            <span
+                                class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'CRUD Module' : 'Modul CRUD (Praktis)' }}</span>
                         </button>
                     </span>
 
                     <!--2. Single Permission Button-->
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Add Single Permission' : 'Tambah Single Permission' }}">
-                        <button type="button" class="btn btn-light-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4" data-bs-toggle="modal" data-bs-target="#kt_modal_permission" id="btn_add_single_permission">
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Add Single Permission' : 'Tambah Single Permission' }}">
+                        <button type="button"
+                            class="btn btn-light-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4"
+                            data-bs-toggle="modal" data-bs-target="#kt_modal_permission" id="btn_add_single_permission">
                             <i class="ki-duotone ki-plus fs-2 p-0 m-0"></i>
-                            <span class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Single Permission' : 'Single Permission' }}</span>
+                            <span
+                                class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Single Permission' : 'Single Permission' }}</span>
                         </button>
                     </span>
 
                     <!--3. Operational Guide Button (Far Right)-->
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                        <button type="button" class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0" data-bs-toggle="modal" data-bs-target="#kt_modal_permissions_help">
-                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button"
+                            class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0"
+                            data-bs-toggle="modal" data-bs-target="#kt_modal_permissions_help">
+                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span
+                                    class="path2"></span><span class="path3"></span></i>
                         </button>
                     </span>
                 </div>
@@ -67,7 +82,8 @@
                             </div>
                             <div class="symbol symbol-50px">
                                 <span class="symbol-label bg-light-primary text-primary">
-                                    <i class="ki-duotone ki-key fs-2x text-primary"><span class="path1"></span><span class="path2"></span></i>
+                                    <i class="ki-duotone ki-key fs-2x text-primary"><span class="path1"></span><span
+                                            class="path2"></span></i>
                                 </span>
                             </div>
                         </div>
@@ -78,26 +94,34 @@
                         <div class="card-body d-flex align-items-center justify-content-between p-6">
                             <div>
                                 <span class="fs-2hx fw-bold text-info">{{ $totalModules }}</span>
-                                <span class="text-gray-600 fw-semibold d-block fs-6 mt-1">Total Modul / Fitur Aplikasi</span>
+                                <span class="text-gray-600 fw-semibold d-block fs-6 mt-1">Total Modul / Fitur
+                                    Aplikasi</span>
                             </div>
                             <div class="symbol symbol-50px">
                                 <span class="symbol-label bg-light-info text-info">
-                                    <i class="ki-duotone ki-element-11 fs-2x text-info"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                    <i class="ki-duotone ki-element-11 fs-2x text-info"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i>
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card card-flush h-md-100 bg-body border border-dashed {{ $unassignedCount > 0 ? 'border-warning' : 'border-success' }}">
+                    <div
+                        class="card card-flush h-md-100 bg-body border border-dashed {{ $unassignedCount > 0 ? 'border-warning' : 'border-success' }}">
                         <div class="card-body d-flex align-items-center justify-content-between p-6">
                             <div>
-                                <span class="fs-2hx fw-bold {{ $unassignedCount > 0 ? 'text-warning' : 'text-success' }}">{{ $unassignedCount }}</span>
+                                <span
+                                    class="fs-2hx fw-bold {{ $unassignedCount > 0 ? 'text-warning' : 'text-success' }}">{{ $unassignedCount }}</span>
                                 <span class="text-gray-600 fw-semibold d-block fs-6 mt-1">Modul Belum Ditugaskan</span>
                             </div>
                             <div class="symbol symbol-50px">
-                                <span class="symbol-label {{ $unassignedCount > 0 ? 'bg-light-warning text-warning' : 'bg-light-success text-success' }}">
-                                    <i class="ki-duotone ki-shield-tick fs-2x {{ $unassignedCount > 0 ? 'text-warning' : 'text-success' }}"><span class="path1"></span><span class="path2"></span></i>
+                                <span
+                                    class="symbol-label {{ $unassignedCount > 0 ? 'bg-light-warning text-warning' : 'bg-light-success text-success' }}">
+                                    <i
+                                        class="ki-duotone ki-shield-tick fs-2x {{ $unassignedCount > 0 ? 'text-warning' : 'text-success' }}"><span
+                                            class="path1"></span><span class="path2"></span></i>
                                 </span>
                             </div>
                         </div>
@@ -112,24 +136,29 @@
                     <div class="card-title gap-3 flex-wrap">
                         <!--begin::Search Filter-->
                         <div class="d-flex align-items-center position-relative my-1">
-                            <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5"><span class="path1"></span><span class="path2"></span></i>
-                            <input type="text" id="kt_permissions_search" class="form-control form-control-solid w-250px ps-13" placeholder="Cari Modul / Fitur..." />
+                            <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                            <input type="text" id="kt_permissions_search"
+                                class="form-control form-control-solid w-250px ps-13" placeholder="Cari Modul / Fitur..." />
                         </div>
                         <!--end::Search Filter-->
 
                         <!--begin::Role Filter Dropdown & Reset-->
                         <div class="d-flex align-items-center gap-2 my-1">
                             <div class="w-180px">
-                                <select id="filter_role" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Filter Role">
+                                <select id="filter_role" class="form-select form-select-solid" data-control="select2"
+                                    data-hide-search="true" data-placeholder="Filter Role">
                                     <option value="all" selected>All / Semua Role</option>
                                     <option value="unassigned">Belum Ditugaskan</option>
-                                    @foreach($roles as $role)
+                                    @foreach ($roles as $role)
                                         <option value="{{ strtolower($role->name) }}">{{ ucfirst($role->name) }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <button type="button" class="btn btn-light-danger btn-sm d-none" id="btn_reset_filter" title="Reset Filter ke Default">
-                                <i class="ki-duotone ki-arrows-circle fs-4 me-1"><span class="path1"></span><span class="path2"></span></i> Reset Filter
+                            <button type="button" class="btn btn-light-danger btn-sm d-none" id="btn_reset_filter"
+                                title="Reset Filter ke Default">
+                                <i class="ki-duotone ki-arrows-circle fs-4 me-1"><span class="path1"></span><span
+                                        class="path2"></span></i> Reset Filter
                             </button>
                         </div>
                     </div>
@@ -148,9 +177,11 @@
                                 </tr>
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
-                                @foreach($modules as $module)
+                                @foreach ($modules as $module)
                                     @php
-                                        $assignedRoleNames = collect($module->roles)->map(fn($r) => strtolower($r))->join(' ');
+                                        $assignedRoleNames = collect($module->roles)
+                                            ->map(fn($r) => strtolower($r))
+                                            ->join(' ');
                                     @endphp
                                     <tr data-roles="{{ $assignedRoleNames }}">
                                         <td>
@@ -158,34 +189,39 @@
                                                 $depth = $module->depth ?? 0;
                                                 $indentPadding = $depth * 28;
                                             @endphp
-                                            <div class="d-flex align-items-start" style="{{ $indentPadding > 0 ? 'padding-left: ' . $indentPadding . 'px;' : '' }}">
-                                                @if($depth > 0)
+                                            <div class="d-flex align-items-start"
+                                                style="{{ $indentPadding > 0 ? 'padding-left: ' . $indentPadding . 'px;' : '' }}">
+                                                @if ($depth > 0)
                                                     <span class="text-muted me-2 fs-7 fw-bold">└─</span>
                                                 @endif
-                                                @if(!empty($module->icon))
+                                                @if (!empty($module->icon))
                                                     <i class="{{ $module->icon }} fs-4 text-primary me-2 mt-1"></i>
                                                 @endif
                                                 <div class="d-flex flex-column align-items-start">
-                                                    <span class="text-gray-900 fw-bold fs-6">{{ $module->module_name }}</span>
-                                                    @if(!empty($module->display_name))
-                                                        <span class="text-muted fs-7 fw-semibold">{{ $module->display_name }}</span>
+                                                    <span
+                                                        class="text-gray-900 fw-bold fs-6">{{ $module->module_name }}</span>
+                                                    @if (!empty($module->display_name))
+                                                        <span
+                                                            class="text-muted fs-7 fw-semibold">{{ $module->display_name }}</span>
                                                     @endif
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex align-items-center gap-1.5 flex-wrap">
-                                                @foreach($module->actions as $act)
+                                                @foreach ($module->actions as $act)
                                                     @php
-                                                        $badgeClass = match($act->action_type) {
+                                                        $badgeClass = match ($act->action_type) {
                                                             'create' => 'badge-light-success',
-                                                            'read'   => 'badge-light-info',
+                                                            'read' => 'badge-light-info',
                                                             'update' => 'badge-light-warning',
                                                             'delete' => 'badge-light-danger',
-                                                            default  => 'badge-light-primary'
+                                                            default => 'badge-light-primary',
                                                         };
                                                     @endphp
-                                                    <span class="badge {{ $badgeClass }} fw-bold text-uppercase fs-8 py-1.5 px-2.5" title="{{ $act->name }}">
+                                                    <span
+                                                        class="badge {{ $badgeClass }} fw-bold text-uppercase fs-8 py-1.5 px-2.5"
+                                                        title="{{ $act->name }}">
                                                         {{ strtoupper($act->action_type) }}
                                                     </span>
                                                 @endforeach
@@ -193,18 +229,26 @@
                                         </td>
                                         <td>
                                             @forelse($module->roles as $roleName)
-                                                <span class="badge badge-light-primary me-1 mb-1">{{ ucfirst($roleName) }}</span>
+                                                <span
+                                                    class="badge badge-light-primary me-1 mb-1">{{ ucfirst($roleName) }}</span>
                                             @empty
-                                                <span class="badge badge-light-secondary text-gray-500 fs-8">Belum ditugaskan</span>
+                                                <span class="badge badge-light-secondary text-gray-500 fs-8">Belum
+                                                    ditugaskan</span>
                                             @endforelse
                                         </td>
                                         <td>
-                                            <span class="badge badge-light-secondary text-gray-800 fw-bold fs-7">{{ $module->total_perms }} Akses</span>
+                                            <span
+                                                class="badge badge-light-secondary text-gray-800 fw-bold fs-7">{{ $module->total_perms }}
+                                                Akses</span>
                                         </td>
                                         <td class="text-end">
-                                            <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Manage Module Permissions & Roles' : 'Kelola Aksi CRUD & Role Modul' }}">
-                                                <button type="button" class="btn btn-icon btn-light-primary w-35px h-35px btn-edit-module" data-module="{{ $module->module_name }}">
-                                                    <i class="ki-duotone ki-pencil fs-2"><span class="path1"></span><span class="path2"></span></i>
+                                            <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                                title="{{ app()->getLocale() == 'en' ? 'Manage Module Permissions & Roles' : 'Kelola Aksi CRUD & Role Modul' }}">
+                                                <button type="button"
+                                                    class="btn btn-icon btn-light-primary w-35px h-35px btn-edit-module"
+                                                    data-module="{{ $module->module_name }}">
+                                                    <i class="ki-duotone ki-pencil fs-2"><span class="path1"></span><span
+                                                            class="path2"></span></i>
                                                 </button>
                                             </span>
                                         </td>
@@ -224,7 +268,8 @@
 @endsection
 
 @section('styles')
-    <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet"
+        type="text/css" />
 @endsection
 
 @section('scripts')
@@ -233,7 +278,10 @@
         $(document).ready(function() {
             var permissionsTable = $('#kt_permissions_table').DataTable({
                 pageLength: 50,
-                lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+                lengthMenu: [
+                    [10, 25, 50, 100, -1],
+                    [10, 25, 50, 100, "All"]
+                ],
                 order: [],
                 language: {
                     search: "",
@@ -261,9 +309,9 @@
             // Custom Role Filter Dropdown
             $('#filter_role').on('change', function() {
                 var selectedRole = $(this).val().toLowerCase();
-                if(selectedRole === 'unassigned') {
+                if (selectedRole === 'unassigned') {
                     permissionsTable.column(2).search('Belum ditugaskan').draw();
-                } else if(selectedRole === 'all' || !selectedRole) {
+                } else if (selectedRole === 'all' || !selectedRole) {
                     permissionsTable.column(2).search('').draw();
                 } else {
                     permissionsTable.column(2).search(selectedRole).draw();
@@ -328,24 +376,27 @@
                     type: 'GET',
                     dataType: 'json',
                     success: function(res) {
-                        if(res.success) {
-                            $('#permission_modal_title').text('Edit Hak Akses Modul (Batch): ' + res.module_name);
+                        if (res.success) {
+                            $('#permission_modal_title').text('Edit Hak Akses Modul (Batch): ' +
+                                res.module_name);
                             $('#permissionTab').removeClass('d-none');
                             $('#tab_batch_btn').tab('show');
-                            
+
                             $('#batch_module_name').val(res.module_name);
-                            
+
                             $('.batch-action-checkbox').prop('checked', false);
-                            if(res.existing_actions) {
+                            if (res.existing_actions) {
                                 res.existing_actions.forEach(function(act) {
-                                    $(".batch-action-checkbox[value='" + act + "']").prop('checked', true);
+                                    $(".batch-action-checkbox[value='" + act + "']")
+                                        .prop('checked', true);
                                 });
                             }
-                            
+
                             $('.perm-batch-role-checkbox').prop('checked', false);
-                            if(res.assigned_roles) {
+                            if (res.assigned_roles) {
                                 res.assigned_roles.forEach(function(role) {
-                                    $(".perm-batch-role-checkbox[value='" + role + "']").prop('checked', true);
+                                    $(".perm-batch-role-checkbox[value='" + role + "']")
+                                        .prop('checked', true);
                                 });
                             }
 
@@ -354,7 +405,8 @@
                         }
                     },
                     error: function(xhr) {
-                        SwalHelper.error(xhr.responseJSON?.message || 'Gagal mengambil data modul.');
+                        SwalHelper.error(xhr.responseJSON?.message ||
+                            'Gagal mengambil data modul.');
                     }
                 });
             });
@@ -366,9 +418,9 @@
                 btn.prop('disabled', true);
 
                 var mode = $(this).data('mode');
-                var targetUrl = (mode === 'update') 
-                    ? "{{ route('manajemenpengguna.permissions.module-update') }}"
-                    : "{{ route('manajemenpengguna.permissions.store-batch') }}";
+                var targetUrl = (mode === 'update') ?
+                    "{{ route('manajemenpengguna.permissions.module-update') }}" :
+                    "{{ route('manajemenpengguna.permissions.store-batch') }}";
 
                 $.ajax({
                     url: targetUrl,
@@ -376,7 +428,7 @@
                     data: $(this).serialize(),
                     success: function(res) {
                         btn.prop('disabled', false);
-                        if(res.success) {
+                        if (res.success) {
                             $('#kt_modal_permission').modal('hide');
                             SwalHelper.success(res.message);
                         }
@@ -392,7 +444,8 @@
             $('#kt_modal_permission_form').on('submit', function(e) {
                 e.preventDefault();
                 var permId = $('#permission_id').val();
-                var url = permId ? "{{ url('manajemenpengguna/permissions') }}/" + permId : "{{ route('manajemenpengguna.permissions.store') }}";
+                var url = permId ? "{{ url('manajemenpengguna/permissions') }}/" + permId :
+                    "{{ route('manajemenpengguna.permissions.store') }}";
                 var type = permId ? "PUT" : "POST";
                 var btn = $('#kt_modal_permission_submit');
                 btn.prop('disabled', true);
@@ -403,7 +456,7 @@
                     data: $(this).serialize(),
                     success: function(res) {
                         btn.prop('disabled', false);
-                        if(res.success) {
+                        if (res.success) {
                             $('#kt_modal_permission').modal('hide');
                             SwalHelper.success(res.message);
                         }

@@ -12,7 +12,8 @@
 
             <!--begin::Modal body-->
             <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
-                <form id="kt_form_menu_batch" class="form" action="{{ route('appsupport.menu.store-batch') }}" method="POST">
+                <form id="kt_form_menu_batch" class="form" action="{{ route('appsupport.menu.store-batch') }}"
+                    method="POST">
                     @csrf
 
                     <div class="mb-10 text-center">
@@ -20,46 +21,68 @@
                             {{ app()->getLocale() == 'en' ? 'Batch Menu Creator (Tambah Partai Menu)' : 'Tambah Partai Menu (Batch Menu Creator)' }}
                         </h1>
                         <div class="text-muted fw-semibold fs-6">
-                            {{ app()->getLocale() == 'en' ? 'Create a complete menu tree (Main Menu -> Sub-Menus -> Sub-Sub-Menus) dynamically in a single batch.' : 'Buat struktur menu lengkap (Menu Utama -> Sub-Menu -> Sub-Sub-Menu) secara dinamis dalam satu transaksi.' }}
+                            {{ app()->getLocale() == 'en' ? 'Create a complete menu tree (Main Menu->Sub-Menus->Sub-Sub-Menus) dynamically in a single batch.' : 'Buat struktur menu lengkap (Menu Utama->Sub-Menu->Sub-Sub-Menu) secara dinamis dalam satu transaksi.' }}
                         </div>
                     </div>
 
                     <!--begin::Main Menu Section Card-->
                     <div class="card schema-card bg-light-primary border border-primary p-6 rounded mb-6">
-                        <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom border-primary border-opacity-10">
+                        <div
+                            class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom border-primary border-opacity-10">
                             <!--Left side: Icon & Heading-->
                             <div class="d-flex align-items-center gap-2">
-                                <i class="ki-duotone ki-element-11 fs-2 text-primary me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-                                <h4 class="fw-bold text-gray-900 m-0 fs-5">1. {{ app()->getLocale() == 'en' ? 'Main Menu Target (Level 0)' : 'Target Menu Utama (Induk Utama)' }}</h4>
+                                <i class="ki-duotone ki-element-11 fs-2 text-primary me-1"><span
+                                        class="path1"></span><span class="path2"></span><span
+                                        class="path3"></span><span class="path4"></span></i>
+                                <h4 class="fw-bold text-gray-900 m-0 fs-5">1.
+                                    {{ app()->getLocale() == 'en' ? 'Main Menu Target (Level 0)' : 'Target Menu Utama (Induk Utama)' }}
+                                </h4>
                             </div>
 
                             <!--Right side: Compact Radio Buttons pushed to far right-->
                             <div class="btn-group btn-group-sm ms-auto" role="group">
-                                <input type="radio" class="btn-check" name="batch_mode" value="new" id="batch_mode_new" checked autocomplete="off" />
-                                <label class="btn btn-sm btn-outline btn-outline-primary btn-active-primary fw-semibold px-3 py-1 fs-7" for="batch_mode_new">
-                                    <i class="ki-duotone ki-plus-circle fs-6 me-1"><span class="path1"></span><span class="path2"></span></i>
+                                <input type="radio" class="btn-check" name="batch_mode" value="new"
+                                    id="batch_mode_new" checked autocomplete="off" />
+                                <label
+                                    class="btn btn-sm btn-outline btn-outline-primary btn-active-primary fw-semibold px-3 py-1 fs-7"
+                                    for="batch_mode_new">
+                                    <i class="ki-duotone ki-plus-circle fs-6 me-1"><span class="path1"></span><span
+                                            class="path2"></span></i>
                                     {{ app()->getLocale() == 'en' ? 'Create New' : 'Buat Menu Baru' }}
                                 </label>
 
-                                <input type="radio" class="btn-check" name="batch_mode" value="existing" id="batch_mode_existing" autocomplete="off" />
-                                <label class="btn btn-sm btn-outline btn-outline-primary btn-active-primary fw-semibold px-3 py-1 fs-7" for="batch_mode_existing">
-                                    <i class="ki-duotone ki-element-plus fs-6 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                <input type="radio" class="btn-check" name="batch_mode" value="existing"
+                                    id="batch_mode_existing" autocomplete="off" />
+                                <label
+                                    class="btn btn-sm btn-outline btn-outline-primary btn-active-primary fw-semibold px-3 py-1 fs-7"
+                                    for="batch_mode_existing">
+                                    <i class="ki-duotone ki-element-plus fs-6 me-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span></i>
                                     {{ app()->getLocale() == 'en' ? 'Select Main Menu' : 'Pilih Menu Utama' }}
                                 </label>
                             </div>
                         </div>
 
                         <!--Option A: Existing Main Menu Dropdown-->
-                        <div id="batch_existing_main_wrapper" class="p-4 bg-white rounded border border-primary border-opacity-20 shadow-2xs mb-4 d-none">
+                        <div id="batch_existing_main_wrapper"
+                            class="p-4 bg-white rounded border border-primary border-opacity-20 shadow-2xs mb-4 d-none">
                             <label class="fs-7 fw-bold text-gray-800 mb-2 required d-flex align-items-center gap-2">
-                                <i class="ki-duotone ki-element-plus fs-5 text-primary"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                <i class="ki-duotone ki-element-plus fs-5 text-primary"><span
+                                        class="path1"></span><span class="path2"></span><span
+                                        class="path3"></span><span class="path4"></span></i>
                                 {{ app()->getLocale() == 'en' ? 'Select Target Existing Main Menu' : 'Pilih Target Menu Utama yang Sudah Ada' }}
                             </label>
-                            <select class="form-select form-select-solid form-select-sm" name="existing_main_menu_id" id="batch_existing_main_menu_id">
-                                <option value="">-- {{ app()->getLocale() == 'en' ? 'Select Main Menu' : 'Pilih Menu Utama' }} --</option>
-                                @if(isset($mainMenus) && count($mainMenus) > 0)
-                                    @foreach($mainMenus as $mm)
-                                        <option value="{{ $mm->id }}" data-url="{{ $mm->url }}" data-key="{{ $mm->meta['title_key'] ?? '' }}" data-category="{{ $mm->category }}">
+                            <select class="form-select form-select-solid form-select-sm" name="existing_main_menu_id"
+                                id="batch_existing_main_menu_id">
+                                <option value="">--
+                                    {{ app()->getLocale() == 'en' ? 'Select Main Menu' : 'Pilih Menu Utama' }} --
+                                </option>
+                                @if (isset($mainMenus) && count($mainMenus) > 0)
+                                    @foreach ($mainMenus as $mm)
+                                        <option value="{{ $mm->id }}" data-url="{{ $mm->url }}"
+                                            data-key="{{ $mm->meta['title_key'] ?? '' }}"
+                                            data-category="{{ $mm->category }}">
                                             {{ $mm->name }} &nbsp;&mdash;&nbsp; (URL: {{ $mm->url }})
                                         </option>
                                     @endforeach
@@ -71,32 +94,47 @@
                         <div id="batch_new_main_wrapper">
                             <div class="row g-4 mb-4">
                                 <div class="col-md-3 fv-row">
-                                    <label class="fs-7 fw-semibold mb-1 required">{{ app()->getLocale() == 'en' ? 'Main Menu Name (ID)' : 'Nama Menu Utama (ID)' }}</label>
-                                    <input type="text" class="form-control form-control-solid form-control-sm" id="batch_main_name" placeholder="Contoh: Manajemen Sekolah" name="main_menu[name]" required />
+                                    <label
+                                        class="fs-7 fw-semibold mb-1 required">{{ app()->getLocale() == 'en' ? 'Main Menu Name (ID)' : 'Nama Menu Utama (ID)' }}</label>
+                                    <input type="text" class="form-control form-control-solid form-control-sm"
+                                        id="batch_main_name" placeholder="Contoh: Manajemen Sekolah"
+                                        name="main_menu[name]" required />
                                 </div>
 
                                 <div class="col-md-3 fv-row">
-                                    <label class="fs-7 fw-semibold mb-1">{{ app()->getLocale() == 'en' ? 'Main Menu Name (EN)' : 'Nama Menu Utama (EN)' }}</label>
-                                    <input type="text" class="form-control form-control-solid form-control-sm" id="batch_main_title_en" placeholder="Contoh: School Management" name="main_menu[title_en]" />
+                                    <label
+                                        class="fs-7 fw-semibold mb-1">{{ app()->getLocale() == 'en' ? 'Main Menu Name (EN)' : 'Nama Menu Utama (EN)' }}</label>
+                                    <input type="text" class="form-control form-control-solid form-control-sm"
+                                        id="batch_main_title_en" placeholder="Contoh: School Management"
+                                        name="main_menu[title_en]" />
                                 </div>
 
                                 <div class="col-md-3 fv-row">
-                                    <label class="fs-7 fw-semibold mb-1 required">{{ app()->getLocale() == 'en' ? 'Route / URL' : 'Route / URL' }}</label>
-                                    <input type="text" class="form-control form-control-solid form-control-sm" id="batch_main_url" placeholder="Contoh: manajemensekolah atau #" name="main_menu[url]" value="#" required />
+                                    <label
+                                        class="fs-7 fw-semibold mb-1 required">{{ app()->getLocale() == 'en' ? 'Route / URL' : 'Route / URL' }}</label>
+                                    <input type="text" class="form-control form-control-solid form-control-sm"
+                                        id="batch_main_url" placeholder="Contoh: manajemensekolah atau #"
+                                        name="main_menu[url]" value="#" required />
                                 </div>
 
                                 <div class="col-md-3 fv-row">
-                                    <label class="fs-7 fw-semibold mb-1">{{ app()->getLocale() == 'en' ? 'Key Translasi (title_key)' : 'Key Translasi (title_key)' }}</label>
-                                    <input type="text" class="form-control form-control-solid form-control-sm" id="batch_main_key" placeholder="Contoh: wd_manajemensekolah" name="main_menu[title_key]" />
+                                    <label
+                                        class="fs-7 fw-semibold mb-1">{{ app()->getLocale() == 'en' ? 'Key Translasi (title_key)' : 'Key Translasi (title_key)' }}</label>
+                                    <input type="text" class="form-control form-control-solid form-control-sm"
+                                        id="batch_main_key" placeholder="Contoh: wd_manajemensekolah"
+                                        name="main_menu[title_key]" />
                                 </div>
                             </div>
 
                             <div class="row g-4">
                                 <div class="col-md-3 fv-row">
-                                    <label class="fs-7 fw-semibold mb-1">{{ app()->getLocale() == 'en' ? 'Category Group' : 'Kategori Group' }}</label>
-                                    <input type="text" class="form-control form-control-solid form-control-sm" list="menu_batch_category_list" placeholder="Contoh: Website, Main Menu" name="category" id="batch_category_input" />
+                                    <label
+                                        class="fs-7 fw-semibold mb-1">{{ app()->getLocale() == 'en' ? 'Category Group' : 'Kategori Group' }}</label>
+                                    <input type="text" class="form-control form-control-solid form-control-sm"
+                                        list="menu_batch_category_list" placeholder="Contoh: Website, Main Menu"
+                                        name="category" id="batch_category_input" />
                                     <datalist id="menu_batch_category_list">
-                                        @if(isset($categories))
+                                        @if (isset($categories))
                                             @foreach ($categories as $cat)
                                                 <option value="{{ $cat }}">
                                             @endforeach
@@ -105,18 +143,27 @@
                                 </div>
 
                                 <div class="col-md-4 fv-row">
-                                    <label class="fs-7 fw-semibold mb-1">{{ app()->getLocale() == 'en' ? 'Icon Class (Keenicon)' : 'Class Ikon (Keenicon)' }}</label>
-                                    <input type="text" class="form-control form-control-solid form-control-sm" placeholder="Contoh: ki-duotone ki-global" name="main_menu[icon]" value="ki-duotone ki-element-11" />
+                                    <label
+                                        class="fs-7 fw-semibold mb-1">{{ app()->getLocale() == 'en' ? 'Icon Class (Keenicon)' : 'Class Ikon (Keenicon)' }}</label>
+                                    <input type="text" class="form-control form-control-solid form-control-sm"
+                                        placeholder="Contoh: ki-duotone ki-global" name="main_menu[icon]"
+                                        value="ki-duotone ki-element-11" />
                                 </div>
 
                                 <div class="col-md-3 fv-row">
-                                    <label class="fs-7 fw-semibold mb-1">{{ app()->getLocale() == 'en' ? 'Paths Count' : 'Jumlah Path' }}</label>
-                                    <input type="number" min="0" max="10" class="form-control form-control-solid form-control-sm" placeholder="0" name="main_menu[paths]" value="4" />
+                                    <label
+                                        class="fs-7 fw-semibold mb-1">{{ app()->getLocale() == 'en' ? 'Paths Count' : 'Jumlah Path' }}</label>
+                                    <input type="number" min="0" max="10"
+                                        class="form-control form-control-solid form-control-sm" placeholder="0"
+                                        name="main_menu[paths]" value="4" />
                                 </div>
 
                                 <div class="col-md-2 fv-row">
-                                    <label class="fs-7 fw-semibold mb-1">{{ app()->getLocale() == 'en' ? 'Order' : 'Urutan' }}</label>
-                                    <input type="number" min="0" class="form-control form-control-solid form-control-sm" placeholder="0" name="main_menu[orders]" value="0" />
+                                    <label
+                                        class="fs-7 fw-semibold mb-1">{{ app()->getLocale() == 'en' ? 'Order' : 'Urutan' }}</label>
+                                    <input type="number" min="0"
+                                        class="form-control form-control-solid form-control-sm" placeholder="0"
+                                        name="main_menu[orders]" value="0" />
                                 </div>
                             </div>
                         </div>
@@ -126,11 +173,16 @@
                     <!--begin::Sub-Menus Section Header-->
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         <div class="d-flex align-items-center">
-                            <i class="ki-duotone ki-layers fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-                            <h4 class="fw-bold text-gray-900 m-0">2. {{ app()->getLocale() == 'en' ? 'Sub-Menus & Sub-Sub-Menus Structure' : 'Struktur Sub-Menu & Sub-Sub-Menu' }}</h4>
+                            <i class="ki-duotone ki-layers fs-2 text-dark me-2"><span class="path1"></span><span
+                                    class="path2"></span><span class="path3"></span></i>
+                            <h4 class="fw-bold text-gray-900 m-0">2.
+                                {{ app()->getLocale() == 'en' ? 'Sub-Menus & Sub-Sub-Menus Structure' : 'Struktur Sub-Menu & Sub-Sub-Menu' }}
+                            </h4>
                         </div>
-                        <button type="button" class="btn btn-sm btn-light-primary fw-bold" onclick="addSubMenuCard()">
-                            <i class="ki-duotone ki-plus fs-3"></i> {{ app()->getLocale() == 'en' ? 'Add Sub-Menu' : 'Tambah Sub Menu' }}
+                        <button type="button" class="btn btn-sm btn-light-primary fw-bold"
+                            onclick="addSubMenuCard()">
+                            <i class="ki-duotone ki-plus fs-3"></i>
+                            {{ app()->getLocale() == 'en' ? 'Add Sub-Menu' : 'Tambah Sub Menu' }}
                         </button>
                     </div>
                     <!--end::Sub-Menus Section Header-->
@@ -148,7 +200,8 @@
                         </button>
                         <button type="submit" class="btn btn-primary min-w-175px" id="btn_submit_menu_batch">
                             <span class="indicator-label">
-                                <i class="ki-duotone ki-check fs-2 me-1"></i> {{ app()->getLocale() == 'en' ? 'Save Batch Menu' : 'Simpan Partai Menu' }}
+                                <i class="ki-duotone ki-check fs-2 me-1"></i>
+                                {{ app()->getLocale() == 'en' ? 'Save Batch Menu' : 'Simpan Partai Menu' }}
                             </span>
                             <span class="indicator-progress">
                                 {{ app()->getLocale() == 'en' ? 'Please wait...' : 'Memproses...' }}

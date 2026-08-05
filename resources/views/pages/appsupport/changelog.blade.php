@@ -17,7 +17,8 @@
         <div id="kt_app_content_container" class="app-container container-fluid">
 
             <!--begin::Page Header & Operational Guide Trigger-->
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+            <div
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
                 <div class="d-flex align-items-center gap-3">
                     <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
                         <i class="ki-duotone ki-time text-primary fs-2x">
@@ -35,16 +36,25 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-2 ms-auto">
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Add New Release Version' : 'Tambah Versi Rilis Baru' }}">
-                        <button type="button" class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4" onclick="openAddChangelogModal()">
-                            <i class="ki-duotone ki-plus fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
-                            <span class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Add Version' : 'Tambah Versi' }}</span>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Add New Release Version' : 'Tambah Versi Rilis Baru' }}">
+                        <button type="button"
+                            class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4"
+                            onclick="openAddChangelogModal()">
+                            <i class="ki-duotone ki-plus fs-2 p-0 m-0"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                            <span
+                                class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Add Version' : 'Tambah Versi' }}</span>
                         </button>
                     </span>
 
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                        <button type="button" class="btn btn-icon btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0" data-bs-toggle="modal" data-bs-target="#kt_modal_changelog_help">
-                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button"
+                            class="btn btn-icon btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0"
+                            data-bs-toggle="modal" data-bs-target="#kt_modal_changelog_help">
+                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span
+                                    class="path2"></span><span class="path3"></span></i>
                         </button>
                     </span>
                 </div>
@@ -60,12 +70,16 @@
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-45px me-4">
                                     <span class="symbol-label bg-light-primary">
-                                        <i class="ki-duotone ki-element-plus fs-2x text-primary"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                                        <i class="ki-duotone ki-element-plus fs-2x text-primary"><span
+                                                class="path1"></span><span class="path2"></span><span
+                                                class="path3"></span><span class="path4"></span><span
+                                                class="path5"></span></i>
                                     </span>
                                 </div>
                                 <div class="d-flex flex-column">
                                     <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ $latestVersion }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Current Version' : 'Versi Terbaru' }}</span>
+                                    <span
+                                        class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Current Version' : 'Versi Terbaru' }}</span>
                                 </div>
                             </div>
                         </div>
@@ -79,12 +93,16 @@
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-45px me-4">
                                     <span class="symbol-label bg-light-success">
-                                        <i class="ki-duotone ki-element-11 fs-2x text-success"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                        <i class="ki-duotone ki-element-11 fs-2x text-success"><span
+                                                class="path1"></span><span class="path2"></span><span
+                                                class="path3"></span><span class="path4"></span></i>
                                     </span>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($totalVersions) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Total Releases' : 'Total Versi Rilis' }}</span>
+                                    <span
+                                        class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($totalVersions) }}</span>
+                                    <span
+                                        class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Total Releases' : 'Total Versi Rilis' }}</span>
                                 </div>
                             </div>
                         </div>
@@ -98,12 +116,16 @@
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-45px me-4">
                                     <span class="symbol-label bg-light-info">
-                                        <i class="ki-duotone ki-route fs-2x text-info"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                        <i class="ki-duotone ki-route fs-2x text-info"><span class="path1"></span><span
+                                                class="path2"></span><span class="path3"></span><span
+                                                class="path4"></span></i>
                                     </span>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($totalCommits) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Recorded Commits' : 'Total Commit Git' }}</span>
+                                    <span
+                                        class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($totalCommits) }}</span>
+                                    <span
+                                        class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Recorded Commits' : 'Total Commit Git' }}</span>
                                 </div>
                             </div>
                         </div>
@@ -117,12 +139,14 @@
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-45px me-4">
                                     <span class="symbol-label bg-light-warning">
-                                        <i class="ki-duotone ki-time fs-2x text-warning"><span class="path1"></span><span class="path2"></span></i>
+                                        <i class="ki-duotone ki-time fs-2x text-warning"><span class="path1"></span><span
+                                                class="path2"></span></i>
                                     </span>
                                 </div>
                                 <div class="d-flex flex-column">
                                     <span class="fs-4 fw-bold text-gray-800 me-2 lh-1">{{ $latestDate }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Last Push Date' : 'Tanggal Push Terakhir' }}</span>
+                                    <span
+                                        class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Last Push Date' : 'Tanggal Push Terakhir' }}</span>
                                 </div>
                             </div>
                         </div>
@@ -132,22 +156,28 @@
             <!--end::Summary Stat Cards-->
 
             <!--begin::Sub-Tab Navigation-->
-            <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-5 fw-bold mb-6" id="kt_changelog_tabs">
+            <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-5 fw-bold mb-6"
+                id="kt_changelog_tabs">
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'timeline' ? 'active' : '' }}" href="{{ route('appsupport.changelog', ['tab' => 'timeline']) }}">
+                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'timeline' ? 'active' : '' }}"
+                        href="{{ route('appsupport.changelog', ['tab' => 'timeline']) }}">
                         <i class="ki-duotone ki-time fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
                         {{ app()->getLocale() == 'en' ? 'Version Release Timeline' : 'Linimasa Rilis Versi' }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'git-log' ? 'active' : '' }}" href="{{ route('appsupport.changelog', ['tab' => 'git-log']) }}">
-                        <i class="ki-duotone ki-route fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'git-log' ? 'active' : '' }}"
+                        href="{{ route('appsupport.changelog', ['tab' => 'git-log']) }}">
+                        <i class="ki-duotone ki-route fs-2 me-2"><span class="path1"></span><span
+                                class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                         {{ app()->getLocale() == 'en' ? 'Git Commit Log' : 'Riwayat Commit Git' }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'version-summary' ? 'active' : '' }}" href="{{ route('appsupport.changelog', ['tab' => 'version-summary']) }}">
-                        <i class="ki-duotone ki-element-11 fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'version-summary' ? 'active' : '' }}"
+                        href="{{ route('appsupport.changelog', ['tab' => 'version-summary']) }}">
+                        <i class="ki-duotone ki-element-11 fs-2 me-2"><span class="path1"></span><span
+                                class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                         {{ app()->getLocale() == 'en' ? 'Version Breakdown & Highlights' : 'Ringkasan Breakdown Versi' }}
                     </a>
                 </li>
@@ -177,12 +207,14 @@
             }
         });
 
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Initialize DataTable if present on git log tab
             var tableEl = document.getElementById('kt_changelog_git_table');
             if (tableEl && typeof $(tableEl).DataTable === 'function') {
                 $(tableEl).DataTable({
-                    order: [[ 1, 'desc' ]],
+                    order: [
+                        [1, 'desc']
+                    ],
                     pageLength: 15,
                     language: {
                         search: "{{ app()->getLocale() == 'en' ? 'Filter Commits:' : 'Cari Commit:' }}",
@@ -261,7 +293,9 @@
                 Swal.fire({
                     title: "{{ app()->getLocale() == 'en' ? 'Syncing Live Git Log to DB...' : 'Menyinkronkan Log Commit Git ke Database...' }}",
                     allowOutsideClick: false,
-                    didOpen: () => { Swal.showLoading(); }
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
                 });
             }
 
@@ -272,7 +306,7 @@
                     changelog_id: changelogId,
                     version: version
                 },
-                success: function (res) {
+                success: function(res) {
                     if (isManual) {
                         Swal.close();
                     }
@@ -282,21 +316,29 @@
                             addCommitRow(cm.hash || '', cm.date || '', cm.message || cm.msg || '');
                         });
                         if (isManual) {
-                            var msg = res.message || ("{{ app()->getLocale() == 'en' ? 'Successfully synced ' : 'Berhasil menarik ' }}" + res.commits.length + "{{ app()->getLocale() == 'en' ? ' live Git commits!' : ' commit Git realtime!' }}");
+                            var msg = res.message || (
+                                "{{ app()->getLocale() == 'en' ? 'Successfully synced ' : 'Berhasil menarik ' }}" +
+                                res.commits.length +
+                                "{{ app()->getLocale() == 'en' ? ' live Git commits!' : ' commit Git realtime!' }}"
+                                );
                             SwalHelper.success(msg);
                         }
                     } else {
                         if (isManual) {
-                            SwalHelper.error("{{ app()->getLocale() == 'en' ? 'No live Git commits found.' : 'Tidak ada log commit Git ditemukan.' }}");
+                            SwalHelper.error(
+                                "{{ app()->getLocale() == 'en' ? 'No live Git commits found.' : 'Tidak ada log commit Git ditemukan.' }}"
+                                );
                         } else if ($('#commits_repeater_container .commit-row').length === 0) {
                             addCommitRow();
                         }
                     }
                 },
-                error: function (xhr) {
+                error: function(xhr) {
                     if (isManual) {
                         Swal.close();
-                        SwalHelper.error("{{ app()->getLocale() == 'en' ? 'Failed to fetch live Git log.' : 'Gagal menarik log commit Git.' }}");
+                        SwalHelper.error(
+                            "{{ app()->getLocale() == 'en' ? 'Failed to fetch live Git log.' : 'Gagal menarik log commit Git.' }}"
+                            );
                     } else if ($('#commits_repeater_container .commit-row').length === 0) {
                         addCommitRow();
                     }
@@ -307,7 +349,8 @@
         // Open Add Modal
         function openAddChangelogModal() {
             $('#changelog_id').val('');
-            $('#changelog_modal_title').text("{{ app()->getLocale() == 'en' ? 'Add New Release Version' : 'Tambah Versi Rilis Baru' }}");
+            $('#changelog_modal_title').text(
+                "{{ app()->getLocale() == 'en' ? 'Add New Release Version' : 'Tambah Versi Rilis Baru' }}");
             $('#kt_modal_changelog_form_element')[0].reset();
             $('#changelog_date').val(new Date().toISOString().split('T')[0]);
             $('#changelog_author').val('Developer Team');
@@ -333,7 +376,9 @@
         // Open Edit Modal
         function openEditChangelogModal(data) {
             $('#changelog_id').val(data.id || '');
-            $('#changelog_modal_title').text("{{ app()->getLocale() == 'en' ? 'Edit Release Version' : 'Edit Versi Rilis' }} (" + data.version + ")");
+            $('#changelog_modal_title').text(
+                "{{ app()->getLocale() == 'en' ? 'Edit Release Version' : 'Edit Versi Rilis' }} (" + data.version + ")"
+                );
             $('#changelog_version').val(data.version || '');
             $('#changelog_date').val(data.date || '');
             $('#changelog_title_id').val(data.title_id || data.title || '');
@@ -348,7 +393,11 @@
             $('#highlights_repeater_container').empty();
             var hlArr = data.highlights;
             if (typeof hlArr === 'string') {
-                try { hlArr = JSON.parse(hlArr); } catch(e) { hlArr = []; }
+                try {
+                    hlArr = JSON.parse(hlArr);
+                } catch (e) {
+                    hlArr = [];
+                }
             }
             if (Array.isArray(hlArr) && hlArr.length > 0) {
                 hlArr.forEach(function(hl) {
@@ -362,7 +411,11 @@
             $('#commits_repeater_container').empty();
             var cmArr = data.commits;
             if (typeof cmArr === 'string') {
-                try { cmArr = JSON.parse(cmArr); } catch(e) { cmArr = []; }
+                try {
+                    cmArr = JSON.parse(cmArr);
+                } catch (e) {
+                    cmArr = [];
+                }
             }
             if (Array.isArray(cmArr) && cmArr.length > 0) {
                 cmArr.forEach(function(cm) {
@@ -387,7 +440,11 @@
                 var label = $.trim($(this).find('.highlight-label').val());
                 var desc = $.trim($(this).find('.highlight-desc').val());
                 if (label || desc) {
-                    highlights.push({ type: type, label: label, desc: desc });
+                    highlights.push({
+                        type: type,
+                        label: label,
+                        desc: desc
+                    });
                 }
             });
 
@@ -397,7 +454,11 @@
                 var date = $.trim($(this).find('.commit-date').val());
                 var msg = $.trim($(this).find('.commit-msg').val());
                 if (hash || msg) {
-                    commits.push({ hash: hash || 'HEAD', date: date || new Date().toISOString().slice(0, 16).replace('T', ' '), msg: msg });
+                    commits.push({
+                        hash: hash || 'HEAD',
+                        date: date || new Date().toISOString().slice(0, 16).replace('T', ' '),
+                        msg: msg
+                    });
                 }
             });
 
@@ -423,7 +484,9 @@
             Swal.fire({
                 title: "{{ app()->getLocale() == 'en' ? 'Saving Changelog...' : 'Menyimpan Catatan Versi...' }}",
                 allowOutsideClick: false,
-                didOpen: () => { Swal.showLoading(); }
+                didOpen: () => {
+                    Swal.showLoading();
+                }
             });
 
             $.ajax({
@@ -435,15 +498,17 @@
                     'Accept': 'application/json'
                 },
                 data: JSON.stringify(payload),
-                success: function (res) {
+                success: function(res) {
                     Swal.close();
                     $('#kt_modal_changelog_form').modal('hide');
                     if (res.success) {
                         SwalHelper.success(res.message);
-                        setTimeout(function() { window.location.reload(); }, 1200);
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 1200);
                     }
                 },
-                error: function (xhr) {
+                error: function(xhr) {
                     Swal.close();
                     SwalHelper.validationError(xhr);
                 }
@@ -452,17 +517,19 @@
 
         // Delete Version Record
         function deleteChangelog(id, version) {
-            SwalHelper.confirmDelete("Versi " + version, function () {
+            SwalHelper.confirmDelete("Versi " + version, function() {
                 $.ajax({
                     url: "{{ url('appsupport/changelog') }}/" + id,
                     type: "DELETE",
-                    success: function (res) {
+                    success: function(res) {
                         if (res.success) {
                             SwalHelper.success(res.message);
-                            setTimeout(function() { window.location.reload(); }, 1200);
+                            setTimeout(function() {
+                                window.location.reload();
+                            }, 1200);
                         }
                     },
-                    error: function (xhr) {
+                    error: function(xhr) {
                         SwalHelper.error("Gagal menghapus catatan versi");
                     }
                 });

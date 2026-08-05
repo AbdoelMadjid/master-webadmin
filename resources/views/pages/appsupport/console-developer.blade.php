@@ -315,7 +315,7 @@
                     if (!tag) {
                         Swal.showValidationMessage(
                             "{{ app()->getLocale() == 'en' ? 'Tag version is required!' : 'Versi tag wajib diisi!' }}"
-                            );
+                        );
                         return false;
                     }
                     return {

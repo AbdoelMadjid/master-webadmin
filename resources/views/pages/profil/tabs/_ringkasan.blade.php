@@ -36,16 +36,16 @@
     }
     $alamatLengkap = !empty($alamatParts) ? implode(', ', $alamatParts) : null;
 
-    $jenisKelaminText = match($detail?->jenis_kelamin) {
+    $jenisKelaminText = match ($detail?->jenis_kelamin) {
         'L' => 'Laki-laki',
         'P' => 'Perempuan',
-        default => $detail?->jenis_kelamin ?? '-'
+        default => $detail?->jenis_kelamin ?? '-',
     };
 
-    $kewarganegaraanText = match($detail?->kewarganegaraan) {
+    $kewarganegaraanText = match ($detail?->kewarganegaraan) {
         'WNI' => 'Warga Negara Indonesia (WNI)',
         'WNA' => 'Warga Negara Asing (WNA)',
-        default => $detail?->kewarganegaraan ?? '-'
+        default => $detail?->kewarganegaraan ?? '-',
     };
 @endphp
 
@@ -57,14 +57,16 @@
         <div class="card-title m-0">
             <h3 class="fw-bold m-0 text-gray-900">
                 <i class="ki-duotone ki-badge fs-2 text-primary me-2">
-                    <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span>
+                    <span class="path1"></span><span class="path2"></span><span class="path3"></span><span
+                        class="path4"></span><span class="path5"></span>
                 </i> Ringkasan Identitas Pengguna
             </h3>
         </div>
         <!--end::Card title-->
         <!--begin::Action-->
         <a href="{{ url('profil-pengguna?tab=pengaturan') }}" class="btn btn-sm btn-primary align-self-center">
-            <i class="ki-duotone ki-pencil fs-4 me-1"><span class="path1"></span><span class="path2"></span></i> Edit Pengaturan & Identitas
+            <i class="ki-duotone ki-pencil fs-4 me-1"><span class="path1"></span><span class="path2"></span></i> Edit
+            Pengaturan & Identitas
         </a>
         <!--end::Action-->
     </div>
@@ -75,7 +77,7 @@
         <div class="row mb-7">
             <label class="col-lg-4 fw-semibold text-muted">Nama Lengkap (KTP)</label>
             <div class="col-lg-8">
-                <span class="fw-bold fs-6 text-gray-900">{{ $detail?->nama_lengkap ?? $user?->name ?? '-' }}</span>
+                <span class="fw-bold fs-6 text-gray-900">{{ $detail?->nama_lengkap ?? ($user?->name ?? '-') }}</span>
             </div>
         </div>
         <!--end::Row-->
@@ -120,7 +122,8 @@
         <div class="row mb-7">
             <label class="col-lg-4 fw-semibold text-muted">Golongan Darah</label>
             <div class="col-lg-8">
-                <span class="fw-semibold fs-6 text-gray-800">{{ $detail?->golongan_darah ? 'Golongan ' . $detail->golongan_darah : '-' }}</span>
+                <span
+                    class="fw-semibold fs-6 text-gray-800">{{ $detail?->golongan_darah ? 'Golongan ' . $detail->golongan_darah : '-' }}</span>
             </div>
         </div>
         <!--end::Row-->
@@ -173,7 +176,7 @@
             </label>
             <div class="col-lg-8 d-flex align-items-center">
                 <span class="fw-bold fs-6 text-gray-800 me-2">{{ $detail?->no_hp ?? '-' }}</span>
-                @if($detail?->no_hp)
+                @if ($detail?->no_hp)
                     <span class="badge badge-light-success">Aktif</span>
                 @endif
             </div>
@@ -199,7 +202,7 @@
         </div>
         <!--end::Row-->
 
-        @if(empty($detail?->nik) && empty($detail?->no_hp) && empty($detail?->alamat_jalan))
+        @if (empty($detail?->nik) && empty($detail?->no_hp) && empty($detail?->alamat_jalan))
             <!--begin::Notice-->
             <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
                 <i class="ki-duotone ki-information fs-2tx text-warning me-4">
@@ -209,8 +212,9 @@
                     <div class="fw-semibold">
                         <h4 class="text-gray-900 fw-bold">Identitas Anda belum lengkap!</h4>
                         <div class="fs-6 text-gray-700">
-                            Silakan lengkapi NIK, nomor HP, dan alamat Anda pada tab 
-                            <a class="fw-bold text-primary" href="{{ url('profil-pengguna?tab=pengaturan') }}">Pengaturan Profil</a>.
+                            Silakan lengkapi NIK, nomor HP, dan alamat Anda pada tab
+                            <a class="fw-bold text-primary"
+                                href="{{ url('profil-pengguna?tab=pengaturan') }}">Pengaturan Profil</a>.
                         </div>
                     </div>
                 </div>

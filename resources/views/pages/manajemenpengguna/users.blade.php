@@ -15,10 +15,12 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_content_container" class="app-container container-fluid">
             <!--begin::Page Header & Guide Action-->
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+            <div
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
                 <div class="d-flex align-items-center gap-3">
                     <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
-                        <i class="ki-duotone ki-user text-primary fs-2x"><span class="path1"></span><span class="path2"></span></i>
+                        <i class="ki-duotone ki-user text-primary fs-2x"><span class="path1"></span><span
+                                class="path2"></span></i>
                     </div>
                     <div>
                         <h2 class="text-gray-900 fw-bold fs-3 m-0">
@@ -30,21 +32,26 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-2">
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_users_help">
-                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal"
+                            data-bs-target="#kt_modal_users_help">
+                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span
+                                    class="path2"></span><span class="path3"></span></i>
                         </button>
                     </span>
                 </div>
             </div>
             <!--end::Page Header & Guide Action-->
 
-            @if(request('search'))
+            @if (request('search'))
                 <div class="alert alert-info d-flex align-items-center p-4 mb-5">
-                    <i class="ki-duotone ki-information-5 fs-2hx text-info me-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    <i class="ki-duotone ki-information-5 fs-2hx text-info me-3"><span class="path1"></span><span
+                            class="path2"></span><span class="path3"></span></i>
                     <div class="d-flex flex-column">
                         <h5 class="mb-1 text-gray-900 fw-bold">Notifikasi Pengguna</h5>
-                        <span>Membuka data pengguna untuk nama akun: <strong>"{{ request('search') }}"</strong>. Tabel telah terfilter secara otomatis.</span>
+                        <span>Membuka data pengguna untuk nama akun: <strong>"{{ request('search') }}"</strong>. Tabel telah
+                            terfilter secara otomatis.</span>
                     </div>
                 </div>
             @endif
@@ -53,24 +60,33 @@
                 <div class="card-header border-0 pt-6">
                     <div class="card-title">
                         <div class="d-flex align-items-center position-relative my-1">
-                            <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5"><span class="path1"></span><span class="path2"></span></i>
-                            <input type="text" id="users_search_input" class="form-control form-control-solid w-250px ps-13" placeholder="Cari User..." value="{{ request('search') }}" />
+                            <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                            <input type="text" id="users_search_input"
+                                class="form-control form-control-solid w-250px ps-13" placeholder="Cari User..."
+                                value="{{ request('search') }}" />
                         </div>
                     </div>
                     <div class="card-toolbar gap-2 flex-wrap">
-                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="Pemberian Role 'User' Massal (Untuk Akun Tanpa Role)">
+                        <span data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Pemberian Role 'User' Massal (Untuk Akun Tanpa Role)">
                             <button type="button" class="btn btn-icon btn-light-warning" id="btn_assign_default_role">
-                                <i class="ki-duotone ki-shield-tick fs-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-shield-tick fs-2"><span class="path1"></span><span
+                                        class="path2"></span></i>
                             </button>
                         </span>
                         <span data-bs-toggle="tooltip" data-bs-placement="top" title="Upload Massal Excel">
-                            <button type="button" class="btn btn-icon btn-light-success" data-bs-toggle="modal" data-bs-target="#kt_modal_import_user" id="btn_import_user">
-                                <i class="ki-duotone ki-file-up fs-2"><span class="path1"></span><span class="path2"></span></i>
+                            <button type="button" class="btn btn-icon btn-light-success" data-bs-toggle="modal"
+                                data-bs-target="#kt_modal_import_user" id="btn_import_user">
+                                <i class="ki-duotone ki-file-up fs-2"><span class="path1"></span><span
+                                        class="path2"></span></i>
                             </button>
                         </span>
                         <span data-bs-toggle="tooltip" data-bs-placement="top" title="Tambah User Baru">
-                            <button type="button" class="btn btn-icon btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_user" id="btn_add_user">
-                                <i class="ki-duotone ki-plus fs-2"><span class="path1"></span><span class="path2"></span></i>
+                            <button type="button" class="btn btn-icon btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#kt_modal_user" id="btn_add_user">
+                                <i class="ki-duotone ki-plus fs-2"><span class="path1"></span><span
+                                        class="path2"></span></i>
                             </button>
                         </span>
                     </div>
@@ -91,35 +107,42 @@
                                 </tr>
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
-                                @foreach($users as $user)
+                                @foreach ($users as $user)
                                     <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
                                                 <div class="symbol symbol-circle symbol-40px overflow-hidden me-3">
-                                                    <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}" style="width: 40px; height: 40px; object-fit: cover;" onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
+                                                    <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}"
+                                                        style="width: 40px; height: 40px; object-fit: cover;"
+                                                        onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
                                                 </div>
                                                 <div class="d-flex flex-column">
-                                                    <a href="javascript:void(0)" class="text-gray-800 text-hover-primary mb-1 fw-bold btn-impersonate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Klik untuk masuk ke akun ini (Switch User)">{{ $user->name }}</a>
+                                                    <a href="javascript:void(0)"
+                                                        class="text-gray-800 text-hover-primary mb-1 fw-bold btn-impersonate-user"
+                                                        data-id="{{ $user->id }}" data-name="{{ $user->name }}"
+                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        title="Klik untuk masuk ke akun ini (Switch User)">{{ $user->name }}</a>
                                                     <span class="fs-7 text-muted">{{ $user->email }}</span>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            @if($user->roles->isNotEmpty())
+                                            @if ($user->roles->isNotEmpty())
                                                 <div class="d-flex flex-column gap-1">
-                                                    @foreach($user->roles->chunk(2) as $roleChunk)
+                                                    @foreach ($user->roles->chunk(2) as $roleChunk)
                                                         <div class="d-flex flex-wrap align-items-center gap-1">
-                                                            @foreach($roleChunk as $role)
+                                                            @foreach ($roleChunk as $role)
                                                                 @php
                                                                     $roleLower = strtolower($role->name);
-                                                                    $roleBadge = match($roleLower) {
+                                                                    $roleBadge = match ($roleLower) {
                                                                         'master' => 'badge-light-danger text-danger',
-                                                                        'admin'  => 'badge-light-primary text-primary',
-                                                                        'user'   => 'badge-light-info text-info',
-                                                                        default  => 'badge-light-success text-success',
+                                                                        'admin' => 'badge-light-primary text-primary',
+                                                                        'user' => 'badge-light-info text-info',
+                                                                        default => 'badge-light-success text-success',
                                                                     };
                                                                 @endphp
-                                                                <span class="badge {{ $roleBadge }} fw-bold fs-8">{{ ucfirst($role->name) }}</span>
+                                                                <span
+                                                                    class="badge {{ $roleBadge }} fw-bold fs-8">{{ ucfirst($role->name) }}</span>
                                                             @endforeach
                                                         </div>
                                                     @endforeach
@@ -130,7 +153,7 @@
                                         </td>
                                         <td>
                                             @php $st = $user->status ?? 'approved'; @endphp
-                                            @if($st === 'approved')
+                                            @if ($st === 'approved')
                                                 <span class="badge badge-light-success fw-bold">Aktif</span>
                                             @elseif($st === 'inactive')
                                                 <span class="badge badge-light-dark fw-bold">Non-Aktif</span>
@@ -143,27 +166,42 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <span class="badge badge-light-warning fw-bold">{{ $user->points ?? 0 }} Poin</span>
+                                            <span class="badge badge-light-warning fw-bold">{{ $user->points ?? 0 }}
+                                                Poin</span>
                                         </td>
                                         <td>
-                                            @if($user->last_logout_at && (!$user->last_login_at || $user->last_logout_at->greaterThanOrEqualTo($user->last_login_at)))
-                                                <span class="badge badge-light-danger fs-8 fw-semibold" data-bs-toggle="tooltip" data-bs-placement="top" title="Waktu Logout Terakhir">
-                                                    <i class="ki-duotone ki-exit-right text-danger me-1"><span class="path1"></span><span class="path2"></span></i>
+                                            @if (
+                                                $user->last_logout_at &&
+                                                    (!$user->last_login_at || $user->last_logout_at->greaterThanOrEqualTo($user->last_login_at)))
+                                                <span class="badge badge-light-danger fs-8 fw-semibold"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Waktu Logout Terakhir">
+                                                    <i class="ki-duotone ki-exit-right text-danger me-1"><span
+                                                            class="path1"></span><span class="path2"></span></i>
                                                     Logout: {{ $user->last_logout_at->format('d M Y H:i') }}
                                                 </span>
                                             @elseif($user->last_login_at)
-                                                <span class="badge badge-light-success fs-8 fw-semibold" data-bs-toggle="tooltip" data-bs-placement="top" title="Waktu Login Terakhir">
-                                                    <i class="ki-duotone ki-entrance-left text-success me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                <span class="badge badge-light-success fs-8 fw-semibold"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Waktu Login Terakhir">
+                                                    <i class="ki-duotone ki-entrance-left text-success me-1"><span
+                                                            class="path1"></span><span class="path2"></span></i>
                                                     Login: {{ $user->last_login_at->format('d M Y H:i') }}
                                                 </span>
                                             @elseif($user->last_activity_at)
-                                                <span class="badge badge-light-success fs-8 fw-semibold" data-bs-toggle="tooltip" data-bs-placement="top" title="Waktu Login Terakhir">
-                                                    <i class="ki-duotone ki-entrance-left text-success me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                <span class="badge badge-light-success fs-8 fw-semibold"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Waktu Login Terakhir">
+                                                    <i class="ki-duotone ki-entrance-left text-success me-1"><span
+                                                            class="path1"></span><span class="path2"></span></i>
                                                     Login: {{ $user->last_activity_at->format('d M Y H:i') }}
                                                 </span>
                                             @elseif($user->latestDataLogin)
-                                                <span class="badge badge-light-success fs-8 fw-semibold" data-bs-toggle="tooltip" data-bs-placement="top" title="Waktu Login Terakhir">
-                                                    <i class="ki-duotone ki-entrance-left text-success me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                <span class="badge badge-light-success fs-8 fw-semibold"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Waktu Login Terakhir">
+                                                    <i class="ki-duotone ki-entrance-left text-success me-1"><span
+                                                            class="path1"></span><span class="path2"></span></i>
                                                     Login: {{ $user->latestDataLogin->login_at->format('d M Y H:i') }}
                                                 </span>
                                             @else
@@ -172,32 +210,61 @@
                                         </td>
                                         <td>{{ $user->created_at ? $user->created_at->format('d M Y H:i') : '-' }}</td>
                                         <td class="text-end">
-                                            @if($user->id !== auth()->id())
-                                                @if(in_array($st, ['pending', 'deactivate_pending', 'inactive']))
-                                                    <button type="button" class="btn btn-icon btn-active-light-success w-30px h-30px me-1 btn-activate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Aktifkan / Setujui Pembatalan Deaktivasi">
-                                                        <i class="ki-duotone ki-check fs-3"><span class="path1"></span><span class="path2"></span></i>
+                                            @if ($user->id !== auth()->id())
+                                                @if (in_array($st, ['pending', 'deactivate_pending', 'inactive']))
+                                                    <button type="button"
+                                                        class="btn btn-icon btn-active-light-success w-30px h-30px me-1 btn-activate-user"
+                                                        data-id="{{ $user->id }}" data-name="{{ $user->name }}"
+                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        title="Aktifkan / Setujui Pembatalan Deaktivasi">
+                                                        <i class="ki-duotone ki-check fs-3"><span
+                                                                class="path1"></span><span class="path2"></span></i>
                                                     </button>
                                                 @endif
-                                                @if(in_array($st, ['approved', 'deactivate_pending']))
-                                                    <button type="button" class="btn btn-icon btn-active-light-danger w-30px h-30px me-1 btn-deactivate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Nonaktifkan / Setujui Deaktivasi Akun">
-                                                        <i class="ki-duotone ki-cross-circle fs-3"><span class="path1"></span><span class="path2"></span></i>
+                                                @if (in_array($st, ['approved', 'deactivate_pending']))
+                                                    <button type="button"
+                                                        class="btn btn-icon btn-active-light-danger w-30px h-30px me-1 btn-deactivate-user"
+                                                        data-id="{{ $user->id }}" data-name="{{ $user->name }}"
+                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        title="Nonaktifkan / Setujui Deaktivasi Akun">
+                                                        <i class="ki-duotone ki-cross-circle fs-3"><span
+                                                                class="path1"></span><span class="path2"></span></i>
                                                     </button>
                                                 @endif
-                                                @if($st === 'pending')
-                                                    <button type="button" class="btn btn-icon btn-active-light-warning w-30px h-30px me-1 btn-reject-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Tolak Akun Pengguna">
-                                                        <i class="ki-duotone ki-cross fs-3"><span class="path1"></span><span class="path2"></span></i>
+                                                @if ($st === 'pending')
+                                                    <button type="button"
+                                                        class="btn btn-icon btn-active-light-warning w-30px h-30px me-1 btn-reject-user"
+                                                        data-id="{{ $user->id }}" data-name="{{ $user->name }}"
+                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        title="Tolak Akun Pengguna">
+                                                        <i class="ki-duotone ki-cross fs-3"><span
+                                                                class="path1"></span><span class="path2"></span></i>
                                                     </button>
                                                 @endif
                                             @endif
-                                            <button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px me-1 btn-edit-user" data-id="{{ $user->id }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit User">
-                                                <i class="ki-duotone ki-pencil fs-3"><span class="path1"></span><span class="path2"></span></i>
+                                            <button type="button"
+                                                class="btn btn-icon btn-active-light-primary w-30px h-30px me-1 btn-edit-user"
+                                                data-id="{{ $user->id }}" data-bs-toggle="tooltip"
+                                                data-bs-placement="top" title="Edit User">
+                                                <i class="ki-duotone ki-pencil fs-3"><span class="path1"></span><span
+                                                        class="path2"></span></i>
                                             </button>
-                                            @if($user->id !== auth()->id())
-                                                <button type="button" class="btn btn-icon btn-active-light-info w-30px h-30px me-1 btn-impersonate-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Switch User (Masuk sebagai {{ $user->name }})">
-                                                    <i class="ki-duotone ki-switch fs-3"><span class="path1"></span><span class="path2"></span></i>
+                                            @if ($user->id !== auth()->id())
+                                                <button type="button"
+                                                    class="btn btn-icon btn-active-light-info w-30px h-30px me-1 btn-impersonate-user"
+                                                    data-id="{{ $user->id }}" data-name="{{ $user->name }}"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Switch User (Masuk sebagai {{ $user->name }})">
+                                                    <i class="ki-duotone ki-switch fs-3"><span class="path1"></span><span
+                                                            class="path2"></span></i>
                                                 </button>
-                                                <button type="button" class="btn btn-icon btn-active-light-danger w-30px h-30px btn-delete-user" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus User">
-                                                    <i class="ki-duotone ki-trash fs-3"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                                                <button type="button"
+                                                    class="btn btn-icon btn-active-light-danger w-30px h-30px btn-delete-user"
+                                                    data-id="{{ $user->id }}" data-name="{{ $user->name }}"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top" title="Hapus User">
+                                                    <i class="ki-duotone ki-trash fs-3"><span class="path1"></span><span
+                                                            class="path2"></span><span class="path3"></span><span
+                                                            class="path4"></span><span class="path5"></span></i>
                                                 </button>
                                             @endif
                                         </td>
@@ -217,7 +284,8 @@
 @endsection
 
 @section('styles')
-    <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet"
+        type="text/css" />
 @endsection
 
 @section('scripts')
@@ -227,9 +295,10 @@
             var usersTable = $('#kt_users_table').DataTable({
                 pageLength: 10,
                 order: [],
-                columnDefs: [
-                    { orderable: false, targets: [6] }
-                ],
+                columnDefs: [{
+                    orderable: false,
+                    targets: [6]
+                }],
                 language: {
                     zeroRecords: "Pengguna tidak ditemukan.",
                     emptyTable: "Belum ada data pengguna.",
@@ -269,14 +338,17 @@
                         $.ajax({
                             url: "{{ route('manajemenpengguna.users.assign-default-role') }}",
                             type: "POST",
-                            data: { _token: "{{ csrf_token() }}" },
+                            data: {
+                                _token: "{{ csrf_token() }}"
+                            },
                             success: function(res) {
                                 if (res.success) {
                                     SwalHelper.success(res.message);
                                 }
                             },
                             error: function(xhr) {
-                                SwalHelper.error(xhr.responseJSON?.message || 'Gagal memberikan role massal.');
+                                SwalHelper.error(xhr.responseJSON?.message ||
+                                    'Gagal memberikan role massal.');
                             }
                         });
                     }
@@ -303,7 +375,7 @@
                     type: 'GET',
                     dataType: 'json',
                     success: function(res) {
-                        if(res.success) {
+                        if (res.success) {
                             $('#user_modal_title').text('Edit Data Pengguna');
                             $('#user_id').val(res.data.id);
                             $('#user_name').val(res.data.name);
@@ -314,21 +386,24 @@
                             $('#user_password_help').show();
 
                             $('.user-role-checkbox').prop('checked', false);
-                            if(res.assigned_roles) {
+                            if (res.assigned_roles) {
                                 res.assigned_roles.forEach(function(roleName) {
-                                    $(".user-role-checkbox[value='" + roleName + "']").prop('checked', true);
+                                    $(".user-role-checkbox[value='" + roleName + "']")
+                                        .prop('checked', true);
                                 });
                             }
 
-                            if(res.data.avatar_url) {
-                                $('#user_avatar_preview').css('background-image', 'url("' + res.data.avatar_url + '")');
+                            if (res.data.avatar_url) {
+                                $('#user_avatar_preview').css('background-image', 'url("' + res
+                                    .data.avatar_url + '")');
                             }
 
                             $('#kt_modal_user').modal('show');
                         }
                     },
                     error: function(xhr) {
-                        SwalHelper.error(xhr.responseJSON?.message || 'Gagal mengambil data pengguna.');
+                        SwalHelper.error(xhr.responseJSON?.message ||
+                            'Gagal mengambil data pengguna.');
                     }
                 });
             });
@@ -336,10 +411,11 @@
             $('#kt_modal_user_form').on('submit', function(e) {
                 e.preventDefault();
                 var userId = $('#user_id').val();
-                var url = userId ? "{{ url('manajemenpengguna/users') }}/" + userId : "{{ route('manajemenpengguna.users.store') }}";
+                var url = userId ? "{{ url('manajemenpengguna/users') }}/" + userId :
+                    "{{ route('manajemenpengguna.users.store') }}";
 
                 var formData = new FormData(this);
-                if(userId) {
+                if (userId) {
                     formData.append('_method', 'PUT');
                 }
 
@@ -350,7 +426,7 @@
                     contentType: false,
                     processData: false,
                     success: function(res) {
-                        if(res.success) {
+                        if (res.success) {
                             $('#kt_modal_user').modal('hide');
                             SwalHelper.success(res.message, function() {
                                 location.reload();
@@ -383,9 +459,12 @@
                 }).then(function(result) {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: "{{ url('manajemenpengguna/users') }}/" + userId + "/approve",
+                            url: "{{ url('manajemenpengguna/users') }}/" + userId +
+                                "/approve",
                             type: "POST",
-                            data: { _token: "{{ csrf_token() }}" },
+                            data: {
+                                _token: "{{ csrf_token() }}"
+                            },
                             success: function(res) {
                                 if (res.success) {
                                     SwalHelper.success(res.message, function() {
@@ -394,7 +473,8 @@
                                 }
                             },
                             error: function(xhr) {
-                                SwalHelper.error(xhr.responseJSON?.message || 'Gagal menyetujui akun.');
+                                SwalHelper.error(xhr.responseJSON?.message ||
+                                    'Gagal menyetujui akun.');
                             }
                         });
                     }
@@ -421,9 +501,12 @@
                 }).then(function(result) {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: "{{ url('manajemenpengguna/users') }}/" + userId + "/reject",
+                            url: "{{ url('manajemenpengguna/users') }}/" + userId +
+                                "/reject",
                             type: "POST",
-                            data: { _token: "{{ csrf_token() }}" },
+                            data: {
+                                _token: "{{ csrf_token() }}"
+                            },
                             success: function(res) {
                                 if (res.success) {
                                     SwalHelper.success(res.message, function() {
@@ -432,7 +515,8 @@
                                 }
                             },
                             error: function(xhr) {
-                                SwalHelper.error(xhr.responseJSON?.message || 'Gagal menolak akun.');
+                                SwalHelper.error(xhr.responseJSON?.message ||
+                                    'Gagal menolak akun.');
                             }
                         });
                     }
@@ -459,9 +543,12 @@
                 }).then(function(result) {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: "{{ url('manajemenpengguna/users') }}/" + userId + "/activate",
+                            url: "{{ url('manajemenpengguna/users') }}/" + userId +
+                                "/activate",
                             type: "POST",
-                            data: { _token: "{{ csrf_token() }}" },
+                            data: {
+                                _token: "{{ csrf_token() }}"
+                            },
                             success: function(res) {
                                 if (res.success) {
                                     SwalHelper.success(res.message, function() {
@@ -470,7 +557,8 @@
                                 }
                             },
                             error: function(xhr) {
-                                SwalHelper.error(xhr.responseJSON?.message || 'Gagal mengaktifkan akun.');
+                                SwalHelper.error(xhr.responseJSON?.message ||
+                                    'Gagal mengaktifkan akun.');
                             }
                         });
                     }
@@ -497,9 +585,12 @@
                 }).then(function(result) {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: "{{ url('manajemenpengguna/users') }}/" + userId + "/deactivate",
+                            url: "{{ url('manajemenpengguna/users') }}/" + userId +
+                                "/deactivate",
                             type: "POST",
-                            data: { _token: "{{ csrf_token() }}" },
+                            data: {
+                                _token: "{{ csrf_token() }}"
+                            },
                             success: function(res) {
                                 if (res.success) {
                                     SwalHelper.success(res.message, function() {
@@ -508,7 +599,8 @@
                                 }
                             },
                             error: function(xhr) {
-                                SwalHelper.error(xhr.responseJSON?.message || 'Gagal menonaktifkan akun.');
+                                SwalHelper.error(xhr.responseJSON?.message ||
+                                    'Gagal menonaktifkan akun.');
                             }
                         });
                     }
@@ -525,16 +617,19 @@
                     $.ajax({
                         url: "{{ url('manajemenpengguna/users') }}/" + userId,
                         type: "DELETE",
-                        data: { _token: "{{ csrf_token() }}" },
+                        data: {
+                            _token: "{{ csrf_token() }}"
+                        },
                         success: function(res) {
-                            if(res.success) {
+                            if (res.success) {
                                 SwalHelper.success(res.message, function() {
                                     location.reload();
                                 });
                             }
                         },
                         error: function(xhr) {
-                            SwalHelper.error(xhr.responseJSON?.message || 'Gagal menghapus pengguna.');
+                            SwalHelper.error(xhr.responseJSON?.message ||
+                                'Gagal menghapus pengguna.');
                         }
                     });
                 });
@@ -562,18 +657,23 @@
                 }).then(function(result) {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: "{{ url('manajemenpengguna/users') }}/" + userId + "/impersonate",
+                            url: "{{ url('manajemenpengguna/users') }}/" + userId +
+                                "/impersonate",
                             type: "POST",
-                            data: { _token: "{{ csrf_token() }}" },
+                            data: {
+                                _token: "{{ csrf_token() }}"
+                            },
                             success: function(res) {
                                 if (res.success) {
                                     SwalHelper.success(res.message, function() {
-                                        window.location.href = res.redirect || "{{ route('homepage') }}";
+                                        window.location.href = res.redirect ||
+                                            "{{ route('homepage') }}";
                                     });
                                 }
                             },
                             error: function(xhr) {
-                                SwalHelper.error(xhr.responseJSON?.message || 'Gagal melakukan switch user.');
+                                SwalHelper.error(xhr.responseJSON?.message ||
+                                    'Gagal melakukan switch user.');
                             }
                         });
                     }
@@ -591,7 +691,7 @@
                     contentType: false,
                     processData: false,
                     success: function(res) {
-                        if(res.success) {
+                        if (res.success) {
                             $('#kt_modal_import_user').modal('hide');
                             SwalHelper.success(res.message);
                         }

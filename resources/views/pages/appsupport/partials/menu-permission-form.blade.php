@@ -35,14 +35,22 @@
                     <div class="d-flex flex-column mb-6 fv-row">
                         <label class="fs-6 fw-semibold mb-2">Pilihan Aksi Cepat:</label>
                         <div class="d-flex flex-wrap gap-2">
-                            <button type="button" class="btn btn-sm btn-light-primary btn-quick-action" data-action="read">read</button>
-                            <button type="button" class="btn btn-sm btn-light-success btn-quick-action" data-action="create">create</button>
-                            <button type="button" class="btn btn-sm btn-light-warning btn-quick-action" data-action="update">update</button>
-                            <button type="button" class="btn btn-sm btn-light-danger btn-quick-action" data-action="delete">delete</button>
-                            <button type="button" class="btn btn-sm btn-light-info btn-quick-action" data-action="sort">sort</button>
-                            <button type="button" class="btn btn-sm btn-light-dark btn-quick-action" data-action="export">export</button>
-                            <button type="button" class="btn btn-sm btn-light-dark btn-quick-action" data-action="import">import</button>
-                            <button type="button" class="btn btn-sm btn-light-dark btn-quick-action" data-action="print">print</button>
+                            <button type="button" class="btn btn-sm btn-light-primary btn-quick-action"
+                                data-action="read">read</button>
+                            <button type="button" class="btn btn-sm btn-light-success btn-quick-action"
+                                data-action="create">create</button>
+                            <button type="button" class="btn btn-sm btn-light-warning btn-quick-action"
+                                data-action="update">update</button>
+                            <button type="button" class="btn btn-sm btn-light-danger btn-quick-action"
+                                data-action="delete">delete</button>
+                            <button type="button" class="btn btn-sm btn-light-info btn-quick-action"
+                                data-action="sort">sort</button>
+                            <button type="button" class="btn btn-sm btn-light-dark btn-quick-action"
+                                data-action="export">export</button>
+                            <button type="button" class="btn btn-sm btn-light-dark btn-quick-action"
+                                data-action="import">import</button>
+                            <button type="button" class="btn btn-sm btn-light-dark btn-quick-action"
+                                data-action="print">print</button>
                         </div>
                     </div>
                     <!--end::Input group-->
@@ -50,8 +58,11 @@
                     <!--begin::Input group - Aksi Custom-->
                     <div class="d-flex flex-column mb-8 fv-row">
                         <label class="required fs-6 fw-semibold mb-2">Nama Aksi Permission</label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Contoh: read, create, update, export" name="action" id="permission_action_input" required />
-                        <span class="text-muted fs-8 mt-1">Nama permission otomatis menggunakan format <code>[aksi] [url_menu]</code>.</span>
+                        <input type="text" class="form-control form-control-solid"
+                            placeholder="Contoh: read, create, update, export" name="action"
+                            id="permission_action_input" required />
+                        <span class="text-muted fs-8 mt-1">Nama permission otomatis menggunakan format <code>[aksi]
+                                [url_menu]</code>.</span>
                     </div>
                     <!--end::Input group-->
 

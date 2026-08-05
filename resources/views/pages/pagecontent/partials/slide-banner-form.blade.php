@@ -28,13 +28,15 @@
                             <label class="fs-6 fw-semibold mb-2">
                                 <span>{{ app()->getLocale() == 'en' ? 'Title Prefix (ID)' : 'Awalan Judul (ID)' }}</span>
                             </label>
-                            <input type="text" class="form-control form-control-solid" name="title_prefix" id="banner_title_prefix" placeholder="e.g. Selamat Datang di" />
+                            <input type="text" class="form-control form-control-solid" name="title_prefix"
+                                id="banner_title_prefix" placeholder="e.g. Selamat Datang di" />
                         </div>
                         <div class="col-md-6 fv-row">
                             <label class="fs-6 fw-semibold mb-2">
                                 <span>{{ app()->getLocale() == 'en' ? 'Title Prefix (EN)' : 'Awalan Judul (EN)' }}</span>
                             </label>
-                            <input type="text" class="form-control form-control-solid" name="title_prefix_en" id="banner_title_prefix_en" placeholder="e.g. Welcome to" />
+                            <input type="text" class="form-control form-control-solid" name="title_prefix_en"
+                                id="banner_title_prefix_en" placeholder="e.g. Welcome to" />
                         </div>
                     </div>
 
@@ -44,13 +46,15 @@
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2 required">
                                 <span>{{ app()->getLocale() == 'en' ? 'Highlighted Title (ID)' : 'Judul Sorot/Highlight (ID)' }}</span>
                             </label>
-                            <input type="text" class="form-control form-control-solid" name="title_highlight" id="banner_title_highlight" placeholder="e.g. Universitas Negeri" required />
+                            <input type="text" class="form-control form-control-solid" name="title_highlight"
+                                id="banner_title_highlight" placeholder="e.g. Universitas Negeri" required />
                         </div>
                         <div class="col-md-6 fv-row">
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
                                 <span>{{ app()->getLocale() == 'en' ? 'Highlighted Title (EN)' : 'Judul Sorot/Highlight (EN)' }}</span>
                             </label>
-                            <input type="text" class="form-control form-control-solid" name="title_highlight_en" id="banner_title_highlight_en" placeholder="e.g. State University" />
+                            <input type="text" class="form-control form-control-solid" name="title_highlight_en"
+                                id="banner_title_highlight_en" placeholder="e.g. State University" />
                         </div>
                     </div>
 
@@ -60,13 +64,15 @@
                             <label class="fs-6 fw-semibold mb-2">
                                 <span>{{ app()->getLocale() == 'en' ? 'Description (ID)' : 'Deskripsi (ID)' }}</span>
                             </label>
-                            <textarea class="form-control form-control-solid" name="description" id="banner_description" rows="3" placeholder="Deskripsi singkat slide banner"></textarea>
+                            <textarea class="form-control form-control-solid" name="description" id="banner_description" rows="3"
+                                placeholder="Deskripsi singkat slide banner"></textarea>
                         </div>
                         <div class="col-md-6 fv-row">
                             <label class="fs-6 fw-semibold mb-2">
                                 <span>{{ app()->getLocale() == 'en' ? 'Description (EN)' : 'Deskripsi (EN)' }}</span>
                             </label>
-                            <textarea class="form-control form-control-solid" name="description_en" id="banner_description_en" rows="3" placeholder="Short description of slide banner"></textarea>
+                            <textarea class="form-control form-control-solid" name="description_en" id="banner_description_en" rows="3"
+                                placeholder="Short description of slide banner"></textarea>
                         </div>
                     </div>
 
@@ -75,18 +81,24 @@
                         <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
                             <span>{{ app()->getLocale() == 'en' ? 'Upload Image File (Local PC)' : 'Unggah Berkas Gambar (Komputer Lokal)' }}</span>
                         </label>
-                        <input type="file" class="form-control form-control-solid mb-3" name="image" id="banner_image_file" accept="image/png, image/jpeg, image/jpg, image/webp, image/svg+xml" />
+                        <input type="file" class="form-control form-control-solid mb-3" name="image"
+                            id="banner_image_file"
+                            accept="image/png, image/jpeg, image/jpg, image/webp, image/svg+xml" />
 
                         <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
                             <span>{{ app()->getLocale() == 'en' ? 'OR Image URL / Path' : 'ATAU URL / Path Gambar' }}</span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" name="image_url" id="banner_image_url" placeholder="assets/img-temp/1920x1080/img5.jpg" />
-                        <span class="fs-8 text-muted mt-1">{{ app()->getLocale() == 'en' ? 'Pilih berkas dari komputer ATAU isi path URL gambar. Biarkan kosong untuk gambar default.' : 'Pilih berkas dari komputer ATAU isi path URL gambar. Biarkan kosong untuk gambar default.' }}</span>
+                        <input type="text" class="form-control form-control-solid" name="image_url"
+                            id="banner_image_url" placeholder="assets/img-temp/1920x1080/img5.jpg" />
+                        <span
+                            class="fs-8 text-muted mt-1">{{ app()->getLocale() == 'en' ? 'Pilih berkas dari komputer ATAU isi path URL gambar. Biarkan kosong untuk gambar default.' : 'Pilih berkas dari komputer ATAU isi path URL gambar. Biarkan kosong untuk gambar default.' }}</span>
 
                         <!-- Live Image Preview -->
                         <div class="mt-3 text-center" id="banner_image_preview_wrapper" style="display: none;">
                             <div class="border rounded p-2 bg-light d-inline-block">
-                                <img id="banner_image_preview" src="" alt="Banner Preview" style="max-height: 160px; max-width: 100%; object-fit: cover;" class="rounded shadow-xs" />
+                                <img id="banner_image_preview" src="" alt="Banner Preview"
+                                    style="max-height: 160px; max-width: 100%; object-fit: cover;"
+                                    class="rounded shadow-xs" />
                             </div>
                         </div>
                     </div>
@@ -97,13 +109,15 @@
                             <label class="fs-6 fw-semibold mb-2">
                                 <span>{{ app()->getLocale() == 'en' ? 'Button Text (ID)' : 'Teks Tombol (ID)' }}</span>
                             </label>
-                            <input type="text" class="form-control form-control-solid" name="button_text" id="banner_button_text" placeholder="e.g. Selengkapnya" />
+                            <input type="text" class="form-control form-control-solid" name="button_text"
+                                id="banner_button_text" placeholder="e.g. Selengkapnya" />
                         </div>
                         <div class="col-md-6 fv-row">
                             <label class="fs-6 fw-semibold mb-2">
                                 <span>{{ app()->getLocale() == 'en' ? 'Button URL' : 'URL Link Tombol' }}</span>
                             </label>
-                            <input type="text" class="form-control form-control-solid" name="button_url" id="banner_button_url" placeholder="#" />
+                            <input type="text" class="form-control form-control-solid" name="button_url"
+                                id="banner_button_url" placeholder="#" />
                         </div>
                     </div>
 
@@ -113,12 +127,15 @@
                             <label class="fs-6 fw-semibold mb-2">
                                 <span>{{ app()->getLocale() == 'en' ? 'Slide Order' : 'Urutan Slide' }}</span>
                             </label>
-                            <input type="number" class="form-control form-control-solid" name="order" id="banner_order" placeholder="1" min="0" />
+                            <input type="number" class="form-control form-control-solid" name="order"
+                                id="banner_order" placeholder="1" min="0" />
                         </div>
                         <div class="col-md-6 d-flex align-items-center pt-6">
                             <label class="form-check form-switch form-check-custom form-check-solid">
-                                <input class="form-check-input" type="checkbox" name="is_active" id="banner_is_active" value="1" checked="checked" />
-                                <span class="form-check-label fs-6 fw-semibold ms-3">{{ app()->getLocale() == 'en' ? 'Active Visible' : 'Aktif Tampil' }}</span>
+                                <input class="form-check-input" type="checkbox" name="is_active"
+                                    id="banner_is_active" value="1" checked="checked" />
+                                <span
+                                    class="form-check-label fs-6 fw-semibold ms-3">{{ app()->getLocale() == 'en' ? 'Active Visible' : 'Aktif Tampil' }}</span>
                             </label>
                         </div>
                     </div>
@@ -128,7 +145,8 @@
                             {{ app()->getLocale() == 'en' ? 'Cancel' : 'Batal' }}
                         </button>
                         <button type="submit" id="kt_modal_slide_banner_submit" class="btn btn-primary">
-                            <span class="indicator-label">{{ app()->getLocale() == 'en' ? 'Save Slide Banner' : 'Simpan Slide Banner' }}</span>
+                            <span
+                                class="indicator-label">{{ app()->getLocale() == 'en' ? 'Save Slide Banner' : 'Simpan Slide Banner' }}</span>
                         </button>
                     </div>
                 </form>

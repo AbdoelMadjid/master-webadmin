@@ -21,7 +21,8 @@
         <div id="kt_app_content_container" class="app-container container-fluid">
 
             <!--begin::Page Header & Guide Action-->
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+            <div
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
                 <div class="d-flex align-items-center gap-3">
                     <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
                         <i class="ki-duotone ki-element-11 text-primary fs-2x">
@@ -41,9 +42,13 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-2 ms-auto">
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                        <button type="button" class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0" data-bs-toggle="modal" data-bs-target="#kt_modal_referensi_help">
-                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button"
+                            class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0"
+                            data-bs-toggle="modal" data-bs-target="#kt_modal_referensi_help">
+                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span
+                                    class="path2"></span><span class="path3"></span></i>
                         </button>
                     </span>
                 </div>
@@ -59,12 +64,16 @@
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-45px me-4">
                                     <span class="symbol-label bg-light-primary">
-                                        <i class="ki-duotone ki-category fs-2x text-primary"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                        <i class="ki-duotone ki-category fs-2x text-primary"><span
+                                                class="path1"></span><span class="path2"></span><span
+                                                class="path3"></span><span class="path4"></span></i>
                                     </span>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($totalKategori) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Total Categories' : 'Total Kategori' }}</span>
+                                    <span
+                                        class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($totalKategori) }}</span>
+                                    <span
+                                        class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Total Categories' : 'Total Kategori' }}</span>
                                 </div>
                             </div>
                         </div>
@@ -78,12 +87,15 @@
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-45px me-4">
                                     <span class="symbol-label bg-light-success">
-                                        <i class="ki-duotone ki-check-circle fs-2x text-success"><span class="path1"></span><span class="path2"></span></i>
+                                        <i class="ki-duotone ki-check-circle fs-2x text-success"><span
+                                                class="path1"></span><span class="path2"></span></i>
                                     </span>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($activeKategori) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Active Categories' : 'Kategori Aktif' }}</span>
+                                    <span
+                                        class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($activeKategori) }}</span>
+                                    <span
+                                        class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Active Categories' : 'Kategori Aktif' }}</span>
                                 </div>
                             </div>
                         </div>
@@ -97,12 +109,17 @@
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-45px me-4">
                                     <span class="symbol-label bg-light-info">
-                                        <i class="ki-duotone ki-element-plus fs-2x text-info"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                                        <i class="ki-duotone ki-element-plus fs-2x text-info"><span
+                                                class="path1"></span><span class="path2"></span><span
+                                                class="path3"></span><span class="path4"></span><span
+                                                class="path5"></span></i>
                                     </span>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($totalItem) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Total Item Choices' : 'Total Opsi Item' }}</span>
+                                    <span
+                                        class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($totalItem) }}</span>
+                                    <span
+                                        class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Total Item Choices' : 'Total Opsi Item' }}</span>
                                 </div>
                             </div>
                         </div>
@@ -116,12 +133,15 @@
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-45px me-4">
                                     <span class="symbol-label bg-light-warning">
-                                        <i class="ki-duotone ki-star fs-2x text-warning"><span class="path1"></span><span class="path2"></span></i>
+                                        <i class="ki-duotone ki-star fs-2x text-warning"><span class="path1"></span><span
+                                                class="path2"></span></i>
                                     </span>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($activeItem) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Active Item Choices' : 'Opsi Item Aktif' }}</span>
+                                    <span
+                                        class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($activeItem) }}</span>
+                                    <span
+                                        class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Active Item Choices' : 'Opsi Item Aktif' }}</span>
                                 </div>
                             </div>
                         </div>
@@ -131,22 +151,30 @@
             <!--end::Summary Stat Cards-->
 
             <!--begin::Sub-Tab Navigation-->
-            <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-5 fw-bold mb-6" id="kt_referensi_tabs">
+            <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-5 fw-bold mb-6"
+                id="kt_referensi_tabs">
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'kategori' ? 'active' : '' }}" href="{{ route('appsupport.referensi', ['tab' => 'kategori']) }}">
-                        <i class="ki-duotone ki-category fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'kategori' ? 'active' : '' }}"
+                        href="{{ route('appsupport.referensi', ['tab' => 'kategori']) }}">
+                        <i class="ki-duotone ki-category fs-2 me-2"><span class="path1"></span><span
+                                class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                         {{ app()->getLocale() == 'en' ? 'Categories (Kategori)' : 'Kategori Referensi' }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'item' ? 'active' : '' }}" href="{{ route('appsupport.referensi', array_merge(['tab' => 'item'], $selectedKategoriId ? ['kategori_id' => $selectedKategoriId] : [])) }}">
-                        <i class="ki-duotone ki-element-plus fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'item' ? 'active' : '' }}"
+                        href="{{ route('appsupport.referensi', array_merge(['tab' => 'item'], $selectedKategoriId ? ['kategori_id' => $selectedKategoriId] : [])) }}">
+                        <i class="ki-duotone ki-element-plus fs-2 me-2"><span class="path1"></span><span
+                                class="path2"></span><span class="path3"></span><span class="path4"></span><span
+                                class="path5"></span></i>
                         {{ app()->getLocale() == 'en' ? 'Item Choices (Item Referensi)' : 'Item / Opsi Referensi' }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'preview' ? 'active' : '' }}" href="{{ route('appsupport.referensi', ['tab' => 'preview']) }}">
-                        <i class="ki-duotone ki-eye fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'preview' ? 'active' : '' }}"
+                        href="{{ route('appsupport.referensi', ['tab' => 'preview']) }}">
+                        <i class="ki-duotone ki-eye fs-2 me-2"><span class="path1"></span><span
+                                class="path2"></span><span class="path3"></span></i>
                         {{ app()->getLocale() == 'en' ? 'Live Form Demo (Preview)' : 'Live Demo Selector' }}
                     </a>
                 </li>
@@ -178,7 +206,8 @@
             $('#kategori_id').val('');
             $('#kategori_form_method').val('POST');
             $('#kt_form_referensi_kategori').attr('action', "{{ route('appsupport.referensi.kategori.store') }}");
-            $('#modal_kategori_title').text("{{ app()->getLocale() == 'en' ? 'Add Reference Category' : 'Tambah Kategori Referensi' }}");
+            $('#modal_kategori_title').text(
+                "{{ app()->getLocale() == 'en' ? 'Add Reference Category' : 'Tambah Kategori Referensi' }}");
             $('#kategori_is_active').prop('checked', true);
         }
 
@@ -192,7 +221,8 @@
 
             $('#kategori_form_method').val('PUT');
             $('#kt_form_referensi_kategori').attr('action', "/appsupport/referensi/kategori/" + data.id);
-            $('#modal_kategori_title').text("{{ app()->getLocale() == 'en' ? 'Edit Reference Category' : 'Edit Kategori Referensi' }}");
+            $('#modal_kategori_title').text(
+                "{{ app()->getLocale() == 'en' ? 'Edit Reference Category' : 'Edit Kategori Referensi' }}");
 
             var modal = new bootstrap.Modal(document.getElementById('kt_modal_referensi_kategori'));
             modal.show();
@@ -204,7 +234,8 @@
             $('#item_id').val('');
             $('#item_form_method').val('POST');
             $('#kt_form_referensi_item').attr('action', "{{ route('appsupport.referensi.item.store') }}");
-            $('#modal_item_title').text("{{ app()->getLocale() == 'en' ? 'Add Reference Item' : 'Tambah Opsi / Item Referensi' }}");
+            $('#modal_item_title').text(
+                "{{ app()->getLocale() == 'en' ? 'Add Reference Item' : 'Tambah Opsi / Item Referensi' }}");
             $('#item_is_active').prop('checked', true);
             $('#item_urutan').val('1');
 
@@ -225,7 +256,8 @@
 
             $('#item_form_method').val('PUT');
             $('#kt_form_referensi_item').attr('action', "/appsupport/referensi/item/" + data.id);
-            $('#modal_item_title').text("{{ app()->getLocale() == 'en' ? 'Edit Reference Item' : 'Edit Opsi / Item Referensi' }}");
+            $('#modal_item_title').text(
+                "{{ app()->getLocale() == 'en' ? 'Edit Reference Item' : 'Edit Opsi / Item Referensi' }}");
 
             var modal = new bootstrap.Modal(document.getElementById('kt_modal_referensi_item'));
             modal.show();
@@ -257,7 +289,8 @@
                 },
                 error: function(xhr) {
                     $(elem).prop('checked', !$(elem).is(':checked'));
-                    var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal memperbarui status.';
+                    var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message :
+                        'Gagal memperbarui status.';
                     if (typeof SwalHelper !== 'undefined') {
                         SwalHelper.error(msg);
                     }
@@ -280,7 +313,8 @@
                 },
                 error: function(xhr) {
                     $(elem).prop('checked', !$(elem).is(':checked'));
-                    var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal memperbarui status.';
+                    var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message :
+                        'Gagal memperbarui status.';
                     if (typeof SwalHelper !== 'undefined') {
                         SwalHelper.error(msg);
                     }
@@ -308,7 +342,8 @@
                             }
                         },
                         error: function(xhr) {
-                            var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal menghapus kategori.';
+                            var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON
+                                .message : 'Gagal menghapus kategori.';
                             SwalHelper.error(msg);
                         }
                     });
@@ -336,7 +371,8 @@
                             }
                         },
                         error: function(xhr) {
-                            var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal menghapus item.';
+                            var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON
+                                .message : 'Gagal menghapus item.';
                             SwalHelper.error(msg);
                         }
                     });
@@ -408,7 +444,9 @@
                             if (xhr.status === 422) {
                                 SwalHelper.validationError(xhr);
                             } else {
-                                var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Terjadi kesalahan saat menyimpan data.';
+                                var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr
+                                    .responseJSON.message :
+                                    'Terjadi kesalahan saat menyimpan data.';
                                 SwalHelper.error(msg);
                             }
                         }
@@ -447,7 +485,9 @@
                             if (xhr.status === 422) {
                                 SwalHelper.validationError(xhr);
                             } else {
-                                var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Terjadi kesalahan saat menyimpan data.';
+                                var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr
+                                    .responseJSON.message :
+                                    'Terjadi kesalahan saat menyimpan data.';
                                 SwalHelper.error(msg);
                             }
                         }

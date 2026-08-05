@@ -39,9 +39,12 @@
                         </div>
                     </div>
                     <div>
-                        <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                            <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_app_fitur_help">
-                                <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        <span data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                            <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal"
+                                data-bs-target="#kt_modal_app_fitur_help">
+                                <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span></i>
                             </button>
                         </span>
                     </div>
@@ -54,19 +57,19 @@
                 @foreach ($groupedFiturs as $category => $fiturs)
                     @php
                         $catIcon = match ($category) {
-                            'Sidebar Group'     => 'ki-category text-primary',
+                            'Sidebar Group' => 'ki-category text-primary',
                             'Topbar Menu Group' => 'ki-element-11 text-warning',
-                            'Topbar Navbar'     => 'ki-element-4 text-success',
-                            'Floating Drawer'   => 'ki-slider-vertical-2 text-info',
-                            default             => 'ki-setting-2 text-secondary',
+                            'Topbar Navbar' => 'ki-element-4 text-success',
+                            'Floating Drawer' => 'ki-slider-vertical-2 text-info',
+                            default => 'ki-setting-2 text-secondary',
                         };
 
                         $catBadge = match ($category) {
-                            'Sidebar Group'     => 'badge-light-primary',
+                            'Sidebar Group' => 'badge-light-primary',
                             'Topbar Menu Group' => 'badge-light-warning',
-                            'Topbar Navbar'     => 'badge-light-success',
-                            'Floating Drawer'   => 'badge-light-info',
-                            default             => 'badge-light-dark',
+                            'Topbar Navbar' => 'badge-light-success',
+                            'Floating Drawer' => 'badge-light-info',
+                            default => 'badge-light-dark',
                         };
                     @endphp
 
@@ -87,13 +90,17 @@
                                 <div class="card-toolbar d-flex align-items-center gap-2">
                                     <button type="button" class="btn btn-icon btn-sm btn-light-success"
                                         onclick="bulkToggleCategory('{{ addslashes($category) }}', 1)"
-                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Aktifkan semua fitur dalam {{ $category }}">
-                                        <i class="ki-duotone ki-check fs-3"><span class="path1"></span><span class="path2"></span></i>
+                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Aktifkan semua fitur dalam {{ $category }}">
+                                        <i class="ki-duotone ki-check fs-3"><span class="path1"></span><span
+                                                class="path2"></span></i>
                                     </button>
                                     <button type="button" class="btn btn-icon btn-sm btn-light-danger"
                                         onclick="bulkToggleCategory('{{ addslashes($category) }}', 0)"
-                                        data-bs-toggle="tooltip" data-bs-placement="top" title="Non-aktifkan semua fitur dalam {{ $category }}">
-                                        <i class="ki-duotone ki-cross fs-3"><span class="path1"></span><span class="path2"></span></i>
+                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Non-aktifkan semua fitur dalam {{ $category }}">
+                                        <i class="ki-duotone ki-cross fs-3"><span class="path1"></span><span
+                                                class="path2"></span></i>
                                     </button>
                                 </div>
                             </div>
@@ -116,20 +123,25 @@
                                                 <tr>
                                                     <td>
                                                         <div class="d-flex flex-column">
-                                                            <span class="text-gray-900 fw-bold fs-6 mb-1">{{ $fitur->feature_name }}</span>
-                                                            <code class="text-muted fs-8 w-fit">{{ $fitur->feature_key }}</code>
+                                                            <span
+                                                                class="text-gray-900 fw-bold fs-6 mb-1">{{ $fitur->feature_name }}</span>
+                                                            <code
+                                                                class="text-muted fs-8 w-fit">{{ $fitur->feature_key }}</code>
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <span class="text-gray-700 fs-7">{{ \Illuminate\Support\Str::ucfirst(trim(str_ireplace(['menyembunyikan atau menampilkan', 'menyembunyikan/menampilkan'], '', $fitur->description))) }}</span>
+                                                        <span
+                                                            class="text-gray-700 fs-7">{{ \Illuminate\Support\Str::ucfirst(trim(str_ireplace(['menyembunyikan atau menampilkan', 'menyembunyikan/menampilkan'], '', $fitur->description))) }}</span>
                                                     </td>
                                                     <td class="text-center">
-                                                        <div class="form-check form-switch form-check-custom form-check-solid justify-content-center">
-                                                            <input class="form-check-input h-22px w-45px cursor-pointer" type="checkbox"
-                                                                id="fitur_switch_{{ $fitur->id }}"
+                                                        <div
+                                                            class="form-check form-switch form-check-custom form-check-solid justify-content-center">
+                                                            <input class="form-check-input h-22px w-45px cursor-pointer"
+                                                                type="checkbox" id="fitur_switch_{{ $fitur->id }}"
                                                                 {{ $fitur->active ? 'checked' : '' }}
                                                                 onchange="toggleFiturStatus({{ $fitur->id }}, this)"
-                                                                data-bs-toggle="tooltip" title="Klik untuk menampilkan / menyembunyikan fitur" />
+                                                                data-bs-toggle="tooltip"
+                                                                title="Klik untuk menampilkan / menyembunyikan fitur" />
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -188,7 +200,8 @@
                 },
                 error: function(xhr) {
                     checkboxElem.checked = !isChecked;
-                    var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal mengubah visibilitas fitur.';
+                    var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message :
+                        'Gagal mengubah visibilitas fitur.';
                     if (typeof SwalHelper !== 'undefined') {
                         SwalHelper.error(msg);
                     }
@@ -216,7 +229,8 @@
 
         function bulkToggleCategory(categoryName, activeStatus) {
             var actionText = activeStatus ? 'mengaktifkan (menampilkan)' : 'menonaktifkan (menyembunyikan)';
-            var confirmMsg = 'Apakah Anda yakin ingin ' + actionText + ' semua fitur dalam kelompok "' + categoryName + '"?';
+            var confirmMsg = 'Apakah Anda yakin ingin ' + actionText + ' semua fitur dalam kelompok "' + categoryName +
+            '"?';
 
             Swal.fire({
                 title: 'Konfirmasi Aksi Massal',
@@ -244,7 +258,8 @@
                         success: function(response) {
                             if (response.success) {
                                 if (response.sidebar_html && $('#kt_app_sidebar_menu_wrapper').length) {
-                                    $('#kt_app_sidebar_menu_wrapper').replaceWith(response.sidebar_html);
+                                    $('#kt_app_sidebar_menu_wrapper').replaceWith(response
+                                    .sidebar_html);
                                     reinitSidebar();
                                 }
 
@@ -260,7 +275,8 @@
                             }
                         },
                         error: function(xhr) {
-                            var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal memperbarui status massal.';
+                            var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON
+                                .message : 'Gagal memperbarui status massal.';
                             if (typeof SwalHelper !== 'undefined') {
                                 SwalHelper.error(msg);
                             }

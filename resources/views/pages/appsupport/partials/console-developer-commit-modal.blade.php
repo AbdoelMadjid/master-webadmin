@@ -3,7 +3,8 @@
         <div class="modal-content rounded">
             <div class="modal-header pb-0 border-0 justify-content-between">
                 <h3 class="fw-bold text-gray-900 mb-0 d-flex align-items-center">
-                    <i class="ki-duotone ki-git-commit fs-1 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                    <i class="ki-duotone ki-git-commit fs-1 text-primary me-2"><span class="path1"></span><span
+                            class="path2"></span></i>
                     {{ app()->getLocale() == 'en' ? 'Git Commit & Push' : 'Git Commit & Push ke GitHub' }}
                 </h3>
                 <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
@@ -17,16 +18,19 @@
                         <label class="required form-label fw-semibold fs-6">
                             {{ app()->getLocale() == 'en' ? 'Commit Message' : 'Pesan Commit' }}
                         </label>
-                        <textarea class="form-control form-control-solid" rows="3" name="commit_message" id="console_commit_message" placeholder="{{ app()->getLocale() == 'en' ? 'e.g. feat(appsupport): add developer console web interface' : 'contoh: feat(appsupport): tambahkan menu console developer' }}" required></textarea>
+                        <textarea class="form-control form-control-solid" rows="3" name="commit_message" id="console_commit_message"
+                            placeholder="{{ app()->getLocale() == 'en' ? 'e.g. feat(appsupport): add developer console web interface' : 'contoh: feat(appsupport): tambahkan menu console developer' }}"
+                            required></textarea>
                     </div>
 
                     <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed p-4">
-                        <i class="ki-duotone ki-information-5 fs-2tx text-primary me-4"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        <i class="ki-duotone ki-information-5 fs-2tx text-primary me-4"><span
+                                class="path1"></span><span class="path2"></span><span class="path3"></span></i>
                         <div class="d-flex flex-stack flex-grow-1">
                             <div class="fw-semibold">
                                 <div class="fs-7 text-gray-700">
-                                    {{ app()->getLocale() == 'en' 
-                                        ? 'All staged and unstaged file changes will be automatically included (git add .) before committing and pushing.' 
+                                    {{ app()->getLocale() == 'en'
+                                        ? 'All staged and unstaged file changes will be automatically included (git add .) before committing and pushing.'
                                         : 'Seluruh perubahan file lokal akan dimasukkan secara otomatis (git add .) sebelum proses commit dan push.' }}
                                 </div>
                             </div>
@@ -39,7 +43,8 @@
                         {{ app()->getLocale() == 'en' ? 'Cancel' : 'Batal' }}
                     </button>
                     <button type="submit" class="btn btn-primary" id="kt_btn_submit_commit">
-                        <i class="ki-duotone ki-send fs-2 me-1"><span class="path1"></span><span class="path2"></span></i>
+                        <i class="ki-duotone ki-send fs-2 me-1"><span class="path1"></span><span
+                                class="path2"></span></i>
                         {{ app()->getLocale() == 'en' ? 'Commit & Push Now' : 'Jalankan Commit & Push' }}
                     </button>
                 </div>

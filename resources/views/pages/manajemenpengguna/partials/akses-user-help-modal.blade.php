@@ -34,53 +34,83 @@
                         <!--Section 1: Overview-->
                         <div class="card schema-card bg-light-primary border border-primary p-6 rounded">
                             <h4 class="fw-bold text-primary mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-abstract-26 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-abstract-26 fs-2 text-primary me-2"><span
+                                        class="path1"></span><span class="path2"></span></i>
                                 System Overview & Direct Permissions
                             </h4>
                             <p class="fs-6 text-gray-700 m-0">
-                                In Spatie Laravel Permission, permissions are typically inherited from assigned <strong>Roles</strong>. However, this module allows administrators to grant or revoke specific <strong>Direct Permissions</strong> to an individual user without modifying their primary base role.
+                                In Spatie Laravel Permission, permissions are typically inherited from assigned
+                                <strong>Roles</strong>. However, this module allows administrators to grant or revoke
+                                specific <strong>Direct Permissions</strong> to an individual user without modifying
+                                their primary base role.
                             </p>
                         </div>
 
                         <!--Section 2: Architecture & Side Drawer-->
                         <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
                             <h4 class="fw-bold text-gray-900 mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-element-11 fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                <i class="ki-duotone ki-element-11 fs-2 text-dark me-2"><span
+                                        class="path1"></span><span class="path2"></span><span
+                                        class="path3"></span><span class="path4"></span></i>
                                 Direct Permission Principles & Side Drawer
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
-                                <li class="mb-2"><strong>Role Inherited Permissions:</strong> Permissions inherited from assigned roles are automatically active without duplicate direct assignment.</li>
-                                <li class="mb-2"><strong>Direct Permission Override:</strong> Specific exceptions can be granted directly to individual accounts.</li>
-                                <li class="mb-2"><strong>Audit Badge Indicators:</strong> Users without direct permissions display a clean <span class="badge badge-light-secondary text-gray-600">Mengikuti Role</span> badge. Users with custom direct permissions display a <span class="badge badge-light-warning">🔑 Direct Access</span> summary badge.</li>
-                                <li><strong>Interactive Side Drawer Viewer:</strong> Clicking direct permission badges opens a right offcanvas side drawer displaying grouped module cards, color-coded action badges, and a real-time search filter.</li>
+                                <li class="mb-2"><strong>Role Inherited Permissions:</strong> Permissions inherited
+                                    from assigned roles are automatically active without duplicate direct assignment.
+                                </li>
+                                <li class="mb-2"><strong>Direct Permission Override:</strong> Specific exceptions can
+                                    be granted directly to individual accounts.</li>
+                                <li class="mb-2"><strong>Audit Badge Indicators:</strong> Users without direct
+                                    permissions display a clean <span
+                                        class="badge badge-light-secondary text-gray-600">Mengikuti Role</span> badge.
+                                    Users with custom direct permissions display a <span
+                                        class="badge badge-light-warning">🔑 Direct Access</span> summary badge.</li>
+                                <li><strong>Interactive Side Drawer Viewer:</strong> Clicking direct permission badges
+                                    opens a right offcanvas side drawer displaying grouped module cards, color-coded
+                                    action badges, and a real-time search filter.</li>
                             </ul>
                         </div>
 
                         <!--Section 3: Workflow-->
                         <div class="card schema-card bg-light-info border border-info p-6 rounded">
                             <h4 class="fw-bold text-info mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span><span
+                                        class="path4"></span></i>
                                 Step-by-Step Operational Workflow
                             </h4>
                             <ol class="fs-6 text-gray-700 m-0 ps-5">
-                                <li class="mb-2"><strong>Locate Target User:</strong> Search or filter the user account list to find the target user.</li>
-                                <li class="mb-2"><strong>Inspect via Side Drawer:</strong> Click <span class="badge badge-light-warning text-warning">🔑 Direct Access</span> or <span class="badge badge-light-info text-info">+N More Modules</span> to review permissions categorized by module in the right side panel.</li>
-                                <li class="mb-2"><strong>Open Access Modal:</strong> Click <span class="badge badge-light-primary text-primary">Manage Access</span> or the <strong>Edit</strong> button inside the side drawer.</li>
-                                <li class="mb-2"><strong>Assign Direct Permissions:</strong> Check or uncheck direct permissions within the CRUD matrix.</li>
-                                <li><strong>Save Updates:</strong> Click <span class="badge badge-primary">Save Changes</span> to persist user direct access settings.</li>
+                                <li class="mb-2"><strong>Locate Target User:</strong> Search or filter the user
+                                    account list to find the target user.</li>
+                                <li class="mb-2"><strong>Inspect via Side Drawer:</strong> Click <span
+                                        class="badge badge-light-warning text-warning">🔑 Direct Access</span> or <span
+                                        class="badge badge-light-info text-info">+N More Modules</span> to review
+                                    permissions categorized by module in the right side panel.</li>
+                                <li class="mb-2"><strong>Open Access Modal:</strong> Click <span
+                                        class="badge badge-light-primary text-primary">Manage Access</span> or the
+                                    <strong>Edit</strong> button inside the side drawer.</li>
+                                <li class="mb-2"><strong>Assign Direct Permissions:</strong> Check or uncheck direct
+                                    permissions within the CRUD matrix.</li>
+                                <li><strong>Save Updates:</strong> Click <span class="badge badge-primary">Save
+                                        Changes</span> to persist user direct access settings.</li>
                             </ol>
                         </div>
 
                         <!--Section 4: System Rules-->
                         <div class="card schema-card bg-light-warning border border-warning p-6 rounded">
                             <h4 class="fw-bold text-warning mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-shield-cross fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-shield-cross fs-2 text-warning me-2"><span
+                                        class="path1"></span><span class="path2"></span><span
+                                        class="path3"></span></i>
                                 System Safeguards & Rules
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
-                                <li class="mb-2"><strong>Role Precedence:</strong> Inherited role permissions always remain active; direct permissions supplement role permissions.</li>
-                                <li class="mb-2"><strong>Selective Use:</strong> Use direct user permissions for temporary project leads or special exceptions.</li>
-                                <li><strong>Audit Transparency:</strong> Direct permission assignments are stored distinctly for security auditing.</li>
+                                <li class="mb-2"><strong>Role Precedence:</strong> Inherited role permissions always
+                                    remain active; direct permissions supplement role permissions.</li>
+                                <li class="mb-2"><strong>Selective Use:</strong> Use direct user permissions for
+                                    temporary project leads or special exceptions.</li>
+                                <li><strong>Audit Transparency:</strong> Direct permission assignments are stored
+                                    distinctly for security auditing.</li>
                             </ul>
                         </div>
                     </div>
@@ -90,53 +120,81 @@
                         <!--Section 1: Overview-->
                         <div class="card schema-card bg-light-primary border border-primary p-6 rounded">
                             <h4 class="fw-bold text-primary mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-abstract-26 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span></i>
+                                <i class="ki-duotone ki-abstract-26 fs-2 text-primary me-2"><span
+                                        class="path1"></span><span class="path2"></span></i>
                                 Gambaran Umum & Hak Akses Langsung
                             </h4>
                             <p class="fs-6 text-gray-700 m-0">
-                                Dalam Spatie Laravel Permission, izin fitur secara alami diwarisi dari <strong>Role</strong> yang ditugaskan. Namun, modul ini memungkinkan administrator menambahkan atau mencabut <strong>Hak Akses Langsung (Direct Permissions)</strong> secara khusus kepada individu pengguna tanpa harus merubah role dasar pengguna tersebut.
+                                Dalam Spatie Laravel Permission, izin fitur secara alami diwarisi dari
+                                <strong>Role</strong> yang ditugaskan. Namun, modul ini memungkinkan administrator
+                                menambahkan atau mencabut <strong>Hak Akses Langsung (Direct Permissions)</strong>
+                                secara khusus kepada individu pengguna tanpa harus merubah role dasar pengguna tersebut.
                             </p>
                         </div>
 
                         <!--Section 2: Architecture & Side Drawer-->
                         <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
                             <h4 class="fw-bold text-gray-900 mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-element-11 fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                <i class="ki-duotone ki-element-11 fs-2 text-dark me-2"><span
+                                        class="path1"></span><span class="path2"></span><span
+                                        class="path3"></span><span class="path4"></span></i>
                                 Prinsip Hak Akses Langsung & Side Drawer
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
-                                <li class="mb-2"><strong>Warisan Permission Role:</strong> Izin yang diwarisi dari Role otomatis aktif tanpa perlu dicentang ulang secara langsung.</li>
-                                <li class="mb-2"><strong>Pengecualian Khusus:</strong> Hak akses khusus dapat ditugaskan langsung ke akun individu.</li>
-                                <li class="mb-2"><strong>Indikator Badge Audit:</strong> Pengguna tanpa izin khusus menampilkan badge <span class="badge badge-light-secondary text-gray-600">Mengikuti Role</span>. Pengguna dengan izin khusus menampilkan badge ringkasan <span class="badge badge-light-warning">🔑 Akses Langsung</span>.</li>
-                                <li><strong>Penampil Side Drawer Interaktif:</strong> Mengklik badge hak akses langsung akan membuka panel samping kanan (*Offcanvas Side Drawer*) yang menampilkan pengelompokan modul, badge aksi berwarna, dan filter pencarian real-time.</li>
+                                <li class="mb-2"><strong>Warisan Permission Role:</strong> Izin yang diwarisi dari
+                                    Role otomatis aktif tanpa perlu dicentang ulang secara langsung.</li>
+                                <li class="mb-2"><strong>Pengecualian Khusus:</strong> Hak akses khusus dapat
+                                    ditugaskan langsung ke akun individu.</li>
+                                <li class="mb-2"><strong>Indikator Badge Audit:</strong> Pengguna tanpa izin khusus
+                                    menampilkan badge <span class="badge badge-light-secondary text-gray-600">Mengikuti
+                                        Role</span>. Pengguna dengan izin khusus menampilkan badge ringkasan <span
+                                        class="badge badge-light-warning">🔑 Akses Langsung</span>.</li>
+                                <li><strong>Penampil Side Drawer Interaktif:</strong> Mengklik badge hak akses langsung
+                                    akan membuka panel samping kanan (*Offcanvas Side Drawer*) yang menampilkan
+                                    pengelompokan modul, badge aksi berwarna, dan filter pencarian real-time.</li>
                             </ul>
                         </div>
 
                         <!--Section 3: Workflow-->
                         <div class="card schema-card bg-light-info border border-info p-6 rounded">
                             <h4 class="fw-bold text-info mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span><span
+                                        class="path4"></span></i>
                                 Alur Operasional Pengelolaan Hak Akses User
                             </h4>
                             <ol class="fs-6 text-gray-700 m-0 ps-5">
-                                <li class="mb-2"><strong>Cari Pengguna Target:</strong> Gunakan kotak pencarian atau daftar tabel untuk menemukan akun pengguna target.</li>
-                                <li class="mb-2"><strong>Tinjau via Side Drawer:</strong> Klik <span class="badge badge-light-warning text-warning">🔑 Akses Langsung</span> atau <span class="badge badge-light-info text-info">+N Modul Lainnya</span> untuk melihat rincian hak akses per modul di panel samping kanan.</li>
-                                <li class="mb-2"><strong>Buka Modal Hak Akses:</strong> Klik <span class="badge badge-light-primary text-primary">Kelola Akses</span> atau tombol <strong>Edit</strong> dari dalam Side Drawer.</li>
-                                <li class="mb-2"><strong>Penugasan Izin Langsung:</strong> Centang hak akses khusus yang ingin diberikan secara langsung kepada pengguna pada matriks CRUD.</li>
-                                <li><strong>Simpan Perubahan:</strong> Klik <span class="badge badge-primary">Simpan Perubahan</span> untuk menyimpan pembaruan ke basis data.</li>
+                                <li class="mb-2"><strong>Cari Pengguna Target:</strong> Gunakan kotak pencarian atau
+                                    daftar tabel untuk menemukan akun pengguna target.</li>
+                                <li class="mb-2"><strong>Tinjau via Side Drawer:</strong> Klik <span
+                                        class="badge badge-light-warning text-warning">🔑 Akses Langsung</span> atau
+                                    <span class="badge badge-light-info text-info">+N Modul Lainnya</span> untuk melihat
+                                    rincian hak akses per modul di panel samping kanan.</li>
+                                <li class="mb-2"><strong>Buka Modal Hak Akses:</strong> Klik <span
+                                        class="badge badge-light-primary text-primary">Kelola Akses</span> atau tombol
+                                    <strong>Edit</strong> dari dalam Side Drawer.</li>
+                                <li class="mb-2"><strong>Penugasan Izin Langsung:</strong> Centang hak akses khusus
+                                    yang ingin diberikan secara langsung kepada pengguna pada matriks CRUD.</li>
+                                <li><strong>Simpan Perubahan:</strong> Klik <span class="badge badge-primary">Simpan
+                                        Perubahan</span> untuk menyimpan pembaruan ke basis data.</li>
                             </ol>
                         </div>
 
                         <!--Section 4: System Rules-->
                         <div class="card schema-card bg-light-warning border border-warning p-6 rounded">
                             <h4 class="fw-bold text-warning mb-3 d-flex align-items-center">
-                                <i class="ki-duotone ki-shield-cross fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-shield-cross fs-2 text-warning me-2"><span
+                                        class="path1"></span><span class="path2"></span><span
+                                        class="path3"></span></i>
                                 Aturan & Proteksi Sistem
                             </h4>
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
-                                <li class="mb-2"><strong>Preseden Role:</strong> Permission role tetap aktif secara otomatis; permission langsung bertindak sebagai suplemen tambahan.</li>
-                                <li class="mb-2"><strong>Penggunaan Selektif:</strong> Gunakan hak akses langsung hanya untuk penugasan penanggung jawab proyek sementara.</li>
-                                <li><strong>Transparansi Audit:</strong> Penugasan permission langsung disimpan secara terpisah demi kepatuhan audit keamanan.</li>
+                                <li class="mb-2"><strong>Preseden Role:</strong> Permission role tetap aktif secara
+                                    otomatis; permission langsung bertindak sebagai suplemen tambahan.</li>
+                                <li class="mb-2"><strong>Penggunaan Selektif:</strong> Gunakan hak akses langsung
+                                    hanya untuk penugasan penanggung jawab proyek sementara.</li>
+                                <li><strong>Transparansi Audit:</strong> Penugasan permission langsung disimpan secara
+                                    terpisah demi kepatuhan audit keamanan.</li>
                             </ul>
                         </div>
                     </div>

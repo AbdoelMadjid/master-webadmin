@@ -20,7 +20,8 @@
             <!--begin::Modal body-->
             <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
                 <!--begin:Form-->
-                <form id="kt_modal_backup_db_form" class="form" action="{{ route('appsupport.backup-db.store') }}" method="POST">
+                <form id="kt_modal_backup_db_form" class="form" action="{{ route('appsupport.backup-db.store') }}"
+                    method="POST">
                     @csrf
                     <!--begin::Heading-->
                     <div class="mb-10 text-center">
@@ -35,7 +36,8 @@
                     <div class="d-flex flex-column mb-6 fv-row">
                         <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
                             <span>Nama Identifikasi Backup</span>
-                            <span class="ms-1" data-bs-toggle="tooltip" title="Opsional. Nama khusus untuk membantu mengidentifikasi file backup.">
+                            <span class="ms-1" data-bs-toggle="tooltip"
+                                title="Opsional. Nama khusus untuk membantu mengidentifikasi file backup.">
                                 <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                     <span class="path1"></span>
                                     <span class="path2"></span>
@@ -43,7 +45,8 @@
                                 </i>
                             </span>
                         </label>
-                        <input type="text" class="form-control form-control-solid" placeholder="Contoh: sebelum_update_modul" name="backup_name" id="backup_name" />
+                        <input type="text" class="form-control form-control-solid"
+                            placeholder="Contoh: sebelum_update_modul" name="backup_name" id="backup_name" />
                     </div>
                     <!--end::Input group-->
 
@@ -62,14 +65,17 @@
                         <label class="required fs-6 fw-semibold mb-2">Cakupan Tabel</label>
                         <div class="d-flex flex-column flex-sm-row gap-4">
                             <label class="form-check form-check-custom form-check-solid">
-                                <input class="form-check-input" type="radio" name="table_scope" value="all" id="scope_all" checked />
+                                <input class="form-check-input" type="radio" name="table_scope" value="all"
+                                    id="scope_all" checked />
                                 <span class="form-check-label fw-semibold text-gray-800 fs-6">
                                     Semua Tabel <span class="text-muted fs-7">(Includes DROP & CREATE DATABASE)</span>
                                 </span>
                             </label>
                             <label class="form-check form-check-custom form-check-solid">
-                                <input class="form-check-input" type="radio" name="table_scope" value="custom" id="scope_custom" />
-                                <span class="form-check-label fw-semibold text-gray-800 fs-6">Pilih Tabel Tertentu</span>
+                                <input class="form-check-input" type="radio" name="table_scope" value="custom"
+                                    id="scope_custom" />
+                                <span class="form-check-label fw-semibold text-gray-800 fs-6">Pilih Tabel
+                                    Tertentu</span>
                             </label>
                         </div>
                     </div>
@@ -80,8 +86,10 @@
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <span class="fs-6 fw-bold text-gray-700">Daftar Tabel Database:</span>
                             <div>
-                                <button type="button" class="btn btn-sm btn-light-primary py-1 px-3 me-1" id="btn_select_all_tables">Pilih Semua</button>
-                                <button type="button" class="btn btn-sm btn-light-danger py-1 px-3" id="btn_deselect_all_tables">Hapus Semua</button>
+                                <button type="button" class="btn btn-sm btn-light-primary py-1 px-3 me-1"
+                                    id="btn_select_all_tables">Pilih Semua</button>
+                                <button type="button" class="btn btn-sm btn-light-danger py-1 px-3"
+                                    id="btn_deselect_all_tables">Hapus Semua</button>
                             </div>
                         </div>
 
@@ -89,7 +97,8 @@
                         <div class="form-check form-check-custom form-check-solid mb-3">
                             <input class="form-check-input" type="checkbox" id="auto_select_relations" checked />
                             <label class="form-check-label text-gray-700 fs-7 fw-semibold" for="auto_select_relations">
-                                Otomatis centang tabel yang berelasi <span class="badge badge-light-success fs-9 ms-1">Direkomendasikan</span>
+                                Otomatis centang tabel yang berelasi <span
+                                    class="badge badge-light-success fs-9 ms-1">Direkomendasikan</span>
                             </label>
                         </div>
 
@@ -98,16 +107,26 @@
                                 @foreach ($tables as $index => $table)
                                     @php
                                         $relCount = isset($tableRelations[$table]) ? count($tableRelations[$table]) : 0;
-                                        $relTitle = $relCount > 0 ? 'Relasi: ' . implode(', ', $tableRelations[$table]) : '';
+                                        $relTitle =
+                                            $relCount > 0 ? 'Relasi: ' . implode(', ', $tableRelations[$table]) : '';
                                     @endphp
                                     <div class="col-md-6">
-                                        <div class="form-check form-check-custom form-check-solid form-check-sm align-items-center">
-                                            <input class="form-check-input table-checkbox" type="checkbox" name="tables[]" value="{{ $table }}" id="tbl_chk_{{ $index }}" data-table-name="{{ $table }}" />
-                                            <label class="form-check-label text-gray-800 fs-7 fw-semibold text-break ms-2" for="tbl_chk_{{ $index }}">
+                                        <div
+                                            class="form-check form-check-custom form-check-solid form-check-sm align-items-center">
+                                            <input class="form-check-input table-checkbox" type="checkbox"
+                                                name="tables[]" value="{{ $table }}"
+                                                id="tbl_chk_{{ $index }}"
+                                                data-table-name="{{ $table }}" />
+                                            <label
+                                                class="form-check-label text-gray-800 fs-7 fw-semibold text-break ms-2"
+                                                for="tbl_chk_{{ $index }}">
                                                 {{ $table }}
                                                 @if ($relCount > 0)
-                                                    <span class="badge badge-light-primary fs-9 ms-1 py-1 px-2" data-bs-toggle="tooltip" title="{{ $relTitle }}">
-                                                        <i class="ki-duotone ki-abstract-26 fs-9 text-primary me-1"><span class="path1"></span><span class="path2"></span></i>{{ $relCount }} Relasi
+                                                    <span class="badge badge-light-primary fs-9 ms-1 py-1 px-2"
+                                                        data-bs-toggle="tooltip" title="{{ $relTitle }}">
+                                                        <i class="ki-duotone ki-abstract-26 fs-9 text-primary me-1"><span
+                                                                class="path1"></span><span
+                                                                class="path2"></span></i>{{ $relCount }} Relasi
                                                     </span>
                                                 @endif
                                             </label>
@@ -121,13 +140,15 @@
 
                     <!--begin::Actions-->
                     <div class="text-center pt-5">
-                        <button type="reset" id="kt_modal_backup_db_cancel" class="btn btn-light me-3" data-bs-dismiss="modal">
+                        <button type="reset" id="kt_modal_backup_db_cancel" class="btn btn-light me-3"
+                            data-bs-dismiss="modal">
                             Batal
                         </button>
                         <button type="submit" id="kt_modal_backup_db_submit" class="btn btn-primary">
                             <span class="indicator-label">Proses Backup</span>
                             <span class="indicator-progress">
-                                Mohon tunggu... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                Mohon tunggu... <span
+                                    class="spinner-border spinner-border-sm align-middle ms-2"></span>
                             </span>
                         </button>
                     </div>

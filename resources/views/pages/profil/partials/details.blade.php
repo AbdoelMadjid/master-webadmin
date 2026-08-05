@@ -11,8 +11,13 @@
     $rolesArray = [];
     if ($authUser) {
         if (method_exists($authUser, 'getRoleNames')) {
-            $rolesArray = $authUser->getRoleNames()
-                ->map(fn($role) => function_exists('roleDisplayName') ? (roleDisplayName((string) $role) ?? (string) $role) : (string) $role)
+            $rolesArray = $authUser
+                ->getRoleNames()
+                ->map(
+                    fn($role) => function_exists('roleDisplayName')
+                        ? roleDisplayName((string) $role) ?? (string) $role
+                        : (string) $role,
+                )
                 ->filter()
                 ->values()
                 ->toArray();
@@ -24,29 +29,29 @@
 
     // Kalkulasi Persentase Kelengkapan Profil
     $profileFields = [
-        'avatar'            => !empty($authUser?->avatar),
-        'nama_lengkap'      => !empty($detail?->nama_lengkap ?? $authUser?->name),
-        'email'             => !empty($authUser?->email),
-        'nik'               => !empty($detail?->nik),
-        'tempat_lahir'      => !empty($detail?->tempat_lahir),
-        'tanggal_lahir'     => !empty($detail?->tanggal_lahir),
-        'jenis_kelamin'     => !empty($detail?->jenis_kelamin),
-        'golongan_darah'    => !empty($detail?->golongan_darah),
-        'agama'             => !empty($detail?->agama),
+        'avatar' => !empty($authUser?->avatar),
+        'nama_lengkap' => !empty($detail?->nama_lengkap ?? $authUser?->name),
+        'email' => !empty($authUser?->email),
+        'nik' => !empty($detail?->nik),
+        'tempat_lahir' => !empty($detail?->tempat_lahir),
+        'tanggal_lahir' => !empty($detail?->tanggal_lahir),
+        'jenis_kelamin' => !empty($detail?->jenis_kelamin),
+        'golongan_darah' => !empty($detail?->golongan_darah),
+        'agama' => !empty($detail?->agama),
         'status_perkawinan' => !empty($detail?->status_perkawinan),
-        'pekerjaan'         => !empty($detail?->pekerjaan),
-        'kewarganegaraan'    => !empty($detail?->kewarganegaraan),
-        'no_hp'             => !empty($detail?->no_hp),
-        'alamat_jalan'      => !empty($detail?->alamat_jalan),
-        'kabupaten_kota'    => !empty($detail?->kabupaten_kota),
-        'provinsi'          => !empty($detail?->provinsi),
+        'pekerjaan' => !empty($detail?->pekerjaan),
+        'kewarganegaraan' => !empty($detail?->kewarganegaraan),
+        'no_hp' => !empty($detail?->no_hp),
+        'alamat_jalan' => !empty($detail?->alamat_jalan),
+        'kabupaten_kota' => !empty($detail?->kabupaten_kota),
+        'provinsi' => !empty($detail?->provinsi),
     ];
 
     $filledCount = count(array_filter($profileFields));
     $totalFields = count($profileFields);
     $profileCompletionPercentage = (int) round(($filledCount / $totalFields) * 100);
 
-    $progressBarColorClass = match(true) {
+    $progressBarColorClass = match (true) {
         $profileCompletionPercentage >= 80 => 'bg-success',
         $profileCompletionPercentage >= 50 => 'bg-primary',
         $profileCompletionPercentage >= 25 => 'bg-warning',
@@ -76,20 +81,22 @@
             <img src="{{ $avatarUrl }}" alt="{{ $userName }}" id="user_profile_avatar_preview"
                 class="cursor-pointer rounded object-fit-cover"
                 onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';"
-                onclick="document.getElementById('user_avatar_file_input').click()"
-                data-bs-toggle="tooltip" title="Klik gambar untuk memilih & mengganti avatar" />
+                onclick="document.getElementById('user_avatar_file_input').click()" data-bs-toggle="tooltip"
+                title="Klik gambar untuk memilih & mengganti avatar" />
 
             <!-- Edit Button Badge -->
-            <label class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-35px h-35px bg-body shadow position-absolute bottom-0 end-0 mb-2 me-2 cursor-pointer"
-                onclick="document.getElementById('user_avatar_file_input').click()"
-                data-bs-toggle="tooltip"
+            <label
+                class="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-35px h-35px bg-body shadow position-absolute bottom-0 end-0 mb-2 me-2 cursor-pointer"
+                onclick="document.getElementById('user_avatar_file_input').click()" data-bs-toggle="tooltip"
                 title="Ganti Avatar">
                 <i class="ki-duotone ki-pencil fs-6"><span class="path1"></span><span class="path2"></span></i>
-                <input type="file" id="user_avatar_file_input" accept=".png, .jpg, .jpeg, .webp, .svg" style="display: none;" onchange="uploadUserAvatarDirect(this)" />
+                <input type="file" id="user_avatar_file_input" accept=".png, .jpg, .jpeg, .webp, .svg"
+                    style="display: none;" onchange="uploadUserAvatarDirect(this)" />
             </label>
 
             <!-- Online Status Indicator -->
-            <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px">
+            <div
+                class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px">
             </div>
         </div>
     </div>
@@ -103,7 +110,8 @@
             <div class="d-flex flex-column">
                 <!--begin::Name-->
                 <div class="d-flex align-items-center mb-2">
-                    <a href="javascript:void(0)" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">{{ $userName }}</a>
+                    <a href="javascript:void(0)"
+                        class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">{{ $userName }}</a>
                     <a href="javascript:void(0)">
                         <i class="ki-duotone ki-verify fs-1 text-primary">
                             <span class="path1"></span>
@@ -125,9 +133,10 @@
                             'badge-light-dark text-dark border border-gray-300',
                         ];
                     @endphp
-                    @foreach(array_slice($rolesArray, 0, 3) as $idx => $roleName)
-                        <span class="badge {{ $badgeClasses[$idx % count($badgeClasses)] }} fs-7 fw-bold d-inline-flex align-items-center px-3 py-2 shadow-xs"
-                              data-bs-toggle="tooltip" data-bs-placement="top" title="Peran Akses: {{ $roleName }}">
+                    @foreach (array_slice($rolesArray, 0, 3) as $idx => $roleName)
+                        <span
+                            class="badge {{ $badgeClasses[$idx % count($badgeClasses)] }} fs-7 fw-bold d-inline-flex align-items-center px-3 py-2 shadow-xs"
+                            data-bs-toggle="tooltip" data-bs-placement="top" title="Peran Akses: {{ $roleName }}">
                             <i class="ki-duotone ki-shield-tick fs-5 me-1">
                                 <span class="path1"></span><span class="path2"></span>
                             </i>
@@ -135,15 +144,15 @@
                         </span>
                     @endforeach
 
-                    @if(count($rolesArray) > 3)
+                    @if (count($rolesArray) > 3)
                         @php
                             $extraRoles = array_slice($rolesArray, 3);
                             $extraRolesText = implode(', ', $extraRoles);
                         @endphp
-                        <span class="badge badge-light-dark text-gray-700 fs-7 fw-bold px-3 py-2 cursor-pointer border border-gray-300" 
-                              data-bs-toggle="tooltip" 
-                              data-bs-placement="top" 
-                              title="Peran Lainnya: {{ $extraRolesText }}">
+                        <span
+                            class="badge badge-light-dark text-gray-700 fs-7 fw-bold px-3 py-2 cursor-pointer border border-gray-300"
+                            data-bs-toggle="tooltip" data-bs-placement="top"
+                            title="Peran Lainnya: {{ $extraRolesText }}">
                             +{{ count($extraRoles) }} Peran Lain
                         </span>
                     @endif
@@ -168,11 +177,11 @@
                             <span class="path1"></span>
                             <span class="path2"></span> </i>{{ $userLokasiText }}</a>
                     @if ($userEmail !== '')
-                    <a href="javascript:void(0)"
-                        class="d-flex align-items-center text-gray-500 text-hover-primary mb-2">
-                        <i class="ki-duotone ki-sms fs-4 me-1">
-                            <span class="path1"></span>
-                            <span class="path2"></span> </i>{{ $userEmail }}</a>
+                        <a href="javascript:void(0)"
+                            class="d-flex align-items-center text-gray-500 text-hover-primary mb-2">
+                            <i class="ki-duotone ki-sms fs-4 me-1">
+                                <span class="path1"></span>
+                                <span class="path2"></span> </i>{{ $userEmail }}</a>
                     @endif
                 </div>
                 <!--end::Info-->
@@ -232,8 +241,7 @@
                         </div>
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
-                        <div class="menu-item px-3" data-kt-menu-trigger="hover"
-                            data-kt-menu-placement="right-end">
+                        <div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
                             <a href="javascript:void(0)" class="menu-link px-3">
                                 <span class="menu-title">Subscription</span>
                                 <span class="menu-arrow"></span>
@@ -262,16 +270,13 @@
                                 <div class="menu-item px-3">
                                     <div class="menu-content px-3">
                                         <!--begin::Switch-->
-                                        <label
-                                            class="form-check form-switch form-check-custom form-check-solid">
+                                        <label class="form-check form-switch form-check-custom form-check-solid">
                                             <!--begin::Input-->
-                                            <input class="form-check-input w-30px h-20px"
-                                                type="checkbox" value="1" checked="checked"
-                                                name="notifications" />
+                                            <input class="form-check-input w-30px h-20px" type="checkbox"
+                                                value="1" checked="checked" name="notifications" />
                                             <!--end::Input-->
                                             <!--end::Label-->
-                                            <span
-                                                class="form-check-label text-muted fs-6">Recuring</span>
+                                            <span class="form-check-label text-muted fs-6">Recuring</span>
                                             <!--end::Label-->
                                         </label>
                                         <!--end::Switch-->
@@ -303,8 +308,7 @@
                 <!--begin::Stats-->
                 <div class="d-flex flex-wrap">
                     <!--begin::Stat-->
-                    <div
-                        class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+                    <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                         <!--begin::Number-->
                         <div class="d-flex align-items-center">
                             <i class="ki-duotone ki-award fs-3 text-warning me-2">
@@ -326,9 +330,9 @@
                     </div>
                     <!--end::Stat-->
                     <!--begin::Stat: Total Login-->
-                    <div
-                        class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="Total frekuensi akumulasi login pengguna ke sistem">
+                    <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3"
+                        data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Total frekuensi akumulasi login pengguna ke sistem">
                         <!--begin::Number-->
                         <div class="d-flex align-items-center">
                             <i class="ki-duotone ki-key fs-3 text-primary me-2">
@@ -349,9 +353,9 @@
                     </div>
                     <!--end::Stat-->
                     <!--begin::Stat: Kelengkapan Data-->
-                    <div
-                        class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="Persentase kelengkapan isi identitas profil">
+                    <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3"
+                        data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Persentase kelengkapan isi identitas profil">
                         <!--begin::Number-->
                         <div class="d-flex align-items-center">
                             <i class="ki-duotone ki-shield-check fs-3 text-success me-2">
@@ -359,7 +363,8 @@
                                 <span class="path2"></span>
                             </i>
                             <div class="fs-2 fw-bold" data-kt-countup="true"
-                                data-kt-countup-value="{{ $profileCompletionPercentage }}" data-kt-countup-suffix="%">
+                                data-kt-countup-value="{{ $profileCompletionPercentage }}"
+                                data-kt-countup-suffix="%">
                                 0
                             </div>
                         </div>
@@ -382,8 +387,10 @@
                     <span class="fw-bold fs-6">{{ $profileCompletionPercentage }}%</span>
                 </div>
                 <div class="h-5px mx-3 w-100 bg-light mb-3">
-                    <div class="{{ $progressBarColorClass }} rounded h-5px" role="progressbar" style="width: {{ $profileCompletionPercentage }}%"
-                        aria-valuenow="{{ $profileCompletionPercentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="{{ $progressBarColorClass }} rounded h-5px" role="progressbar"
+                        style="width: {{ $profileCompletionPercentage }}%"
+                        aria-valuenow="{{ $profileCompletionPercentage }}" aria-valuemin="0" aria-valuemax="100">
+                    </div>
                 </div>
             </div>
             <!--end::Progress-->
@@ -443,7 +450,8 @@
                 if (typeof SwalHelper !== 'undefined') {
                     SwalHelper.validationError(xhr);
                 } else {
-                    var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message : 'Gagal memperbarui avatar.';
+                    var msg = xhr.responseJSON && xhr.responseJSON.message ? xhr.responseJSON.message :
+                        'Gagal memperbarui avatar.';
                     alert(msg);
                 }
             }

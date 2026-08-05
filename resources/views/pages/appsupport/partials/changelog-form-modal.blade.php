@@ -14,7 +14,8 @@
 
                     <div class="mb-8 text-center">
                         <h1 class="mb-3 text-gray-900 fw-bold" id="changelog_modal_title">Tambah Versi Rilis Baru</h1>
-                        <div class="text-muted fw-semibold fs-6">Kelola data catatan perubahan versi rilis aplikasi secara dinamis di database.</div>
+                        <div class="text-muted fw-semibold fs-6">Kelola data catatan perubahan versi rilis aplikasi
+                            secara dinamis di database.</div>
                     </div>
 
                     <div class="row g-9 mb-8">
@@ -22,14 +23,16 @@
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2 required">
                                 <span>Versi Tag</span>
                             </label>
-                            <input type="text" class="form-control form-control-solid" placeholder="v1.5.0" name="version" id="changelog_version" required />
+                            <input type="text" class="form-control form-control-solid" placeholder="v1.5.0"
+                                name="version" id="changelog_version" required />
                         </div>
 
                         <div class="col-md-6 fv-row">
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2 required">
                                 <span>Tanggal Rilis</span>
                             </label>
-                            <input type="date" class="form-control form-control-solid" name="date" id="changelog_date" value="{{ date('Y-m-d') }}" required />
+                            <input type="date" class="form-control form-control-solid" name="date"
+                                id="changelog_date" value="{{ date('Y-m-d') }}" required />
                         </div>
                     </div>
 
@@ -38,14 +41,16 @@
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2 required">
                                 <span>Judul (Bahasa Indonesia)</span>
                             </label>
-                            <input type="text" class="form-control form-control-solid" placeholder="Judul rilis fitur..." name="title_id" id="changelog_title_id" required />
+                            <input type="text" class="form-control form-control-solid"
+                                placeholder="Judul rilis fitur..." name="title_id" id="changelog_title_id" required />
                         </div>
 
                         <div class="col-md-6 fv-row">
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2 required">
                                 <span>Title (English)</span>
                             </label>
-                            <input type="text" class="form-control form-control-solid" placeholder="Feature release title..." name="title" id="changelog_title" required />
+                            <input type="text" class="form-control form-control-solid"
+                                placeholder="Feature release title..." name="title" id="changelog_title" required />
                         </div>
                     </div>
 
@@ -78,26 +83,31 @@
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
                                 <span>Penulis / Author</span>
                             </label>
-                            <input type="text" class="form-control form-control-solid" placeholder="Developer Team" name="author" id="changelog_author" value="Developer Team" />
+                            <input type="text" class="form-control form-control-solid" placeholder="Developer Team"
+                                name="author" id="changelog_author" value="Developer Team" />
                         </div>
                     </div>
 
                     <div class="mb-8 fv-row">
                         <label class="fs-6 fw-semibold mb-2 required">Deskripsi Rilis (Bahasa Indonesia)</label>
-                        <textarea class="form-control form-control-solid" rows="2" name="description_id" id="changelog_description_id" placeholder="Penjelasan rincian pembaruan versi rilis..." required></textarea>
+                        <textarea class="form-control form-control-solid" rows="2" name="description_id" id="changelog_description_id"
+                            placeholder="Penjelasan rincian pembaruan versi rilis..." required></textarea>
                     </div>
 
                     <div class="mb-8 fv-row">
                         <label class="fs-6 fw-semibold mb-2 required">Description (English)</label>
-                        <textarea class="form-control form-control-solid" rows="2" name="description" id="changelog_description" placeholder="Detailed summary of release changes..." required></textarea>
+                        <textarea class="form-control form-control-solid" rows="2" name="description" id="changelog_description"
+                            placeholder="Detailed summary of release changes..." required></textarea>
                     </div>
 
                     {{-- Highlights Dynamic Repeater --}}
                     <div class="mb-8 fv-row">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <label class="fs-6 fw-semibold m-0 text-gray-900">Fitur Utama & Highlights</label>
-                            <button type="button" class="btn btn-sm btn-light-primary shadow-xs" onclick="addHighlightRow()">
-                                <i class="ki-duotone ki-plus fs-3 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
+                            <button type="button" class="btn btn-sm btn-light-primary shadow-xs"
+                                onclick="addHighlightRow()">
+                                <i class="ki-duotone ki-plus fs-3 p-0 m-0"><span class="path1"></span><span
+                                        class="path2"></span></i>
                                 <span class="ms-1">Tambah Highlight</span>
                             </button>
                         </div>
@@ -111,14 +121,19 @@
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <label class="fs-6 fw-semibold m-0 text-gray-900">Daftar Commit Git (Commits Log)</label>
                             <div class="d-flex align-items-center gap-2">
-                                <span data-bs-toggle="tooltip" data-bs-placement="top" title="Tarik log commit Git terbaru secara otomatis dari repositori sistem">
-                                    <button type="button" class="btn btn-sm btn-light-info shadow-xs" onclick="syncLiveGitCommits(true)">
-                                        <i class="ki-duotone ki-arrows-loop fs-3 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
+                                <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="Tarik log commit Git terbaru secara otomatis dari repositori sistem">
+                                    <button type="button" class="btn btn-sm btn-light-info shadow-xs"
+                                        onclick="syncLiveGitCommits(true)">
+                                        <i class="ki-duotone ki-arrows-loop fs-3 p-0 m-0"><span
+                                                class="path1"></span><span class="path2"></span></i>
                                         <span class="ms-1">Sync Log Git Realtime</span>
                                     </button>
                                 </span>
-                                <button type="button" class="btn btn-sm btn-light-success shadow-xs" onclick="addCommitRow()">
-                                    <i class="ki-duotone ki-plus fs-3 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
+                                <button type="button" class="btn btn-sm btn-light-success shadow-xs"
+                                    onclick="addCommitRow()">
+                                    <i class="ki-duotone ki-plus fs-3 p-0 m-0"><span class="path1"></span><span
+                                            class="path2"></span></i>
                                     <span class="ms-1">Tambah Commit</span>
                                 </button>
                             </div>

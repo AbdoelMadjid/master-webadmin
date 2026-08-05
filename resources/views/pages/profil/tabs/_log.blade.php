@@ -4,7 +4,9 @@
         ->paginate(15);
 
     $totalLogins = \App\Models\AppSupport\DataLogin::where('user_id', auth()->id())->sum('login_count');
-    $totalPoints = \App\Models\AppSupport\DataLogin::where('user_id', auth()->id())->where('point_awarded', true)->count();
+    $totalPoints = \App\Models\AppSupport\DataLogin::where('user_id', auth()->id())
+        ->where('point_awarded', true)
+        ->count();
 @endphp
 
 <!--begin::Summary Row-->
@@ -14,7 +16,8 @@
             <div class="d-flex align-items-center">
                 <div class="symbol symbol-45px me-4">
                     <span class="symbol-label bg-primary text-white">
-                        <i class="ki-duotone ki-key fs-1 text-white"><span class="path1"></span><span class="path2"></span></i>
+                        <i class="ki-duotone ki-key fs-1 text-white"><span class="path1"></span><span
+                                class="path2"></span></i>
                     </span>
                 </div>
                 <div>
@@ -29,7 +32,8 @@
             <div class="d-flex align-items-center">
                 <div class="symbol symbol-45px me-4">
                     <span class="symbol-label bg-success text-white">
-                        <i class="ki-duotone ki-award fs-1 text-white"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                        <i class="ki-duotone ki-award fs-1 text-white"><span class="path1"></span><span
+                                class="path2"></span><span class="path3"></span></i>
                     </span>
                 </div>
                 <div>
@@ -48,7 +52,8 @@
     <div class="card-header border-0 pt-5">
         <h3 class="card-title align-items-start flex-column">
             <span class="card-label fw-bold fs-3 mb-1">Riwayat Login Harian Saya</span>
-            <span class="text-muted mt-1 fw-semibold fs-7">Catatan rekapan aktivitas login harian dan jumlah frekuensi login per tanggal</span>
+            <span class="text-muted mt-1 fw-semibold fs-7">Catatan rekapan aktivitas login harian dan jumlah frekuensi
+                login per tanggal</span>
         </h3>
         <div class="card-toolbar">
             <span class="badge badge-light-primary fs-7 fw-bold">Total {{ $myLoginLogs->total() }} Hari Login</span>
@@ -83,24 +88,29 @@
                             </td>
                             <td>
                                 <div class="d-flex flex-column">
-                                    <span class="text-gray-800 fw-bold">{{ $log->login_at ? $log->login_at->format('d M Y, H:i:s') : '-' }}</span>
-                                    <span class="text-muted fs-8">{{ $log->login_at ? $log->login_at->diffForHumans() : '' }}</span>
+                                    <span
+                                        class="text-gray-800 fw-bold">{{ $log->login_at ? $log->login_at->format('d M Y, H:i:s') : '-' }}</span>
+                                    <span
+                                        class="text-muted fs-8">{{ $log->login_at ? $log->login_at->diffForHumans() : '' }}</span>
                                 </div>
                             </td>
                             <td class="text-center">
                                 <span class="badge badge-light-primary fw-bold px-3 py-2 fs-7">
-                                    <i class="ki-duotone ki-arrows-loop fs-6 text-primary me-1"><span class="path1"></span><span class="path2"></span></i>
+                                    <i class="ki-duotone ki-arrows-loop fs-6 text-primary me-1"><span
+                                            class="path1"></span><span class="path2"></span></i>
                                     {{ $log->login_count }}x Login Hari Ini
                                 </span>
                             </td>
                             <td>
                                 <span class="badge badge-light-dark fw-bold px-3 py-2">
-                                    <i class="ki-duotone ki-geolocation fs-6 text-gray-600 me-1"><span class="path1"></span><span class="path2"></span></i>
+                                    <i class="ki-duotone ki-geolocation fs-6 text-gray-600 me-1"><span
+                                            class="path1"></span><span class="path2"></span></i>
                                     {{ $log->ip_address ?? '127.0.0.1' }}
                                 </span>
                             </td>
                             <td>
-                                <span class="text-gray-700 text-truncate d-inline-block mw-300px" title="{{ $log->user_agent }}">
+                                <span class="text-gray-700 text-truncate d-inline-block mw-300px"
+                                    title="{{ $log->user_agent }}">
                                     {{ Str::limit($log->user_agent, 55) ?? 'Unknown Device' }}
                                 </span>
                             </td>
@@ -108,7 +118,9 @@
                     @empty
                         <tr>
                             <td colspan="5" class="text-center py-10 text-muted">
-                                <i class="ki-duotone ki-information fs-3x text-gray-400 mb-3 d-block"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                                <i class="ki-duotone ki-information fs-3x text-gray-400 mb-3 d-block"><span
+                                        class="path1"></span><span class="path2"></span><span
+                                        class="path3"></span></i>
                                 Belum ada riwayat sesi login yang terekam untuk akun Anda.
                             </td>
                         </tr>
@@ -120,7 +132,7 @@
         </div>
         <!--end::Table wrapper-->
 
-        @if($myLoginLogs->hasPages())
+        @if ($myLoginLogs->hasPages())
             <div class="d-flex justify-content-end pt-4">
                 {{ $myLoginLogs->appends(['tab' => 'log'])->links() }}
             </div>

@@ -17,7 +17,8 @@
         <div id="kt_app_content_container" class="app-container container-fluid">
 
             <!--begin::Page Header & Guide Action-->
-            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+            <div
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
                 <div class="d-flex align-items-center gap-3">
                     <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
                         <i class="ki-duotone ki-toggle-on text-primary fs-2x">
@@ -35,9 +36,12 @@
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-2">
-                    <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_website_features_help">
-                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal"
+                            data-bs-target="#kt_modal_website_features_help">
+                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span
+                                    class="path2"></span><span class="path3"></span></i>
                         </button>
                     </span>
                 </div>
@@ -53,12 +57,17 @@
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-45px me-4">
                                     <span class="symbol-label bg-light-primary">
-                                        <i class="ki-duotone ki-element-plus fs-2x text-primary"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                                        <i class="ki-duotone ki-element-plus fs-2x text-primary"><span
+                                                class="path1"></span><span class="path2"></span><span
+                                                class="path3"></span><span class="path4"></span><span
+                                                class="path5"></span></i>
                                     </span>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($totalFeatures) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Total Managed Features' : 'Total Fitur Dikelola' }}</span>
+                                    <span
+                                        class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($totalFeatures) }}</span>
+                                    <span
+                                        class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Total Managed Features' : 'Total Fitur Dikelola' }}</span>
                                 </div>
                             </div>
                         </div>
@@ -72,12 +81,15 @@
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-45px me-4">
                                     <span class="symbol-label bg-light-success">
-                                        <i class="ki-duotone ki-check-circle fs-2x text-success"><span class="path1"></span><span class="path2"></span></i>
+                                        <i class="ki-duotone ki-check-circle fs-2x text-success"><span
+                                                class="path1"></span><span class="path2"></span></i>
                                     </span>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($activeFeatures) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Active Visible Features' : 'Fitur Aktif Tampil' }}</span>
+                                    <span
+                                        class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($activeFeatures) }}</span>
+                                    <span
+                                        class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Active Visible Features' : 'Fitur Aktif Tampil' }}</span>
                                 </div>
                             </div>
                         </div>
@@ -91,12 +103,15 @@
                             <div class="d-flex align-items-center">
                                 <div class="symbol symbol-45px me-4">
                                     <span class="symbol-label bg-light-warning">
-                                        <i class="ki-duotone ki-cross-circle fs-2x text-warning"><span class="path1"></span><span class="path2"></span></i>
+                                        <i class="ki-duotone ki-cross-circle fs-2x text-warning"><span
+                                                class="path1"></span><span class="path2"></span></i>
                                     </span>
                                 </div>
                                 <div class="d-flex flex-column">
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($inactiveFeatures) }}</span>
-                                    <span class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Hidden Features' : 'Fitur Disembunyikan' }}</span>
+                                    <span
+                                        class="fs-2hx fw-bold text-gray-800 me-2 lh-1">{{ number_format($inactiveFeatures) }}</span>
+                                    <span
+                                        class="text-gray-500 fw-semibold fs-7 mt-1">{{ app()->getLocale() == 'en' ? 'Hidden Features' : 'Fitur Disembunyikan' }}</span>
                                 </div>
                             </div>
                         </div>
@@ -106,16 +121,21 @@
             <!--end::Summary Stat Cards-->
 
             <!--begin::Sub-Tab Navigation-->
-            <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-5 fw-bold mb-6" id="kt_website_features_tabs">
+            <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-5 fw-bold mb-6"
+                id="kt_website_features_tabs">
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'feature-list' ? 'active' : '' }}" href="{{ route('pageconfig.website-features', ['tab' => 'feature-list']) }}">
-                        <i class="ki-duotone ki-toggle-on fs-2 me-2"><span class="path1"></span><span class="path2"></span></i>
+                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'feature-list' ? 'active' : '' }}"
+                        href="{{ route('pageconfig.website-features', ['tab' => 'feature-list']) }}">
+                        <i class="ki-duotone ki-toggle-on fs-2 me-2"><span class="path1"></span><span
+                                class="path2"></span></i>
                         {{ app()->getLocale() == 'en' ? 'Feature Toggle List' : 'Daftar Sakelar Fitur' }}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'preview' ? 'active' : '' }}" href="{{ route('pageconfig.website-features', ['tab' => 'preview']) }}">
-                        <i class="ki-duotone ki-eye fs-2 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                    <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'preview' ? 'active' : '' }}"
+                        href="{{ route('pageconfig.website-features', ['tab' => 'preview']) }}">
+                        <i class="ki-duotone ki-eye fs-2 me-2"><span class="path1"></span><span class="path2"></span><span
+                                class="path3"></span></i>
                         {{ app()->getLocale() == 'en' ? 'Live Interface Preview' : 'Preview Live Tampilan Fitur' }}
                     </a>
                 </li>
@@ -137,43 +157,46 @@
 
 @section('scripts')
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Quick Toggle Active Status via AJAX
-            document.querySelectorAll('.js-toggle-feature-status').forEach(function (chk) {
-                chk.addEventListener('change', function () {
+            document.querySelectorAll('.js-toggle-feature-status').forEach(function(chk) {
+                chk.addEventListener('change', function() {
                     var id = this.getAttribute('data-id');
-                    var url = "{{ route('pageconfig.website-features', '') }}/" + id + "/toggle-status";
+                    var url = "{{ route('pageconfig.website-features', '') }}/" + id +
+                        "/toggle-status";
 
                     fetch(url, {
-                        method: 'POST',
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                        }
-                    })
-                    .then(r => r.json())
-                    .then(data => {
-                        if (data.success) {
-                            SwalHelper.success(data.message);
-                        } else {
-                            SwalHelper.error(data.message || 'Failed to toggle status');
-                        }
-                    })
-                    .catch(err => SwalHelper.error(err.message));
+                            method: 'POST',
+                            headers: {
+                                'X-Requested-With': 'XMLHttpRequest',
+                                'X-CSRF-TOKEN': document.querySelector(
+                                    'meta[name="csrf-token"]').getAttribute('content')
+                            }
+                        })
+                        .then(r => r.json())
+                        .then(data => {
+                            if (data.success) {
+                                SwalHelper.success(data.message);
+                            } else {
+                                SwalHelper.error(data.message || 'Failed to toggle status');
+                            }
+                        })
+                        .catch(err => SwalHelper.error(err.message));
                 });
             });
 
             // Bulk Toggle Features Status (Enable All / Disable All)
-            document.querySelectorAll('.js-bulk-toggle-features').forEach(function (btn) {
-                btn.addEventListener('click', function () {
+            document.querySelectorAll('.js-bulk-toggle-features').forEach(function(btn) {
+                btn.addEventListener('click', function() {
                     var status = parseInt(this.getAttribute('data-status'));
-                    var actionText = status === 1
-                        ? "{{ app()->getLocale() == 'en' ? 'enable all features' : 'mengaktifkan semua fitur' }}"
-                        : "{{ app()->getLocale() == 'en' ? 'disable all features' : 'menonaktifkan semua fitur' }}";
+                    var actionText = status === 1 ?
+                        "{{ app()->getLocale() == 'en' ? 'enable all features' : 'mengaktifkan semua fitur' }}" :
+                        "{{ app()->getLocale() == 'en' ? 'disable all features' : 'menonaktifkan semua fitur' }}";
 
                     Swal.fire({
                         title: "{{ app()->getLocale() == 'en' ? 'Are you sure?' : 'Apakah Anda yakin?' }}",
-                        text: "{{ app()->getLocale() == 'en' ? 'Do you want to ' : 'Apakah Anda ingin ' }}" + actionText + "?",
+                        text: "{{ app()->getLocale() == 'en' ? 'Do you want to ' : 'Apakah Anda ingin ' }}" +
+                            actionText + "?",
                         icon: 'warning',
                         showCancelButton: true,
                         confirmButtonText: "{{ app()->getLocale() == 'en' ? 'Yes, proceed!' : 'Ya, lanjutkan!' }}",
@@ -182,29 +205,36 @@
                             confirmButton: "btn btn-primary",
                             cancelButton: "btn btn-active-light"
                         }
-                    }).then(function (result) {
+                    }).then(function(result) {
                         if (result.isConfirmed) {
                             fetch("{{ route('pageconfig.website-features.bulk-toggle') }}", {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'X-Requested-With': 'XMLHttpRequest',
-                                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                                },
-                                body: JSON.stringify({ is_active: status })
-                            })
-                            .then(r => r.json())
-                            .then(data => {
-                                if (data.success) {
-                                    SwalHelper.success(data.message);
-                                    document.querySelectorAll('.js-toggle-feature-status').forEach(function (chk) {
-                                        chk.checked = status === 1;
-                                    });
-                                } else {
-                                    SwalHelper.error(data.message || 'Bulk toggle failed');
-                                }
-                            })
-                            .catch(err => SwalHelper.error(err.message));
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'X-Requested-With': 'XMLHttpRequest',
+                                        'X-CSRF-TOKEN': document.querySelector(
+                                            'meta[name="csrf-token"]').getAttribute(
+                                            'content')
+                                    },
+                                    body: JSON.stringify({
+                                        is_active: status
+                                    })
+                                })
+                                .then(r => r.json())
+                                .then(data => {
+                                    if (data.success) {
+                                        SwalHelper.success(data.message);
+                                        document.querySelectorAll(
+                                            '.js-toggle-feature-status').forEach(
+                                            function(chk) {
+                                                chk.checked = status === 1;
+                                            });
+                                    } else {
+                                        SwalHelper.error(data.message ||
+                                            'Bulk toggle failed');
+                                    }
+                                })
+                                .catch(err => SwalHelper.error(err.message));
                         }
                     });
                 });

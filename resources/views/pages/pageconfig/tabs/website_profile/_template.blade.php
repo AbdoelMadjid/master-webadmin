@@ -34,8 +34,8 @@
                     {{ app()->getLocale() == 'en' ? 'Multi-Template Architecture Standards' : 'Aturan Standar Arsitektur Multi-Template' }}
                 </h5>
                 <span class="fs-7 text-gray-700">
-                    {{ app()->getLocale() == 'en' 
-                        ? 'All registered website templates strictly inherit data configured under Website Profile, Menu Website, Website Features, and Page Content (Slide Banners & CTA). Adding new templates in the future will automatically integrate with your existing site data.' 
+                    {{ app()->getLocale() == 'en'
+                        ? 'All registered website templates strictly inherit data configured under Website Profile, Menu Website, Website Features, and Page Content (Slide Banners & CTA). Adding new templates in the future will automatically integrate with your existing site data.'
                         : 'Semua template website yang terdaftar secara otomatis menggunakan data dari Profil Website, Menu Website, Website Features, dan Page Content (Slide Banner & CTA). Penambahan template baru di masa mendatang akan secara otomatis menyesuaikan dengan data website yang ada.' }}
                 </span>
             </div>
@@ -44,15 +44,17 @@
 
         <!--begin::Template Cards Grid-->
         <div class="row g-6">
-            @foreach($templates as $key => $template)
+            @foreach ($templates as $key => $template)
                 <div class="col-md-6 col-lg-4">
-                    <div class="card schema-card h-100 {{ $template['is_active'] ? 'border-2 border-primary bg-light-primary bg-opacity-10' : 'border border-gray-300' }}">
+                    <div
+                        class="card schema-card h-100 {{ $template['is_active'] ? 'border-2 border-primary bg-light-primary bg-opacity-10' : 'border border-gray-300' }}">
                         <!--begin::Card Header-->
                         <div class="card-header border-0 pt-5 pb-0 min-h-auto">
                             <div class="card-title m-0">
-                                @if($template['is_active'])
+                                @if ($template['is_active'])
                                     <span class="badge badge-primary fs-8 fw-bold">
-                                        <i class="ki-duotone ki-check-circle fs-7 text-white me-1"><span class="path1"></span><span class="path2"></span></i>
+                                        <i class="ki-duotone ki-check-circle fs-7 text-white me-1"><span
+                                                class="path1"></span><span class="path2"></span></i>
                                         {{ app()->getLocale() == 'en' ? 'Active Standard' : 'Standar Terpilih' }}
                                     </span>
                                 @else
@@ -82,10 +84,11 @@
                                     </div>
                                     <div>
                                         <h4 class="fw-bold text-gray-900 m-0 fs-5">
-                                            {{ app()->getLocale() == 'en' ? ($template['name'] ?? $key) : ($template['name_id'] ?? $template['name']) }}
+                                            {{ app()->getLocale() == 'en' ? $template['name'] ?? $key : $template['name_id'] ?? $template['name'] }}
                                         </h4>
                                         <span class="text-muted fs-8">
-                                            {{ app()->getLocale() == 'en' ? 'Author: ' : 'Pengembang: ' }} {{ $template['author'] ?? 'System' }}
+                                            {{ app()->getLocale() == 'en' ? 'Author: ' : 'Pengembang: ' }}
+                                            {{ $template['author'] ?? 'System' }}
                                         </span>
                                     </div>
                                 </div>
@@ -93,13 +96,13 @@
 
                                 <!--begin::Description-->
                                 <p class="text-gray-600 fs-7 mb-4">
-                                    {{ app()->getLocale() == 'en' ? ($template['description'] ?? '') : ($template['description_id'] ?? $template['description']) }}
+                                    {{ app()->getLocale() == 'en' ? $template['description'] ?? '' : $template['description_id'] ?? $template['description'] }}
                                 </p>
                                 <!--end::Description-->
 
                                 <!--begin::Supported Features Badges-->
                                 <div class="d-flex flex-wrap gap-1 mb-5">
-                                    @foreach($template['supports'] ?? [] as $feat)
+                                    @foreach ($template['supports'] ?? [] as $feat)
                                         <span class="badge badge-light-primary fs-9 fw-semibold">
                                             {{ str_replace('_', ' ', ucfirst($feat)) }}
                                         </span>
@@ -110,9 +113,11 @@
 
                             <!--begin::Action Form-->
                             <div class="pt-4 border-top border-gray-200">
-                                @if($template['is_active'])
-                                    <button type="button" class="btn btn-light-primary btn-sm w-100 fw-bold disabled" disabled>
-                                        <i class="ki-duotone ki-check fs-4 me-1"><span class="path1"></span><span class="path2"></span></i>
+                                @if ($template['is_active'])
+                                    <button type="button" class="btn btn-light-primary btn-sm w-100 fw-bold disabled"
+                                        disabled>
+                                        <i class="ki-duotone ki-check fs-4 me-1"><span class="path1"></span><span
+                                                class="path2"></span></i>
                                         {{ app()->getLocale() == 'en' ? 'Currently Active Standard' : 'Template Terpilih (Aktif)' }}
                                     </button>
                                 @else
@@ -120,7 +125,8 @@
                                         @csrf
                                         <input type="hidden" name="template_slug" value="{{ $key }}">
                                         <button type="submit" class="btn btn-primary btn-sm w-100 fw-bold">
-                                            <i class="ki-duotone ki-check-circle fs-4 me-1"><span class="path1"></span><span class="path2"></span></i>
+                                            <i class="ki-duotone ki-check-circle fs-4 me-1"><span
+                                                    class="path1"></span><span class="path2"></span></i>
                                             {{ app()->getLocale() == 'en' ? 'Set as Active Template' : 'Pilih Template Ini' }}
                                         </button>
                                     </form>

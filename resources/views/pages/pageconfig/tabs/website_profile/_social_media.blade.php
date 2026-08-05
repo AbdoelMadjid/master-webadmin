@@ -1,8 +1,10 @@
 <div class="card card-flush shadow-xs border border-gray-200">
     <div class="card-header align-items-center py-5">
         <h3 class="card-title align-items-start flex-column">
-            <span class="card-label fw-bold text-gray-900 fs-4">{{ app()->getLocale() == 'en' ? 'Social Media Links & Visibility Toggles' : 'Pengaturan Tautan & Sakelar Sosial Media Website' }}</span>
-            <span class="text-muted mt-1 fw-semibold fs-7">{{ app()->getLocale() == 'en' ? 'Configure official social media URLs and toggle visibility switches per platform' : 'Atur tautan akun resmi dan sakelar visibilitas (tampil/sembunyi) per platform sosial media di footer' }}</span>
+            <span
+                class="card-label fw-bold text-gray-900 fs-4">{{ app()->getLocale() == 'en' ? 'Social Media Links & Visibility Toggles' : 'Pengaturan Tautan & Sakelar Sosial Media Website' }}</span>
+            <span
+                class="text-muted mt-1 fw-semibold fs-7">{{ app()->getLocale() == 'en' ? 'Configure official social media URLs and toggle visibility switches per platform' : 'Atur tautan akun resmi dan sakelar visibilitas (tampil/sembunyi) per platform sosial media di footer' }}</span>
         </h3>
     </div>
 
@@ -18,20 +20,45 @@
             @php
                 $socialLinks = $profile->social_links ?? \App\Models\PageConfig\WebsiteProfile::getDefaultSocialLinks();
                 $platforms = [
-                    'twitter' => ['name' => 'Twitter / X', 'icon' => 'fab fa-twitter', 'color' => 'btn-light-twitter text-info', 'placeholder' => 'https://twitter.com/unify'],
-                    'facebook' => ['name' => 'Facebook', 'icon' => 'fab fa-facebook-f', 'color' => 'btn-light-facebook text-primary', 'placeholder' => 'https://facebook.com/unify'],
-                    'instagram' => ['name' => 'Instagram', 'icon' => 'fab fa-instagram', 'color' => 'btn-light-instagram text-danger', 'placeholder' => 'https://instagram.com/unify'],
-                    'youtube' => ['name' => 'YouTube', 'icon' => 'fab fa-youtube', 'color' => 'btn-light-youtube text-danger', 'placeholder' => 'https://youtube.com/c/unify'],
-                    'linkedin' => ['name' => 'LinkedIn', 'icon' => 'fab fa-linkedin-in', 'color' => 'btn-light-linkedin text-primary', 'placeholder' => 'https://linkedin.com/school/unify'],
+                    'twitter' => [
+                        'name' => 'Twitter / X',
+                        'icon' => 'fab fa-twitter',
+                        'color' => 'btn-light-twitter text-info',
+                        'placeholder' => 'https://twitter.com/unify',
+                    ],
+                    'facebook' => [
+                        'name' => 'Facebook',
+                        'icon' => 'fab fa-facebook-f',
+                        'color' => 'btn-light-facebook text-primary',
+                        'placeholder' => 'https://facebook.com/unify',
+                    ],
+                    'instagram' => [
+                        'name' => 'Instagram',
+                        'icon' => 'fab fa-instagram',
+                        'color' => 'btn-light-instagram text-danger',
+                        'placeholder' => 'https://instagram.com/unify',
+                    ],
+                    'youtube' => [
+                        'name' => 'YouTube',
+                        'icon' => 'fab fa-youtube',
+                        'color' => 'btn-light-youtube text-danger',
+                        'placeholder' => 'https://youtube.com/c/unify',
+                    ],
+                    'linkedin' => [
+                        'name' => 'LinkedIn',
+                        'icon' => 'fab fa-linkedin-in',
+                        'color' => 'btn-light-linkedin text-primary',
+                        'placeholder' => 'https://linkedin.com/school/unify',
+                    ],
                 ];
             @endphp
 
             <div class="d-flex flex-column gap-6 mb-8">
-                @foreach($platforms as $key => $meta)
+                @foreach ($platforms as $key => $meta)
                     @php
                         $itemData = $socialLinks[$key] ?? ['url' => '', 'is_active' => true];
-                        $urlVal = is_array($itemData) ? ($itemData['url'] ?? '') : '';
-                        $isActive = is_array($itemData) ? (!empty($itemData['is_active'])) : true;
+                        $urlVal = is_array($itemData) ? $itemData['url'] ?? '' : '';
+                        $isActive = is_array($itemData) ? !empty($itemData['is_active']) : true;
                     @endphp
 
                     <div class="card bg-light-body border border-gray-300 p-5 rounded">
@@ -51,19 +78,30 @@
 
                             <!-- Target URL Input -->
                             <div class="col-md-6">
-                                <label class="fs-7 fw-semibold text-gray-700 mb-1 d-block">{{ app()->getLocale() == 'en' ? 'Target Account URL' : 'Tautan URL Akun Resmi' }}</label>
+                                <label
+                                    class="fs-7 fw-semibold text-gray-700 mb-1 d-block">{{ app()->getLocale() == 'en' ? 'Target Account URL' : 'Tautan URL Akun Resmi' }}</label>
                                 <div class="input-group input-group-solid">
-                                    <span class="input-group-text"><i class="{{ $meta['icon'] }} text-gray-500 fs-6"></i></span>
-                                    <input type="url" class="form-control form-control-solid fs-7" name="social_links[{{ $key }}][url]" value="{{ old("social_links.{$key}.url", $urlVal) }}" placeholder="{{ $meta['placeholder'] }}" />
+                                    <span class="input-group-text"><i
+                                            class="{{ $meta['icon'] }} text-gray-500 fs-6"></i></span>
+                                    <input type="url" class="form-control form-control-solid fs-7"
+                                        name="social_links[{{ $key }}][url]"
+                                        value="{{ old("social_links.{$key}.url", $urlVal) }}"
+                                        placeholder="{{ $meta['placeholder'] }}" />
                                 </div>
                             </div>
 
                             <!-- Visibility Switch Toggle -->
                             <div class="col-md-3 text-md-end">
-                                <label class="fs-7 fw-semibold text-gray-700 mb-1 d-block">{{ app()->getLocale() == 'en' ? 'Visibility Status' : 'Status Visibilitas' }}</label>
-                                <div class="form-check form-switch form-check-custom form-check-solid justify-content-md-end justify-content-start">
-                                    <input class="form-check-input h-25px w-45px me-2 js-social-toggle" type="checkbox" data-key="{{ $key }}" name="social_links[{{ $key }}][is_active]" value="1" {{ $isActive ? 'checked' : '' }} />
-                                    <span class="fw-bold fs-7 js-social-toggle-label-{{ $key }} {{ $isActive ? 'text-success' : 'text-gray-500' }}">
+                                <label
+                                    class="fs-7 fw-semibold text-gray-700 mb-1 d-block">{{ app()->getLocale() == 'en' ? 'Visibility Status' : 'Status Visibilitas' }}</label>
+                                <div
+                                    class="form-check form-switch form-check-custom form-check-solid justify-content-md-end justify-content-start">
+                                    <input class="form-check-input h-25px w-45px me-2 js-social-toggle" type="checkbox"
+                                        data-key="{{ $key }}"
+                                        name="social_links[{{ $key }}][is_active]" value="1"
+                                        {{ $isActive ? 'checked' : '' }} />
+                                    <span
+                                        class="fw-bold fs-7 js-social-toggle-label-{{ $key }} {{ $isActive ? 'text-success' : 'text-gray-500' }}">
                                         {{ $isActive ? (app()->getLocale() == 'en' ? 'Active' : 'Aktif') : (app()->getLocale() == 'en' ? 'Disabled' : 'Nonaktif') }}
                                     </span>
                                 </div>

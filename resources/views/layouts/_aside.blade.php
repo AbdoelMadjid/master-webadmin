@@ -173,7 +173,8 @@
                                     <!--begin::Content-->
                                     <div class="me-5">
                                         <!--begin::Title-->
-                                        <a href="javascript:void(0)" class="text-gray-800 fw-bold text-hover-primary fs-6">Most
+                                        <a href="javascript:void(0)"
+                                            class="text-gray-800 fw-bold text-hover-primary fs-6">Most
                                             Active</a>
                                         <!--end::Title-->
                                     </div>
@@ -197,7 +198,8 @@
                                     <!--begin::Content-->
                                     <div class="me-5">
                                         <!--begin::Title-->
-                                        <a href="javascript:void(0)" class="text-gray-800 fw-bold text-hover-primary fs-6">Top
+                                        <a href="javascript:void(0)"
+                                            class="text-gray-800 fw-bold text-hover-primary fs-6">Top
                                             Errors</a>
                                         <!--end::Title-->
                                     </div>
@@ -223,7 +225,8 @@
                                     <!--begin::Content-->
                                     <div class="me-5">
                                         <!--begin::Title-->
-                                        <a href="javascript:void(0)" class="text-gray-800 fw-bold text-hover-primary fs-6">Signup
+                                        <a href="javascript:void(0)"
+                                            class="text-gray-800 fw-bold text-hover-primary fs-6">Signup
                                             rate</a>
                                         <!--end::Title-->
                                     </div>
@@ -247,7 +250,8 @@
                                     <!--begin::Content-->
                                     <div class="me-5">
                                         <!--begin::Title-->
-                                        <a href="javascript:void(0)" class="text-gray-800 fw-bold text-hover-primary fs-6">Top
+                                        <a href="javascript:void(0)"
+                                            class="text-gray-800 fw-bold text-hover-primary fs-6">Top
                                             Errors</a>
                                         <!--end::Title-->
                                     </div>
@@ -271,7 +275,8 @@
                                     <!--begin::Content-->
                                     <div class="me-5">
                                         <!--begin::Title-->
-                                        <a href="javascript:void(0)" class="text-gray-800 fw-bold text-hover-primary fs-6">Signup
+                                        <a href="javascript:void(0)"
+                                            class="text-gray-800 fw-bold text-hover-primary fs-6">Signup
                                             errors</a>
                                         <!--end::Title-->
                                     </div>
@@ -297,7 +302,8 @@
                                     <!--begin::Content-->
                                     <div class="me-5">
                                         <!--begin::Title-->
-                                        <a href="javascript:void(0)" class="text-gray-800 fw-bold text-hover-primary fs-6">Support
+                                        <a href="javascript:void(0)"
+                                            class="text-gray-800 fw-bold text-hover-primary fs-6">Support
                                             superstar</a>
                                         <!--end::Title-->
                                     </div>
@@ -325,7 +331,8 @@
                                     <!--begin::Content-->
                                     <div class="me-5">
                                         <!--begin::Title-->
-                                        <a href="javascript:void(0)" class="text-gray-800 fw-bold text-hover-primary fs-6">Direct</a>
+                                        <a href="javascript:void(0)"
+                                            class="text-gray-800 fw-bold text-hover-primary fs-6">Direct</a>
                                         <!--end::Title-->
                                     </div>
                                     <!--end::Content-->
@@ -348,7 +355,8 @@
                                     <!--begin::Content-->
                                     <div class="me-5">
                                         <!--begin::Title-->
-                                        <a href="javascript:void(0)" class="text-gray-800 fw-bold text-hover-primary fs-6">Social
+                                        <a href="javascript:void(0)"
+                                            class="text-gray-800 fw-bold text-hover-primary fs-6">Social
                                             Networks</a>
                                         <!--end::Title-->
                                     </div>
@@ -372,7 +380,8 @@
                                     <!--begin::Content-->
                                     <div class="me-5">
                                         <!--begin::Title-->
-                                        <a href="javascript:void(0)" class="text-gray-800 fw-bold text-hover-primary fs-6">Email
+                                        <a href="javascript:void(0)"
+                                            class="text-gray-800 fw-bold text-hover-primary fs-6">Email
                                             Newsletter</a>
                                         <!--end::Title-->
                                     </div>
@@ -421,7 +430,8 @@
                                     <!--begin::Content-->
                                     <div class="me-5">
                                         <!--begin::Title-->
-                                        <a href="javascript:void(0)" class="text-gray-800 fw-bold text-hover-primary fs-6">Other</a>
+                                        <a href="javascript:void(0)"
+                                            class="text-gray-800 fw-bold text-hover-primary fs-6">Other</a>
                                         <!--end::Title-->
                                     </div>
                                     <!--end::Content-->
@@ -444,7 +454,8 @@
                                     <!--begin::Content-->
                                     <div class="me-5">
                                         <!--begin::Title-->
-                                        <a href="javascript:void(0)" class="text-gray-800 fw-bold text-hover-primary fs-6">Rising
+                                        <a href="javascript:void(0)"
+                                            class="text-gray-800 fw-bold text-hover-primary fs-6">Rising
                                             Networks</a>
                                         <!--end::Title-->
                                     </div>
@@ -487,8 +498,9 @@
                     <!--end::Title-->
                     <!--begin::Toolbar-->
                     <div class="card-toolbar mb-0">
-                        <a href="javascript:void(0)" class="btn btn-sm btn-light" data-bs-toggle="tooltip" data-bs-dismiss="click"
-                            data-bs-custom-class="tooltip-inverse" title="Logistics App is coming soon">View All</a>
+                        <a href="javascript:void(0)" class="btn btn-sm btn-light" data-bs-toggle="tooltip"
+                            data-bs-dismiss="click" data-bs-custom-class="tooltip-inverse"
+                            title="Logistics App is coming soon">View All</a>
                     </div>
                     <!--end::Toolbar-->
                 </div>
@@ -556,7 +568,8 @@
                                     <!--begin::Section-->
                                     <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                                         <div class="flex-grow-1 me-2">
-                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Ship Freight</a>
+                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Ship
+                                                Freight</a>
                                             <span class="text-gray-800 fw-bold d-block fs-5">#5635-342808</span>
                                         </div>
                                         <span class="badge badge-lg badge-light-success fw-bold fs-7">Delivered</span>
@@ -644,7 +657,8 @@
                                     <!--begin::Section-->
                                     <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                                         <div class="flex-grow-1 me-2">
-                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Truck Freight</a>
+                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Truck
+                                                Freight</a>
                                             <span class="text-gray-800 fw-bold d-block fs-5">#0066-954784</span>
                                         </div>
                                         <span class="badge badge-lg badge-light-primary fw-bold fs-7">Shipping</span>
@@ -731,7 +745,8 @@
                                     <!--begin::Section-->
                                     <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                                         <div class="flex-grow-1 me-2">
-                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Delivery Freight</a>
+                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Delivery
+                                                Freight</a>
                                             <span class="text-gray-800 fw-bold d-block fs-5">#5635-342808</span>
                                         </div>
                                         <span class="badge badge-lg badge-light-success fw-bold fs-7">Delivered</span>
@@ -816,7 +831,8 @@
                                     <!--begin::Section-->
                                     <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                                         <div class="flex-grow-1 me-2">
-                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Plane Freight</a>
+                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Plane
+                                                Freight</a>
                                             <span class="text-gray-800 fw-bold d-block fs-5">#5635-342808</span>
                                         </div>
                                         <span class="badge badge-lg badge-light-danger fw-bold fs-7">Delayed</span>
@@ -901,7 +917,8 @@
                                     <!--begin::Section-->
                                     <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                                         <div class="flex-grow-1 me-2">
-                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Plane Freight</a>
+                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Plane
+                                                Freight</a>
                                             <span class="text-gray-800 fw-bold d-block fs-5">#5635-342808</span>
                                         </div>
                                         <span class="badge badge-lg badge-light-success fw-bold fs-7">Delivered</span>
@@ -988,7 +1005,8 @@
                                     <!--begin::Section-->
                                     <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                                         <div class="flex-grow-1 me-2">
-                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Truck Freight</a>
+                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Truck
+                                                Freight</a>
                                             <span class="text-gray-800 fw-bold d-block fs-5">#0066-954784</span>
                                         </div>
                                         <span class="badge badge-lg badge-light-success fw-bold fs-7">Delivered</span>
@@ -1073,7 +1091,8 @@
                                     <!--begin::Section-->
                                     <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                                         <div class="flex-grow-1 me-2">
-                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Ship Freight</a>
+                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Ship
+                                                Freight</a>
                                             <span class="text-gray-800 fw-bold d-block fs-5">#5635-342808</span>
                                         </div>
                                         <span class="badge badge-lg badge-light-success fw-bold fs-7">Delivered</span>
@@ -1159,7 +1178,8 @@
                                     <!--begin::Section-->
                                     <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                                         <div class="flex-grow-1 me-2">
-                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Ship Freight</a>
+                                            <a href="javascript:void(0)" class="text-gray-500 fs-6 fw-semibold">Ship
+                                                Freight</a>
                                             <span class="text-gray-800 fw-bold d-block fs-5">#5635-342808</span>
                                         </div>
                                         <span class="badge badge-lg badge-light-success fw-bold fs-7">Delivered</span>
@@ -1255,8 +1275,9 @@
                     <!--end::Title-->
                     <!--begin::Toolbar-->
                     <div class="card-toolbar mb-0">
-                        <a href="javascript:void(0)" class="btn btn-sm btn-light" data-bs-toggle="tooltip" data-bs-dismiss="click"
-                            data-bs-custom-class="tooltip-inverse" title="Logistics App is coming soon">View Order</a>
+                        <a href="javascript:void(0)" class="btn btn-sm btn-light" data-bs-toggle="tooltip"
+                            data-bs-dismiss="click" data-bs-custom-class="tooltip-inverse"
+                            title="Logistics App is coming soon">View Order</a>
                     </div>
                     <!--end::Toolbar-->
                 </div>
@@ -1887,7 +1908,8 @@
                                                 <span class="w-70px badge badge-light-success me-4">200 OK</span>
                                                 <!--end::Code-->
                                                 <!--begin::Title-->
-                                                <a href="javascript:void(0)" class="text-gray-800 text-hover-primary fw-semibold">New
+                                                <a href="javascript:void(0)"
+                                                    class="text-gray-800 text-hover-primary fw-semibold">New
                                                     order</a>
                                                 <!--end::Title-->
                                             </div>
@@ -1905,7 +1927,8 @@
                                                 <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
                                                 <!--end::Code-->
                                                 <!--begin::Title-->
-                                                <a href="javascript:void(0)" class="text-gray-800 text-hover-primary fw-semibold">New
+                                                <a href="javascript:void(0)"
+                                                    class="text-gray-800 text-hover-primary fw-semibold">New
                                                     customer</a>
                                                 <!--end::Title-->
                                             </div>
@@ -1960,7 +1983,8 @@
                                                 <span class="w-70px badge badge-light-success me-4">200 OK</span>
                                                 <!--end::Code-->
                                                 <!--begin::Title-->
-                                                <a href="javascript:void(0)" class="text-gray-800 text-hover-primary fw-semibold">API
+                                                <a href="javascript:void(0)"
+                                                    class="text-gray-800 text-hover-primary fw-semibold">API
                                                     connection</a>
                                                 <!--end::Title-->
                                             </div>
@@ -2034,7 +2058,8 @@
                                                 <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
                                                 <!--end::Code-->
                                                 <!--begin::Title-->
-                                                <a href="javascript:void(0)" class="text-gray-800 text-hover-primary fw-semibold">API
+                                                <a href="javascript:void(0)"
+                                                    class="text-gray-800 text-hover-primary fw-semibold">API
                                                     rollback</a>
                                                 <!--end::Title-->
                                             </div>
@@ -2209,7 +2234,8 @@
                                         <!--begin::Menu item-->
                                         <div class="menu-item px-3">
                                             <div class="menu-content px-3 py-3">
-                                                <a class="btn btn-primary btn-sm px-4" href="javascript:void(0)">Generate
+                                                <a class="btn btn-primary btn-sm px-4"
+                                                    href="javascript:void(0)">Generate
                                                     Reports</a>
                                             </div>
                                         </div>
@@ -2358,7 +2384,8 @@
                                         <!--begin::Menu item-->
                                         <div class="menu-item px-3">
                                             <div class="menu-content px-3 py-3">
-                                                <a class="btn btn-primary btn-sm px-4" href="javascript:void(0)">Generate
+                                                <a class="btn btn-primary btn-sm px-4"
+                                                    href="javascript:void(0)">Generate
                                                     Reports</a>
                                             </div>
                                         </div>
@@ -2536,7 +2563,8 @@
                                         <!--begin::Menu item-->
                                         <div class="menu-item px-3">
                                             <div class="menu-content px-3 py-3">
-                                                <a class="btn btn-primary btn-sm px-4" href="javascript:void(0)">Generate
+                                                <a class="btn btn-primary btn-sm px-4"
+                                                    href="javascript:void(0)">Generate
                                                     Reports</a>
                                             </div>
                                         </div>

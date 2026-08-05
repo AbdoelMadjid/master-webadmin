@@ -19,17 +19,23 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
                         <div class="d-flex align-items-center gap-3">
-                            <i class="ki-duotone ki-shield-tick fs-2hx text-primary"><span class="path1"></span><span class="path2"></span></i>
+                            <i class="ki-duotone ki-shield-tick fs-2hx text-primary"><span class="path1"></span><span
+                                    class="path2"></span></i>
                             <div>
                                 <h3 class="fw-bold mb-0">Manajemen Hak Akses Role (Role-Permissions Matrix)</h3>
-                                <span class="text-muted fs-7">Kelola matrik izin fitur untuk setiap role pengguna secara praktis dan terpusat.</span>
+                                <span class="text-muted fs-7">Kelola matrik izin fitur untuk setiap role pengguna secara
+                                    praktis dan terpusat.</span>
                             </div>
                         </div>
                         <div class="d-flex align-items-center gap-2">
-                            <span class="badge badge-light-primary fs-7 fw-bold me-2" id="total_perms_info">Total {{ count($permissions) }} Permissions</span>
-                            <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                                <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal" data-bs-target="#kt_modal_akses_role_help">
-                                    <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+                            <span class="badge badge-light-primary fs-7 fw-bold me-2" id="total_perms_info">Total
+                                {{ count($permissions) }} Permissions</span>
+                            <span data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                                <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal"
+                                    data-bs-target="#kt_modal_akses_role_help">
+                                    <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span></i>
                                 </button>
                             </span>
                         </div>
@@ -48,15 +54,24 @@
                             </div>
                         </div>
                         <div class="card-body pt-0">
-                            <div class="nav flex-column nav-pills me-3" id="role-tab" role="tablist" aria-orientation="vertical">
-                                @foreach($roles as $index => $role)
+                            <div class="nav flex-column nav-pills me-3" id="role-tab" role="tablist"
+                                aria-orientation="vertical">
+                                @foreach ($roles as $index => $role)
                                     @php
-                                        $isActiveRole = isset($selectedRoleId) ? ($role->id == $selectedRoleId) : ($index === 0);
+                                        $isActiveRole = isset($selectedRoleId)
+                                            ? $role->id == $selectedRoleId
+                                            : $index === 0;
                                     @endphp
-                                    <button class="nav-link text-start mb-2 p-3 {{ $isActiveRole ? 'active' : '' }} btn-select-role" id="tab_role_{{ $role->id }}" data-bs-toggle="pill" data-bs-target="#content_role_{{ $role->id }}" type="button" role="tab" data-role-id="{{ $role->id }}" data-role-name="{{ $role->name }}">
+                                    <button
+                                        class="nav-link text-start mb-2 p-3 {{ $isActiveRole ? 'active' : '' }} btn-select-role"
+                                        id="tab_role_{{ $role->id }}" data-bs-toggle="pill"
+                                        data-bs-target="#content_role_{{ $role->id }}" type="button" role="tab"
+                                        data-role-id="{{ $role->id }}" data-role-name="{{ $role->name }}">
                                         <div class="d-flex align-items-center justify-content-between">
                                             <span class="fw-bold fs-6">{{ ucfirst($role->name) }}</span>
-                                            <span class="badge badge-light-primary rounded-pill ms-2 role-perm-badge" id="role_badge_{{ $role->id }}">{{ $role->permissions->count() }} Izin</span>
+                                            <span class="badge badge-light-primary rounded-pill ms-2 role-perm-badge"
+                                                id="role_badge_{{ $role->id }}">{{ $role->permissions->count() }}
+                                                Izin</span>
                                         </div>
                                     </button>
                                 @endforeach
@@ -72,21 +87,29 @@
                         <div class="card-header border-0 pt-5">
                             <div class="card-title d-flex flex-column">
                                 @php
-                                    $activeRoleObj = isset($selectedRoleId) ? $roles->firstWhere('id', $selectedRoleId) : $roles->first();
+                                    $activeRoleObj = isset($selectedRoleId)
+                                        ? $roles->firstWhere('id', $selectedRoleId)
+                                        : $roles->first();
                                 @endphp
-                                <h3 class="fw-bold text-gray-900 mb-1" id="selected_role_title">Hak Akses Role: {{ ucfirst($activeRoleObj?->name ?? 'Role') }}</h3>
+                                <h3 class="fw-bold text-gray-900 mb-1" id="selected_role_title">Hak Akses Role:
+                                    {{ ucfirst($activeRoleObj?->name ?? 'Role') }}</h3>
                                 <span class="text-muted fs-7">Matriks Izin Akses CRUD per Modul Aplikasi</span>
                             </div>
                             <div class="card-toolbar gap-2 flex-wrap">
                                 <div class="d-flex align-items-center position-relative me-2">
-                                    <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-3"><span class="path1"></span><span class="path2"></span></i>
-                                    <input type="text" id="role_matrix_search" class="form-control form-control-solid form-control-sm w-175px ps-9" placeholder="Cari Modul..." />
+                                    <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-3"><span
+                                            class="path1"></span><span class="path2"></span></i>
+                                    <input type="text" id="role_matrix_search"
+                                        class="form-control form-control-solid form-control-sm w-175px ps-9"
+                                        placeholder="Cari Modul..." />
                                 </div>
                                 <button type="button" class="btn btn-sm btn-light-primary" id="btn_select_all_perms">
-                                    <i class="ki-duotone ki-check-square fs-5 me-1"><span class="path1"></span><span class="path2"></span></i> Pilih Semua
+                                    <i class="ki-duotone ki-check-square fs-5 me-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Pilih Semua
                                 </button>
                                 <button type="button" class="btn btn-sm btn-light-danger" id="btn_deselect_all_perms">
-                                    <i class="ki-duotone ki-cross-square fs-5 me-1"><span class="path1"></span><span class="path2"></span></i> Kosongkan
+                                    <i class="ki-duotone ki-cross-square fs-5 me-1"><span class="path1"></span><span
+                                            class="path2"></span></i> Kosongkan
                                 </button>
                             </div>
                         </div>
@@ -97,15 +120,20 @@
                                 <input type="hidden" name="role_id" id="active_role_id" value="{{ $activeRoleObj?->id }}">
 
                                 <div class="tab-content" id="role-tabContent">
-                                    @foreach($roles as $index => $role)
+                                    @foreach ($roles as $index => $role)
                                         @php
                                             $assignedPerms = $role->permissions->pluck('name')->toArray();
-                                            $isActiveRole = isset($selectedRoleId) ? ($role->id == $selectedRoleId) : ($index === 0);
+                                            $isActiveRole = isset($selectedRoleId)
+                                                ? $role->id == $selectedRoleId
+                                                : $index === 0;
                                         @endphp
-                                        <div class="tab-pane fade {{ $isActiveRole ? 'show active' : '' }}" id="content_role_{{ $role->id }}" role="tabpanel">
+                                        <div class="tab-pane fade {{ $isActiveRole ? 'show active' : '' }}"
+                                            id="content_role_{{ $role->id }}" role="tabpanel">
                                             <div class="table-responsive border rounded max-h-500px scroll-y">
-                                                <table class="table table-row-bordered table-row-gray-300 align-middle gs-4 gy-3 mb-0 role-matrix-table">
-                                                    <thead class="table-light text-gray-700 fw-bold fs-7 text-uppercase sticky-top">
+                                                <table
+                                                    class="table table-row-bordered table-row-gray-300 align-middle gs-4 gy-3 mb-0 role-matrix-table">
+                                                    <thead
+                                                        class="table-light text-gray-700 fw-bold fs-7 text-uppercase sticky-top">
                                                         <tr>
                                                             <th class="min-w-250px">Modul / Fitur</th>
                                                             <th class="text-center min-w-70px">Create</th>
@@ -117,7 +145,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody class="text-gray-600 fw-semibold fs-7">
-                                                        @foreach($matrixPermissions as $module => $actions)
+                                                        @foreach ($matrixPermissions as $module => $actions)
                                                             @php
                                                                 $menuDepth = $actions['depth'] ?? 0;
                                                                 $menuName = $actions['menu_name'] ?? $module;
@@ -131,28 +159,38 @@
                                                                 data-parent-module="{{ strtolower($actions['parent_module'] ?? '') }}"
                                                                 style="{{ $menuDepth > 0 ? 'background-color: ' . ($menuDepth >= 2 ? 'rgba(255,199,0,0.04)' : 'rgba(0,0,0,0.018)') . ' !important;' : '' }}">
                                                                 <td class="align-middle">
-                                                                    <div class="d-flex align-items-center" style="padding-left: {{ $menuDepth * 24 }}px;">
+                                                                    <div class="d-flex align-items-center"
+                                                                        style="padding-left: {{ $menuDepth * 24 }}px;">
                                                                         {{-- Level indicators --}}
                                                                         @if ($menuDepth == 1)
-                                                                            <span class="text-gray-300 me-2 fs-7" style="white-space:nowrap;">└─</span>
+                                                                            <span class="text-gray-300 me-2 fs-7"
+                                                                                style="white-space:nowrap;">└─</span>
                                                                         @elseif ($menuDepth >= 2)
-                                                                            <span class="text-gray-300 me-2 fs-7" style="white-space:nowrap;">└──</span>
+                                                                            <span class="text-gray-300 me-2 fs-7"
+                                                                                style="white-space:nowrap;">└──</span>
                                                                         @endif
 
                                                                         @if ($icon)
-                                                                            <span class="symbol symbol-35px me-3 flex-shrink-0">
-                                                                                <span class="symbol-label {{ $menuDepth == 0 ? 'bg-light-primary' : ($menuDepth == 1 ? 'bg-light-info' : 'bg-light-warning') }}">
-                                                                                    <i class="{{ $icon }} {{ $menuDepth == 0 ? 'text-primary' : ($menuDepth == 1 ? 'text-info' : 'text-warning') }} fs-3">
+                                                                            <span
+                                                                                class="symbol symbol-35px me-3 flex-shrink-0">
+                                                                                <span
+                                                                                    class="symbol-label {{ $menuDepth == 0 ? 'bg-light-primary' : ($menuDepth == 1 ? 'bg-light-info' : 'bg-light-warning') }}">
+                                                                                    <i
+                                                                                        class="{{ $icon }} {{ $menuDepth == 0 ? 'text-primary' : ($menuDepth == 1 ? 'text-info' : 'text-warning') }} fs-3">
                                                                                         @for ($i = 1; $i <= $paths; $i++)
-                                                                                            <span class="path{{ $i }}"></span>
+                                                                                            <span
+                                                                                                class="path{{ $i }}"></span>
                                                                                         @endfor
                                                                                     </i>
                                                                                 </span>
                                                                             </span>
                                                                         @else
-                                                                            <span class="symbol symbol-35px me-3 flex-shrink-0">
-                                                                                <span class="symbol-label {{ $menuDepth == 0 ? 'bg-light-primary' : ($menuDepth == 1 ? 'bg-light-info' : 'bg-light-warning') }}">
-                                                                                    <i class="ki-duotone ki-element-11 {{ $menuDepth == 0 ? 'text-primary' : ($menuDepth == 1 ? 'text-info' : 'text-warning') }} fs-3">
+                                                                            <span
+                                                                                class="symbol symbol-35px me-3 flex-shrink-0">
+                                                                                <span
+                                                                                    class="symbol-label {{ $menuDepth == 0 ? 'bg-light-primary' : ($menuDepth == 1 ? 'bg-light-info' : 'bg-light-warning') }}">
+                                                                                    <i
+                                                                                        class="ki-duotone ki-element-11 {{ $menuDepth == 0 ? 'text-primary' : ($menuDepth == 1 ? 'text-info' : 'text-warning') }} fs-3">
                                                                                         <span class="path1"></span>
                                                                                         <span class="path2"></span>
                                                                                         <span class="path3"></span>
@@ -163,26 +201,39 @@
                                                                         @endif
 
                                                                         <div class="d-flex flex-column">
-                                                                            <div class="d-flex align-items-center gap-2 mb-1 flex-wrap">
-                                                                                <span class="{{ $menuDepth == 0 ? 'text-gray-900 fw-bolder' : ($menuDepth == 1 ? 'text-gray-800 fw-bold' : 'text-gray-700 fw-semibold') }} fs-{{ $menuDepth == 0 ? '6' : ($menuDepth == 1 ? '6' : '7') }}">
+                                                                            <div
+                                                                                class="d-flex align-items-center gap-2 mb-1 flex-wrap">
+                                                                                <span
+                                                                                    class="{{ $menuDepth == 0 ? 'text-gray-900 fw-bolder' : ($menuDepth == 1 ? 'text-gray-800 fw-bold' : 'text-gray-700 fw-semibold') }} fs-{{ $menuDepth == 0 ? '6' : ($menuDepth == 1 ? '6' : '7') }}">
                                                                                     {{ $menuName }}
                                                                                 </span>
-                                                                                <code class="text-dark bg-light px-2 py-0-5 rounded fs-8">{{ $module }}</code>
+                                                                                <code
+                                                                                    class="text-dark bg-light px-2 py-0-5 rounded fs-8">{{ $module }}</code>
                                                                             </div>
                                                                             <div class="d-flex align-items-center gap-2">
                                                                                 @if ($menuDepth == 0)
-                                                                                    <span class="badge badge-light-dark fs-8 py-1 px-2">
-                                                                                        <i class="ki-duotone ki-home fs-9 me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                                                    <span
+                                                                                        class="badge badge-light-dark fs-8 py-1 px-2">
+                                                                                        <i
+                                                                                            class="ki-duotone ki-home fs-9 me-1"><span
+                                                                                                class="path1"></span><span
+                                                                                                class="path2"></span></i>
                                                                                         Menu Utama
                                                                                     </span>
                                                                                 @elseif ($menuDepth == 1)
-                                                                                    <span class="badge badge-light-primary fs-8 py-1 px-2">
-                                                                                        <i class="ki-duotone ki-arrow-down fs-9 me-1"><span class="path1"></span></i>
+                                                                                    <span
+                                                                                        class="badge badge-light-primary fs-8 py-1 px-2">
+                                                                                        <i
+                                                                                            class="ki-duotone ki-arrow-down fs-9 me-1"><span
+                                                                                                class="path1"></span></i>
                                                                                         Sub: {{ $parentName ?? '-' }}
                                                                                     </span>
                                                                                 @elseif ($menuDepth >= 2)
-                                                                                    <span class="badge badge-light-warning fs-8 py-1 px-2">
-                                                                                        <i class="ki-duotone ki-arrow-down fs-9 me-1"><span class="path1"></span></i>
+                                                                                    <span
+                                                                                        class="badge badge-light-warning fs-8 py-1 px-2">
+                                                                                        <i
+                                                                                            class="ki-duotone ki-arrow-down fs-9 me-1"><span
+                                                                                                class="path1"></span></i>
                                                                                         Sub-Sub: {{ $parentName ?? '-' }}
                                                                                     </span>
                                                                                 @endif
@@ -190,12 +241,17 @@
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                
+
                                                                 {{-- Create --}}
                                                                 <td class="text-center">
-                                                                    @if(!empty($actions['create']))
-                                                                        <label class="form-check form-check-custom form-check-solid justify-content-center">
-                                                                            <input class="form-check-input matrix-perm-checkbox" type="checkbox" name="permissions[]" value="{{ $actions['create'] }}" {{ in_array($actions['create'], $assignedPerms) ? 'checked' : '' }} />
+                                                                    @if (!empty($actions['create']))
+                                                                        <label
+                                                                            class="form-check form-check-custom form-check-solid justify-content-center">
+                                                                            <input
+                                                                                class="form-check-input matrix-perm-checkbox"
+                                                                                type="checkbox" name="permissions[]"
+                                                                                value="{{ $actions['create'] }}"
+                                                                                {{ in_array($actions['create'], $assignedPerms) ? 'checked' : '' }} />
                                                                         </label>
                                                                     @else
                                                                         <span class="text-gray-400 fs-8">-</span>
@@ -204,9 +260,14 @@
 
                                                                 {{-- Read --}}
                                                                 <td class="text-center">
-                                                                    @if(!empty($actions['read']))
-                                                                        <label class="form-check form-check-custom form-check-solid justify-content-center">
-                                                                            <input class="form-check-input matrix-perm-checkbox" type="checkbox" name="permissions[]" value="{{ $actions['read'] }}" {{ in_array($actions['read'], $assignedPerms) ? 'checked' : '' }} />
+                                                                    @if (!empty($actions['read']))
+                                                                        <label
+                                                                            class="form-check form-check-custom form-check-solid justify-content-center">
+                                                                            <input
+                                                                                class="form-check-input matrix-perm-checkbox"
+                                                                                type="checkbox" name="permissions[]"
+                                                                                value="{{ $actions['read'] }}"
+                                                                                {{ in_array($actions['read'], $assignedPerms) ? 'checked' : '' }} />
                                                                         </label>
                                                                     @else
                                                                         <span class="text-gray-400 fs-8">-</span>
@@ -215,9 +276,14 @@
 
                                                                 {{-- Update --}}
                                                                 <td class="text-center">
-                                                                    @if(!empty($actions['update']))
-                                                                        <label class="form-check form-check-custom form-check-solid justify-content-center">
-                                                                            <input class="form-check-input matrix-perm-checkbox" type="checkbox" name="permissions[]" value="{{ $actions['update'] }}" {{ in_array($actions['update'], $assignedPerms) ? 'checked' : '' }} />
+                                                                    @if (!empty($actions['update']))
+                                                                        <label
+                                                                            class="form-check form-check-custom form-check-solid justify-content-center">
+                                                                            <input
+                                                                                class="form-check-input matrix-perm-checkbox"
+                                                                                type="checkbox" name="permissions[]"
+                                                                                value="{{ $actions['update'] }}"
+                                                                                {{ in_array($actions['update'], $assignedPerms) ? 'checked' : '' }} />
                                                                         </label>
                                                                     @else
                                                                         <span class="text-gray-400 fs-8">-</span>
@@ -226,9 +292,14 @@
 
                                                                 {{-- Delete --}}
                                                                 <td class="text-center">
-                                                                    @if(!empty($actions['delete']))
-                                                                        <label class="form-check form-check-custom form-check-solid justify-content-center">
-                                                                            <input class="form-check-input matrix-perm-checkbox" type="checkbox" name="permissions[]" value="{{ $actions['delete'] }}" {{ in_array($actions['delete'], $assignedPerms) ? 'checked' : '' }} />
+                                                                    @if (!empty($actions['delete']))
+                                                                        <label
+                                                                            class="form-check form-check-custom form-check-solid justify-content-center">
+                                                                            <input
+                                                                                class="form-check-input matrix-perm-checkbox"
+                                                                                type="checkbox" name="permissions[]"
+                                                                                value="{{ $actions['delete'] }}"
+                                                                                {{ in_array($actions['delete'], $assignedPerms) ? 'checked' : '' }} />
                                                                         </label>
                                                                     @else
                                                                         <span class="text-gray-400 fs-8">-</span>
@@ -238,9 +309,16 @@
                                                                 {{-- Custom Actions --}}
                                                                 <td class="text-center">
                                                                     @forelse($actions['custom'] as $custom)
-                                                                        <label class="form-check form-check-custom form-check-solid justify-content-center mb-1" title="{{ $custom['name'] }}">
-                                                                            <input class="form-check-input matrix-perm-checkbox" type="checkbox" name="permissions[]" value="{{ $custom['name'] }}" {{ in_array($custom['name'], $assignedPerms) ? 'checked' : '' }} />
-                                                                            <span class="form-check-label fs-8 text-capitalize ms-1">{{ $custom['action'] }}</span>
+                                                                        <label
+                                                                            class="form-check form-check-custom form-check-solid justify-content-center mb-1"
+                                                                            title="{{ $custom['name'] }}">
+                                                                            <input
+                                                                                class="form-check-input matrix-perm-checkbox"
+                                                                                type="checkbox" name="permissions[]"
+                                                                                value="{{ $custom['name'] }}"
+                                                                                {{ in_array($custom['name'], $assignedPerms) ? 'checked' : '' }} />
+                                                                            <span
+                                                                                class="form-check-label fs-8 text-capitalize ms-1">{{ $custom['action'] }}</span>
                                                                         </label>
                                                                     @empty
                                                                         <span class="text-gray-400 fs-8">-</span>
@@ -249,8 +327,11 @@
 
                                                                 {{-- Row Select All --}}
                                                                 <td class="text-center">
-                                                                    <label class="form-check form-check-custom form-check-solid justify-content-center">
-                                                                        <input class="form-check-input row-toggle-checkbox" type="checkbox" title="Pilih semua izin di baris modul ini" />
+                                                                    <label
+                                                                        class="form-check form-check-custom form-check-solid justify-content-center">
+                                                                        <input class="form-check-input row-toggle-checkbox"
+                                                                            type="checkbox"
+                                                                            title="Pilih semua izin di baris modul ini" />
                                                                     </label>
                                                                 </td>
                                                             </tr>
@@ -264,7 +345,8 @@
 
                                 <div class="d-flex justify-content-end align-items-center mt-6 gap-3">
                                     <button type="submit" class="btn btn-primary" id="btn_save_akses_role">
-                                        <i class="ki-duotone ki-check fs-2"><span class="path1"></span><span class="path2"></span></i> Simpan Hak Akses Role
+                                        <i class="ki-duotone ki-check fs-2"><span class="path1"></span><span
+                                                class="path2"></span></i> Simpan Hak Akses Role
                                     </button>
                                 </div>
                             </form>
@@ -344,7 +426,8 @@
                 var roleId = $(this).data('role-id');
                 var roleName = $(this).data('role-name');
                 $('#active_role_id').val(roleId);
-                $('#selected_role_title').text('Hak Akses Role: ' + roleName.charAt(0).toUpperCase() + roleName.slice(1));
+                $('#selected_role_title').text('Hak Akses Role: ' + roleName.charAt(0).toUpperCase() +
+                    roleName.slice(1));
                 $('#role_matrix_search').val('');
                 $('.matrix-row').show();
 
@@ -427,10 +510,11 @@
                         permissions: selectedPerms
                     },
                     success: function(res) {
-                        if(res.success) {
+                        if (res.success) {
                             SwalHelper.success(res.message);
                             // Update badge count in sidebar
-                            $('#role_badge_' + activeRoleId).text(selectedPerms.length + ' Izin');
+                            $('#role_badge_' + activeRoleId).text(selectedPerms.length +
+                                ' Izin');
                         }
                     },
                     error: function(xhr) {
