@@ -55,7 +55,7 @@
                     <span data-bs-toggle="tooltip" data-bs-placement="top"
                         title="{{ app()->getLocale() == 'en' ? 'Add New Single Menu' : 'Tambah Menu Tunggal' }}">
                         <button type="button"
-                            class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px h-sm-auto px-0 px-sm-4"
+                            class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4"
                             onclick="openAddMenuModal()">
                             <i class="ki-duotone ki-plus fs-2 p-0 m-0"><span class="path1"></span><span
                                     class="path2"></span></i>
@@ -68,73 +68,78 @@
                     <span data-bs-toggle="tooltip" data-bs-placement="top"
                         title="{{ app()->getLocale() == 'en' ? 'Create Main Menu with multiple Sub-Menus & Sub-Sub-Menus at once' : 'Tambah Struktur Menu Induk & Sub Menu Sekaligus (Batch)' }}">
                         <button type="button"
-                            class="btn btn-success shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px h-sm-auto px-0 px-sm-4"
+                            class="btn btn-success shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4"
                             onclick="openAddMenuBatchModal()">
                             <i class="ki-duotone ki-element-plus fs-2 p-0 m-0"><span class="path1"></span><span
-                                    class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                    class="path2"></span><span class="path3"></span><span class="path4"></span><span
+                                    class="path5"></span></i>
                             <span
                                 class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Batch Menu' : 'Tambah Partai Menu' }}</span>
                         </button>
                     </span>
 
                     <!--3. Keenicon Style Switcher Dropdown-->
-                    <div class="m-0">
-                        <button type="button"
-                            class="btn btn-dark shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px h-sm-auto px-0 px-sm-4"
-                            data-kt-menu-trigger="click"
-                            data-kt-menu-placement="bottom-end">
-                            <i class="ki-duotone ki-palette fs-2 p-0 m-0"><span class="path1"></span><span
-                                    class="path2"></span></i>
-                            <span
-                                class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Icon Style' : 'Gaya Ikon' }}</span>
-                        </button>
-                        <!--begin::Menu-->
-                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-225px py-3 shadow-lg border border-gray-200"
-                            data-kt-menu="true">
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a class="menu-link px-3 d-flex align-items-center gap-2 cursor-pointer"
-                                    onclick="switchMenuIconStyle('duotone')">
-                                    <i class="ki-duotone ki-element-11 fs-3 text-primary"><span
-                                            class="path1"></span><span class="path2"></span><span
-                                            class="path3"></span><span class="path4"></span></i>
-                                    <div class="d-flex flex-column">
-                                        <span
-                                            class="fw-bold fs-7">{{ app()->getLocale() == 'en' ? 'Duotone Style' : 'Gaya Duotone' }}</span>
-                                        <span class="text-muted fs-8">ki-duotone</span>
-                                    </div>
-                                </a>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Switch Menu Icon Style (Duotone / Solid / Outline)' : 'Ganti Gaya Ikon Menu (Duotone / Solid / Outline)' }}">
+                        <div class="m-0 d-inline-block">
+                            <button type="button"
+                                class="btn btn-dark shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4"
+                                data-kt-menu-trigger="click"
+                                data-kt-menu-placement="bottom-end">
+                                <i class="ki-duotone ki-colors-square fs-2 p-0 m-0"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span><span
+                                        class="path4"></span></i>
+                                <span
+                                    class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Icon Style' : 'Gaya Ikon' }}</span>
+                            </button>
+                            <!--begin::Menu-->
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-225px py-3 shadow-lg border border-gray-200"
+                                data-kt-menu="true">
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-3">
+                                    <a class="menu-link px-3 d-flex align-items-center gap-2 cursor-pointer"
+                                        onclick="switchMenuIconStyle('duotone')">
+                                        <i class="ki-duotone ki-element-11 fs-3 text-primary"><span
+                                                class="path1"></span><span class="path2"></span><span
+                                                class="path3"></span><span class="path4"></span></i>
+                                        <div class="d-flex flex-column">
+                                            <span
+                                                class="fw-bold fs-7">{{ app()->getLocale() == 'en' ? 'Duotone Style' : 'Gaya Duotone' }}</span>
+                                            <span class="text-muted fs-8">ki-duotone</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-3">
+                                    <a class="menu-link px-3 d-flex align-items-center gap-2 cursor-pointer"
+                                        onclick="switchMenuIconStyle('solid')">
+                                        <i class="ki-solid ki-element-11 fs-3 text-warning"></i>
+                                        <div class="d-flex flex-column">
+                                            <span
+                                                class="fw-bold fs-7">{{ app()->getLocale() == 'en' ? 'Solid Style' : 'Gaya Solid' }}</span>
+                                            <span class="text-muted fs-8">ki-solid</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-3">
+                                    <a class="menu-link px-3 d-flex align-items-center gap-2 cursor-pointer"
+                                        onclick="switchMenuIconStyle('outline')">
+                                        <i class="ki-outline ki-element-11 fs-3 text-info"></i>
+                                        <div class="d-flex flex-column">
+                                            <span
+                                                class="fw-bold fs-7">{{ app()->getLocale() == 'en' ? 'Outline Style' : 'Gaya Outline' }}</span>
+                                            <span class="text-muted fs-8">ki-outline</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <!--end::Menu item-->
                             </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a class="menu-link px-3 d-flex align-items-center gap-2 cursor-pointer"
-                                    onclick="switchMenuIconStyle('solid')">
-                                    <i class="ki-solid ki-element-11 fs-3 text-warning"></i>
-                                    <div class="d-flex flex-column">
-                                        <span
-                                            class="fw-bold fs-7">{{ app()->getLocale() == 'en' ? 'Solid Style' : 'Gaya Solid' }}</span>
-                                        <span class="text-muted fs-8">ki-solid</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <!--end::Menu item-->
-                            <!--begin::Menu item-->
-                            <div class="menu-item px-3">
-                                <a class="menu-link px-3 d-flex align-items-center gap-2 cursor-pointer"
-                                    onclick="switchMenuIconStyle('outline')">
-                                    <i class="ki-outline ki-element-11 fs-3 text-info"></i>
-                                    <div class="d-flex flex-column">
-                                        <span
-                                            class="fw-bold fs-7">{{ app()->getLocale() == 'en' ? 'Outline Style' : 'Gaya Outline' }}</span>
-                                        <span class="text-muted fs-8">ki-outline</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <!--end::Menu item-->
+                            <!--end::Menu-->
                         </div>
-                        <!--end::Menu-->
-                    </div>
+                    </span>
 
                     <!--4. Operational Guide Button-->
                     <span data-bs-toggle="tooltip" data-bs-placement="top"
@@ -300,8 +305,7 @@
                                 <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                                     <th class="min-w-80px"># Urutan</th>
                                     <th class="min-w-200px">Nama Menu & Hierarki</th>
-                                    <th class="min-w-200px">Route / URL</th>
-                                    <th class="min-w-125px">Kategori</th>
+                                    <th class="min-w-200px">Route & Kategori</th>
                                     <th class="min-w-175px">Permissions</th>
                                     <th class="min-w-100px text-center">Status</th>
                                     <th class="min-w-100px text-end">Aksi</th>
@@ -368,29 +372,31 @@
                                                         class="{{ $menuDepth == 0 ? 'text-gray-900 fw-bolder' : ($menuDepth == 1 ? 'text-gray-800 fw-bold' : 'text-gray-700 fw-semibold') }} text-hover-primary mb-1 fs-{{ $menuDepth == 0 ? '6' : ($menuDepth == 1 ? '6' : '7') }}">
                                                         {{ $menu->name }}
                                                     </span>
-                                                    <div class="d-flex align-items-center gap-2">
-                                                        @if ($menuDepth == 0)
-                                                            <span class="badge badge-light-dark fs-8 py-1 px-2">
-                                                                <i class="ki-duotone ki-home fs-9 me-1"><span
-                                                                        class="path1"></span><span
-                                                                        class="path2"></span></i>
-                                                                Menu Utama
-                                                            </span>
-                                                        @elseif ($menuDepth == 1)
-                                                            <span class="badge badge-light-primary fs-8 py-1 px-2">
-                                                                <i class="ki-duotone ki-arrow-down fs-9 me-1"><span
-                                                                        class="path1"></span></i>
-                                                                Sub: {{ $menu->parentMenu?->name ?? '-' }}
-                                                            </span>
-                                                        @elseif ($menuDepth == 2)
-                                                            <span class="badge badge-light-warning fs-8 py-1 px-2">
-                                                                <i class="ki-duotone ki-arrow-down fs-9 me-1"><span
-                                                                        class="path1"></span></i>
-                                                                Sub-Sub: {{ $menu->parentMenu?->name ?? '-' }}
-                                                            </span>
-                                                        @endif
+                                                    <div class="d-flex flex-column gap-1">
+                                                        <div>
+                                                            @if ($menuDepth == 0)
+                                                                <span class="badge badge-light-dark fs-8 py-1 px-2">
+                                                                    <i class="ki-duotone ki-home fs-9 me-1"><span
+                                                                            class="path1"></span><span
+                                                                            class="path2"></span></i>
+                                                                    Menu Utama
+                                                                </span>
+                                                            @elseif ($menuDepth == 1)
+                                                                <span class="badge badge-light-primary fs-8 py-1 px-2">
+                                                                    <i class="ki-duotone ki-arrow-down fs-9 me-1"><span
+                                                                            class="path1"></span></i>
+                                                                    Sub: {{ $menu->parentMenu?->name ?? '-' }}
+                                                                </span>
+                                                            @elseif ($menuDepth == 2)
+                                                                <span class="badge badge-light-warning fs-8 py-1 px-2">
+                                                                    <i class="ki-duotone ki-arrow-down fs-9 me-1"><span
+                                                                            class="path1"></span></i>
+                                                                    Sub-Sub: {{ $menu->parentMenu?->name ?? '-' }}
+                                                                </span>
+                                                            @endif
+                                                        </div>
 
-                                                        @if (isset($menu->meta['title_key']))
+                                                        @if (isset($menu->meta['title_key']) && !empty($menu->meta['title_key']))
                                                             <span class="text-muted fs-8">Key:
                                                                 {{ $menu->meta['title_key'] }}</span>
                                                         @endif
@@ -399,15 +405,15 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <code
-                                                class="text-dark bg-light px-2 py-1 rounded fs-7">{{ $menu->url }}</code>
-                                        </td>
-                                        <td>
-                                            @if ($menu->category)
-                                                <span class="badge badge-light-info fw-bold">{{ $menu->category }}</span>
-                                            @else
-                                                <span class="text-muted fs-7">-</span>
-                                            @endif
+                                            <div class="d-flex flex-column gap-1 align-items-start">
+                                                <code
+                                                    class="text-dark bg-light px-2 py-1 rounded fs-7 text-break" style="word-break: break-all;">{{ $menu->url }}</code>
+                                                @if ($menu->category)
+                                                    <span class="badge badge-light-info fw-bold fs-8 mt-1">{{ $menu->category }}</span>
+                                                @else
+                                                    <span class="text-muted fs-8">-</span>
+                                                @endif
+                                            </div>
                                         </td>
                                         <td>
                                             @php
@@ -501,7 +507,7 @@
                                                         <button type="button"
                                                             class="btn btn-icon btn-xs btn-light-primary"
                                                             onclick="openAddPermissionModal({{ $menu->id }}, '{{ addslashes($menu->name) }}')">
-                                                            <i class="ki-duotone ki-plus fs-7"></i>
+                                                            <i class="ki-duotone ki-plus fs-7"><span class="path1"></span><span class="path2"></span></i>
                                                         </button>
                                                     </span>
                                                 </div>
@@ -546,7 +552,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="7" class="text-center text-muted py-8">
+                                        <td colspan="6" class="text-center text-muted py-8">
                                             Belum ada data menu di tabel <code>menus</code>. Jalankan <code>php artisan
                                                 db:seed --class=MenuSeeder</code>.
                                         </td>
@@ -661,7 +667,7 @@
 
             $('#kt_category_filter').on('change', function() {
                 var val = $.fn.dataTable.util.escapeRegex($(this).val());
-                table.column(3).search(val ? '^' + val + '$' : '', true, false).draw();
+                table.column(2).search(val ? val : '', false, false).draw();
             });
 
             // Quick action button click handler
