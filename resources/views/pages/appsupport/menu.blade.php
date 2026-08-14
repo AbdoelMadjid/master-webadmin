@@ -305,7 +305,7 @@
                                 <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                                     <th class="min-w-80px"># Urutan</th>
                                     <th class="min-w-200px">Nama Menu & Hierarki</th>
-                                    <th class="min-w-200px">Route & Kategori</th>
+                                    <th class="min-w-200px">Kategori & Route</th>
                                     <th class="min-w-175px">Permissions</th>
                                     <th class="min-w-100px text-center">Status</th>
                                     <th class="min-w-100px text-end">Aksi</th>
@@ -373,46 +373,41 @@
                                                         {{ $menu->name }}
                                                     </span>
                                                     <div class="d-flex flex-column gap-1">
+                                                        @if (isset($menu->meta['title_key']) && !empty($menu->meta['title_key']))
+                                                            <span class="text-muted fs-8">Key:
+                                                                {{ $menu->meta['title_key'] }}</span>
+                                                        @endif
                                                         <div>
                                                             @if ($menuDepth == 0)
-                                                                <span class="badge badge-light-dark fs-8 py-1 px-2">
-                                                                    <i class="ki-duotone ki-home fs-9 me-1"><span
-                                                                            class="path1"></span><span
-                                                                            class="path2"></span></i>
+                                                                <span class="badge badge-light-dark fs-8 fw-semibold py-1 px-2">
                                                                     Menu Utama
                                                                 </span>
                                                             @elseif ($menuDepth == 1)
-                                                                <span class="badge badge-light-primary fs-8 py-1 px-2">
-                                                                    <i class="ki-duotone ki-arrow-down fs-9 me-1"><span
-                                                                            class="path1"></span></i>
+                                                                <span class="badge badge-light-primary fs-8 fw-semibold py-1 px-2">
                                                                     Sub: {{ $menu->parentMenu?->name ?? '-' }}
                                                                 </span>
                                                             @elseif ($menuDepth == 2)
-                                                                <span class="badge badge-light-warning fs-8 py-1 px-2">
-                                                                    <i class="ki-duotone ki-arrow-down fs-9 me-1"><span
-                                                                            class="path1"></span></i>
+                                                                <span class="badge badge-light-warning fs-8 fw-semibold py-1 px-2">
                                                                     Sub-Sub: {{ $menu->parentMenu?->name ?? '-' }}
                                                                 </span>
                                                             @endif
                                                         </div>
 
-                                                        @if (isset($menu->meta['title_key']) && !empty($menu->meta['title_key']))
-                                                            <span class="text-muted fs-8">Key:
-                                                                {{ $menu->meta['title_key'] }}</span>
-                                                        @endif
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
                                             <div class="d-flex flex-column gap-1 align-items-start">
-                                                <code
-                                                    class="text-dark bg-light px-2 py-1 rounded fs-7 text-break" style="word-break: break-all;">{{ $menu->url }}</code>
                                                 @if ($menu->category)
                                                     <span class="badge badge-light-info fw-bold fs-8 mt-1">{{ $menu->category }}</span>
                                                 @else
                                                     <span class="text-muted fs-8">-</span>
                                                 @endif
+                                                <code
+                                                    class="text-dark bg-light px-2 py-1 rounded fs-7 text-break" style="word-break: break-all;">{{ $menu->url }}</code>
+
                                             </div>
                                         </td>
                                         <td>
@@ -650,9 +645,9 @@
                 "language": {
                     "lengthMenu": "Tampilkan _MENU_",
                     "zeroRecords": "Tidak ada menu yang sesuai",
-                    "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ menu",
-                    "infoEmpty": "Menampilkan 0 sampai 0 dari 0 menu",
-                    "infoFiltered": "(disaring dari _MAX_ total menu)"
+                    "info": "_START_-_END_ / _TOTAL_",
+                    "infoEmpty": "0-0 / 0",
+                    "infoFiltered": "(_MAX_)"
                 },
                 "dom": "tr" +
                     "<'row mt-4'<'col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start'li><'col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end'p>>",
