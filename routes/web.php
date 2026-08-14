@@ -158,6 +158,7 @@ Route::middleware('auth')->group(function () {
     Route::post('appsupport/console-developer/maintenance', [ConsoleDeveloperController::class, 'maintenance'])->name('appsupport.console-developer.maintenance');
     Route::post('appsupport/console-developer/generator', [ConsoleDeveloperController::class, 'generator'])->name('appsupport.console-developer.generator');
     Route::post('appsupport/console-developer/file-utility', [ConsoleDeveloperController::class, 'fileUtility'])->name('appsupport.console-developer.file-utility');
+    Route::post('appsupport/console-developer/seeder-action', [ConsoleDeveloperController::class, 'seederAction'])->name('appsupport.console-developer.seeder-action');
     // Lock Screen Route
     Route::post('/lock-screen/unlock', [\App\Http\Controllers\Auth\LockScreenController::class, 'unlock'])->middleware('throttle:5,1')->name('lock-screen.unlock');
 });

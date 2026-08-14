@@ -94,6 +94,16 @@
                                 {{ app()->getLocale() == 'en' ? 'File Utilities' : 'Utilitas File' }}
                             </a>
                         </li>
+
+                        {{-- Tab 5: Seeder Files --}}
+                        <li class="nav-item">
+                            <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'seeders' ? 'active' : '' }}"
+                                href="{{ route('appsupport.console-developer', ['tab' => 'seeders']) }}">
+                                <i class="ki-duotone ki-database fs-2 me-2"><span class="path1"></span><span
+                                        class="path2"></span></i>
+                                {{ app()->getLocale() == 'en' ? 'Seeder Files' : 'File Seeder' }}
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -108,6 +118,7 @@
     @include('pages.appsupport.partials.console-developer-help-modal')
     @include('pages.appsupport.partials.console-developer-output-modal')
     @include('pages.appsupport.partials.console-developer-commit-modal')
+    @include('pages.appsupport.partials.console-developer-seeder-modal')
 @endsection
 
 @section('scripts')
@@ -499,6 +510,122 @@
             e.preventDefault();
             var type = $('#prefix_utility_type').val();
             submitFileUtility(e, type);
+        }
+
+        // Open Seeder Code Viewer Modal
+        function openSeederCodeViewer(targetPath) {
+            $('#seeder_viewer_filename').text('Loading...');
+            $('#seeder_viewer_filepath').text(targetPath);
+            $('#seeder_code_content').text('Memuat kode seeder...');
+
+            $('#kt_modal_console_seeder_viewer').modal('show');
+
+            $.ajax({
+                url: "{{ route('appsupport.console-developer.seeder-action') }}",
+                type: "POST",
+                data: {
+                    request_type: 'seeder',
+                    action: 'read_file',
+                    target_path: targetPath
+                },
+                success: function(res) {
+                    if (res.success) {
+                        $('#seeder_viewer_filename').text(res.file_name);
+                        $('#seeder_viewer_filepath').text(res.file_path);
+                        $('#seeder_viewer_size').text(res.size);
+                        $('#seeder_viewer_lines').text(res.lines_count + ' Baris');
+                        $('#seeder_viewer_modified').text('Diubah: ' + res.modified_at);
+                        $('#seeder_code_content').text(res.content);
+                    } else {
+                        $('#seeder_code_content').text('Gagal membaca file: ' + (res.message || 'Error'));
+                        SwalHelper.error(res.message || 'Gagal membaca file seeder.');
+                    }
+                },
+                error: function(xhr) {
+                    const res = xhr.responseJSON || {};
+                    $('#seeder_code_content').text('Gagal membaca file: ' + (res.message || 'Error'));
+                    SwalHelper.validationError(xhr);
+                }
+            });
+        }
+
+        // Copy Seeder Code to Clipboard
+        function copySeederCode() {
+            var code = $('#seeder_code_content').text();
+            if (!code || code.startsWith('Memuat') || code.startsWith('Gagal')) return;
+
+            navigator.clipboard.writeText(code).then(function() {
+                SwalHelper.success("{{ app()->getLocale() == 'en' ? 'Code copied to clipboard!' : 'Kode berhasil disalin ke clipboard!' }}");
+            }).catch(function(err) {
+                SwalHelper.error("Gagal menyalin kode: " + err);
+            });
+        }
+
+        // Trigger Run Specific Seeder Class
+        function triggerRunSeeder(className) {
+            Swal.fire({
+                title: "{{ app()->getLocale() == 'en' ? 'Run Seeder Class?' : 'Jalankan Class Seeder?' }}",
+                text: "{{ app()->getLocale() == 'en' ? 'Execute php artisan db:seed --class=' : 'Jalankan perintah php artisan db:seed --class=' }}" + className + " ?",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#50cd89',
+                confirmButtonText: "{{ app()->getLocale() == 'en' ? 'Yes, Run Seeder' : 'Ya, Jalankan' }}",
+                cancelButtonText: "{{ app()->getLocale() == 'en' ? 'Cancel' : 'Batal' }}"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    executeSeederAction('run_seeder', { class_name: className });
+                }
+            });
+        }
+
+        // Confirm Run All Seeders
+        function confirmRunAllSeeders() {
+            Swal.fire({
+                title: "{{ app()->getLocale() == 'en' ? 'Run All Database Seeders?' : 'Jalankan Seluruh Database Seeder?' }}",
+                text: "{{ app()->getLocale() == 'en' ? 'Execute full database seeding (php artisan db:seed)?' : 'Jalankan seeding penuh (php artisan db:seed)?' }}",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#50cd89',
+                confirmButtonText: "{{ app()->getLocale() == 'en' ? 'Yes, Seed All' : 'Ya, Jalankan Semua' }}",
+                cancelButtonText: "{{ app()->getLocale() == 'en' ? 'Cancel' : 'Batal' }}"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    executeSeederAction('run_seeder', {});
+                }
+            });
+        }
+
+        // Execute Seeder Action Helper
+        function executeSeederAction(action, params = {}) {
+            Swal.fire({
+                title: "{{ app()->getLocale() == 'en' ? 'Executing Seeder Task...' : 'Menjalankan Seeder...' }}",
+                text: "{{ app()->getLocale() == 'en' ? 'Please wait' : 'Mohon tunggu sejenak' }}",
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+
+            $.ajax({
+                url: "{{ route('appsupport.console-developer.seeder-action') }}",
+                type: "POST",
+                data: Object.assign({
+                    request_type: 'seeder',
+                    action: action
+                }, params),
+                success: function(res) {
+                    Swal.close();
+                    if (res.success) {
+                        showConsoleOutput(res.message || 'Seeder Completed', 'php artisan db:seed', res.output);
+                    } else {
+                        SwalHelper.error(res.message);
+                    }
+                },
+                error: function(xhr) {
+                    Swal.close();
+                    SwalHelper.validationError(xhr);
+                }
+            });
         }
     </script>
 @endsection

@@ -68,8 +68,10 @@
                                 <li class="mb-2"><strong>CRUD & Component Generator:</strong> Generates Models,
                                     Controllers, Form Requests, Blade Views, and Bilingual Operational Help Modals
                                     matching project guidelines.</li>
-                                <li><strong>File Utilities:</strong> Mass batch file prefix insertion/removal and
+                                <li class="mb-2"><strong>File Utilities:</strong> Mass batch file prefix insertion/removal and
                                     recursive <code>.html</code> to <code>.blade.php</code> file conversion.</li>
+                                <li><strong>Seeder Files:</strong> Interactive source code inspection for database seeders
+                                    and menu seeder configs, single seeder class execution, and full database re-seeding.</li>
                             </ul>
                         @else
                             <ul class="text-gray-700 fs-6 mb-0 ps-5">
@@ -83,8 +85,10 @@
                                     Controller, Form Request, Blade View, dan Modal Petunjuk Dwibahasa sesuai aturan
                                     <code>AGENTS.md</code>.
                                 </li>
-                                <li><strong>Utilitas File:</strong> Tambah/hapus prefix nama file secara massal dan
+                                <li class="mb-2"><strong>Utilitas File:</strong> Tambah/hapus prefix nama file secara massal dan
                                     konversi berkas <code>.html</code> ke <code>.blade.php</code> secara rekursif.</li>
+                                <li><strong>File Seeder:</strong> Inspeksi kode sumber seeder database dan konfigurasi menu seeder,
+                                    eksekusi seeder class individual, serta re-seeding database penuh.</li>
                             </ul>
                         @endif
                     </div>

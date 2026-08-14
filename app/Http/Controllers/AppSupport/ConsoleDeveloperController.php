@@ -14,26 +14,28 @@ class ConsoleDeveloperController extends Controller
      */
     public function index(Request $request)
     {
-        $validTabs = ['git-manager', 'setup-maintenance', 'crud-generator', 'file-utilities'];
+        $validTabs = ['git-manager', 'setup-maintenance', 'crud-generator', 'file-utilities', 'seeders'];
         $activeTab = $request->query('tab', 'git-manager');
 
         if (!in_array($activeTab, $validTabs, true)) {
             $activeTab = 'git-manager';
         }
 
-        $systemInfo = ConsoleDeveloper::getSystemInfo();
-        $gitSummary = ConsoleDeveloper::getGitSummary();
+        $systemInfo  = ConsoleDeveloper::getSystemInfo();
+        $gitSummary  = ConsoleDeveloper::getGitSummary();
         $gitBranches = ConsoleDeveloper::getGitBranches();
-        $gitLogs = ConsoleDeveloper::getGitLogs(10);
+        $gitLogs     = ConsoleDeveloper::getGitLogs(10);
+        $seeders     = ConsoleDeveloper::getSeederFiles();
 
         if ($request->wantsJson() || $request->ajax()) {
             return response()->json([
-                'success'     => true,
-                'active_tab'  => $activeTab,
-                'system_info' => $systemInfo,
-                'git_summary' => $gitSummary,
+                'success'      => true,
+                'active_tab'   => $activeTab,
+                'system_info'  => $systemInfo,
+                'git_summary'  => $gitSummary,
                 'git_branches' => $gitBranches,
-                'git_logs'    => $gitLogs,
+                'git_logs'     => $gitLogs,
+                'seeders'      => $seeders,
             ]);
         }
 
@@ -42,7 +44,8 @@ class ConsoleDeveloperController extends Controller
             'systemInfo',
             'gitSummary',
             'gitBranches',
-            'gitLogs'
+            'gitLogs',
+            'seeders'
         ));
     }
 
@@ -139,6 +142,45 @@ class ConsoleDeveloperController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Gagal memproses utilitas file: ' . $e->getMessage(),
+            ], 500);
+        }
+    }
+
+    /**
+     * Execute Seeder action via AJAX (read file or run seeder).
+     */
+    public function seederAction(ConsoleDeveloperRequest $request)
+    {
+        try {
+            $action = $request->input('action');
+
+            if ($action === 'read_file') {
+                $targetPath = $request->input('target_path');
+                $result = ConsoleDeveloper::readSeederFile($targetPath);
+
+                if (!$result['success']) {
+                    return response()->json($result, 400);
+                }
+
+                return response()->json($result);
+            }
+
+            if ($action === 'run_seeder') {
+                $className = $request->input('class_name');
+                $result = ConsoleDeveloper::runSeederClass($className);
+
+                return response()->json([
+                    'success' => $result['success'],
+                    'message' => $result['message'] ?? 'Eksekusi Seeder Selesai',
+                    'output'  => $result['output'],
+                ], $result['success'] ? 200 : 500);
+            }
+
+            return response()->json(['success' => false, 'message' => 'Aksi seeder tidak dikenal.'], 400);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Gagal mengeksekusi aksi seeder: ' . $e->getMessage(),
             ], 500);
         }
     }

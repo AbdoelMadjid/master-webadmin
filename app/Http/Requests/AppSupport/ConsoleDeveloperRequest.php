@@ -52,6 +52,14 @@ class ConsoleDeveloperRequest extends FormRequest
             ];
         }
 
+        if ($actionType === 'seeder') {
+            return [
+                'action'      => 'required|string|in:read_file,run_seeder',
+                'target_path' => 'required_if:action,read_file|nullable|string|max:255',
+                'class_name'  => 'nullable|string|max:100',
+            ];
+        }
+
         return [];
     }
 

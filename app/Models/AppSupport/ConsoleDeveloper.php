@@ -520,6 +520,133 @@ class ConsoleDeveloper extends Model
         ];
     }
 
+    /**
+     * Get list of seeder files in database/seeders and config/menu_seeder.
+     */
+    public static function getSeederFiles(): array
+    {
+        $seeders = [];
+
+        // 1. Scan database/seeders/
+        $databaseSeedersDir = database_path('seeders');
+        if (File::isDirectory($databaseSeedersDir)) {
+            $files = File::files($databaseSeedersDir);
+            foreach ($files as $file) {
+                if ($file->getExtension() === 'php') {
+                    $filename = $file->getFilename();
+                    $className = $file->getFilenameWithoutExtension();
+                    $relPath = 'database/seeders/' . $filename;
+                    $seeders[] = [
+                        'id'          => md5($relPath),
+                        'filename'    => $filename,
+                        'class_name'  => $className,
+                        'type'        => 'Database Seeder Class',
+                        'path'        => $relPath,
+                        'full_path'   => $file->getPathname(),
+                        'size'        => number_format($file->getSize() / 1024, 2) . ' KB',
+                        'modified_at' => date('Y-m-d H:i:s', $file->getMTime()),
+                        'is_runnable' => true,
+                        'category'    => 'Database Seeders',
+                    ];
+                }
+            }
+        }
+
+        // 2. Scan config/menu_seeder/ (recursively)
+        $menuSeederDir = config_path('menu_seeder');
+        if (File::isDirectory($menuSeederDir)) {
+            $iterator = new RecursiveIteratorIterator(
+                new RecursiveDirectoryIterator($menuSeederDir)
+            );
+            foreach ($iterator as $file) {
+                if ($file->isFile() && $file->getExtension() === 'php') {
+                    $fullPath = $file->getPathname();
+                    $relPath = str_replace('\\', '/', str_replace(base_path() . DIRECTORY_SEPARATOR, '', $fullPath));
+                    $filename = $file->getFilename();
+                    $seeders[] = [
+                        'id'          => md5($relPath),
+                        'filename'    => $filename,
+                        'class_name'  => null,
+                        'type'        => 'Menu Seeder Config',
+                        'path'        => $relPath,
+                        'full_path'   => $fullPath,
+                        'size'        => number_format($file->getSize() / 1024, 2) . ' KB',
+                        'modified_at' => date('Y-m-d H:i:s', $file->getMTime()),
+                        'is_runnable' => false,
+                        'category'    => 'Menu Seeder Configs',
+                    ];
+                }
+            }
+        }
+
+        usort($seeders, fn($a, $b) => strcmp($a['path'], $b['path']));
+
+        return $seeders;
+    }
+
+    /**
+     * Safely read content of a seeder file.
+     */
+    public static function readSeederFile(string $relPath): array
+    {
+        $normalized = str_replace(['\\', '..'], ['/', ''], $relPath);
+
+        if (!str_starts_with($normalized, 'database/seeders/') && !str_starts_with($normalized, 'config/menu_seeder/')) {
+            return ['success' => false, 'message' => 'Path file tidak diizinkan.'];
+        }
+
+        $fullPath = base_path($normalized);
+        if (!File::exists($fullPath)) {
+            return ['success' => false, 'message' => "File tidak ditemukan: {$normalized}"];
+        }
+
+        $content = File::get($fullPath);
+        $linesCount = count(explode("\n", $content));
+
+        return [
+            'success'     => true,
+            'file_path'   => $normalized,
+            'file_name'   => basename($normalized),
+            'size'        => number_format(File::size($fullPath) / 1024, 2) . ' KB',
+            'modified_at' => date('Y-m-d H:i:s', File::lastModified($fullPath)),
+            'lines_count' => $linesCount,
+            'content'     => $content,
+        ];
+    }
+
+    /**
+     * Run a specific seeder class or all seeders.
+     */
+    public static function runSeederClass(?string $className = null): array
+    {
+        try {
+            if ($className) {
+                if (!preg_match('/^[a-zA-Z0-9_]+$/', $className)) {
+                    return ['success' => false, 'output' => 'Nama class seeder tidak valid.'];
+                }
+                Artisan::call('db:seed', ['--class' => $className, '--force' => true]);
+                $output = Artisan::output();
+                $msg = "Seeder class {$className} berhasil dijalankan.";
+            } else {
+                Artisan::call('db:seed', ['--force' => true]);
+                $output = Artisan::output();
+                $msg = "Seluruh Seeder (DatabaseSeeder) berhasil dijalankan.";
+            }
+
+            return [
+                'success' => true,
+                'message' => $msg,
+                'output'  => $output ?: $msg,
+            ];
+        } catch (\Exception $e) {
+            return [
+                'success' => false,
+                'message' => 'Gagal menjalankan seeder: ' . $e->getMessage(),
+                'output'  => $e->getMessage(),
+            ];
+        }
+    }
+
     // Private Generators Helpers
     private static function makeModelFile(string $subfolder, string $feature, string $table): string
     {
