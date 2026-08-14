@@ -577,4 +577,74 @@ class MenuController extends Controller
             ], 500);
         }
     }
+
+    /**
+     * Ganti gaya seluruh ikon menu (ki-duotone, ki-solid, ki-outline) secara terpusat
+     */
+    public function switchIconStyle(Request $request)
+    {
+        $request->validate([
+            'style' => 'required|string|in:duotone,solid,outline',
+        ]);
+
+        $style = $request->input('style');
+        $targetPrefix = 'ki-' . $style;
+
+        DB::beginTransaction();
+        try {
+            $menus = Menu::whereNotNull('icon')->where('icon', '!=', '')->where('icon', '!=', 'none')->where('icon', '!=', '-')->get();
+
+            $updatedCount = 0;
+            foreach ($menus as $menu) {
+                $iconStr = trim($menu->icon);
+                if (empty($iconStr)) continue;
+
+                // Replace existing style prefix (ki-duotone, ki-solid, ki-outline) or prepend
+                if (preg_match('/\bki-(duotone|solid|outline)\b/', $iconStr)) {
+                    $newIcon = preg_replace('/\bki-(duotone|solid|outline)\b/', $targetPrefix, $iconStr);
+                } else {
+                    $newIcon = $targetPrefix . ' ' . $iconStr;
+                }
+
+                // Adjust path count based on Keenicons specifications
+                $newPaths = (int) $menu->paths;
+                if ($style === 'duotone') {
+                    if ($newPaths <= 0) {
+                        $newPaths = 2; // Default paths count for duotone if none defined
+                    }
+                } else {
+                    $newPaths = 0; // Solid and Outline styles do not use child path spans
+                }
+
+                $menu->icon = $newIcon;
+                $menu->paths = $newPaths;
+                $menu->save();
+                $updatedCount++;
+            }
+
+            DB::commit();
+
+            $sidebarHtml = view('layouts.partials.sidebar._menu')->render();
+
+            $styleLabels = [
+                'duotone' => 'Duotone (ki-duotone)',
+                'solid'   => 'Solid (ki-solid)',
+                'outline' => 'Outline (ki-outline)',
+            ];
+            $styleLabel = $styleLabels[$style] ?? $style;
+
+            return response()->json([
+                'success'      => true,
+                'message'      => "Berhasil memperbarui {$updatedCount} ikon menu menjadi gaya {$styleLabel}.",
+                'sidebar_html' => $sidebarHtml,
+            ]);
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return response()->json([
+                'success' => false,
+                'message' => 'Gagal memperbarui gaya ikon menu: ' . $e->getMessage(),
+            ], 500);
+        }
+    }
 }

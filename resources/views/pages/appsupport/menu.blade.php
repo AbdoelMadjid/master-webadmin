@@ -77,7 +77,66 @@
                         </button>
                     </span>
 
-                    <!--3. Operational Guide Button-->
+                    <!--3. Keenicon Style Switcher Dropdown-->
+                    <div class="m-0">
+                        <button type="button"
+                            class="btn btn-dark shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px h-sm-auto px-0 px-sm-4"
+                            data-kt-menu-trigger="click"
+                            data-kt-menu-placement="bottom-end">
+                            <i class="ki-duotone ki-palette fs-2 p-0 m-0"><span class="path1"></span><span
+                                    class="path2"></span></i>
+                            <span
+                                class="d-none d-sm-inline ms-2">{{ app()->getLocale() == 'en' ? 'Icon Style' : 'Gaya Ikon' }}</span>
+                        </button>
+                        <!--begin::Menu-->
+                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-225px py-3 shadow-lg border border-gray-200"
+                            data-kt-menu="true">
+                            <!--begin::Menu item-->
+                            <div class="menu-item px-3">
+                                <a class="menu-link px-3 d-flex align-items-center gap-2 cursor-pointer"
+                                    onclick="switchMenuIconStyle('duotone')">
+                                    <i class="ki-duotone ki-element-11 fs-3 text-primary"><span
+                                            class="path1"></span><span class="path2"></span><span
+                                            class="path3"></span><span class="path4"></span></i>
+                                    <div class="d-flex flex-column">
+                                        <span
+                                            class="fw-bold fs-7">{{ app()->getLocale() == 'en' ? 'Duotone Style' : 'Gaya Duotone' }}</span>
+                                        <span class="text-muted fs-8">ki-duotone</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--end::Menu item-->
+                            <!--begin::Menu item-->
+                            <div class="menu-item px-3">
+                                <a class="menu-link px-3 d-flex align-items-center gap-2 cursor-pointer"
+                                    onclick="switchMenuIconStyle('solid')">
+                                    <i class="ki-solid ki-element-11 fs-3 text-warning"></i>
+                                    <div class="d-flex flex-column">
+                                        <span
+                                            class="fw-bold fs-7">{{ app()->getLocale() == 'en' ? 'Solid Style' : 'Gaya Solid' }}</span>
+                                        <span class="text-muted fs-8">ki-solid</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--end::Menu item-->
+                            <!--begin::Menu item-->
+                            <div class="menu-item px-3">
+                                <a class="menu-link px-3 d-flex align-items-center gap-2 cursor-pointer"
+                                    onclick="switchMenuIconStyle('outline')">
+                                    <i class="ki-outline ki-element-11 fs-3 text-info"></i>
+                                    <div class="d-flex flex-column">
+                                        <span
+                                            class="fw-bold fs-7">{{ app()->getLocale() == 'en' ? 'Outline Style' : 'Gaya Outline' }}</span>
+                                        <span class="text-muted fs-8">ki-outline</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--end::Menu item-->
+                        </div>
+                        <!--end::Menu-->
+                    </div>
+
+                    <!--4. Operational Guide Button-->
                     <span data-bs-toggle="tooltip" data-bs-placement="top"
                         title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
                         <button type="button"
@@ -291,7 +350,7 @@
                                                     $pathsCount = (int) ($menu->paths ?? 0);
                                                 @endphp
 
-                                                @if ($hasIcon && $pathsCount > 0)
+                                                @if ($hasIcon)
                                                     <span class="symbol symbol-35px me-3 flex-shrink-0">
                                                         <span
                                                             class="symbol-label {{ $menuDepth == 0 ? 'bg-light-primary' : ($menuDepth == 1 ? 'bg-light-info' : 'bg-light-warning') }}">
@@ -520,7 +579,65 @@
     <script src="{{ asset('assets/js/custom/crud-helper.js') }}"></script>
     <!--end::Vendors Javascript-->
     <script>
+        window.switchMenuIconStyle = function(style) {
+            var labels = {
+                'duotone': 'Duotone (ki-duotone)',
+                'solid': 'Solid (ki-solid)',
+                'outline': 'Outline (ki-outline)'
+            };
+            var label = labels[style] || style;
+
+            Swal.fire({
+                title: '{{ app()->getLocale() == "en" ? "Change All Menu Icons?" : "Ganti Gaya Semua Ikon Menu?" }}',
+                text: '{{ app()->getLocale() == "en" ? "All menu icons in the system database will be updated to style: " : "Seluruh ikon menu pada sistem database akan diperbarui menjadi gaya: " }}' + label,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '{{ app()->getLocale() == "en" ? "Yes, Change All" : "Ya, Ganti Semua" }}',
+                cancelButtonText: '{{ app()->getLocale() == "en" ? "Cancel" : "Batal" }}'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: '{{ app()->getLocale() == "en" ? "Updating Icons..." : "Memperbarui Ikon..." }}',
+                        text: '{{ app()->getLocale() == "en" ? "Please wait..." : "Mohon tunggu sejenak..." }}',
+                        allowOutsideClick: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+
+                    $.ajax({
+                        url: "{{ route('appsupport.menu.switch-icon-style') }}",
+                        type: "POST",
+                        data: {
+                            _token: "{{ csrf_token() }}",
+                            style: style
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                if (response.sidebar_html) {
+                                    $('#kt_app_sidebar_menu_wrapper').html(response.sidebar_html);
+                                }
+                                SwalHelper.success(response.message).then(() => {
+                                    location.reload();
+                                });
+                            } else {
+                                SwalHelper.error(response.message || '{{ app()->getLocale() == "en" ? "Failed to update icon styles." : "Gagal memperbarui gaya ikon." }}');
+                            }
+                        },
+                        error: function(xhr) {
+                            SwalHelper.validationError(xhr);
+                        }
+                    });
+                }
+            });
+        };
+
         $(document).ready(function() {
+            if (typeof KTMenu !== 'undefined') {
+                KTMenu.createInstances();
+            }
             var sortRouteUrl = "{{ route('appsupport.menu.sort') }}";
 
             var table = $('#kt_table_menus').DataTable({

@@ -109,6 +109,7 @@ Route::middleware('auth')->group(function () {
     Route::post('appsupport/menu/{id}/permissions', [MenuController::class, 'addPermission'])->name('appsupport.menu.permissions.add');
     Route::delete('appsupport/menu/{id}/permissions/{permissionId}', [MenuController::class, 'removePermission'])->name('appsupport.menu.permissions.remove');
     Route::post('appsupport/menu/batch', [MenuController::class, 'storeBatch'])->name('appsupport.menu.store-batch');
+    Route::post('appsupport/menu/switch-icon-style', [MenuController::class, 'switchIconStyle'])->name('appsupport.menu.switch-icon-style');
     Route::resource('appsupport/menu', MenuController::class)->names([
         'index'   => 'appsupport.menu',
         'store'   => 'appsupport.menu.store',

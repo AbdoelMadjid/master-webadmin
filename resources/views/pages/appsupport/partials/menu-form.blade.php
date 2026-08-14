@@ -138,8 +138,14 @@
                             </label>
                             <input type="text" class="form-control form-control-solid"
                                 placeholder="Contoh: ki-duotone ki-element-11" name="icon" id="menu_icon" />
-                            <span
-                                class="text-muted fs-8 mt-1">{{ app()->getLocale() == 'en' ? 'e.g. ki-duotone ki-setting-2' : 'Contoh: ki-duotone ki-setting-2' }}</span>
+                            <div class="d-flex align-items-center gap-1 mt-2 flex-wrap">
+                                <button type="button" class="btn btn-xs btn-light-primary py-1 px-2" onclick="setFormIconStyle('ki-duotone')">ki-duotone</button>
+                                <button type="button" class="btn btn-xs btn-light-warning py-1 px-2" onclick="setFormIconStyle('ki-solid')">ki-solid</button>
+                                <button type="button" class="btn btn-xs btn-light-info py-1 px-2" onclick="setFormIconStyle('ki-outline')">ki-outline</button>
+                                <a href="{{ route('docs.icons.keenicons') }}" target="_blank" class="ms-auto text-primary fs-8 fw-semibold" title="Cek Aturan Keenicons">
+                                    <i class="ki-duotone ki-information-2 fs-7 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>Docs Icons
+                                </a>
+                            </div>
                         </div>
                         <!--end::Col-->
 
@@ -270,3 +276,26 @@
     </div>
 </div>
 <!--end::Modal - Add/Edit Menu Dinamis-->
+
+<script>
+    function setFormIconStyle(prefix) {
+        var iconInput = $('#menu_icon');
+        var val = $.trim(iconInput.val());
+        if (val === '') {
+            iconInput.val(prefix + ' ki-element-11');
+        } else {
+            if (/^ki-(duotone|solid|outline)\s+/.test(val)) {
+                iconInput.val(val.replace(/^ki-(duotone|solid|outline)\s+/, prefix + ' '));
+            } else if (/^ki-(duotone|solid|outline)$/.test(val)) {
+                iconInput.val(prefix);
+            } else {
+                iconInput.val(prefix + ' ' + val);
+            }
+        }
+        if (prefix === 'ki-solid' || prefix === 'ki-outline') {
+            $('#menu_paths').val(0);
+        } else if (prefix === 'ki-duotone' && (parseInt($('#menu_paths').val()) || 0) <= 0) {
+            $('#menu_paths').val(2);
+        }
+    }
+</script>
