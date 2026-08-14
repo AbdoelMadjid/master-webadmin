@@ -223,7 +223,7 @@
                     <div>
                         <button type="button" class="btn btn-info shadow-xs w-100"
                             onclick="triggerMaintenance('migrate')">
-                            <i class="ki-duotone ki-database fs-2 me-2"><span class="path1"></span><span
+                            <i class="ki-duotone ki-disk fs-2 me-2"><span class="path1"></span><span
                                     class="path2"></span></i>
                             Jalankan Migrasi Database
                         </button>

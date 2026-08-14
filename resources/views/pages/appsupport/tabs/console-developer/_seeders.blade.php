@@ -11,7 +11,7 @@
         <div class="card card-flush bg-light-primary border border-primary h-100 p-6">
             <div class="d-flex align-items-center">
                 <div class="symbol symbol-45px symbol-circle bg-primary me-4">
-                    <i class="ki-duotone ki-database fs-1 text-white"><span class="path1"></span><span class="path2"></span></i>
+                    <i class="ki-duotone ki-disk fs-1 text-white"><span class="path1"></span><span class="path2"></span></i>
                 </div>
                 <div>
                     <div class="fs-2fw-bold text-gray-900">{{ $totalSeedersCount }}</div>
@@ -71,7 +71,7 @@
             <span data-bs-toggle="tooltip" data-bs-placement="top"
                 title="{{ app()->getLocale() == 'en' ? 'Run all seeders via php artisan db:seed' : 'Jalankan seluruh seeder via php artisan db:seed' }}">
                 <button type="button" class="btn btn-sm btn-success shadow-xs d-inline-flex align-items-center" onclick="confirmRunAllSeeders()">
-                    <i class="ki-duotone ki-play fs-3 me-1"><span class="path1"></span><span class="path2"></span></i>
+                    <i class="ki-duotone ki-rocket fs-3 me-1"><span class="path1"></span><span class="path2"></span></i>
                     {{ app()->getLocale() == 'en' ? 'Run All Seeders (db:seed)' : 'Jalankan Semua Seeder' }}
                 </button>
             </span>
@@ -88,7 +88,7 @@
                         <th class="min-w-150px">{{ app()->getLocale() == 'en' ? 'Seeder Category' : 'Kategori Seeder' }}</th>
                         <th class="min-w-125px">{{ app()->getLocale() == 'en' ? 'Size' : 'Ukuran' }}</th>
                         <th class="min-w-150px">{{ app()->getLocale() == 'en' ? 'Last Modified' : 'Terakhir Diubah' }}</th>
-                        <th class="min-w-150px text-end">{{ app()->getLocale() == 'en' ? 'Actions' : 'Aksi' }}</th>
+                        <th class="min-w-160px text-end pe-6">{{ app()->getLocale() == 'en' ? 'Actions' : 'Aksi' }}</th>
                     </tr>
                 </thead>
                 <tbody class="fw-semibold text-gray-600">
@@ -125,7 +125,7 @@
                             </td>
                             <td><span class="text-gray-800 fw-semibold">{{ $item['size'] }}</span></td>
                             <td><span class="text-gray-700 fs-7">{{ $item['modified_at'] }}</span></td>
-                            <td class="text-end">
+                            <td class="text-end pe-6">
                                 <div class="d-flex align-items-center justify-content-end gap-2">
                                     {{-- Action 1: View Code --}}
                                     <span data-bs-toggle="tooltip" data-bs-placement="top"
@@ -142,7 +142,7 @@
                                             title="{{ app()->getLocale() == 'en' ? 'Run ' . $item['class_name'] : 'Jalankan Seeder ' . $item['class_name'] }}">
                                             <button type="button" class="btn btn-icon btn-light-success btn-active-success shadow-xs w-35px h-35px p-0"
                                                 onclick="triggerRunSeeder('{{ $item['class_name'] }}')">
-                                                <i class="ki-duotone ki-play fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
+                                                <i class="ki-duotone ki-rocket fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
                                             </button>
                                         </span>
                                     @endif

@@ -78,9 +78,8 @@
                         <li class="nav-item">
                             <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'crud-generator' ? 'active' : '' }}"
                                 href="{{ route('appsupport.console-developer', ['tab' => 'crud-generator']) }}">
-                                <i class="ki-duotone ki-element-plus fs-2 me-2"><span class="path1"></span><span
-                                        class="path2"></span><span class="path3"></span><span class="path4"></span><span
-                                        class="path5"></span></i>
+                                <i class="ki-duotone ki-element-11 fs-2 me-2"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 {{ app()->getLocale() == 'en' ? 'CRUD & Component Generator' : 'CRUD & Code Generator' }}
                             </a>
                         </li>
@@ -99,7 +98,7 @@
                         <li class="nav-item">
                             <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'seeders' ? 'active' : '' }}"
                                 href="{{ route('appsupport.console-developer', ['tab' => 'seeders']) }}">
-                                <i class="ki-duotone ki-database fs-2 me-2"><span class="path1"></span><span
+                                <i class="ki-duotone ki-disk fs-2 me-2"><span class="path1"></span><span
                                         class="path2"></span></i>
                                 {{ app()->getLocale() == 'en' ? 'Seeder Files' : 'File Seeder' }}
                             </a>
@@ -512,11 +511,14 @@
             submitFileUtility(e, type);
         }
 
+        var currentRawSeederCode = '';
+
         // Open Seeder Code Viewer Modal
         function openSeederCodeViewer(targetPath) {
+            currentRawSeederCode = '';
             $('#seeder_viewer_filename').text('Loading...');
             $('#seeder_viewer_filepath').text(targetPath);
-            $('#seeder_code_content').text('Memuat kode seeder...');
+            $('#seeder_code_content').html('Memuat kode seeder...');
 
             $('#kt_modal_console_seeder_viewer').modal('show');
 
@@ -530,12 +532,18 @@
                 },
                 success: function(res) {
                     if (res.success) {
+                        currentRawSeederCode = res.content || '';
                         $('#seeder_viewer_filename').text(res.file_name);
                         $('#seeder_viewer_filepath').text(res.file_path);
                         $('#seeder_viewer_size').text(res.size);
                         $('#seeder_viewer_lines').text(res.lines_count + ' Baris');
                         $('#seeder_viewer_modified').text('Diubah: ' + res.modified_at);
-                        $('#seeder_code_content').text(res.content);
+
+                        if (res.highlighted_content) {
+                            $('#seeder_code_content').html(res.highlighted_content);
+                        } else {
+                            $('#seeder_code_content').text(res.content);
+                        }
                     } else {
                         $('#seeder_code_content').text('Gagal membaca file: ' + (res.message || 'Error'));
                         SwalHelper.error(res.message || 'Gagal membaca file seeder.');
@@ -551,7 +559,7 @@
 
         // Copy Seeder Code to Clipboard
         function copySeederCode() {
-            var code = $('#seeder_code_content').text();
+            var code = currentRawSeederCode || $('#seeder_code_content').text();
             if (!code || code.startsWith('Memuat') || code.startsWith('Gagal')) return;
 
             navigator.clipboard.writeText(code).then(function() {

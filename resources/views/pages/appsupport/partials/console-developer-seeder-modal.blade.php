@@ -1,3 +1,29 @@
+<style>
+    .seeder-code-box {
+        background-color: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 8px;
+        padding: 1.25rem;
+        max-height: 520px;
+        overflow: auto;
+        font-family: 'Consolas', 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
+        font-size: 13.5px;
+        line-height: 1.6;
+        color: #0f172a !important;
+    }
+    .seeder-code-box code,
+    .seeder-code-box code * {
+        background: transparent !important;
+        background-color: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        font-family: inherit !important;
+    }
+</style>
+
 <div class="modal fade" id="kt_modal_console_seeder_viewer" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered mw-900px">
         <div class="modal-content rounded">
@@ -36,7 +62,7 @@
 
                 {{-- Code Box --}}
                 <div class="position-relative">
-                    <pre class="bg-dark text-light p-4 rounded overflow-auto mb-0" style="max-height: 520px; font-family: 'Fira Code', 'Courier New', monospace; font-size: 13px; line-height: 1.5; tab-size: 4;" id="seeder_code_container"><code id="seeder_code_content" class="text-white">Loading...</code></pre>
+                    <pre class="seeder-code-box mb-0" id="seeder_code_container"><code id="seeder_code_content">Loading...</code></pre>
                 </div>
             </div>
 

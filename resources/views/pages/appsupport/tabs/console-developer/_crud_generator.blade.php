@@ -2,9 +2,8 @@
     <div class="card-header border-0 pt-6">
         <h3 class="card-title align-items-start flex-column">
             <span class="card-label fw-bold text-gray-900 fs-5 d-flex align-items-center">
-                <i class="ki-duotone ki-element-plus fs-2 text-primary me-2"><span class="path1"></span><span
-                        class="path2"></span><span class="path3"></span><span class="path4"></span><span
-                        class="path5"></span></i>
+                <i class="ki-duotone ki-element-11 fs-2 text-primary me-2"><span class="path1"></span><span
+                        class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                 {{ app()->getLocale() == 'en' ? 'AGENTS.md Compliant 1-Click Code & CRUD Generator' : 'Generator Komponen & CRUD 1-Click (Standar AGENTS.md)' }}
             </span>
             <span class="text-muted mt-1 fw-semibold fs-7">

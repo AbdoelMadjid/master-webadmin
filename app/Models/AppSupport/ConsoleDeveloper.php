@@ -602,15 +602,17 @@ class ConsoleDeveloper extends Model
 
         $content = File::get($fullPath);
         $linesCount = count(explode("\n", $content));
+        $highlighted = highlight_string($content, true);
 
         return [
-            'success'     => true,
-            'file_path'   => $normalized,
-            'file_name'   => basename($normalized),
-            'size'        => number_format(File::size($fullPath) / 1024, 2) . ' KB',
-            'modified_at' => date('Y-m-d H:i:s', File::lastModified($fullPath)),
-            'lines_count' => $linesCount,
-            'content'     => $content,
+            'success'             => true,
+            'file_path'           => $normalized,
+            'file_name'           => basename($normalized),
+            'size'                => number_format(File::size($fullPath) / 1024, 2) . ' KB',
+            'modified_at'         => date('Y-m-d H:i:s', File::lastModified($fullPath)),
+            'lines_count'         => $linesCount,
+            'content'             => $content,
+            'highlighted_content' => $highlighted,
         ];
     }
 
