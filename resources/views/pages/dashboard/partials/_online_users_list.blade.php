@@ -4,7 +4,7 @@
             <!--begin::Avatar with online indicator-->
             <div class="symbol symbol-40px symbol-circle me-3 position-relative flex-shrink-0">
                 <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}"
-                    style="width: 40px; height: 40px; object-fit: cover;"
+                    style="width: 40px; height: 40px; object-fit: cover; object-position: top;"
                     onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
                 <span
                     class="position-absolute bottom-0 end-0 bg-success rounded-circle border border-2 border-body h-12px w-12px"

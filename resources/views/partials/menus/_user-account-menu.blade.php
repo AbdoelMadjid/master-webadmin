@@ -35,6 +35,7 @@
             <!--begin::Avatar-->
             <div class="symbol symbol-50px me-5">
                 <img alt="Logo" class="user-avatar-img" src="{{ $profileAvatar }}"
+                    style="object-fit: cover; object-position: top;"
                     onerror="this.onerror=null;this.src='{{ $profileAvatarOnError }}';" />
             </div>
             <!--end::Avatar-->

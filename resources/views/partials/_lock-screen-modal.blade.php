@@ -15,7 +15,7 @@
                 <!--begin::Branding Icon / Avatar-->
                 <div class="position-relative d-inline-block mb-6">
                     <div class="symbol symbol-100px symbol-circle border border-4 border-warning shadow-sm">
-                        <img src="{{ $userAvatar }}" alt="{{ $userName }}" onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
+                        <img src="{{ $userAvatar }}" alt="{{ $userName }}" style="object-fit: cover; object-position: top;" onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
                     </div>
                     <span class="position-absolute bottom-0 end-0 p-2 bg-warning rounded-circle border border-2 border-body me-1 mb-1" title="Locked">
                         <i class="ki-duotone ki-lock text-white fs-4"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>

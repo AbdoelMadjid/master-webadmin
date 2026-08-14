@@ -109,7 +109,7 @@
                                                 <div class="symbol symbol-circle symbol-40px overflow-hidden me-3">
                                                     <img src="{{ $item->user ? $item->user->avatar_url : asset('assets/media/svg/avatars/default-avatar.svg') }}"
                                                         alt="{{ $item->email }}"
-                                                        style="width: 40px; height: 40px; object-fit: cover;"
+                                                        style="width: 40px; height: 40px; object-fit: cover; object-position: top;"
                                                         onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
                                                 </div>
                                                 <div class="d-flex flex-column">

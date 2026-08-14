@@ -109,6 +109,7 @@
                                             <div class="symbol symbol-35px symbol-circle" data-bs-toggle="tooltip"
                                                 data-bs-placement="top" title="{{ $u->name }}">
                                                 <img src="{{ $u->avatar_url }}" alt="{{ $u->name }}"
+                                                    style="object-fit: cover; object-position: top;"
                                                     onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
                                             </div>
                                         @endforeach

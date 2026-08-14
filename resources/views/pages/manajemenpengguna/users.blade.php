@@ -113,7 +113,7 @@
                                             <div class="d-flex align-items-center">
                                                 <div class="symbol symbol-circle symbol-40px overflow-hidden me-3">
                                                     <img src="{{ $user->avatar_url }}" alt="{{ $user->name }}"
-                                                        style="width: 40px; height: 40px; object-fit: cover;"
+                                                        style="width: 40px; height: 40px; object-fit: cover; object-position: top;"
                                                         onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';" />
                                                 </div>
                                                 <div class="d-flex flex-column">

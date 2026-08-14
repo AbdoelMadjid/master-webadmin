@@ -79,7 +79,7 @@
         <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
             <!-- Avatar Image (Original size: 100px / 160px) -->
             <img src="{{ $avatarUrl }}" alt="{{ $userName }}" id="user_profile_avatar_preview"
-                class="cursor-pointer rounded object-fit-cover"
+                class="cursor-pointer rounded user-avatar-img" style="object-fit: cover; object-position: top;"
                 onerror="this.onerror=null;this.src='{{ asset('assets/media/svg/avatars/default-avatar.svg') }}';"
                 onclick="document.getElementById('user_avatar_file_input').click()" data-bs-toggle="tooltip"
                 title="Klik gambar untuk memilih & mengganti avatar" />

@@ -126,6 +126,7 @@
         <div class="cursor-pointer symbol symbol-35px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
             data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
             <img src="{{ $avatar }}" class="rounded-3 user-avatar-img" id="topbar_user_avatar_img" alt="user"
+                style="object-fit: cover; object-position: top;"
                 onerror="this.onerror=null;this.src='{{ $avatarOnError }}';" />
         </div>
         <!--layout-partial:partials/menus/_user-account-menu.html-->
