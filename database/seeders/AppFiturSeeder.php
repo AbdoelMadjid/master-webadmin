@@ -21,28 +21,28 @@ class AppFiturSeeder extends Seeder
                 'feature_name' => 'Grup Menu PAGES',
                 'category' => 'Sidebar Group',
                 'description' => 'Grup menu PAGES di sidebar.',
-                'active' => false,
+                'active' => true,
             ],
             [
                 'feature_key' => 'group_apps',
                 'feature_name' => 'Grup Menu APPS',
                 'category' => 'Sidebar Group',
                 'description' => 'Grup menu APPS di sidebar.',
-                'active' => false,
+                'active' => true,
             ],
             [
                 'feature_key' => 'group_layouts',
                 'feature_name' => 'Grup Menu LAYOUTS',
                 'category' => 'Sidebar Group',
                 'description' => 'Grup menu LAYOUTS di sidebar.',
-                'active' => false,
+                'active' => true,
             ],
             [
                 'feature_key' => 'group_help',
                 'feature_name' => 'Grup Menu HELP',
                 'category' => 'Sidebar Group',
                 'description' => 'Grup menu HELP di sidebar.',
-                'active' => false,
+                'active' => true,
             ],
 
             // 2. Topbar Header Menu Groups (_menu.blade.php)
@@ -51,35 +51,35 @@ class AppFiturSeeder extends Seeder
                 'feature_name' => 'Grup Menu DASHBOARDS',
                 'category' => 'Topbar Menu Group',
                 'description' => 'Grup menu Dashboards di topbar header menu.',
-                'active' => false,
+                'active' => true,
             ],
             [
                 'feature_key' => 'topbar_group_pages',
                 'feature_name' => 'Grup Menu PAGES',
                 'category' => 'Topbar Menu Group',
                 'description' => 'Grup menu PAGES di topbar header menu.',
-                'active' => false,
+                'active' => true,
             ],
             [
                 'feature_key' => 'topbar_group_apps',
                 'feature_name' => 'Grup Menu APPS',
                 'category' => 'Topbar Menu Group',
                 'description' => 'Grup menu APPS di topbar header menu.',
-                'active' => false,
+                'active' => true,
             ],
             [
                 'feature_key' => 'topbar_group_layouts',
                 'feature_name' => 'Grup Menu LAYOUTS',
                 'category' => 'Topbar Menu Group',
                 'description' => 'Grup menu LAYOUTS di topbar header menu.',
-                'active' => false,
+                'active' => true,
             ],
             [
                 'feature_key' => 'topbar_group_help',
                 'feature_name' => 'Grup Menu HELP',
                 'category' => 'Topbar Menu Group',
                 'description' => 'Grup menu HELP di topbar header menu.',
-                'active' => false,
+                'active' => true,
             ],
 
             // 3. Topbar Navbar & Widgets
@@ -102,7 +102,7 @@ class AppFiturSeeder extends Seeder
                 'feature_name' => 'Icon Activities',
                 'category' => 'Topbar Navbar',
                 'description' => 'Icon & drawer Activities di topbar.',
-                'active' => false,
+                'active' => true,
             ],
             [
                 'feature_key' => 'topbar_notifications',
@@ -116,14 +116,14 @@ class AppFiturSeeder extends Seeder
                 'feature_name' => 'Icon Quick Chat',
                 'category' => 'Topbar Navbar',
                 'description' => 'Icon & drawer Quick Chat di topbar.',
-                'active' => false,
+                'active' => true,
             ],
             [
                 'feature_key' => 'topbar_my_apps',
                 'feature_name' => 'Icon My Apps Links',
                 'category' => 'Topbar Navbar',
                 'description' => 'Icon My Apps Links di topbar.',
-                'active' => false,
+                'active' => true,
             ],
 
             // 4. Floating Drawers (Samping Kanan Layar)
@@ -132,14 +132,14 @@ class AppFiturSeeder extends Seeder
                 'feature_name' => 'Tombol Demos Floating',
                 'category' => 'Floating Drawer',
                 'description' => 'Tombol Demos melayang di samping kanan layar.',
-                'active' => false,
+                'active' => true,
             ],
             [
                 'feature_key' => 'drawer_help',
                 'feature_name' => 'Tombol Help Floating',
                 'category' => 'Floating Drawer',
                 'description' => 'Tombol Help melayang di samping kanan layar.',
-                'active' => false,
+                'active' => true,
             ],
         ];
 
