@@ -174,23 +174,23 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Toolbar-->
 
                             @if (Route::has('login'))
-                                <div class="flex-equal text-end ms-1">
-                                    @auth
-                                        <a href="{{ url('/dashboard') }}" class="btn btn-success">
-                                            Dashboard
-                                        </a>
-                                    @else
-                                        <a href="{{ route('login') }}" class="btn btn-success">
-                                            Log in
-                                        </a>
+                            <div class="flex-equal text-end ms-1">
+                                @auth
+                                <a href="{{ url('/dashboard') }}" class="btn btn-success">
+                                    Dashboard
+                                </a>
+                                @else
+                                <a href="{{ route('login') }}" class="btn btn-success">
+                                    Log in
+                                </a>
 
-                                        {{--  @if (Route::has('register'))
-                                                <a href="{{ route('register') }}" class="btn btn-success">
-                                                    Register
-                                                </a>
-                                            @endif --}}
-                                    @endauth
-                                </div>
+                                {{-- @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="btn btn-success">
+                                    Register
+                                </a>
+                                @endif --}}
+                                @endauth
+                            </div>
                             @endif
                             <!--end::Toolbar-->
                         </div>
@@ -206,8 +206,7 @@ License: For each use you must have a valid license purchased only from above li
                         <!--begin::Title-->
                         <h1 class="text-white lh-base fw-bold fs-2x fs-lg-3x mb-15">
                             Build An Outstanding Solutions <br />with
-                            <span
-                                style="
+                            <span style="
                                     background: linear-gradient(
                                     to right,
                                     #12ce5d 0%,
@@ -229,52 +228,43 @@ License: For each use you must have a valid license purchased only from above li
                     <div class="d-flex flex-center flex-wrap position-relative px-5">
                         <!--begin::Client-->
                         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Fujifilm">
-                            <img src="assets/media/svg/brand-logos/fujifilm.svg" class="mh-30px mh-lg-40px"
-                                alt="" />
+                            <img src="assets/media/svg/brand-logos/fujifilm.svg" class="mh-30px mh-lg-40px" alt="" />
                         </div>
                         <!--end::Client-->
                         <!--begin::Client-->
                         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Vodafone">
-                            <img src="assets/media/svg/brand-logos/vodafone.svg" class="mh-30px mh-lg-40px"
-                                alt="" />
+                            <img src="assets/media/svg/brand-logos/vodafone.svg" class="mh-30px mh-lg-40px" alt="" />
                         </div>
                         <!--end::Client-->
                         <!--begin::Client-->
-                        <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip"
-                            title="KPMG International">
-                            <img src="assets/media/svg/brand-logos/kpmg.svg" class="mh-30px mh-lg-40px"
-                                alt="" />
+                        <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="KPMG International">
+                            <img src="assets/media/svg/brand-logos/kpmg.svg" class="mh-30px mh-lg-40px" alt="" />
                         </div>
                         <!--end::Client-->
                         <!--begin::Client-->
                         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Nasa">
-                            <img src="assets/media/svg/brand-logos/nasa.svg" class="mh-30px mh-lg-40px"
-                                alt="" />
+                            <img src="assets/media/svg/brand-logos/nasa.svg" class="mh-30px mh-lg-40px" alt="" />
                         </div>
                         <!--end::Client-->
                         <!--begin::Client-->
                         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Aspnetzero">
-                            <img src="assets/media/svg/brand-logos/aspnetzero.svg" class="mh-30px mh-lg-40px"
-                                alt="" />
+                            <img src="assets/media/svg/brand-logos/aspnetzero.svg" class="mh-30px mh-lg-40px" alt="" />
                         </div>
                         <!--end::Client-->
                         <!--begin::Client-->
                         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip"
                             title="AON - Empower Results">
-                            <img src="assets/media/svg/brand-logos/aon.svg" class="mh-30px mh-lg-40px"
-                                alt="" />
+                            <img src="assets/media/svg/brand-logos/aon.svg" class="mh-30px mh-lg-40px" alt="" />
                         </div>
                         <!--end::Client-->
                         <!--begin::Client-->
                         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Hewlett-Packard">
-                            <img src="assets/media/svg/brand-logos/hp-3.svg" class="mh-30px mh-lg-40px"
-                                alt="" />
+                            <img src="assets/media/svg/brand-logos/hp-3.svg" class="mh-30px mh-lg-40px" alt="" />
                         </div>
                         <!--end::Client-->
                         <!--begin::Client-->
                         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Truman">
-                            <img src="assets/media/svg/brand-logos/truman.svg" class="mh-30px mh-lg-40px"
-                                alt="" />
+                            <img src="assets/media/svg/brand-logos/truman.svg" class="mh-30px mh-lg-40px" alt="" />
                         </div>
                         <!--end::Client-->
                     </div>
@@ -321,8 +311,7 @@ License: For each use you must have a valid license purchased only from above li
                         <!--begin::Story-->
                         <div class="text-center mb-10 mb-md-0">
                             <!--begin::Illustration-->
-                            <img src="assets/media/illustrations/sketchy-1/2.png" class="mh-125px mb-9"
-                                alt="" />
+                            <img src="assets/media/illustrations/sketchy-1/2.png" class="mh-125px mb-9" alt="" />
                             <!--end::Illustration-->
                             <!--begin::Heading-->
                             <div class="d-flex flex-center mb-5">
@@ -351,8 +340,7 @@ License: For each use you must have a valid license purchased only from above li
                         <!--begin::Story-->
                         <div class="text-center mb-10 mb-md-0">
                             <!--begin::Illustration-->
-                            <img src="assets/media/illustrations/sketchy-1/8.png" class="mh-125px mb-9"
-                                alt="" />
+                            <img src="assets/media/illustrations/sketchy-1/8.png" class="mh-125px mb-9" alt="" />
                             <!--end::Illustration-->
                             <!--begin::Heading-->
                             <div class="d-flex flex-center mb-5">
@@ -381,8 +369,7 @@ License: For each use you must have a valid license purchased only from above li
                         <!--begin::Story-->
                         <div class="text-center mb-10 mb-md-0">
                             <!--begin::Illustration-->
-                            <img src="assets/media/illustrations/sketchy-1/12.png" class="mh-125px mb-9"
-                                alt="" />
+                            <img src="assets/media/illustrations/sketchy-1/12.png" class="mh-125px mb-9" alt="" />
                             <!--end::Illustration-->
                             <!--begin::Heading-->
                             <div class="d-flex flex-center mb-5">
@@ -617,8 +604,7 @@ License: For each use you must have a valid license purchased only from above li
                 <!--begin::Heading-->
                 <div class="text-center mb-12">
                     <!--begin::Title-->
-                    <h3 class="fs-2hx text-gray-900 mb-5" id="team"
-                        data-kt-scroll-offset="{default: 100, lg: 150}">
+                    <h3 class="fs-2hx text-gray-900 mb-5" id="team" data-kt-scroll-offset="{default: 100, lg: 150}">
                         Our Great Team
                     </h3>
                     <!--end::Title-->
@@ -649,8 +635,7 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Person-->
                             <div class="mb-0">
                                 <!--begin::Name-->
-                                <a href="javascript:void(0)"
-                                    class="text-gray-900 fw-bold text-hover-primary fs-3">Paul
+                                <a href="javascript:void(0)" class="text-gray-900 fw-bold text-hover-primary fs-3">Paul
                                     Miles</a>
                                 <!--end::Name-->
                                 <!--begin::Position-->
@@ -695,8 +680,7 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Person-->
                             <div class="mb-0">
                                 <!--begin::Name-->
-                                <a href="javascript:void(0)"
-                                    class="text-gray-900 fw-bold text-hover-primary fs-3">David
+                                <a href="javascript:void(0)" class="text-gray-900 fw-bold text-hover-primary fs-3">David
                                     Nilson</a>
                                 <!--end::Name-->
                                 <!--begin::Position-->
@@ -718,8 +702,7 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Person-->
                             <div class="mb-0">
                                 <!--begin::Name-->
-                                <a href="javascript:void(0)"
-                                    class="text-gray-900 fw-bold text-hover-primary fs-3">Anne
+                                <a href="javascript:void(0)" class="text-gray-900 fw-bold text-hover-primary fs-3">Anne
                                     Clarc</a>
                                 <!--end::Name-->
                                 <!--begin::Position-->
@@ -741,8 +724,7 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Person-->
                             <div class="mb-0">
                                 <!--begin::Name-->
-                                <a href="javascript:void(0)"
-                                    class="text-gray-900 fw-bold text-hover-primary fs-3">Ricky
+                                <a href="javascript:void(0)" class="text-gray-900 fw-bold text-hover-primary fs-3">Ricky
                                     Hunt</a>
                                 <!--end::Name-->
                                 <!--begin::Position-->
@@ -764,8 +746,7 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Person-->
                             <div class="mb-0">
                                 <!--begin::Name-->
-                                <a href="javascript:void(0)"
-                                    class="text-gray-900 fw-bold text-hover-primary fs-3">Alice
+                                <a href="javascript:void(0)" class="text-gray-900 fw-bold text-hover-primary fs-3">Alice
                                     Wayde</a>
                                 <!--end::Name-->
                                 <!--begin::Position-->
@@ -1355,8 +1336,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="col-xl-4">
                                     <div class="d-flex h-100 align-items-center">
                                         <!--begin::Option-->
-                                        <div
-                                            class="w-100 d-flex flex-column flex-center rounded-3 bg-body py-15 px-10">
+                                        <div class="w-100 d-flex flex-column flex-center rounded-3 bg-body py-15 px-10">
                                             <!--begin::Heading-->
                                             <div class="mb-7 text-center">
                                                 <!--begin::Title-->
@@ -1550,8 +1530,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="col-xl-4">
                                     <div class="d-flex h-100 align-items-center">
                                         <!--begin::Option-->
-                                        <div
-                                            class="w-100 d-flex flex-column flex-center rounded-3 bg-body py-15 px-10">
+                                        <div class="w-100 d-flex flex-column flex-center rounded-3 bg-body py-15 px-10">
                                             <!--begin::Heading-->
                                             <div class="mb-7 text-center">
                                                 <!--begin::Title-->
@@ -1614,8 +1593,7 @@ License: For each use you must have a valid license purchased only from above li
                                                 <!--end::Item-->
                                                 <!--begin::Item-->
                                                 <div class="d-flex flex-stack mb-5">
-                                                    <span
-                                                        class="fw-semibold fs-6 text-gray-800 text-start pe-3">Targets
+                                                    <span class="fw-semibold fs-6 text-gray-800 text-start pe-3">Targets
                                                         Timelines & Files</span>
                                                     <i class="ki-duotone ki-check-circle fs-1 text-success">
                                                         <span class="path1"></span>
@@ -1672,8 +1650,7 @@ License: For each use you must have a valid license purchased only from above li
                 <!--begin::Heading-->
                 <div class="text-center mb-17">
                     <!--begin::Title-->
-                    <h3 class="fs-2hx text-gray-900 mb-5" id="clients"
-                        data-kt-scroll-offset="{default: 125, lg: 150}">
+                    <h3 class="fs-2hx text-gray-900 mb-5" id="clients" data-kt-scroll-offset="{default: 125, lg: 150}">
                         What Our Clients Say
                     </h3>
                     <!--end::Title-->
@@ -1911,12 +1888,12 @@ License: For each use you must have a valid license purchased only from above li
         <div class="mb-0">
             <!--begin::Curve top-->
             {{-- <div class="landing-curve landing-dark-color">
-                    <svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z"
-                            fill="currentColor"></path>
-                    </svg>
-                </div> --}}
+                <svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M1 48C4.93573 47.6644 8.85984 47.3311 12.7725 47H1489.16C1493.1 47.3311 1497.04 47.6644 1501 48V47H1489.16C914.668 -1.34764 587.282 -1.61174 12.7725 47H1V48Z"
+                        fill="currentColor"></path>
+                </svg>
+            </div> --}}
             <!--end::Curve top-->
             <!--begin::Wrapper-->
             <div class="landing-dark-bg pt-20">
@@ -1945,8 +1922,8 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--end::Title-->
                                 <!--begin::Text-->
                                 <span class="fw-normal fs-4 text-gray-700">Use Our Custom Development Service.
-                                    <a href="javascript:void(0)"
-                                        class="text-white opacity-50 text-hover-primary">Click to
+                                    <a href="javascript:void(0)" class="text-white opacity-50 text-hover-primary">Click
+                                        to
                                         Get a Quote</a></span>
                                 <!--end::Text-->
                             </div>
@@ -2000,14 +1977,12 @@ License: For each use you must have a valid license purchased only from above li
                                     <a href="https://www.facebook.com/keenthemes" class="mb-6">
                                         <img src="assets/media/svg/brand-logos/facebook-4.svg" class="h-20px me-2"
                                             alt="" />
-                                        <span
-                                            class="text-white opacity-50 text-hover-primary fs-5 mb-6">Facebook</span>
+                                        <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Facebook</span>
                                     </a>
                                     <!--end::Link-->
                                     <!--begin::Link-->
                                     <a href="https://github.com/KeenthemesHub" class="mb-6">
-                                        <img src="assets/media/svg/brand-logos/github.svg" class="h-20px me-2"
-                                            alt="" />
+                                        <img src="assets/media/svg/brand-logos/github.svg" class="h-20px me-2" alt="" />
                                         <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Github</span>
                                     </a>
                                     <!--end::Link-->
@@ -2020,10 +1995,9 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Link-->
                                     <!--begin::Link-->
                                     <a href="https://dribbble.com/keenthemes" class="mb-6">
-                                        <img src="assets/media/svg/brand-logos/dribbble-icon-1.svg"
-                                            class="h-20px me-2" alt="" />
-                                        <span
-                                            class="text-white opacity-50 text-hover-primary fs-5 mb-6">Dribbble</span>
+                                        <img src="assets/media/svg/brand-logos/dribbble-icon-1.svg" class="h-20px me-2"
+                                            alt="" />
+                                        <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Dribbble</span>
                                     </a>
                                     <!--end::Link-->
                                     <!--begin::Link-->
@@ -2059,21 +2033,19 @@ License: For each use you must have a valid license purchased only from above li
                             </a>
                             <!--end::Logo image-->
                             <!--begin::Logo image-->
-                            <span class="mx-5 fs-6 fw-semibold text-gray-600 pt-1"
-                                href="https://keenthemes.com">&copy; 2024
+                            <span class="mx-5 fs-6 fw-semibold text-gray-600 pt-1" href="https://keenthemes.com">&copy;
+                                2024
                                 Keenthemes Inc.</span>
                             <!--end::Logo image-->
                         </div>
                         <!--end::Copyright-->
                         <!--begin::Menu-->
-                        <ul
-                            class="menu menu-gray-600 menu-hover-primary fw-semibold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
+                        <ul class="menu menu-gray-600 menu-hover-primary fw-semibold fs-6 fs-md-5 order-1 mb-5 mb-md-0">
                             <li class="menu-item">
                                 <a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
                             </li>
                             <li class="menu-item mx-5">
-                                <a href="https://devs.keenthemes.com" target="_blank"
-                                    class="menu-link px-2">Support</a>
+                                <a href="https://devs.keenthemes.com" target="_blank" class="menu-link px-2">Support</a>
                             </li>
                             <li class="menu-item">
                                 <a href="" target="_blank" class="menu-link px-2">Purchase</a>
@@ -2088,14 +2060,6 @@ License: For each use you must have a valid license purchased only from above li
             <!--end::Wrapper-->
         </div>
         <!--end::Footer Section-->
-        <!--begin::Scrolltop-->
-        <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-            <i class="ki-duotone ki-arrow-up">
-                <span class="path1"></span>
-                <span class="path2"></span>
-            </i>
-        </div>
-        <!--end::Scrolltop-->
     </div>
     <!--end::Root-->
     <!--begin::Scrolltop-->

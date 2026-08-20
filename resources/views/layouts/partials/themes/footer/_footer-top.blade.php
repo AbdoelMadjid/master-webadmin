@@ -1,0 +1,113 @@
+<div class="container">
+    <!--begin::Row-->
+    <div class="row py-10 py-lg-20">
+        <!--begin::Col-->
+        <div class="col-lg-6 pe-lg-16 mb-10 mb-lg-0">
+            <!--begin::Block-->
+            <div class="rounded landing-dark-border p-9 mb-10">
+                <!--begin::Title-->
+                <h2 class="text-white">Would you need a Custom License?</h2>
+                <!--end::Title-->
+                <!--begin::Text-->
+                <span class="fw-normal fs-4 text-gray-700">Email us to
+                    <a href="https://keenthemes.com/support"
+                        class="text-white opacity-50 text-hover-primary">support@keenthemes.com</a></span>
+                <!--end::Text-->
+            </div>
+            <!--end::Block-->
+            <!--begin::Block-->
+            <div class="rounded landing-dark-border p-9">
+                <!--begin::Title-->
+                <h2 class="text-white">How About a Custom Project?</h2>
+                <!--end::Title-->
+                <!--begin::Text-->
+                <span class="fw-normal fs-4 text-gray-700">Use Our Custom Development Service.
+                    <a href="javascript:void(0)" class="text-white opacity-50 text-hover-primary">Click
+                        to
+                        Get a Quote</a></span>
+                <!--end::Text-->
+            </div>
+            <!--end::Block-->
+        </div>
+        <!--end::Col-->
+        <!--begin::Col-->
+        <div class="col-lg-6 ps-lg-16">
+            <!--begin::Navs-->
+            <div class="d-flex justify-content-center">
+                <!--begin::Links-->
+                <div class="d-flex fw-semibold flex-column me-20">
+                    <!--begin::Subtitle-->
+                    <h4 class="fw-bold text-gray-500 mb-6">
+                        More for Metronic
+                    </h4>
+                    <!--end::Subtitle-->
+                    <!--begin::Link-->
+                    <a href="https://keenthemes.com/faqs"
+                        class="text-white opacity-50 text-hover-primary fs-5 mb-6">FAQ</a>
+                    <!--end::Link-->
+                    <!--begin::Link-->
+                    <a href="https://preview.keenthemes.com/html/metronic/docs"
+                        class="text-white opacity-50 text-hover-primary fs-5 mb-6">Documentaions</a>
+                    <!--end::Link-->
+                    <!--begin::Link-->
+                    <a href="https://www.youtube.com/c/KeenThemesTuts/videos"
+                        class="text-white opacity-50 text-hover-primary fs-5 mb-6">Video Tuts</a>
+                    <!--end::Link-->
+                    <!--begin::Link-->
+                    <a href="https://preview.keenthemes.com/html/metronic/docs/getting-started/changelog"
+                        class="text-white opacity-50 text-hover-primary fs-5 mb-6">Changelog</a>
+                    <!--end::Link-->
+                    <!--begin::Link-->
+                    <a href="https://devs.keenthemes.com/"
+                        class="text-white opacity-50 text-hover-primary fs-5 mb-6">Support
+                        Forum</a>
+                    <!--end::Link-->
+                    <!--begin::Link-->
+                    <a href="https://keenthemes.com/blog" class="text-white opacity-50 text-hover-primary fs-5">Blog</a>
+                    <!--end::Link-->
+                </div>
+                <!--end::Links-->
+                <!--begin::Links-->
+                <div class="d-flex fw-semibold flex-column ms-lg-20">
+                    <!--begin::Subtitle-->
+                    <h4 class="fw-bold text-gray-500 mb-6">Stay Connected</h4>
+                    <!--end::Subtitle-->
+                    <!--begin::Link-->
+                    <a href="https://www.facebook.com/keenthemes" class="mb-6">
+                        <img src="assets/media/svg/brand-logos/facebook-4.svg" class="h-20px me-2" alt="" />
+                        <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Facebook</span>
+                    </a>
+                    <!--end::Link-->
+                    <!--begin::Link-->
+                    <a href="https://github.com/KeenthemesHub" class="mb-6">
+                        <img src="assets/media/svg/brand-logos/github.svg" class="h-20px me-2" alt="" />
+                        <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Github</span>
+                    </a>
+                    <!--end::Link-->
+                    <!--begin::Link-->
+                    <a href="https://twitter.com/keenthemes" class="mb-6">
+                        <img src="assets/media/svg/brand-logos/twitter.svg" class="h-20px me-2" alt="" />
+                        <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Twitter</span>
+                    </a>
+                    <!--end::Link-->
+                    <!--begin::Link-->
+                    <a href="https://dribbble.com/keenthemes" class="mb-6">
+                        <img src="assets/media/svg/brand-logos/dribbble-icon-1.svg" class="h-20px me-2" alt="" />
+                        <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Dribbble</span>
+                    </a>
+                    <!--end::Link-->
+                    <!--begin::Link-->
+                    <a href="https://www.instagram.com/keenthemes" class="mb-6">
+                        <img src="assets/media/svg/brand-logos/instagram-2-1.svg" class="h-20px me-2" alt="" />
+                        <span class="text-white opacity-50 text-hover-primary fs-5 mb-6">Instagram</span>
+                    </a>
+                    <!--end::Link-->
+                </div>
+                <!--end::Links-->
+            </div>
+            <!--end::Navs-->
+        </div>
+        <!--end::Col-->
+    </div>
+    <!--end::Row-->
+</div>
