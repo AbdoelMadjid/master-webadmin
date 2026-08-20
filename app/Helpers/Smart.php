@@ -446,3 +446,121 @@ if (!function_exists('template_asset')) {
         return \App\Services\PageConfig\WebsiteTemplateService::asset($path, $templateSlug);
     }
 }
+
+if (!function_exists('getActiveIconStyle')) {
+    /**
+     * Ambil gaya ikon aktif global ('duotone', 'solid', 'outline') dari setting DB app_fiturs atau fallback ke icon DB
+     */
+    function getActiveIconStyle(): string
+    {
+        static $style = null;
+        if ($style === null) {
+            try {
+                if (\Illuminate\Support\Facades\Schema::hasTable('app_fiturs')) {
+                    $setting = \App\Models\AppSupport\AppFitur::where('feature_key', 'global_icon_style')->value('description');
+                    if (in_array($setting, ['duotone', 'solid', 'outline'], true)) {
+                        $style = $setting;
+                    }
+                }
+            } catch (\Throwable $e) {
+                // fallback
+            }
+
+            if ($style === null) {
+                try {
+                    $firstIcon = \App\Models\AppSupport\Menu::whereNotNull('icon')
+                        ->where('icon', '!=', '')
+                        ->where('icon', '!=', 'none')
+                        ->where('icon', '!=', '-')
+                        ->value('icon') ?? '';
+                    if (str_contains($firstIcon, 'ki-solid')) {
+                        $style = 'solid';
+                    } elseif (str_contains($firstIcon, 'ki-outline')) {
+                        $style = 'outline';
+                    } else {
+                        $style = 'duotone';
+                    }
+                } catch (\Throwable $e) {
+                    $style = 'duotone';
+                }
+            }
+        }
+        return $style;
+    }
+}
+
+if (!function_exists('formatIconClass')) {
+    /**
+     * Format class ikon secara global sesuai gaya ikon aktif (ki-duotone, ki-solid, ki-outline)
+     */
+    function formatIconClass(?string $iconClass): string
+    {
+        if (empty($iconClass)) {
+            return '';
+        }
+        $iconClass = trim($iconClass);
+        $activeStyle = getActiveIconStyle();
+        $targetPrefix = 'ki-' . $activeStyle;
+
+        if (preg_match('/\bki-(duotone|solid|outline)\b/', $iconClass)) {
+            return preg_replace('/\bki-(duotone|solid|outline)\b/', $targetPrefix, $iconClass);
+        }
+
+        if (str_starts_with($iconClass, 'ki-')) {
+            return $targetPrefix . ' ' . $iconClass;
+        }
+
+        return $iconClass;
+    }
+}
+
+if (!function_exists('keenicon_paths')) {
+    /**
+     * Hitung jumlah path span yang dibutuhkan oleh ikon Keenicons duotone secara presisi.
+     * Mengembalikan 0 untuk ki-solid dan ki-outline.
+     */
+    function keenicon_paths(?string $iconClass, int $defaultPaths = 0): int
+    {
+        if (empty($iconClass)) {
+            return $defaultPaths;
+        }
+
+        $iconClass = formatIconClass($iconClass);
+
+        // Solid dan outline tidak menggunakan child path span
+        if (preg_match('/\bki-(solid|outline)\b/', $iconClass)) {
+            return 0;
+        }
+
+        // Ambil nama ikon spesifik (contoh: "ki-duotone ki-element-11" -> "element-11")
+        if (preg_match_all('/\bki-([a-zA-Z0-9\-]+)\b/', $iconClass, $allMatches)) {
+            $iconName = null;
+            foreach ($allMatches[1] as $name) {
+                if (!in_array($name, ['duotone', 'solid', 'outline'], true)) {
+                    $iconName = $name;
+                    break;
+                }
+            }
+
+            if ($iconName) {
+                static $keeniconsPathsMap = null;
+                if ($keeniconsPathsMap === null) {
+                    $mapPath = __DIR__ . '/keenicons_paths_map.php';
+                    $keeniconsPathsMap = file_exists($mapPath) ? include $mapPath : [];
+                }
+
+                if (isset($keeniconsPathsMap[$iconName])) {
+                    return (int) $keeniconsPathsMap[$iconName];
+                }
+            }
+        }
+
+        // Fallback jika ki-duotone tapi nama ikon belum terdaftar
+        if (str_contains($iconClass, 'ki-duotone')) {
+            return $defaultPaths > 0 ? $defaultPaths : 2;
+        }
+
+        return $defaultPaths;
+    }
+}
+

@@ -6,21 +6,15 @@
 <a href="javascript:void(0)"
     class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px"
     data-kt-menu-trigger="{{ $themeModeTrigger }}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-    <i class="ki-duotone ki-night-day theme-light-show fs-1">
-        <span class="path1"></span>
-        <span class="path2"></span>
-        <span class="path3"></span>
-        <span class="path4"></span>
-        <span class="path5"></span>
-        <span class="path6"></span>
-        <span class="path7"></span>
-        <span class="path8"></span>
-        <span class="path9"></span>
-        <span class="path10"></span>
+    <i class="{{ formatIconClass('ki-duotone ki-night-day') }} theme-light-show fs-1">
+        @for ($i = 1; $i <= keenicon_paths('ki-night-day'); $i++)
+            <span class="path{{ $i }}"></span>
+        @endfor
     </i>
-    <i class="ki-duotone ki-moon theme-dark-show fs-1">
-        <span class="path1"></span>
-        <span class="path2"></span>
+    <i class="{{ formatIconClass('ki-duotone ki-moon') }} theme-dark-show fs-1">
+        @for ($i = 1; $i <= keenicon_paths('ki-moon'); $i++)
+            <span class="path{{ $i }}"></span>
+        @endfor
     </i>
 </a>
 <!--begin::Menu toggle-->
@@ -31,17 +25,10 @@
     <div class="menu-item px-3 my-0">
         <a href="javascript:void(0)" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
             <span class="menu-icon" data-kt-element="icon">
-                <i class="ki-duotone ki-night-day fs-2">
-                    <span class="path1"></span>
-                    <span class="path2"></span>
-                    <span class="path3"></span>
-                    <span class="path4"></span>
-                    <span class="path5"></span>
-                    <span class="path6"></span>
-                    <span class="path7"></span>
-                    <span class="path8"></span>
-                    <span class="path9"></span>
-                    <span class="path10"></span>
+                <i class="{{ formatIconClass('ki-duotone ki-night-day') }} fs-2">
+                    @for ($i = 1; $i <= keenicon_paths('ki-night-day'); $i++)
+                        <span class="path{{ $i }}"></span>
+                    @endfor
                 </i>
             </span>
             <span class="menu-title">
@@ -54,9 +41,10 @@
     <div class="menu-item px-3 my-0">
         <a href="javascript:void(0)" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="dark">
             <span class="menu-icon" data-kt-element="icon">
-                <i class="ki-duotone ki-moon fs-2">
-                    <span class="path1"></span>
-                    <span class="path2"></span>
+                <i class="{{ formatIconClass('ki-duotone ki-moon') }} fs-2">
+                    @for ($i = 1; $i <= keenicon_paths('ki-moon'); $i++)
+                        <span class="path{{ $i }}"></span>
+                    @endfor
                 </i>
             </span>
             <span class="menu-title">
@@ -69,11 +57,10 @@
     <div class="menu-item px-3 my-0">
         <a href="javascript:void(0)" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="system">
             <span class="menu-icon" data-kt-element="icon">
-                <i class="ki-duotone ki-screen fs-2">
-                    <span class="path1"></span>
-                    <span class="path2"></span>
-                    <span class="path3"></span>
-                    <span class="path4"></span>
+                <i class="{{ formatIconClass('ki-duotone ki-screen') }} fs-2">
+                    @for ($i = 1; $i <= keenicon_paths('ki-screen'); $i++)
+                        <span class="path{{ $i }}"></span>
+                    @endfor
                 </i>
             </span>
             <span class="menu-title">

@@ -16,41 +16,41 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-fluid">
 
-            <!--begin::Card App Profil-->
-            <div class="card card-flush">
-                <!--begin::Card Header-->
-                <div class="card-header align-items-center py-5">
-                    <div class="card-title d-flex align-items-center gap-3">
-                        <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
-                            <i class="ki-duotone ki-setting-2 fs-2x text-primary">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <h3 class="card-title fw-bold fs-3 text-gray-900 m-0">
-                                {{ app()->getLocale() == 'en' ? 'Application Profile & Branding Settings' : 'Pengaturan Profil & Identitas Aplikasi' }}
-                            </h3>
-                            <span class="text-muted fs-7">
-                                {{ app()->getLocale() == 'en' ? 'Manage application name, logo, favicon, and global footer copyright text.' : 'Kelola identitas, logo, favicon, dan hak cipta footer aplikasi Anda.' }}
-                            </span>
-                        </div>
+            <!--begin::Page Header & Guide Action-->
+            <div
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
+                        <i class="ki-duotone ki-setting-2 text-primary fs-2x"><span class="path1"></span><span
+                                class="path2"></span></i>
                     </div>
-                    <div class="card-toolbar">
-                        <span data-bs-toggle="tooltip" data-bs-placement="top"
-                            title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                            <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal"
-                                data-bs-target="#kt_modal_app_profil_help">
-                                <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span
-                                        class="path2"></span><span class="path3"></span></i>
-                            </button>
+                    <div>
+                        <h2 class="text-gray-900 fw-bold fs-3 m-0">
+                            {{ app()->getLocale() == 'en' ? 'Application Profile & Branding Settings' : 'Pengaturan Profil & Identitas Aplikasi' }}
+                        </h2>
+                        <span class="text-muted fs-7">
+                            {{ app()->getLocale() == 'en' ? 'Manage application name, logo, favicon, and global footer copyright text.' : 'Kelola identitas, logo, favicon, dan hak cipta footer aplikasi Anda.' }}
                         </span>
                     </div>
                 </div>
-                <!--end::Card Header-->
+                <div class="d-flex align-items-center gap-2 ms-auto">
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button"
+                            class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0"
+                            data-bs-toggle="modal" data-bs-target="#kt_modal_app_profil_help">
+                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span
+                                    class="path2"></span><span class="path3"></span></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <!--end::Page Header & Guide Action-->
 
+            <!--begin::Card App Profil-->
+            <div class="card card-flush">
                 <!--begin::Card Body-->
-                <div class="card-body pt-0">
+                <div class="card-body pt-6">
                     @include('pages.appsupport.partials.app-profil-form')
                 </div>
                 <!--end::Card Body-->

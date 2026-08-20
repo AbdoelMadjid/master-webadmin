@@ -16,41 +16,132 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-fluid">
 
-            <!--begin::Header Notice Card-->
-            <div class="card card-flush mb-8 bg-light-primary border border-primary">
-                <div class="card-body d-flex align-items-center justify-content-between py-6">
-                    <div class="d-flex align-items-center me-3">
-                        <div class="symbol symbol-50px me-5">
-                            <span class="symbol-label bg-primary text-white">
-                                <i class="ki-duotone ki-eye fs-2x text-white">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                    <span class="path3"></span>
-                                </i>
-                            </span>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <h3 class="fw-bold text-gray-900 mb-1">
-                                {{ app()->getLocale() == 'en' ? 'Dynamic Feature Switch System (Feature Toggle)' : 'Pengaturan Visibilitas Fitur & UI (Feature Toggle)' }}
-                            </h3>
-                            <span class="text-gray-700 fs-6">
-                                {{ app()->getLocale() == 'en' ? 'Operational guide for real-time control of active/inactive module switches and UI components.' : 'Sembunyikan atau tampilkan elemen navigasi seperti grup menu sidebar (PAGES, APPS, LAYOUTS, HELP), ikon topbar navigasi, jam digital, hingga tombol drawer melayang.' }}
-                            </span>
-                        </div>
+            <!--begin::Page Header & Guide Action-->
+            <div
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
+                        <i class="ki-duotone ki-eye text-primary fs-2x"><span class="path1"></span><span
+                                class="path2"></span><span class="path3"></span></i>
                     </div>
                     <div>
-                        <span data-bs-toggle="tooltip" data-bs-placement="top"
-                            title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                            <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal"
-                                data-bs-target="#kt_modal_app_fitur_help">
-                                <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span
-                                        class="path2"></span><span class="path3"></span></i>
-                            </button>
+                        <h2 class="text-gray-900 fw-bold fs-3 m-0">
+                            {{ app()->getLocale() == 'en' ? 'Dynamic Feature Switch System (Feature Toggle)' : 'Pengaturan Visibilitas Fitur & UI (Feature Toggle)' }}
+                        </h2>
+                        <span class="text-muted fs-7">
+                            {{ app()->getLocale() == 'en' ? 'Operational guide for real-time control of active/inactive module switches and UI components.' : 'Sembunyikan atau tampilkan elemen navigasi seperti grup menu sidebar (PAGES, APPS, LAYOUTS, HELP), ikon topbar navigasi, jam digital, hingga tombol drawer melayang.' }}
                         </span>
                     </div>
                 </div>
+                <div class="d-flex align-items-center gap-2 ms-auto">
+                    <!--1. Keenicon Style Switcher Dropdown-->
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Switch Menu Icon Style (Duotone / Solid / Outline)' : 'Ganti Gaya Ikon Menu (Duotone / Solid / Outline)' }}">
+                        <div class="m-0 d-inline-block">
+                            <button type="button"
+                                class="btn btn-dark shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4"
+                                data-kt-menu-trigger="click"
+                                data-kt-menu-placement="bottom-end">
+                                @if (($activeIconStyle ?? 'duotone') == 'solid')
+                                    <i class="ki-solid ki-element-11 fs-2 p-0 m-0 text-warning"></i>
+                                @elseif (($activeIconStyle ?? 'duotone') == 'outline')
+                                    <i class="ki-outline ki-element-11 fs-2 p-0 m-0 text-info"></i>
+                                @else
+                                    <i class="ki-duotone ki-colors-square fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                @endif
+                                <span class="d-none d-sm-inline ms-2">
+                                    {{ app()->getLocale() == 'en' ? 'Icon Style: ' : 'Gaya Ikon: ' }}
+                                    <span class="badge badge-sm {{ ($activeIconStyle ?? 'duotone') == 'solid' ? 'badge-light-warning' : (($activeIconStyle ?? 'duotone') == 'outline' ? 'badge-light-info' : 'badge-light-primary') }} ms-1 fw-bold">
+                                        {{ ucfirst($activeIconStyle ?? 'duotone') }}
+                                    </span>
+                                </span>
+                            </button>
+                            <!--begin::Menu-->
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-250px py-3 shadow-lg border border-gray-200"
+                                data-kt-menu="true">
+                                <!--begin::Menu item Duotone-->
+                                <div class="menu-item px-3">
+                                    <a class="menu-link px-3 d-flex align-items-center justify-content-between cursor-pointer {{ ($activeIconStyle ?? 'duotone') == 'duotone' ? 'active bg-light-primary' : '' }}"
+                                        onclick="switchMenuIconStyle('duotone')">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="ki-duotone ki-element-11 fs-3 text-primary"><span
+                                                    class="path1"></span><span class="path2"></span><span
+                                                    class="path3"></span><span class="path4"></span></i>
+                                            <div class="d-flex flex-column">
+                                                <span
+                                                    class="fw-bold fs-7">{{ app()->getLocale() == 'en' ? 'Duotone Style' : 'Gaya Duotone' }}</span>
+                                                <span class="text-muted fs-8">ki-duotone</span>
+                                            </div>
+                                        </div>
+                                        @if (($activeIconStyle ?? 'duotone') == 'duotone')
+                                            <span class="badge badge-light-primary fs-8 fw-bold py-1 px-2 ms-2">
+                                                <i class="ki-duotone ki-check fs-7 text-primary me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                {{ app()->getLocale() == 'en' ? 'Active' : 'Aktif' }}
+                                            </span>
+                                        @endif
+                                    </a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item Solid-->
+                                <div class="menu-item px-3">
+                                    <a class="menu-link px-3 d-flex align-items-center justify-content-between cursor-pointer {{ ($activeIconStyle ?? 'duotone') == 'solid' ? 'active bg-light-warning' : '' }}"
+                                        onclick="switchMenuIconStyle('solid')">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="ki-solid ki-element-11 fs-3 text-warning"></i>
+                                            <div class="d-flex flex-column">
+                                                <span
+                                                    class="fw-bold fs-7">{{ app()->getLocale() == 'en' ? 'Solid Style' : 'Gaya Solid' }}</span>
+                                                <span class="text-muted fs-8">ki-solid</span>
+                                            </div>
+                                        </div>
+                                        @if (($activeIconStyle ?? 'duotone') == 'solid')
+                                            <span class="badge badge-light-warning fs-8 fw-bold py-1 px-2 ms-2">
+                                                <i class="ki-duotone ki-check fs-7 text-warning me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                {{ app()->getLocale() == 'en' ? 'Active' : 'Aktif' }}
+                                            </span>
+                                        @endif
+                                    </a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item Outline-->
+                                <div class="menu-item px-3">
+                                    <a class="menu-link px-3 d-flex align-items-center justify-content-between cursor-pointer {{ ($activeIconStyle ?? 'duotone') == 'outline' ? 'active bg-light-info' : '' }}"
+                                        onclick="switchMenuIconStyle('outline')">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <i class="ki-outline ki-element-11 fs-3 text-info"></i>
+                                            <div class="d-flex flex-column">
+                                                <span
+                                                    class="fw-bold fs-7">{{ app()->getLocale() == 'en' ? 'Outline Style' : 'Gaya Outline' }}</span>
+                                                <span class="text-muted fs-8">ki-outline</span>
+                                            </div>
+                                        </div>
+                                        @if (($activeIconStyle ?? 'duotone') == 'outline')
+                                            <span class="badge badge-light-info fs-8 fw-bold py-1 px-2 ms-2">
+                                                <i class="ki-duotone ki-check fs-7 text-info me-1"><span class="path1"></span><span class="path2"></span></i>
+                                                {{ app()->getLocale() == 'en' ? 'Active' : 'Aktif' }}
+                                            </span>
+                                        @endif
+                                    </a>
+                                </div>
+                                <!--end::Menu item-->
+                            </div>
+                            <!--end::Menu-->
+                        </div>
+                    </span>
+
+                    <!--2. Operational Guide Button-->
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button"
+                            class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0"
+                            data-bs-toggle="modal" data-bs-target="#kt_modal_app_fitur_help">
+                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span
+                                    class="path2"></span><span class="path3"></span></i>
+                        </button>
+                    </span>
+                </div>
             </div>
-            <!--end::Header Notice Card-->
+            <!--end::Page Header & Guide Action-->
 
             <!--begin::Grouped Features Lists-->
             <div class="row g-6 g-xl-9">
@@ -285,5 +376,61 @@
                 }
             });
         }
+
+        window.switchMenuIconStyle = function(style) {
+            var labels = {
+                'duotone': 'Duotone (ki-duotone)',
+                'solid': 'Solid (ki-solid)',
+                'outline': 'Outline (ki-outline)'
+            };
+            var label = labels[style] || style;
+
+            Swal.fire({
+                title: '{{ app()->getLocale() == "en" ? "Change All Menu Icons?" : "Ganti Gaya Semua Ikon Menu?" }}',
+                text: '{{ app()->getLocale() == "en" ? "All menu icons in the system database will be updated to style: " : "Seluruh ikon menu pada sistem database akan diperbarui menjadi gaya: " }}' + label,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '{{ app()->getLocale() == "en" ? "Yes, Change All" : "Ya, Ganti Semua" }}',
+                cancelButtonText: '{{ app()->getLocale() == "en" ? "Cancel" : "Batal" }}'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: '{{ app()->getLocale() == "en" ? "Updating Icons..." : "Memperbarui Ikon..." }}',
+                        text: '{{ app()->getLocale() == "en" ? "Please wait..." : "Mohon tunggu sejenak..." }}',
+                        allowOutsideClick: false,
+                        didOpen: () => {
+                            Swal.showLoading();
+                        }
+                    });
+
+                    $.ajax({
+                        url: "{{ route('appsupport.app-fiturs.switch-icon-style') }}",
+                        type: "POST",
+                        data: {
+                            _token: "{{ csrf_token() }}",
+                            style: style
+                        },
+                        success: function(response) {
+                            if (response.success) {
+                                if (response.sidebar_html && $('#kt_app_sidebar_menu_wrapper').length) {
+                                    $('#kt_app_sidebar_menu_wrapper').replaceWith(response.sidebar_html);
+                                    reinitSidebar();
+                                }
+                                SwalHelper.success(response.message).then(() => {
+                                    location.reload();
+                                });
+                            } else {
+                                SwalHelper.error(response.message || '{{ app()->getLocale() == "en" ? "Failed to update icon styles." : "Gagal memperbarui gaya ikon." }}');
+                            }
+                        },
+                        error: function(xhr) {
+                            SwalHelper.validationError(xhr);
+                        }
+                    });
+                }
+            });
+        };
     </script>
 @endsection

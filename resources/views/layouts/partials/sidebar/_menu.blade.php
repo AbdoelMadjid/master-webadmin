@@ -30,11 +30,10 @@
                     <!--begin:Menu link-->
                     <a href="{{ route('homepage') }}" class="menu-link">
                         <span class="menu-icon">
-                            <i class="ki-duotone ki-screen fs-2">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                                <span class="path4"></span>
+                            <i class="{{ formatIconClass('ki-duotone ki-screen') }} fs-2">
+                                @for ($i = 1; $i <= keenicon_paths('ki-screen'); $i++)
+                                    <span class="path{{ $i }}"></span>
+                                @endfor
                             </i>
                         </span>
                         <span class="menu-title">{{ __('menu.homepage') }}</span>

@@ -8,11 +8,10 @@
     <div data-kt-menu-trigger="click"
         class="menu-item {{ request()->routeIs(['dashboard', 'dashboards.*']) ? 'here show' : '' }} menu-accordion">
         <span class="menu-link">
-            <span class="menu-icon"><i class="ki-duotone ki-screen fs-2">
-                    <span class="path1"></span>
-                    <span class="path2"></span>
-                    <span class="path3"></span>
-                    <span class="path4"></span>
+            <span class="menu-icon"><i class="{{ formatIconClass('ki-duotone ki-screen') }} fs-2">
+                    @for ($i = 1; $i <= keenicon_paths('ki-screen'); $i++)
+                        <span class="path{{ $i }}"></span>
+                    @endfor
                 </i>
             </span>
             <span class="menu-title">{{ __('menu.dashboards') }}</span>

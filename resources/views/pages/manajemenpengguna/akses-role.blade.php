@@ -14,35 +14,38 @@
 @section('content')
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_content_container" class="app-container container-fluid">
-            <!--begin::Header Card-->
-            <div class="card mb-5">
-                <div class="card-body">
-                    <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
-                        <div class="d-flex align-items-center gap-3">
-                            <i class="ki-duotone ki-shield-tick fs-2hx text-primary"><span class="path1"></span><span
-                                    class="path2"></span></i>
-                            <div>
-                                <h3 class="fw-bold mb-0">Manajemen Hak Akses Role (Role-Permissions Matrix)</h3>
-                                <span class="text-muted fs-7">Kelola matrik izin fitur untuk setiap role pengguna secara
-                                    praktis dan terpusat.</span>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center gap-2">
-                            <span class="badge badge-light-primary fs-7 fw-bold me-2" id="total_perms_info">Total
-                                {{ count($permissions) }} Permissions</span>
-                            <span data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                                <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal"
-                                    data-bs-target="#kt_modal_akses_role_help">
-                                    <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span
-                                            class="path2"></span><span class="path3"></span></i>
-                                </button>
-                            </span>
-                        </div>
+            <!--begin::Page Header & Guide Action-->
+            <div
+                class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
+                        <i class="ki-duotone ki-shield-tick text-primary fs-2x"><span class="path1"></span><span
+                                class="path2"></span></i>
+                    </div>
+                    <div>
+                        <h2 class="text-gray-900 fw-bold fs-3 m-0">
+                            {{ app()->getLocale() == 'en' ? 'Role-Permissions Matrix Management' : 'Manajemen Hak Akses Role (Role-Permissions Matrix)' }}
+                        </h2>
+                        <span class="text-muted fs-7">
+                            {{ app()->getLocale() == 'en' ? 'Manage permission assignment matrix per user role centrally.' : 'Kelola matrik izin fitur untuk setiap role pengguna secara praktis dan terpusat.' }}
+                        </span>
                     </div>
                 </div>
+                <div class="d-flex align-items-center gap-2 ms-auto">
+                    <span class="badge badge-light-primary fs-7 fw-bold" id="total_perms_info">Total
+                        {{ count($permissions) }} Permissions</span>
+                    <span data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
+                        <button type="button"
+                            class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0"
+                            data-bs-toggle="modal" data-bs-target="#kt_modal_akses_role_help">
+                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span
+                                    class="path2"></span><span class="path3"></span></i>
+                        </button>
+                    </span>
+                </div>
             </div>
-            <!--end::Header Card-->
+            <!--end::Page Header & Guide Action-->
 
             <div class="row g-6">
                 <!--begin::Role Selector List-->

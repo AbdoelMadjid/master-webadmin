@@ -26,14 +26,29 @@ class MenuController extends Controller
         $mainMenus = $allMenus->whereNull('main_menu_id')->values();
         $allRoles = \Spatie\Permission\Models\Role::orderBy('name')->get();
 
+        $firstIcon = Menu::whereNotNull('icon')
+            ->where('icon', '!=', '')
+            ->where('icon', '!=', 'none')
+            ->where('icon', '!=', '-')
+            ->value('icon') ?? '';
+
+        if (str_contains($firstIcon, 'ki-solid')) {
+            $activeIconStyle = 'solid';
+        } elseif (str_contains($firstIcon, 'ki-outline')) {
+            $activeIconStyle = 'outline';
+        } else {
+            $activeIconStyle = 'duotone';
+        }
+
         if ($request->wantsJson() || $request->ajax()) {
             return response()->json([
                 'success' => true,
                 'data' => $allMenus,
+                'active_icon_style' => $activeIconStyle,
             ]);
         }
 
-        return view('pages.appsupport.menu', compact('allMenus', 'mainMenus', 'allRoles'));
+        return view('pages.appsupport.menu', compact('allMenus', 'mainMenus', 'allRoles', 'activeIconStyle'));
     }
 
     /**
@@ -138,6 +153,9 @@ class MenuController extends Controller
         $itemData['main_menu_id'] = $parentId;
         $itemData['active'] = isset($itemData['active']) ? (int)$itemData['active'] : 1;
         $itemData['orders'] = $itemData['orders'] ?? 0;
+        if (!empty($itemData['icon'])) {
+            $itemData['paths'] = keenicon_paths($itemData['icon'], (int)($itemData['paths'] ?? 0));
+        }
 
         $meta = $existingMeta;
         $meta['title_key'] = $titleKey;
@@ -609,9 +627,7 @@ class MenuController extends Controller
                 // Adjust path count based on Keenicons specifications
                 $newPaths = (int) $menu->paths;
                 if ($style === 'duotone') {
-                    if ($newPaths <= 0) {
-                        $newPaths = 2; // Default paths count for duotone if none defined
-                    }
+                    $newPaths = keenicon_paths($newIcon, $newPaths > 0 ? $newPaths : 2);
                 } else {
                     $newPaths = 0; // Solid and Outline styles do not use child path spans
                 }

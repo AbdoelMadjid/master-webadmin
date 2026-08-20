@@ -47,11 +47,10 @@
     <div class="app-navbar-item d-lg-none ms-1 ms-md-2">
         <div class="btn btn-flex btn-icon btn-active-light-primary w-35px h-35px" data-kt-menu-trigger="click"
             data-kt-menu-attach="parent" data-kt-menu-placement="bottom">
-            <i class="ki-duotone ki-category fs-2">
-                <span class="path1"></span>
-                <span class="path2"></span>
-                <span class="path3"></span>
-                <span class="path4"></span>
+            <i class="{{ formatIconClass('ki-duotone ki-category') }} fs-2">
+                @for ($i = 1; $i <= keenicon_paths('ki-category'); $i++)
+                    <span class="path{{ $i }}"></span>
+                @endfor
             </i>
         </div>
         <div id="kt_header_quick_actions_mobile_menu" class="menu menu-sub menu-sub-dropdown w-275px p-3"
@@ -138,9 +137,10 @@
     <!--begin::Header menu toggle-->
     <div class="app-navbar-item d-lg-none ms-2 me-n2" title="Show header menu">
         <div class="btn btn-flex btn-icon btn-active-color-primary w-30px h-30px" id="kt_app_header_menu_toggle">
-            <i class="ki-duotone ki-element-4 fs-1">
-                <span class="path1"></span>
-                <span class="path2"></span>
+            <i class="{{ formatIconClass('ki-duotone ki-element-4') }} fs-1">
+                @for ($i = 1; $i <= keenicon_paths('ki-element-4'); $i++)
+                    <span class="path{{ $i }}"></span>
+                @endfor
             </i>
         </div>
     </div>

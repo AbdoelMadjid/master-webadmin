@@ -102,8 +102,7 @@
                                 <li class="mb-2"><strong>Manage Permissions:</strong> Click <span
                                         class="badge badge-light-primary text-primary">+ Permission</span> to map Spatie
                                     role permissions to menu items.</li>
-                                <li class="mb-2"><strong>Keenicon Style Switcher:</strong> Click the <span
-                                        class="badge badge-light-dark text-white">Icon Style</span> dropdown button on the top header to globally transform all menu icons between <code>ki-duotone</code>, <code>ki-solid</code>, and <code>ki-outline</code> styles in real-time according to Metronic 8 Keenicons rules (<code>docs/icons/keenicons</code>).</li>
+                                <li class="mb-2"><strong>Keenicon Style Configuration:</strong> Select icon style prefixes (<code>ki-duotone</code>, <code>ki-solid</code>, <code>ki-outline</code>) and accurate path counts when creating or editing a menu item in the modal form. To switch all navigation icons globally across the entire system, use the central <span class="badge badge-light-dark text-white">Icon Style</span> switcher on the App Features page (<code>appsupport/app-fiturs</code>).</li>
                                 <li><strong>Filter Hierarchy:</strong> Filter the menu table by category or parent menu
                                     to review menu trees.</li>
                             </ol>
@@ -203,7 +202,7 @@
                                 <li class="mb-2"><strong>Edit & Hapus Menu:</strong> Gunakan tombol aksi (<i
                                         class="ki-duotone ki-pencil fs-6 text-primary"><span
                                             class="path1"></span><span class="path2"></span></i> atau <i
-                                        class="ki-duotone ki-trash fs-6 text-danger"><span class="path1"></span><span
+                                         class="ki-duotone ki-trash fs-6 text-danger"><span class="path1"></span><span
                                             class="path2"></span><span class="path3"></span><span
                                             class="path4"></span><span class="path5"></span></i>) pada setiap baris
                                     tabel untuk mengubah atribut atau menghapus menu. Jika menu utama (Level 0) atau
@@ -216,8 +215,7 @@
                                 <li class="mb-2"><strong>Kelola Perizinan:</strong> Klik tombol <span
                                         class="badge badge-light-primary text-primary">+ Permission</span> untuk
                                     memetakan syarat hak akses role.</li>
-                                <li class="mb-2"><strong>Pengubah Gaya Ikon Keenicons (Style Switcher):</strong> Klik tombol dropdown <span
-                                        class="badge badge-light-dark text-white">Gaya Ikon</span> di header atas untuk mengganti gaya seluruh ikon menu di database secara terpusat antara <code>ki-duotone</code>, <code>ki-solid</code>, dan <code>ki-outline</code> sesuai standar Metronic 8 Keenicons (<code>docs/icons/keenicons</code>).</li>
+                                <li class="mb-2"><strong>Konfigurasi Gaya Ikon Keenicons:</strong> Atur gaya ikon menu individual (<code>ki-duotone</code>, <code>ki-solid</code>, <code>ki-outline</code>) dan layer path saat menambah/mengubah menu di form modal. Untuk mengganti gaya seluruh ikon navigasi secara global di seluruh sistem, gunakan fitur terpusat <span class="badge badge-light-dark text-white">Gaya Ikon</span> pada halaman Fitur Aplikasi (<code>appsupport/app-fiturs</code>).</li>
                                 <li><strong>Penyaringan Hierarki:</strong> Saring tabel menu berdasarkan kategori atau
                                     menu induk untuk meninjau struktur menu.</li>
                             </ol>

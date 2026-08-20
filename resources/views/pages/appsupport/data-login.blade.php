@@ -39,12 +39,13 @@
                         </span>
                     </div>
                 </div>
-                <div class="d-flex align-items-center gap-2">
+                <div class="d-flex align-items-center gap-2 ms-auto">
                     <span data-bs-toggle="tooltip" data-bs-placement="top"
                         title="{{ app()->getLocale() == 'en' ? 'Operational Guide' : 'Petunjuk Operasional' }}">
-                        <button type="button" class="btn btn-icon btn-danger shadow-xs" data-bs-toggle="modal"
-                            data-bs-target="#kt_modal_data_login_help">
-                            <i class="ki-duotone ki-question fs-1"><span class="path1"></span><span
+                        <button type="button"
+                            class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0"
+                            data-bs-toggle="modal" data-bs-target="#kt_modal_data_login_help">
+                            <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span
                                     class="path2"></span><span class="path3"></span></i>
                         </button>
                     </span>

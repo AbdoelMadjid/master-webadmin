@@ -112,6 +112,9 @@
         $badgeKey = 'menu.' . strtolower(str_replace([' ', '&', '/'], ['_', 'and', '_'], trim($label)));
         return __($badgeKey) != $badgeKey ? __($badgeKey) : $label;
     };
+    $getItemPaths = function ($item) {
+        return keenicon_paths($item['icon'] ?? '', (int) ($item['paths'] ?? 0));
+    };
 @endphp
 
 {{-- Mode 1: accordion biasa (bukan dropdown) --}}
@@ -120,8 +123,8 @@
         <span class="menu-link">
             @if ($level == 1)
                 <span class="menu-icon">
-                    <i class="{{ $menu['icon'] ?? '' }}">
-                        @for ($i = 1; $i <= ($menu['paths'] ?? 0); $i++)
+                    <i class="{{ formatIconClass($menu['icon'] ?? '') }}">
+                        @for ($i = 1; $i <= $getItemPaths($menu); $i++)
                             <span class="path{{ $i }}"></span>
                         @endfor
                     </i>
@@ -192,8 +195,8 @@
         <span class="menu-link">
             @if ($level == 1)
                 <span class="menu-icon">
-                    <i class="{{ $menu['icon'] ?? '' }}">
-                        @for ($i = 1; $i <= ($menu['paths'] ?? 0); $i++)
+                    <i class="{{ formatIconClass($menu['icon'] ?? '') }}">
+                        @for ($i = 1; $i <= $getItemPaths($menu); $i++)
                             <span class="path{{ $i }}"></span>
                         @endfor
                     </i>
@@ -231,8 +234,8 @@
             {{ isset($menu['target']) ? 'target=' . $menu['target'] : '' }}>
             @if ($level == 1)
                 <span class="menu-icon">
-                    <i class="{{ $menu['icon'] ?? '' }}">
-                        @for ($i = 1; $i <= ($menu['paths'] ?? 0); $i++)
+                    <i class="{{ formatIconClass($menu['icon'] ?? '') }}">
+                        @for ($i = 1; $i <= $getItemPaths($menu); $i++)
                             <span class="path{{ $i }}"></span>
                         @endfor
                     </i>

@@ -155,34 +155,59 @@
    - **Text Formatting Invariant**: Do NOT use raw markdown asterisks (`*text*`) or raw markdown code ticks inside Blade views. Always use proper HTML tags (`<em>`, `<code>`, `<strong>`, and `<span class="badge badge-light-...">`).
    - The modal body MUST end with a centered primary dismiss button: `<div class="text-center mt-10"><button type="button" class="btn btn-primary min-w-150px" data-bs-dismiss="modal">{{ app()->getLocale() == 'en' ? 'Understood' : 'Saya Mengerti' }}</button></div>`.
 
-# Rules for Responsive Page Header Action Buttons
+# Rules for Standardized Page Header Card & Action Buttons
 
-1. **Responsive Text Hiding & Square Icon Dimensions on Mobile**:
-   - Every primary page header action button (e.g. Add, Import, Batch Creator) MUST be mobile-friendly.
+1. **Uniform Page Header Card Container**:
+   - Every page header banner MUST use the standard white card container:
+     `<div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">`
+   - Using `flex-wrap` and `gap-3` is MANDATORY to guarantee that page title text and action buttons flow smoothly on both desktop and mobile viewports without text squeezing or overlapping.
+
+2. **Standardized Header Title & Icon Badge**:
+   - The left title block MUST use `<div class="d-flex align-items-center gap-3">`.
+   - Icon badges MUST use the standard circular layout: `<div class="symbol symbol-45px symbol-circle bg-light-primary p-2"><i class="ki-duotone ki-<icon> text-primary fs-2x">...</i></div>`.
+   - Main page title headings MUST use `<h2 class="text-gray-900 fw-bold fs-3 m-0">`.
+   - Subtitle lead descriptions MUST use `<span class="text-muted fs-7">`.
+
+3. **Responsive Action Button Container (`ms-auto`)**:
+   - The right action button container MUST use `<div class="d-flex align-items-center gap-2 ms-auto">`. `ms-auto` preserves far-right alignment even when the title text wraps onto a new line on mobile screens.
+
+4. **Responsive Text Hiding & Square Icon Dimensions on Mobile**:
+   - Every primary page header action button (e.g. Add, Import, Batch Creator, Icon Style) MUST be mobile-friendly.
    - On mobile screens (`< 576px`), hide the text label by wrapping it in `<span class="d-none d-sm-inline ms-2">...</span>` while displaying only the duotone Keenicon.
    - Use responsive width, height, and padding classes (`w-35px w-sm-auto h-35px px-0 px-sm-4 d-inline-flex align-items-center justify-content-center`) so that buttons render as perfect, uniform 35px x 35px square icon buttons on mobile devices and maintain an exact matching height (`h-35px`) with icon-only buttons on desktop.
 
-2. **Far-Right Alignment Preservation (`ms-auto`)**:
-   - The action button container (`d-flex align-items-center gap-2 ms-auto`) MUST include `ms-auto` so that even when the page title wraps onto a new line on small mobile screens, all action buttons remain cleanly aligned to the **FAR RIGHT** of the header card.
-
-3. **Mandatory Top Tooltip Wrapper**:
+5. **Mandatory Top Tooltip Wrapper**:
    - Every responsive action button MUST be wrapped inside a `<span data-bs-toggle="tooltip" data-bs-placement="top" title="...">` element so mobile users tapping or hovering over icon-only buttons receive clear descriptive tooltips without Bootstrap 5 modal attribute collision.
-   - On mobile screens where text labels are hidden, top tooltips are mandatory to ensure action intent remains clear to the user.
 
-4. **Code Pattern Example**:
+6. **Code Pattern Example**:
    ```html
-   <div class="d-flex align-items-center gap-2 ms-auto">
-       <span data-bs-toggle="tooltip" data-bs-placement="top" title="Tambah Menu Tunggal">
-           <button type="button" class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4" onclick="openAddModal()">
-               <i class="ki-duotone ki-plus fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
-               <span class="d-none d-sm-inline ms-2">Tambah Menu</span>
-           </button>
-       </span>
+   <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-6 bg-white p-5 rounded border border-gray-200 shadow-xs">
+       <div class="d-flex align-items-center gap-3">
+           <div class="symbol symbol-45px symbol-circle bg-light-primary p-2">
+               <i class="ki-duotone ki-shield-tick text-primary fs-2x"><span class="path1"></span><span class="path2"></span></i>
+           </div>
+           <div>
+               <h2 class="text-gray-900 fw-bold fs-3 m-0">
+                   {{ app()->getLocale() == 'en' ? 'Page Title' : 'Judul Halaman' }}
+               </h2>
+               <span class="text-muted fs-7">
+                   {{ app()->getLocale() == 'en' ? 'Subtitle description...' : 'Deskripsi subtitle...' }}
+               </span>
+           </div>
+       </div>
+       <div class="d-flex align-items-center gap-2 ms-auto">
+           <span data-bs-toggle="tooltip" data-bs-placement="top" title="Tambah Menu">
+               <button type="button" class="btn btn-primary shadow-xs d-inline-flex align-items-center justify-content-center w-35px w-sm-auto h-35px px-0 px-sm-4" onclick="openAddModal()">
+                   <i class="ki-duotone ki-plus fs-2 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
+                   <span class="d-none d-sm-inline ms-2">Tambah Menu</span>
+               </button>
+           </span>
 
-       <span data-bs-toggle="tooltip" data-bs-placement="top" title="Petunjuk Operasional">
-           <button type="button" class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0" data-bs-toggle="modal" data-bs-target="#kt_modal_help">
-               <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-           </button>
-       </span>
+           <span data-bs-toggle="tooltip" data-bs-placement="top" title="Petunjuk Operasional">
+               <button type="button" class="btn btn-danger shadow-xs d-inline-flex align-items-center justify-content-center w-35px h-35px p-0" data-bs-toggle="modal" data-bs-target="#kt_modal_help">
+                   <i class="ki-duotone ki-question fs-1 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
+               </button>
+           </span>
+       </div>
    </div>
    ```

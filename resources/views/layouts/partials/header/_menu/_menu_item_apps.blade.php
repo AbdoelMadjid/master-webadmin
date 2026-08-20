@@ -23,6 +23,9 @@
     $isDropdown = $level === 1 || ($menu['dropdown'] ?? false);
 
     $titleKey = 'menu.' . strtolower(str_replace([' ', '&', '/'], ['_', 'and', '_'], $menu['title']));
+    $getItemPaths = function ($item) {
+        return keenicon_paths($item['icon'] ?? '', (int) ($item['paths'] ?? 0));
+    };
 @endphp
 
 @if ($hasChildren)
@@ -36,8 +39,8 @@
         <span class="menu-link">
             @if ($level == 1)
                 <span class="menu-icon">
-                    <i class="{{ $menu['icon'] ?? '' }}">
-                        @for ($i = 1; $i <= ($menu['paths'] ?? 0); $i++)
+                    <i class="{{ formatIconClass($menu['icon'] ?? '') }}">
+                        @for ($i = 1; $i <= $getItemPaths($menu); $i++)
                             <span class="path{{ $i }}"></span>
                         @endfor
                     </i>
@@ -69,8 +72,8 @@
             @if (isset($menu['href'])) target="_blank" @endif>
             @if ($level == 1)
                 <span class="menu-icon">
-                    <i class="{{ $menu['icon'] ?? '' }}">
-                        @for ($i = 1; $i <= ($menu['paths'] ?? 0); $i++)
+                    <i class="{{ formatIconClass($menu['icon'] ?? '') }}">
+                        @for ($i = 1; $i <= $getItemPaths($menu); $i++)
                             <span class="path{{ $i }}"></span>
                         @endfor
                     </i>

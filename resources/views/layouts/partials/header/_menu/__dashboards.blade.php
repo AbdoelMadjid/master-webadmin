@@ -20,8 +20,8 @@
                                 class="menu-link {{ request()->routeIs($card['route']) ? 'active' : '' }}">
                                 <span
                                     class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded w-40px h-40px me-3">
-                                    <i class="{{ $card['icon'] }}">
-                                        @for ($i = 1; $i <= $card['paths']; $i++)
+                                    <i class="{{ formatIconClass($card['icon']) }}">
+                                        @for ($i = 1; $i <= keenicon_paths($card['icon'], (int) ($card['paths'] ?? 0)); $i++)
                                             <span class="path{{ $i }}"></span>
                                         @endfor
                                     </i>

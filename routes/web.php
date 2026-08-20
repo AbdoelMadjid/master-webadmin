@@ -102,6 +102,7 @@ Route::middleware('auth')->group(function () {
     Route::get('appsupport/app-fiturs', [AppFiturController::class, 'index'])->name('appsupport.app-fiturs');
     Route::post('appsupport/app-fiturs/bulk-toggle', [AppFiturController::class, 'bulkToggle'])->name('appsupport.app-fiturs.bulk-toggle');
     Route::post('appsupport/app-fiturs/{id}/toggle-status', [AppFiturController::class, 'toggleStatus'])->name('appsupport.app-fiturs.toggle-status');
+    Route::post('appsupport/app-fiturs/switch-icon-style', [AppFiturController::class, 'switchIconStyle'])->name('appsupport.app-fiturs.switch-icon-style');
 
     Route::post('appsupport/menu/sort', [MenuController::class, 'sort'])->name('appsupport.menu.sort');
     Route::post('appsupport/menu/auto-translate', [MenuController::class, 'autoTranslate'])->name('appsupport.menu.auto-translate');

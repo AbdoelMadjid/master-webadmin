@@ -123,8 +123,8 @@
                                     @if (isset($menu['target'])) target="{{ $menu['target'] }}" @elseif($isExternal) target="_blank" @endif
                                     @if (!empty($menu['tooltip'])) title="{{ __($titleKey . '_tooltip') != $titleKey . '_tooltip' ? __($titleKey . '_tooltip') : $menu['tooltip'] ?? '' }}" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click" data-bs-placement="right" @endif>
                                     <span class="menu-icon">
-                                        <i class="{{ $menu['icon'] }}">
-                                            @for ($i = 1; $i <= $menu['paths']; $i++)
+                                        <i class="{{ formatIconClass($menu['icon']) }}">
+                                            @for ($i = 1; $i <= keenicon_paths($menu['icon'], (int) ($menu['paths'] ?? 0)); $i++)
                                                 <span class="path{{ $i }}"></span>
                                             @endfor
                                         </i>

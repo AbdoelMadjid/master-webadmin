@@ -138,10 +138,16 @@
                             </label>
                             <input type="text" class="form-control form-control-solid"
                                 placeholder="Contoh: ki-duotone ki-element-11" name="icon" id="menu_icon" />
-                            <div class="d-flex align-items-center gap-1 mt-2 flex-wrap">
-                                <button type="button" class="btn btn-xs btn-light-primary py-1 px-2" onclick="setFormIconStyle('ki-duotone')">ki-duotone</button>
-                                <button type="button" class="btn btn-xs btn-light-warning py-1 px-2" onclick="setFormIconStyle('ki-solid')">ki-solid</button>
-                                <button type="button" class="btn btn-xs btn-light-info py-1 px-2" onclick="setFormIconStyle('ki-outline')">ki-outline</button>
+                            <div class="d-flex align-items-center gap-1 mt-2 flex-wrap" id="form_icon_style_buttons">
+                                <button type="button" class="btn btn-xs btn-light-primary py-1 px-2 icon-style-btn" data-prefix="ki-duotone" onclick="setFormIconStyle('ki-duotone')">
+                                    <i class="ki-duotone ki-check fs-8 d-none me-1 check-active"><span class="path1"></span><span class="path2"></span></i>ki-duotone
+                                </button>
+                                <button type="button" class="btn btn-xs btn-light-warning py-1 px-2 icon-style-btn" data-prefix="ki-solid" onclick="setFormIconStyle('ki-solid')">
+                                    <i class="ki-duotone ki-check fs-8 d-none me-1 check-active"><span class="path1"></span><span class="path2"></span></i>ki-solid
+                                </button>
+                                <button type="button" class="btn btn-xs btn-light-info py-1 px-2 icon-style-btn" data-prefix="ki-outline" onclick="setFormIconStyle('ki-outline')">
+                                    <i class="ki-duotone ki-check fs-8 d-none me-1 check-active"><span class="path1"></span><span class="path2"></span></i>ki-outline
+                                </button>
                                 <a href="{{ route('docs.icons.keenicons') }}" target="_blank" class="ms-auto text-primary fs-8 fw-semibold" title="Cek Aturan Keenicons">
                                     <i class="ki-duotone ki-information-2 fs-7 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>Docs Icons
                                 </a>
@@ -278,6 +284,38 @@
 <!--end::Modal - Add/Edit Menu Dinamis-->
 
 <script>
+    function highlightActiveFormIconStyle() {
+        var val = $.trim($('#menu_icon').val());
+        $('.icon-style-btn').each(function() {
+            var prefix = $(this).data('prefix');
+            var checkIcon = $(this).find('.check-active');
+
+            if (prefix === 'ki-duotone' && val.indexOf('ki-duotone') !== -1) {
+                $(this).removeClass('btn-light-primary').addClass('btn-primary active shadow-xs');
+                checkIcon.removeClass('d-none');
+            } else if (prefix === 'ki-duotone') {
+                $(this).removeClass('btn-primary active shadow-xs').addClass('btn-light-primary');
+                checkIcon.addClass('d-none');
+            }
+
+            if (prefix === 'ki-solid' && val.indexOf('ki-solid') !== -1) {
+                $(this).removeClass('btn-light-warning').addClass('btn-warning active shadow-xs');
+                checkIcon.removeClass('d-none');
+            } else if (prefix === 'ki-solid') {
+                $(this).removeClass('btn-warning active shadow-xs').addClass('btn-light-warning');
+                checkIcon.addClass('d-none');
+            }
+
+            if (prefix === 'ki-outline' && val.indexOf('ki-outline') !== -1) {
+                $(this).removeClass('btn-light-info').addClass('btn-info active shadow-xs');
+                checkIcon.removeClass('d-none');
+            } else if (prefix === 'ki-outline') {
+                $(this).removeClass('btn-info active shadow-xs').addClass('btn-light-info');
+                checkIcon.addClass('d-none');
+            }
+        });
+    }
+
     function setFormIconStyle(prefix) {
         var iconInput = $('#menu_icon');
         var val = $.trim(iconInput.val());
@@ -294,8 +332,23 @@
         }
         if (prefix === 'ki-solid' || prefix === 'ki-outline') {
             $('#menu_paths').val(0);
-        } else if (prefix === 'ki-duotone' && (parseInt($('#menu_paths').val()) || 0) <= 0) {
-            $('#menu_paths').val(2);
+        } else if (prefix === 'ki-duotone') {
+            var iconName = $.trim(iconInput.val()).replace(/^ki-(duotone|solid|outline)\s+/, '');
+            var knownPaths = {
+                'element-11': 4, 'element-plus': 5, 'abstract-28': 2, 'abstract-14': 2, 'colors-square': 4,
+                'question': 3, 'information-5': 3, 'pencil': 2, 'trash': 5, 'plus': 2, 'folder': 2, 'down-square': 2,
+                'check-circle': 2, 'magnifier': 2, 'arrows-loop': 2, 'cross': 2, 'lock-3': 2, 'profile-circle': 2, 'setting': 2
+            };
+            if (knownPaths[iconName]) {
+                $('#menu_paths').val(knownPaths[iconName]);
+            } else if ((parseInt($('#menu_paths').val()) || 0) <= 0) {
+                $('#menu_paths').val(2);
+            }
         }
+        highlightActiveFormIconStyle();
     }
+
+    $(document).ready(function() {
+        $('#menu_icon').on('input change keyup', highlightActiveFormIconStyle);
+    });
 </script>
