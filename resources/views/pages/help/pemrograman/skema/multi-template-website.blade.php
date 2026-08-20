@@ -97,7 +97,7 @@
                             </p>
                             <ol class="fs-7 text-gray-800 ps-4 mb-0">
                                 <li class="mb-2"><strong>Active Template Path:</strong> <code>resources/views/website/templates/{active_slug}/{page}.blade.php</code></li>
-                                <li class="mb-2"><strong>Default Standard Fallback:</strong> <code>resources/views/website/templates/unify-education/{page}.blade.php</code></li>
+                                <li class="mb-2"><strong>Default Standard Fallback:</strong> <code>resources/views/theme/default/{page}.blade.php</code></li>
                                 <li class="mb-2"><strong>Legacy Path Fallback:</strong> <code>resources/views/website/{page}.blade.php</code></li>
                             </ol>
                         </div>
@@ -196,7 +196,7 @@
                             </p>
                             <ol class="fs-7 text-gray-800 ps-4 mb-0">
                                 <li class="mb-2"><strong>Jalur Template Aktif:</strong> <code>resources/views/website/templates/{active_slug}/{page}.blade.php</code></li>
-                                <li class="mb-2"><strong>Cadangan Standar Bawaan:</strong> <code>resources/views/website/templates/unify-education/{page}.blade.php</code></li>
+                                <li class="mb-2"><strong>Cadangan Standar Bawaan:</strong> <code>resources/views/theme/default/{page}.blade.php</code></li>
                                 <li class="mb-2"><strong>Cadangan Jalur Lama:</strong> <code>resources/views/website/{page}.blade.php</code></li>
                             </ol>
                         </div>
@@ -237,7 +237,7 @@
                                 &lt;script src="&lcub;&lcub; template_asset('js/main.js') &rcub;&rcub;"&gt;&lt;/script&gt;
                             </div>
                             <p class="fs-7 text-gray-700 mb-0">
-                                <strong>Urutan Pencarian Asset:</strong> <code>public/assets/templates/{active_slug}/{$path}</code> &rarr; <code>public/assets/templates/unify-education/{$path}</code> &rarr; <code>public/assets/{$path}</code>.
+                                <strong>Urutan Pencarian Asset:</strong> <code>public/assets/templates/{active_slug}/{$path}</code> &rarr; <code>public/assets/templates/default/{$path}</code> &rarr; <code>public/assets/{$path}</code>.
                             </p>
                         </div>
                     </div>

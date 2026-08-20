@@ -276,6 +276,51 @@ class Changelog extends Model
     {
         return [
             [
+                'version' => 'v1.6.0',
+                'title' => 'Dynamic Frontpage Theme Engine, Live Tab Preview & Standardized Subfolder Architecture',
+                'title_id' => 'Engine Tema Halaman Depan Dinamis, Live Tab Pratinjau & Standardisasi Arsitektur Subfolder',
+                'date' => '2026-08-20',
+                'type' => 'minor',
+                'badge' => 'badge-light-primary',
+                'author' => 'Developer Team',
+                'description' => 'Implemented central Frontpage Theme Management module (/appsupport/theme-frontpage) with database-driven theme activation, real-time live preview tab, subfolder multi-tab architecture (tabs/theme-frontpage/), standardized container-fluid & toolbar header, safe-checked Metronic dashboard header routes, and seeded default Metronic 8 landing page theme.',
+                'description_id' => 'Implementasi modul Manajemen Tema Halaman Depan terpusat (/appsupport/theme-frontpage) berbasis database, tab pratinjau live real-time, arsitektur multi-tab subfolder (tabs/theme-frontpage/), standardisasi container-fluid & header toolbar, proteksi route header Metronic, serta seeder tema landing Metronic 8.',
+                'highlights' => [
+                    [
+                        'type' => 'feat',
+                        'label' => 'Frontpage Theme Management',
+                        'desc' => 'Built CRUD management & live preview tabs for public landing page themes under /appsupport/theme-frontpage.',
+                    ],
+                    [
+                        'type' => 'feat',
+                        'label' => 'Dynamic Theme Resolution Engine',
+                        'desc' => 'Updated WebsiteTemplateService to query active theme from database theme_frontpages with automatic default fallback.',
+                    ],
+                    [
+                        'type' => 'ui',
+                        'label' => 'Standardized Container & Header',
+                        'desc' => 'Standardized toolbar breadcrumb, container-fluid layout, and Keenicons symbol badges across theme management views.',
+                    ],
+                    [
+                        'type' => 'fix',
+                        'label' => 'Header Route Safe Guard',
+                        'desc' => 'Fixed RouteNotFoundException for template demo routes via Route::has() checks in __dashboards.blade.php.',
+                    ],
+                    [
+                        'type' => 'docs',
+                        'label' => 'Bilingual Guide & Seeder',
+                        'desc' => 'Integrated 100% bilingual operational guide modal for Theme Frontpage and added ThemeFrontpageSeeder to DatabaseSeeder.',
+                    ],
+                ],
+                'commits' => [
+                    [
+                        'hash' => 'HEAD',
+                        'date' => '2026-08-20 14:00',
+                        'msg' => 'feat(appsupport): Dynamic Frontpage Theme Engine, Live Tab Preview & Standardized Subfolder Architecture v1.6.0',
+                    ],
+                ],
+            ],
+            [
                 'version' => 'v1.5.0',
                 'title' => 'Global Keenicons Style Engine, Centralized App Features Icon Control & Standardized Responsive Page Header Cards',
                 'title_id' => 'Mesin Gaya Keenicons Global, Kontrol Ikon Terpusat di Fitur Aplikasi & Standardisasi Header Card Responsif',

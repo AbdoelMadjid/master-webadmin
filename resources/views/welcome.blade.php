@@ -1,1 +1,1 @@
-@include('website.home-page')
+@include('theme.default.home-page')

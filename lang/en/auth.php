@@ -73,11 +73,19 @@ return [
         'token_required' => 'The reset token is required.',
     ],
 
+    'idle_session_expired' => 'Your session has expired and you were automatically logged out due to 15 minutes of inactivity. Please log in again.',
+
     'js' => [
         'invalid_email' => 'The value is not a valid email address.',
         'email_required' => 'Email address is required.',
+        'email_missing_at' => 'Incomplete email: Missing "@" character.',
+        'email_missing_dot' => 'Incomplete email: Missing "." dot for domain name (e.g., .com).',
+        'email_invalid_format' => 'Invalid email format.',
         'password_required' => 'The password is required.',
+        'password_confirmation_required' => 'Password confirmation is required.',
+        'password_confirmation_mismatch' => 'The password confirmation does not match.',
         'errors_detected' => 'Sorry, looks like there are some errors detected, please try again.',
         'ok_got_it' => 'Ok, got it!',
     ],
 ];
+

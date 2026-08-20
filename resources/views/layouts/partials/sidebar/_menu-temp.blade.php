@@ -48,7 +48,7 @@
                             @php $titleKey = 'menu.' . strtolower(str_replace([' ', '&', '/'], ['_', 'and', '_'], $menu['title'])); @endphp
                             <div class="menu-item">
                                 <a class="menu-link {{ request()->routeIs($menu['route']) ? 'active' : '' }}"
-                                    href="{{ route($menu['route']) }}">
+                                    href="{{ Route::has($menu['route']) ? route($menu['route']) : '#' }}">
                                     <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
                                     <span
                                         class="menu-title">{{ __($titleKey) != $titleKey ? __($titleKey) : $menu['title'] }}</span>
@@ -78,7 +78,7 @@
                                 @php $titleKey = 'menu.' . strtolower(str_replace([' ', '&', '/'], ['_', 'and', '_'], $menu['title'])); @endphp
                                 <div class="menu-item">
                                     <a class="menu-link {{ request()->routeIs($menu['route']) ? 'active' : '' }}"
-                                        href="{{ route($menu['route']) }}">
+                                        href="{{ Route::has($menu['route']) ? route($menu['route']) : '#' }}">
                                         <span class="menu-bullet"><span class="bullet bullet-dot"></span></span>
                                         <span
                                             class="menu-title">{{ __($titleKey) != $titleKey ? __($titleKey) : $menu['title'] }}</span>

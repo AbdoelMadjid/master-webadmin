@@ -73,11 +73,19 @@ return [
         'token_required' => 'Token reset wajib diisi.',
     ],
 
+    'idle_session_expired' => 'Sesi Anda telah berakhir dan keluar otomatis karena tidak ada aktivitas selama 15 menit. Silakan login kembali.',
+
     'js' => [
         'invalid_email' => 'Format alamat email tidak valid.',
-        'email_required' => 'Alamat email wajib diisi.',
+        'email_required' => 'Email wajib diisi.',
+        'email_missing_at' => 'Penulisan email belum lengkap: Kurang karakter "@".',
+        'email_missing_dot' => 'Penulisan email belum lengkap: Kurang tanda titik "." untuk nama domain (misal: .com).',
+        'email_invalid_format' => 'Format penulisan email tidak valid.',
         'password_required' => 'Password wajib diisi.',
+        'password_confirmation_required' => 'Konfirmasi password wajib diisi.',
+        'password_confirmation_mismatch' => 'Konfirmasi password tidak sama.',
         'errors_detected' => 'Maaf, ada beberapa error terdeteksi. Silakan coba lagi.',
         'ok_got_it' => 'Baik, mengerti!',
     ],
 ];
+

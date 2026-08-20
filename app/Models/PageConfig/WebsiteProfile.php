@@ -111,7 +111,7 @@ class WebsiteProfile extends Model
                     'copyright_text' => 'Universitas Unify - Sejak 1978',
                     'copyright_text_en' => 'University of Unify since 1978',
                     'social_links' => static::getDefaultSocialLinks(),
-                    'template_slug' => 'unify-education',
+                    'template_slug' => 'default',
                 ]);
             }
 

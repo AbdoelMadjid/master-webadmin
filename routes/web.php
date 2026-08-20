@@ -161,6 +161,14 @@ Route::middleware('auth')->group(function () {
     Route::post('appsupport/console-developer/generator', [ConsoleDeveloperController::class, 'generator'])->name('appsupport.console-developer.generator');
     Route::post('appsupport/console-developer/file-utility', [ConsoleDeveloperController::class, 'fileUtility'])->name('appsupport.console-developer.file-utility');
     Route::post('appsupport/console-developer/seeder-action', [ConsoleDeveloperController::class, 'seederAction'])->name('appsupport.console-developer.seeder-action');
+
+    // Theme Frontpage Management Routes
+    Route::get('appsupport/theme-frontpage', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'index'])->name('appsupport.theme-frontpage');
+    Route::post('appsupport/theme-frontpage/activate/{id}', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'activate'])->name('appsupport.theme-frontpage.activate');
+    Route::post('appsupport/theme-frontpage', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'store'])->name('appsupport.theme-frontpage.store');
+    Route::put('appsupport/theme-frontpage/{id}', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'update'])->name('appsupport.theme-frontpage.update');
+    Route::delete('appsupport/theme-frontpage/{id}', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'destroy'])->name('appsupport.theme-frontpage.destroy');
+
     // Lock Screen Route
     Route::post('/lock-screen/unlock', [\App\Http\Controllers\Auth\LockScreenController::class, 'unlock'])->middleware('throttle:5,1')->name('lock-screen.unlock');
 });
@@ -171,4 +179,3 @@ require __DIR__ . '/_menu-route-utils.php';
 require __DIR__ . '/menu-temp.php';
 // Route tambahan sidebar/menu dari menu_seeder (database).
 require __DIR__ . '/menu.php';
-require __DIR__ . '/website.php';

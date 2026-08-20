@@ -2,7 +2,6 @@
 
 $parentMenuFiles = [
     __DIR__.'/websitedata/websitedata-pageconfig_seeder.php',
-    __DIR__.'/websitedata/websitedata-pagecontent_seeder.php',
 ];
 
 $menus = [];

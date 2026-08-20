@@ -59,6 +59,14 @@ return [
             'roles' => ['admin'],
         ],
         [
+            'title' => 'Tema Halaman Depan',
+            'title_en' => 'Theme Front Page',
+            'title_key' => 'md_theme_frontpage',
+            'route' => 'appsupport/theme-frontpage',
+            'permissions' => ['create', 'read', 'update', 'delete'],
+            'roles' => ['admin'],
+        ],
+        [
             'title' => 'Catatan Perubahan',
             'title_en' => 'Changelog',
             'title_key' => 'md_changelog',

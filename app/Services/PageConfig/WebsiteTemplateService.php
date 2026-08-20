@@ -20,6 +20,10 @@ class WebsiteTemplateService
     public static function getActiveTemplateSlug(): string
     {
         try {
+            $activeTheme = \App\Models\AppSupport\ThemeFrontpage::getActiveTheme();
+            if ($activeTheme && !empty($activeTheme->slug)) {
+                return $activeTheme->slug;
+            }
             $profile = WebsiteProfile::getActiveProfile();
             if ($profile && !empty($profile->template_slug)) {
                 return $profile->template_slug;
@@ -28,7 +32,7 @@ class WebsiteTemplateService
             Log::warning('Failed to load active website template slug: ' . $e->getMessage());
         }
 
-        return config('website_templates.default', 'unify-education');
+        return 'default';
     }
 
     /**
@@ -37,13 +41,14 @@ class WebsiteTemplateService
     public static function getAvailableTemplates(): array
     {
         $activeSlug = static::getActiveTemplateSlug();
-        $templates = config('website_templates.templates', []);
-
-        foreach ($templates as $key => &$template) {
-            $template['is_active'] = ($key === $activeSlug);
-        }
-
-        return $templates;
+        return [
+            'default' => [
+                'key' => 'default',
+                'name' => 'Metronic 8 Landing (Standard Default)',
+                'name_id' => 'Metronic 8 Landing (Standar Bawaan)',
+                'is_active' => ($activeSlug === 'default'),
+            ],
+        ];
     }
 
     /**
@@ -52,25 +57,20 @@ class WebsiteTemplateService
     public static function resolveView(string $pageName): string
     {
         $activeSlug = static::getActiveTemplateSlug();
-        $defaultSlug = config('website_templates.default', 'unify-education');
 
-        $activeViewPath = "website.templates.{$activeSlug}.{$pageName}";
-        if (View::exists($activeViewPath)) {
-            return $activeViewPath;
+        // 1. Check theme folder (e.g. theme.default.home-page)
+        $themeViewPath = "theme.{$activeSlug}.{$pageName}";
+        if (View::exists($themeViewPath)) {
+            return $themeViewPath;
         }
 
-        $defaultViewPath = "website.templates.{$defaultSlug}.{$pageName}";
-        if (View::exists($defaultViewPath)) {
-            return $defaultViewPath;
+        // 2. Fallback to default theme
+        $defaultThemePath = "theme.default.{$pageName}";
+        if (View::exists($defaultThemePath)) {
+            return $defaultThemePath;
         }
 
-        // Direct legacy view fallback
-        $legacyViewPath = "website.{$pageName}";
-        if (View::exists($legacyViewPath)) {
-            return $legacyViewPath;
-        }
-
-        return $defaultViewPath;
+        return $defaultThemePath;
     }
 
     /**
@@ -81,14 +81,14 @@ class WebsiteTemplateService
         $slug = $templateSlug ?? static::getActiveTemplateSlug();
         $cleanPath = ltrim($path, '/');
 
-        // 1. Check template-specific asset folder (e.g. public/assets/templates/unify-education/...)
+        // 1. Check template-specific asset folder
         $templateAssetRelative = "assets/templates/{$slug}/{$cleanPath}";
         if (file_exists(public_path($templateAssetRelative))) {
             return asset($templateAssetRelative);
         }
 
         // 2. Check default standard template asset folder
-        $defaultSlug = config('website_templates.default', 'unify-education');
+        $defaultSlug = config('website_templates.default', 'default');
         if ($slug !== $defaultSlug) {
             $defaultAssetRelative = "assets/templates/{$defaultSlug}/{$cleanPath}";
             if (file_exists(public_path($defaultAssetRelative))) {

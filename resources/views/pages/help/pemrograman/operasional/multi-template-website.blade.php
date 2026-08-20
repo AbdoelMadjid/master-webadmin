@@ -58,19 +58,16 @@
                             </p>
                             <ol class="fs-7 text-gray-800 ps-4 mb-0">
                                 <li class="mb-3">
-                                    <strong>Navigate to Website Profile:</strong> Open <code>Page Config &rarr; Website Profile</code> (<span class="badge badge-light-primary">/pageconfig/website-profile</span>).
+                                    <strong>Navigate to Theme Management:</strong> Open <code>App Support &rarr; Theme Front Page</code> (<span class="badge badge-light-primary">/appsupport/theme-frontpage</span>).
                                 </li>
                                 <li class="mb-3">
-                                    <strong>Open Website Template Tab:</strong> Click the <span class="badge badge-primary">Website Template</span> sub-tab item.
+                                    <strong>Browse Registered Themes:</strong> Inspect available frontend themes showing preview thumbnails, version badges, author info, and supported layout features.
                                 </li>
                                 <li class="mb-3">
-                                    <strong>Browse Registered Templates:</strong> Inspect available template cards showing preview thumbnails, version badges, author info, and supported data integrations.
-                                </li>
-                                <li class="mb-3">
-                                    <strong>Activate Template:</strong> Click <span class="badge badge-success">Set as Active Template</span>. The system instantly updates <code>web_profiles.template_slug</code> and clears application cache.
+                                    <strong>Activate Theme:</strong> Click <span class="badge badge-success">Set as Active Theme</span>. The system instantly updates active theme configuration and clears application cache.
                                 </li>
                                 <li>
-                                    <strong>Verify Live Website:</strong> Access <span class="badge badge-info">/website</span> or refresh your browser to view the new layout.
+                                    <strong>Verify Live Website:</strong> Access home landing page or refresh your browser to view the new layout.
                                 </li>
                             </ol>
                         </div>
@@ -92,9 +89,9 @@
                                     <div class="p-4 bg-light-primary rounded border border-primary h-100">
                                         <h5 class="fw-bold text-primary mb-2">Step 1: Create View Directory</h5>
                                         <p class="fs-7 text-gray-700 mb-2">
-                                            Create template folder under <code>resources/views/website/templates/{new_slug}/</code>.
+                                            Create template folder under <code>resources/views/theme/{new_slug}/</code>.
                                         </p>
-                                        <code class="fs-8">resources/views/website/templates/modern-corporate/</code>
+                                        <code class="fs-8">resources/views/theme/modern-corporate/</code>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -103,7 +100,7 @@
                                         <p class="fs-7 text-gray-700 mb-2">
                                             Implement master layout and standard pages:
                                         </p>
-                                        <code class="fs-8">partials/web-master.blade.php</code>, <code class="fs-8">home-page.blade.php</code>, <code class="fs-8">alumni.blade.php</code>, etc.
+                                        <code class="fs-8">home-page.blade.php</code>, etc.
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -137,7 +134,7 @@
                             </h4>
                             <ul class="fs-7 text-gray-800 ps-4 mb-0">
                                 <li class="mb-2"><strong>No Hardcoded Content:</strong> Templates MUST bind to site profile, navigation trees, slide banners, and CTA data.</li>
-                                <li class="mb-2"><strong>Asset Fallback Integrity:</strong> Unimplemented views automatically fall back to default standard <code>unify-education</code> layout.</li>
+                                <li class="mb-2"><strong>Asset Fallback Integrity:</strong> Unimplemented views automatically fall back to default standard <code>default</code> layout.</li>
                                 <li><strong>Bilingual Support:</strong> All template text labels must support <code>app()->getLocale()</code>.</li>
                             </ul>
                         </div>
@@ -157,19 +154,16 @@
                             </p>
                             <ol class="fs-7 text-gray-800 ps-4 mb-0">
                                 <li class="mb-3">
-                                    <strong>Buka Profil Website:</strong> Akses menu <code>Page Config &rarr; Website Profile</code> (<span class="badge badge-light-primary">/pageconfig/website-profile</span>).
+                                    <strong>Buka Tema Halaman Depan:</strong> Akses menu <code>App Support &rarr; Tema Halaman Depan</code> (<span class="badge badge-light-primary">/appsupport/theme-frontpage</span>).
                                 </li>
                                 <li class="mb-3">
-                                    <strong>Buka Tab Template Website:</strong> Klik sub-tab <span class="badge badge-primary">Template Website</span>.
+                                    <strong>Tinjau Tema Terdaftar:</strong> Periksa daftar tema yang tersedia beserta preview thumbnail, badge versi, pengembang, dan fitur terintegrasi.
                                 </li>
                                 <li class="mb-3">
-                                    <strong>Tinjau Template Terdaftar:</strong> Periksa kartu template yang tersedia beserta preview thumbnail, badge versi, pengembang, dan fitur terintegrasi.
-                                </li>
-                                <li class="mb-3">
-                                    <strong>Aktifkan Template:</strong> Klik <span class="badge badge-success">Pilih Template Ini</span>. Sistem secara instan memperbarui <code>web_profiles.template_slug</code> dan membersihkan cache aplikasi.
+                                    <strong>Aktifkan Tema:</strong> Klik <span class="badge badge-success">Pilih Tema Ini</span>. Sistem secara instan memperbarui konfigurasi tema aktif dan membersihkan cache aplikasi.
                                 </li>
                                 <li>
-                                    <strong>Periksa Website Publik:</strong> Akses rute <span class="badge badge-info">/website</span> untuk melihat tampilan baru.
+                                    <strong>Periksa Website Publik:</strong> Akses halaman depan beranda untuk melihat tampilan baru.
                                 </li>
                             </ol>
                         </div>
@@ -191,9 +185,9 @@
                                     <div class="p-4 bg-light-primary rounded border border-primary h-100">
                                         <h5 class="fw-bold text-primary mb-2">Langkah 1: Buat Folder View</h5>
                                         <p class="fs-7 text-gray-700 mb-2">
-                                            Buat folder template di bawah <code>resources/views/website/templates/{new_slug}/</code>.
+                                            Buat folder template di bawah <code>resources/views/theme/{new_slug}/</code>.
                                         </p>
-                                        <code class="fs-8">resources/views/website/templates/modern-corporate/</code>
+                                        <code class="fs-8">resources/views/theme/modern-corporate/</code>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -202,7 +196,7 @@
                                         <p class="fs-7 text-gray-700 mb-2">
                                             Implementasikan layout master dan halaman standar:
                                         </p>
-                                        <code class="fs-8">partials/web-master.blade.php</code>, <code class="fs-8">home-page.blade.php</code>, <code class="fs-8">alumni.blade.php</code>, dll.
+                                        <code class="fs-8">home-page.blade.php</code>, dll.
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -236,7 +230,7 @@
                             </h4>
                             <ul class="fs-7 text-gray-800 ps-4 mb-0">
                                 <li class="mb-2"><strong>Dilarang Konten Hardcoded:</strong> Template WAJIB terhubung ke profil website, hirarki menu, slide banner, dan tombol CTA.</li>
-                                <li class="mb-2"><strong>Integritas Cadangan (<em>Fallback</em>):</strong> View yang belum diimplementasikan otomatis mengambil dari template standar <code>unify-education</code>.</li>
+                                <li class="mb-2"><strong>Integritas Cadangan (<em>Fallback</em>):</strong> View yang belum diimplementasikan otomatis mengambil dari template standar <code>default</code>.</li>
                                 <li><strong>Dukungan Bilingual:</strong> Seluruh teks UI template wajib mendukung <code>app()->getLocale()</code>.</li>
                             </ul>
                         </div>

@@ -16,7 +16,7 @@
                     <div class="col-lg-6 mb-3">
                         <!--begin:Menu item-->
                         <div class="menu-item p-0 m-0">
-                            <a href="{{ route($card['route']) }}"
+                            <a href="{{ Route::has($card['route']) ? route($card['route']) : '#' }}"
                                 class="menu-link {{ request()->routeIs($card['route']) ? 'active' : '' }}">
                                 <span
                                     class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded w-40px h-40px me-3">
@@ -66,7 +66,7 @@
             @foreach (config('header._header_dashboard.header_dashboard_other') as $menu)
                 @php $titleKey = 'menu.' . strtolower(str_replace([' ', '&', '/'], ['_', 'and', '_'], $menu['title'])); @endphp
                 <div class="menu-item p-0 m-0">
-                    <a href="{{ route($menu['route']) }}"
+                    <a href="{{ Route::has($menu['route']) ? route($menu['route']) : '#' }}"
                         class="menu-link py-2 {{ request()->routeIs($menu['route']) ? 'active' : '' }}">
                         <span
                             class="menu-title">{{ __($titleKey) != $titleKey ? __($titleKey) : $menu['title'] }}</span>

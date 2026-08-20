@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('web_profiles', function (Blueprint $table) {
             if (!Schema::hasColumn('web_profiles', 'template_slug')) {
-                $table->string('template_slug', 100)->default('unify-education')->after('social_links');
+                $table->string('template_slug', 100)->default('default')->after('social_links');
             }
         });
     }

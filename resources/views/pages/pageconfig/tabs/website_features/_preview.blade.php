@@ -28,7 +28,7 @@
                         @if ($intakeFeat && $intakeFeat->is_active)
                             <button
                                 class="btn btn-outline btn-outline-white btn-active-light-primary btn-sm rounded-pill text-uppercase fs-8 px-4">
-                                {{ __('website.apply_for_fall_intake') }}
+                                {{ app()->getLocale() == 'en' ? 'Apply Now' : 'Daftar Sekarang' }}
                             </button>
                             <span class="badge badge-light-success fs-9">Active</span>
                         @else
@@ -68,7 +68,7 @@
                             @if ($loginFeat && $loginFeat->is_active)
                                 <span
                                     class="badge bg-white text-dark rounded-pill px-3 py-2 text-uppercase fs-8 fw-bold">
-                                    {{ __('website.sign_in') }}
+                                    {{ __('auth.title') }}
                                 </span>
                                 <span class="badge badge-light-success fs-9">Active</span>
                             @else

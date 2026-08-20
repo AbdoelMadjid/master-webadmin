@@ -169,14 +169,6 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-active-primary text-nowrap pb-4 {{ $activeTab === 'template' ? 'active' : '' }}"
-                        href="{{ route('pageconfig.website-profile', ['tab' => 'template']) }}">
-                        <i class="ki-duotone ki-element-11 fs-2 me-2"><span class="path1"></span><span
-                                class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-                        {{ app()->getLocale() == 'en' ? 'Website Template' : 'Template Website' }}
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link text-active-primary text-nowrap pb-4 {{ $activeTab === 'preview' ? 'active' : '' }}"
                         href="{{ route('pageconfig.website-profile', ['tab' => 'preview']) }}">
                         <i class="ki-duotone ki-eye fs-2 me-2"><span class="path1"></span><span
