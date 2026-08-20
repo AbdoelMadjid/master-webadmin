@@ -42,6 +42,14 @@
         @endif
         <!--end::My apps links-->
 
+        <!--begin::Icon style-->
+        @if (isFeatureActive('topbar_icon_style'))
+            <div data-quick-action-item class="d-flex align-items-stretch">
+                @include('layouts.partials.header._app.icon-style')
+            </div>
+        @endif
+        <!--end::Icon style-->
+
     </div>
 
     <div class="app-navbar-item d-lg-none ms-1 ms-md-2">

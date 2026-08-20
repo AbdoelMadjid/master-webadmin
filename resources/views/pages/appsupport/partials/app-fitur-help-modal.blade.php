@@ -58,10 +58,9 @@
                                     section titles (e.g., <code>PAGES</code>, <code>APPS</code>, <code>LAYOUTS</code>,
                                     <code>HELP</code>).</li>
                                 <li class="mb-2"><strong>Topbar Navbar:</strong> Toggle topbar header icons like
-                                    notifications, quick access, digital clock, or locale switcher.</li>
-                                <li class="mb-2"><strong>Floating Drawer:</strong> Dynamically enable or disable floating drawer
+                                    notifications, quick access, digital clock, locale switcher, or icon style switcher.</li>
+                                <li><strong>Floating Drawer:</strong> Dynamically enable or disable floating drawer
                                     buttons like drawer help or chat widget.</li>
-                                <li><strong>Global Icon Style Switcher:</strong> Centrally transform all icons across the application (sidebar database menus, sidebar template menus, and topbar header menus) between <code>ki-duotone</code>, <code>ki-solid</code>, and <code>ki-outline</code> styles with automatic path layer calculations.</li>
                             </ul>
                         </div>
 
@@ -79,8 +78,6 @@
                                 <li class="mb-2"><strong>Bulk Category Toggle:</strong> Click the bulk switch button
                                     in any category card header to turn all features within that group on or off at
                                     once.</li>
-                                <li class="mb-2"><strong>Global Menu Icon Style Switcher:</strong> Click the <span
-                                        class="badge badge-light-dark text-white">Icon Style</span> dropdown button in the header action bar to globally transform all sidebar and topbar header icons in real-time between <code>ki-duotone</code>, <code>ki-solid</code>, and <code>ki-outline</code> according to Metronic 8 Keenicons rules (<code>docs/icons/keenicons</code>).</li>
                                 <li class="mb-2"><strong>Blade Helper Evaluation:</strong> In Blade templates,
                                     evaluate feature status using the global helper: <code>
                                         @if (isFeatureActive('drawer_help'))
@@ -103,7 +100,7 @@
                             <ul class="fs-6 text-gray-700 m-0 ps-5">
                                 <li class="mb-2"><strong>Emergency Kill Switch:</strong> Features encountering
                                     production issues can be disabled instantly without server downtime.</li>
-                                <li class="mb-2"><strong>Live DOM Invalidation:</strong> Toggling switches or switching icon styles updates
+                                <li class="mb-2"><strong>Live DOM Invalidation:</strong> Toggling switches updates
                                     active UI elements via AJAX immediately.</li>
                                 <li><strong>Unique Feature Keys:</strong> Always use unique lowercase feature keys
                                     (e.g., <code>group_pages</code>) when registering new flags.</li>
@@ -124,7 +121,7 @@
                                 <strong>Modul Fitur Aplikasi (Feature Toggle)</strong> mengimplementasikan arsitektur
                                 sakelar fitur dinamis secara real-time. Administrator dapat secara langsung
                                 menyembunyikan atau menampilkan elemen navigasi, grup menu sidebar, ikon navigasi
-                                topbar, tombol drawer melayang, serta mengubah gaya seluruh ikon navigasi aplikasi secara terpusat tanpa perlu mengubah kode atau me-redeploy aplikasi.
+                                topbar, dan tombol drawer melayang tanpa perlu mengubah kode atau me-redeploy aplikasi.
                             </p>
                         </div>
 
@@ -141,10 +138,9 @@
                                     bagian grup sidebar utama (contoh: <code>PAGES</code>, <code>APPS</code>,
                                     <code>LAYOUTS</code>, <code>HELP</code>).</li>
                                 <li class="mb-2"><strong>Topbar Navbar:</strong> Mengontrol ikon header seperti
-                                    notifikasi, akses cepat, jam digital, atau pengubah bahasa.</li>
-                                <li class="mb-2"><strong>Floating Drawer:</strong> Mengaktifkan atau mematikan tombol drawer melayang
+                                    notifikasi, akses cepat, jam digital, pengubah bahasa, atau pengubah gaya ikon.</li>
+                                <li><strong>Floating Drawer:</strong> Mengaktifkan atau mematikan tombol drawer melayang
                                     seperti drawer help atau widget chat.</li>
-                                <li><strong>Pengubah Gaya Ikon Global (Icon Style Switcher):</strong> Fasilitas terpusat untuk mengganti gaya seluruh ikon pada aplikasi (menu sidebar database, menu sidebar template, serta menu topbar header) antara <code>ki-duotone</code>, <code>ki-solid</code>, dan <code>ki-outline</code> dengan kalkulasi otomatis jumlah layer path yang presisi.</li>
                             </ul>
                         </div>
 
@@ -163,8 +159,6 @@
                                 <li class="mb-2"><strong>Sakelar Kategori Massal:</strong> Klik switch di header kartu
                                     kategori untuk mengaktifkan atau mematikan seluruh sakelar fitur dalam kelompok
                                     sekaligus.</li>
-                                <li class="mb-2"><strong>Pengubah Gaya Ikon Global (Gaya Ikon):</strong> Klik tombol dropdown <span
-                                        class="badge badge-light-dark text-white">Gaya Ikon</span> di header atas untuk memperbarui gaya seluruh ikon navigasi sidebar dan topbar header secara real-time antara <code>ki-duotone</code>, <code>ki-solid</code>, dan <code>ki-outline</code> sesuai standar Metronic 8 Keenicons (<code>docs/icons/keenicons</code>).</li>
                                 <li class="mb-2"><strong>Penggunaan Helper Blade:</strong> Pada tampilan Blade,
                                     evaluasi status sakelar fitur menggunakan helper global: <code>
                                         @if (isFeatureActive('drawer_help'))

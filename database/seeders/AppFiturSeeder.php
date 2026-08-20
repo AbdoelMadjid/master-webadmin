@@ -125,6 +125,13 @@ class AppFiturSeeder extends Seeder
                 'description' => 'Icon My Apps Links di topbar.',
                 'active' => true,
             ],
+            [
+                'feature_key' => 'topbar_icon_style',
+                'feature_name' => 'Icon Change Icon Style',
+                'category' => 'Topbar Navbar',
+                'description' => 'Mengubah Icon Style di topbar.',
+                'active' => true,
+            ],
 
             // 4. Floating Drawers (Samping Kanan Layar)
             [
