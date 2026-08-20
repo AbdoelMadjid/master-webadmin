@@ -1,4 +1,4 @@
-<div class="mt-sm-n20">
+<div class="mt-sm-n20" id="pricing" data-kt-scroll-offset="{default: 100, lg: 150}">
     <!--begin::Curve top-->
     <div class="landing-curve landing-dark-color">
         <svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">

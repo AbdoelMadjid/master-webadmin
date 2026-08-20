@@ -33,7 +33,7 @@
                             {{ app()->getLocale() == 'en' ? 'Frontpage Theme Management' : 'Manajemen Tema Halaman Depan' }}
                         </h2>
                         <span class="text-muted fs-7">
-                            {{ app()->getLocale() == 'en' ? 'Manage, activate, and preview public website landing page themes.' : 'Kelola, aktifkan, dan pratinjau tema tampilan utama beranda website publik.' }}
+                            {{ app()->getLocale() == 'en' ? 'Manage, activate, configure branding, and preview public website landing page themes.' : 'Kelola, aktifkan, atur konfigurasi branding, dan pratinjau tema tampilan utama beranda website publik.' }}
                         </span>
                     </div>
                 </div>
@@ -54,6 +54,12 @@
                             <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'theme-list' ? 'active' : '' }}" href="{{ route('appsupport.theme-frontpage', ['tab' => 'theme-list']) }}">
                                 <i class="ki-duotone ki-element-11 fs-4 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
                                 {{ app()->getLocale() == 'en' ? 'Theme List' : 'Daftar Tema' }}
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'theme-config' ? 'active' : '' }}" href="{{ route('appsupport.theme-frontpage', ['tab' => 'theme-config']) }}">
+                                <i class="ki-duotone ki-setting-2 fs-4 me-2"><span class="path1"></span><span class="path2"></span></i>
+                                {{ app()->getLocale() == 'en' ? 'Theme Configurations' : 'Konfigurasi Tema' }}
                             </a>
                         </li>
                         <li class="nav-item">
@@ -198,6 +204,136 @@
             wrapper.css('max-width', '375px');
             $('#preview_device_group button:nth-child(3)').addClass('active');
         }
+    }
+
+    // Theme Config Builder Functions
+    function previewImage(input, targetId) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#' + targetId).attr('src', e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    function addHeaderMenuItem() {
+        var tbody = $('#header_menu_tbody');
+        var count = tbody.find('tr').length;
+        var featureOptions = '<option value="">-- {{ app()->getLocale() == 'en' ? 'None / Auto-Resolve' : 'Tanpa File / Otomatis' }} --</option>';
+        @if(isset($selectedTheme))
+            @foreach(\App\Services\WebsiteTemplateService::getAvailableFeatureFiles($selectedTheme->slug) as $fFile)
+                featureOptions += '<option value="{{ $fFile }}">{{ $fFile }}.blade.php</option>';
+            @endforeach
+        @endif
+
+        var html = `
+            <tr>
+                <td class="ps-4 fw-bold text-gray-600 index-col">${count + 1}</td>
+                <td>
+                    <input type="text" name="header_menu[${count}][title]" class="form-control form-control-solid form-control-sm" required placeholder="New Link" />
+                </td>
+                <td>
+                    <input type="text" name="header_menu[${count}][url]" class="form-control form-control-solid form-control-sm" required placeholder="#section" />
+                </td>
+                <td>
+                    <select name="header_menu[${count}][feature_file]" class="form-select form-select-solid form-select-sm">
+                        ${featureOptions}
+                    </select>
+                </td>
+                <td>
+                    <select name="header_menu[${count}][target]" class="form-select form-select-solid form-select-sm">
+                        <option value="_self" selected>_self (Same Tab)</option>
+                        <option value="_blank">_blank (New Tab)</option>
+                    </select>
+                </td>
+                <td class="text-end pe-4">
+                    <button type="button" class="btn btn-icon btn-sm btn-light-danger h-30px w-30px" onclick="removeMenuRow(this)">
+                        <i class="ki-duotone ki-trash fs-6 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                    </button>
+                </td>
+            </tr>
+        `;
+        tbody.append(html);
+        reindexRows('header_menu_tbody', 'header_menu');
+    }
+
+    function addFooterMenuItem() {
+        var tbody = $('#footer_menu_tbody');
+        var count = tbody.find('tr').length;
+        var html = `
+            <tr>
+                <td class="ps-4 fw-bold text-gray-600 index-col">${count + 1}</td>
+                <td>
+                    <input type="text" name="footer_menu[${count}][title]" class="form-control form-control-solid form-control-sm" required placeholder="New Link" />
+                </td>
+                <td>
+                    <input type="text" name="footer_menu[${count}][url]" class="form-control form-control-solid form-control-sm" required placeholder="#section" />
+                </td>
+                <td>
+                    <select name="footer_menu[${count}][target]" class="form-select form-select-solid form-select-sm">
+                        <option value="_self" selected>_self (Same Tab)</option>
+                        <option value="_blank">_blank (New Tab)</option>
+                    </select>
+                </td>
+                <td class="text-end pe-4">
+                    <button type="button" class="btn btn-icon btn-sm btn-light-danger h-30px w-30px" onclick="removeMenuRow(this)">
+                        <i class="ki-duotone ki-trash fs-6 p-0 m-0"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></i>
+                    </button>
+                </td>
+            </tr>
+        `;
+        tbody.append(html);
+        reindexRows('footer_menu_tbody', 'footer_menu');
+    }
+
+    function removeMenuRow(btn) {
+        var tr = $(btn).closest('tr');
+        var tbody = tr.closest('tbody');
+        var tbodyId = tbody.attr('id');
+        var inputPrefix = tbodyId === 'header_menu_tbody' ? 'header_menu' : 'footer_menu';
+        tr.remove();
+        reindexRows(tbodyId, inputPrefix);
+    }
+
+    function reindexRows(tbodyId, inputPrefix) {
+        $('#' + tbodyId + ' tr').each(function(idx) {
+            $(this).find('.index-col').text(idx + 1);
+            $(this).find('input, select').each(function() {
+                var name = $(this).attr('name');
+                if (name) {
+                    var newName = name.replace(new RegExp(inputPrefix + '\\[\\d+\\]'), inputPrefix + '[' + idx + ']');
+                    $(this).attr('name', newName);
+                }
+            });
+        });
+    }
+
+    function saveThemeConfig(e, themeId) {
+        e.preventDefault();
+        var url = "{{ url('appsupport/theme-frontpage') }}/" + themeId + "/config";
+        var formData = new FormData($('#theme_config_form')[0]);
+
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                if(response.success) {
+                    SwalHelper.success(response.message);
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 1200);
+                } else {
+                    SwalHelper.error(response.message);
+                }
+            },
+            error: function(xhr) {
+                SwalHelper.validationError(xhr);
+            }
+        });
     }
 </script>
 @endsection

@@ -43,11 +43,19 @@ class ThemeFrontpage extends Model
     }
 
     /**
+     * Relationship to ThemeConfig
+     */
+    public function config()
+    {
+        return $this->hasOne(ThemeConfig::class, 'theme_frontpage_id');
+    }
+
+    /**
      * Get the active frontpage theme record
      */
     public static function getActiveTheme(): ?self
     {
-        return static::where('is_active', true)->first();
+        return static::with('config')->where('is_active', true)->first();
     }
 
     /**

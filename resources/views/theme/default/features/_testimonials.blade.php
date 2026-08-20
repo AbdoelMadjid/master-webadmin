@@ -1,10 +1,11 @@
-<div class="mt-20 mb-n20 position-relative z-index-2">
+<div class="mt-20 mb-n20 position-relative z-index-2" id="testimonial" data-kt-scroll-offset="{default: 100, lg: 150}">
+    <span id="clients"></span>
     <!--begin::Container-->
     <div class="container">
         <!--begin::Heading-->
         <div class="text-center mb-17">
             <!--begin::Title-->
-            <h3 class="fs-2hx text-gray-900 mb-5" id="clients" data-kt-scroll-offset="{default: 125, lg: 150}">
+            <h3 class="fs-2hx text-gray-900 mb-5" id="testimonials" data-kt-scroll-offset="{default: 125, lg: 150}">
                 What Our Clients Say
             </h3>
             <!--end::Title-->

@@ -1,10 +1,10 @@
-<div class="py-10 py-lg-20">
+<div class="py-10 py-lg-20" id="team" data-kt-scroll-offset="{default: 100, lg: 150}">
     <!--begin::Container-->
     <div class="container">
         <!--begin::Heading-->
         <div class="text-center mb-12">
             <!--begin::Title-->
-            <h3 class="fs-2hx text-gray-900 mb-5" id="team" data-kt-scroll-offset="{default: 100, lg: 150}">
+            <h3 class="fs-2hx text-gray-900 mb-5">
                 Our Great Team
             </h3>
             <!--end::Title-->

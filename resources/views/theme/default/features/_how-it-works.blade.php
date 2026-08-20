@@ -1,10 +1,10 @@
-<div class="mb-n10 mb-lg-n20 z-index-2">
+<div class="mb-n10 mb-lg-n20 z-index-2" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">
     <!--begin::Container-->
     <div class="container">
         <!--begin::Heading-->
         <div class="text-center mb-17">
             <!--begin::Title-->
-            <h3 class="fs-2hx text-gray-900 mb-5" id="how-it-works" data-kt-scroll-offset="{default: 100, lg: 150}">
+            <h3 class="fs-2hx text-gray-900 mb-5">
                 How it Works
             </h3>
             <!--end::Title-->

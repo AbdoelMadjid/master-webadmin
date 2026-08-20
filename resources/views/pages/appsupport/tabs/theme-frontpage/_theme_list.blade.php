@@ -88,6 +88,12 @@
                             </div>
 
                             <div class="d-flex align-items-center gap-1">
+                                <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Theme Config' : 'Konfigurasi Tema' }}">
+                                    <a href="{{ route('appsupport.theme-frontpage', ['tab' => 'theme-config', 'theme_id' => $theme->id]) }}" class="btn btn-icon btn-sm btn-light-info h-30px w-30px">
+                                        <i class="ki-duotone ki-setting-2 fs-6 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>
+                                    </a>
+                                </span>
+
                                 <span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ app()->getLocale() == 'en' ? 'Edit Theme Meta' : 'Edit Meta Tema' }}">
                                     <button type="button" class="btn btn-icon btn-sm btn-light-warning h-30px w-30px" onclick='openEditThemeModal(@json($theme))'>
                                         <i class="ki-duotone ki-pencil fs-6 p-0 m-0"><span class="path1"></span><span class="path2"></span></i>

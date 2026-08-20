@@ -33,13 +33,13 @@
                     </h2>
                     <p class="schema-lead">
                         {{ app()->getLocale() == 'en'
-                            ? 'Comprehensive system design, dynamic database theme resolver, universal data binding contract, and isolated asset management for public website layouts.'
-                            : 'Panduan lengkap arsitektur sistem, mesin resolusi tema dinamis berbasis database, kontrak data universal, dan tata kelola terisolasi asset statis website.' }}
+                            ? 'Comprehensive system design, dynamic theme_configs database resolver, feature partial mapping contract, and isolated asset management for public website layouts.'
+                            : 'Panduan lengkap arsitektur sistem, mesin resolusi theme_configs berbasis database, pemetaan partial feature, dan tata kelola terisolasi asset statis website.' }}
                     </p>
                     <div class="schema-meta mt-3">
-                        <span class="schema-chip"><i class="ki-duotone ki-check-circle fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ app()->getLocale() == 'en' ? 'Database Driven' : 'Berbasis Basis Data' }}</span>
-                        <span class="schema-chip"><i class="ki-duotone ki-element-11 fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> {{ app()->getLocale() == 'en' ? 'Dynamic Theme Resolver' : 'Resolusi Tema Dinamis' }}</span>
-                        <span class="schema-chip"><i class="ki-duotone ki-shield-tick fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ app()->getLocale() == 'en' ? 'Data Binding Contract' : 'Kontrak Binding Data' }}</span>
+                        <span class="schema-chip"><i class="ki-duotone ki-check-circle fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ app()->getLocale() == 'en' ? 'Database Driven (theme_configs)' : 'Berbasis Database (theme_configs)' }}</span>
+                        <span class="schema-chip"><i class="ki-duotone ki-element-11 fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> {{ app()->getLocale() == 'en' ? 'Dynamic Feature Inclusion' : 'Inklusi Feature Dinamis' }}</span>
+                        <span class="schema-chip"><i class="ki-duotone ki-shield-tick fs-8 me-1"><span class="path1"></span><span class="path2"></span></i> {{ app()->getLocale() == 'en' ? 'App Profil Integration' : 'Integrasi App Profil' }}</span>
                     </div>
                 </div>
                 <!--end::Hero-->
@@ -51,33 +51,33 @@
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center">
                                 <i class="ki-duotone ki-element-11 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-                                1. System Architecture & Database Storage
+                                1. System Architecture & Database Storage (theme_frontpages & theme_configs)
                             </h4>
                             <p class="fs-7 text-gray-600 mb-4">
-                                The Multi-Template Website engine allows administrators to dynamically change the frontend landing page layout without altering backend data models or admin features.
+                                The Multi-Template Website engine allows administrators to dynamically change public landing layouts, logos, header/footer navigation menus, and feature section order without modifying source code.
                             </p>
                             <div class="row g-4">
                                 <div class="col-md-4">
                                     <div class="p-4 bg-light-primary rounded border border-primary border-dashed h-100">
-                                        <h5 class="fw-bold text-primary mb-2">Simplified Schema</h5>
+                                        <h5 class="fw-bold text-primary mb-2">1. Theme Registration Schema</h5>
                                         <p class="fs-7 text-gray-700 mb-0">
-                                            Themes are registered in table <code>theme_frontpages</code> with core fields: <code>slug</code>, <code>name</code>, <code>thumbnail</code>, <code>view_path</code>, <code>is_active</code>.
+                                            Themes are registered in <code>theme_frontpages</code> (<code>slug</code>, <code>name</code>, <code>thumbnail</code>, <code>view_path</code>, <code>is_active</code>) and managed via <code>ThemeFrontpage</code> model.
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="p-4 bg-light-info rounded border border-info border-dashed h-100">
-                                        <h5 class="fw-bold text-info mb-2">Eloquent Model & Seeder</h5>
+                                        <h5 class="fw-bold text-info mb-2">2. Theme Configurations Schema</h5>
                                         <p class="fs-7 text-gray-700 mb-0">
-                                            Managed via <code>App\Models\AppSupport\ThemeFrontpage</code> model and seeded by <code>ThemeFrontpageSeeder</code>.
+                                            Logos (Default, Sticky, Footer) and JSON menus (<code>header_menu</code> & <code>footer_menu</code> with <code>feature_file</code> mapping) reside in table <code>theme_configs</code>.
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="p-4 bg-light-success rounded border border-success border-dashed h-100">
-                                        <h5 class="fw-bold text-success mb-2">Dynamic Resolver</h5>
+                                        <h5 class="fw-bold text-success mb-2">3. App Profile Metadata Integration</h5>
                                         <p class="fs-7 text-gray-700 mb-0">
-                                            <code>WebsiteTemplateService::resolveView($page)</code> determines active theme view paths with automatic default fallback.
+                                            Favicon, page <code>&lt;title&gt;</code>, meta description, and footer copyright (year & author) are dynamically bound from table <code>app_profils</code>.
                                         </p>
                                     </div>
                                 </div>
@@ -85,20 +85,20 @@
                         </div>
                     </div>
 
-                    <!-- Section 2: View Resolution & Fallback Cascade -->
+                    <!-- Section 2: Dynamic Feature Section Resolution -->
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
                                 <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
-                                2. View Resolution Cascade
+                                2. Dynamic Feature Section Inclusion Engine
                             </h4>
                             <p class="fs-7 text-gray-600 mb-3">
-                                When a public landing route requests a page view (e.g. <code>home-page</code>), <code>WebsiteTemplateService</code> evaluates the following order:
+                                Instead of static hardcoded includes, <code>home-page.blade.php</code> dynamically iterates through active Header Menu items:
                             </p>
                             <ol class="fs-7 text-gray-800 ps-4 mb-0">
-                                <li class="mb-2"><strong>Active Theme Path:</strong> <code>resources/views/theme/{active_slug}/{page}.blade.php</code></li>
-                                <li class="mb-2"><strong>Default Theme Fallback:</strong> <code>resources/views/theme/default/{page}.blade.php</code></li>
-                                <li class="mb-2"><strong>Global Master Fallback:</strong> <code>resources/views/theme/default/home-page.blade.php</code></li>
+                                <li class="mb-2"><strong>Feature File Resolution:</strong> Reads <code>feature_file</code> (e.g. <code>_how-it-works</code>) or auto-resolves from target anchor (e.g. <code>#team</code> &rarr; <code>_team</code>).</li>
+                                <li class="mb-2"><strong>View Cascade:</strong> <code>WebsiteTemplateService::resolveFeatureView(...)</code> checks <code>theme.{active_slug}.features._{file}</code> &rarr; fallback to <code>theme.default.features._{file}</code>.</li>
+                                <li class="mb-2"><strong>Sequential Inclusion:</strong> Sections are automatically <code>@@include</code>d in the exact order configured in the Header Menu Builder.</li>
                             </ol>
                         </div>
                     </div>
@@ -111,14 +111,12 @@
                                 3. Universal Data Provider Contract
                             </h4>
                             <p class="fs-7 text-gray-600 mb-3">
-                                All frontpage themes strictly consume standardized data provided by <code>WebsiteTemplateService::getWebsiteViewData()</code>:
+                                Frontpage theme layouts consume standardized data provided by <code>WebsiteTemplateService::getWebsiteViewData()</code>:
                             </p>
                             <ul class="fs-7 text-gray-800 ps-4 mb-0">
-                                <li class="mb-1"><code>$webProfile</code>: Website name, logo, address, email, social links.</li>
-                                <li class="mb-1"><code>$topNavs</code> & <code>$mainNavs</code>: Tree-structured navigation menus.</li>
-                                <li class="mb-1"><code>$footerNavs</code>: Grouped footer link columns.</li>
-                                <li class="mb-1"><code>$slideBanners</code> & <code>$callToActions</code>: Active home banners & CTAs.</li>
-                                <li><code>$webFeatures</code>: Feature toggle states.</li>
+                                <li class="mb-1"><code>$activeTheme</code>: Active frontpage theme model with eager-loaded <code>config</code> relation.</li>
+                                <li class="mb-1"><code>$themeConfig</code>: Theme logos and header/footer navigation menu arrays.</li>
+                                <li class="mb-1"><code>$webProfile</code>: App profile record (app name, description, year, author, favicon URL).</li>
                             </ul>
                         </div>
                     </div>
@@ -128,7 +126,7 @@
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center">
                                 <i class="ki-duotone ki-folder fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
-                                4. Static Asset Isolation & Thumbnail Standard
+                                4. Static Asset Isolation & Smooth Scroll Anchors
                             </h4>
                             <p class="fs-7 text-gray-600 mb-3">
                                 Theme assets reside under <code>public/theme/{template_slug}/</code> with standardized thumbnail screenshots placed at <code>public/theme/{template_slug}/images/thumbnail/{template_slug}.png</code>. Use the global helper in views:
@@ -138,7 +136,7 @@
                                 &lt;script src="&lcub;&lcub; template_asset('js/main.js') &rcub;&rcub;"&gt;&lt;/script&gt;
                             </div>
                             <p class="fs-7 text-gray-700 mb-0">
-                                <strong>Asset Lookup Order:</strong> <code>public/assets/templates/{active_slug}/{$path}</code> &rarr; <code>public/assets/templates/default/{$path}</code> &rarr; <code>public/assets/{$path}</code>.
+                                <strong>Smooth Scroll Anchors:</strong> Feature partials place <code>id="..."</code> and <code>data-kt-scroll-offset="{default: 100, lg: 150}"</code> on the section top container. Anchor links in both Header & Footer menus with <code>data-kt-scroll-toggle="true"</code> smoothly scroll to the top edge of each section box.
                             </p>
                         </div>
                     </div>
@@ -150,33 +148,33 @@
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center">
                                 <i class="ki-duotone ki-element-11 fs-2 text-primary me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-                                1. Arsitektur Sistem & Penyimpanan Database
+                                1. Arsitektur Sistem & Penyimpanan Database (theme_frontpages & theme_configs)
                             </h4>
                             <p class="fs-7 text-gray-600 mb-4">
-                                Mesin Multi-Template Website memungkinkan administrator mengubah tampilan publik beranda secara dinamis tanpa mengubah model data backend atau fitur admin.
+                                Mesin Multi-Template Website memungkinkan administrator mengubah layout publik beranda, logo, menu navigasi header/footer, dan urutan seksi feature secara dinamis tanpa mengubah kode program.
                             </p>
                             <div class="row g-4">
                                 <div class="col-md-4">
                                     <div class="p-4 bg-light-primary rounded border border-primary border-dashed h-100">
-                                        <h5 class="fw-bold text-primary mb-2">Skema Ringkas</h5>
+                                        <h5 class="fw-bold text-primary mb-2">1. Skema Registrasi Tema</h5>
                                         <p class="fs-7 text-gray-700 mb-0">
-                                            Tema terdaftar pada tabel <code>theme_frontpages</code> dengan kolom utama: <code>slug</code>, <code>name</code>, <code>thumbnail</code>, <code>view_path</code>, <code>is_active</code>.
+                                            Tema terdaftar pada <code>theme_frontpages</code> (<code>slug</code>, <code>name</code>, <code>thumbnail</code>, <code>view_path</code>, <code>is_active</code>) dan dikelola via model <code>ThemeFrontpage</code>.
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="p-4 bg-light-info rounded border border-info border-dashed h-100">
-                                        <h5 class="fw-bold text-info mb-2">Model Eloquent & Seeder</h5>
+                                        <h5 class="fw-bold text-info mb-2">2. Skema Konfigurasi Tema</h5>
                                         <p class="fs-7 text-gray-700 mb-0">
-                                            Dikelola melalui model <code>App\Models\AppSupport\ThemeFrontpage</code> dan diisi oleh <code>ThemeFrontpageSeeder</code>.
+                                            Logo (Default, Sticky, Footer) dan menu JSON (<code>header_menu</code> & <code>footer_menu</code> berpemetaan <code>feature_file</code>) tersimpan di tabel <code>theme_configs</code>.
                                         </p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="p-4 bg-light-success rounded border border-success border-dashed h-100">
-                                        <h5 class="fw-bold text-success mb-2">Pemutus Dinamis</h5>
+                                        <h5 class="fw-bold text-success mb-2">3. Integrasi Profil Aplikasi</h5>
                                         <p class="fs-7 text-gray-700 mb-0">
-                                            Method <code>WebsiteTemplateService::resolveView($page)</code> menentukan jalur tampilan tema aktif beserta mekanisme cadangan otomatis.
+                                            Favicon, <code>&lt;title&gt;</code> halaman, deskripsi meta, dan copyright footer (tahun & pembuat) terhubung dinamis dari tabel <code>app_profils</code>.
                                         </p>
                                     </div>
                                 </div>
@@ -184,20 +182,20 @@
                         </div>
                     </div>
 
-                    <!-- Section 2: View Resolution & Fallback Cascade -->
+                    <!-- Section 2: Dynamic Feature Section Resolution -->
                     <div class="schema-col-6">
                         <div class="schema-card h-100">
                             <h4 class="d-flex align-items-center">
                                 <i class="ki-duotone ki-route fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
-                                2. Urutan Resolusi View (<em>Fallback Cascade</em>)
+                                2. Engine Inklusi Seksi Feature Dinamis
                             </h4>
                             <p class="fs-7 text-gray-600 mb-3">
-                                Saat rute beranda publik meminta tampilan halaman (misal <code>home-page</code>), <code>WebsiteTemplateService</code> memeriksa dengan urutan:
+                                Alih-alih include statis yang di-hardcode, berkas <code>home-page.blade.php</code> secara dinamis melakukan iterasi item Menu Header aktif:
                             </p>
                             <ol class="fs-7 text-gray-800 ps-4 mb-0">
-                                <li class="mb-2"><strong>Jalur Tema Aktif:</strong> <code>resources/views/theme/{active_slug}/{page}.blade.php</code></li>
-                                <li class="mb-2"><strong>Cadangan Tema Standar:</strong> <code>resources/views/theme/default/{page}.blade.php</code></li>
-                                <li class="mb-2"><strong>Cadangan Utama Global:</strong> <code>resources/views/theme/default/home-page.blade.php</code></li>
+                                <li class="mb-2"><strong>Resolusi File Feature:</strong> Membaca nilai <code>feature_file</code> (misal <code>_how-it-works</code>) atau otomatis dari target anchor (misal <code>#team</code> &rarr; <code>_team</code>).</li>
+                                <li class="mb-2"><strong>Urutan Resolusi View:</strong> <code>WebsiteTemplateService::resolveFeatureView(...)</code> memeriksa <code>theme.{active_slug}.features._{file}</code> &rarr; fallback ke <code>theme.default.features._{file}</code>.</li>
+                                <li class="mb-2"><strong>Inklusi Berurutan:</strong> Seksi partial di-<code>@@include</code> otomatis sesuai urutan yang disusun pada Builder Menu Header.</li>
                             </ol>
                         </div>
                     </div>
@@ -210,14 +208,12 @@
                                 3. Kontrak Data Universal
                             </h4>
                             <p class="fs-7 text-gray-600 mb-3">
-                                Seluruh tema beranda secara ketat menggunakan data terstandar dari <code>WebsiteTemplateService::getWebsiteViewData()</code>:
+                                Seluruh layout tema beranda publik menggunakan data terstandar dari <code>WebsiteTemplateService::getWebsiteViewData()</code>:
                             </p>
                             <ul class="fs-7 text-gray-800 ps-4 mb-0">
-                                <li class="mb-1"><code>$webProfile</code>: Nama website, logo, alamat, email, sosial media.</li>
-                                <li class="mb-1"><code>$topNavs</code> & <code>$mainNavs</code>: Struktur hirarki menu navigasi.</li>
-                                <li class="mb-1"><code>$footerNavs</code>: Pengelompokan kolom link footer.</li>
-                                <li class="mb-1"><code>$slideBanners</code> & <code>$callToActions</code>: Banner slide & tombol CTA aktif.</li>
-                                <li><code>$webFeatures</code>: Status pengaktifan fitur website.</li>
+                                <li class="mb-1"><code>$activeTheme</code>: Model tema beranda aktif dengan relasi <code>config</code> yang di-eager-load.</li>
+                                <li class="mb-1"><code>$themeConfig</code>: Konfigurasi logo tema dan array menu navigasi header/footer.</li>
+                                <li class="mb-1"><code>$webProfile</code>: Data profil aplikasi (nama aplikasi, deskripsi, tahun, pembuat, URL favicon).</li>
                             </ul>
                         </div>
                     </div>
@@ -227,7 +223,7 @@
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center">
                                 <i class="ki-duotone ki-folder fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
-                                4. Isolasi Asset Statis & Standar Thumbnail Gambar
+                                4. Isolasi Asset Statis & Anchor Smooth Scroll
                             </h4>
                             <p class="fs-7 text-gray-600 mb-3">
                                 Asset tema berada di bawah <code>public/theme/{template_slug}/</code> dengan tangkapan layar thumbnail terstandar pada <code>public/theme/{template_slug}/images/thumbnail/{template_slug}.png</code>. Gunakan helper global di view Blade:
@@ -237,7 +233,7 @@
                                 &lt;script src="&lcub;&lcub; template_asset('js/main.js') &rcub;&rcub;"&gt;&lt;/script&gt;
                             </div>
                             <p class="fs-7 text-gray-700 mb-0">
-                                <strong>Urutan Pencarian Asset:</strong> <code>public/assets/templates/{active_slug}/{$path}</code> &rarr; <code>public/assets/templates/default/{$path}</code> &rarr; <code>public/assets/{$path}</code>.
+                                <strong>Anchor Smooth Scroll:</strong> Partial feature memasang <code>id="..."</code> dan <code>data-kt-scroll-offset="{default: 100, lg: 150}"</code> pada container paling atas seksi. Tautan anchor pada menu Header maupun Footer ber-<code>data-kt-scroll-toggle="true"</code> akan meluncur ke batas atas tiap kotak seksi.
                             </p>
                         </div>
                     </div>

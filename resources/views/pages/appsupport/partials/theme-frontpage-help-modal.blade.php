@@ -19,7 +19,7 @@
                         {{ app()->getLocale() == 'en' ? 'Frontpage Theme Operational Guide' : 'Petunjuk Operasional Tema Halaman Depan' }}
                     </h1>
                     <div class="text-muted fw-semibold fs-5">
-                        {{ app()->getLocale() == 'en' ? 'Comprehensive manual for managing, previewing, and activating website frontpage landing themes.' : 'Panduan komprehensif manajemen, pratinjau, dan aktivasi tema tampilan beranda website.' }}
+                        {{ app()->getLocale() == 'en' ? 'Comprehensive manual for managing, configuring branding, previewing, and activating website frontpage landing themes.' : 'Panduan komprehensif manajemen, konfigurasi branding, pratinjau, dan aktivasi tema tampilan beranda website.' }}
                     </div>
                 </div>
 
@@ -32,11 +32,11 @@
                         </h4>
                         @if (app()->getLocale() == 'en')
                             <p class="fs-6 text-gray-700 mb-0">
-                                The <strong>Frontpage Theme Management</strong> module allows system administrators to centrally control, switch, and preview themes used for the public landing page. Switching themes updates the active landing layout instantly across all public routes without needing code modifications.
+                                The <strong>Frontpage Theme Management</strong> module allows system administrators to centrally control, configure branding (logos & menus), switch, and preview themes used for the public landing page. Switching themes updates the active landing layout instantly across all public routes without needing code modifications.
                             </p>
                         @else
                             <p class="fs-6 text-gray-700 mb-0">
-                                Modul <strong>Manajemen Tema Halaman Depan</strong> memungkinkan administrator sistem untuk mengelola, mengaktifkan, dan mempratinjau tema tampilan beranda publik secara terpusat. Pergantian tema secara otomatis memperbarui tampilan utama website publik tanpa memerlukan perubahan kode.
+                                Modul <strong>Manajemen Tema Halaman Depan</strong> memungkinkan administrator sistem untuk mengelola, mengonfigurasi branding (logo & menu), mengaktifkan, dan mempratinjau tema tampilan beranda publik secara terpusat. Pergantian tema secara otomatis memperbarui tampilan utama website publik tanpa memerlukan perubahan kode.
                             </p>
                         @endif
                     </div>
@@ -45,20 +45,20 @@
                     <div class="card schema-card bg-light-secondary border border-gray-300 p-6 rounded">
                         <h4 class="text-gray-900 fw-bold mb-3 d-flex align-items-center">
                             <i class="ki-duotone ki-element-11 fs-2 text-dark me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
-                            {{ app()->getLocale() == 'en' ? '2. System Architecture & Resolution Engine' : '2. Arsitektur Sistem & Engine Resolusi' }}
+                            {{ app()->getLocale() == 'en' ? '2. System Architecture & Dynamic Resolution' : '2. Arsitektur Sistem & Resolusi Dinamis' }}
                         </h4>
                         @if (app()->getLocale() == 'en')
                             <ul class="fs-6 text-gray-700 mb-0 ps-5">
-                                <li class="mb-2"><strong>Dynamic Resolver:</strong> <code>WebsiteTemplateService</code> queries the database table <code>theme_frontpages</code> for the currently active theme (<code>is_active = true</code>).</li>
-                                <li class="mb-2"><strong>View Hierarchy:</strong> Views are dynamically loaded from <code>resources/views/theme/{slug}/home-page.blade.php</code>, with seamless fallback to <code>theme.default</code>.</li>
-                                <li class="mb-2"><strong>Thumbnail Standard:</strong> Theme thumbnails follow standardized pathing at <code>theme/{slug}/images/thumbnail/{slug}.png</code>.</li>
+                                <li class="mb-2"><strong>Dynamic Resolver:</strong> <code>WebsiteTemplateService</code> queries database table <code>theme_frontpages</code> for the currently active theme (<code>is_active = true</code>).</li>
+                                <li class="mb-2"><strong>Theme Configurations Table:</strong> Table <code>theme_configs</code> stores <code>logo_default</code>, <code>logo_sticky</code>, <code>logo_footer</code>, and JSON menus (<code>header_menu</code> & <code>footer_menu</code>) associated per theme.</li>
+                                <li class="mb-2"><strong>App Profile Data:</strong> Meta title, description, and shortcut favicon are read directly from table <code>app_profils</code>.</li>
                                 <li><strong>Isolation:</strong> Each theme operates independently within its dedicated subfolder while retaining integration with core components.</li>
                             </ul>
                         @else
                             <ul class="fs-6 text-gray-700 mb-0 ps-5">
                                 <li class="mb-2"><strong>Engine Resolusi Dinamis:</strong> <code>WebsiteTemplateService</code> membaca tabel basis data <code>theme_frontpages</code> untuk menentukan tema aktif (<code>is_active = true</code>).</li>
-                                <li class="mb-2"><strong>Hirarki Tampilan:</strong> Berkas tampilan dimuat secara dinamis dari <code>resources/views/theme/{slug}/home-page.blade.php</code> dengan fallback otomatis ke <code>theme.default</code>.</li>
-                                <li class="mb-2"><strong>Standar Thumbnail:</strong> Gambar thumbnail tema mengikuti standar path <code>theme/{slug}/images/thumbnail/{slug}.png</code>.</li>
+                                <li class="mb-2"><strong>Tabel Konfigurasi Tema:</strong> Tabel <code>theme_configs</code> menyimpan <code>logo_default</code>, <code>logo_sticky</code>, <code>logo_footer</code>, serta menu JSON (<code>header_menu</code> & <code>footer_menu</code>) terelasi per tema.</li>
+                                <li class="mb-2"><strong>Data Profil Aplikasi:</strong> Meta title, deskripsi, dan faviconshortcut dibaca langsung dari tabel <code>app_profils</code>.</li>
                                 <li><strong>Isolasi Tema:</strong> Setiap tema tersimpan rapi pada subfolder masing-masing tanpa mengganggu integritas komponen utama.</li>
                             </ul>
                         @endif
@@ -72,14 +72,16 @@
                         </h4>
                         @if (app()->getLocale() == 'en')
                             <ol class="fs-6 text-gray-700 mb-0 ps-5">
-                                <li class="mb-2"><strong>View Theme List:</strong> Open the <span class="badge badge-light-primary">Theme List</span> tab to review all registered frontpage theme cards.</li>
-                                <li class="mb-2"><strong>Activate Theme:</strong> Click <span class="badge badge-primary">Set Active</span> on your desired theme card. The system will automatically mark it active and deactivate other themes.</li>
+                                <li class="mb-2"><strong>View Theme List:</strong> Open the <span class="badge badge-light-primary">Theme List</span> tab to review registered frontpage themes.</li>
+                                <li class="mb-2"><strong>Configure Theme:</strong> Click <span class="badge badge-light-info">Theme Config</span> or open the <span class="badge badge-light-primary">Theme Configurations</span> tab to upload Default Logo, Sticky Logo, Footer Logo, and build dynamic Header & Footer navigation menus.</li>
+                                <li class="mb-2"><strong>Activate Theme:</strong> Click <span class="badge badge-primary">Set Active</span> on your desired theme card. The system will automatically mark it active.</li>
                                 <li><strong>Live Preview:</strong> Switch to the <span class="badge badge-light-info">Live Preview</span> tab to inspect the rendered frontpage landing layout in real time.</li>
                             </ol>
                         @else
                             <ol class="fs-6 text-gray-700 mb-0 ps-5">
-                                <li class="mb-2"><strong>Lihat Daftar Tema:</strong> Buka tab <span class="badge badge-light-primary">Daftar Tema</span> untuk melihat seluruh pilihan tema beranda yang terdaftar.</li>
-                                <li class="mb-2"><strong>Aktifkan Tema:</strong> Klik tombol <span class="badge badge-primary">Aktifkan Tema</span> pada kartu tema pilihan. Sistem akan secara otomatis mengaktifkan tema tersebut dan menonaktifkan tema lainnya.</li>
+                                <li class="mb-2"><strong>Lihat Daftar Tema:</strong> Buka tab <span class="badge badge-light-primary">Daftar Tema</span> untuk melihat pilihan tema beranda.</li>
+                                <li class="mb-2"><strong>Konfigurasi Tema:</strong> Klik tombol <span class="badge badge-light-info">Konfigurasi Tema</span> atau buka tab <span class="badge badge-light-primary">Konfigurasi Tema</span> untuk mengunggah Logo Default, Logo Sticky, Logo Footer, serta mengelola susunan menu Header & Footer.</li>
+                                <li class="mb-2"><strong>Aktifkan Tema:</strong> Klik tombol <span class="badge badge-primary">Aktifkan Tema</span> pada kartu tema pilihan. Sistem akan secara otomatis mengaktifkan tema tersebut.</li>
                                 <li><strong>Pratinjau Live:</strong> Buka tab <span class="badge badge-light-info">Pratinjau Live</span> untuk mempratinjau tampilan beranda publik secara real-time.</li>
                             </ol>
                         @endif
@@ -89,19 +91,21 @@
                     <div class="card schema-card bg-light-warning border border-warning p-6 rounded">
                         <h4 class="text-warning fw-bold mb-3 d-flex align-items-center">
                             <i class="ki-duotone ki-shield-cross fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span></i>
-                            {{ app()->getLocale() == 'en' ? '4. System Safeguards & Rules' : '4. Aturan System & Safeguards' }}
+                            {{ app()->getLocale() == 'en' ? '4. System Safeguards & Rules' : '4. Aturan Sistem & Safeguards' }}
                         </h4>
                         @if (app()->getLocale() == 'en')
                             <ul class="fs-6 text-gray-700 mb-0 ps-5">
                                 <li class="mb-2"><strong>Single Active Theme:</strong> Only one theme can be marked as active (<code>is_active = true</code>) at any given time.</li>
+                                <li class="mb-2"><strong>Footer vs Header Menu Distinction:</strong> Footer navigation menu items must be configured independently from header menu links.</li>
                                 <li class="mb-2"><strong>Active Theme Deletion Safeguard:</strong> An active theme cannot be deleted. You must activate a different theme prior to deleting a registered theme entry.</li>
-                                <li><strong>Fallback Protection:</strong> If an active theme is missing specific views, the system automatically falls back to <code>Metronic 8 Landing (default)</code>.</li>
+                                <li><strong>Fallback Protection:</strong> If an active theme is missing specific configurations or images, the system automatically falls back to default template assets.</li>
                             </ul>
                         @else
                             <ul class="fs-6 text-gray-700 mb-0 ps-5">
                                 <li class="mb-2"><strong>Single Active Theme:</strong> Hanya satu tema yang dapat berstatus aktif (<code>is_active = true</code>) dalam satu waktu.</li>
+                                <li class="mb-2"><strong>Pemisahan Menu Header & Footer:</strong> Tautan menu navigasi footer dapat diatur secara terpisah dan independen dari menu header.</li>
                                 <li class="mb-2"><strong>Proteksi Hapus Tema Aktif:</strong> Tema yang sedang aktif tidak dapat dihapus. Anda harus mengaktifkan tema lain terlebih dahulu sebelum menghapus tema.</li>
-                                <li><strong>Proteksi Fallback:</strong> Jika berkas tampilan pada tema aktif tidak ditemukan, sistem secara otomatis menggunakan fallback ke tema <code>Metronic 8 Landing (default)</code>.</li>
+                                <li><strong>Proteksi Fallback:</strong> Jika berkas konfigurasi atau gambar logo tema belum diset, sistem secara otomatis menggunakan fallback ke asset standar template.</li>
                             </ul>
                         @endif
                     </div>

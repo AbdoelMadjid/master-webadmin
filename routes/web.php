@@ -165,6 +165,7 @@ Route::middleware('auth')->group(function () {
     // Theme Frontpage Management Routes
     Route::get('appsupport/theme-frontpage', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'index'])->name('appsupport.theme-frontpage');
     Route::post('appsupport/theme-frontpage/activate/{id}', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'activate'])->name('appsupport.theme-frontpage.activate');
+    Route::post('appsupport/theme-frontpage/{id}/config', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'updateConfig'])->name('appsupport.theme-frontpage.config.update');
     Route::post('appsupport/theme-frontpage', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'store'])->name('appsupport.theme-frontpage.store');
     Route::put('appsupport/theme-frontpage/{id}', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'update'])->name('appsupport.theme-frontpage.update');
     Route::delete('appsupport/theme-frontpage/{id}', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'destroy'])->name('appsupport.theme-frontpage.destroy');

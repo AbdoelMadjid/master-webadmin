@@ -1,4 +1,6 @@
-<div class="mb-lg-n15 position-relative z-index-2">
+<div class="mb-lg-n15 position-relative z-index-2" id="portfolio" data-kt-scroll-offset="{default: 100, lg: 150}">
+    <span id="projects"></span>
+    <span id="project"></span>
     <!--begin::Container-->
     <div class="container">
         <!--begin::Card-->
@@ -8,8 +10,7 @@
                 <!--begin::Heading-->
                 <div class="text-center mb-5 mb-lg-10">
                     <!--begin::Title-->
-                    <h3 class="fs-2hx text-gray-900 mb-5" id="portfolio"
-                        data-kt-scroll-offset="{default: 100, lg: 250}">
+                    <h3 class="fs-2hx text-gray-900 mb-5">
                         Our Projects
                     </h3>
                     <!--end::Title-->

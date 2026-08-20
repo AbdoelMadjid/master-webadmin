@@ -1,4 +1,4 @@
-<div class="mt-sm-n10">
+<div class="mt-sm-n10" id="achievements">
     <!--begin::Curve top-->
     <div class="landing-curve landing-dark-color">
         <svg viewBox="15 -1 1470 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,7 +13,7 @@
         <!--begin::Container-->
         <div class="container">
             <!--begin::Heading-->
-            <div class="text-center mt-15 mb-18" id="achievements" data-kt-scroll-offset="{default: 100, lg: 150}">
+            <div class="text-center mt-15 mb-18" id="statistics" data-kt-scroll-offset="{default: 100, lg: 150}">
                 <!--begin::Title-->
                 <h3 class="fs-2hx text-white fw-bold mb-5">
                     We Make Things Better

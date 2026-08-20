@@ -276,6 +276,52 @@ class Changelog extends Model
     {
         return [
             [
+                'version' => 'v1.8.0',
+                'title' => 'Dynamic Frontpage Theme Configurations, Menu Builder & Feature Partial Engine',
+                'title_id' => 'Konfigurasi Tema Beranda Dinamis, Builder Menu Navigasi & Engine Partial Feature',
+                'date' => '2026-08-21',
+                'type' => 'minor',
+                'badge' => 'badge-light-primary',
+                'author' => 'Developer Team',
+                'description' => 'Dynamic frontpage theme management via theme_configs table, branding logo configuration (Default, Sticky, Footer), JSON menu builders for Header & Footer links, dynamic feature partial inclusion mapped to header menu items, app_profils metadata integration, smooth scroll anchor navigation, and 100% bilingual operational documentation.',
+                'description_id' => 'Manajemen tema beranda dinamis melalui tabel theme_configs, konfigurasi logo branding (Default, Sticky, Footer), builder menu JSON untuk navigasi Header & Footer, inklusi partial feature dinamis terhubung ke item menu header, integrasi metadata app_profils, navigasi smooth scroll anchor, dan dokumentasi operasional 100% bilingual.',
+                'highlights' => [
+                    [
+                        'type' => 'feat',
+                        'label' => 'Theme Configurations Table & CRUD',
+                        'desc' => 'Created theme_configs table and admin CRUD builder tab for uploading default header, sticky header, and footer logos.',
+                    ],
+                    [
+                        'type' => 'feat',
+                        'label' => 'Dynamic Header & Footer Menu Builder',
+                        'desc' => 'Implemented JSON navigation builders with feature_file mapping dropdowns and distinct footer menu separation.',
+                    ],
+                    [
+                        'type' => 'feat',
+                        'label' => 'Dynamic Feature Inclusion & Smooth Scroll',
+                        'desc' => 'Updated home-page.blade.php to dynamically include feature section partials in exact header menu order with top container smooth scroll anchors.',
+                    ],
+                    [
+                        'type' => 'feat',
+                        'label' => 'App Profil Metadata Integration',
+                        'desc' => 'Dynamicized favicon, meta title, meta description, and footer copyright (year & author) from app_profils table.',
+                    ],
+                    [
+                        'type' => 'docs',
+                        'label' => '100% Bilingual Documentation',
+                        'desc' => 'Updated operational guide modals and help schema/operational pages with complete English and Indonesian translations.',
+                    ],
+                ],
+                'commits' => [
+                    [
+                        'msg' => 'feat(appsupport): dinamisasi tema beranda, logo branding, builder menu header & footer, dan pemetaan seksi feature dinamis',
+                    ],
+                    [
+                        'msg' => 'docs(appsupport): perbarui petunjuk operasional dan dokumentasi skema multi-template website 100% dwibahasa',
+                    ],
+                ],
+            ],
+            [
                 'version' => 'v1.7.0',
                 'title' => 'Standardized Public Theme Asset Storage & Isolated Feature Content Architecture',
                 'title_id' => 'Standardisasi Penyimpanan Asset Tema Publik & Arsitektur Konten Fitur Terisolasi',

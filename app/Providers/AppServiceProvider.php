@@ -19,6 +19,8 @@ use App\Models\AppSupport\BackupDb;
 use App\Models\ManajemenPengguna\RejectedRegistration;
 use App\Models\ManajemenPengguna\PasswordResetRequest;
 
+use App\Models\AppSupport\ThemeConfig;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -49,6 +51,7 @@ class AppServiceProvider extends ServiceProvider
             'backup_dbs'               => BackupDb::class,
             'rejected_registrations'   => RejectedRegistration::class,
             'password_reset_requests'  => PasswordResetRequest::class,
+            'theme_configs'             => ThemeConfig::class,
         ]);
     }
 }
