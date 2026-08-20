@@ -59,9 +59,9 @@
                             <div class="row g-4">
                                 <div class="col-md-4">
                                     <div class="p-4 bg-light-primary rounded border border-primary border-dashed h-100">
-                                        <h5 class="fw-bold text-primary mb-2">Database Storage</h5>
+                                        <h5 class="fw-bold text-primary mb-2">Simplified Schema</h5>
                                         <p class="fs-7 text-gray-700 mb-0">
-                                            Themes are registered in the database table <code>theme_frontpages</code>. The active theme is marked with <code>is_active = true</code>.
+                                            Themes are registered in table <code>theme_frontpages</code> with core fields: <code>slug</code>, <code>name</code>, <code>thumbnail</code>, <code>view_path</code>, <code>is_active</code>.
                                         </p>
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
                                     <div class="p-4 bg-light-info rounded border border-info border-dashed h-100">
                                         <h5 class="fw-bold text-info mb-2">Eloquent Model & Seeder</h5>
                                         <p class="fs-7 text-gray-700 mb-0">
-                                            Managed via <code>App\Models\AppSupport\ThemeFrontpage</code> model and seeded dynamically by <code>ThemeFrontpageSeeder</code>.
+                                            Managed via <code>App\Models\AppSupport\ThemeFrontpage</code> model and seeded by <code>ThemeFrontpageSeeder</code>.
                                         </p>
                                     </div>
                                 </div>
@@ -128,10 +128,10 @@
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center">
                                 <i class="ki-duotone ki-folder fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
-                                4. Static Asset Isolation & <code>template_asset()</code> Helper
+                                4. Static Asset Isolation & Thumbnail Standard
                             </h4>
                             <p class="fs-7 text-gray-600 mb-3">
-                                Each theme isolates its CSS, JS, and image assets under <code>public/assets/templates/{template_slug}/</code>. Use the global helper function in Blade views:
+                                Theme assets reside under <code>public/theme/{template_slug}/</code> with standardized thumbnail screenshots placed at <code>public/theme/{template_slug}/images/thumbnail/{template_slug}.png</code>. Use the global helper in views:
                             </p>
                             <div class="bg-dark text-white p-4 rounded fs-7 mb-3 font-monospace">
                                 &lt;link rel="stylesheet" href="&lcub;&lcub; template_asset('css/custom.css') &rcub;&rcub;"&gt;<br>
@@ -158,9 +158,9 @@
                             <div class="row g-4">
                                 <div class="col-md-4">
                                     <div class="p-4 bg-light-primary rounded border border-primary border-dashed h-100">
-                                        <h5 class="fw-bold text-primary mb-2">Penyimpanan Database</h5>
+                                        <h5 class="fw-bold text-primary mb-2">Skema Ringkas</h5>
                                         <p class="fs-7 text-gray-700 mb-0">
-                                            Tema terdaftar pada tabel <code>theme_frontpages</code>. Tema aktif ditandai dengan <code>is_active = true</code>.
+                                            Tema terdaftar pada tabel <code>theme_frontpages</code> dengan kolom utama: <code>slug</code>, <code>name</code>, <code>thumbnail</code>, <code>view_path</code>, <code>is_active</code>.
                                         </p>
                                     </div>
                                 </div>
@@ -168,7 +168,7 @@
                                     <div class="p-4 bg-light-info rounded border border-info border-dashed h-100">
                                         <h5 class="fw-bold text-info mb-2">Model Eloquent & Seeder</h5>
                                         <p class="fs-7 text-gray-700 mb-0">
-                                            Dikelola melalui model <code>App\Models\AppSupport\ThemeFrontpage</code> dan diisi secara seeder oleh <code>ThemeFrontpageSeeder</code>.
+                                            Dikelola melalui model <code>App\Models\AppSupport\ThemeFrontpage</code> dan diisi oleh <code>ThemeFrontpageSeeder</code>.
                                         </p>
                                     </div>
                                 </div>
@@ -227,10 +227,10 @@
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center">
                                 <i class="ki-duotone ki-folder fs-2 text-warning me-2"><span class="path1"></span><span class="path2"></span></i>
-                                4. Isolasi Asset Statis & Helper <code>template_asset()</code>
+                                4. Isolasi Asset Statis & Standar Thumbnail Gambar
                             </h4>
                             <p class="fs-7 text-gray-600 mb-3">
-                                Setiap tema mengisolasi berkas CSS, JS, dan gambar di dalam folder <code>public/assets/templates/{template_slug}/</code>. Gunakan helper global di view Blade:
+                                Asset tema berada di bawah <code>public/theme/{template_slug}/</code> dengan tangkapan layar thumbnail terstandar pada <code>public/theme/{template_slug}/images/thumbnail/{template_slug}.png</code>. Gunakan helper global di view Blade:
                             </p>
                             <div class="bg-dark text-white p-4 rounded fs-7 mb-3 font-monospace">
                                 &lt;link rel="stylesheet" href="&lcub;&lcub; template_asset('css/custom.css') &rcub;&rcub;"&gt;<br>

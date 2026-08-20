@@ -276,6 +276,51 @@ class Changelog extends Model
     {
         return [
             [
+                'version' => 'v1.7.0',
+                'title' => 'Standardized Public Theme Asset Storage & Isolated Feature Content Architecture',
+                'title_id' => 'Standardisasi Penyimpanan Asset Tema Publik & Arsitektur Konten Fitur Terisolasi',
+                'date' => '2026-08-20',
+                'type' => 'minor',
+                'badge' => 'badge-light-success',
+                'author' => 'Developer Team',
+                'description' => 'Standardized public theme asset structure under public/theme/default/, updated template_asset() resolver engine, isolated theme-specific feature content assets under resources/views/theme/default/features/, restored Keenicons font bundles, and preserved core admin dashboard layout partials.',
+                'description_id' => 'Standardisasi struktur asset tema publik di bawah public/theme/default/, pembaruan engine resolver template_asset(), isolasi asset konten fitur spesifik tema di bawah resources/views/theme/default/features/, pemulihan bundle font ikon Keenicons, serta pemeliharaan berkas layout utama dashboard admin.',
+                'highlights' => [
+                    [
+                        'type' => 'feat',
+                        'label' => 'Public Theme Asset Isolation',
+                        'desc' => 'Gathered all default theme assets (CSS, JS, logos, avatars, flags, stock, illustrations) into public/theme/default/.',
+                    ],
+                    [
+                        'type' => 'feat',
+                        'label' => 'Theme Asset Resolver Engine',
+                        'desc' => 'Enhanced WebsiteTemplateService::asset() & template_asset() helper to dynamically resolve assets directly from public/theme/{slug}/.',
+                    ],
+                    [
+                        'type' => 'refactor',
+                        'label' => 'Feature Content Asset Standardization',
+                        'desc' => 'Updated all landing feature components in resources/views/theme/default/features/ to use explicit static asset(\'theme/default/images/...\') paths for theme-specific content.',
+                    ],
+                    [
+                        'type' => 'fix',
+                        'label' => 'Keenicons Font Bundle Restoration',
+                        'desc' => 'Copied all Keenicons font bundles (keenicons-duotone, outline, solid) to public/theme/default/css/fonts/ restoring all duotone symbols.',
+                    ],
+                    [
+                        'type' => 'refactor',
+                        'label' => 'Core Admin Layout Preservation',
+                        'desc' => 'Restored core admin dashboard layout files to 100% untouched state while preserving global frontpage theme layout (layouts/theme.blade.php).',
+                    ],
+                ],
+                'commits' => [
+                    [
+                        'hash' => 'HEAD',
+                        'date' => '2026-08-20 22:55',
+                        'msg' => 'feat(theme): standardisasi asset publik tema dan arsitektur fitur terisolasi',
+                    ],
+                ],
+            ],
+            [
                 'version' => 'v1.6.0',
                 'title' => 'Dynamic Frontpage Theme Engine, Live Tab Preview & Standardized Subfolder Architecture',
                 'title_id' => 'Engine Tema Halaman Depan Dinamis, Live Tab Pratinjau & Standardisasi Arsitektur Subfolder',

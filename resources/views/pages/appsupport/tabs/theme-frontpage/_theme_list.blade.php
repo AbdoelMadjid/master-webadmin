@@ -32,76 +32,41 @@
     <div class="row g-6">
         @foreach($themes as $theme)
             <div class="col-12 col-md-6 col-xl-4">
-                <div class="card h-100 shadow-xs border {{ $theme->is_active ? 'border-primary border-2' : 'border-gray-200' }} rounded position-relative">
-                    @if($theme->is_active)
-                        <div class="position-absolute top-0 end-0 m-3 z-index-2">
-                            <span class="badge badge-primary fw-bold px-3 py-2 fs-8 shadow-xs d-inline-flex align-items-center gap-1">
-                                <i class="ki-duotone ki-check-circle fs-6 text-white"><span class="path1"></span><span class="path2"></span></i>
-                                {{ app()->getLocale() == 'en' ? 'Active Theme' : 'Tema Aktif' }}
-                            </span>
-                        </div>
-                    @endif
+                <div class="card h-100 shadow-xs border {{ $theme->is_active ? 'border-primary border-2' : 'border-gray-200' }} rounded overflow-hidden">
+                    <!-- Top Preview Thumbnail Banner Container (Unobstructed Image Container) -->
+                    <div class="bg-light text-center border-bottom border-gray-200 p-3 d-flex align-items-center justify-content-center" style="height: 180px;">
+                        @if(!empty($theme->thumbnail_url))
+                            <img src="{{ $theme->thumbnail_url }}" alt="{{ $theme->name }}" class="mw-100 mh-100 rounded shadow-2xs object-fit-contain" />
+                        @else
+                            <div class="symbol symbol-60px symbol-circle bg-light-primary p-3">
+                                <i class="ki-duotone ki-element-11 text-primary fs-3x"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                            </div>
+                        @endif
+                    </div>
 
+                    <!-- Card Body Content -->
                     <div class="card-body p-6 d-flex flex-column justify-content-between">
                         <div>
-                            <!-- Header & Icon Badge -->
-                            <div class="d-flex align-items-center gap-3 mb-4">
-                                <div class="symbol symbol-50px symbol-circle {{ $theme->is_active ? 'bg-light-primary' : 'bg-light' }} p-2">
-                                    <i class="ki-duotone ki-element-11 {{ $theme->is_active ? 'text-primary' : 'text-gray-600' }} fs-2x">
-                                        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span>
-                                    </i>
-                                </div>
-                                <div class="overflow-hidden">
-                                    <h4 class="text-gray-900 fw-bold fs-5 m-0 text-truncate">
-                                        {{ app()->getLocale() == 'en' && !empty($theme->name_en) ? $theme->name_en : $theme->name }}
-                                    </h4>
-                                    <span class="badge badge-light-secondary text-gray-700 fs-9 fw-bold mt-1">
-                                        v{{ $theme->version ?? '1.0.0' }} &bull; {{ $theme->author ?? 'System' }}
-                                    </span>
-                                </div>
+                            <!-- Header Title -->
+                            <div class="mb-4">
+                                <h4 class="text-gray-900 fw-bold fs-5 m-0">
+                                    {{ $theme->name }}
+                                </h4>
                             </div>
-
-                            <!-- Description -->
-                            <p class="text-gray-600 fs-7 mb-4 line-clamp-2">
-                                {{ app()->getLocale() == 'en' && !empty($theme->description_en) ? $theme->description_en : $theme->description ?? 'No description provided.' }}
-                            </p>
 
                             <!-- Theme Details Box -->
                             <div class="bg-light p-3 rounded mb-4 border border-dashed border-gray-300 fs-8 text-gray-700">
-                                <div class="d-flex justify-content-between mb-1">
+                                <div class="d-flex justify-content-between mb-1 gap-2">
                                     <span class="fw-semibold">Slug:</span>
                                     <code class="text-primary fw-bold">{{ $theme->slug }}</code>
                                 </div>
-                                <div class="d-flex justify-content-between">
+                                <div class="d-flex justify-content-between mb-1 gap-2">
                                     <span class="fw-semibold">View Path:</span>
-                                    <code>{{ $theme->view_path }}</code>
+                                    <code class="text-dark">{{ $theme->view_path }}</code>
                                 </div>
-                            </div>
-
-                            <!-- Feature Capabilities -->
-                            <div class="mb-4">
-                                <span class="fs-8 text-muted fw-bold d-block mb-2 text-uppercase">
-                                    {{ app()->getLocale() == 'en' ? 'Supported Integrations:' : 'Integrasi Didukung:' }}
-                                </span>
-                                <div class="d-flex flex-wrap gap-1">
-                                    @php
-                                        $supports = is_array($theme->supports) ? $theme->supports : [];
-                                    @endphp
-                                    @if(in_array('bilingual_support', $supports))
-                                        <span class="badge badge-light-success fs-9">🌐 Bilingual</span>
-                                    @endif
-                                    @if(in_array('top_navigation', $supports))
-                                        <span class="badge badge-light-info fs-9">Top Nav</span>
-                                    @endif
-                                    @if(in_array('main_navigation', $supports))
-                                        <span class="badge badge-light-primary fs-9">Main Nav</span>
-                                    @endif
-                                    @if(in_array('footer_navigation', $supports))
-                                        <span class="badge badge-light-dark fs-9">Footer Nav</span>
-                                    @endif
-                                    @if(in_array('slide_banner', $supports))
-                                        <span class="badge badge-light-warning fs-9">Slide Banner</span>
-                                    @endif
+                                <div class="d-flex justify-content-between gap-2">
+                                    <span class="fw-semibold">Thumbnail:</span>
+                                    <span class="text-truncate ms-2" title="{{ $theme->thumbnail }}"><code>{{ $theme->thumbnail ?? '-' }}</code></span>
                                 </div>
                             </div>
                         </div>
@@ -165,12 +130,8 @@
                 <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                     <div class="row g-4">
                         <div class="col-12 col-md-6">
-                            <label class="required fs-6 fw-semibold mb-2">{{ app()->getLocale() == 'en' ? 'Theme Name (ID)' : 'Nama Tema (ID)' }}</label>
+                            <label class="required fs-6 fw-semibold mb-2">{{ app()->getLocale() == 'en' ? 'Theme Name' : 'Nama Tema' }}</label>
                             <input type="text" class="form-control form-control-solid" id="theme_name" name="name" required placeholder="Metronic 8 Landing" />
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label class="fs-6 fw-semibold mb-2">{{ app()->getLocale() == 'en' ? 'Theme Name (EN)' : 'Nama Tema (EN)' }}</label>
-                            <input type="text" class="form-control form-control-solid" id="theme_name_en" name="name_en" placeholder="Metronic 8 Landing Theme" />
                         </div>
                         <div class="col-12 col-md-6">
                             <label class="required fs-6 fw-semibold mb-2">Slug</label>
@@ -181,20 +142,8 @@
                             <input type="text" class="form-control form-control-solid" id="theme_view_path" name="view_path" required placeholder="theme.default" />
                         </div>
                         <div class="col-12 col-md-6">
-                            <label class="fs-6 fw-semibold mb-2">Author</label>
-                            <input type="text" class="form-control form-control-solid" id="theme_author" name="author" placeholder="KeenThemes" />
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <label class="fs-6 fw-semibold mb-2">Version</label>
-                            <input type="text" class="form-control form-control-solid" id="theme_version" name="version" placeholder="8.2.5" />
-                        </div>
-                        <div class="col-12">
-                            <label class="fs-6 fw-semibold mb-2">{{ app()->getLocale() == 'en' ? 'Description (ID)' : 'Deskripsi (ID)' }}</label>
-                            <textarea class="form-control form-control-solid" id="theme_description" name="description" rows="2" placeholder="Deskripsi tema..."></textarea>
-                        </div>
-                        <div class="col-12">
-                            <label class="fs-6 fw-semibold mb-2">{{ app()->getLocale() == 'en' ? 'Description (EN)' : 'Deskripsi (EN)' }}</label>
-                            <textarea class="form-control form-control-solid" id="theme_description_en" name="description_en" rows="2" placeholder="Theme description..."></textarea>
+                            <label class="fs-6 fw-semibold mb-2">Thumbnail Path</label>
+                            <input type="text" class="form-control form-control-solid" id="theme_thumbnail" name="thumbnail" placeholder="theme/{slug}/images/thumbnail/{slug}.png" />
                         </div>
                     </div>
                 </div>

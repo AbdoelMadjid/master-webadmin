@@ -29,13 +29,13 @@ License: For each use you must have a valid license purchased only from above li
     <meta property="og:url" content="https://keenthemes.com/metronic" />
     <meta property="og:site_name" content="Metronic by Keenthemes" />
     <link rel="canonical" href="/dashboard/landing" />
-    <link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+    <link rel="shortcut icon" href="{{ template_asset('images/logos/favicon.ico') }}" />
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
     <!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-    <link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ template_asset('css/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ template_asset('css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
     <script>
         // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }
@@ -69,19 +69,19 @@ License: For each use you must have a valid license purchased only from above li
     <!--end::Scrolltop-->
     <!--begin::Javascript-->
     <script>
-        var hostUrl = "{{ asset('assets/assets/') }}";
+        var hostUrl = "{{ template_asset('images/logos/') }}";
     </script>
     <!--begin::Global Javascript Bundle(mandatory for all pages)-->
-    <script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
-    <script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
+    <script src="{{ template_asset('js/plugins.bundle.js') }}"></script>
+    <script src="{{ template_asset('js/scripts.bundle.js') }}"></script>
     <!--end::Global Javascript Bundle-->
     <!--begin::Vendors Javascript(used for this page only)-->
-    <script src="{{ asset('assets/plugins/custom/fslightbox/fslightbox.bundle.js') }}"></script>
-    <script src="{{ asset('assets/plugins/custom/typedjs/typedjs.bundle.js') }}"></script>
+    <script src="{{ template_asset('js/fslightbox.bundle.js') }}"></script>
+    <script src="{{ template_asset('js/typedjs.bundle.js') }}"></script>
     <!--end::Vendors Javascript-->
     <!--begin::Custom Javascript(used for this page only)-->
-    <script src="{{ asset('assets/js/custom/landing.js') }}"></script>
-    <script src="{{ asset('assets/js/custom/pages/pricing/general.js') }}"></script>
+    <script src="{{ template_asset('js/landing.js') }}"></script>
+    <script src="{{ template_asset('js/pricing-general.js') }}"></script>
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
 </body>

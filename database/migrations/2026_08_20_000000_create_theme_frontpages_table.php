@@ -15,15 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('slug', 100)->unique();
             $table->string('name', 150);
-            $table->string('name_en', 150)->nullable();
-            $table->text('description')->nullable();
-            $table->text('description_en')->nullable();
-            $table->string('author', 100)->nullable();
-            $table->string('version', 50)->nullable();
             $table->string('thumbnail', 255)->nullable();
             $table->string('view_path', 150)->default('theme.default');
             $table->boolean('is_active')->default(false);
-            $table->json('supports')->nullable();
             $table->timestamps();
         });
     }

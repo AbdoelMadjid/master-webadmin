@@ -5,7 +5,7 @@
         <div class="d-flex align-items-center order-2 order-md-1">
             <!--begin::Logo-->
             <a href="{{ url('landing') }}">
-                <img alt="Logo" src="assets/media/logos/landing.svg" class="h-15px h-md-20px" />
+                <img alt="Logo" src="{{ template_asset('images/logos/landing.svg') }}" class="h-15px h-md-20px" />
             </a>
             <!--end::Logo image-->
             <!--begin::Logo image-->

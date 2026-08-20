@@ -63,7 +63,7 @@
                     <div class="d-flex align-items-center">
                         <!--begin::Avatar-->
                         <div class="symbol symbol-circle symbol-50px me-5">
-                            <img src="assets/media/avatars/300-1.jpg" class="" alt="" />
+                            <img src="{{ asset('theme/default/images/avatars/300-1.jpg') }}" class="" alt="" />
                         </div>
                         <!--end::Avatar-->
                         <!--begin::Name-->
@@ -124,7 +124,7 @@
                     <div class="d-flex align-items-center">
                         <!--begin::Avatar-->
                         <div class="symbol symbol-circle symbol-50px me-5">
-                            <img src="assets/media/avatars/300-2.jpg" class="" alt="" />
+                            <img src="{{ asset('theme/default/images/avatars/300-2.jpg') }}" class="" alt="" />
                         </div>
                         <!--end::Avatar-->
                         <!--begin::Name-->
@@ -185,7 +185,7 @@
                     <div class="d-flex align-items-center">
                         <!--begin::Avatar-->
                         <div class="symbol symbol-circle symbol-50px me-5">
-                            <img src="assets/media/avatars/300-16.jpg" class="" alt="" />
+                            <img src="{{ asset('theme/default/images/avatars/300-16.jpg') }}" class="" alt="" />
                         </div>
                         <!--end::Avatar-->
                         <!--begin::Name-->

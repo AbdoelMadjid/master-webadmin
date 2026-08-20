@@ -33,7 +33,7 @@
                 <div class="d-flex flex-wrap flex-center justify-content-lg-between mb-15 mx-auto w-xl-900px">
                     <!--begin::Item-->
                     <div class="d-flex flex-column flex-center h-200px w-200px h-lg-250px w-lg-250px m-3 bgi-no-repeat bgi-position-center bgi-size-contain"
-                        style="background-image: url(assets/media/svg/misc/octagon.svg);">
+                        style="background-image: url({{ asset('theme/default/images/svg/misc/octagon.svg') }});">
                         <!--begin::Symbol-->
                         <i class="ki-duotone ki-element-11 fs-2tx text-white mb-3">
                             <span class="path1"></span>
@@ -61,7 +61,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <div class="d-flex flex-column flex-center h-200px w-200px h-lg-250px w-lg-250px m-3 bgi-no-repeat bgi-position-center bgi-size-contain"
-                        style="background-image: url(assets/media/svg/misc/octagon.svg);">
+                        style="background-image: url({{ asset('theme/default/images/svg/misc/octagon.svg') }});">
                         <!--begin::Symbol-->
                         <i class="ki-duotone ki-chart-pie-4 fs-2tx text-white mb-3">
                             <span class="path1"></span>
@@ -88,7 +88,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <div class="d-flex flex-column flex-center h-200px w-200px h-lg-250px w-lg-250px m-3 bgi-no-repeat bgi-position-center bgi-size-contain"
-                        style="background-image: url(assets/media/svg/misc/octagon.svg);">
+                        style="background-image: url({{ asset('theme/default/images/svg/misc/octagon.svg') }});">
                         <!--begin::Symbol-->
                         <i class="ki-duotone ki-basket fs-2tx text-white mb-3">
                             <span class="path1"></span>

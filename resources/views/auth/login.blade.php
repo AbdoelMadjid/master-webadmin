@@ -1,1 +1,1 @@
-@include('auth.theme.default.login')
+@include(\App\Services\WebsiteTemplateService::resolveAuthView('login'))

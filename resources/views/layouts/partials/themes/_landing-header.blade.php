@@ -1,7 +1,7 @@
 <div class="mb-0" id="home">
     <!--begin::Wrapper-->
     <div class="bgi-no-repeat bgi-size-contain bgi-position-x-center bgi-position-y-bottom landing-dark-bg"
-        style="background-image: url(assets/media/svg/illustrations/landing.svg);">
+        style="background-image: url({{ template_asset('images/svg/illustrations/landing.svg') }});">
         <!--begin::Header-->
         <div class="landing-header" data-kt-sticky="true" data-kt-sticky-name="landing-header"
             data-kt-sticky-offset="{default: '200px', lg: '300px'}">

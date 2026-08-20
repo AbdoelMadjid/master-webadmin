@@ -29,7 +29,7 @@
                 <div class="text-center">
                     <!--begin::Photo-->
                     <div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center"
-                        style="background-image: url(assets/media/avatars/300-1.jpg);">
+                        style="background-image: url({{ asset('theme/default/images/avatars/300-1.jpg') }});">
                     </div>
                     <!--end::Photo-->
                     <!--begin::Person-->
@@ -51,7 +51,7 @@
                 <div class="text-center">
                     <!--begin::Photo-->
                     <div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center"
-                        style="background-image: url(assets/media/avatars/300-2.jpg);">
+                        style="background-image: url({{ asset('theme/default/images/avatars/300-2.jpg') }});">
                     </div>
                     <!--end::Photo-->
                     <!--begin::Person-->
@@ -73,7 +73,7 @@
                 <div class="text-center">
                     <!--begin::Photo-->
                     <div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center"
-                        style="background-image: url(assets/media/avatars/300-5.jpg);">
+                        style="background-image: url({{ asset('theme/default/images/avatars/300-5.jpg') }});">
                     </div>
                     <!--end::Photo-->
                     <!--begin::Person-->
@@ -95,7 +95,7 @@
                 <div class="text-center">
                     <!--begin::Photo-->
                     <div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center"
-                        style="background-image: url(assets/media/avatars/300-20.jpg);">
+                        style="background-image: url({{ asset('theme/default/images/avatars/300-20.jpg') }});">
                     </div>
                     <!--end::Photo-->
                     <!--begin::Person-->
@@ -117,7 +117,7 @@
                 <div class="text-center">
                     <!--begin::Photo-->
                     <div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center"
-                        style="background-image: url(assets/media/avatars/300-23.jpg);">
+                        style="background-image: url({{ asset('theme/default/images/avatars/300-23.jpg') }});">
                     </div>
                     <!--end::Photo-->
                     <!--begin::Person-->
@@ -139,7 +139,7 @@
                 <div class="text-center">
                     <!--begin::Photo-->
                     <div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center"
-                        style="background-image: url(assets/media/avatars/300-12.jpg);">
+                        style="background-image: url({{ asset('theme/default/images/avatars/300-12.jpg') }});">
                     </div>
                     <!--end::Photo-->
                     <!--begin::Person-->
@@ -161,7 +161,7 @@
                 <div class="text-center">
                     <!--begin::Photo-->
                     <div class="octagon mx-auto mb-5 d-flex w-200px h-200px bgi-no-repeat bgi-size-contain bgi-position-center"
-                        style="background-image: url(assets/media/avatars/300-9.jpg);">
+                        style="background-image: url({{ asset('theme/default/images/avatars/300-9.jpg') }});">
                     </div>
                     <!--end::Photo-->
                     <!--begin::Person-->

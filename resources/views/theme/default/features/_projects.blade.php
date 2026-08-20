@@ -52,10 +52,10 @@
                             <div class="col-lg-6">
                                 <!--begin::Item-->
                                 <a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects"
-                                    href="assets/media/stock/600x600/img-23.jpg">
+                                    href="{{ asset('theme/default/images/stock/600x600/img-23.jpg') }}">
                                     <!--begin::Image-->
                                     <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px"
-                                        style="background-image: url(assets/media/stock/600x600/img-23.jpg);">
+                                        style="background-image: url({{ asset('theme/default/images/stock/600x600/img-23.jpg') }});">
                                     </div>
                                     <!--end::Image-->
                                     <!--begin::Action-->
@@ -79,10 +79,10 @@
                                     <div class="col-lg-6">
                                         <!--begin::Item-->
                                         <a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects"
-                                            href="assets/media/stock/600x600/img-22.jpg">
+                                            href="{{ asset('theme/default/images/stock/600x600/img-22.jpg') }}">
                                             <!--begin::Image-->
                                             <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px"
-                                                style="background-image: url(assets/media/stock/600x600/img-22.jpg);">
+                                                style="background-image: url({{ asset('theme/default/images/stock/600x600/img-22.jpg') }});">
                                             </div>
                                             <!--end::Image-->
                                             <!--begin::Action-->
@@ -102,10 +102,10 @@
                                     <div class="col-lg-6">
                                         <!--begin::Item-->
                                         <a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects"
-                                            href="assets/media/stock/600x600/img-21.jpg">
+                                            href="{{ asset('theme/default/images/stock/600x600/img-21.jpg') }}">
                                             <!--begin::Image-->
                                             <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px"
-                                                style="background-image: url(assets/media/stock/600x600/img-21.jpg);">
+                                                style="background-image: url({{ asset('theme/default/images/stock/600x600/img-21.jpg') }});">
                                             </div>
                                             <!--end::Image-->
                                             <!--begin::Action-->
@@ -125,10 +125,10 @@
                                 <!--end::Row-->
                                 <!--begin::Item-->
                                 <a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects"
-                                    href="assets/media/stock/600x400/img-20.jpg">
+                                    href="{{ asset('theme/default/images/stock/600x400/img-20.jpg') }}">
                                     <!--begin::Image-->
                                     <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px"
-                                        style="background-image: url(assets/media/stock/600x600/img-20.jpg);">
+                                        style="background-image: url({{ asset('theme/default/images/stock/600x600/img-20.jpg') }});">
                                     </div>
                                     <!--end::Image-->
                                     <!--begin::Action-->
@@ -156,10 +156,10 @@
                             <div class="col-lg-6">
                                 <!--begin::Item-->
                                 <a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects"
-                                    href="assets/media/stock/600x600/img-11.jpg">
+                                    href="{{ asset('theme/default/images/stock/600x600/img-11.jpg') }}">
                                     <!--begin::Image-->
                                     <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px"
-                                        style="background-image: url(assets/media/stock/600x600/img-11.jpg);">
+                                        style="background-image: url({{ asset('theme/default/images/stock/600x600/img-11.jpg') }});">
                                     </div>
                                     <!--end::Image-->
                                     <!--begin::Action-->
@@ -183,10 +183,10 @@
                                     <div class="col-lg-6">
                                         <!--begin::Item-->
                                         <a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects"
-                                            href="assets/media/stock/600x600/img-12.jpg">
+                                            href="{{ asset('theme/default/images/stock/600x600/img-12.jpg') }}">
                                             <!--begin::Image-->
                                             <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px"
-                                                style="background-image: url(assets/media/stock/600x600/img-12.jpg);">
+                                                style="background-image: url({{ asset('theme/default/images/stock/600x600/img-12.jpg') }});">
                                             </div>
                                             <!--end::Image-->
                                             <!--begin::Action-->
@@ -206,10 +206,10 @@
                                     <div class="col-lg-6">
                                         <!--begin::Item-->
                                         <a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects"
-                                            href="assets/media/stock/600x600/img-21.jpg">
+                                            href="{{ asset('theme/default/images/stock/600x600/img-21.jpg') }}">
                                             <!--begin::Image-->
                                             <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px"
-                                                style="background-image: url(assets/media/stock/600x600/img-21.jpg);">
+                                                style="background-image: url({{ asset('theme/default/images/stock/600x600/img-21.jpg') }});">
                                             </div>
                                             <!--end::Image-->
                                             <!--begin::Action-->
@@ -229,10 +229,10 @@
                                 <!--end::Row-->
                                 <!--begin::Item-->
                                 <a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects"
-                                    href="assets/media/stock/600x400/img-20.jpg">
+                                    href="{{ asset('theme/default/images/stock/600x400/img-20.jpg') }}">
                                     <!--begin::Image-->
                                     <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px"
-                                        style="background-image: url(assets/media/stock/600x600/img-20.jpg);">
+                                        style="background-image: url({{ asset('theme/default/images/stock/600x600/img-20.jpg') }});">
                                     </div>
                                     <!--end::Image-->
                                     <!--begin::Action-->
@@ -264,10 +264,10 @@
                                     <div class="col-lg-6">
                                         <!--begin::Item-->
                                         <a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects"
-                                            href="assets/media/stock/600x600/img-16.jpg">
+                                            href="{{ asset('theme/default/images/stock/600x600/img-16.jpg') }}">
                                             <!--begin::Image-->
                                             <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px"
-                                                style="background-image: url(assets/media/stock/600x600/img-16.jpg);">
+                                                style="background-image: url({{ asset('theme/default/images/stock/600x600/img-16.jpg') }});">
                                             </div>
                                             <!--end::Image-->
                                             <!--begin::Action-->
@@ -287,10 +287,10 @@
                                     <div class="col-lg-6">
                                         <!--begin::Item-->
                                         <a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects"
-                                            href="assets/media/stock/600x600/img-12.jpg">
+                                            href="{{ asset('theme/default/images/stock/600x600/img-12.jpg') }}">
                                             <!--begin::Image-->
                                             <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px"
-                                                style="background-image: url(assets/media/stock/600x600/img-12.jpg);">
+                                                style="background-image: url({{ asset('theme/default/images/stock/600x600/img-12.jpg') }});">
                                             </div>
                                             <!--end::Image-->
                                             <!--begin::Action-->
@@ -310,10 +310,10 @@
                                 <!--end::Row-->
                                 <!--begin::Item-->
                                 <a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects"
-                                    href="assets/media/stock/600x400/img-15.jpg">
+                                    href="{{ asset('theme/default/images/stock/600x400/img-15.jpg') }}">
                                     <!--begin::Image-->
                                     <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px"
-                                        style="background-image: url(assets/media/stock/600x600/img-15.jpg);">
+                                        style="background-image: url({{ asset('theme/default/images/stock/600x600/img-15.jpg') }});">
                                     </div>
                                     <!--end::Image-->
                                     <!--begin::Action-->
@@ -333,10 +333,10 @@
                             <div class="col-lg-6">
                                 <!--begin::Item-->
                                 <a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects"
-                                    href="assets/media/stock/600x600/img-23.jpg">
+                                    href="{{ asset('theme/default/images/stock/600x600/img-23.jpg') }}">
                                     <!--begin::Image-->
                                     <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px"
-                                        style="background-image: url(assets/media/stock/600x600/img-23.jpg);">
+                                        style="background-image: url({{ asset('theme/default/images/stock/600x600/img-23.jpg') }});">
                                     </div>
                                     <!--end::Image-->
                                     <!--begin::Action-->
@@ -364,10 +364,10 @@
                             <div class="col-lg-6">
                                 <!--begin::Item-->
                                 <a class="d-block card-rounded overlay h-lg-100" data-fslightbox="lightbox-projects"
-                                    href="assets/media/stock/600x600/img-15.jpg">
+                                    href="{{ asset('theme/default/images/stock/600x600/img-15.jpg') }}">
                                     <!--begin::Image-->
                                     <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-lg-100 min-h-250px"
-                                        style="background-image: url(assets/media/stock/600x600/img-15.jpg);">
+                                        style="background-image: url({{ asset('theme/default/images/stock/600x600/img-15.jpg') }});">
                                     </div>
                                     <!--end::Image-->
                                     <!--begin::Action-->
@@ -391,10 +391,10 @@
                                     <div class="col-lg-6">
                                         <!--begin::Item-->
                                         <a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects"
-                                            href="assets/media/stock/600x600/img-22.jpg">
+                                            href="{{ asset('theme/default/images/stock/600x600/img-22.jpg') }}">
                                             <!--begin::Image-->
                                             <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px"
-                                                style="background-image: url(assets/media/stock/600x600/img-22.jpg);">
+                                                style="background-image: url({{ asset('theme/default/images/stock/600x600/img-22.jpg') }});">
                                             </div>
                                             <!--end::Image-->
                                             <!--begin::Action-->
@@ -414,10 +414,10 @@
                                     <div class="col-lg-6">
                                         <!--begin::Item-->
                                         <a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects"
-                                            href="assets/media/stock/600x600/img-21.jpg">
+                                            href="{{ asset('theme/default/images/stock/600x600/img-21.jpg') }}">
                                             <!--begin::Image-->
                                             <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px"
-                                                style="background-image: url(assets/media/stock/600x600/img-21.jpg);">
+                                                style="background-image: url({{ asset('theme/default/images/stock/600x600/img-21.jpg') }});">
                                             </div>
                                             <!--end::Image-->
                                             <!--begin::Action-->
@@ -437,10 +437,10 @@
                                 <!--end::Row-->
                                 <!--begin::Item-->
                                 <a class="d-block card-rounded overlay" data-fslightbox="lightbox-projects"
-                                    href="assets/media/stock/600x400/img-14.jpg">
+                                    href="{{ asset('theme/default/images/stock/600x400/img-14.jpg') }}">
                                     <!--begin::Image-->
                                     <div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded h-250px"
-                                        style="background-image: url(assets/media/stock/600x600/img-14.jpg);">
+                                        style="background-image: url({{ asset('theme/default/images/stock/600x600/img-14.jpg') }});">
                                     </div>
                                     <!--end::Image-->
                                     <!--begin::Action-->

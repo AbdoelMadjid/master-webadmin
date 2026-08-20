@@ -9,10 +9,10 @@
             data-bs-placement="top"
             title="{{ app()->getLocale() == 'id' ? __('auth.indonesian') : __('auth.english') }}">
             @if (app()->getLocale() == 'id')
-                <img class="w-20px h-20px rounded me-0 me-sm-2" src="{{ asset('assets/media/flags/indonesia.svg') }}" alt="ID" />
+                <img class="w-20px h-20px rounded me-0 me-sm-2" src="{{ template_asset('images/flags/indonesia.svg') }}" alt="ID" />
                 <span class="d-none d-sm-inline me-1 text-gray-800">{{ __('auth.indonesian') }}</span>
             @else
-                <img class="w-20px h-20px rounded me-0 me-sm-2" src="{{ asset('assets/media/flags/united-states.svg') }}" alt="EN" />
+                <img class="w-20px h-20px rounded me-0 me-sm-2" src="{{ template_asset('images/flags/united-states.svg') }}" alt="EN" />
                 <span class="d-none d-sm-inline me-1 text-gray-800">{{ __('auth.english') }}</span>
             @endif
             <i class="ki-duotone ki-down fs-8 text-muted rotate-180 m-0 ms-1 d-none d-sm-inline-block"></i>
@@ -25,7 +25,7 @@
                     class="menu-link d-flex px-5 {{ app()->getLocale() == 'en' ? 'active' : '' }}"
                     @if (app()->getLocale() == 'en') style="background-color: #f1f0fe;" @endif>
                     <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="{{ asset('assets/media/flags/united-states.svg') }}" alt="EN" />
+                        <img class="rounded-1" src="{{ template_asset('images/flags/united-states.svg') }}" alt="EN" />
                     </span>
                     <span @if (app()->getLocale() == 'en') style="color: #009ef7 !important; font-weight: 700 !important;" @else class="text-gray-800" @endif>{{ __('auth.english') }}</span>
                 </a>
@@ -35,7 +35,7 @@
                     class="menu-link d-flex px-5 {{ app()->getLocale() == 'id' ? 'active' : '' }}"
                     @if (app()->getLocale() == 'id') style="background-color: #f1f0fe;" @endif>
                     <span class="symbol symbol-20px me-4">
-                        <img class="rounded-1" src="{{ asset('assets/media/flags/indonesia.svg') }}" alt="ID" />
+                        <img class="rounded-1" src="{{ template_asset('images/flags/indonesia.svg') }}" alt="ID" />
                     </span>
                     <span @if (app()->getLocale() == 'id') style="color: #009ef7 !important; font-weight: 700 !important;" @else class="text-gray-800" @endif>{{ __('auth.indonesian') }}</span>
                 </a>

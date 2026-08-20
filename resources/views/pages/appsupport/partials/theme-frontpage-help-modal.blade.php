@@ -51,12 +51,14 @@
                             <ul class="fs-6 text-gray-700 mb-0 ps-5">
                                 <li class="mb-2"><strong>Dynamic Resolver:</strong> <code>WebsiteTemplateService</code> queries the database table <code>theme_frontpages</code> for the currently active theme (<code>is_active = true</code>).</li>
                                 <li class="mb-2"><strong>View Hierarchy:</strong> Views are dynamically loaded from <code>resources/views/theme/{slug}/home-page.blade.php</code>, with seamless fallback to <code>theme.default</code>.</li>
+                                <li class="mb-2"><strong>Thumbnail Standard:</strong> Theme thumbnails follow standardized pathing at <code>theme/{slug}/images/thumbnail/{slug}.png</code>.</li>
                                 <li><strong>Isolation:</strong> Each theme operates independently within its dedicated subfolder while retaining integration with core components.</li>
                             </ul>
                         @else
                             <ul class="fs-6 text-gray-700 mb-0 ps-5">
                                 <li class="mb-2"><strong>Engine Resolusi Dinamis:</strong> <code>WebsiteTemplateService</code> membaca tabel basis data <code>theme_frontpages</code> untuk menentukan tema aktif (<code>is_active = true</code>).</li>
                                 <li class="mb-2"><strong>Hirarki Tampilan:</strong> Berkas tampilan dimuat secara dinamis dari <code>resources/views/theme/{slug}/home-page.blade.php</code> dengan fallback otomatis ke <code>theme.default</code>.</li>
+                                <li class="mb-2"><strong>Standar Thumbnail:</strong> Gambar thumbnail tema mengikuti standar path <code>theme/{slug}/images/thumbnail/{slug}.png</code>.</li>
                                 <li><strong>Isolasi Tema:</strong> Setiap tema tersimpan rapi pada subfolder masing-masing tanpa mengganggu integritas komponen utama.</li>
                             </ul>
                         @endif
@@ -70,14 +72,14 @@
                         </h4>
                         @if (app()->getLocale() == 'en')
                             <ol class="fs-6 text-gray-700 mb-0 ps-5">
-                                <li class="mb-2"><strong>View Theme List:</strong> Open the <span class="badge badge-light-primary">Theme List</span> tab to review all registered frontpage themes.</li>
-                                <li class="mb-2"><strong>Activate Theme:</strong> Click <span class="badge badge-primary">Set as Active Theme</span> on your desired theme card. The system will automatically mark it active and deactivate other themes.</li>
+                                <li class="mb-2"><strong>View Theme List:</strong> Open the <span class="badge badge-light-primary">Theme List</span> tab to review all registered frontpage theme cards.</li>
+                                <li class="mb-2"><strong>Activate Theme:</strong> Click <span class="badge badge-primary">Set Active</span> on your desired theme card. The system will automatically mark it active and deactivate other themes.</li>
                                 <li><strong>Live Preview:</strong> Switch to the <span class="badge badge-light-info">Live Preview</span> tab to inspect the rendered frontpage landing layout in real time.</li>
                             </ol>
                         @else
                             <ol class="fs-6 text-gray-700 mb-0 ps-5">
                                 <li class="mb-2"><strong>Lihat Daftar Tema:</strong> Buka tab <span class="badge badge-light-primary">Daftar Tema</span> untuk melihat seluruh pilihan tema beranda yang terdaftar.</li>
-                                <li class="mb-2"><strong>Aktifkan Tema:</strong> Klik tombol <span class="badge badge-primary">Aktifkan Tema Ini</span> pada kartu tema pilihan. Sistem akan secara otomatis mengaktifkan tema tersebut dan menonaktifkan tema lainnya.</li>
+                                <li class="mb-2"><strong>Aktifkan Tema:</strong> Klik tombol <span class="badge badge-primary">Aktifkan Tema</span> pada kartu tema pilihan. Sistem akan secara otomatis mengaktifkan tema tersebut dan menonaktifkan tema lainnya.</li>
                                 <li><strong>Pratinjau Live:</strong> Buka tab <span class="badge badge-light-info">Pratinjau Live</span> untuk mempratinjau tampilan beranda publik secara real-time.</li>
                             </ol>
                         @endif

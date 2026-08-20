@@ -1,1 +1,1 @@
-@include('auth.theme.default.forgot-password')
+@include(\App\Services\WebsiteTemplateService::resolveAuthView('forgot-password'))

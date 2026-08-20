@@ -14,21 +14,33 @@ class ThemeFrontpage extends Model
     protected $fillable = [
         'slug',
         'name',
-        'name_en',
-        'description',
-        'description_en',
-        'author',
-        'version',
         'thumbnail',
         'view_path',
         'is_active',
-        'supports',
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
-        'supports' => 'array',
     ];
+
+    /**
+     * Accessor untuk URL thumbnail gambar tema
+     */
+    public function getThumbnailUrlAttribute(): string
+    {
+        if ($this->thumbnail) {
+            $path = ltrim($this->thumbnail, '/');
+            if (file_exists(public_path($path))) {
+                return asset($path);
+            }
+            if (file_exists(public_path('storage/' . $path))) {
+                return asset('storage/' . $path);
+            }
+            return asset($path);
+        }
+
+        return asset('assets/media/logos/landing.svg');
+    }
 
     /**
      * Get the active frontpage theme record

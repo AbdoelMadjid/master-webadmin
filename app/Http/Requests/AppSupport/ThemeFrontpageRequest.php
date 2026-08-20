@@ -23,16 +23,10 @@ class ThemeFrontpageRequest extends FormRequest
 
         return [
             'name' => ['required', 'string', 'max:150'],
-            'name_en' => ['nullable', 'string', 'max:150'],
             'slug' => ['required', 'string', 'max:100', 'unique:theme_frontpages,slug,' . $id],
-            'description' => ['nullable', 'string'],
-            'description_en' => ['nullable', 'string'],
-            'author' => ['nullable', 'string', 'max:100'],
-            'version' => ['nullable', 'string', 'max:50'],
             'thumbnail' => ['nullable', 'string', 'max:255'],
             'view_path' => ['required', 'string', 'max:150'],
             'is_active' => ['nullable', 'boolean'],
-            'supports' => ['nullable', 'array'],
         ];
     }
 }

@@ -26,42 +26,42 @@
     <div class="d-flex flex-center flex-wrap position-relative px-5">
         <!--begin::Client-->
         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Fujifilm">
-            <img src="assets/media/svg/brand-logos/fujifilm.svg" class="mh-30px mh-lg-40px" alt="" />
+            <img src="{{ template_asset('images/svg/brand-logos/fujifilm.svg') }}" class="mh-30px mh-lg-40px" alt="" />
         </div>
         <!--end::Client-->
         <!--begin::Client-->
         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Vodafone">
-            <img src="assets/media/svg/brand-logos/vodafone.svg" class="mh-30px mh-lg-40px" alt="" />
+            <img src="{{ template_asset('images/svg/brand-logos/vodafone.svg') }}" class="mh-30px mh-lg-40px" alt="" />
         </div>
         <!--end::Client-->
         <!--begin::Client-->
         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="KPMG International">
-            <img src="assets/media/svg/brand-logos/kpmg.svg" class="mh-30px mh-lg-40px" alt="" />
+            <img src="{{ template_asset('images/svg/brand-logos/kpmg.svg') }}" class="mh-30px mh-lg-40px" alt="" />
         </div>
         <!--end::Client-->
         <!--begin::Client-->
         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Nasa">
-            <img src="assets/media/svg/brand-logos/nasa.svg" class="mh-30px mh-lg-40px" alt="" />
+            <img src="{{ template_asset('images/svg/brand-logos/nasa.svg') }}" class="mh-30px mh-lg-40px" alt="" />
         </div>
         <!--end::Client-->
         <!--begin::Client-->
         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Aspnetzero">
-            <img src="assets/media/svg/brand-logos/aspnetzero.svg" class="mh-30px mh-lg-40px" alt="" />
+            <img src="{{ template_asset('images/svg/brand-logos/aspnetzero.svg') }}" class="mh-30px mh-lg-40px" alt="" />
         </div>
         <!--end::Client-->
         <!--begin::Client-->
         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="AON - Empower Results">
-            <img src="assets/media/svg/brand-logos/aon.svg" class="mh-30px mh-lg-40px" alt="" />
+            <img src="{{ template_asset('images/svg/brand-logos/aon.svg') }}" class="mh-30px mh-lg-40px" alt="" />
         </div>
         <!--end::Client-->
         <!--begin::Client-->
         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Hewlett-Packard">
-            <img src="assets/media/svg/brand-logos/hp-3.svg" class="mh-30px mh-lg-40px" alt="" />
+            <img src="{{ template_asset('images/svg/brand-logos/hp-3.svg') }}" class="mh-30px mh-lg-40px" alt="" />
         </div>
         <!--end::Client-->
         <!--begin::Client-->
         <div class="d-flex flex-center m-3 m-md-6" data-bs-toggle="tooltip" title="Truman">
-            <img src="assets/media/svg/brand-logos/truman.svg" class="mh-30px mh-lg-40px" alt="" />
+            <img src="{{ template_asset('images/svg/brand-logos/truman.svg') }}" class="mh-30px mh-lg-40px" alt="" />
         </div>
         <!--end::Client-->
     </div>

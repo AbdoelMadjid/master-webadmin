@@ -33,8 +33,8 @@
                     </h2>
                     <p class="schema-lead">
                         {{ app()->getLocale() == 'en'
-                            ? 'Step-by-step instructions for managing frontpage themes in admin UI and developer workflow for adding new website themes.'
-                            : 'Petunjuk operasional langkah demi langkah pengelolaan tema beranda di admin dan alur kerja pengembang untuk menambah tema website baru.' }}
+                            ? 'Step-by-step instructions for managing frontpage themes in admin UI and standardized developer workflow for adding new website themes.'
+                            : 'Petunjuk operasional langkah demi langkah pengelolaan tema beranda di admin dan alur kerja terstandar pengembang untuk menambah tema website baru.' }}
                     </p>
                     <div class="schema-meta mt-3">
                         <span class="schema-chip"><i class="ki-duotone ki-element-11 fs-8 me-1"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i> {{ app()->getLocale() == 'en' ? 'Admin Theme Management' : 'Manajemen Tema Admin' }}</span>
@@ -61,15 +61,15 @@
                                     <strong>Navigate to Theme Management:</strong> Open <code>App Support &rarr; Theme Front Page</code> (<span class="badge badge-light-primary">/appsupport/theme-frontpage</span>).
                                 </li>
                                 <li class="mb-3">
-                                    <strong>Browse Registered Themes:</strong> Switch between the <span class="badge badge-light-primary">Theme List</span> tab and <span class="badge badge-light-info">Live Preview</span> tab to inspect theme cards, version info, author details, and live responsive renderings.
+                                    <strong>Browse Registered Themes:</strong> Switch between the <span class="badge badge-light-primary">Theme List</span> tab and <span class="badge badge-light-info">Live Preview</span> tab to inspect theme card banners, view paths, and live responsive renderings.
                                 </li>
                                 <li class="mb-3">
-                                    <strong>Activate Theme:</strong> Click <span class="badge badge-primary">Set as Active Theme</span> on your target theme card. The system updates the database state in <code>theme_frontpages</code> automatically.
+                                    <strong>Activate Theme:</strong> Click <span class="badge badge-primary">Set Active</span> on your target theme card. The system updates the active status in database table <code>theme_frontpages</code> automatically.
                                 </li>
                                 <li>
                                     <strong>Verify Public Landing Page:</strong> Visit the public homepage or refresh your browser to view the active theme.
                                 </li>
-                                </ol>
+                            </ol>
                         </div>
                     </div>
 
@@ -78,45 +78,45 @@
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center">
                                 <i class="ki-duotone ki-code fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
-                                2. Developer Guide: Step-by-Step for Adding a New Frontpage Theme
+                                2. Developer Guide: Step-by-Step Standard for Adding a New Frontpage Theme
                             </h4>
                             <p class="fs-7 text-gray-600 mb-4">
-                                To add a new public website theme (e.g. <code>modern-corporate</code>), execute the following 4 steps:
+                                To add a new public website theme (e.g. <code>modern-corporate</code>), execute the following 4 standardized steps:
                             </p>
                             
                             <div class="row g-4 mb-4">
                                 <div class="col-md-6">
                                     <div class="p-4 bg-light-primary rounded border border-primary h-100">
-                                        <h5 class="fw-bold text-primary mb-2">Step 1: Create Theme Directory</h5>
+                                        <h5 class="fw-bold text-primary mb-2">Step 1: Create Theme View Folder</h5>
                                         <p class="fs-7 text-gray-700 mb-2">
-                                            Create theme view folder under <code>resources/views/theme/{new_slug}/</code>.
+                                            Create theme view directory under <code>resources/views/theme/{slug}/</code>.
                                         </p>
                                         <code class="fs-8">resources/views/theme/modern-corporate/</code>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="p-4 bg-light-info rounded border border-info h-100">
-                                        <h5 class="fw-bold text-info mb-2">Step 2: Implement Home Layout</h5>
+                                        <h5 class="fw-bold text-info mb-2">Step 2: Implement Home & Auth Layouts</h5>
                                         <p class="fs-7 text-gray-700 mb-2">
-                                            Create the main landing view file:
+                                            Create main landing view file:
                                         </p>
                                         <code class="fs-8">home-page.blade.php</code>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="p-4 bg-light-warning rounded border border-warning h-100">
-                                        <h5 class="fw-bold text-warning mb-2">Step 3: Isolate Assets</h5>
+                                        <h5 class="fw-bold text-warning mb-2">Step 3: Standardize Assets & Thumbnail</h5>
                                         <p class="fs-7 text-gray-700 mb-2">
-                                            Place custom template CSS/JS/images in:
+                                            Place theme assets under <code>public/theme/{slug}/</code> and theme thumbnail at:
                                         </p>
-                                        <code class="fs-8">public/assets/templates/{new_slug}/</code> &amp; use <code>template_asset($path)</code>.
+                                        <code class="fs-8">public/theme/{slug}/images/thumbnail/{slug}.png</code>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="p-4 bg-light-success rounded border border-success h-100">
-                                        <h5 class="fw-bold text-success mb-2">Step 4: Register via Seeder or GUI</h5>
+                                        <h5 class="fw-bold text-success mb-2">Step 4: Register Entry via Seeder or GUI</h5>
                                         <p class="fs-7 text-gray-700 mb-2">
-                                            Add record to <code>ThemeFrontpageSeeder</code> or add via Web GUI at <code>/appsupport/theme-frontpage</code>.
+                                            Add record to <code>ThemeFrontpageSeeder</code> or add via Web GUI:
                                         </p>
                                         <code class="fs-8">ThemeFrontpage::updateOrCreate(['slug' => 'modern-corporate'], [...])</code>
                                     </div>
@@ -158,10 +158,10 @@
                                     <strong>Buka Tema Halaman Depan:</strong> Akses menu <code>App Support &rarr; Tema Halaman Depan</code> (<span class="badge badge-light-primary">/appsupport/theme-frontpage</span>).
                                 </li>
                                 <li class="mb-3">
-                                    <strong>Tinjau Tema Terdaftar:</strong> Berpindah antara tab <span class="badge badge-light-primary">Daftar Tema</span> dan tab <span class="badge badge-light-info">Pratinjau Live</span> untuk memeriksa kartu tema, versi, pengembang, dan pratinjau responsif.
+                                    <strong>Tinjau Tema Terdaftar:</strong> Berpindah antara tab <span class="badge badge-light-primary">Daftar Tema</span> dan tab <span class="badge badge-light-info">Pratinjau Live</span> untuk memeriksa banner pratinjau tema, view path, dan pratinjau responsif.
                                 </li>
                                 <li class="mb-3">
-                                    <strong>Aktifkan Tema:</strong> Klik <span class="badge badge-primary">Aktifkan Tema Ini</span> pada kartu tema pilihan. Sistem secara otomatis memperbarui status aktif di tabel <code>theme_frontpages</code>.
+                                    <strong>Aktifkan Tema:</strong> Klik <span class="badge badge-primary">Aktifkan Tema</span> pada kartu tema pilihan. Sistem secara otomatis memperbarui status aktif di tabel <code>theme_frontpages</code>.
                                 </li>
                                 <li>
                                     <strong>Periksa Website Publik:</strong> Akses halaman depan beranda untuk melihat tampilan tema aktif baru.
@@ -175,18 +175,18 @@
                         <div class="schema-card">
                             <h4 class="d-flex align-items-center">
                                 <i class="ki-duotone ki-code fs-2 text-info me-2"><span class="path1"></span><span class="path2"></span></i>
-                                2. Panduan Pengembang: Langkah demi Langkah Menambah Tema Baru
+                                2. Panduan Pengembang: Standar Langkah demi Langkah Menambah Tema Baru
                             </h4>
                             <p class="fs-7 text-gray-600 mb-4">
-                                Untuk menambahkan tema publik beranda baru (misal <code>modern-corporate</code>), ikuti 4 langkah berikut:
+                                Untuk menambahkan tema publik beranda baru (misal <code>modern-corporate</code>), ikuti 4 langkah terstandar berikut:
                             </p>
                             
                             <div class="row g-4 mb-4">
                                 <div class="col-md-6">
                                     <div class="p-4 bg-light-primary rounded border border-primary h-100">
-                                        <h5 class="fw-bold text-primary mb-2">Langkah 1: Buat Folder Tema</h5>
+                                        <h5 class="fw-bold text-primary mb-2">Langkah 1: Buat Folder View Tema</h5>
                                         <p class="fs-7 text-gray-700 mb-2">
-                                            Buat folder tema di bawah <code>resources/views/theme/{new_slug}/</code>.
+                                            Buat folder view tema di bawah <code>resources/views/theme/{slug}/</code>.
                                         </p>
                                         <code class="fs-8">resources/views/theme/modern-corporate/</code>
                                     </div>
@@ -202,18 +202,18 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="p-4 bg-light-warning rounded border border-warning h-100">
-                                        <h5 class="fw-bold text-warning mb-2">Langkah 3: Isolasi Asset Statis</h5>
+                                        <h5 class="fw-bold text-warning mb-2">Langkah 3: Standarisasi Asset & Thumbnail</h5>
                                         <p class="fs-7 text-gray-700 mb-2">
-                                            Tempatkan CSS/JS/gambar khusus tema pada:
+                                            Tempatkan asset tema di <code>public/theme/{slug}/</code> dan gambar thumbnail pada:
                                         </p>
-                                        <code class="fs-8">public/assets/templates/{new_slug}/</code> &amp; gunakan <code>template_asset($path)</code>.
+                                        <code class="fs-8">public/theme/{slug}/images/thumbnail/{slug}.png</code>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="p-4 bg-light-success rounded border border-success h-100">
                                         <h5 class="fw-bold text-success mb-2">Langkah 4: Daftarkan via Seeder atau GUI</h5>
                                         <p class="fs-7 text-gray-700 mb-2">
-                                            Tambahkan entri pada <code>ThemeFrontpageSeeder</code> atau buat via Web GUI di <code>/appsupport/theme-frontpage</code>.
+                                            Tambahkan entri pada <code>ThemeFrontpageSeeder</code> atau buat via Web GUI:
                                         </p>
                                         <code class="fs-8">ThemeFrontpage::updateOrCreate(['slug' => 'modern-corporate'], [...])</code>
                                     </div>

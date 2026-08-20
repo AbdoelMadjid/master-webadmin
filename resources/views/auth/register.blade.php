@@ -1,1 +1,1 @@
-@include('auth.theme.default.register')
+@include(\App\Services\WebsiteTemplateService::resolveAuthView('register'))

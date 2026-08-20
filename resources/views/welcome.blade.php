@@ -1,1 +1,1 @@
-@include('theme.default.home-page')
+@include(\App\Services\WebsiteTemplateService::resolveView('home-page'))

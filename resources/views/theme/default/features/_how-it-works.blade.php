@@ -23,7 +23,7 @@
                 <!--begin::Story-->
                 <div class="text-center mb-10 mb-md-0">
                     <!--begin::Illustration-->
-                    <img src="assets/media/illustrations/sketchy-1/2.png" class="mh-125px mb-9" alt="" />
+                    <img src="{{ asset('theme/default/images/illustrations/sketchy-1/2.png') }}" class="mh-125px mb-9" alt="" />
                     <!--end::Illustration-->
                     <!--begin::Heading-->
                     <div class="d-flex flex-center mb-5">
@@ -52,7 +52,7 @@
                 <!--begin::Story-->
                 <div class="text-center mb-10 mb-md-0">
                     <!--begin::Illustration-->
-                    <img src="assets/media/illustrations/sketchy-1/8.png" class="mh-125px mb-9" alt="" />
+                    <img src="{{ asset('theme/default/images/illustrations/sketchy-1/8.png') }}" class="mh-125px mb-9" alt="" />
                     <!--end::Illustration-->
                     <!--begin::Heading-->
                     <div class="d-flex flex-center mb-5">
@@ -81,7 +81,7 @@
                 <!--begin::Story-->
                 <div class="text-center mb-10 mb-md-0">
                     <!--begin::Illustration-->
-                    <img src="assets/media/illustrations/sketchy-1/12.png" class="mh-125px mb-9" alt="" />
+                    <img src="{{ asset('theme/default/images/illustrations/sketchy-1/12.png') }}" class="mh-125px mb-9" alt="" />
                     <!--end::Illustration-->
                     <!--begin::Heading-->
                     <div class="d-flex flex-center mb-5">
@@ -116,25 +116,25 @@
                 data-tns-prev-button="#kt_team_slider_prev1" data-tns-next-button="#kt_team_slider_next1">
                 <!--begin::Item-->
                 <div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-                    <img src="assets/media/preview/demos/demo1/light-ltr.png"
+                    <img src="{{ asset('theme/default/images/demos/demo1/light-ltr.png') }}"
                         class="card-rounded shadow mh-lg-650px mw-100" alt="" />
                 </div>
                 <!--end::Item-->
                 <!--begin::Item-->
                 <div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-                    <img src="assets/media/preview/demos/demo2/light-ltr.png"
+                    <img src="{{ asset('theme/default/images/demos/demo2/light-ltr.png') }}"
                         class="card-rounded shadow mh-lg-650px mw-100" alt="" />
                 </div>
                 <!--end::Item-->
                 <!--begin::Item-->
                 <div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-                    <img src="assets/media/preview/demos/demo4/light-ltr.png"
+                    <img src="{{ asset('theme/default/images/demos/demo4/light-ltr.png') }}"
                         class="card-rounded shadow mh-lg-650px mw-100" alt="" />
                 </div>
                 <!--end::Item-->
                 <!--begin::Item-->
                 <div class="text-center px-5 pt-5 pt-lg-10 px-lg-10">
-                    <img src="assets/media/preview/demos/demo5/light-ltr.png"
+                    <img src="{{ asset('theme/default/images/demos/demo5/light-ltr.png') }}"
                         class="card-rounded shadow mh-lg-650px mw-100" alt="" />
                 </div>
                 <!--end::Item-->

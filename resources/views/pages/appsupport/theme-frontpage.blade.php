@@ -121,13 +121,9 @@
         $('#theme_id').val(theme.id);
         $('#_method_field').val('PUT');
         $('#theme_name').val(theme.name);
-        $('#theme_name_en').val(theme.name_en);
         $('#theme_slug').val(theme.slug);
         $('#theme_view_path').val(theme.view_path);
-        $('#theme_author').val(theme.author);
-        $('#theme_version').val(theme.version);
-        $('#theme_description').val(theme.description);
-        $('#theme_description_en').val(theme.description_en);
+        $('#theme_thumbnail').val(theme.thumbnail);
 
         $('#theme_modal_title').text("{{ app()->getLocale() == 'en' ? 'Edit Frontpage Theme' : 'Edit Tema Beranda' }}");
         $('#kt_modal_theme_form').modal('show');
