@@ -68,6 +68,12 @@
                                 {{ app()->getLocale() == 'en' ? 'Live Preview' : 'Pratinjau Live' }}
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-active-primary pb-4 {{ $activeTab === 'feature-editor' ? 'active' : '' }}" href="{{ route('appsupport.theme-frontpage', ['tab' => 'feature-editor', 'theme_id' => $selectedTheme?->id]) }}">
+                                <i class="ki-duotone ki-code fs-4 me-2"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></i>
+                                {{ app()->getLocale() == 'en' ? 'Feature View Editor' : 'Editor Layout Feature' }}
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

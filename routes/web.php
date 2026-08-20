@@ -164,6 +164,9 @@ Route::middleware('auth')->group(function () {
 
     // Theme Frontpage Management Routes
     Route::get('appsupport/theme-frontpage', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'index'])->name('appsupport.theme-frontpage');
+    Route::get('appsupport/theme-frontpage/feature-content', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'getFeatureContent'])->name('appsupport.theme-frontpage.feature.content');
+    Route::post('appsupport/theme-frontpage/feature-content', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'updateFeatureContent'])->name('appsupport.theme-frontpage.feature.update');
+    Route::post('appsupport/theme-frontpage/feature-content/restore', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'restoreFeatureContent'])->name('appsupport.theme-frontpage.feature.restore');
     Route::post('appsupport/theme-frontpage/activate/{id}', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'activate'])->name('appsupport.theme-frontpage.activate');
     Route::post('appsupport/theme-frontpage/{id}/config', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'updateConfig'])->name('appsupport.theme-frontpage.config.update');
     Route::post('appsupport/theme-frontpage', [\App\Http\Controllers\AppSupport\ThemeFrontpageController::class, 'store'])->name('appsupport.theme-frontpage.store');

@@ -74,6 +74,7 @@
                             <ol class="fs-6 text-gray-700 mb-0 ps-5">
                                 <li class="mb-2"><strong>View Theme List:</strong> Open the <span class="badge badge-light-primary">Theme List</span> tab to review registered frontpage themes.</li>
                                 <li class="mb-2"><strong>Configure Theme:</strong> Click <span class="badge badge-light-info">Theme Config</span> or open the <span class="badge badge-light-primary">Theme Configurations</span> tab to upload Default Logo, Sticky Logo, Footer Logo, and build dynamic Header & Footer navigation menus.</li>
+                                <li class="mb-2"><strong>Feature View Editor:</strong> Open the <span class="badge badge-light-primary">Feature View Editor</span> tab to directly inspect and edit HTML/Blade code for public landing feature partials (`_how-it-works.blade.php`, `_team.blade.php`, etc.) using Ace Editor.</li>
                                 <li class="mb-2"><strong>Activate Theme:</strong> Click <span class="badge badge-primary">Set Active</span> on your desired theme card. The system will automatically mark it active.</li>
                                 <li><strong>Live Preview:</strong> Switch to the <span class="badge badge-light-info">Live Preview</span> tab to inspect the rendered frontpage landing layout in real time.</li>
                             </ol>
@@ -81,6 +82,7 @@
                             <ol class="fs-6 text-gray-700 mb-0 ps-5">
                                 <li class="mb-2"><strong>Lihat Daftar Tema:</strong> Buka tab <span class="badge badge-light-primary">Daftar Tema</span> untuk melihat pilihan tema beranda.</li>
                                 <li class="mb-2"><strong>Konfigurasi Tema:</strong> Klik tombol <span class="badge badge-light-info">Konfigurasi Tema</span> atau buka tab <span class="badge badge-light-primary">Konfigurasi Tema</span> untuk mengunggah Logo Default, Logo Sticky, Logo Footer, serta mengelola susunan menu Header & Footer.</li>
+                                <li class="mb-2"><strong>Editor Layout Feature:</strong> Buka tab <span class="badge badge-light-primary">Editor Layout Feature</span> untuk mengedit langsung kode HTML/Blade seksi feature beranda publik (`_how-it-works.blade.php`, `_team.blade.php`, dll) via Ace Editor.</li>
                                 <li class="mb-2"><strong>Aktifkan Tema:</strong> Klik tombol <span class="badge badge-primary">Aktifkan Tema</span> pada kartu tema pilihan. Sistem akan secara otomatis mengaktifkan tema tersebut.</li>
                                 <li><strong>Pratinjau Live:</strong> Buka tab <span class="badge badge-light-info">Pratinjau Live</span> untuk mempratinjau tampilan beranda publik secara real-time.</li>
                             </ol>
@@ -96,6 +98,7 @@
                         @if (app()->getLocale() == 'en')
                             <ul class="fs-6 text-gray-700 mb-0 ps-5">
                                 <li class="mb-2"><strong>Single Active Theme:</strong> Only one theme can be marked as active (<code>is_active = true</code>) at any given time.</li>
+                                <li class="mb-2"><strong>Automatic Backup Snapshots:</strong> Saving changes in the Feature View Editor generates an automatic backup snapshot in <code>storage/app/theme_backups/</code>, allowing 1-click restore.</li>
                                 <li class="mb-2"><strong>Footer vs Header Menu Distinction:</strong> Footer navigation menu items must be configured independently from header menu links.</li>
                                 <li class="mb-2"><strong>Active Theme Deletion Safeguard:</strong> An active theme cannot be deleted. You must activate a different theme prior to deleting a registered theme entry.</li>
                                 <li><strong>Fallback Protection:</strong> If an active theme is missing specific configurations or images, the system automatically falls back to default template assets.</li>
@@ -103,6 +106,7 @@
                         @else
                             <ul class="fs-6 text-gray-700 mb-0 ps-5">
                                 <li class="mb-2"><strong>Single Active Theme:</strong> Hanya satu tema yang dapat berstatus aktif (<code>is_active = true</code>) dalam satu waktu.</li>
+                                <li class="mb-2"><strong>Snapshot Backup Otomatis:</strong> Menyimpan kode di Editor Layout Feature secara otomatis membuat salinan cadangan di <code>storage/app/theme_backups/</code> untuk pemulihan 1-klik.</li>
                                 <li class="mb-2"><strong>Pemisahan Menu Header & Footer:</strong> Tautan menu navigasi footer dapat diatur secara terpisah dan independen dari menu header.</li>
                                 <li class="mb-2"><strong>Proteksi Hapus Tema Aktif:</strong> Tema yang sedang aktif tidak dapat dihapus. Anda harus mengaktifkan tema lain terlebih dahulu sebelum menghapus tema.</li>
                                 <li><strong>Proteksi Fallback:</strong> Jika berkas konfigurasi atau gambar logo tema belum diset, sistem secara otomatis menggunakan fallback ke asset standar template.</li>
