@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
             MenuSeeder::class,
             AppProfilSeeder::class,
             AppFiturSeeder::class,
-            PageContentSeeder::class,
             ChangelogSeeder::class,
             ThemeFrontpageSeeder::class,
         ]);
