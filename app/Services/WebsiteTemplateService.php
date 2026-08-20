@@ -6,6 +6,7 @@ use App\Models\AppSupport\ThemeFrontpage;
 use App\Models\AppSupport\AppProfil;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Cache;
 
 class WebsiteTemplateService
 {
@@ -21,15 +22,31 @@ class WebsiteTemplateService
     {
         if (static::$activeTheme === null) {
             try {
-                if (Schema::hasTable('theme_frontpages')) {
-                    static::$activeTheme = ThemeFrontpage::getActiveTheme();
-                }
+                static::$activeTheme = Cache::remember('active_frontpage_theme', 86400, function () {
+                    if (Schema::hasTable('theme_frontpages')) {
+                        return ThemeFrontpage::getActiveTheme();
+                    }
+                    return null;
+                });
             } catch (\Throwable $e) {
                 static::$activeTheme = null;
             }
         }
 
         return static::$activeTheme;
+    }
+
+    /**
+     * Clear cached active theme record
+     */
+    public static function clearCache(): void
+    {
+        static::$activeTheme = null;
+        try {
+            Cache::forget('active_frontpage_theme');
+        } catch (\Throwable $e) {
+            // Ignore cache exceptions gracefully
+        }
     }
 
     /**
@@ -198,9 +215,13 @@ class WebsiteTemplateService
             return null;
         }
 
-        // Clean filename, stripping extension
+        // Clean filename, stripping extension and non-alphanumeric/dash/underscore chars
         $featureFile = preg_replace('/\.blade\.php$/', '', $featureFile);
         $featureName = ltrim($featureFile, '_');
+        $featureName = preg_replace('/[^a-zA-Z0-9_\-]/', '', $featureName);
+        if (empty($featureName)) {
+            return null;
+        }
         $fileWithUnderscore = '_' . $featureName;
 
         $targetTheme = $theme ?? static::getActiveTheme();

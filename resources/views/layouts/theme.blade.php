@@ -15,6 +15,7 @@ License: For each use you must have a valid license purchased only from above li
     $appName = $activeAppProfil?->nama_aplikasi ?? 'Master WebAdmin';
     $appDescription = $activeAppProfil?->deskripsi ?: $appName;
     $appFaviconUrl = $activeAppProfil?->favicon_url ?: template_asset('images/logos/favicon.ico');
+    $activeThemeSlug = \App\Services\WebsiteTemplateService::getActiveSlug();
 @endphp
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <!--begin::Head-->
@@ -49,7 +50,7 @@ License: For each use you must have a valid license purchased only from above li
 <!--end::Head-->
 <!--begin::Body-->
 
-<body id="kt_body" data-bs-spy="scroll" data-bs-target="#kt_landing_menu" class="bg-body position-relative app-blank">
+<body id="kt_body" data-bs-spy="scroll" data-bs-target="#kt_landing_menu" data-theme-slug="{{ $activeThemeSlug }}" class="bg-body position-relative app-blank theme-{{ $activeThemeSlug }}">
     <!--begin::Theme mode setup on page load-->
     @include('layouts.partials.themes._script-theme-mode')
     <!--end::Theme mode setup on page load-->

@@ -5,6 +5,7 @@ namespace App\Models\AppSupport;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use App\Services\WebsiteTemplateService;
 
 class ThemeConfig extends Model
 {
@@ -25,6 +26,17 @@ class ThemeConfig extends Model
         'header_menu' => 'array',
         'footer_menu' => 'array',
     ];
+
+    protected static function booted()
+    {
+        static::saved(function () {
+            WebsiteTemplateService::clearCache();
+        });
+
+        static::deleted(function () {
+            WebsiteTemplateService::clearCache();
+        });
+    }
 
     /**
      * Relationship to ThemeFrontpage

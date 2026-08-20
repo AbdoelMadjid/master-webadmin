@@ -5,6 +5,8 @@ namespace App\Models\AppSupport;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Services\WebsiteTemplateService;
+
 class ThemeFrontpage extends Model
 {
     use HasFactory;
@@ -22,6 +24,17 @@ class ThemeFrontpage extends Model
     protected $casts = [
         'is_active' => 'boolean',
     ];
+
+    protected static function booted()
+    {
+        static::saved(function () {
+            WebsiteTemplateService::clearCache();
+        });
+
+        static::deleted(function () {
+            WebsiteTemplateService::clearCache();
+        });
+    }
 
     /**
      * Accessor untuk URL thumbnail gambar tema
@@ -65,6 +78,8 @@ class ThemeFrontpage extends Model
     {
         static::where('id', '!=', $this->id)->update(['is_active' => false]);
         $this->is_active = true;
-        return $this->save();
+        $saved = $this->save();
+        WebsiteTemplateService::clearCache();
+        return $saved;
     }
 }
