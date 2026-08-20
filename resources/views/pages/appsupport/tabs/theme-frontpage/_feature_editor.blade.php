@@ -83,10 +83,11 @@
             </div>
         </div>
 
-        <!-- Ace Code Editor Container -->
+        <!-- Code Editor Container -->
         <div class="position-relative">
             <div id="feature_code_editor" style="height: 540px; width: 100%; font-size: 14px; font-family: 'Fira Code', 'Courier New', monospace;" class="border border-gray-300 rounded shadow-inner"></div>
-            <div id="editor_loading_overlay" class="position-absolute top-0 start-0 w-100 h-100 bg-white bg-opacity-75 d-flex align-items-center justify-content-center rounded" style="z-index: 10; display: none;">
+            <!-- Loading Overlay (Initial d-none so Bootstrap flex doesn't override display:none) -->
+            <div id="editor_loading_overlay" class="position-absolute top-0 start-0 w-100 h-100 bg-white bg-opacity-75 d-none align-items-center justify-content-center rounded" style="z-index: 10;">
                 <div class="spinner-border text-primary" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
@@ -100,152 +101,120 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.7/ace.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var editorElement = document.getElementById('feature_code_editor');
-        if (!editorElement || typeof ace === 'undefined') return;
+    (function () {
+        function initFeatureCodeEditor() {
+            var editorElement = document.getElementById('feature_code_editor');
+            if (!editorElement) return;
 
-        // Initialize Ace Editor
-        var editor = ace.edit("feature_code_editor");
-        editor.setTheme("ace/theme/tomorrow_night");
-        editor.session.setMode("ace/mode/html");
-        editor.setShowPrintMargin(false);
-        editor.setOptions({
-            enableBasicAutocompletion: true,
-            enableLiveAutocompletion: true,
-            fontSize: "13px",
-            tabSize: 4,
-            useSoftTabs: true
-        });
+            var aceEditor = null;
+            var fallbackTextarea = null;
 
-        var currentThemeMode = 'dark';
-        var btnToggleTheme = document.getElementById('btn_toggle_editor_theme');
-        if (btnToggleTheme) {
-            btnToggleTheme.addEventListener('click', function () {
-                if (currentThemeMode === 'dark') {
-                    editor.setTheme("ace/theme/chrome");
-                    currentThemeMode = 'light';
-                } else {
-                    editor.setTheme("ace/theme/tomorrow_night");
-                    currentThemeMode = 'dark';
-                }
-            });
-        }
-
-        var themeSelector = document.getElementById('editor_theme_selector');
-        var fileSelector = document.getElementById('editor_file_selector');
-        var btnSave = document.getElementById('btn_save_feature_code');
-        var btnReload = document.getElementById('btn_reload_editor');
-        var btnRestore = document.getElementById('btn_restore_backup');
-        var loadingOverlay = document.getElementById('editor_loading_overlay');
-        var currentFileLabel = document.getElementById('current_file_label');
-
-        function showLoading(show) {
-            if (loadingOverlay) {
-                loadingOverlay.style.display = show ? 'flex' : 'none';
-            }
-        }
-
-        function loadFeatureContent() {
-            var themeId = themeSelector ? themeSelector.value : '';
-            var featureFile = fileSelector ? fileSelector.value : '';
-
-            if (!featureFile) {
-                editor.setValue('', -1);
-                if (currentFileLabel) currentFileLabel.textContent = '-';
-                return;
+            if (typeof ace !== 'undefined') {
+                aceEditor = ace.edit("feature_code_editor");
+                aceEditor.setTheme("ace/theme/tomorrow_night");
+                aceEditor.session.setMode("ace/mode/html");
+                aceEditor.setShowPrintMargin(false);
+                aceEditor.setOptions({
+                    fontSize: "13px",
+                    tabSize: 4,
+                    useSoftTabs: true
+                });
+            } else {
+                // Fallback to standard styled textarea if Ace fails to load
+                editorElement.innerHTML = '<textarea id="feature_code_textarea" class="form-control font-monospace bg-dark text-white p-4 h-100" style="font-size: 13px; resize: none;"></textarea>';
+                fallbackTextarea = document.getElementById('feature_code_textarea');
             }
 
-            showLoading(true);
-            var url = "{{ route('appsupport.theme-frontpage.feature.content') }}?theme_id=" + encodeURIComponent(themeId) + "&feature_file=" + encodeURIComponent(featureFile);
+            function getCodeValue() {
+                if (aceEditor) return aceEditor.getValue();
+                if (fallbackTextarea) return fallbackTextarea.value;
+                return '';
+            }
 
-            fetch(url, {
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'Accept': 'application/json'
+            function setCodeValue(val) {
+                if (aceEditor) {
+                    aceEditor.setValue(val || '', -1);
                 }
-            })
-            .then(function(res) { return res.json(); })
-            .then(function(data) {
-                showLoading(false);
-                if (data.success) {
-                    editor.setValue(data.content || '', -1);
-                    if (currentFileLabel) currentFileLabel.textContent = data.file_name || (featureFile + '.blade.php');
-                    if (btnRestore) btnRestore.disabled = !data.has_backup;
-                } else {
-                    if (typeof SwalHelper !== 'undefined') {
-                        SwalHelper.error(data.message || 'Failed to load feature file content.');
+                if (fallbackTextarea) {
+                    fallbackTextarea.value = val || '';
+                }
+            }
+
+            var currentThemeMode = 'dark';
+            var btnToggleTheme = document.getElementById('btn_toggle_editor_theme');
+            if (btnToggleTheme) {
+                btnToggleTheme.addEventListener('click', function () {
+                    if (aceEditor) {
+                        if (currentThemeMode === 'dark') {
+                            aceEditor.setTheme("ace/theme/chrome");
+                            currentThemeMode = 'light';
+                        } else {
+                            aceEditor.setTheme("ace/theme/tomorrow_night");
+                            currentThemeMode = 'dark';
+                        }
+                    } else if (fallbackTextarea) {
+                        if (currentThemeMode === 'dark') {
+                            fallbackTextarea.classList.remove('bg-dark', 'text-white');
+                            fallbackTextarea.classList.add('bg-white', 'text-dark');
+                            currentThemeMode = 'light';
+                        } else {
+                            fallbackTextarea.classList.remove('bg-white', 'text-dark');
+                            fallbackTextarea.classList.add('bg-dark', 'text-white');
+                            currentThemeMode = 'dark';
+                        }
+                    }
+                });
+            }
+
+            var themeSelector = document.getElementById('editor_theme_selector');
+            var fileSelector = document.getElementById('editor_file_selector');
+            var btnSave = document.getElementById('btn_save_feature_code');
+            var btnReload = document.getElementById('btn_reload_editor');
+            var btnRestore = document.getElementById('btn_restore_backup');
+            var loadingOverlay = document.getElementById('editor_loading_overlay');
+            var currentFileLabel = document.getElementById('current_file_label');
+
+            function showLoading(show) {
+                if (loadingOverlay) {
+                    if (show) {
+                        loadingOverlay.classList.remove('d-none');
+                        loadingOverlay.classList.add('d-flex');
+                    } else {
+                        loadingOverlay.classList.remove('d-flex');
+                        loadingOverlay.classList.add('d-none');
                     }
                 }
-            })
-            .catch(function(err) {
-                showLoading(false);
-                console.error(err);
-            });
-        }
+            }
 
-        if (themeSelector) {
-            themeSelector.addEventListener('change', function () {
-                window.location.href = "{{ route('appsupport.theme-frontpage') }}?tab=feature-editor&theme_id=" + encodeURIComponent(this.value);
-            });
-        }
-
-        if (fileSelector) {
-            fileSelector.addEventListener('change', loadFeatureContent);
-            // Load initial content on page load
-            loadFeatureContent();
-        }
-
-        if (btnReload) {
-            btnReload.addEventListener('click', loadFeatureContent);
-        }
-
-        if (btnSave) {
-            btnSave.addEventListener('click', function () {
+            function loadFeatureContent() {
                 var themeId = themeSelector ? themeSelector.value : '';
                 var featureFile = fileSelector ? fileSelector.value : '';
-                var content = editor.getValue();
 
                 if (!featureFile) {
-                    if (typeof SwalHelper !== 'undefined') {
-                        SwalHelper.error("{{ app()->getLocale() == 'en' ? 'Please select a feature file.' : 'Silakan pilih file feature terlebih dahulu.' }}");
-                    }
+                    setCodeValue('');
+                    if (currentFileLabel) currentFileLabel.textContent = '-';
                     return;
                 }
 
                 showLoading(true);
-                fetch("{{ route('appsupport.theme-frontpage.feature.update') }}", {
-                    method: 'POST',
+                var url = "{{ route('appsupport.theme-frontpage.feature.content') }}?theme_id=" + encodeURIComponent(themeId) + "&feature_file=" + encodeURIComponent(featureFile);
+
+                fetch(url, {
                     headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': "{{ csrf_token() }}",
                         'X-Requested-With': 'XMLHttpRequest',
                         'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        theme_id: themeId,
-                        feature_file: featureFile,
-                        content: content
-                    })
+                    }
                 })
-                .then(function(res) {
-                    return res.json().then(function(data) {
-                        return { status: res.status, body: data };
-                    });
-                })
-                .then(function(result) {
+                .then(function(res) { return res.json(); })
+                .then(function(data) {
                     showLoading(false);
-                    if (result.status === 200 && result.body.success) {
-                        if (typeof SwalHelper !== 'undefined') {
-                            SwalHelper.success(result.body.message);
-                        }
-                        if (btnRestore) btnRestore.disabled = false;
-                    } else if (result.status === 422) {
-                        if (typeof SwalHelper !== 'undefined') {
-                            SwalHelper.validationError({ responseJSON: result.body });
-                        }
+                    if (data.success) {
+                        setCodeValue(data.content || '');
+                        if (currentFileLabel) currentFileLabel.textContent = data.file_name || (featureFile + '.blade.php');
+                        if (btnRestore) btnRestore.disabled = !data.has_backup;
                     } else {
                         if (typeof SwalHelper !== 'undefined') {
-                            SwalHelper.error(result.body.message || 'Failed to save feature code.');
+                            SwalHelper.error(data.message || 'Failed to load feature file content.');
                         }
                     }
                 })
@@ -253,64 +222,144 @@
                     showLoading(false);
                     console.error(err);
                 });
-            });
-        }
+            }
 
-        if (btnRestore) {
-            btnRestore.addEventListener('click', function () {
-                var themeId = themeSelector ? themeSelector.value : '';
-                var featureFile = fileSelector ? fileSelector.value : '';
+            if (themeSelector) {
+                themeSelector.addEventListener('change', function () {
+                    window.location.href = "{{ route('appsupport.theme-frontpage') }}?tab=feature-editor&theme_id=" + encodeURIComponent(this.value);
+                });
+            }
 
-                if (typeof Swal !== 'undefined') {
-                    Swal.fire({
-                        title: "{{ app()->getLocale() == 'en' ? 'Restore Backup?' : 'Pulihkan Backup?' }}",
-                        text: "{{ app()->getLocale() == 'en' ? 'This will overwrite current code with the last saved backup snapshot.' : 'Ini akan menimpa kode saat ini dengan salinan backup terakhir.' }}",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonText: "{{ app()->getLocale() == 'en' ? 'Yes, Restore' : 'Ya, Pulihkan' }}",
-                        cancelButtonText: "{{ app()->getLocale() == 'en' ? 'Cancel' : 'Batal' }}",
-                        customClass: {
-                            confirmButton: 'btn btn-warning',
-                            cancelButton: 'btn btn-light'
+            if (fileSelector) {
+                fileSelector.addEventListener('change', loadFeatureContent);
+            }
+
+            if (btnReload) {
+                btnReload.addEventListener('click', loadFeatureContent);
+            }
+
+            if (btnSave) {
+                btnSave.addEventListener('click', function () {
+                    var themeId = themeSelector ? themeSelector.value : '';
+                    var featureFile = fileSelector ? fileSelector.value : '';
+                    var content = getCodeValue();
+
+                    if (!featureFile) {
+                        if (typeof SwalHelper !== 'undefined') {
+                            SwalHelper.error("{{ app()->getLocale() == 'en' ? 'Please select a feature file.' : 'Silakan pilih file feature terlebih dahulu.' }}");
                         }
-                    }).then(function (res) {
-                        if (res.isConfirmed) {
-                            showLoading(true);
-                            fetch("{{ route('appsupport.theme-frontpage.feature.restore') }}", {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'X-CSRF-TOKEN': "{{ csrf_token() }}",
-                                    'X-Requested-With': 'XMLHttpRequest',
-                                    'Accept': 'application/json'
-                                },
-                                body: JSON.stringify({
-                                    theme_id: themeId,
-                                    feature_file: featureFile
-                                })
-                            })
-                            .then(function(res) { return res.json(); })
-                            .then(function(data) {
-                                showLoading(false);
-                                if (data.success) {
-                                    editor.setValue(data.content || '', -1);
-                                    if (typeof SwalHelper !== 'undefined') {
-                                        SwalHelper.success(data.message);
-                                    }
-                                } else {
-                                    if (typeof SwalHelper !== 'undefined') {
-                                        SwalHelper.error(data.message || 'Failed to restore backup.');
-                                    }
-                                }
-                            })
-                            .catch(function(err) {
-                                showLoading(false);
-                                console.error(err);
-                            });
+                        return;
+                    }
+
+                    showLoading(true);
+                    fetch("{{ route('appsupport.theme-frontpage.feature.update') }}", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': "{{ csrf_token() }}",
+                            'X-Requested-With': 'XMLHttpRequest',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            theme_id: themeId,
+                            feature_file: featureFile,
+                            content: content
+                        })
+                    })
+                    .then(function(res) {
+                        return res.json().then(function(data) {
+                            return { status: res.status, body: data };
+                        });
+                    })
+                    .then(function(result) {
+                        showLoading(false);
+                        if (result.status === 200 && result.body.success) {
+                            if (typeof SwalHelper !== 'undefined') {
+                                SwalHelper.success(result.body.message);
+                            }
+                            if (btnRestore) btnRestore.disabled = false;
+                        } else if (result.status === 422) {
+                            if (typeof SwalHelper !== 'undefined') {
+                                SwalHelper.validationError({ responseJSON: result.body });
+                            }
+                        } else {
+                            if (typeof SwalHelper !== 'undefined') {
+                                SwalHelper.error(result.body.message || 'Failed to save feature code.');
+                            }
                         }
+                    })
+                    .catch(function(err) {
+                        showLoading(false);
+                        console.error(err);
                     });
-                }
-            });
+                });
+            }
+
+            if (btnRestore) {
+                btnRestore.addEventListener('click', function () {
+                    var themeId = themeSelector ? themeSelector.value : '';
+                    var featureFile = fileSelector ? fileSelector.value : '';
+
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            title: "{{ app()->getLocale() == 'en' ? 'Restore Backup?' : 'Pulihkan Backup?' }}",
+                            text: "{{ app()->getLocale() == 'en' ? 'This will overwrite current code with the last saved backup snapshot.' : 'Ini akan menimpa kode saat ini dengan salinan backup terakhir.' }}",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonText: "{{ app()->getLocale() == 'en' ? 'Yes, Restore' : 'Ya, Pulihkan' }}",
+                            cancelButtonText: "{{ app()->getLocale() == 'en' ? 'Cancel' : 'Batal' }}",
+                            customClass: {
+                                confirmButton: 'btn btn-warning',
+                                cancelButton: 'btn btn-light'
+                            }
+                        }).then(function (res) {
+                            if (res.isConfirmed) {
+                                showLoading(true);
+                                fetch("{{ route('appsupport.theme-frontpage.feature.restore') }}", {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'X-CSRF-TOKEN': "{{ csrf_token() }}",
+                                        'X-Requested-With': 'XMLHttpRequest',
+                                        'Accept': 'application/json'
+                                    },
+                                    body: JSON.stringify({
+                                        theme_id: themeId,
+                                        feature_file: featureFile
+                                    })
+                                })
+                                .then(function(res) { return res.json(); })
+                                .then(function(data) {
+                                    showLoading(false);
+                                    if (data.success) {
+                                        setCodeValue(data.content || '');
+                                        if (typeof SwalHelper !== 'undefined') {
+                                            SwalHelper.success(data.message);
+                                        }
+                                    } else {
+                                        if (typeof SwalHelper !== 'undefined') {
+                                            SwalHelper.error(data.message || 'Failed to restore backup.');
+                                        }
+                                    }
+                                })
+                                .catch(function(err) {
+                                    showLoading(false);
+                                    console.error(err);
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Load initial content on load
+            loadFeatureContent();
         }
-    });
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initFeatureCodeEditor);
+        } else {
+            initFeatureCodeEditor();
+        }
+    })();
 </script>
